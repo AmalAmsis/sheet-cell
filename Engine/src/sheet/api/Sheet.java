@@ -1,6 +1,6 @@
 package sheet.api;
 
-import sheet.cell.api.Cell;
+import sheet.cell.Cell;
 
 public interface Sheet {
     int getVersion();

@@ -1,7 +1,6 @@
-package sheet.cell.imp;
+package sheet.cell;
 
 import sheet.api.EffectiveValue;
-import sheet.cell.api.Cell;
 
 import java.util.List;
 

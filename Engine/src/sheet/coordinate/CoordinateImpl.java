@@ -1,6 +1,4 @@
-package sheet.cell.imp;
-
-import sheet.cell.api.Coordinate;
+package sheet.coordinate;
 
 public class CoordinateImpl implements Coordinate {
 
