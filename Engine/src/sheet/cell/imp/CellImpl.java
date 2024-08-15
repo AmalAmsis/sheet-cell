@@ -1,8 +1,8 @@
-package sheet.cell;
+package sheet.cell.imp;
 
 import sheet.api.EffectiveValue;
+import sheet.cell.api.Cell;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CellImpl implements Cell {
