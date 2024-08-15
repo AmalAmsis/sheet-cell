@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91869a22-25b7-4b72-89ca-e818d3188b14" name="Changes" comment="added git ignore">
-      <change afterPath="$PROJECT_DIR$/Engine/Engine.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Engine/src/sheet/Sheet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Engine/src/sheet/cell/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/sheet/api/CellType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/sheet/api/EffectiveValue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/sheet/impl/EffectiveValueImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/Sheet.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +20,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -79,7 +83,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1723711286539</updated>
-      <workItem from="1723711287600" duration="5667000" />
+      <workItem from="1723711287600" duration="11997000" />
     </task>
     <task id="LOCAL‎-00001" summary="added git ignore">
       <option name="closed" value="true" />
