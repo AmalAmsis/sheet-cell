@@ -6,37 +6,40 @@ import java.util.List;
 
 public class CellImpl implements Cell {
     //data member
-
+    private final String id;
     private String originalValue;
     private EffectiveValue effectiveValue;
     private int lastModifiedVersion;
-    private final List<Cell> dependsOn;
-    private final List<Cell> influencingOn;
+    private List<Cell> dependsOn;
+    private List<Cell> influencingOn;
 
+    public CellImpl(String id) {
+        this.id = id;
+    }
 
     @Override
     public String getOriginalValue() {
         return "";
-    }
+    } //AMAL
 
     @Override
     public void setOriginalValue(String originalValue) {
-
+        this.originalValue = originalValue;
     }
 
     @Override
     public Object getEffectiveValue() {
         return null;
-    }
+    } //AMAL
 
     @Override
     public int getLastModifiedVersion() {
-        return 0;
+        return lastModifiedVersion;
     }
 
     @Override
     public void setLastModifiedVersion(int version) {
-
+        lastModifiedVersion = version;
     }
 
     @Override
@@ -45,12 +48,12 @@ public class CellImpl implements Cell {
     }
 
     @Override
-    public void addDependsOn(Cell cell) {
+    public void addDependsOn(Cell cell) { //TO DO
 
     }
 
     @Override
-    public void removeDependsOn(Cell cell) {
+    public void removeDependsOn(Cell cell) { //TO DO
 
     }
 
@@ -60,12 +63,12 @@ public class CellImpl implements Cell {
     }
 
     @Override
-    public void addInfluencingOn(Cell cell) {
+    public void addInfluencingOn(Cell cell) { //TO DO
 
     }
 
     @Override
-    public void removeInfluencingOn(Cell cell) {
+    public void removeInfluencingOn(Cell cell) { //TO DO
 
     }
 }
