@@ -14,6 +14,11 @@ public class SheetImpl implements Sheet {
     String title;
     Map<String, Cell> board = new HashMap<>();
 
+    //CTOR
+    public SheetImpl(String title) {
+        this.version = 0;
+        this.title = title;
+    }
 
     @Override
     public int getVersion() {
@@ -27,7 +32,7 @@ public class SheetImpl implements Sheet {
 
     @Override
     public Cell getCell(Coordinate coordinate) { // to do
-        return null;
+      return board.get(coordinate.toString());
     }
 
     @Override
