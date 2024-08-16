@@ -1,6 +1,6 @@
 package sheet.cell;
 
-import sheet.api.EffectiveValue;
+import sheet.effectivevalue.EffectiveValue;
 
 import java.util.List;
 

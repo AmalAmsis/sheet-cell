@@ -1,4 +1,4 @@
-package sheet.api;
+package sheet;
 
 import sheet.cell.Cell;
 import sheet.coordinate.Coordinate;

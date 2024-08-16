@@ -1,7 +1,6 @@
-package sheet.impl;
+package sheet;
 
-import sheet.api.EffectiveValue;
-import sheet.api.Sheet;
+import sheet.effectivevalue.EffectiveValue;
 import sheet.cell.Cell;
 import sheet.cell.CellImpl;
 import sheet.coordinate.Coordinate;
