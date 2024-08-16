@@ -5,8 +5,7 @@ import java.util.List;
 public interface DTOCell {
 
     //getters
-    int getRow();
-    int getCol();
+    DTOCoordinate getCoordinate();
     Object getEffectiveValue();
     String getOriginalValue();
     int getLastModifiedVersion();
@@ -14,14 +13,11 @@ public interface DTOCell {
     List<DTOCell> getInfluencingOn();
 
     //setter
-    void setRow(int row);
-    void setCol(int col);
+    void setCoordinate(DTOCoordinate coordinate);
     void setEffectiveValue(Object o);
     void setOriginalValue(String o);
     void setLastModifiedVersion(int version);
     void addDTOCellToDependsOn(DTOCell dtoCell);
     void addDTOCellToInfluencingOn(DTOCell dtoCell);
 
-
-    void addDTOCellToDependsOn();
 }

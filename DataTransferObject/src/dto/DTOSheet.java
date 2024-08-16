@@ -1,13 +1,15 @@
 package dto;
 
-import java.util.HashMap;
 import java.util.Map;
 
-public class DTOSheet {
+public interface DTOSheet {
 
-    int version;
-    int version;
-    String title;
-    Map<String, Cell> board = new HashMap<>();
+    int getSheetVersion();
+    String getSheetTitle();
+    Map<String,DTOCell> getCells();
+
+    void setVersion(int version);
+    void setTitle(String title);
+    void addCell(DTOCell cell);
 
 }
