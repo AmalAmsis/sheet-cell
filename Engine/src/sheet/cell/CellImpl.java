@@ -13,13 +13,27 @@ public class CellImpl implements Cell {
     private List<Cell> dependsOn;
     private List<Cell> influencingOn;
 
+    //ctor 1
     public CellImpl(String id) {
         this.id = id;
     }
 
+    //ctor 2
+    public CellImpl(String id, String originalValue) {
+        this(id);
+        this.originalValue = originalValue;
+    }
+    //ctor 3
+    public CellImpl(String id, String originalValue, EffectiveValue effectiveValue) {
+        this(id, originalValue);
+        this.effectiveValue = effectiveValue;
+    }
+
+    public String getId() {return id;}
+
     @Override
     public String getOriginalValue() {
-        return "";
+        return originalValue;
     } //AMAL
 
     @Override
@@ -71,4 +85,7 @@ public class CellImpl implements Cell {
     public void removeInfluencingOn(Cell cell) { //TO DO
 
     }
+
+
+
 }

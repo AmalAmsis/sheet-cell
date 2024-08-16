@@ -3,7 +3,7 @@ package sheet.coordinate;
 public class CoordinateImpl implements Coordinate {
 
     int row;
-    int col;
+    char col;
 
     @Override
     public int getRow() {
@@ -11,7 +11,10 @@ public class CoordinateImpl implements Coordinate {
     }
 
     @Override
-    public int getColumn() {
-        return col;
+    public char getCol() {return col;}
+
+    @Override
+    public String toString() {
+        return col + ":" + row;
     }
 }
