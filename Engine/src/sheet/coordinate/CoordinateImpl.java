@@ -1,5 +1,8 @@
 package sheet.coordinate;
 
+import dto.DTOCoordinate;
+import dto.DTOCoordinateImpl;
+
 public class CoordinateImpl implements Coordinate {
 
     int row;
@@ -41,5 +44,9 @@ public class CoordinateImpl implements Coordinate {
 
     public int convertColToNum(){
         return (col-'A' + 1);
+    }
+
+    public DTOCoordinate convertToDTOCoordinate(Coordinate coordinate){
+        return (new DTOCoordinateImpl(coordinate.getRow(), coordinate.getCol()));
     }
 }

@@ -1,5 +1,9 @@
 package sheet;
 
+import dto.DTOCell;
+import dto.DTOCoordinate;
+import dto.DTOSheet;
+import dto.DTOSheetImpl;
 import sheet.effectivevalue.EffectiveValue;
 import sheet.cell.Cell;
 import sheet.cell.CellImpl;
@@ -13,11 +17,19 @@ public class SheetImpl implements Sheet {
     int version;
     String title;
     Map<String, Cell> board = new HashMap<>();
+    final int numOfRows;
+    final int numOfCols;
+    final int heightOfRows;
+    final int widthOfCols;
 
     //CTOR
-    public SheetImpl(String title) {
+    public SheetImpl(String title, int numOfRows, int numOfCols, int heightOfRows, int widthOfCols) {
         this.version = 0;
         this.title = title;
+        this.numOfRows = numOfRows;
+        this.numOfCols = numOfCols;
+        this.heightOfRows = heightOfRows;
+        this.widthOfCols = widthOfCols;
     }
 
     @Override
@@ -72,7 +84,7 @@ public class SheetImpl implements Sheet {
 
     //add new cell to our board
     public void addCell(Coordinate coordinate, String originalValue, EffectiveValue effectiveValue) {
-        Cell myCell = new CellImpl(coordinate.toString(), originalValue,effectiveValue);
+        Cell myCell = new CellImpl(coordinate, originalValue,effectiveValue);
         board.put(coordinate.toString(), myCell);
 
     }
@@ -90,5 +102,23 @@ public class SheetImpl implements Sheet {
         board.remove(coordinate.toString());
     }
 
+    public DTOSheet convertToDTOSheet(){
+        DTOSheet dtoSheet = new DTOSheetImpl();
+        dtoSheet.setVersion(version);
+        dtoSheet.setTitle(title);
+        dtoSheet.setNumOfRows(numOfRows);
+        dtoSheet.setNumOfColumns(numOfCols);
+        dtoSheet.setHeightOfRows(heightOfRows);
+        dtoSheet.setWidthOfColumns(widthOfCols);
+        for( Cell cell : board.values()) {
+            dtoSheet.addDTOCell(cell.convertToDTOCell());
+         }
+        return dtoSheet;
+    }
 
+//    @Override
+//    public void addCell(DTOCell cell) {
+//        DTOCoordinate coordinate = cell.getCoordinate();
+//        board.put(coordinate.toString(), cell);
+//    }
 }

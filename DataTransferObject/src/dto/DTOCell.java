@@ -9,15 +9,15 @@ public interface DTOCell {
     Object getEffectiveValue();
     String getOriginalValue();
     int getLastModifiedVersion();
-    List<DTOCell> getDependsOn();
-    List<DTOCell> getInfluencingOn();
+    List<DTOCoordinate> getDependsOn();
+    List<DTOCoordinate> getInfluencingOn();
 
     //setter
     void setCoordinate(DTOCoordinate coordinate);
     void setEffectiveValue(Object o);
     void setOriginalValue(String o);
     void setLastModifiedVersion(int version);
-    void addDTOCellToDependsOn(DTOCell dtoCell);
-    void addDTOCellToInfluencingOn(DTOCell dtoCell);
+    void addDToDependsOn(DTOCoordinate dtoCoordinate);
+    void addDToInfluencingOn(DTOCoordinate dtoCoordinate);
 
 }

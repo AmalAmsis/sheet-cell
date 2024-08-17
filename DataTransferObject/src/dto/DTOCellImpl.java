@@ -9,12 +9,13 @@ public class DTOCellImpl implements DTOCell {
     private Object effectiveValue;
     private String originalValue;
     private int lastModifiedVersion;
-    private  List<DTOCell> dependsOn = new ArrayList<>();
-    private  List<DTOCell> influencingOn = new ArrayList<>();
+    private final List<DTOCoordinate> dependsOn = new ArrayList<>();
+    private final List<DTOCoordinate> influencingOn = new ArrayList<>();
 
     public void setCoordinate(DTOCoordinate coordinate) {
         this.coordinate = coordinate;
     }
+
     public DTOCoordinate getCoordinate() {
         return coordinate;
     }
@@ -35,12 +36,12 @@ public class DTOCellImpl implements DTOCell {
     }
 
     @Override
-    public List<DTOCell> getDependsOn() {
+    public List<DTOCoordinate> getDependsOn() {
         return dependsOn;
     }
 
     @Override
-    public List<DTOCell> getInfluencingOn() {
+    public List<DTOCoordinate> getInfluencingOn() {
         return influencingOn;
     }
 
@@ -60,13 +61,13 @@ public class DTOCellImpl implements DTOCell {
     }
 
     @Override
-    public void addDTOCellToDependsOn(DTOCell dtoCell) {
-        dependsOn.add(dtoCell);
+    public void addDToDependsOn(DTOCoordinate dtoCoordinate) {
+        dependsOn.add(dtoCoordinate);
     }
 
     @Override
-    public void addDTOCellToInfluencingOn(DTOCell dtoCell) {
-        influencingOn.add(dtoCell);
+    public void addDToInfluencingOn(DTOCoordinate dtoCoordinate) {
+        influencingOn.add(dtoCoordinate);
     }
 
 }
