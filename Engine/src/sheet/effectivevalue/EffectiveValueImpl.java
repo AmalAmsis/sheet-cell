@@ -1,7 +1,4 @@
-package sheet.impl;
-
-import sheet.api.CellType;
-import sheet.api.EffectiveValue;
+package sheet.effectivevalue;
 
 public class EffectiveValueImpl implements EffectiveValue {
     private CellType cellType;

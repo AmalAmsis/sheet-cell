@@ -1,4 +1,4 @@
-package sheet.api;
+package sheet.effectivevalue;
 
 public interface EffectiveValue {
     CellType getCellType();

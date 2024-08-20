@@ -1,5 +1,8 @@
 package sheet.cell;
 
+import dto.DTOCell;
+import sheet.coordinate.Coordinate;
+
 import java.util.List;
 
 public interface Cell {
@@ -14,4 +17,6 @@ public interface Cell {
     List<Cell> getInfluencingOn();
     void addInfluencingOn(Cell cell);
     void removeInfluencingOn(Cell cell);
+    public Coordinate getCoordinate();
+    public DTOCell convertToDTOCell();
 }
