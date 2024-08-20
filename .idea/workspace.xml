@@ -7,17 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91869a22-25b7-4b72-89ca-e818d3188b14" name="Changes" comment="no kbar">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataTransferObject/DataTransferObject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/DataTransferObject.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCellImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCellImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheetImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Engine.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Engine.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java" afterDir="false" />
-    </list>
+    <list default="true" id="91869a22-25b7-4b72-89ca-e818d3188b14" name="Changes" comment="schema + update DTO + convertFromStringTOcoordinate" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,7 +67,6 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "yarden__branch",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Yarden Daniel/Desktop/computer science/year 2/semester 3/java/jaxb-ri-4.0.5/jaxb-ri-4.0.5/mod",
@@ -117,7 +106,7 @@
       <workItem from="1723711287600" duration="11997000" />
       <workItem from="1723832848242" duration="15805000" />
       <workItem from="1723914486457" duration="21000" />
-      <workItem from="1724161235481" duration="7854000" />
+      <workItem from="1724161235481" duration="8185000" />
     </task>
     <task id="LOCAL‎-00001" summary="added git ignore">
       <option name="closed" value="true" />
@@ -159,7 +148,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724152761380</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="schema + update DTO + convertFromStringTOcoordinate">
+      <option name="closed" value="true" />
+      <created>1724170374505</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1724170374505</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,6 +179,7 @@
     <MESSAGE value="IN MODULE DTO:&#10;update DTOCell - interface + class&#10;new DTOSheet - interface + class&#10;new DTOCoordinate -interface + class" />
     <MESSAGE value="ok ok ok &#10;I worked oj the DTOs Object&#10;1) in CoordinateImpl - convertToDTOCoordinate&#10;2) in cellImpl - convertToDTOCell&#10;3) in Sheet - convertToDTOSheet" />
     <MESSAGE value="for marge 20/8/24" />
-    <option name="LAST_COMMIT_MESSAGE" value="for marge 20/8/24" />
+    <MESSAGE value="schema + update DTO + convertFromStringTOcoordinate" />
+    <option name="LAST_COMMIT_MESSAGE" value="schema + update DTO + convertFromStringTOcoordinate" />
   </component>
 </project>
