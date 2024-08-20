@@ -5,10 +5,65 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91869a22-25b7-4b72-89ca-e818d3188b14" name="Changes" comment="added git ignore">
-      <change afterPath="$PROJECT_DIR$/Engine/src/expression/Expression.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Engine/src/expression/impl/BinaryExpression.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Engine/src/expression/impl/TernaryExpression.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/Test/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/expression/ExpressionEvaluator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/expression/Operation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/expression/impl/UnaryExpression.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Abs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Divide.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Minus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Mod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Plus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Pow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Times.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/expression/impl/primitive/BooleanExpression.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/expression/impl/primitive/NumericExpression.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/expression/impl/primitive/StringExpression.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/expression/impl/str/Concat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/expression/impl/str/Sub.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/expression/impl/systemic/Ref.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/Test/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/expression/Expression.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/expression/ExpressionEvaluator$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/expression/ExpressionEvaluator.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$10.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$6.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$7.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$8.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$9.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/BinaryExpression.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/TernaryExpression.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/UnaryExpression.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Abs.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Divide.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Minus.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Mod.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Plus.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Pow.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Times.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/primitive/BooleanExpression.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/primitive/NumericExpression.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/primitive/StringExpression.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/str/Concat.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/str/Sub.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/systemic/Ref.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/sheet/api/CellType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/sheet/api/EffectiveValue.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/sheet/api/Sheet.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/sheet/cell/Cell.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/sheet/cell/CellImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Engine/sheet/impl/EffectiveValueImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/Expression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/Expression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/BinaryExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/BinaryExpression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +73,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -50,6 +105,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.ExpressionParserMain.executor": "Run",
+    "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "Amal",
@@ -59,12 +116,47 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/Amal Amsis/Desktop/AmalA/Computer Science/JAVA/sheet-cell/Engine/src/Test/Main.java",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="ExpressionParserMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test.ExpressionParserMain" />
+      <module name="Engine" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test.Main" />
+      <module name="Engine" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.ExpressionParserMain" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -81,7 +173,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1723711286539</updated>
-      <workItem from="1723711287600" duration="17235000" />
+      <workItem from="1723711287600" duration="76178000" />
     </task>
     <task id="LOCAL‎-00001" summary="added git ignore">
       <option name="closed" value="true" />
@@ -96,6 +188,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added git ignore" />
