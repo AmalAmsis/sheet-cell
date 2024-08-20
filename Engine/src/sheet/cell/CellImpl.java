@@ -11,8 +11,8 @@ public class CellImpl implements Cell {
     private String originalValue;
     private EffectiveValue effectiveValue;
     private int lastModifiedVersion;
-    private final List<Cell> dependsOn;
-    private final List<Cell> influencingOn;
+    //private final List<Cell> dependsOn;
+    //private final List<Cell> influencingOn;
 
 
     @Override
