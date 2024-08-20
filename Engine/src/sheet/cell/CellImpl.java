@@ -17,8 +17,8 @@ public class CellImpl implements Cell {
     private String originalValue;
     private EffectiveValue effectiveValue;
     private int lastModifiedVersion;
-    private List<Cell> dependsOn = new ArrayList<>();
-    private List<Cell> influencingOn = new ArrayList<>();
+    private final List<Cell> dependsOn = new ArrayList<>();
+    private final List<Cell> influencingOn = new ArrayList<>();
 
     //ctor 1
     public CellImpl(Coordinate coordinate) {
