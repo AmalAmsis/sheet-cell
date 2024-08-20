@@ -4,35 +4,169 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec4fd8eb-1bbc-46c7-9467-079eef09aeb8" name="Changes" comment="Operation enum, UnaryExpression, Math , str functions , parsee" />
+    <list default="true" id="91869a22-25b7-4b72-89ca-e818d3188b14" name="Changes" comment="ok ok ok &#10;I worked oj the DTOs Object&#10;1) in CoordinateImpl - convertToDTOCoordinate&#10;2) in cellImpl - convertToDTOCell&#10;3) in Sheet - convertToDTOSheet">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/Expression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/Expression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/ExpressionEvaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/ExpressionEvaluator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/Operation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/BinaryExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/BinaryExpression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/TernaryExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/TernaryExpression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/UnaryExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/UnaryExpression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Abs.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Abs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Divide.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Divide.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Minus.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Minus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Mod.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Mod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Plus.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Plus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Pow.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Pow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Times.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Times.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/primitive/BooleanExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/primitive/BooleanExpression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/primitive/NumericExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/primitive/NumericExpression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/primitive/StringExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/primitive/StringExpression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/str/Concat.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/str/Concat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/str/Sub.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/str/Sub.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Amal" />
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;AmalAmsis&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/AmalAmsis/sheet-cell.git&quot;,
+    &quot;accountId&quot;: &quot;537397b5-d0c5-40c9-8de6-5008f77a31b4&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2kghmDWPTHJeXApxsDRXEkk1wtx" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "#5 on yarden__branch",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="dto" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.387" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.387" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="91869a22-25b7-4b72-89ca-e818d3188b14" name="Changes" comment="" />
+      <created>1723711286539</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1723711286539</updated>
+      <workItem from="1723711287600" duration="11997000" />
+      <workItem from="1723832848242" duration="15805000" />
+      <workItem from="1723914486457" duration="21000" />
+    </task>
+    <task id="LOCAL‎-00001" summary="added git ignore">
+      <option name="closed" value="true" />
+      <created>1723711967924</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL‎-00001" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1723711967924</updated>
+    </task>
+    <task id="LOCAL-00002" summary="new nodule : DTO&#10;DTOCell - interface + class">
+      <option name="closed" value="true" />
+      <created>1723834997470</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1723834997470</updated>
+    </task>
+    <task id="LOCAL-00003" summary="IN MODULE DTO:&#10;update DTOCell - interface + class&#10;new DTOSheet - interface + class&#10;new DTOCoordinate -interface + class">
+      <option name="closed" value="true" />
+      <created>1723836474119</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1723836474119</updated>
+    </task>
+    <task id="LOCAL-00004" summary="ok ok ok &#10;I worked oj the DTOs Object&#10;1) in CoordinateImpl - convertToDTOCoordinate&#10;2) in cellImpl - convertToDTOCell&#10;3) in Sheet - convertToDTOSheet">
+      <option name="closed" value="true" />
+      <created>1723914109880</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1723914109880</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
       </map>
     </option>
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0"
-  }
-}]]></component>
-  <component name="TaskManager">
-    <servers />
-  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Operation enum, UnaryExpression, Math , str functions , parsee" />
-    <option name="LAST_COMMIT_MESSAGE" value="Operation enum, UnaryExpression, Math , str functions , parsee" />
+    <MESSAGE value="added git ignore" />
+    <MESSAGE value="new nodule : DTO&#10;DTOCell - interface + class" />
+    <MESSAGE value="IN MODULE DTO:&#10;update DTOCell - interface + class&#10;new DTOSheet - interface + class&#10;new DTOCoordinate -interface + class" />
+    <MESSAGE value="ok ok ok &#10;I worked oj the DTOs Object&#10;1) in CoordinateImpl - convertToDTOCoordinate&#10;2) in cellImpl - convertToDTOCell&#10;3) in Sheet - convertToDTOSheet" />
+    <option name="LAST_COMMIT_MESSAGE" value="ok ok ok &#10;I worked oj the DTOs Object&#10;1) in CoordinateImpl - convertToDTOCoordinate&#10;2) in cellImpl - convertToDTOCell&#10;3) in Sheet - convertToDTOSheet" />
   </component>
 </project>
