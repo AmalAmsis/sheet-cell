@@ -1,7 +1,8 @@
 package expression.impl;
 
 import expression.Expression;
-import sheet.api.EffectiveValue;
+import sheet.effectivevalue.EffectiveValue;
+
 
 public abstract class BinaryExpression implements Expression {
 

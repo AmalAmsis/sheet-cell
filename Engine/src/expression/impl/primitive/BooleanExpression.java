@@ -1,9 +1,10 @@
 package expression.impl.primitive;
 
 import expression.Expression;
-import sheet.api.CellType;
-import sheet.api.EffectiveValue;
-import sheet.impl.EffectiveValueImpl;
+import sheet.effectivevalue.CellType;
+import sheet.effectivevalue.EffectiveValue;
+import sheet.effectivevalue.EffectiveValueImpl;
+
 
 public class BooleanExpression implements Expression {
 
