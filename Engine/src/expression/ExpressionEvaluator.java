@@ -3,8 +3,9 @@ package expression;
 import expression.impl.primitive.BooleanExpression;
 import expression.impl.primitive.NumericExpression;
 import expression.impl.primitive.StringExpression;
-import sheet.api.CellType;
-import sheet.api.EffectiveValue;
+import sheet.effectivevalue.CellType;
+import sheet.effectivevalue.EffectiveValue;
+
 
 import java.util.ArrayList;
 import java.util.List;

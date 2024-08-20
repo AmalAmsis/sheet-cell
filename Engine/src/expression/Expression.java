@@ -1,7 +1,7 @@
 package expression;
 
-import sheet.api.CellType;
-import sheet.api.EffectiveValue;
+import sheet.effectivevalue.CellType;
+import sheet.effectivevalue.EffectiveValue;
 
 public interface Expression {
     EffectiveValue evaluate();

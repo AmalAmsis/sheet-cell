@@ -5,7 +5,8 @@ import expression.impl.primitive.NumericExpression;
 import expression.impl.str.Concat;
 import expression.impl.str.Sub;
 import expression.impl.systemic.Ref;
-import sheet.api.EffectiveValue;
+import sheet.effectivevalue.EffectiveValue;
+
 
 public enum Operation {
 

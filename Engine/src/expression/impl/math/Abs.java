@@ -2,9 +2,10 @@ package expression.impl.math;
 
 import expression.Expression;
 import expression.impl.UnaryExpression;
-import sheet.api.CellType;
-import sheet.api.EffectiveValue;
-import sheet.impl.EffectiveValueImpl;
+import sheet.effectivevalue.CellType;
+import sheet.effectivevalue.EffectiveValue;
+import sheet.effectivevalue.EffectiveValueImpl;
+
 
 public class Abs extends UnaryExpression {
 
