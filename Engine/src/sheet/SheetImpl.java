@@ -4,6 +4,7 @@ import dto.DTOCell;
 import dto.DTOCoordinate;
 import dto.DTOSheet;
 import dto.DTOSheetImpl;
+import sheet.coordinate.CoordinateImpl;
 import sheet.effectivevalue.EffectiveValue;
 import sheet.cell.Cell;
 import sheet.cell.CellImpl;
@@ -30,6 +31,23 @@ public class SheetImpl implements Sheet {
         this.numOfCols = numOfCols;
         this.heightOfRows = heightOfRows;
         this.widthOfCols = widthOfCols;
+    }
+
+    public int getHeightOfRows() {
+        return heightOfRows;
+    }
+    public int getWidthOfCols() {
+        return widthOfCols;
+    }
+    public int getNumOfRows() {
+        return numOfRows;
+    }
+    public int getNumOfCols() {
+        return numOfCols;
+    }
+
+    public Map<String, Cell> getBoard() {
+        return board;
     }
 
     @Override
@@ -102,23 +120,46 @@ public class SheetImpl implements Sheet {
         board.remove(coordinate.toString());
     }
 
-    public DTOSheet convertToDTOSheet(){
-        DTOSheet dtoSheet = new DTOSheetImpl();
-        dtoSheet.setVersion(version);
-        dtoSheet.setTitle(title);
-        dtoSheet.setNumOfRows(numOfRows);
-        dtoSheet.setNumOfColumns(numOfCols);
-        dtoSheet.setHeightOfRows(heightOfRows);
-        dtoSheet.setWidthOfColumns(widthOfCols);
-        for( Cell cell : board.values()) {
-            dtoSheet.addDTOCell(cell.convertToDTOCell());
-         }
-        return dtoSheet;
+    public char getLastColLetter(){
+        return (char) ('A' + numOfCols - 1);
     }
 
-//    @Override
-//    public void addCell(DTOCell cell) {
-//        DTOCoordinate coordinate = cell.getCoordinate();
-//        board.put(coordinate.toString(), cell);
-//    }
+
+    public CoordinateImpl convertStringToCoordinate(String stringCoordinate) {
+        // Check if the input is null or of incorrect length
+        if (stringCoordinate == null || stringCoordinate.length() < 2 || stringCoordinate.length() > 3) {
+            throw new IllegalArgumentException("Input must be between 2 to 3 characters long and non-null.");
+        }
+
+
+        // get the col letter and checking that a letter representing the column is in the col range of the sheet
+        char col = stringCoordinate.charAt(0);
+        if (col < 'A' || col > getLastColLetter()) {
+            throw new IllegalArgumentException("Column must be a letter between A and " + getLastColLetter() + ".");
+        }
+
+        //the follow must be a number
+        for (int i = 1; i < stringCoordinate.length(); i++) {
+            if (!Character.isDigit(stringCoordinate.charAt(i))) {
+                throw new IllegalArgumentException("The input format is invalid. It should be a letter followed by digits.");
+            }
+        }
+
+        // get row number
+        int row;
+        try {
+            row = Integer.parseInt(stringCoordinate.substring(1));
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Row must be a valid number.");
+        }
+
+        // check if is in the row range
+        if (row < 1 || row > numOfRows) {
+            throw new IllegalArgumentException("Row must be between 1 and " + numOfRows + ".");
+        }
+
+        // create the coordinate
+        return new CoordinateImpl(col, row);
+    }
+
 }

@@ -7,6 +7,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="DataTransferObject" />
+    <orderEntry type="module" module-name="DataTransferObject" exported="" />
+    <orderEntry type="library" exported="" name="mod" level="project" />
   </component>
 </module>
