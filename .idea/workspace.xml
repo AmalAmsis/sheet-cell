@@ -7,11 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91869a22-25b7-4b72-89ca-e818d3188b14" name="Changes" comment="schema + update DTO + convertFromStringTOcoordinate">
+    <list default="true" id="91869a22-25b7-4b72-89ca-e818d3188b14" name="Changes" comment="I built 3 new ctors:&#10;the ctors gets an STL objcet and load our engine classes.&#10;we assume that we enter to the ctors after validation check of the file.&#10;&#10;to do:&#10;1. in ctor of cellImpl we need to load the dependsOn ans the influencingOn.&#10;&#10;2. validation check!">
+      <change afterPath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/XmlProcessing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/XmlProcessingImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/coordinate/CoordinateImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/coordinate/CoordinateImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,25 +68,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "yarden__branch",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Yarden Daniel/Desktop/computer science/year 2/semester 3/java/jaxb-ri-4.0.5/jaxb-ri-4.0.5/mod",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "diff.external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;yarden__branch&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Yarden Daniel/Desktop/computer science/year 2/semester 3/java/projects/from_calss/05. XML/05. XML/05. XML.iml&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;diff.external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="dto" />
@@ -112,7 +111,8 @@
       <workItem from="1723711287600" duration="11997000" />
       <workItem from="1723832848242" duration="15805000" />
       <workItem from="1723914486457" duration="21000" />
-      <workItem from="1724161235481" duration="19641000" />
+      <workItem from="1724161235481" duration="20537000" />
+      <workItem from="1724337558043" duration="1604000" />
     </task>
     <task id="LOCAL‎-00001" summary="added git ignore">
       <option name="closed" value="true" />
@@ -178,7 +178,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724327673983</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="I built 3 new ctors:&#10;the ctors gets an STL objcet and load our engine classes.&#10;we assume that we enter to the ctors after validation check of the file.&#10;&#10;to do:&#10;1. in ctor of cellImpl we need to load the dependsOn ans the influencingOn.&#10;&#10;2. validation check!">
+      <option name="closed" value="true" />
+      <created>1724336459890</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1724336459890</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,6 +210,7 @@
     <MESSAGE value="ok ok ok &#10;I worked oj the DTOs Object&#10;1) in CoordinateImpl - convertToDTOCoordinate&#10;2) in cellImpl - convertToDTOCell&#10;3) in Sheet - convertToDTOSheet" />
     <MESSAGE value="for marge 20/8/24" />
     <MESSAGE value="schema + update DTO + convertFromStringTOcoordinate" />
-    <option name="LAST_COMMIT_MESSAGE" value="schema + update DTO + convertFromStringTOcoordinate" />
+    <MESSAGE value="I built 3 new ctors:&#10;the ctors gets an STL objcet and load our engine classes.&#10;we assume that we enter to the ctors after validation check of the file.&#10;&#10;to do:&#10;1. in ctor of cellImpl we need to load the dependsOn ans the influencingOn.&#10;&#10;2. validation check!" />
+    <option name="LAST_COMMIT_MESSAGE" value="I built 3 new ctors:&#10;the ctors gets an STL objcet and load our engine classes.&#10;we assume that we enter to the ctors after validation check of the file.&#10;&#10;to do:&#10;1. in ctor of cellImpl we need to load the dependsOn ans the influencingOn.&#10;&#10;2. validation check!" />
   </component>
 </project>

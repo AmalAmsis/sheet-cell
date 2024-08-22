@@ -1,6 +1,7 @@
 package sheet.cell;
 
 import dto.DTOCell;
+import jaxb.schema.generated.STLCell;
 import sheet.coordinate.Coordinate;
 
 import java.util.List;
@@ -18,4 +19,5 @@ public interface Cell {
     void addInfluencingOn(Cell cell);
     void removeInfluencingOn(Cell cell);
     public Coordinate getCoordinate();
+    public STLCell convertFromCellToSTLCell();
 }

@@ -49,6 +49,21 @@ public class CellImpl implements Cell {
 
         //TO DO --> DEPENDSON AND INFLUENING ON.
     }
+    // 22/8/24
+    public STLCell convertFromCellToSTLCell() {
+        //preparation for create an STLCell
+        String myOriginalValue = this.getOriginalValue();
+        int myRow = this.getCoordinate().getRow();
+        char myCol = this.getCoordinate().getCol();
+
+        //create new STLCell
+        STLCell stlCell = new STLCell();
+        stlCell.setSTLOriginalValue(myOriginalValue);
+        stlCell.setRow(myRow);
+        stlCell.setColumn(Character.toString(myCol));
+
+        return stlCell;
+    }
 
     public String getId() {return id;}
 

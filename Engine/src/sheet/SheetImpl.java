@@ -4,15 +4,16 @@ import dto.DTOCell;
 import dto.DTOCoordinate;
 import dto.DTOSheet;
 import dto.DTOSheetImpl;
-import jaxb.schema.generated.STLCell;
-import jaxb.schema.generated.STLSheet;
+import jaxb.schema.generated.*;
 import sheet.coordinate.CoordinateImpl;
 import sheet.effectivevalue.EffectiveValue;
 import sheet.cell.Cell;
 import sheet.cell.CellImpl;
 import sheet.coordinate.Coordinate;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class SheetImpl implements Sheet {
@@ -35,6 +36,8 @@ public class SheetImpl implements Sheet {
         this.widthOfCols = widthOfCols;
     }
 
+    // 22/8/24 - this ctor from STL object that we got from xml file,
+    // we assume that we will get it to the ctor after validation test!
     public SheetImpl(STLSheet stlSheet) {
         //when we load a sheet the version is 0.
         this.version =0;
@@ -50,6 +53,47 @@ public class SheetImpl implements Sheet {
             String key = cell.getId();
             board.put(key, cell);
         }
+    }
+
+    //22/8/24 by yarden --> for creating a xml file from objects
+    //very ugly function - TO DO it nice
+    public STLSheet convertFromSheetToStlSheet() {
+
+        //create the ELEMENT STLCells
+        STLCells stlCells = new STLCells();
+        //create the list of STLCells
+        List<STLCell> stlCellList = stlCells.getSTLCell();
+        for (String key : board.keySet()) {
+
+            //get the actual cell
+            Cell cell = board.get(key);
+            //create STLCell
+            STLCell stlCell = cell.convertFromCellToSTLCell();
+            //add the STLCell to the List
+            stlCellList.add(stlCell);
+        }
+
+        //create the ELEMENT STLSize before STLLayot
+        STLSize stlSize = new STLSize();
+        stlSize.setRowsHeightUnits(heightOfRows);
+        stlSize.setRowsHeightUnits(widthOfCols);
+
+        //create the ELEMENT STLLayot
+        STLLayout stlLayout = new STLLayout();
+        stlLayout.setRows(numOfRows);
+        stlLayout.setColumns(numOfCols);
+        stlLayout.setSTLSize(stlSize);
+
+        //and finally create the ELEMENT STLSheet
+        STLSheet stlSheet = new STLSheet();
+        stlSheet.setName(title);
+        stlSheet.setSTLLayout(stlLayout);
+        stlSheet.setSTLCells(stlCells);
+
+        //STLCell stlCell = new STLCell();
+
+        return stlSheet;
+
     }
 
 
