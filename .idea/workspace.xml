@@ -9,6 +9,9 @@
   <component name="ChangeListManager">
     <list default="true" id="91869a22-25b7-4b72-89ca-e818d3188b14" name="Changes" comment="schema + update DTO + convertFromStringTOcoordinate">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/coordinate/CoordinateImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/coordinate/CoordinateImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +84,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "diff.external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -108,7 +112,7 @@
       <workItem from="1723711287600" duration="11997000" />
       <workItem from="1723832848242" duration="15805000" />
       <workItem from="1723914486457" duration="21000" />
-      <workItem from="1724161235481" duration="11020000" />
+      <workItem from="1724161235481" duration="19641000" />
     </task>
     <task id="LOCAL‎-00001" summary="added git ignore">
       <option name="closed" value="true" />
@@ -166,7 +170,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724170480854</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="schema + update DTO + convertFromStringTOcoordinate">
+      <option name="closed" value="true" />
+      <created>1724327673983</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1724327673983</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -4,7 +4,9 @@ import dto.DTOCell;
 import dto.DTOCellImpl;
 import dto.DTOCoordinate;
 import dto.DTOCoordinateImpl;
+import jaxb.schema.generated.STLCell;
 import sheet.coordinate.Coordinate;
+import sheet.coordinate.CoordinateImpl;
 import sheet.effectivevalue.EffectiveValue;
 
 import java.util.ArrayList;
@@ -35,6 +37,17 @@ public class CellImpl implements Cell {
     public CellImpl(Coordinate coordinate, String originalValue, EffectiveValue effectiveValue) {
         this(coordinate, originalValue);
         this.effectiveValue = effectiveValue;
+    }
+    //22/8/24 - this ctor from STL object that we got from xml file,
+    //we assume that we will get it to the ctor after validation test!
+    public CellImpl(STLCell stlCell) {
+        this.originalValue = stlCell.toString();
+        Coordinate myCoordinate = new CoordinateImpl(stlCell);
+        this.coordinate = myCoordinate;
+        this.id = myCoordinate.toString();
+        this.lastModifiedVersion =0;
+
+        //TO DO --> DEPENDSON AND INFLUENING ON.
     }
 
     public String getId() {return id;}

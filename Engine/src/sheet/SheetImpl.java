@@ -4,6 +4,8 @@ import dto.DTOCell;
 import dto.DTOCoordinate;
 import dto.DTOSheet;
 import dto.DTOSheetImpl;
+import jaxb.schema.generated.STLCell;
+import jaxb.schema.generated.STLSheet;
 import sheet.coordinate.CoordinateImpl;
 import sheet.effectivevalue.EffectiveValue;
 import sheet.cell.Cell;
@@ -32,6 +34,24 @@ public class SheetImpl implements Sheet {
         this.heightOfRows = heightOfRows;
         this.widthOfCols = widthOfCols;
     }
+
+    public SheetImpl(STLSheet stlSheet) {
+        //when we load a sheet the version is 0.
+        this.version =0;
+        this.title = stlSheet.getName();
+        this.numOfRows =stlSheet.getSTLLayout().getRows();
+        this.numOfCols =stlSheet.getSTLLayout().getColumns();
+        this.heightOfRows = stlSheet.getSTLLayout().getSTLSize().getRowsHeightUnits();
+        this.widthOfCols = stlSheet.getSTLLayout().getSTLSize().getRowsHeightUnits();
+
+        //load the cell on the list to our map
+        for(STLCell stlCell : stlSheet.getSTLCells().getSTLCell()){
+            CellImpl cell = new CellImpl(stlCell);
+            String key = cell.getId();
+            board.put(key, cell);
+        }
+    }
+
 
     public int getHeightOfRows() {
         return heightOfRows;
