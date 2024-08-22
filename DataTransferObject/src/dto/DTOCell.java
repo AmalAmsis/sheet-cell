@@ -12,12 +12,4 @@ public interface DTOCell {
     List<DTOCoordinate> getDependsOn();
     List<DTOCoordinate> getInfluencingOn();
 
-    //setter
-    void setCoordinate(DTOCoordinate coordinate);
-    void setEffectiveValue(Object o);
-    void setOriginalValue(String o);
-    void setLastModifiedVersion(int version);
-    void addDToDependsOn(DTOCoordinate dtoCoordinate);
-    void addDToInfluencingOn(DTOCoordinate dtoCoordinate);
-
 }

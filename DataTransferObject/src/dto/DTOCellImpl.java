@@ -1,5 +1,7 @@
 package dto;
 
+import sheet.cell.Cell;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +13,27 @@ public class DTOCellImpl implements DTOCell {
     private int lastModifiedVersion;
     private final List<DTOCoordinate> dependsOn = new ArrayList<>();
     private final List<DTOCoordinate> influencingOn = new ArrayList<>();
+
+    public DTOCellImpl(Cell cell) {
+        //create DTOCoordinate with original cell coordinate
+        this.coordinate =new DTOCoordinateImpl(cell.getCoordinate().getRow(), cell.getCoordinate().getCol());
+
+        this.effectiveValue = cell.getEffectiveValue();
+        this.originalValue = cell.getOriginalValue();
+        this.lastModifiedVersion = cell.getLastModifiedVersion();
+        //check if working
+        //DependsOn
+        for(Cell dependCell : cell.getDependsOn()) {
+            DTOCoordinate dtoCoordinateWhoDependOn = new DTOCoordinateImpl(dependCell.getCoordinate().getRow(), dependCell.getCoordinate().getCol());
+            this.addDToDependsOn(dtoCoordinateWhoDependOn);
+        }
+        //check if working
+        //InfluencingOn
+        for(Cell Influnecingcell : cell.getInfluencingOn()) {
+            DTOCoordinate dtoCoordinateWhoInfluencingOn = new DTOCoordinateImpl(Influnecingcell.getCoordinate().getRow(), Influnecingcell.getCoordinate().getCol());
+            this.addDToInfluencingOn(dtoCoordinateWhoInfluencingOn);
+        }
+    }
 
     public void setCoordinate(DTOCoordinate coordinate) {
         this.coordinate = coordinate;
@@ -45,27 +68,10 @@ public class DTOCellImpl implements DTOCell {
         return influencingOn;
     }
 
-    @Override
-    public void setEffectiveValue(Object o) {
-        this.effectiveValue = o;
-    }
-
-    @Override
-    public void setOriginalValue(String o) {
-        this.originalValue = o;
-    }
-
-    @Override
-    public void setLastModifiedVersion(int version) {
-        this.lastModifiedVersion = version;
-    }
-
-    @Override
     public void addDToDependsOn(DTOCoordinate dtoCoordinate) {
         dependsOn.add(dtoCoordinate);
     }
 
-    @Override
     public void addDToInfluencingOn(DTOCoordinate dtoCoordinate) {
         influencingOn.add(dtoCoordinate);
     }

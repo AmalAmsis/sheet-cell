@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_INJECTED_CODE" value="false" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
@@ -39,8 +42,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -62,10 +65,20 @@
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/AmalAmsis/sheet-cell.git&quot;,
     &quot;accountId&quot;: &quot;537397b5-d0c5-40c9-8de6-5008f77a31b4&quot;
+  },
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
+    },
+    &quot;owner&quot;: &quot;AmalAmsis&quot;,
+    &quot;repository&quot;: &quot;sheet-cell&quot;
   }
 }</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -82,6 +95,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "Amal",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Yarden Daniel/Desktop/computer science/year 2/semester 3/java/jaxb-ri-4.0.5/jaxb-ri-4.0.5/mod",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -89,7 +103,8 @@
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -150,7 +165,31 @@
       <option name="project" value="LOCAL" />
       <updated>1723914109880</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="for marge 20/8/24">
+      <option name="closed" value="true" />
+      <created>1724152761380</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1724152761380</updated>
+    </task>
+    <task id="LOCAL-00006" summary="schema + update DTO + convertFromStringTOcoordinate">
+      <option name="closed" value="true" />
+      <created>1724170374505</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1724170374505</updated>
+    </task>
+    <task id="LOCAL-00007" summary="schema + update DTO + convertFromStringTOcoordinate">
+      <option name="closed" value="true" />
+      <created>1724170480854</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1724170480854</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,5 +232,8 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <MESSAGE value="for marge 20/8/24" />
+    <MESSAGE value="schema + update DTO + convertFromStringTOcoordinate" />
+    <option name="LAST_COMMIT_MESSAGE" value="schema + update DTO + convertFromStringTOcoordinate" />
   </component>
 </project>

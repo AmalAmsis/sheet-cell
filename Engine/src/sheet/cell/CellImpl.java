@@ -147,24 +147,25 @@ public class CellImpl implements Cell {
 
     }
 
-    public DTOCell convertToDTOCell() {
-        DTOCoordinate dtoCoordinate = new DTOCoordinateImpl(getCoordinate().getRow(), getCoordinate().getCol());
-        DTOCell dtoCell = new DTOCellImpl();
-        dtoCell.setCoordinate(dtoCoordinate);
-        dtoCell.setEffectiveValue(effectiveValue);
-        dtoCell.setLastModifiedVersion(lastModifiedVersion);
-        dtoCell.setOriginalValue(originalValue);
-        //DependsOn
-        for(Cell cell : dependsOn) {
-            DTOCoordinate dtoCoordinateWhoDependOn = new DTOCoordinateImpl(cell.getCoordinate().getRow(), cell.getCoordinate().getCol());
-            dtoCell.addDToDependsOn(dtoCoordinateWhoDependOn);
-        }
-        //InfluencingOn
-        for(Cell cell : influencingOn) {
-            DTOCoordinate dtoCoordinateWhoInfluencingOn = new DTOCoordinateImpl(cell.getCoordinate().getRow(), cell.getCoordinate().getCol());
-            dtoCell.addDToInfluencingOn(dtoCoordinateWhoInfluencingOn);
-        }
-        return dtoCell;
-    }
+//
+//    public DTOCell convertToDTOCell() {
+//        DTOCoordinate dtoCoordinate = new DTOCoordinateImpl(getCoordinate().getRow(), getCoordinate().getCol());
+//        DTOCell dtoCell = new DTOCellImpl();
+//        dtoCell.setCoordinate(dtoCoordinate);
+//        dtoCell.setEffectiveValue(effectiveValue);
+//        dtoCell.setLastModifiedVersion(lastModifiedVersion);
+//        dtoCell.setOriginalValue(originalValue);
+//        //DependsOn
+//        for(Cell cell : dependsOn) {
+//            DTOCoordinate dtoCoordinateWhoDependOn = new DTOCoordinateImpl(cell.getCoordinate().getRow(), cell.getCoordinate().getCol());
+//            dtoCell.addDToDependsOn(dtoCoordinateWhoDependOn);
+//        }
+//        //InfluencingOn
+//        for(Cell cell : influencingOn) {
+//            DTOCoordinate dtoCoordinateWhoInfluencingOn = new DTOCoordinateImpl(cell.getCoordinate().getRow(), cell.getCoordinate().getCol());
+//            dtoCell.addDToInfluencingOn(dtoCoordinateWhoInfluencingOn);
+//        }
+//        return dtoCell;
+//    }
 
 }
