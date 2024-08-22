@@ -12,14 +12,5 @@ public interface DTOSheet {
     int getHeightOfRows();
     int getWidthOfColumns();
 
-    void setVersion(int version);
-    void setTitle(String title);
-    void addDTOCell(DTOCell cell);
-    void setNumOfRows(int NumOfRows);
-    void setNumOfColumns(int NumOfColumns);
-    void setHeightOfRows(int HeightOfRows);
-    void setWidthOfColumns(int HeightOfColumns);
-
-
 
 }

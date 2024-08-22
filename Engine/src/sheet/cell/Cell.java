@@ -18,5 +18,4 @@ public interface Cell {
     void addInfluencingOn(Cell cell);
     void removeInfluencingOn(Cell cell);
     public Coordinate getCoordinate();
-    public DTOCell convertToDTOCell();
 }

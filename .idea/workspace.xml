@@ -1,29 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_INJECTED_CODE" value="false" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91869a22-25b7-4b72-89ca-e818d3188b14" name="Changes" comment="ok ok ok &#10;I worked oj the DTOs Object&#10;1) in CoordinateImpl - convertToDTOCoordinate&#10;2) in cellImpl - convertToDTOCell&#10;3) in Sheet - convertToDTOSheet">
+    <list default="true" id="91869a22-25b7-4b72-89ca-e818d3188b14" name="Changes" comment="schema + update DTO + convertFromStringTOcoordinate">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/Expression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/Expression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/ExpressionEvaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/ExpressionEvaluator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/Operation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/BinaryExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/BinaryExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/TernaryExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/TernaryExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/UnaryExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/UnaryExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Abs.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Abs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Divide.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Divide.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Minus.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Minus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Mod.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Mod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Plus.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Plus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Pow.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Pow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Times.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Times.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/primitive/BooleanExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/primitive/BooleanExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/primitive/NumericExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/primitive/NumericExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/primitive/StringExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/primitive/StringExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/str/Concat.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/str/Concat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/str/Sub.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/str/Sub.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,10 +42,20 @@
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/AmalAmsis/sheet-cell.git&quot;,
     &quot;accountId&quot;: &quot;537397b5-d0c5-40c9-8de6-5008f77a31b4&quot;
+  },
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
+    },
+    &quot;owner&quot;: &quot;AmalAmsis&quot;,
+    &quot;repository&quot;: &quot;sheet-cell&quot;
   }
 }</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -74,9 +69,9 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "#5 on yarden__branch",
+    "git-widget-placeholder": "yarden__branch",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Yarden Daniel/Desktop/computer science/year 2/semester 3/java/jaxb-ri-4.0.5/jaxb-ri-4.0.5/mod",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -84,7 +79,8 @@
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -112,6 +108,7 @@
       <workItem from="1723711287600" duration="11997000" />
       <workItem from="1723832848242" duration="15805000" />
       <workItem from="1723914486457" duration="21000" />
+      <workItem from="1724161235481" duration="11020000" />
     </task>
     <task id="LOCAL‎-00001" summary="added git ignore">
       <option name="closed" value="true" />
@@ -145,7 +142,31 @@
       <option name="project" value="LOCAL" />
       <updated>1723914109880</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="for marge 20/8/24">
+      <option name="closed" value="true" />
+      <created>1724152761380</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1724152761380</updated>
+    </task>
+    <task id="LOCAL-00006" summary="schema + update DTO + convertFromStringTOcoordinate">
+      <option name="closed" value="true" />
+      <created>1724170374505</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1724170374505</updated>
+    </task>
+    <task id="LOCAL-00007" summary="schema + update DTO + convertFromStringTOcoordinate">
+      <option name="closed" value="true" />
+      <created>1724170480854</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1724170480854</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,6 +188,8 @@
     <MESSAGE value="new nodule : DTO&#10;DTOCell - interface + class" />
     <MESSAGE value="IN MODULE DTO:&#10;update DTOCell - interface + class&#10;new DTOSheet - interface + class&#10;new DTOCoordinate -interface + class" />
     <MESSAGE value="ok ok ok &#10;I worked oj the DTOs Object&#10;1) in CoordinateImpl - convertToDTOCoordinate&#10;2) in cellImpl - convertToDTOCell&#10;3) in Sheet - convertToDTOSheet" />
-    <option name="LAST_COMMIT_MESSAGE" value="ok ok ok &#10;I worked oj the DTOs Object&#10;1) in CoordinateImpl - convertToDTOCoordinate&#10;2) in cellImpl - convertToDTOCell&#10;3) in Sheet - convertToDTOSheet" />
+    <MESSAGE value="for marge 20/8/24" />
+    <MESSAGE value="schema + update DTO + convertFromStringTOcoordinate" />
+    <option name="LAST_COMMIT_MESSAGE" value="schema + update DTO + convertFromStringTOcoordinate" />
   </component>
 </project>

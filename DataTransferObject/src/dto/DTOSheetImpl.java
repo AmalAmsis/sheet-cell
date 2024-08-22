@@ -1,5 +1,8 @@
 package dto;
 
+import sheet.SheetImpl;
+import sheet.cell.Cell;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,6 +15,22 @@ public class DTOSheetImpl implements DTOSheet {
     int numOfCols;
     int heightOfRows;
     int widthOfCols;
+
+    public DTOSheetImpl(SheetImpl sheetImpl) {
+        this.version = sheetImpl.getVersion();
+        this.title = sheetImpl.getTitle();
+        this.numOfRows = sheetImpl.getNumOfRows();
+        this.numOfCols = sheetImpl.getNumOfCols();
+        this.heightOfRows = sheetImpl.getHeightOfRows();
+        this.widthOfCols = sheetImpl.getWidthOfCols();
+
+        //create DTOCell from original board of cells.
+        for( Cell cell : sheetImpl.getBoard().values()) {
+            DTOCell dtoCell = new DTOCellImpl(cell);
+            addDTOCell(dtoCell);
+        }
+    }
+
 
     @Override
     public int getSheetVersion() {
@@ -48,40 +67,9 @@ public class DTOSheetImpl implements DTOSheet {
         return widthOfCols;
     }
 
-    @Override
-    public void setVersion(int version) {
-        this.version = version;
-    }
-
-    @Override
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    @Override
-    public void addDTOCell(DTOCell cell) {
-        DTOCoordinate coordinate = cell.getCoordinate();
-        board.put(coordinate.toString(), cell);
-    }
-
-    @Override
-    public void setNumOfRows(int numOfRows) {
-        this.numOfRows = numOfRows;
-    }
-
-    @Override
-    public void setNumOfColumns(int NumOfColumns) {
-        this.numOfCols = NumOfColumns;
-    }
-
-    @Override
-    public void setHeightOfRows(int HeightOfRows) {
-        this.heightOfRows = HeightOfRows;
-    }
-
-    @Override
-    public void setWidthOfColumns(int WidthOfColumns) {
-        this.widthOfCols = WidthOfColumns;
+    public void addDTOCell(DTOCell dtoCell) {
+        DTOCoordinate dtoCoordinate = dtoCell.getCoordinate();
+        board.put(dtoCoordinate.toString(), dtoCell);
     }
 
 
