@@ -22,5 +22,5 @@ public abstract class TernaryExpression implements Expression {
     }
 
     protected abstract EffectiveValue doEvaluate(EffectiveValue value1, EffectiveValue value2, EffectiveValue value3);
-    abstract protected boolean isValid(EffectiveValue value1, EffectiveValue value2, EffectiveValue value3);
+    abstract protected void isValid(EffectiveValue value1, EffectiveValue value2, EffectiveValue value3);
 }

@@ -20,9 +20,17 @@ public class Abs extends UnaryExpression {
     }
 
     @Override
-    protected boolean isValid(EffectiveValue value) {
-        boolean result = (value.getCellType() == CellType.NUMERIC);
-        return result;
+    protected void isValid(EffectiveValue value) {
+       if (value.getCellType() != CellType.NUMERIC) {
+           String message = String.format(
+                   "Invalid operation: ABS requires argument to be numeric. " +
+                           "Received: value=%s (type=%s)",
+                   value.extractValueWithExpectation(Object.class).toString(),
+                   value.getCellType().toString()
+           );
+           throw new IllegalArgumentException(message);
+       }
+
     }
 
     @Override

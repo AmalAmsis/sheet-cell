@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91869a22-25b7-4b72-89ca-e818d3188b14" name="Changes" comment="ok ok ok &#10;I worked oj the DTOs Object&#10;1) in CoordinateImpl - convertToDTOCoordinate&#10;2) in cellImpl - convertToDTOCell&#10;3) in Sheet - convertToDTOSheet">
+      <change afterPath="$PROJECT_DIR$/Engine/src/sheet/SheetDataModifier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/sheet/SheetDataRetriever.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/sheet/SheetDependencyManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/Expression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/Expression.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/src/expression/ExpressionEvaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/ExpressionEvaluator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/src/expression/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/Operation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/BinaryExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/BinaryExpression.java" afterDir="false" />
@@ -19,11 +21,14 @@
       <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Plus.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Plus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Pow.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Pow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Times.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Times.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/primitive/BooleanExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/primitive/BooleanExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/primitive/NumericExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/primitive/NumericExpression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/primitive/StringExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/primitive/StringExpression.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/str/Concat.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/str/Concat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/str/Sub.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/str/Sub.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/systemic/Ref.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/systemic/Ref.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/Sheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/Sheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/cell/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/cell/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/coordinate/CoordinateImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/coordinate/CoordinateImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,8 +39,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -75,7 +80,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "#5 on yarden__branch",
+    "git-widget-placeholder": "Amal",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -168,5 +173,25 @@
     <MESSAGE value="IN MODULE DTO:&#10;update DTOCell - interface + class&#10;new DTOSheet - interface + class&#10;new DTOCoordinate -interface + class" />
     <MESSAGE value="ok ok ok &#10;I worked oj the DTOs Object&#10;1) in CoordinateImpl - convertToDTOCoordinate&#10;2) in cellImpl - convertToDTOCell&#10;3) in Sheet - convertToDTOSheet" />
     <option name="LAST_COMMIT_MESSAGE" value="ok ok ok &#10;I worked oj the DTOs Object&#10;1) in CoordinateImpl - convertToDTOCoordinate&#10;2) in cellImpl - convertToDTOCell&#10;3) in Sheet - convertToDTOSheet" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Engine/src/sheet/cell/Cell.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>
+          <line>24</line>
+          <properties class="sheet.SheetImpl" method="&lt;init&gt;">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

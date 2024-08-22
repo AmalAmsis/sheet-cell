@@ -15,22 +15,15 @@ public class Sub extends TernaryExpression {
 
     @Override
     protected EffectiveValue doEvaluate(EffectiveValue value1, EffectiveValue value2, EffectiveValue value3) {
+
+        isValid(value1, value2, value3);
+
         String source = value1.extractValueWithExpectation(String.class);
         double startDouble = value2.extractValueWithExpectation(Double.class);
         double endDouble = value3.extractValueWithExpectation(Double.class);
 
-        // Ensure indices are integers
-        if (startDouble % 1 != 0 || endDouble % 1 != 0) {
-            throw new IllegalArgumentException("Start and end indices must be integers.");
-        }
-
         int start = (int) startDouble;
         int end = (int) endDouble;
-
-        // Validate source string is not null
-        if (source == null) {
-            throw new IllegalArgumentException("Source string cannot be null.");
-        }
 
         // Validate indices
         if (start < 0 || end < 0 || start > end || end >= source.length()) {
@@ -43,19 +36,20 @@ public class Sub extends TernaryExpression {
     }
 
     @Override
-    protected boolean isValid(EffectiveValue value1, EffectiveValue value2, EffectiveValue value3) {
-        if (value1.getCellType() != CellType.STRING) {
-            return false;
-        }
-        if (value2.getCellType() != CellType.NUMERIC || value3.getCellType() != CellType.NUMERIC) {
-            return false;
-        }
+    protected void isValid(EffectiveValue value1, EffectiveValue value2, EffectiveValue value3) {
         String source = value1.extractValueWithExpectation(String.class);
-        int start = value2.extractValueWithExpectation(Double.class).intValue();
-        int end = value3.extractValueWithExpectation(Double.class).intValue();
+        double startDouble = value2.extractValueWithExpectation(Double.class);
+        double endDouble = value3.extractValueWithExpectation(Double.class);
 
-        // Validate indices
-        return start >= 0 && end >= start && end < source.length();
+        // Ensure indices are integers
+        if (startDouble % 1 != 0 || endDouble % 1 != 0) {
+            throw new IllegalArgumentException("Start and end indices must be integers.");
+        }
+
+        // Validate source string is not null
+        if (source == null) {
+            throw new IllegalArgumentException("Source string cannot be null.");
+        }
     }
 
     @Override

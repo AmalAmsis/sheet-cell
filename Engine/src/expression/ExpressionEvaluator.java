@@ -3,6 +3,8 @@ package expression;
 import expression.impl.primitive.BooleanExpression;
 import expression.impl.primitive.NumericExpression;
 import expression.impl.primitive.StringExpression;
+import sheet.SheetDataRetriever;
+import sheet.coordinate.Coordinate;
 import sheet.effectivevalue.CellType;
 import sheet.effectivevalue.EffectiveValue;
 
@@ -20,7 +22,7 @@ public class ExpressionEvaluator {
      * @param str the string representation of the str to evaluate
      * @return the evaluated EffectiveValue
      */
-    public static EffectiveValue evaluate(String str) {
+    public static EffectiveValue evaluate(String str, SheetDataRetriever sheet, Coordinate targetCoordinate) {
         str = str.trim();
 
         // Handle numeric values
@@ -49,10 +51,10 @@ public class ExpressionEvaluator {
 
                 Expression[] expressions = new Expression[operation.getNumberOfArguments()];
                 for (int i = 0; i < expressions.length; i++) {
-                    expressions[i] = parseExpression(parts[i + 1].trim());
+                    expressions[i] = parseExpression(parts[i + 1].trim(), sheet);
                 }
 
-                return operation.eval(expressions);
+                return operation.eval(sheet, expressions);
             } catch (IllegalArgumentException e) {
                 throw new IllegalArgumentException("Invalid operation: " + operationName, e);
             }
@@ -114,11 +116,11 @@ public class ExpressionEvaluator {
      * Parses a string expression into an Expression object.
      * This method is called recursively to handle nested functions within arguments.
      *
-     * @param expression the string expression to parse
+     * @param str the string expression to parse
      * @return the corresponding Expression object
      */
-    private static Expression parseExpression(String expression) {
-        return convertEffectiveValueToExpression(evaluate(expression));
+    private static Expression parseExpression(String str, SheetDataRetriever sheet) {
+        return convertEffectiveValueToExpression(evaluate(str, sheet));
     }
 
     /**

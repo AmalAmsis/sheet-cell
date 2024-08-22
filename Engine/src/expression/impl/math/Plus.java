@@ -15,8 +15,18 @@ public class Plus extends BinaryExpression {
 
     @Override
     protected EffectiveValue doEvaluate(EffectiveValue value1, EffectiveValue value2) {
+
+        isValid(value1, value2);
+
+        // If both values are valid, perform the addition
+        double result = value1.extractValueWithExpectation(Double.class) + value2.extractValueWithExpectation(Double.class);
+        return new EffectiveValueImpl(CellType.NUMERIC, result);
+    }
+
+    @Override
+    protected void isValid(EffectiveValue value1, EffectiveValue value2) {
         // Check validity before performing the addition
-        if (!isValid(value1, value2)) {
+        if (value1.getCellType() != CellType.NUMERIC && value2.getCellType() != CellType.NUMERIC) {
             String message = String.format(
                     "Invalid operation: PLUS requires both arguments to be numeric. " +
                             "Received: value1=%s (type=%s), value2=%s (type=%s)",
@@ -27,15 +37,6 @@ public class Plus extends BinaryExpression {
             );
             throw new IllegalArgumentException(message);
         }
-
-        // If both values are valid, perform the addition
-        double result = value1.extractValueWithExpectation(Double.class) + value2.extractValueWithExpectation(Double.class);
-        return new EffectiveValueImpl(CellType.NUMERIC, result);
-    }
-
-    @Override
-    protected boolean isValid(EffectiveValue value1, EffectiveValue value2) {
-        return value1.getCellType() == CellType.NUMERIC && value2.getCellType() == CellType.NUMERIC;
     }
 
     @Override
