@@ -20,7 +20,7 @@ public class SheetImpl implements Sheet {
 
     private int version;
     private final String title;
-    private final Map<String, Cell> board;
+    private final Map<String, Cell> board = new HashMap<>();;
     private final int numOfRows;
     private final int numOfCols;
     private final int heightOfRows;
@@ -35,7 +35,7 @@ public class SheetImpl implements Sheet {
         this.numOfCols = numOfCols;
         this.heightOfRows = heightOfRows;
         this.widthOfCols = widthOfCols;
-        this.board = new HashMap<>();
+        //this.board = new HashMap<>();
     }
 
     // 22/8/24 - this ctor from STL object that we got from xml file,

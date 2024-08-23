@@ -50,12 +50,17 @@ public class CellImpl implements Cell {
         Coordinate myCoordinate = new CoordinateImpl(stlCell);
         this.coordinate = myCoordinate;
         this.id = myCoordinate.toString();
-        this.lastModifiedVersion =1;
+        this.lastModifiedVersion = 1;
 
+        this.dependsOn = new ArrayList<>();
+        this.influencingOn = new ArrayList<>();
         //TO DO --> DEPENDSON AND INFLUENING ON.
     }
+
     // 22/8/24
     public STLCell convertFromCellToSTLCell() {
+
+
         //preparation for create an STLCell
         String myOriginalValue = this.getOriginalValue();
         int myRow = this.getCoordinate().getRow();
@@ -71,8 +76,7 @@ public class CellImpl implements Cell {
     }
 
 
-    public CellImpl(Coordinate coordinate, int lastModifiedVersion, SheetDataRetriever sheet)
-    {
+    public CellImpl(Coordinate coordinate, int lastModifiedVersion, SheetDataRetriever sheet) {
         this.effectiveValue = null;
         this.originalValue = "";
         this.coordinate = coordinate;
@@ -80,12 +84,15 @@ public class CellImpl implements Cell {
         this.dependsOn = new ArrayList<>();
         this.influencingOn = new ArrayList<>();
         this.sheet = sheet;
+        this.id = coordinate.toString();
 
     }
 
     //public String getId() {return id;}
 
-    public Coordinate getCoordinate() {return coordinate;}
+    public Coordinate getCoordinate() {
+        return coordinate;
+    }
 
     @Override
     public EffectiveValue calculateEffectiveValue(String originalValue) {
@@ -98,18 +105,15 @@ public class CellImpl implements Cell {
         return null;
     }
 
-    public void updateValue(String originalValue)
-    {
-        EffectiveValue  previousEffectiveValue = this.effectiveValue;
+    public void updateValue(String originalValue) {
+        EffectiveValue previousEffectiveValue = this.effectiveValue;
         this.effectiveValue = calculateEffectiveValue(originalValue);
         try {
             for (Cell cell : influencingOn) {
                 cell.setEffectiveValue(calculateEffectiveValue(cell.getOriginalValue()));
             }
             this.originalValue = originalValue;
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             this.effectiveValue = previousEffectiveValue;
             for (Cell cell : influencingOn) {
                 cell.setEffectiveValue(calculateEffectiveValue(cell.getOriginalValue()));
@@ -178,5 +182,10 @@ public class CellImpl implements Cell {
     @Override
     public void removeInfluencingOn(Cell cell) {
 
+    }
+
+    @Override
+    public String getId() {
+        return id;
     }
 }

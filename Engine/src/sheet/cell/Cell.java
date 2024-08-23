@@ -23,5 +23,5 @@ public interface Cell {
     EffectiveValue calculateEffectiveValue(String originalValue);
     DTOCell convertToDTOCell();
     void setEffectiveValue(EffectiveValue effectiveValue);
-
+    String getId();
 }
