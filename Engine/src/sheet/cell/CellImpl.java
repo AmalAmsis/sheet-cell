@@ -45,7 +45,7 @@ public class CellImpl implements Cell {
         Coordinate myCoordinate = new CoordinateImpl(stlCell);
         this.coordinate = myCoordinate;
         this.id = myCoordinate.toString();
-        this.lastModifiedVersion =0;
+        this.lastModifiedVersion =1;
 
         //TO DO --> DEPENDSON AND INFLUENING ON.
     }

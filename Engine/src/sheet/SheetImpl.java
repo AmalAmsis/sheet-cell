@@ -39,8 +39,8 @@ public class SheetImpl implements Sheet {
     // 22/8/24 - this ctor from STL object that we got from xml file,
     // we assume that we will get it to the ctor after validation test!
     public SheetImpl(STLSheet stlSheet) {
-        //when we load a sheet the version is 0.
-        this.version =0;
+        //when we load a sheet the version is 1.
+        this.version =1;
         this.title = stlSheet.getName();
         this.numOfRows =stlSheet.getSTLLayout().getRows();
         this.numOfCols =stlSheet.getSTLLayout().getColumns();
