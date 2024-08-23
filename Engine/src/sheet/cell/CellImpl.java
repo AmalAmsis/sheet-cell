@@ -3,7 +3,12 @@ package sheet.cell;
 import dto.DTOCell;
 import expression.ExpressionEvaluator;
 import sheet.SheetDataRetriever;
+import dto.DTOCellImpl;
+import dto.DTOCoordinate;
+import dto.DTOCoordinateImpl;
+import jaxb.schema.generated.STLCell;
 import sheet.coordinate.Coordinate;
+import sheet.coordinate.CoordinateImpl;
 import sheet.effectivevalue.EffectiveValue;
 
 import java.util.ArrayList;
@@ -11,7 +16,7 @@ import java.util.List;
 
 public class CellImpl implements Cell {
     //data member
-    //private final String id;
+    private final String id; // do we need it ?
     private final Coordinate coordinate;
     private String originalValue;
     private EffectiveValue effectiveValue;
@@ -37,11 +42,41 @@ public class CellImpl implements Cell {
         this(coordinate, originalValue);
         this.effectiveValue = effectiveValue;
     }
-
      */
+    //22/8/24 - this ctor from STL object that we got from xml file,
+    //we assume that we will get it to the ctor after validation test!
+    public CellImpl(STLCell stlCell) {
+        this.originalValue = stlCell.toString();
+        Coordinate myCoordinate = new CoordinateImpl(stlCell);
+        this.coordinate = myCoordinate;
+        this.id = myCoordinate.toString();
+        this.lastModifiedVersion = 1;
 
-    public CellImpl(Coordinate coordinate, int lastModifiedVersion, SheetDataRetriever sheet)
-    {
+        this.dependsOn = new ArrayList<>();
+        this.influencingOn = new ArrayList<>();
+        //TO DO --> DEPENDSON AND INFLUENING ON.
+    }
+
+    // 22/8/24
+    public STLCell convertFromCellToSTLCell() {
+
+
+        //preparation for create an STLCell
+        String myOriginalValue = this.getOriginalValue();
+        int myRow = this.getCoordinate().getRow();
+        char myCol = this.getCoordinate().getCol();
+
+        //create new STLCell
+        STLCell stlCell = new STLCell();
+        stlCell.setSTLOriginalValue(myOriginalValue);
+        stlCell.setRow(myRow);
+        stlCell.setColumn(Character.toString(myCol));
+
+        return stlCell;
+    }
+
+
+    public CellImpl(Coordinate coordinate, int lastModifiedVersion, SheetDataRetriever sheet) {
         this.effectiveValue = null;
         this.originalValue = "";
         this.coordinate = coordinate;
@@ -49,12 +84,15 @@ public class CellImpl implements Cell {
         this.dependsOn = new ArrayList<>();
         this.influencingOn = new ArrayList<>();
         this.sheet = sheet;
+        this.id = coordinate.toString();
 
     }
 
     //public String getId() {return id;}
 
-    public Coordinate getCoordinate() {return coordinate;}
+    public Coordinate getCoordinate() {
+        return coordinate;
+    }
 
     @Override
     public EffectiveValue calculateEffectiveValue(String originalValue) {
@@ -67,18 +105,15 @@ public class CellImpl implements Cell {
         return null;
     }
 
-    public void updateValue(String originalValue)
-    {
-        EffectiveValue  previousEffectiveValue = this.effectiveValue;
+    public void updateValue(String originalValue) {
+        EffectiveValue previousEffectiveValue = this.effectiveValue;
         this.effectiveValue = calculateEffectiveValue(originalValue);
         try {
             for (Cell cell : influencingOn) {
                 cell.setEffectiveValue(calculateEffectiveValue(cell.getOriginalValue()));
             }
             this.originalValue = originalValue;
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             this.effectiveValue = previousEffectiveValue;
             for (Cell cell : influencingOn) {
                 cell.setEffectiveValue(calculateEffectiveValue(cell.getOriginalValue()));
@@ -149,25 +184,8 @@ public class CellImpl implements Cell {
 
     }
 
-//
-//    public DTOCell convertToDTOCell() {
-//        DTOCoordinate dtoCoordinate = new DTOCoordinateImpl(getCoordinate().getRow(), getCoordinate().getCol());
-//        DTOCell dtoCell = new DTOCellImpl();
-//        dtoCell.setCoordinate(dtoCoordinate);
-//        dtoCell.setEffectiveValue(effectiveValue);
-//        dtoCell.setLastModifiedVersion(lastModifiedVersion);
-//        dtoCell.setOriginalValue(originalValue);
-//        //DependsOn
-//        for(Cell cell : dependsOn) {
-//            DTOCoordinate dtoCoordinateWhoDependOn = new DTOCoordinateImpl(cell.getCoordinate().getRow(), cell.getCoordinate().getCol());
-//            dtoCell.addDToDependsOn(dtoCoordinateWhoDependOn);
-//        }
-//        //InfluencingOn
-//        for(Cell cell : influencingOn) {
-//            DTOCoordinate dtoCoordinateWhoInfluencingOn = new DTOCoordinateImpl(cell.getCoordinate().getRow(), cell.getCoordinate().getCol());
-//            dtoCell.addDToInfluencingOn(dtoCoordinateWhoInfluencingOn);
-//        }
-//        return dtoCell;
-//    }
-
+    @Override
+    public String getId() {
+        return id;
+    }
 }

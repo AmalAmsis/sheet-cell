@@ -1,6 +1,7 @@
 package sheet.cell;
 
 import dto.DTOCell;
+import jaxb.schema.generated.STLCell;
 import sheet.coordinate.Coordinate;
 import sheet.effectivevalue.EffectiveValue;
 
@@ -17,12 +18,10 @@ public interface Cell {
     List<Cell> getInfluencingOn();
     void addInfluencingOn(Cell cell);
     void removeInfluencingOn(Cell cell);
+    STLCell convertFromCellToSTLCell();
     Coordinate getCoordinate();
     EffectiveValue calculateEffectiveValue(String originalValue);
-
-
-    public DTOCell convertToDTOCell();
-
-    public void setEffectiveValue(EffectiveValue effectiveValue);
-
+    DTOCell convertToDTOCell();
+    void setEffectiveValue(EffectiveValue effectiveValue);
+    String getId();
 }

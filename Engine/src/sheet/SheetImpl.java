@@ -4,20 +4,23 @@ import dto.DTOCell;
 import dto.DTOCoordinate;
 import dto.DTOSheet;
 import dto.DTOSheetImpl;
+import jaxb.schema.generated.*;
 import sheet.coordinate.CoordinateImpl;
 import sheet.effectivevalue.EffectiveValue;
 import sheet.cell.Cell;
 import sheet.cell.CellImpl;
 import sheet.coordinate.Coordinate;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class SheetImpl implements Sheet {
 
     private int version;
     private final String title;
-    private final Map<String, Cell> board;
+    private final Map<String, Cell> board = new HashMap<>();;
     private final int numOfRows;
     private final int numOfCols;
     private final int heightOfRows;
@@ -32,7 +35,85 @@ public class SheetImpl implements Sheet {
         this.numOfCols = numOfCols;
         this.heightOfRows = heightOfRows;
         this.widthOfCols = widthOfCols;
-        this.board = new HashMap<>();
+        //this.board = new HashMap<>();
+    }
+
+    // 22/8/24 - this ctor from STL object that we got from xml file,
+    // we assume that we will get it to the ctor after validation test!
+    public SheetImpl(STLSheet stlSheet) {
+        //when we load a sheet the version is 1.
+        this.version =1;
+        this.title = stlSheet.getName();
+        this.numOfRows =stlSheet.getSTLLayout().getRows();
+        this.numOfCols =stlSheet.getSTLLayout().getColumns();
+        this.heightOfRows = stlSheet.getSTLLayout().getSTLSize().getRowsHeightUnits();
+        this.widthOfCols = stlSheet.getSTLLayout().getSTLSize().getRowsHeightUnits();
+
+        //load the cell on the list to our map
+        for(STLCell stlCell : stlSheet.getSTLCells().getSTLCell()){
+            CellImpl cell = new CellImpl(stlCell);
+            String key = cell.getId();
+            board.put(key, cell);
+        }
+    }
+
+    //22/8/24 by yarden --> for creating a xml file from objects
+    //very ugly function - TO DO it nice
+    public STLSheet convertFromSheetToStlSheet() {
+
+        //create the ELEMENT STLCells
+        STLCells stlCells = new STLCells();
+        //create the list of STLCells
+        List<STLCell> stlCellList = stlCells.getSTLCell();
+        for (String key : board.keySet()) {
+
+            //get the actual cell
+            Cell cell = board.get(key);
+            //create STLCell
+            STLCell stlCell = cell.convertFromCellToSTLCell();
+            //add the STLCell to the List
+            stlCellList.add(stlCell);
+        }
+
+        //create the ELEMENT STLSize before STLLayot
+        STLSize stlSize = new STLSize();
+        stlSize.setRowsHeightUnits(heightOfRows);
+        stlSize.setRowsHeightUnits(widthOfCols);
+
+        //create the ELEMENT STLLayot
+        STLLayout stlLayout = new STLLayout();
+        stlLayout.setRows(numOfRows);
+        stlLayout.setColumns(numOfCols);
+        stlLayout.setSTLSize(stlSize);
+
+        //and finally create the ELEMENT STLSheet
+        STLSheet stlSheet = new STLSheet();
+        stlSheet.setName(title);
+        stlSheet.setSTLLayout(stlLayout);
+        stlSheet.setSTLCells(stlCells);
+
+        //STLCell stlCell = new STLCell();
+
+        return stlSheet;
+
+    }
+
+
+    public int getHeightOfRows() {
+        return heightOfRows;
+    }
+    public int getWidthOfCols() {
+        return widthOfCols;
+    }
+    public int getNumOfRows() {
+        return numOfRows;
+    }
+    public int getNumOfCols() {
+        return numOfCols;
+    }
+
+    public Map<String, Cell> getBoard() {
+        return board;
     }
 
     @Override
