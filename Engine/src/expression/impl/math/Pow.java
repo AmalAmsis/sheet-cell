@@ -47,9 +47,4 @@ public class Pow extends BinaryExpression {
             //throw new ArithmeticException("Invalid operation: 0^0 is undefined.");
         //}
     }
-
-    @Override
-    public CellType getFunctionResultType() {
-        return CellType.NUMERIC;
-    }
 }

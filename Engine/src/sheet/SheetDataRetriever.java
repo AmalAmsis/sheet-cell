@@ -8,4 +8,7 @@ public interface SheetDataRetriever {
     String getTitle();
     EffectiveValue getCellEffectiveValue(Coordinate coordinate);
     public boolean isCellInSheet(Coordinate coordinate);
+
+    // Adding a new method to track dependencies
+    void addDependentCell(Coordinate mainCell, Coordinate dependentCell);
 }

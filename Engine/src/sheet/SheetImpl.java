@@ -23,6 +23,7 @@ public class SheetImpl implements Sheet {
     private final int heightOfRows;
     private final int widthOfCols;
 
+
     //CTOR
     public SheetImpl(String title, int numOfRows, int numOfCols, int heightOfRows, int widthOfCols) {
         this.version = 0;
@@ -49,7 +50,12 @@ public class SheetImpl implements Sheet {
         return board.get(coordinate.toString());
     }
 
-    @Override
+    @Override// לשאול את ירדן אם להשאיר
+    public DTOSheet convertToDTOSheet() {
+        return null;
+    }
+
+    @Override//לתקןןןן
     public void setCell(Coordinate coordinate, String originalValue) {
         updateVersion(); // Every change in a cell updates the sheet version.
 
@@ -73,9 +79,19 @@ public class SheetImpl implements Sheet {
     }
 
     // Check if a cell exists in the sheet
+    @Override
     public boolean isCellInSheet(Coordinate coordinate) {
         String key = coordinate.toString();
         return board.containsKey(key);
+    }
+
+    @Override
+    public void addDependentCell(Coordinate mainCellCoordinate, Coordinate effectorCellCoordinate) {
+        Cell mainCell = getCell(mainCellCoordinate);
+        Cell effectorCell = getCell(effectorCellCoordinate);
+
+        mainCell.addDependsOn(effectorCell);
+        effectorCell.addInfluencingOn(mainCell);
     }
 
     @Override
@@ -87,12 +103,14 @@ public class SheetImpl implements Sheet {
     }
 
     // Add a new cell to the sheet
+    // לתקן
     public void addCell(Coordinate coordinate, String originalValue, EffectiveValue effectiveValue) {
-        Cell myCell = new CellImpl(coordinate, originalValue,effectiveValue);
+        Cell myCell = new CellImpl(coordinate, originalValue);
         board.put(coordinate.toString(), myCell);
 
     }
 
+    //לתקן
     //update cell data.
     public void updateCell(Coordinate coordinate, String originalValue, EffectiveValue effectiveValue) {
         Cell myCell = board.get(coordinate.toString());

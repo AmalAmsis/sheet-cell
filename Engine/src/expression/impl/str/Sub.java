@@ -51,9 +51,4 @@ public class Sub extends TernaryExpression {
             throw new IllegalArgumentException("Source string cannot be null.");
         }
     }
-
-    @Override
-    public CellType getFunctionResultType() {
-        return CellType.STRING;
-    }
 }

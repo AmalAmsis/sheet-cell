@@ -38,9 +38,4 @@ public class Plus extends BinaryExpression {
             throw new IllegalArgumentException(message);
         }
     }
-
-    @Override
-    public CellType getFunctionResultType() {
-        return CellType.NUMERIC;
-    }
 }

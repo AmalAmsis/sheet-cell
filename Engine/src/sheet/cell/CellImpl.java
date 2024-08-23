@@ -1,9 +1,6 @@
 package sheet.cell;
 
 import dto.DTOCell;
-import dto.DTOCellImpl;
-import dto.DTOCoordinate;
-import dto.DTOCoordinateImpl;
 import expression.ExpressionEvaluator;
 import sheet.SheetDataRetriever;
 import sheet.coordinate.Coordinate;
@@ -63,6 +60,11 @@ public class CellImpl implements Cell {
     public EffectiveValue calculateEffectiveValue(String originalValue) {
         ExpressionEvaluator.evaluate(originalValue, sheet, this.coordinate);
         return effectiveValue;
+    }
+
+    @Override
+    public DTOCell convertToDTOCell() {
+        return null;
     }
 
     public void updateValue(String originalValue)

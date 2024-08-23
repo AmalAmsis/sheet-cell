@@ -32,9 +32,4 @@ public class Abs extends UnaryExpression {
        }
 
     }
-
-    @Override
-    public CellType getFunctionResultType() {
-        return CellType.NUMERIC;
-    }
 }

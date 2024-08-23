@@ -43,9 +43,4 @@ public class Mod extends BinaryExpression {
             throw new ArithmeticException("Invalid operation: Modulus by zero is not allowed.");
         }
     }
-
-    @Override
-    public CellType getFunctionResultType() {
-        return CellType.NUMERIC;
-    }
 }

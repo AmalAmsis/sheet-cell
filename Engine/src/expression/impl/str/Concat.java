@@ -44,9 +44,4 @@ public class Concat extends BinaryExpression {
         }
 
     }
-
-    @Override
-    public CellType getFunctionResultType() {
-        return CellType.STRING;
-    }
 }

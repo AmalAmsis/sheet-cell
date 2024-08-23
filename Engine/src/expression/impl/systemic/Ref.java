@@ -12,17 +12,20 @@ import static sheet.coordinate.CoordinateImpl.convertStringToCoordinate;
 
 public class Ref extends UnaryExpression {
 
-    private SheetDataRetriever sheet;
+    private final SheetDataRetriever sheet;
+    private Coordinate targetCoordinate;
 
-    public Ref(Expression expression, SheetDataRetriever sheet) {
+    public Ref(Expression expression, SheetDataRetriever sheet, Coordinate targetCoordinate) {
         super(expression);
         this.sheet = sheet;
+        this.targetCoordinate = targetCoordinate;
     }
 
     @Override
     protected EffectiveValue doEvaluate(EffectiveValue value) {
         isValid(value);  // Ensure that the value is valid before proceeding
         Coordinate coordinate = convertStringToCoordinate(value.extractValueWithExpectation(String.class));
+        sheet.addDependentCell(this.targetCoordinate, coordinate);
         return sheet.getCellEffectiveValue(coordinate);
     }
 
@@ -49,10 +52,5 @@ public class Ref extends UnaryExpression {
         if (!sheet.isCellInSheet(coordinate)) {
             throw new IllegalArgumentException(String.format("Invalid operation: The cell '%s' does not exist in the sheet.", cellReference));
         }
-    }
-
-    @Override
-    public CellType getFunctionResultType() {
-        return CellType.ANY;
     }
 }

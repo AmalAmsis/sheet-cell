@@ -51,10 +51,10 @@ public class ExpressionEvaluator {
 
                 Expression[] expressions = new Expression[operation.getNumberOfArguments()];
                 for (int i = 0; i < expressions.length; i++) {
-                    expressions[i] = parseExpression(parts[i + 1].trim(), sheet);
+                    expressions[i] = parseExpression(parts[i + 1].trim(), sheet, targetCoordinate);
                 }
 
-                return operation.eval(sheet, expressions);
+                return operation.eval(sheet, targetCoordinate, expressions);
             } catch (IllegalArgumentException e) {
                 throw new IllegalArgumentException("Invalid operation: " + operationName, e);
             }
@@ -119,8 +119,8 @@ public class ExpressionEvaluator {
      * @param str the string expression to parse
      * @return the corresponding Expression object
      */
-    private static Expression parseExpression(String str, SheetDataRetriever sheet) {
-        return convertEffectiveValueToExpression(evaluate(str, sheet));
+    private static Expression parseExpression(String str, SheetDataRetriever sheet, Coordinate targetCoordinate) {
+        return convertEffectiveValueToExpression(evaluate(str, sheet, targetCoordinate));
     }
 
     /**
