@@ -15,6 +15,15 @@ public class Concat extends BinaryExpression {
 
     @Override
     protected EffectiveValue doEvaluate(EffectiveValue value1, EffectiveValue value2) {
+
+        isValid(value1, value2);
+
+        String result = value1.extractValueWithExpectation(String.class) + value2.extractValueWithExpectation(String.class);
+        return new EffectiveValueImpl(CellType.STRING, result);
+    }
+
+    @Override
+    protected void isValid(EffectiveValue value1, EffectiveValue value2) {
         if (value1.getCellType() != CellType.STRING && value2.getCellType() != CellType.STRING) {
             String message = String.format(
                     "Invalid operation: CONCAT requires both arguments to be of type STRING. " +
@@ -34,26 +43,5 @@ public class Concat extends BinaryExpression {
             throw new IllegalArgumentException("The second argument is null.");
         }
 
-        String result = value1.extractValueWithExpectation(String.class) + value2.extractValueWithExpectation(String.class);
-        return new EffectiveValueImpl(CellType.STRING, result);
-    }
-
-    @Override
-    protected boolean isValid(EffectiveValue value1, EffectiveValue value2) {
-        if (value1 == null || value2 == null) {
-            return false;
-        }
-        if (value1.getCellType() != CellType.STRING) {
-            return false;
-        }
-        if (value2.getCellType() != CellType.STRING) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public CellType getFunctionResultType() {
-        return CellType.STRING;
     }
 }

@@ -18,5 +18,5 @@ public abstract class UnaryExpression implements Expression {
     }
 
     protected abstract EffectiveValue doEvaluate(EffectiveValue value);
-    abstract protected boolean isValid(EffectiveValue value);
+    abstract protected void isValid(EffectiveValue value);
 }

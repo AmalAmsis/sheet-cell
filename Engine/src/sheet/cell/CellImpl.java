@@ -1,9 +1,8 @@
 package sheet.cell;
 
 import dto.DTOCell;
-import dto.DTOCellImpl;
-import dto.DTOCoordinate;
-import dto.DTOCoordinateImpl;
+import expression.ExpressionEvaluator;
+import sheet.SheetDataRetriever;
 import sheet.coordinate.Coordinate;
 import sheet.effectivevalue.EffectiveValue;
 
@@ -12,14 +11,16 @@ import java.util.List;
 
 public class CellImpl implements Cell {
     //data member
-    private final String id;
+    //private final String id;
     private final Coordinate coordinate;
     private String originalValue;
     private EffectiveValue effectiveValue;
     private int lastModifiedVersion;
-    private final List<Cell> dependsOn = new ArrayList<>();
-    private final List<Cell> influencingOn = new ArrayList<>();
+    private final List<Cell> dependsOn;
+    private final List<Cell> influencingOn;
+    private SheetDataRetriever sheet;
 
+    /*
     //ctor 1
     public CellImpl(Coordinate coordinate) {
         this.coordinate = coordinate;
@@ -37,23 +38,72 @@ public class CellImpl implements Cell {
         this.effectiveValue = effectiveValue;
     }
 
-    public String getId() {return id;}
+     */
+
+    public CellImpl(Coordinate coordinate, int lastModifiedVersion, SheetDataRetriever sheet)
+    {
+        this.effectiveValue = null;
+        this.originalValue = "";
+        this.coordinate = coordinate;
+        this.lastModifiedVersion = lastModifiedVersion;
+        this.dependsOn = new ArrayList<>();
+        this.influencingOn = new ArrayList<>();
+        this.sheet = sheet;
+
+    }
+
+    //public String getId() {return id;}
 
     public Coordinate getCoordinate() {return coordinate;}
+
+    @Override
+    public EffectiveValue calculateEffectiveValue(String originalValue) {
+        ExpressionEvaluator.evaluate(originalValue, sheet, this.coordinate);
+        return effectiveValue;
+    }
+
+    @Override
+    public DTOCell convertToDTOCell() {
+        return null;
+    }
+
+    public void updateValue(String originalValue)
+    {
+        EffectiveValue  previousEffectiveValue = this.effectiveValue;
+        this.effectiveValue = calculateEffectiveValue(originalValue);
+        try {
+            for (Cell cell : influencingOn) {
+                cell.setEffectiveValue(calculateEffectiveValue(cell.getOriginalValue()));
+            }
+            this.originalValue = originalValue;
+        }
+        catch (Exception e)
+        {
+            this.effectiveValue = previousEffectiveValue;
+            for (Cell cell : influencingOn) {
+                cell.setEffectiveValue(calculateEffectiveValue(cell.getOriginalValue()));
+            }
+            throw e;
+        }
+    }
 
     @Override
     public String getOriginalValue() {
         return originalValue;
     } //AMAL
 
-    @Override
-    public void setOriginalValue(String originalValue) {
+
+    private void setOriginalValue(String originalValue) {
         this.originalValue = originalValue;
     }
 
+    public void setEffectiveValue(EffectiveValue effectiveValue) {
+        this.effectiveValue = effectiveValue;
+    }
+
     @Override
-    public Object getEffectiveValue() {
-        return null;
+    public EffectiveValue getEffectiveValue() {
+        return effectiveValue;
     } //AMAL
 
     @Override

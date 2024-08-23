@@ -46,6 +46,14 @@ public class CoordinateImpl implements Coordinate {
         return (col-'A' + 1);
     }
 
+    //?????
+    // Convert a string representation of a coordinate to a Coordinate object
+    public static Coordinate convertStringToCoordinate(String stringCoordinate) {
+        char col = stringCoordinate.charAt(0);
+        int row = Integer.parseInt(stringCoordinate.substring(1));
+        return new CoordinateImpl(col, row);
+    }
+
     public DTOCoordinate convertToDTOCoordinate(Coordinate coordinate){
         return (new DTOCoordinateImpl(coordinate.getRow(), coordinate.getCol()));
     }

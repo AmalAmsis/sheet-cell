@@ -15,13 +15,14 @@ import java.util.Map;
 
 public class SheetImpl implements Sheet {
 
-    int version;
-    String title;
-    Map<String, Cell> board = new HashMap<>();
-    final int numOfRows;
-    final int numOfCols;
-    final int heightOfRows;
-    final int widthOfCols;
+    private int version;
+    private final String title;
+    private final Map<String, Cell> board;
+    private final int numOfRows;
+    private final int numOfCols;
+    private final int heightOfRows;
+    private final int widthOfCols;
+
 
     //CTOR
     public SheetImpl(String title, int numOfRows, int numOfCols, int heightOfRows, int widthOfCols) {
@@ -31,23 +32,7 @@ public class SheetImpl implements Sheet {
         this.numOfCols = numOfCols;
         this.heightOfRows = heightOfRows;
         this.widthOfCols = widthOfCols;
-    }
-
-    public int getHeightOfRows() {
-        return heightOfRows;
-    }
-    public int getWidthOfCols() {
-        return widthOfCols;
-    }
-    public int getNumOfRows() {
-        return numOfRows;
-    }
-    public int getNumOfCols() {
-        return numOfCols;
-    }
-
-    public Map<String, Cell> getBoard() {
-        return board;
+        this.board = new HashMap<>();
     }
 
     @Override
@@ -61,52 +46,71 @@ public class SheetImpl implements Sheet {
     }
 
     @Override
-    public Cell getCell(Coordinate coordinate) { // to do
-      return board.get(coordinate.toString());
+    public Cell getCell(Coordinate coordinate) {
+        return board.get(coordinate.toString());
     }
 
-    @Override
-    public void setCell(Coordinate coordinate, String originalValue) {
-        updateVersion(); //every change in cell mean that the version of the sheet change.
-
-        if(originalValue.isBlank()) //if the original value contain only white spaces
-       {
-           removeCell(coordinate); //Whether the cell existed before or not, the result will be the same, there will no longer be this cell.
-           return;
-       }
-        //*AMAL* to do
-        EffectiveValue effectiveValue = calculateEffectiveValue(originalValue);
-
-        if(!isCellInSheet(coordinate)) {
-            addCell(coordinate, originalValue,effectiveValue);
-        }
-        else{
-            updateCell(coordinate,originalValue,effectiveValue);
-        }
-    }
-
-    //*AMAL* to do
-    public EffectiveValue calculateEffectiveValue(String originalValue) {
+    @Override// לשאול את ירדן אם להשאיר
+    public DTOSheet convertToDTOSheet() {
         return null;
     }
 
-    public void updateVersion(){
-    version++;
+    @Override//לתקןןןן
+    public void setCell(Coordinate coordinate, String originalValue) {
+        updateVersion(); // Every change in a cell updates the sheet version.
+
+        if (originalValue.isBlank()) { // If the original value is blank
+            removeCell(coordinate); // Remove the cell if the value is blank.
+            return;
+        }
+
+        EffectiveValue effectiveValue = calculateEffectiveValue(originalValue);
+
+        if (!isCellInSheet(coordinate)) {
+            addCell(coordinate, originalValue, effectiveValue);
+        } else {
+            updateCell(coordinate, originalValue, effectiveValue);
+        }
     }
 
-    //this func check if the sheet contain the coordinate
+    // Update the sheet version
+    private void updateVersion() {
+        version++;
+    }
+
+    // Check if a cell exists in the sheet
+    @Override
     public boolean isCellInSheet(Coordinate coordinate) {
         String key = coordinate.toString();
         return board.containsKey(key);
     }
 
-    //add new cell to our board
+    @Override
+    public void addDependentCell(Coordinate mainCellCoordinate, Coordinate effectorCellCoordinate) {
+        Cell mainCell = getCell(mainCellCoordinate);
+        Cell effectorCell = getCell(effectorCellCoordinate);
+
+        mainCell.addDependsOn(effectorCell);
+        effectorCell.addInfluencingOn(mainCell);
+    }
+
+    @Override
+    public EffectiveValue getCellEffectiveValue(Coordinate coordinate) {
+        if (isCellInSheet(coordinate)) {
+            return board.get(coordinate.toString()).getEffectiveValue();
+        }
+        return null;
+    }
+
+    // Add a new cell to the sheet
+    // לתקן
     public void addCell(Coordinate coordinate, String originalValue, EffectiveValue effectiveValue) {
-        Cell myCell = new CellImpl(coordinate, originalValue,effectiveValue);
+        Cell myCell = new CellImpl(coordinate, originalValue);
         board.put(coordinate.toString(), myCell);
 
     }
 
+    //לתקן
     //update cell data.
     public void updateCell(Coordinate coordinate, String originalValue, EffectiveValue effectiveValue) {
         Cell myCell = board.get(coordinate.toString());
@@ -116,6 +120,7 @@ public class SheetImpl implements Sheet {
         }
     }
 
+    // Remove a cell from the sheet
     public void removeCell(Coordinate coordinate) {
         board.remove(coordinate.toString());
     }
