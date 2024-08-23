@@ -5,5 +5,4 @@ import sheet.effectivevalue.EffectiveValue;
 
 public interface Expression {
     EffectiveValue evaluate();
-    CellType getFunctionResultType();
 }

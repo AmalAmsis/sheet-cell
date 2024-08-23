@@ -3,13 +3,13 @@ package sheet.cell;
 import dto.DTOCell;
 import jaxb.schema.generated.STLCell;
 import sheet.coordinate.Coordinate;
+import sheet.effectivevalue.EffectiveValue;
 
 import java.util.List;
 
 public interface Cell {
     String getOriginalValue();
-    void setOriginalValue(String originalValue);
-    Object getEffectiveValue();
+    EffectiveValue getEffectiveValue();
     int getLastModifiedVersion();
     void setLastModifiedVersion(int version);
     List<Cell> getDependsOn();
@@ -18,6 +18,10 @@ public interface Cell {
     List<Cell> getInfluencingOn();
     void addInfluencingOn(Cell cell);
     void removeInfluencingOn(Cell cell);
-    public Coordinate getCoordinate();
-    public STLCell convertFromCellToSTLCell();
+    STLCell convertFromCellToSTLCell();
+    Coordinate getCoordinate();
+    EffectiveValue calculateEffectiveValue(String originalValue);
+    DTOCell convertToDTOCell();
+    void setEffectiveValue(EffectiveValue effectiveValue);
+
 }

@@ -15,7 +15,15 @@ public class Minus extends BinaryExpression {
 
     @Override
     protected EffectiveValue doEvaluate(EffectiveValue value1, EffectiveValue value2) {
-        if (!isValid(value1, value2)) {
+        isValid(value1, value2);
+        double result = value1.extractValueWithExpectation(Double.class) - value2.extractValueWithExpectation(Double.class);
+        return new EffectiveValueImpl(CellType.NUMERIC, result);
+    }
+
+    @Override
+    protected void isValid(EffectiveValue value1, EffectiveValue value2) {
+        if(value1.getCellType() != CellType.NUMERIC && value2.getCellType() != CellType.NUMERIC)
+        {
             String message = String.format(
                     "Invalid operation: MINUS requires both arguments to be numeric. " +
                             "Received: value1=%s (type=%s), value2=%s (type=%s)",
@@ -26,17 +34,5 @@ public class Minus extends BinaryExpression {
             );
             throw new IllegalArgumentException(message);
         }
-        double result = value1.extractValueWithExpectation(Double.class) - value2.extractValueWithExpectation(Double.class);
-        return new EffectiveValueImpl(CellType.NUMERIC, result);
-    }
-
-    @Override
-    protected boolean isValid(EffectiveValue value1, EffectiveValue value2) {
-        return value1.getCellType() == CellType.NUMERIC && value2.getCellType() == CellType.NUMERIC;
-    }
-
-    @Override
-    public CellType getFunctionResultType() {
-        return CellType.NUMERIC;
     }
 }

@@ -1,6 +1,8 @@
 package sheet.cell;
 
 import dto.DTOCell;
+import expression.ExpressionEvaluator;
+import sheet.SheetDataRetriever;
 import dto.DTOCellImpl;
 import dto.DTOCoordinate;
 import dto.DTOCoordinateImpl;
@@ -14,14 +16,16 @@ import java.util.List;
 
 public class CellImpl implements Cell {
     //data member
-    private final String id;
+    private final String id; // do we need it ?
     private final Coordinate coordinate;
     private String originalValue;
     private EffectiveValue effectiveValue;
     private int lastModifiedVersion;
-    private final List<Cell> dependsOn = new ArrayList<>();
-    private final List<Cell> influencingOn = new ArrayList<>();
+    private final List<Cell> dependsOn;
+    private final List<Cell> influencingOn;
+    private SheetDataRetriever sheet;
 
+    /*
     //ctor 1
     public CellImpl(Coordinate coordinate) {
         this.coordinate = coordinate;
@@ -38,6 +42,7 @@ public class CellImpl implements Cell {
         this(coordinate, originalValue);
         this.effectiveValue = effectiveValue;
     }
+     */
     //22/8/24 - this ctor from STL object that we got from xml file,
     //we assume that we will get it to the ctor after validation test!
     public CellImpl(STLCell stlCell) {
@@ -65,23 +70,71 @@ public class CellImpl implements Cell {
         return stlCell;
     }
 
-    public String getId() {return id;}
+
+    public CellImpl(Coordinate coordinate, int lastModifiedVersion, SheetDataRetriever sheet)
+    {
+        this.effectiveValue = null;
+        this.originalValue = "";
+        this.coordinate = coordinate;
+        this.lastModifiedVersion = lastModifiedVersion;
+        this.dependsOn = new ArrayList<>();
+        this.influencingOn = new ArrayList<>();
+        this.sheet = sheet;
+
+    }
+
+    //public String getId() {return id;}
 
     public Coordinate getCoordinate() {return coordinate;}
+
+    @Override
+    public EffectiveValue calculateEffectiveValue(String originalValue) {
+        ExpressionEvaluator.evaluate(originalValue, sheet, this.coordinate);
+        return effectiveValue;
+    }
+
+    @Override
+    public DTOCell convertToDTOCell() {
+        return null;
+    }
+
+    public void updateValue(String originalValue)
+    {
+        EffectiveValue  previousEffectiveValue = this.effectiveValue;
+        this.effectiveValue = calculateEffectiveValue(originalValue);
+        try {
+            for (Cell cell : influencingOn) {
+                cell.setEffectiveValue(calculateEffectiveValue(cell.getOriginalValue()));
+            }
+            this.originalValue = originalValue;
+        }
+        catch (Exception e)
+        {
+            this.effectiveValue = previousEffectiveValue;
+            for (Cell cell : influencingOn) {
+                cell.setEffectiveValue(calculateEffectiveValue(cell.getOriginalValue()));
+            }
+            throw e;
+        }
+    }
 
     @Override
     public String getOriginalValue() {
         return originalValue;
     } //AMAL
 
-    @Override
-    public void setOriginalValue(String originalValue) {
+
+    private void setOriginalValue(String originalValue) {
         this.originalValue = originalValue;
     }
 
+    public void setEffectiveValue(EffectiveValue effectiveValue) {
+        this.effectiveValue = effectiveValue;
+    }
+
     @Override
-    public Object getEffectiveValue() {
-        return null;
+    public EffectiveValue getEffectiveValue() {
+        return effectiveValue;
     } //AMAL
 
     @Override
@@ -126,26 +179,4 @@ public class CellImpl implements Cell {
     public void removeInfluencingOn(Cell cell) {
 
     }
-
-//
-//    public DTOCell convertToDTOCell() {
-//        DTOCoordinate dtoCoordinate = new DTOCoordinateImpl(getCoordinate().getRow(), getCoordinate().getCol());
-//        DTOCell dtoCell = new DTOCellImpl();
-//        dtoCell.setCoordinate(dtoCoordinate);
-//        dtoCell.setEffectiveValue(effectiveValue);
-//        dtoCell.setLastModifiedVersion(lastModifiedVersion);
-//        dtoCell.setOriginalValue(originalValue);
-//        //DependsOn
-//        for(Cell cell : dependsOn) {
-//            DTOCoordinate dtoCoordinateWhoDependOn = new DTOCoordinateImpl(cell.getCoordinate().getRow(), cell.getCoordinate().getCol());
-//            dtoCell.addDToDependsOn(dtoCoordinateWhoDependOn);
-//        }
-//        //InfluencingOn
-//        for(Cell cell : influencingOn) {
-//            DTOCoordinate dtoCoordinateWhoInfluencingOn = new DTOCoordinateImpl(cell.getCoordinate().getRow(), cell.getCoordinate().getCol());
-//            dtoCell.addDToInfluencingOn(dtoCoordinateWhoInfluencingOn);
-//        }
-//        return dtoCell;
-//    }
-
 }
