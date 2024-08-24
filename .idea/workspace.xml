@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="working in progress on the EngineImpl">
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="update the Serialize function in the EngineImpl.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/engine/EngineImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/engine/EngineImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/coordinate/CoordinateImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/coordinate/CoordinateImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/effectivevalue/EffectiveValueImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/effectivevalue/EffectiveValueImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/version/SheetVersionHandlerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/version/SheetVersionHandlerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/state/SheetStateManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/state/SheetStateManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/FileDataException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/FileDataException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/XmlProcessingImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/XmlProcessingImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +72,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724512355544</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="update the Serialize function in the EngineImpl.">
+      <option name="closed" value="true" />
+      <created>1724517053848</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1724517053848</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -96,6 +99,7 @@
     <MESSAGE value="SheetVersionHandler finished" />
     <MESSAGE value="state package Bonus&#10;Interface Engine" />
     <MESSAGE value="working in progress on the EngineImpl" />
-    <option name="LAST_COMMIT_MESSAGE" value="working in progress on the EngineImpl" />
+    <MESSAGE value="update the Serialize function in the EngineImpl." />
+    <option name="LAST_COMMIT_MESSAGE" value="update the Serialize function in the EngineImpl." />
   </component>
 </project>

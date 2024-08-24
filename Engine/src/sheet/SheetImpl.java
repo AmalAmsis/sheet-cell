@@ -188,7 +188,7 @@ public class SheetImpl implements Sheet , Serializable {
 
 
         // get the col letter and checking that a letter representing the column is in the col range of the sheet
-        char col = stringCoordinate.charAt(0);
+        char col = stringCoordinate.toUpperCase().charAt(0);
         if (col < 'A' || col > getLastColLetter()) {
             throw new IllegalArgumentException("Column must be a letter between A and " + getLastColLetter() + ".");
         }

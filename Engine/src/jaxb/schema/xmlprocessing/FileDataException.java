@@ -44,4 +44,13 @@ public class FileDataException extends Exception{
         }
     }
 
+    /**
+     * Exception thrown when a cell in the file is outside the bounds of the sheet.
+     */
+    public static class CellOutOfBoundsException extends FileDataException {
+        public CellOutOfBoundsException() {
+            super("There is a cell outside the bounds of the sheet.");
+        }
+    }
+
 }
