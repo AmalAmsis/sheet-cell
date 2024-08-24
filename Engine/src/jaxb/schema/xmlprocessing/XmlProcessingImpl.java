@@ -11,7 +11,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-public class XmlProcessingImpl /*implements XmlProcessing*/ {
+public class XmlProcessingImpl implements XmlProcessing {
 
     //the package path of the generated classes
     private final String JAXB_XML_STL_PACKAGE_NAME = "jaxb.schema.generated";
@@ -84,6 +84,7 @@ public class XmlProcessingImpl /*implements XmlProcessing*/ {
      * @param stlSheet    the STLSheet object to be serialized
      * @throws JAXBException if an error occurs during marshalling
      */
+    //maybe we don't need this function..
     void fromObjectToXmlFile(String inputXmlFilePath, STLSheet stlSheet) throws JAXBException{
 
         try {

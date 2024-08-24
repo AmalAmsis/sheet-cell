@@ -10,9 +10,10 @@ public class SheetVersionHandlerImpl implements SheetVersionHandler {
     private final List<Sheet> versionHistory;
     private int numOfVersions;
 
-    public SheetVersionHandlerImpl() {
+    public SheetVersionHandlerImpl(Sheet currentSheet) {
         this.versionHistory = new ArrayList<Sheet>();
-        this.numOfVersions = 0;
+        this.versionHistory.add(currentSheet);
+        this.numOfVersions = 1;
     }
 
     @Override

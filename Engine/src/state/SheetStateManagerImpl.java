@@ -8,9 +8,9 @@ import java.io.Serializable;
 
 public class SheetStateManagerImpl implements Serializable, SheetStateManager {
     private Sheet currentSheet;
-    private SheetVersionHandlerImpl versionOfCurrentSheet;
+    private SheetVersionHandler versionOfCurrentSheet;
 
-    public SheetStateManagerImpl(Sheet currentSheet, SheetVersionHandlerImpl versionOfCurrentSheet) {
+    public SheetStateManagerImpl(Sheet currentSheet, SheetVersionHandler versionOfCurrentSheet) {
         this.currentSheet = currentSheet;
         this.versionOfCurrentSheet = versionOfCurrentSheet;
     }

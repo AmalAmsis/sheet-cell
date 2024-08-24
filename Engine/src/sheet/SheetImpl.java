@@ -179,7 +179,7 @@ public class SheetImpl implements Sheet {
     }
 
 
-    public CoordinateImpl convertStringToCoordinate(String stringCoordinate) {
+    public Coordinate convertStringToCoordinate(String stringCoordinate) {
         // Check if the input is null or of incorrect length
         if (stringCoordinate == null || stringCoordinate.length() < 2 || stringCoordinate.length() > 3) {
             throw new IllegalArgumentException("Input must be between 2 to 3 characters long and non-null.");

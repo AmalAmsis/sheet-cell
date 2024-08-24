@@ -12,4 +12,5 @@ public interface SheetStateManager {
 
     Sheet getCurrentSheet();
     SheetVersionHandler getVersionHandler();
+    //void updateSheetState(Sheet newVersionOfSheet);
 }
