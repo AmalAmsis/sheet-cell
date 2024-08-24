@@ -1,22 +1,22 @@
 package sheet.version;
 
-import dto.DTOSheet;
+import sheet.Sheet;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SheetVersionHandlerImpl implements SheetVersionHandler {
 
-    private final List<DTOSheet> versionHistory;
+    private final List<Sheet> versionHistory;
     private int numOfVersions;
 
     public SheetVersionHandlerImpl() {
-        this.versionHistory = new ArrayList<DTOSheet>();
+        this.versionHistory = new ArrayList<Sheet>();
         this.numOfVersions = 0;
     }
 
     @Override
-    public void addNewVersion(DTOSheet dtoSheet) {
+    public void addNewVersion(Sheet dtoSheet) {
         this.versionHistory.add(dtoSheet);
         this.numOfVersions++;
     }
@@ -28,7 +28,7 @@ public class SheetVersionHandlerImpl implements SheetVersionHandler {
     }
 
     @Override
-    public DTOSheet getSheetByVersion(int version) {
+    public Sheet getSheetByVersion(int version) {
         if (version < 0 || version > this.numOfVersions) {
             throw new IllegalArgumentException("Invalid version number: " + version + ". Please choose a version number between 1 and " + (this.numOfVersions-1) +" (inclusive).");
         }

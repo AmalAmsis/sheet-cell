@@ -4,18 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="update gitignore">
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="SheetVersionHandler finished">
+      <change afterPath="$PROJECT_DIR$/Engine/src/engine/Engine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/engine/EngineImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/state/SheetStateManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/state/SheetStateManagerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/version/SheetVersionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/version/SheetVersionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/version/SheetVersionHandlerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/version/SheetVersionHandlerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/version/SheetVersionProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/version/SheetVersionProvider.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
-    "git-widget-placeholder": "Amal",
+    "git-widget-placeholder": "yarden__branch",
     "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
@@ -45,8 +64,20 @@
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="update gitignore" />
+    <MESSAGE value="SheetVersionHandler finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="SheetVersionHandler finished" />
   </component>
 </project>
