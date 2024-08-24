@@ -64,6 +64,9 @@ public class CellImpl implements Cell {
         return effectiveValue;
     }
 
+
+    //לא לשכוח להוסיף בדיקה אם התוצאה מתאימה לגודל תא בגליון
+    @Override
     public void updateValue(String originalValue) {
         //EffectiveValue previousEffectiveValue = this.effectiveValue;
         try {
@@ -76,6 +79,7 @@ public class CellImpl implements Cell {
         }
     }
 
+    @Override
     public void updateValueHelper(String originalValue) {
         this.effectiveValue = calculateEffectiveValue(originalValue);
         for (Cell cell : influencingOn) {

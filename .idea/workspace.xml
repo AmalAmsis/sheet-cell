@@ -1,302 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AnalysisUIOptions">
-    <option name="ANALYZE_INJECTED_CODE" value="false" />
-  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91869a22-25b7-4b72-89ca-e818d3188b14" name="Changes" comment="ok ok ok &#10;I worked oj the DTOs Object&#10;1) in CoordinateImpl - convertToDTOCoordinate&#10;2) in cellImpl - convertToDTOCell&#10;3) in Sheet - convertToDTOSheet">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_08_2024_14_28__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_08_2024_14_28__Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_33__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_33__Changes_.xml" afterDir="false" />
-    <list default="true" id="91869a22-25b7-4b72-89ca-e818d3188b14" name="Changes" comment="I built 3 new ctors:&#10;the ctors gets an STL objcet and load our engine classes.&#10;we assume that we enter to the ctors after validation check of the file.&#10;&#10;to do:&#10;1. in ctor of cellImpl we need to load the dependsOn ans the influencingOn.&#10;&#10;2. validation check!">
-      <change afterPath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/XmlProcessing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/XmlProcessingImpl.java" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="update gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCellImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCellImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/Expression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/Expression.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/ExpressionEvaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/ExpressionEvaluator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/Operation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Abs.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Abs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Divide.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Divide.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Minus.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Minus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Mod.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Mod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Plus.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Plus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Pow.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Pow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Times.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Times.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/str/Concat.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/str/Concat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/str/Sub.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/str/Sub.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/systemic/Ref.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/systemic/Ref.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/SheetDataModifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/SheetDataModifier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/SheetDataRetriever.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/SheetDataRetriever.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java" afterDir="false" />
     </list>
-    <list default="true" id="91869a22-25b7-4b72-89ca-e818d3188b14" name="Changes" comment="split sheet into 3 interfaces, update REF , sheet , cell , Operation, ExpressionEvaluator" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "git-widget-placeholder": "Amal",
+    "node.js.selected.package.tslint": "(autodetect)"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Engine" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
       <list>
-        <option value="Enum" />
-        <option value="Interface" />
-        <option value="Class" />
+        <item itemvalue="Application.Main" />
       </list>
-    </option>
+    </recent_temporary>
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="master" />
-      </map>
-    </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;AmalAmsis&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/AmalAmsis/sheet-cell.git&quot;,
-    &quot;accountId&quot;: &quot;537397b5-d0c5-40c9-8de6-5008f77a31b4&quot;
-  },
-  &quot;recentNewPullRequestHead&quot;: {
-    &quot;server&quot;: {
-      &quot;useHttp&quot;: false,
-      &quot;host&quot;: &quot;github.com&quot;,
-      &quot;port&quot;: null,
-      &quot;suffix&quot;: null
-    },
-    &quot;owner&quot;: &quot;AmalAmsis&quot;,
-    &quot;repository&quot;: &quot;sheet-cell&quot;
-  }
-}</component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 7
-}</component>
-  <component name="ProjectId" id="2kghmDWPTHJeXApxsDRXEkk1wtx" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Amal&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Yarden Daniel/Desktop/computer science/year 2/semester 3/java/jaxb-ri-4.0.5/jaxb-ri-4.0.5/mod&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;yarden__branch&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Yarden Daniel/Desktop/computer science/year 2/semester 3/java/projects/from_calss/05. XML/05. XML/05. XML.iml&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;diff.external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  }
-}</component>
-  <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="dto" />
-    </key>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.387" />
-        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.387" />
-      </set>
-    </attachedChunks>
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="91869a22-25b7-4b72-89ca-e818d3188b14" name="Changes" comment="" />
-      <created>1723711286539</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1723711286539</updated>
-      <workItem from="1723711287600" duration="11997000" />
-      <workItem from="1723832848242" duration="15805000" />
-      <workItem from="1723914486457" duration="21000" />
-      <workItem from="1724161235481" duration="20537000" />
-      <workItem from="1724337558043" duration="1604000" />
-    </task>
-    <task id="LOCAL‎-00001" summary="added git ignore">
+    <task id="LOCAL‎-00001" summary="update gitignore">
       <option name="closed" value="true" />
-      <created>1723711967924</created>
+      <created>1724498833313</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL‎-00001" />
       <option name="project" value="LOCAL‎" />
-      <updated>1723711967924</updated>
+      <updated>1724498833313</updated>
     </task>
-    <task id="LOCAL-00002" summary="new nodule : DTO&#10;DTOCell - interface + class">
-      <option name="closed" value="true" />
-      <created>1723834997470</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1723834997470</updated>
-    </task>
-    <task id="LOCAL-00003" summary="IN MODULE DTO:&#10;update DTOCell - interface + class&#10;new DTOSheet - interface + class&#10;new DTOCoordinate -interface + class">
-      <option name="closed" value="true" />
-      <created>1723836474119</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1723836474119</updated>
-    </task>
-    <task id="LOCAL-00004" summary="ok ok ok &#10;I worked oj the DTOs Object&#10;1) in CoordinateImpl - convertToDTOCoordinate&#10;2) in cellImpl - convertToDTOCell&#10;3) in Sheet - convertToDTOSheet">
-      <option name="closed" value="true" />
-      <created>1723914109880</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1723914109880</updated>
-    </task>
-    <task id="LOCAL-00005" summary="for marge 20/8/24">
-      <option name="closed" value="true" />
-      <created>1724152761380</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1724152761380</updated>
-    </task>
-    <task id="LOCAL-00006" summary="schema + update DTO + convertFromStringTOcoordinate">
-      <option name="closed" value="true" />
-      <created>1724170374505</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1724170374505</updated>
-    </task>
-    <task id="LOCAL-00007" summary="schema + update DTO + convertFromStringTOcoordinate">
-      <option name="closed" value="true" />
-      <created>1724170480854</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1724170480854</updated>
-    </task>
-    <task id="LOCAL‎-00008" summary="ok ok ok &#10;I worked oj the DTOs Object&#10;1) in CoordinateImpl - convertToDTOCoordinate&#10;2) in cellImpl - convertToDTOCell&#10;3) in Sheet - convertToDTOSheet">
-      <option name="closed" value="true" />
-      <created>1724329874514</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL‎-00008" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1724329874514</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
-    <task id="LOCAL-00008" summary="schema + update DTO + convertFromStringTOcoordinate">
-      <option name="closed" value="true" />
-      <created>1724327673983</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1724327673983</updated>
-    </task>
-    <task id="LOCAL-00009" summary="I built 3 new ctors:&#10;the ctors gets an STL objcet and load our engine classes.&#10;we assume that we enter to the ctors after validation check of the file.&#10;&#10;to do:&#10;1. in ctor of cellImpl we need to load the dependsOn ans the influencingOn.&#10;&#10;2. validation check!">
-      <option name="closed" value="true" />
-      <created>1724336459890</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1724336459890</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
-    <task id="LOCAL‎-00009" summary="split sheet into 3 interfaces, update REF , sheet , cell , Operation, ExpressionEvaluator">
-      <option name="closed" value="true" />
-      <created>1724400674853</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL‎-00009" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1724400674853</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added git ignore" />
-    <MESSAGE value="new nodule : DTO&#10;DTOCell - interface + class" />
-    <MESSAGE value="IN MODULE DTO:&#10;update DTOCell - interface + class&#10;new DTOSheet - interface + class&#10;new DTOCoordinate -interface + class" />
-    <MESSAGE value="ok ok ok &#10;I worked oj the DTOs Object&#10;1) in CoordinateImpl - convertToDTOCoordinate&#10;2) in cellImpl - convertToDTOCell&#10;3) in Sheet - convertToDTOSheet" />
-    <MESSAGE value="split sheet into 3 interfaces, update REF , sheet , cell , Operation, ExpressionEvaluator" />
-    <option name="LAST_COMMIT_MESSAGE" value="split sheet into 3 interfaces, update REF , sheet , cell , Operation, ExpressionEvaluator" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Engine/src/sheet/cell/Cell.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Engine/src/expression/Operation.java</url>
-          <line>75</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>
-          <line>24</line>
-          <properties class="sheet.SheetImpl">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-    <MESSAGE value="for marge 20/8/24" />
-    <MESSAGE value="schema + update DTO + convertFromStringTOcoordinate" />
-    <MESSAGE value="I built 3 new ctors:&#10;the ctors gets an STL objcet and load our engine classes.&#10;we assume that we enter to the ctors after validation check of the file.&#10;&#10;to do:&#10;1. in ctor of cellImpl we need to load the dependsOn ans the influencingOn.&#10;&#10;2. validation check!" />
-    <option name="LAST_COMMIT_MESSAGE" value="I built 3 new ctors:&#10;the ctors gets an STL objcet and load our engine classes.&#10;we assume that we enter to the ctors after validation check of the file.&#10;&#10;to do:&#10;1. in ctor of cellImpl we need to load the dependsOn ans the influencingOn.&#10;&#10;2. validation check!" />
+    <MESSAGE value="update gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="update gitignore" />
   </component>
 </project>

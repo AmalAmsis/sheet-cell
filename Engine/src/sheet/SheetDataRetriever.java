@@ -1,7 +1,10 @@
 package sheet;
 
+import sheet.cell.Cell;
 import sheet.coordinate.Coordinate;
 import sheet.effectivevalue.EffectiveValue;
+
+import java.util.Map;
 
 public interface SheetDataRetriever {
     int getVersion();
@@ -12,6 +15,7 @@ public interface SheetDataRetriever {
     int getWidthOfCols();
     int getNumOfRows();
     int getNumOfCols();
+    public Map<String, Cell> getBoard();
 
     // Adding a new method to track dependencies
     void addDependentCell(Coordinate mainCell, Coordinate dependentCell);
