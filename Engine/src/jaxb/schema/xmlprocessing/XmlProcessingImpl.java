@@ -35,8 +35,16 @@ public class XmlProcessingImpl /*implements XmlProcessing*/ {
         //6.owHeightValidation
         int rowHeight = stlSheet.getSTLLayout().getSTLSize().getRowsHeightUnits();
         rowHeightValidation(rowHeight);
-        //7.The cells that define the use of the function are directed to the cells that contain information that
+        //7. Checking the integrity of the sheets:
+        //There are no duplicates in the cell,
+        //There is no cell exceeding the sheet boundaries
+
+        //8.The cells that define the use of the function are directed to the cells that contain information that
         // corresponds to the arguments of the function (Maybe we can test this as well as the creation of our objects)
+
+
+
+
 
         //כאן תיכנס הבדיקה של התאים
 
