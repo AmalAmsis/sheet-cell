@@ -58,7 +58,6 @@ public class CellImpl implements Cell {
         return coordinate;
     }
 
-
     @Override
     public EffectiveValue calculateEffectiveValue(String originalValue) {
         ExpressionEvaluator.evaluate(originalValue, sheet, this.coordinate);

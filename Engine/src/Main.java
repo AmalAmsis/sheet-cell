@@ -1,3 +1,5 @@
+import expression.impl.math.Plus;
+import expression.impl.primitive.NumericExpression;
 import sheet.coordinate.Coordinate;
 import sheet.coordinate.CoordinateImpl;
 
@@ -13,6 +15,11 @@ public static void main(String[] args) {
 
     System.out.println(coordinate1.toString());
     System.out.println(coordinate1.hashCode());
+
+    NumericExpression num1 = new NumericExpression(Double.NaN);
+    NumericExpression num2 = new NumericExpression(5);
+    Plus p = new Plus(num1, num2);
+    System.out.println(p.evaluate());
 }
 
 }

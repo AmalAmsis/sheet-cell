@@ -23,7 +23,7 @@ public class DTOCellImpl implements DTOCell {
         this.lastModifiedVersion = cell.getLastModifiedVersion();
         //check if working
         //DependsOn
-        for(Cell dependCell : cell.getDependsOn(effectorCell)) {
+        for(Cell dependCell : cell.getDependsOn()) {
             DTOCoordinate dtoCoordinateWhoDependOn = new DTOCoordinateImpl(dependCell.getCoordinate().getRow(), dependCell.getCoordinate().getCol());
             this.addDToDependsOn(dtoCoordinateWhoDependOn);
         }
