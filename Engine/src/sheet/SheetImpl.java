@@ -77,6 +77,7 @@ public class SheetImpl implements Sheet {
         return numOfCols;
     }
 
+    @Override
     public Map<String, Cell> getBoard() {
         return board;
     }
@@ -96,18 +97,24 @@ public class SheetImpl implements Sheet {
         return board.get(coordinate.toString());
     }
 
-    @Override//לתקןןןן
+    //לטפל במקרה שהcoordinate מחוץ לגבולות המערך
+    @Override
     public void setCell(Coordinate coordinate, String originalValue) {
         updateVersion(); // Every change in a cell updates the sheet version.
-
-        if (originalValue.isBlank()) { // If the original value is blank
-            removeCell(coordinate); // Remove the cell if the value is blank.
-            return;
+        try {
+            if (originalValue.isBlank()) { // If the original value is blank
+                removeCell(coordinate); // Remove the cell if the value is blank.
+                return;
+            }
+            if (!isCellInSheet(coordinate)) {
+                addCell(coordinate, originalValue);
+            } else {
+                updateCell(coordinate, originalValue);
+            }
+        }catch (Exception e){
+            this.version --;
+            throw e;
         }
-        if (!isCellInSheet(coordinate)) {
-            addCell(coordinate, originalValue);
-        }
-        updateCell(coordinate, originalValue);
     }
 
     // Update the sheet version
@@ -128,7 +135,7 @@ public class SheetImpl implements Sheet {
         Cell effectorCell = getCell(effectorCellCoordinate);
 
         mainCell.removeAllDependsOn();
-        mainCell.addDependsOn(effectorCell);
+        mainCell.addToDependsOn(effectorCell);
         //effectorCell.addInfluencingOn(mainCell);??????????????????????????????
     }
 
@@ -141,25 +148,29 @@ public class SheetImpl implements Sheet {
     }
 
     // Add a new cell to the sheet
-    // לתקן
     public void addCell(Coordinate coordinate, String originalValue) {
-        Cell myCell = new CellImpl();
-        board.put(coordinate.toString(), myCell);
-
-    }
-
-    //לתקן
-    //update cell data.
-    public void updateCell(Coordinate coordinate, String originalValue, EffectiveValue effectiveValue) {
-        Cell myCell = board.get(coordinate.toString());
-        if(myCell != null) {
-            myCell.setOriginalValue(originalValue);
-            myCell.setLastModifiedVersion(version);
+        try {
+            Cell myCell = new CellImpl(coordinate,this.version,this);
+            board.put(coordinate.toString(), myCell);
+            myCell.updateValue(originalValue);
+        }catch (Exception e){
+            board.remove(coordinate.toString());
+            throw e;
         }
     }
 
+    //update cell data.
+    public void updateCell(Coordinate coordinate, String originalValue) {
+        Cell myCell = board.get(coordinate.toString());
+        if(myCell != null) {
+           myCell.updateValue(originalValue);
+        }
+    }
+
+    // אם התא משפיע על עוד תאים מה עושים?????????????????????
     // Remove a cell from the sheet
     public void removeCell(Coordinate coordinate) {
+
         board.remove(coordinate.toString());
     }
 

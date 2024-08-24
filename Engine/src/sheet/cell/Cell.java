@@ -28,4 +28,6 @@ public interface Cell {
     void updateValueHelper(String originalValue);
     public void removeAllDependsOn();
     boolean isCircleHelper(Set<Cell> visited, Set<Cell> recStack);
+    public boolean isCircle();
+
 }
