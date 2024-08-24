@@ -57,57 +57,22 @@ public class SheetImpl implements Sheet {
         }
     }
 
-    //22/8/24 by yarden --> for creating a xml file from objects
-    //very ugly function - TO DO it nice
-    public STLSheet convertFromSheetToStlSheet() {
-
-        //create the ELEMENT STLCells
-        STLCells stlCells = new STLCells();
-        //create the list of STLCells
-        List<STLCell> stlCellList = stlCells.getSTLCell();
-        for (String key : board.keySet()) {
-
-            //get the actual cell
-            Cell cell = board.get(key);
-            //create STLCell
-            STLCell stlCell = cell.convertFromCellToSTLCell();
-            //add the STLCell to the List
-            stlCellList.add(stlCell);
-        }
-
-        //create the ELEMENT STLSize before STLLayot
-        STLSize stlSize = new STLSize();
-        stlSize.setRowsHeightUnits(heightOfRows);
-        stlSize.setRowsHeightUnits(widthOfCols);
-
-        //create the ELEMENT STLLayot
-        STLLayout stlLayout = new STLLayout();
-        stlLayout.setRows(numOfRows);
-        stlLayout.setColumns(numOfCols);
-        stlLayout.setSTLSize(stlSize);
-
-        //and finally create the ELEMENT STLSheet
-        STLSheet stlSheet = new STLSheet();
-        stlSheet.setName(title);
-        stlSheet.setSTLLayout(stlLayout);
-        stlSheet.setSTLCells(stlCells);
-
-        //STLCell stlCell = new STLCell();
-
-        return stlSheet;
-
-    }
-
-
+    @Override
     public int getHeightOfRows() {
         return heightOfRows;
     }
+
+    @Override
     public int getWidthOfCols() {
         return widthOfCols;
     }
+
+    @Override
     public int getNumOfRows() {
         return numOfRows;
     }
+
+    @Override
     public int getNumOfCols() {
         return numOfCols;
     }
@@ -131,11 +96,6 @@ public class SheetImpl implements Sheet {
         return board.get(coordinate.toString());
     }
 
-    @Override// לשאול את ירדן אם להשאיר
-    public DTOSheet convertToDTOSheet() {
-        return null;
-    }
-
     @Override//לתקןןןן
     public void setCell(Coordinate coordinate, String originalValue) {
         updateVersion(); // Every change in a cell updates the sheet version.
@@ -144,14 +104,10 @@ public class SheetImpl implements Sheet {
             removeCell(coordinate); // Remove the cell if the value is blank.
             return;
         }
-
-        EffectiveValue effectiveValue = calculateEffectiveValue(originalValue);
-
         if (!isCellInSheet(coordinate)) {
-            addCell(coordinate, originalValue, effectiveValue);
-        } else {
-            updateCell(coordinate, originalValue, effectiveValue);
+            addCell(coordinate, originalValue);
         }
+        updateCell(coordinate, originalValue);
     }
 
     // Update the sheet version
@@ -171,8 +127,9 @@ public class SheetImpl implements Sheet {
         Cell mainCell = getCell(mainCellCoordinate);
         Cell effectorCell = getCell(effectorCellCoordinate);
 
+        mainCell.removeAllDependsOn();
         mainCell.addDependsOn(effectorCell);
-        effectorCell.addInfluencingOn(mainCell);
+        //effectorCell.addInfluencingOn(mainCell);??????????????????????????????
     }
 
     @Override
@@ -185,8 +142,8 @@ public class SheetImpl implements Sheet {
 
     // Add a new cell to the sheet
     // לתקן
-    public void addCell(Coordinate coordinate, String originalValue, EffectiveValue effectiveValue) {
-        Cell myCell = new CellImpl(coordinate, originalValue);
+    public void addCell(Coordinate coordinate, String originalValue) {
+        Cell myCell = new CellImpl();
         board.put(coordinate.toString(), myCell);
 
     }
@@ -247,5 +204,47 @@ public class SheetImpl implements Sheet {
         // create the coordinate
         return new CoordinateImpl(col, row);
     }
+
+    //22/8/24 by yarden --> for creating a xml file from objects
+    //very ugly function - TO DO it nice
+    public STLSheet convertFromSheetToStlSheet() {
+
+        //create the ELEMENT STLCells
+        STLCells stlCells = new STLCells();
+        //create the list of STLCells
+        List<STLCell> stlCellList = stlCells.getSTLCell();
+        for (String key : board.keySet()) {
+
+            //get the actual cell
+            Cell cell = board.get(key);
+            //create STLCell
+            STLCell stlCell = cell.convertFromCellToSTLCell();
+            //add the STLCell to the List
+            stlCellList.add(stlCell);
+        }
+
+        //create the ELEMENT STLSize before STLLayot
+        STLSize stlSize = new STLSize();
+        stlSize.setRowsHeightUnits(heightOfRows);
+        stlSize.setRowsHeightUnits(widthOfCols);
+
+        //create the ELEMENT STLLayot
+        STLLayout stlLayout = new STLLayout();
+        stlLayout.setRows(numOfRows);
+        stlLayout.setColumns(numOfCols);
+        stlLayout.setSTLSize(stlSize);
+
+        //and finally create the ELEMENT STLSheet
+        STLSheet stlSheet = new STLSheet();
+        stlSheet.setName(title);
+        stlSheet.setSTLLayout(stlLayout);
+        stlSheet.setSTLCells(stlCells);
+
+        //STLCell stlCell = new STLCell();
+
+        return stlSheet;
+
+    }
+
 
 }

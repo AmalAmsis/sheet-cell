@@ -19,8 +19,4 @@ public class NumericExpression implements Expression {
         return new EffectiveValueImpl(CellType.NUMERIC, value);
     }
 
-    @Override
-    public CellType getFunctionResultType() {
-        return CellType.NUMERIC;
-    }
 }

@@ -6,6 +6,7 @@ import sheet.coordinate.Coordinate;
 import sheet.effectivevalue.EffectiveValue;
 
 import java.util.List;
+import java.util.Set;
 
 public interface Cell {
     String getOriginalValue();
@@ -13,15 +14,18 @@ public interface Cell {
     int getLastModifiedVersion();
     void setLastModifiedVersion(int version);
     List<Cell> getDependsOn();
-    void addDependsOn(Cell cell);
+    void addToDependsOn(Cell cell);
     void removeDependsOn(Cell cell);
     List<Cell> getInfluencingOn();
-    void addInfluencingOn(Cell cell);
+    void addToInfluencingOn(Cell cell);
     void removeInfluencingOn(Cell cell);
     STLCell convertFromCellToSTLCell();
     Coordinate getCoordinate();
     EffectiveValue calculateEffectiveValue(String originalValue);
-    DTOCell convertToDTOCell();
     void setEffectiveValue(EffectiveValue effectiveValue);
     String getId();
+    void updateValue(String originalValue);
+    void updateValueHelper(String originalValue);
+    public void removeAllDependsOn();
+    boolean isCircleHelper(Set<Cell> visited, Set<Cell> recStack);
 }

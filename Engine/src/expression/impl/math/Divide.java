@@ -21,7 +21,7 @@ public class Divide extends BinaryExpression {
         // Validate value2 is not zero
         double divisor = value2.extractValueWithExpectation(Double.class);
         if (divisor == 0) {
-            return new EffectiveValueImpl(CellType.STRING, "NaN");
+            return new EffectiveValueImpl(CellType.NUMERIC, Double.NaN);
         }
         // If valid, perform the division
         double result = value1.extractValueWithExpectation(Double.class) / value2.extractValueWithExpectation(Double.class);
