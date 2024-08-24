@@ -16,20 +16,46 @@ public class XmlProcessingImpl /*implements XmlProcessing*/ {
     //the package path of the generated classes
     private final String JAXB_XML_STL_PACKAGE_NAME = "jaxb.schema.generated";
 
+    //not finish - need to edit.
+    //@Override
+    public STLSheet parseAndValidateXml(String inputXmlFilePath) throws JAXBException, FileDataException.InvalidRowCountException, FileDataException.InvalidColumnCountException, FileDataException.InvalidColumnWidthException, FileDataException.InvalidRowHeightException {
+        //1.is the file a xml file
+        isXmlFile(inputXmlFilePath);
+        //2.file load STLSheet = fromXmlFileToXmlFile(inputPath)
+        STLSheet stlSheet = fromXmlFileToXmlFile(inputXmlFilePath);
+        //3.rowsValidation
+        int rowCount = stlSheet.getSTLLayout().getRows();
+        numOfRowsValidation(rowCount);
+        //4.columnsValidation
+        int columnCount = stlSheet.getSTLLayout().getColumns();
+        numOfColumnsValidation(columnCount);
+        //5.columnWidthValidation
+        int columnWidth = stlSheet.getSTLLayout().getSTLSize().getColumnWidthUnits();
+        columnWidthValidation(columnWidth);
+        //6.owHeightValidation
+        int rowHeight = stlSheet.getSTLLayout().getSTLSize().getRowsHeightUnits();
+        rowHeightValidation(rowHeight);
+        //7.The cells that define the use of the function are directed to the cells that contain information that
+        // corresponds to the arguments of the function (Maybe we can test this as well as the creation of our objects)
+
+        //כאן תיכנס הבדיקה של התאים
+
+        return stlSheet;
+    }
+
     /**
      * This function reads an XML file and converts it into a Java object (STLSheet)
      * using JAXB's unmarshal process.
      * If the function returns null, it means that the file was not found or an error occurred.
      *
-     * @param inputPath the path to the XML file
+     * @param inputXmlFilePath the path to the XML file
      * @return STLSheet object representing the XML content, or null if an error occurs
      */
-    //@Override
-    public STLSheet fromXmlFileToXmlFile(String inputPath) throws JAXBException {
+    public STLSheet fromXmlFileToXmlFile(String inputXmlFilePath) throws JAXBException {
 
         STLSheet stlSheet = null;
         try {
-            InputStream inputStream = new FileInputStream(inputPath);
+            InputStream inputStream = new FileInputStream(inputXmlFilePath);
             stlSheet = deserializeFrom(inputStream);
         } catch (FileNotFoundException e) {
             e.printStackTrace(); //to do
@@ -46,14 +72,14 @@ public class XmlProcessingImpl /*implements XmlProcessing*/ {
     /**
      * This function serializes an STLSheet object into an XML file at the given path.
      *
-     * @param xmlFilePath the path where the XML file will be saved
+     * @param inputXmlFilePath the path where the XML file will be saved
      * @param stlSheet    the STLSheet object to be serialized
      * @throws JAXBException if an error occurs during marshalling
      */
-    void fromObjectToXmlFile(String xmlFilePath, STLSheet stlSheet) throws JAXBException{
+    void fromObjectToXmlFile(String inputXmlFilePath, STLSheet stlSheet) throws JAXBException{
 
         try {
-            File file = new File(xmlFilePath);
+            File file = new File(inputXmlFilePath);
             JAXBContext jaxbContext = JAXBContext.newInstance(STLSheet.class);
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
@@ -70,39 +96,17 @@ public class XmlProcessingImpl /*implements XmlProcessing*/ {
     /**
      * This function takes an InputStream representing an XML file and converts it into an STLSheet object.
      *
-     * @param xmlFile the InputStream of the XML file
+     * @param inputXmlFilePath the InputStream of the XML file
      * @return STLSheet object representing the XML content
      * @throws JAXBException if an error occurs during unmarshalling
      */
-    public STLSheet deserializeFrom(InputStream xmlFile) throws JAXBException {
+    public STLSheet deserializeFrom(InputStream inputXmlFilePath) throws JAXBException {
         //Create JAXB context for the generated classes
         JAXBContext jaxbContext = JAXBContext.newInstance(JAXB_XML_STL_PACKAGE_NAME);
         //Create an Unmarshaller to convert XML to Java objects
         Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
         //Read the XML file and convert it to a Java object
-        return (STLSheet) jaxbUnmarshaller.unmarshal(xmlFile);
-    }
-
-    public STLSheet validate(String xml) throws JAXBException, FileDataException.InvalidRowCountException, FileDataException.InvalidColumnCountException, FileDataException.InvalidColumnWidthException, FileDataException.InvalidRowHeightException {
-        //1.the file is a xml file -->
-        isXmlFile(xml);
-        //2.file load STLSheet = fromXmlFileToXmlFile(inputPath)
-        STLSheet stlSheet = fromXmlFileToXmlFile(xml);
-        //3.rowsValidation
-        int rowCount = stlSheet.getSTLLayout().getRows();
-        numOfRowsValidation(rowCount);
-        //4.columnsValidation
-        int columnCount = stlSheet.getSTLLayout().getColumns();
-        numOfColumnsValidation(columnCount);
-        //5.columnWidthValidation
-        int columnWidth = stlSheet.getSTLLayout().getSTLSize().getColumnWidthUnits();
-        columnWidthValidation(columnWidth);
-        //6.owHeightValidation
-        int rowHeight = stlSheet.getSTLLayout().getSTLSize().getRowsHeightUnits();
-        rowHeightValidation(rowHeight);
-        //7.The cells that define the use of the function are directed to the cells that contain information that
-        // corresponds to the arguments of the function (Maybe we can test this as well as the creation of our objects)
-        return stlSheet;
+        return (STLSheet) jaxbUnmarshaller.unmarshal(inputXmlFilePath);
     }
 
     public void isXmlFile(String file) {
@@ -138,7 +142,6 @@ public class XmlProcessingImpl /*implements XmlProcessing*/ {
             throw new FileDataException.InvalidRowHeightException(rowHeight);
         }
     }
-
 
 
 }
