@@ -4,48 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="update gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Expression.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Expression.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/ExpressionEvaluator$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/ExpressionEvaluator$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/ExpressionEvaluator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/ExpressionEvaluator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/BinaryExpression.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/BinaryExpression.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/TernaryExpression.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/TernaryExpression.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/UnaryExpression.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/UnaryExpression.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Abs.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Abs.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Divide.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Divide.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Minus.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Minus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Mod.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Mod.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Plus.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Plus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Pow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Pow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Times.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Times.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/primitive/BooleanExpression.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/primitive/BooleanExpression.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/primitive/NumericExpression.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/primitive/NumericExpression.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/primitive/StringExpression.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/primitive/StringExpression.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/str/Concat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/str/Concat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/str/Sub.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/str/Sub.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/systemic/Ref.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/systemic/Ref.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/sheet/api/CellType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/sheet/api/EffectiveValue.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/sheet/api/Sheet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/sheet/cell/Cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/sheet/cell/Cell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/sheet/cell/CellImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/sheet/cell/CellImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/sheet/impl/EffectiveValueImpl.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,10 +19,34 @@
     "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Engine" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="TaskManager">
+    <task id="LOCAL‎-00001" summary="update gitignore">
+      <option name="closed" value="true" />
+      <created>1724498833313</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL‎-00001" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724498833313</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="update gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="update gitignore" />
   </component>
 </project>
