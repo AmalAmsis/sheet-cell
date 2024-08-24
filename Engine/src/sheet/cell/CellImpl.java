@@ -12,7 +12,9 @@ import sheet.coordinate.CoordinateImpl;
 import sheet.effectivevalue.EffectiveValue;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class CellImpl implements Cell {
     //data member
@@ -25,24 +27,19 @@ public class CellImpl implements Cell {
     private final List<Cell> influencingOn;
     private SheetDataRetriever sheet;
 
-    /*
-    //ctor 1
-    public CellImpl(Coordinate coordinate) {
+    public CellImpl(Coordinate coordinate, int lastModifiedVersion, SheetDataRetriever sheet) {
+        this.effectiveValue = null;
+        this.originalValue = "";
         this.coordinate = coordinate;
+        this.lastModifiedVersion = lastModifiedVersion;
+        this.dependsOn = new ArrayList<>();
+        this.influencingOn = new ArrayList<>();
+        this.sheet = sheet;
         this.id = coordinate.toString();
+
     }
 
-    //ctor 2
-    public CellImpl(Coordinate coordinate, String originalValue) {
-        this(coordinate);
-        this.originalValue = originalValue;
-    }
-    //ctor 3
-    public CellImpl(Coordinate coordinate, String originalValue, EffectiveValue effectiveValue) {
-        this(coordinate, originalValue);
-        this.effectiveValue = effectiveValue;
-    }
-     */
+
     //22/8/24 - this ctor from STL object that we got from xml file,
     //we assume that we will get it to the ctor after validation test!
     public CellImpl(STLCell stlCell) {
@@ -56,6 +53,172 @@ public class CellImpl implements Cell {
         this.influencingOn = new ArrayList<>();
         //TO DO --> DEPENDSON AND INFLUENING ON.
     }
+
+    public Coordinate getCoordinate() {
+        return coordinate;
+    }
+
+
+    @Override
+    public EffectiveValue calculateEffectiveValue(String originalValue) {
+        ExpressionEvaluator.evaluate(originalValue, sheet, this.coordinate);
+        return effectiveValue;
+    }
+
+    public void updateValue(String originalValue) {
+        //EffectiveValue previousEffectiveValue = this.effectiveValue;
+        try {
+            updateValueHelper(originalValue);
+            this.originalValue = originalValue;
+        } catch (Exception e) {
+            //this.effectiveValue = previousEffectiveValue;
+            updateValueHelper(originalValue);
+            throw e;
+        }
+    }
+
+    public void updateValueHelper(String originalValue) {
+        this.effectiveValue = calculateEffectiveValue(originalValue);
+        for (Cell cell : influencingOn) {
+            //cell.setEffectiveValue(calculateEffectiveValue(cell.getOriginalValue()));
+            cell.updateValueHelper(cell.getOriginalValue());
+        }
+    }
+
+    @Override
+    public String getOriginalValue() {
+        return originalValue;
+    }
+
+
+    private void setOriginalValue(String originalValue) {
+        this.originalValue = originalValue;
+    }
+
+    public void setEffectiveValue(EffectiveValue effectiveValue) {
+        this.effectiveValue = effectiveValue;
+    }
+
+    @Override
+    public EffectiveValue getEffectiveValue() {
+        return effectiveValue;
+    }
+
+    @Override
+    public int getLastModifiedVersion() {
+        return lastModifiedVersion;
+    }
+
+    @Override
+    public void setLastModifiedVersion(int version) {
+        lastModifiedVersion = version;
+    }
+
+    @Override
+    public List<Cell> getDependsOn() {
+        return dependsOn;
+    }
+
+
+    //TO DO
+    @Override
+    public void addToDependsOn(Cell cell) {
+        try {
+            cell.addToInfluencingOn(this);
+            dependsOn.add(cell);
+        }
+        catch (Exception e) {
+            throw e;
+        }
+
+    }
+
+
+    @Override
+    public void removeAllDependsOn() {
+        for (Cell cell : dependsOn) {
+            this.removeDependsOn(cell);
+        }
+    }
+
+    //TO DO
+    @Override
+    public void removeDependsOn(Cell cell) {
+        this.dependsOn.remove(cell);
+        cell.removeInfluencingOn(this);
+    }
+
+    @Override
+    public List<Cell> getInfluencingOn() {
+        return influencingOn;
+    }
+
+    //TO DO
+    @Override
+    public void addToInfluencingOn(Cell cell) {
+        this.influencingOn.add(cell);
+        if (isCircle())
+        {
+            this.influencingOn.remove(cell);
+            String message = String.format("Circle");//TO DO: add a clear message
+            throw new  IllegalArgumentException(message);
+        }
+
+    }
+
+    //TO DO
+    @Override
+    public void removeInfluencingOn(Cell cell) {
+        influencingOn.remove(cell);
+        //cell.removeDependsOn(cell);??????????????????????????????????????????
+
+    }
+
+    @Override
+    public String getId() {
+        return id;
+    }
+
+    @Override
+    public boolean isCircle() {
+        return isCircleHelper(new HashSet<>(), new HashSet<>());
+    }
+
+    /**
+     * Helper method to detect cycles using DFS.
+     * If a cell influences another cell, there is a directed edge (or arc) from the influencing cell to the influenced cell.
+     *
+     * @param visited Keeps track of fully processed cells (Black Nodes).
+     * @param recStack Tracks the current path in DFS (Gray Nodes).
+     * @return true if a cycle (back edge) is found, false otherwise.
+     */
+    public boolean isCircleHelper(Set<Cell> visited, Set<Cell> recStack) {
+        // If this cell is already in the recursion stack, a back edge (cycle) is detected.
+        if (recStack.contains(this)) {
+            return true;
+        }
+
+        // If this cell is already visited, it's fully processed, so no cycle here.
+        if (visited.contains(this)) {
+            return false;
+        }
+
+        // Mark this cell as visited and add it to the recursion stack.
+        visited.add(this);
+        recStack.add(this);
+
+        // Recursively check all influenced cells.
+        for (Cell cell : influencingOn) {
+            if (cell.isCircleHelper(visited, recStack)) {
+                return true; // Cycle detected.
+            }
+        }
+
+        // Remove this cell from the recursion stack after processing.
+        recStack.remove(this);
+        return false; // No cycle detected.
+    }
+
 
     // 22/8/24
     public STLCell convertFromCellToSTLCell() {
@@ -73,119 +236,5 @@ public class CellImpl implements Cell {
         stlCell.setColumn(Character.toString(myCol));
 
         return stlCell;
-    }
-
-
-    public CellImpl(Coordinate coordinate, int lastModifiedVersion, SheetDataRetriever sheet) {
-        this.effectiveValue = null;
-        this.originalValue = "";
-        this.coordinate = coordinate;
-        this.lastModifiedVersion = lastModifiedVersion;
-        this.dependsOn = new ArrayList<>();
-        this.influencingOn = new ArrayList<>();
-        this.sheet = sheet;
-        this.id = coordinate.toString();
-
-    }
-
-    //public String getId() {return id;}
-
-    public Coordinate getCoordinate() {
-        return coordinate;
-    }
-
-    @Override
-    public EffectiveValue calculateEffectiveValue(String originalValue) {
-        ExpressionEvaluator.evaluate(originalValue, sheet, this.coordinate);
-        return effectiveValue;
-    }
-
-    @Override
-    public DTOCell convertToDTOCell() {
-        return null;
-    }
-
-    public void updateValue(String originalValue) {
-        EffectiveValue previousEffectiveValue = this.effectiveValue;
-        this.effectiveValue = calculateEffectiveValue(originalValue);
-        try {
-            for (Cell cell : influencingOn) {
-                cell.setEffectiveValue(calculateEffectiveValue(cell.getOriginalValue()));
-            }
-            this.originalValue = originalValue;
-        } catch (Exception e) {
-            this.effectiveValue = previousEffectiveValue;
-            for (Cell cell : influencingOn) {
-                cell.setEffectiveValue(calculateEffectiveValue(cell.getOriginalValue()));
-            }
-            throw e;
-        }
-    }
-
-    @Override
-    public String getOriginalValue() {
-        return originalValue;
-    } //AMAL
-
-
-    private void setOriginalValue(String originalValue) {
-        this.originalValue = originalValue;
-    }
-
-    public void setEffectiveValue(EffectiveValue effectiveValue) {
-        this.effectiveValue = effectiveValue;
-    }
-
-    @Override
-    public EffectiveValue getEffectiveValue() {
-        return effectiveValue;
-    } //AMAL
-
-    @Override
-    public int getLastModifiedVersion() {
-        return lastModifiedVersion;
-    }
-
-    @Override
-    public void setLastModifiedVersion(int version) {
-        lastModifiedVersion = version;
-    }
-
-    @Override
-    public List<Cell> getDependsOn() {
-        return dependsOn;
-    }
-
-    //TO DO
-    @Override
-    public void addDependsOn(Cell cell) {
-
-    }
-
-    @Override
-    public void removeDependsOn(Cell cell) { //TO DO
-
-    }
-
-    @Override
-    public List<Cell> getInfluencingOn() {
-        return influencingOn;
-    }
-
-    //TO DO
-    @Override
-    public void addInfluencingOn(Cell cell) {
-
-    }
-
-    //TO DO
-    @Override
-    public void removeInfluencingOn(Cell cell) {
-
-    }
-
-    @Override
-    public String getId() {
-        return id;
     }
 }
