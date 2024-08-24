@@ -11,12 +11,13 @@ import sheet.coordinate.Coordinate;
 import sheet.coordinate.CoordinateImpl;
 import sheet.effectivevalue.EffectiveValue;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class CellImpl implements Cell {
+public class CellImpl implements Cell, Serializable {
     //data member
     private final String id; // do we need it ?
     private final Coordinate coordinate;

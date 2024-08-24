@@ -15,6 +15,8 @@ import sheet.version.SheetVersionHandlerImpl;
 import state.SheetStateManager;
 import state.SheetStateManagerImpl;
 
+import java.io.*;
+
 public class EngineImpl implements Engine {
 
     SheetStateManager currentSheetState;
@@ -80,11 +82,23 @@ public class EngineImpl implements Engine {
 
     @Override
     public void saveSystemState(String filePath) throws Exception {
-
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filePath))) {
+            // Serialize the current state of the sheet
+            out.writeObject(currentSheetState);
+            //ui massage: System.out.println("System state saved successfully to " + filePath);
+        } catch (IOException e) {
+            throw new Exception("Failed to save system state: " + e.getMessage(), e);
+        }
     }
 
     @Override
     public void loadSystemState(String filePath) throws Exception {
-
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filePath))) {
+            // Deserialize the system state from the file
+            currentSheetState = (SheetStateManagerImpl) in.readObject();
+            //ui massage: System.out.println("System state loaded successfully from " + filePath);
+        } catch (IOException | ClassNotFoundException e) {
+            throw new Exception("Failed to load system state: " + e.getMessage(), e);
+        }
     }
 }

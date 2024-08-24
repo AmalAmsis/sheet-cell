@@ -2,10 +2,11 @@ package sheet.version;
 
 import sheet.Sheet;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SheetVersionHandlerImpl implements SheetVersionHandler {
+public class SheetVersionHandlerImpl implements SheetVersionHandler, Serializable {
 
     private final List<Sheet> versionHistory;
     private int numOfVersions;

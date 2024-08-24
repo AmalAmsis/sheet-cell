@@ -11,12 +11,13 @@ import sheet.cell.Cell;
 import sheet.cell.CellImpl;
 import sheet.coordinate.Coordinate;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SheetImpl implements Sheet {
+public class SheetImpl implements Sheet , Serializable {
 
     private int version;
     private final String title;
