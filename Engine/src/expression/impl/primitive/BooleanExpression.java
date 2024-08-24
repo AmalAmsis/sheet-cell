@@ -19,8 +19,4 @@ public class BooleanExpression implements Expression {
         return new EffectiveValueImpl(CellType.BOOLEAN, value);
     }
 
-    @Override
-    public CellType getFunctionResultType() {
-        return CellType.BOOLEAN;
-    }
 }

@@ -19,8 +19,4 @@ public class StringExpression implements Expression {
         return new EffectiveValueImpl(CellType.STRING, value);
     }
 
-    @Override
-    public CellType getFunctionResultType() {
-        return CellType.STRING;
-    }
 }
