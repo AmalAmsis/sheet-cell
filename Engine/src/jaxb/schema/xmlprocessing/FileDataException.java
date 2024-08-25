@@ -53,4 +53,16 @@ public class FileDataException extends Exception{
         }
     }
 
+    /**
+     * Exception thrown when a circular reference is detected in the cell graph.
+     */
+    public static class CircularReferenceException extends FileDataException {
+        public CircularReferenceException() {
+            super("Circular reference detected in the cell graph.");
+        }
+    }
+
+
+
+
 }
