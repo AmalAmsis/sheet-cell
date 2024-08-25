@@ -1,5 +1,7 @@
 import expression.impl.math.Plus;
 import expression.impl.primitive.NumericExpression;
+import expression.impl.primitive.StringExpression;
+import expression.impl.str.Concat;
 import sheet.Sheet;
 import sheet.SheetImpl;
 import sheet.coordinate.Coordinate;
@@ -28,6 +30,11 @@ public class Main {
 
         // בדיקה לעבודה עם REF ומעגלים
 
+        StringExpression str1 = new StringExpression("HELLO");
+        StringExpression str2 = new StringExpression("    World");
+        Concat c = new Concat(str1, str2);
+        System.out.println(c.evaluate().getValue());
+
         try {
            String title = "Test1";
            int numOfRows = 5;
@@ -42,7 +49,7 @@ public class Main {
            sheet.setCell(coordinate3, "{ref , B2}");
            sheet.setCell(coordinate1, "{ref , A2}");
 
-        }catch (IllegalArgumentException e)
+        }catch (Exception e)
         {
            System.out.println(e);
         }
