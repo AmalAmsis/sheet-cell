@@ -4,30 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="1. added CellOutOfBoundsException in FileDataException, and the check in XmlProcessing.&#10;&#10;update the function convertStringToCoordinate in SheetImpl">
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="update gitignore">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_08_2024_14_28__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_08_2024_14_28__Changes_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/CellGraphValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/CellGraphValidator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "AmalAmsis"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/AmalAmsis/sheet-cell.git",
+    "accountId": "7c3c5dfe-f29d-4945-a690-87b881a1fc0c"
+  }
+}]]></component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
-    "git-widget-placeholder": "yarden__branch",
+    "git-widget-placeholder": "Amal",
     "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
@@ -54,59 +58,44 @@
       <option name="project" value="LOCAL‎" />
       <updated>1724498833313</updated>
     </task>
-    <task id="LOCAL-00002" summary="state package Bonus&#10;Interface Engine">
+    <task id="LOCAL‎-00002" summary="update gitignore">
       <option name="closed" value="true" />
-      <created>1724507693470</created>
+      <created>1724499100075</created>
       <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1724507693470</updated>
+      <option name="presentableId" value="LOCAL‎-00002" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724499100075</updated>
     </task>
-    <task id="LOCAL-00003" summary="working in progress on the EngineImpl">
-      <option name="closed" value="true" />
-      <created>1724512355544</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1724512355544</updated>
-    </task>
-    <task id="LOCAL-00004" summary="update the Serialize function in the EngineImpl.">
-      <option name="closed" value="true" />
-      <created>1724517053848</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1724517053848</updated>
-    </task>
-    <task id="LOCAL-00005" summary="1. added CellOutOfBoundsException in FileDataException, and the check in XmlProcessing.&#10;&#10;update the function convertStringToCoordinate in SheetImpl">
-      <option name="closed" value="true" />
-      <created>1724519952250</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1724519952250</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="3" />
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update gitignore" />
-    <MESSAGE value="SheetVersionHandler finished" />
-    <MESSAGE value="state package Bonus&#10;Interface Engine" />
-    <MESSAGE value="working in progress on the EngineImpl" />
-    <MESSAGE value="update the Serialize function in the EngineImpl." />
-    <MESSAGE value="1. added CellOutOfBoundsException in FileDataException, and the check in XmlProcessing.&#10;&#10;update the function convertStringToCoordinate in SheetImpl" />
-    <option name="LAST_COMMIT_MESSAGE" value="1. added CellOutOfBoundsException in FileDataException, and the check in XmlProcessing.&#10;&#10;update the function convertStringToCoordinate in SheetImpl" />
+    <option name="LAST_COMMIT_MESSAGE" value="update gitignore" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java</url>
+          <line>140</line>
+          <properties class="sheet.cell.CellImpl" method="removeAllDependsOn">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="sheet.cell.CellImpl" memberName="effectiveValue" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>
