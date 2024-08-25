@@ -56,7 +56,7 @@ public class ExpressionEvaluator {
 
                 return operation.eval(sheet, targetCoordinate, expressions);
             } catch (IllegalArgumentException e) {
-                throw new IllegalArgumentException("Invalid operation: " + operationName, e);
+                throw new IllegalArgumentException("Invalid operation: " + operationName + "- " +e.getMessage());
             }
         }
 
