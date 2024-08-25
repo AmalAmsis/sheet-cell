@@ -12,10 +12,7 @@ import sheet.coordinate.CoordinateImpl;
 import sheet.effectivevalue.EffectiveValue;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class CellImpl implements Cell, Serializable {
     //data member
@@ -61,7 +58,7 @@ public class CellImpl implements Cell, Serializable {
 
     @Override
     public EffectiveValue calculateEffectiveValue(String originalValue) {
-        ExpressionEvaluator.evaluate(originalValue, sheet, this.coordinate);
+        EffectiveValue effectiveValue = ExpressionEvaluator.evaluate(originalValue, sheet, this.coordinate);
         return effectiveValue;
     }
 
@@ -75,7 +72,7 @@ public class CellImpl implements Cell, Serializable {
             this.originalValue = originalValue;
         } catch (Exception e) {
             //this.effectiveValue = previousEffectiveValue;
-            updateValueHelper(originalValue);
+            updateValueHelper(this.originalValue);
             throw e;
         }
     }
@@ -140,8 +137,11 @@ public class CellImpl implements Cell, Serializable {
 
     @Override
     public void removeAllDependsOn() {
-        for (Cell cell : dependsOn) {
-            this.removeDependsOn(cell);
+        Iterator<Cell> iterator = dependsOn.iterator();
+        while (iterator.hasNext()) {
+            Cell cell = iterator.next();
+            iterator.remove(); // Safely removes the current element
+            cell.removeInfluencingOn(this);
         }
     }
 
