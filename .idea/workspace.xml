@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="update the Serialize function in the EngineImpl.">
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="1. added CellOutOfBoundsException in FileDataException, and the check in XmlProcessing.&#10;&#10;update the function convertStringToCoordinate in SheetImpl">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/FileDataException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/FileDataException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/XmlProcessingImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/XmlProcessingImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +78,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724517053848</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="1. added CellOutOfBoundsException in FileDataException, and the check in XmlProcessing.&#10;&#10;update the function convertStringToCoordinate in SheetImpl">
+      <option name="closed" value="true" />
+      <created>1724519952250</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1724519952250</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -100,6 +106,7 @@
     <MESSAGE value="state package Bonus&#10;Interface Engine" />
     <MESSAGE value="working in progress on the EngineImpl" />
     <MESSAGE value="update the Serialize function in the EngineImpl." />
-    <option name="LAST_COMMIT_MESSAGE" value="update the Serialize function in the EngineImpl." />
+    <MESSAGE value="1. added CellOutOfBoundsException in FileDataException, and the check in XmlProcessing.&#10;&#10;update the function convertStringToCoordinate in SheetImpl" />
+    <option name="LAST_COMMIT_MESSAGE" value="1. added CellOutOfBoundsException in FileDataException, and the check in XmlProcessing.&#10;&#10;update the function convertStringToCoordinate in SheetImpl" />
   </component>
 </project>
