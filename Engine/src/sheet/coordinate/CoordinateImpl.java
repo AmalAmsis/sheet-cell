@@ -4,7 +4,9 @@ import dto.DTOCoordinate;
 import dto.DTOCoordinateImpl;
 import jaxb.schema.generated.STLCell;
 
-public class CoordinateImpl implements Coordinate {
+import java.io.Serializable;
+
+public class CoordinateImpl implements Coordinate , Serializable {
 
     int row;
     char col;

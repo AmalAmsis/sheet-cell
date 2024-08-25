@@ -11,12 +11,13 @@ import sheet.cell.Cell;
 import sheet.cell.CellImpl;
 import sheet.coordinate.Coordinate;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SheetImpl implements Sheet {
+public class SheetImpl implements Sheet , Serializable {
 
     private int version;
     private final String title;
@@ -179,7 +180,7 @@ public class SheetImpl implements Sheet {
     }
 
 
-    public CoordinateImpl convertStringToCoordinate(String stringCoordinate) {
+    public Coordinate convertStringToCoordinate(String stringCoordinate) {
         // Check if the input is null or of incorrect length
         if (stringCoordinate == null || stringCoordinate.length() < 2 || stringCoordinate.length() > 3) {
             throw new IllegalArgumentException("Input must be between 2 to 3 characters long and non-null.");
@@ -187,7 +188,7 @@ public class SheetImpl implements Sheet {
 
 
         // get the col letter and checking that a letter representing the column is in the col range of the sheet
-        char col = stringCoordinate.charAt(0);
+        char col = stringCoordinate.toUpperCase().charAt(0);
         if (col < 'A' || col > getLastColLetter()) {
             throw new IllegalArgumentException("Column must be a letter between A and " + getLastColLetter() + ".");
         }

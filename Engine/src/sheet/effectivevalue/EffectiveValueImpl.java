@@ -1,6 +1,8 @@
 package sheet.effectivevalue;
 
-public class EffectiveValueImpl implements EffectiveValue {
+import java.io.Serializable;
+
+public class EffectiveValueImpl implements EffectiveValue, Serializable {
     private CellType cellType;
     private Object value;
 

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="update gitignore">
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="1. added CellOutOfBoundsException in FileDataException, and the check in XmlProcessing.&#10;&#10;update the function convertStringToCoordinate in SheetImpl">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -12,10 +12,22 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
-    "git-widget-placeholder": "Amal",
+    "git-widget-placeholder": "yarden__branch",
     "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
@@ -42,11 +54,59 @@
       <option name="project" value="LOCAL‎" />
       <updated>1724498833313</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="state package Bonus&#10;Interface Engine">
+      <option name="closed" value="true" />
+      <created>1724507693470</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1724507693470</updated>
+    </task>
+    <task id="LOCAL-00003" summary="working in progress on the EngineImpl">
+      <option name="closed" value="true" />
+      <created>1724512355544</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1724512355544</updated>
+    </task>
+    <task id="LOCAL-00004" summary="update the Serialize function in the EngineImpl.">
+      <option name="closed" value="true" />
+      <created>1724517053848</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1724517053848</updated>
+    </task>
+    <task id="LOCAL-00005" summary="1. added CellOutOfBoundsException in FileDataException, and the check in XmlProcessing.&#10;&#10;update the function convertStringToCoordinate in SheetImpl">
+      <option name="closed" value="true" />
+      <created>1724519952250</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1724519952250</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="update gitignore" />
+    <MESSAGE value="SheetVersionHandler finished" />
+    <MESSAGE value="state package Bonus&#10;Interface Engine" />
+    <MESSAGE value="working in progress on the EngineImpl" />
+    <MESSAGE value="update the Serialize function in the EngineImpl." />
+    <MESSAGE value="1. added CellOutOfBoundsException in FileDataException, and the check in XmlProcessing.&#10;&#10;update the function convertStringToCoordinate in SheetImpl" />
+    <option name="LAST_COMMIT_MESSAGE" value="1. added CellOutOfBoundsException in FileDataException, and the check in XmlProcessing.&#10;&#10;update the function convertStringToCoordinate in SheetImpl" />
   </component>
 </project>
