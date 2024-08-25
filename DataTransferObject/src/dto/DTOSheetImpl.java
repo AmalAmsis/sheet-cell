@@ -1,5 +1,6 @@
 package dto;
 
+import sheet.Sheet;
 import sheet.SheetImpl;
 import sheet.cell.Cell;
 
@@ -16,16 +17,16 @@ public class DTOSheetImpl implements DTOSheet {
     int heightOfRows;
     int widthOfCols;
 
-    public DTOSheetImpl(SheetImpl sheetImpl) {
-        this.version = sheetImpl.getVersion();
-        this.title = sheetImpl.getTitle();
-        this.numOfRows = sheetImpl.getNumOfRows();
-        this.numOfCols = sheetImpl.getNumOfCols();
-        this.heightOfRows = sheetImpl.getHeightOfRows();
-        this.widthOfCols = sheetImpl.getWidthOfCols();
+    public DTOSheetImpl(Sheet sheet) {
+        this.version = sheet.getVersion();
+        this.title = sheet.getTitle();
+        this.numOfRows = sheet.getNumOfRows();
+        this.numOfCols = sheet.getNumOfCols();
+        this.heightOfRows = sheet.getHeightOfRows();
+        this.widthOfCols = sheet.getWidthOfCols();
 
         //create DTOCell from original board of cells.
-        for( Cell cell : sheetImpl.getBoard().values()) {
+        for( Cell cell : sheet.getBoard().values()) {
             DTOCell dtoCell = new DTOCellImpl(cell);
             addDTOCell(dtoCell);
         }

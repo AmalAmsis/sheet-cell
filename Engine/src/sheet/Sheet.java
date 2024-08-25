@@ -8,4 +8,5 @@ import sheet.coordinate.Coordinate;
 public interface Sheet extends SheetDataModifier, SheetDataRetriever, SheetDependencyManager {
     Cell getCell(Coordinate coordinate);
     STLSheet convertFromSheetToStlSheet();
+    Coordinate convertStringToCoordinate(String stringCoordinate);
 }

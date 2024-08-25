@@ -1,8 +1,8 @@
 package sheet.version;
 
-import dto.DTOSheet;
+import sheet.Sheet;
 
 public interface SheetVersionHandler  extends SheetVersionProvider{
-    void addNewVersion(DTOSheet dtoSheet);
+    void addNewVersion(Sheet dtoSheet);
     void cleanHistory();
 }

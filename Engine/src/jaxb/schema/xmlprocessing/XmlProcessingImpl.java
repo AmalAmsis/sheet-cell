@@ -4,6 +4,9 @@ import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.Unmarshaller;
+import jaxb.schema.generated.STLCell;
+import jaxb.schema.generated.STLCells;
+import jaxb.schema.generated.STLLayout;
 import jaxb.schema.generated.STLSheet;
 
 import java.io.File;
@@ -11,14 +14,14 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-public class XmlProcessingImpl /*implements XmlProcessing*/ {
+public class XmlProcessingImpl implements XmlProcessing {
 
     //the package path of the generated classes
     private final String JAXB_XML_STL_PACKAGE_NAME = "jaxb.schema.generated";
 
     //not finish - need to edit.
     //@Override
-    public STLSheet parseAndValidateXml(String inputXmlFilePath) throws JAXBException, FileDataException.InvalidRowCountException, FileDataException.InvalidColumnCountException, FileDataException.InvalidColumnWidthException, FileDataException.InvalidRowHeightException {
+    public STLSheet parseAndValidateXml(String inputXmlFilePath) throws FileDataException, JAXBException {
         //1.is the file a xml file
         isXmlFile(inputXmlFilePath);
         //2.file load STLSheet = fromXmlFileToXmlFile(inputPath)
@@ -35,9 +38,9 @@ public class XmlProcessingImpl /*implements XmlProcessing*/ {
         //6.owHeightValidation
         int rowHeight = stlSheet.getSTLLayout().getSTLSize().getRowsHeightUnits();
         rowHeightValidation(rowHeight);
-        //7. Checking the integrity of the sheets:
-        //There are no duplicates in the cell,
-        //There is no cell exceeding the sheet boundaries
+        //7. Checking that all the cells are within the borders of the sheet
+        CellOutOfBoundsValidation(stlSheet.getSTLCells(), stlSheet.getSTLLayout());
+
 
         //8.The cells that define the use of the function are directed to the cells that contain information that
         // corresponds to the arguments of the function (Maybe we can test this as well as the creation of our objects)
@@ -84,6 +87,7 @@ public class XmlProcessingImpl /*implements XmlProcessing*/ {
      * @param stlSheet    the STLSheet object to be serialized
      * @throws JAXBException if an error occurs during marshalling
      */
+    //maybe we don't need this function..
     void fromObjectToXmlFile(String inputXmlFilePath, STLSheet stlSheet) throws JAXBException{
 
         try {
@@ -152,4 +156,32 @@ public class XmlProcessingImpl /*implements XmlProcessing*/ {
     }
 
 
+    public void CellOutOfBoundsValidation(STLCells listOfCells, STLLayout stlLayout) throws FileDataException.CellOutOfBoundsException {
+        if (listOfCells == null){
+            return;
+        }
+        for(STLCell stlCell: listOfCells.getSTLCell()){
+            isCellOutOfBounds(stlCell,stlLayout);
+
+        }
+    }
+
+    public void isCellOutOfBounds(STLCell stlCell, STLLayout stlLayout) throws FileDataException.CellOutOfBoundsException {
+        String column = stlCell.getColumn().toUpperCase();
+        int row = stlCell.getRow();
+
+        if (column.length() != 1 || column.charAt(0) < 'A' || column.charAt(0) > getLastColLetter(stlLayout.getColumns())) {
+            throw new FileDataException.CellOutOfBoundsException();
+        }
+
+        if (row <1 || row > stlLayout.getRows()) {
+            throw new FileDataException.CellOutOfBoundsException();
+        }
+
+
+    }
+
+    public char getLastColLetter(int numOfCols){
+        return (char) ('A' + numOfCols - 1);
+    }
 }
