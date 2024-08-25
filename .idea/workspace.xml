@@ -4,30 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="update gitignore">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_08_2024_14_28__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_08_2024_14_28__Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="add test for concat">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/CellGraphValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/CellGraphValidator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "AmalAmsis"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;AmalAmsis&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/AmalAmsis/sheet-cell.git",
-    "accountId": "7c3c5dfe-f29d-4945-a690-87b881a1fc0c"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/AmalAmsis/sheet-cell.git&quot;,
+    &quot;accountId&quot;: &quot;7c3c5dfe-f29d-4945-a690-87b881a1fc0c&quot;
   }
-}]]></component>
+}</component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
@@ -66,35 +62,98 @@
       <option name="project" value="LOCAL‎" />
       <updated>1724499100075</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL‎-00003" summary="Adding arcs to the graph according to ref">
+      <option name="closed" value="true" />
+      <created>1724572264202</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL‎-00003" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724572264202</updated>
+    </task>
+    <task id="LOCAL‎-00004" summary="Test Circle">
+      <option name="closed" value="true" />
+      <created>1724572279554</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL‎-00004" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724572279554</updated>
+    </task>
+    <task id="LOCAL‎-00005" summary="merge 25/8">
+      <option name="closed" value="true" />
+      <created>1724572295138</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL‎-00005" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724572295138</updated>
+    </task>
+    <task id="LOCAL‎-00006" summary="merge 25/8">
+      <option name="closed" value="true" />
+      <created>1724572408733</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL‎-00006" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724572408734</updated>
+    </task>
+    <task id="LOCAL‎-00007" summary=" Safely removes by iterator (removeAllDependsOn() method)">
+      <option name="closed" value="true" />
+      <created>1724583740183</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL‎-00007" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724583740183</updated>
+    </task>
+    <task id="LOCAL‎-00008" summary="Editing an exception">
+      <option name="closed" value="true" />
+      <created>1724584011378</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL‎-00008" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724584011378</updated>
+    </task>
+    <task id="LOCAL‎-00009" summary="add test for concat">
+      <option name="closed" value="true" />
+      <created>1724584046947</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL‎-00009" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724584046947</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="update gitignore" />
+    <MESSAGE value="Adding arcs to the graph according to ref" />
+    <MESSAGE value="Test Circle" />
+    <MESSAGE value="merge 25/8" />
+    <MESSAGE value=" Safely removes by iterator (removeAllDependsOn() method)" />
+    <MESSAGE value="Editing an exception" />
+    <MESSAGE value="add test for concat" />
+    <option name="LAST_COMMIT_MESSAGE" value="add test for concat" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java</url>
-          <line>86</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java</url>
-          <line>140</line>
-          <properties class="sheet.cell.CellImpl" method="removeAllDependsOn">
+          <line>149</line>
+          <properties class="sheet.cell.CellImpl" method="removeDependsOn">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="4" />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Engine/src/Main.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="sheet.cell.CellImpl" memberName="effectiveValue" />
+        <PinnedItemInfo parentTag="java.util.HashMap$Node" memberName="value" />
       </pinned-members>
     </pin-to-top-manager>
   </component>
