@@ -35,20 +35,35 @@ public class CellGraphValidator {
 
     //נכון לעכשיו הקונסטרקטור מייצר גרף רק עם קודקודים. יכולה להוסיף בפנים את המימוש להוספת הקשתות.
     public CellGraphValidator(STLCells stlCells) {
-        this.numOfVertices = 0;
-        this.numOfEdges = 0;
-        this.adjLists = new HashMap<>();
+        this.numOfVertices = 0; // Initialize the number of vertices in the graph to 0
+        this.numOfEdges = 0; // Initialize the number of edges in the graph to 0
+        this.adjLists = new HashMap<>(); // Initialize the adjacency list map, which will hold the graph's structure
 
-        List<STLCell> listOfCells = stlCells.getSTLCell();
+        List<STLCell> listOfCells = stlCells.getSTLCell(); // Get the list of cells from the STLCells object
 
-        for(STLCell stlCell : listOfCells)
-        {
-            addVertex(stlCell);
-            this.numOfVertices++;
+        for (STLCell stlCell : listOfCells) {
+            addVertex(stlCell); // Add each cell as a vertex in the graph
         }
 
-        //מימוש הוספת הקשתות
+        for (STLCell stlCell : listOfCells) {
+            String originalValue = stlCell.getSTLOriginalValue(); // Get the original value of the cell
 
+            // Check if the original value starts with "{REF," and ends with "}"
+            if (originalValue.startsWith("{REF,") && originalValue.endsWith("}")) {
+                // Extract the referenced cell's key by trimming the "{REF," from the start and "}" from the end
+                String referencedCell = originalValue.substring(5, originalValue.length() - 1).trim();
+
+                // Find the cell in the list that matches the referenced cell's key
+                STLCell refCell = listOfCells.stream()
+                        .filter(cell -> getCellKey(cell).equals(referencedCell)) // Use the getCellKey method to get the key for comparison
+                        .findFirst() // Find the first match
+                        .orElse(null); // If no match is found, return null
+
+                if (refCell != null) {
+                    addEdge(refCell, stlCell); // If the referenced cell is found, add an edge from it to the current cell
+                }
+            }
+        }
     }
 
     // Add a vertex to the graph
@@ -66,6 +81,8 @@ public class CellGraphValidator {
         String toKey = getCellKey(to);
 
         // Add the vertices if they don't exist
+        // אם עושים את זה יכול ליצור טעויות?
+        // אם אני עושה REF לתא שאין בו תוכן זה שגיאה?
         addVertex(from);
         addVertex(to);
 
