@@ -13,6 +13,7 @@ import sheet.effectivevalue.EffectiveValue;
 
 import java.io.Serializable;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class CellImpl implements Cell, Serializable {
     //data member
@@ -162,13 +163,15 @@ public class CellImpl implements Cell, Serializable {
     @Override
     public void addToInfluencingOn(Cell cell) {
         this.influencingOn.add(cell);
-        if (isCircle())
-        {
+        List<Cell> cycle = detectCycle();
+        if (cycle != null) {
             this.influencingOn.remove(cell);
-            String message = String.format("Circle");//TO DO: add a clear message
-            throw new  IllegalArgumentException(message);
+            String cyclePath = cycle.stream()
+                    .map(Cell:: getId) // Assuming each Cell has a getId implementation
+                    .collect(Collectors.joining(" -> "));
+            String message = String.format("Cycle detected: %s. REF operation failed due to the cycle.", cyclePath);
+            throw new IllegalArgumentException(message);
         }
-
     }
 
     //TO DO
@@ -184,44 +187,59 @@ public class CellImpl implements Cell, Serializable {
         return id;
     }
 
+    /**
+     * Detects if there is a cycle starting from this cell.
+     *
+     * @return A list of cells representing the cycle if one is found, otherwise null.
+     */
     @Override
-    public boolean isCircle() {
-        return isCircleHelper(new HashSet<>(), new HashSet<>());
+    public List<Cell> detectCycle() {
+        return detectCycleHelper(new HashSet<>(), new HashSet<>(), new ArrayList<>());
     }
 
+    @Override
     /**
-     * Helper method to detect cycles using DFS.
+     * Helper method to detect cycles using DFS and return the cycle path.
      * If a cell influences another cell, there is a directed edge (or arc) from the influencing cell to the influenced cell.
      *
      * @param visited Keeps track of fully processed cells (Black Nodes).
      * @param recStack Tracks the current path in DFS (Gray Nodes).
-     * @return true if a cycle (back edge) is found, false otherwise.
+     * @param path Records the current path of cells being visited.
+     * @return A list of cells representing the cycle if one is found, otherwise null.
      */
-    public boolean isCircleHelper(Set<Cell> visited, Set<Cell> recStack) {
+    public List<Cell> detectCycleHelper(Set<Cell> visited, Set<Cell> recStack, List<Cell> path) {
         // If this cell is already in the recursion stack, a back edge (cycle) is detected.
         if (recStack.contains(this)) {
-            return true;
+            path.add(this);
+            return path;
         }
 
         // If this cell is already visited, it's fully processed, so no cycle here.
         if (visited.contains(this)) {
-            return false;
+            return null;
         }
 
         // Mark this cell as visited and add it to the recursion stack.
         visited.add(this);
         recStack.add(this);
+        path.add(this);
 
         // Recursively check all influenced cells.
         for (Cell cell : influencingOn) {
-            if (cell.isCircleHelper(visited, recStack)) {
-                return true; // Cycle detected.
+            List<Cell> cyclePath = cell.detectCycleHelper(visited, recStack, path);
+            if (cyclePath != null) {
+                if (cyclePath.get(0) == this) {
+                    return cyclePath; // Close the cycle
+                } else {
+                    return cyclePath;
+                }
             }
         }
 
         // Remove this cell from the recursion stack after processing.
         recStack.remove(this);
-        return false; // No cycle detected.
+        path.remove(path.size() - 1);
+        return null; // No cycle detected.
     }
 
 
