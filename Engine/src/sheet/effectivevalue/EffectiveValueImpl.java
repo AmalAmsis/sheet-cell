@@ -29,4 +29,11 @@ public class EffectiveValueImpl implements EffectiveValue, Serializable {
         // error handling... exception ? return null ?
         return null;
     }
+
+    @Override
+    public String toString() {
+        return this.extractValueWithExpectation(cellType.getType()).toString();
+    }
+
+
 }
