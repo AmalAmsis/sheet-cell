@@ -48,14 +48,23 @@ public class SheetImpl implements Sheet , Serializable {
         this.widthOfCols = stlSheet.getSTLLayout().getSTLSize().getRowsHeightUnits();
 
         //load the cell on the list to our map
-        for(STLCell stlCell : sortedListOfStlCells){
+        this.addSortedListOfStlCellsToSheet(sortedListOfStlCells);
 
             /* לשאול את ירדן מה היא חושבת
             CellImpl cell = new CellImpl(stlCell);
             String key = cell.getId();
             board.put(key, cell);
              */
+
+    }
+
+    private void addSortedListOfStlCellsToSheet(List<STLCell> sortedListOfStlCells) {
+        for(STLCell stlCell : sortedListOfStlCells) {
+            String originalValue = stlCell.getSTLOriginalValue();//?????????????????????????????????????????????????
+            Coordinate myCoordinate = new CoordinateImpl(stlCell);
+            this.addCell(myCoordinate, originalValue);
         }
+        this.version = 1;
     }
 
     @Override
@@ -98,15 +107,16 @@ public class SheetImpl implements Sheet , Serializable {
         return board.get(coordinate.toString());
     }
 
-    //לטפל במקרה שהcoordinate מחוץ לגבולות המערך
     @Override
     public void setCell(Coordinate coordinate, String originalValue) {
         updateVersion(); // Every change in a cell updates the sheet version.
         try {
+            /*
             if (originalValue.isBlank()) { // If the original value is blank
                 removeCell(coordinate); // Remove the cell if the value is blank.
                 return;
             }
+             */
             if (!isCellInSheet(coordinate)) {
                 addCell(coordinate, originalValue);
             } else {
@@ -168,7 +178,7 @@ public class SheetImpl implements Sheet , Serializable {
         }
     }
 
-    // אם התא משפיע על עוד תאים מה עושים?????????????????????
+    // לא משתמשים
     // Remove a cell from the sheet
     public void removeCell(Coordinate coordinate) {
 

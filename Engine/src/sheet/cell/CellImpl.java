@@ -42,7 +42,7 @@ public class CellImpl implements Cell, Serializable {
     //22/8/24 - this ctor from STL object that we got from xml file,
     //we assume that we will get it to the ctor after validation test!
     public CellImpl(STLCell stlCell) {
-        this.originalValue = stlCell.toString();
+        this.originalValue = stlCell.toString();//??????????????????????????????????????????????????????????????
         Coordinate myCoordinate = new CoordinateImpl(stlCell);
         this.coordinate = myCoordinate;
         this.id = myCoordinate.toString();
@@ -64,7 +64,7 @@ public class CellImpl implements Cell, Serializable {
     }
 
 
-    //לא לשכוח להוסיף בדיקה אם התוצאה מתאימה לגודל תא בגליון
+
     @Override
     public void updateValue(String originalValue) {
         //EffectiveValue previousEffectiveValue = this.effectiveValue;

@@ -42,10 +42,8 @@ public class EngineImpl implements Engine {
         List<STLCell> sortedListOfStlCells = xmlProcessing.getTopologicalSortOrThrowCircularReferenceException(stlCellList);
 
 
-        //Loading system state
-        Sheet newSheet = new SheetImpl(stlSheet);
-        SheetVersionHandler currentSheetVersionHandler = new SheetVersionHandlerImpl(newSheet);
-        this.currentSheetState = new SheetStateManagerImpl(newSheet,currentSheetVersionHandler);
+         Sheet newSheet = new SheetImpl(stlSheet, sortedListOfStlCells);
+         //this.currentSheetState = new SheetStateManagerImpl(newSheet,currentSheetVersionHandler);
     }
 
     @Override
