@@ -23,24 +23,24 @@ public class ExpressionEvaluator {
      * @return the evaluated EffectiveValue
      */
     public static EffectiveValue evaluate(String str, SheetDataRetriever sheet, Coordinate targetCoordinate) {
-        str = str.trim();
+        String strWithoutWhiteSpaces = str.trim();
 
         // Handle numeric values
-        if (isNumeric(str)) {
-            return new NumericExpression(Double.parseDouble(str)).evaluate();
+        if (isNumeric(strWithoutWhiteSpaces)) {
+            return new NumericExpression(Double.parseDouble(strWithoutWhiteSpaces)).evaluate();
         }
 
         // Handle boolean values
-        if (str.toUpperCase().equals("TRUE")) {
+        if (strWithoutWhiteSpaces.toUpperCase().equals("TRUE")) {
             return new BooleanExpression(true).evaluate();
-        } else if (str.toUpperCase().equals("FALSE")) {
+        } else if (strWithoutWhiteSpaces.toUpperCase().equals("FALSE")) {
             return new BooleanExpression(false).evaluate();
         }
 
         // Handle function expressions
-        if (str.startsWith("{") && str.endsWith("}")) {
-            str = str.substring(1, str.length() - 1).trim();
-            String[] parts = splitByComma(str);
+        if (strWithoutWhiteSpaces.startsWith("{") && strWithoutWhiteSpaces.endsWith("}")) {
+            strWithoutWhiteSpaces = strWithoutWhiteSpaces.substring(1, strWithoutWhiteSpaces.length() - 1).trim();
+            String[] parts = splitByComma(strWithoutWhiteSpaces);
             String operationName = parts[0].trim().toUpperCase();
 
             try {
@@ -51,7 +51,7 @@ public class ExpressionEvaluator {
 
                 Expression[] expressions = new Expression[operation.getNumberOfArguments()];
                 for (int i = 0; i < expressions.length; i++) {
-                    expressions[i] = parseExpression(parts[i + 1].trim(), sheet, targetCoordinate);
+                    expressions[i] = parseExpression(parts[i + 1], sheet, targetCoordinate);
                 }
 
                 return operation.eval(sheet, targetCoordinate, expressions);
@@ -98,7 +98,7 @@ public class ExpressionEvaluator {
             }
 
             if (c == ',' && bracesLevel == 0) {
-                parts.add(currentPart.toString().trim());
+                parts.add(currentPart.toString());
                 currentPart.setLength(0);
             } else {
                 currentPart.append(c);
@@ -106,7 +106,7 @@ public class ExpressionEvaluator {
         }
 
         if (currentPart.length() > 0) {
-            parts.add(currentPart.toString().trim());
+            parts.add(currentPart.toString());
         }
 
         return parts.toArray(new String[0]);
