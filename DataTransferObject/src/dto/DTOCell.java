@@ -8,7 +8,7 @@ public interface DTOCell {
 
     //getters
     DTOCoordinate getCoordinate();
-    EffectiveValue getEffectiveValue();
+    String getEffectiveValue();
     String getOriginalValue();
     int getLastModifiedVersion();
     List<DTOCoordinate> getDependsOn();
