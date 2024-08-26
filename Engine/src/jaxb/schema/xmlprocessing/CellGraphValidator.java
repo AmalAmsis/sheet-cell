@@ -32,12 +32,15 @@ public class CellGraphValidator {
     private int numOfVertices;
     private int numOfEdges;
     private Map<String, List<String>> adjLists;
+    private Map<String,STLCell> keyToSTLCellMap;
 
     //נכון לעכשיו הקונסטרקטור מייצר גרף רק עם קודקודים. יכולה להוסיף בפנים את המימוש להוספת הקשתות.
     public CellGraphValidator(STLCells stlCells) {
         this.numOfVertices = 0; // Initialize the number of vertices in the graph to 0
         this.numOfEdges = 0; // Initialize the number of edges in the graph to 0
         this.adjLists = new HashMap<>(); // Initialize the adjacency list map, which will hold the graph's structure
+        this.keyToSTLCellMap = new HashMap<>(); // Initialize the map from keys to STLCell objects
+
 
         List<STLCell> listOfCells = stlCells.getSTLCell(); // Get the list of cells from the STLCells object
 
@@ -71,6 +74,7 @@ public class CellGraphValidator {
         String cellKey = getCellKey(stlCell);
         if (!adjLists.containsKey(cellKey)) {
             adjLists.put(cellKey, new ArrayList<>());
+            keyToSTLCellMap.put(cellKey, stlCell);
             numOfVertices++;
         }
     }
@@ -101,9 +105,12 @@ public class CellGraphValidator {
     }
 
     //מיון טופולוגי - מחזיר רשימה של סדר המיון או Null אם יש מעגל
-    public List<String> topologicalSort() {
+    public List<STLCell> topologicalSort() throws FileDataException.CircularReferenceException {
+        //inDegree map <key:cellKey, Value:cell inDegree rank)
         Map<String, Integer> inDegree = new HashMap<>();
+        //Queue sources : Contains the keys to cells that are sources in the current graph
         Queue<String> queue = new LinkedList<>();
+        //A list of the topological sort
         List<String> sortedList = new ArrayList<>();
 
         // Initialize all inDegree to 0
@@ -141,10 +148,23 @@ public class CellGraphValidator {
         // Check if all nodes were processed
         for (String cellKey : inDegree.keySet()) {
             if (inDegree.get(cellKey) != 0) {
-                return null; // Return null if a cycle is detected
+                throw new FileDataException.CircularReferenceException();
             }
         }
 
-        return sortedList;
+        return convertToCellList(sortedList);
     }
+
+    public List<STLCell> convertToCellList(List<String> sortedKeys) {
+        List<STLCell> stlCellList = new ArrayList<>();
+        for (String key : sortedKeys) {
+            STLCell stlcell = keyToSTLCellMap.get(key);
+            if (stlcell != null) {
+                stlCellList.add(stlcell);
+            }
+        }
+        return stlCellList;
+    }
+
+
 }

@@ -12,10 +12,7 @@ import sheet.coordinate.CoordinateImpl;
 import sheet.effectivevalue.EffectiveValue;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class CellImpl implements Cell, Serializable {
     //data member
@@ -39,6 +36,7 @@ public class CellImpl implements Cell, Serializable {
         this.id = coordinate.toString();
 
     }
+
 
 
     //22/8/24 - this ctor from STL object that we got from xml file,
@@ -240,5 +238,18 @@ public class CellImpl implements Cell, Serializable {
         stlCell.setColumn(Character.toString(myCol));
 
         return stlCell;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CellImpl cell = (CellImpl) o;
+        return lastModifiedVersion == cell.lastModifiedVersion && Objects.equals(id, cell.id) && Objects.equals(coordinate, cell.coordinate) && Objects.equals(originalValue, cell.originalValue) && Objects.equals(effectiveValue, cell.effectiveValue) && Objects.equals(dependsOn, cell.dependsOn) && Objects.equals(influencingOn, cell.influencingOn) && Objects.equals(sheet, cell.sheet);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, coordinate, originalValue, effectiveValue, lastModifiedVersion, dependsOn, influencingOn, sheet);
     }
 }

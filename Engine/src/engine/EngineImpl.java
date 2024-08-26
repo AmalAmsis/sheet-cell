@@ -4,6 +4,8 @@ import dto.DTOCell;
 import dto.DTOCellImpl;
 import dto.DTOSheet;
 import dto.DTOSheetImpl;
+import jaxb.schema.generated.STLCell;
+import jaxb.schema.generated.STLCells;
 import jaxb.schema.generated.STLSheet;
 import jaxb.schema.xmlprocessing.XmlProcessing;
 import jaxb.schema.xmlprocessing.XmlProcessingImpl;
@@ -16,6 +18,7 @@ import state.SheetStateManager;
 import state.SheetStateManagerImpl;
 
 import java.io.*;
+import java.util.List;
 
 public class EngineImpl implements Engine {
 
@@ -32,6 +35,12 @@ public class EngineImpl implements Engine {
         //load the xml file with jaxb
         XmlProcessing xmlProcessing = new XmlProcessingImpl();
         STLSheet stlSheet = xmlProcessing.parseAndValidateXml(filePath);
+
+        //Creating a list of cells by topological sorting.
+        //Returns a sorted list or exception
+        STLCells stlCellList = stlSheet.getSTLCells();
+        List<STLCell> sortedListOfStlCells = xmlProcessing.getTopologicalSortOrThrowCircularReferenceException(stlCellList);
+
 
         //Loading system state
         Sheet newSheet = new SheetImpl(stlSheet);
@@ -64,7 +73,6 @@ public class EngineImpl implements Engine {
         if (this.currentSheetState != null){
             //call Amal function
 
-            //update currentSheetState
             //return new DTOSheetImpl(mySheet);
         }
         return null;
