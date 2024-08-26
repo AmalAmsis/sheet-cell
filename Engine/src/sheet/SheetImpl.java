@@ -12,10 +12,7 @@ import sheet.cell.CellImpl;
 import sheet.coordinate.Coordinate;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class SheetImpl implements Sheet , Serializable {
 
@@ -262,4 +259,16 @@ public class SheetImpl implements Sheet , Serializable {
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SheetImpl sheet = (SheetImpl) o;
+        return version == sheet.version && numOfRows == sheet.numOfRows && numOfCols == sheet.numOfCols && heightOfRows == sheet.heightOfRows && widthOfCols == sheet.widthOfCols && Objects.equals(title, sheet.title) && Objects.equals(board, sheet.board);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(version, title, board, numOfRows, numOfCols, heightOfRows, widthOfCols);
+    }
 }

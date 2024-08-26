@@ -38,6 +38,7 @@ public class CellImpl implements Cell, Serializable {
     }
 
 
+
     //22/8/24 - this ctor from STL object that we got from xml file,
     //we assume that we will get it to the ctor after validation test!
     public CellImpl(STLCell stlCell) {
@@ -240,5 +241,18 @@ public class CellImpl implements Cell, Serializable {
         stlCell.setColumn(Character.toString(myCol));
 
         return stlCell;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CellImpl cell = (CellImpl) o;
+        return lastModifiedVersion == cell.lastModifiedVersion && Objects.equals(id, cell.id) && Objects.equals(coordinate, cell.coordinate) && Objects.equals(originalValue, cell.originalValue) && Objects.equals(effectiveValue, cell.effectiveValue) && Objects.equals(dependsOn, cell.dependsOn) && Objects.equals(influencingOn, cell.influencingOn) && Objects.equals(sheet, cell.sheet);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, coordinate, originalValue, effectiveValue, lastModifiedVersion, dependsOn, influencingOn, sheet);
     }
 }

@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.List;
 
 public class XmlProcessingImpl implements XmlProcessing {
 
@@ -179,6 +180,12 @@ public class XmlProcessingImpl implements XmlProcessing {
         }
 
 
+    }
+
+
+    public List<STLCell> getTopologicalSortOrThrowCircularReferenceException(STLCells listOfCells) throws FileDataException.CircularReferenceException {
+        CellGraphValidator cellGraphValidator = new CellGraphValidator(listOfCells);
+        return cellGraphValidator.topologicalSort();
     }
 
     public char getLastColLetter(int numOfCols){
