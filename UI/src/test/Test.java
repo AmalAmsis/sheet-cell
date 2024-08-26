@@ -1,6 +1,7 @@
 package test;
 
 import dto.DTOSheetImpl;
+import manager.UIManager;
 import manager.UIManagerImpl;
 import sheet.Sheet;
 import sheet.SheetImpl;
@@ -12,6 +13,9 @@ import javax.swing.*;
 
 public class Test {
     public static void main(String[] args) {
+
+        UIManager manager = new UIManagerImpl();
+        manager.printMenu();
         String title = "Test1";
         int numOfRows = 5;
         int numOfCols = 6;
