@@ -23,21 +23,22 @@ public class ExpressionEvaluator {
      * @return the evaluated EffectiveValue
      */
     public static EffectiveValue evaluate(String str, SheetDataRetriever sheet, Coordinate targetCoordinate) {
-        String strWithoutWhiteSpaces = str.trim();
+
 
         // Handle numeric values
-        if (isNumeric(strWithoutWhiteSpaces)) {
-            return new NumericExpression(Double.parseDouble(strWithoutWhiteSpaces)).evaluate();
+        if (isNumeric(str)) {
+            return new NumericExpression(Double.parseDouble(str)).evaluate();
         }
 
         // Handle boolean values
-        if (strWithoutWhiteSpaces.toUpperCase().equals("TRUE")) {
+        if (str.toUpperCase().equals("TRUE")) {
             return new BooleanExpression(true).evaluate();
-        } else if (strWithoutWhiteSpaces.toUpperCase().equals("FALSE")) {
+        } else if (str.toUpperCase().equals("FALSE")) {
             return new BooleanExpression(false).evaluate();
         }
 
         // Handle function expressions
+        String strWithoutWhiteSpaces = str.trim();
         if (strWithoutWhiteSpaces.startsWith("{") && strWithoutWhiteSpaces.endsWith("}")) {
             strWithoutWhiteSpaces = strWithoutWhiteSpaces.substring(1, strWithoutWhiteSpaces.length() - 1).trim();
             String[] parts = splitByComma(strWithoutWhiteSpaces);
@@ -120,6 +121,7 @@ public class ExpressionEvaluator {
      * @return the corresponding Expression object
      */
     private static Expression parseExpression(String str, SheetDataRetriever sheet, Coordinate targetCoordinate) {
+        EffectiveValue effectiveValue = evaluate(str, sheet, targetCoordinate);
         return convertEffectiveValueToExpression(evaluate(str, sheet, targetCoordinate));
     }
 
