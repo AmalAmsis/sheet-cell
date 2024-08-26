@@ -3,9 +3,8 @@ public interface UIManager {
     //Amal
     void printMenu();
     //yarden
-    void ptintSheet();
-    //yarden
-    void ptintCell();
+    public void displaySheet();    //yarden
+    void displayCell();
     //yarden
     void loadXmlFile();
     void loadSeralizationFile();
