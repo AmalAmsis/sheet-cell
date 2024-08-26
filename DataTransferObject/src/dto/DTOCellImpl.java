@@ -1,6 +1,7 @@
 package dto;
 
 import sheet.cell.Cell;
+import sheet.effectivevalue.EffectiveValue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
 public class DTOCellImpl implements DTOCell {
 
     private DTOCoordinate coordinate;
-    private Object effectiveValue;
+    private EffectiveValue effectiveValue;
     private String originalValue;
     private int lastModifiedVersion;
     private final List<DTOCoordinate> dependsOn = new ArrayList<>();
