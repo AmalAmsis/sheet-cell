@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="add test for concat">
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="25/8">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +119,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1724584046947</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL‎-00010" summary="25/8">
+      <option name="closed" value="true" />
+      <created>1724584814353</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL‎-00010" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724584814353</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -129,7 +138,8 @@
     <MESSAGE value=" Safely removes by iterator (removeAllDependsOn() method)" />
     <MESSAGE value="Editing an exception" />
     <MESSAGE value="add test for concat" />
-    <option name="LAST_COMMIT_MESSAGE" value="add test for concat" />
+    <MESSAGE value="25/8" />
+    <option name="LAST_COMMIT_MESSAGE" value="25/8" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
