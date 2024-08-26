@@ -50,7 +50,7 @@ public class Ref extends UnaryExpression {
 
         // Check if the cell exists in the sheet
         if (!sheet.isCellInSheet(coordinate)) {
-            throw new IllegalArgumentException(String.format("Invalid operation: The cell '%s' does not exist in the sheet.", cellReference));
+            throw new IllegalArgumentException(String.format("Invalid operation: The cell '%s' is Empty", cellReference));
         }
     }
 }

@@ -1,5 +1,6 @@
 package expression;
 
+import expression.exception.InvalidOperationNameException;
 import expression.impl.primitive.BooleanExpression;
 import expression.impl.primitive.NumericExpression;
 import expression.impl.primitive.StringExpression;
@@ -44,23 +45,20 @@ public class ExpressionEvaluator {
             String[] parts = splitByComma(strWithoutWhiteSpaces);
             String operationName = parts[0].trim().toUpperCase();
 
-            try {
-                Operation operation = Operation.valueOf(operationName);
-                if (parts.length - 1 != operation.getNumberOfArguments()) {
-                    throw new IllegalArgumentException("Incorrect number of arguments for operation: " + operationName + ", expected " + operation.getNumberOfArguments() + ", got " + parts.length);
-                }
 
-                Expression[] expressions = new Expression[operation.getNumberOfArguments()];
-                for (int i = 0; i < expressions.length; i++) {
-                    expressions[i] = parseExpression(parts[i + 1], sheet, targetCoordinate);
-                }
-
-                return operation.eval(sheet, targetCoordinate, expressions);
-            } catch (IllegalArgumentException e) {
-                throw new IllegalArgumentException("Invalid operation: " + operationName + "- " +e.getMessage());
+            Operation operation = Operation.fromString(operationName);
+            if (parts.length - 1 != operation.getNumberOfArguments()) {
+                throw new IllegalArgumentException("Incorrect number of arguments for operation: " + operationName + ", expected " + operation.getNumberOfArguments() + ", got " + (parts.length-1));
             }
-        }
 
+            Expression[] expressions = new Expression[operation.getNumberOfArguments()];
+            for (int i = 0; i < expressions.length; i++) {
+                expressions[i] = parseExpression(parts[i + 1], sheet, targetCoordinate);
+            }
+
+            return operation.eval(sheet, targetCoordinate, expressions);
+
+        }
         // If none of the conditions match, treat as a string str
         return new StringExpression(str).evaluate();
     }
