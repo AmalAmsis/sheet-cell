@@ -25,6 +25,10 @@ public class Sub extends TernaryExpression {
         int start = (int) startDouble;
         int end = (int) endDouble;
 
+        if (source == "!UNDEFINED!" || startDouble == Double.NaN || endDouble == Double.NaN) {
+            return new EffectiveValueImpl(CellType.STRING, "!UNDEFINED!");
+        }
+
         // Validate indices
         if (start < 0 || end < 0 || start > end || end >= source.length()) {
             return new EffectiveValueImpl(CellType.STRING, "!UNDEFINED!");//?????????
