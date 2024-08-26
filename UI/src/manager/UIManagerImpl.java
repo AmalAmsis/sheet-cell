@@ -1,3 +1,5 @@
+package manager;
+
 import dto.DTOCell;
 import dto.DTOSheet;
 import engine.Engine;
@@ -13,7 +15,8 @@ public class UIManagerImpl {
         printSheetToConsole(dtoSheet);
     }
 
-    private void printSheetToConsole(DTOSheet dtoSheet) {
+    //להחזיר לפרייבט
+    public static void printSheetToConsole(DTOSheet dtoSheet) {
         StringBuilder sb = new StringBuilder();
 
         //Adding the title and the version of the sheet to the StringBuilder
@@ -37,13 +40,13 @@ public class UIManagerImpl {
     }
 
     // Adding the title and the version of the sheet to the StringBuilder
-    private void printSheetHeader(DTOSheet dtoSheet, StringBuilder sb) {
+    public static void printSheetHeader(DTOSheet dtoSheet, StringBuilder sb) {
         sb.append("Sheet Title: ").append(dtoSheet.getSheetTitle()).append("\n")
                 .append("Sheet Version: ").append(dtoSheet.getSheetVersion()).append("\n\n");
     }
 
     // Adding the column headers (A, B, C, etc.) to the StringBuilder
-    private void printColumnHeaders(int numOfColumns, int widthOfColumn, StringBuilder sb) {
+    public static void printColumnHeaders(int numOfColumns, int widthOfColumn, StringBuilder sb) {
         sb.append("    |");  //Leaving a space of 4 characters for line numbers
         for (int col = 0; col < numOfColumns; col++) {
             char columnLetter = (char) ('A' + col);
@@ -57,7 +60,7 @@ public class UIManagerImpl {
         sb.append("\n");
     }
     // Adding each row, including the row number and cell values to the StringBuilder
-    private void printRow(int row, int numOfColumns, int widthOfColumn, Map<String, DTOCell> cells, StringBuilder sb) {
+    public static void printRow(int row, int numOfColumns, int widthOfColumn, Map<String, DTOCell> cells, StringBuilder sb) {
         sb.append(String.format("%4d", row)).append(" |"); //print the number of the row
         for (int col = 0; col < numOfColumns; col++) {
             //create the key of yhe cell

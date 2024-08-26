@@ -1,4 +1,4 @@
-package Menu;
+package menu;
 
 public enum Command {
     LOAD_FILE("1. Load spreadsheet data file") {
