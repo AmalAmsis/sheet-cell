@@ -69,7 +69,9 @@ public class EngineImpl implements Engine {
     @Override
     public DTOSheet updateCell(String coordinateString, String newOriginalValue) throws Exception {
         if (this.currentSheetState != null){
-            //call Amal function
+            //call Amal function לברר אם הבנתי נכון את הסטייט
+            Coordinate coordinate = this.currentSheetState.getCurrentSheet().convertStringToCoordinate(coordinateString)
+            this.currentSheetState.getCurrentSheet().setCell(coordinate, newOriginalValue);
 
             //return new DTOSheetImpl(mySheet);
         }
