@@ -11,5 +11,6 @@ public interface UIManager {
     void loadXmlFile(String filePath);
     void loadSeralizationFile();
     void saveSeralizationFile();
+    void loadXmlFileFromUser();
 
 }

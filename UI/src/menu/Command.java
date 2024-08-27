@@ -3,36 +3,55 @@ package menu;
 import manager.UIManager;
 
 public enum Command {
-    LOAD_FILE("1. Load spreadsheet data file") {
+    LOAD_XML_FILE("Load spreadsheet data from xml file") {
         @Override
         public void execute(UIManager manager) {
-            loadFile(manager);
+
+
+            manager.loadXmlFile("ff");
         }
     },
-    SHOW_SHEET("2. Display the sheet") {
+    SHOW_SHEET("Display the sheet") {
         @Override
         public void execute(UIManager manager) {
             showSheet(manager);
         }
     },
-    SHOW_CELL("3. Display a single cell's value") {
+    SHOW_CELL("Display a single cell's value") {
         @Override
         public void execute(UIManager manager) {
             showCell(manager);
         }
     },
-    UPDATE_CELL("4. Update a single cell's value") {
+    UPDATE_CELL("Update a single cell's value") {
         @Override
         public void execute(UIManager manager) {
             updateCell(manager);
         }
     },
-    SHOW_VERSIONS("5. Display versions") {
+    SHOW_VERSIONS("Display versions") {
         @Override
         public void execute(UIManager manager) {
             showVersions(manager);
         }
     },
+
+    SAVE_SYSTEM_STATE("Save system state") {
+        @Override
+        public void execute(UIManager manager) {
+            //todo
+        }
+    },
+
+    LOAD_SYSTEM_STATE("Load system state") {
+        @Override
+        public void execute(UIManager manager) {
+            //todo
+        }
+    },
+
+
+
     EXIT("6. Exit the system") {
         @Override
         public void execute(UIManager manager) {

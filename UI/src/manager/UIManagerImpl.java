@@ -23,6 +23,70 @@ public class UIManagerImpl implements UIManager {
 
     @Override
     public void printMenu() {
+
+        Scanner scanner = new Scanner(System.in);
+
+        if(isFirstMenu()){
+            printFirstMenu();
+            getChoiceFromFirstMenu().execute(this);
+        }
+        else{
+            printMainMenu();
+            getChoiceFromMainMenu().execute(this);
+        }
+
+    }
+
+
+    public String getXmlFileFullPath(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter the XML file full path: ");
+        return scanner.nextLine();
+    }
+
+    private void printFirstMenu(){
+
+        System.out.println("\n===============================");
+        System.out.println("          Main Menu            ");
+        System.out.println("===============================\n");
+
+        System.out.printf("1." + "%s\n", Command.LOAD_XML_FILE.getDescription());
+        System.out.printf("2." + "%s\n", Command.LOAD_SYSTEM_STATE.getDescription());
+        System.out.printf("3." + "%s\n", Command.EXIT.getDescription());
+
+        System.out.println("\n===============================");
+
+    }
+
+    private Command getChoiceFromFirstMenu(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please select an option (1-3):");
+
+        while (true) {
+            try {
+                int choice = Integer.parseInt(scanner.nextLine());
+
+                switch (choice) {
+                    case 1:
+                        return Command.LOAD_XML_FILE;
+                    case 2:
+                        return Command.LOAD_SYSTEM_STATE;
+                    case 3:
+                        return Command.EXIT;
+                    default:
+                        System.out.println("The number you entered is out of range. ");
+                        System.out.println("Please select an option between 1 and 3.");
+                        printFirstMenu();
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a number between 1 and 3.");
+                printFirstMenu();
+            }
+        }
+
+    }
+
+    private void printMainMenu(){
         System.out.println("\n===============================");
         System.out.println("          Main Menu            ");
         System.out.println("===============================\n");
@@ -36,6 +100,29 @@ public class UIManagerImpl implements UIManager {
         System.out.println();
     }
 
+    private Command getChoiceFromMainMenu() {
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            try {
+                int choice = Integer.parseInt(scanner.nextLine());
+
+                if (choice >= 1 && choice <= Command.values().length) {
+                    return Command.values()[choice - 1];
+                } else {
+                    // טיפול במקרים שהמספר מחוץ לטווח האפשרויות
+                    System.out.println("The number you entered is out of range. Please select an option between 1 and " + Command.values().length + ".");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a valid number between 1 and " + Command.values().length + ".");
+            }
+        }
+    }
+
+    //todo
+    private boolean isFirstMenu(){
+        return false;
+    }
 
     @Override
     public void displaySheet(){
@@ -108,7 +195,6 @@ public class UIManagerImpl implements UIManager {
 
     }
 
-    //להחזיר לפרייבט
     private void printSheetToConsole(DTOSheet dtoSheet) {
         StringBuilder sb = new StringBuilder();
 
@@ -155,6 +241,7 @@ public class UIManagerImpl implements UIManager {
     }
     // Adding each row, including the row number and cell values to the StringBuilder
     private void printRow(int row, int numOfColumns, int widthOfColumn, Map<String, DTOCell> cells, StringBuilder sb, int heightOfRow) {
+
         sb.append(" ").append(String.format("%02d", row)).append(" |"); //print the number of the row
         for (int col = 0; col < numOfColumns; col++) {
             //create the key of yhe cell
@@ -187,17 +274,52 @@ public class UIManagerImpl implements UIManager {
             sb.append(sbCellValue);
         }
         sb.append("\n");  // Move to the next line after each row
-    }
-
-    private void printEmptyRow(StringBuilder sb,int widthOfColumn ) {
-        sb.append("    |");
-        for (int col = 0; col < widthOfColumn; col++) {
-            sb.append(" ".repeat(widthOfColumn));
-            if (col < widthOfColumn - 1) {
-                sb.append("|");
-            }
+        for(int heigh = 0; heigh < heightOfRow-1; heigh++) {
+            printEmptyRow(sb, widthOfColumn,numOfColumns);
         }
     }
 
+    private void printEmptyRow(StringBuilder sb,int widthOfColumn, int numOfColumns ) {
+        sb.append("    |");
+        for (int col = 0; col < numOfColumns; col++) {
+            sb.append(" ".repeat(widthOfColumn));
+            if (col < numOfColumns - 1) {
+                sb.append("|");
+            }
+        }
+        sb.append("\n");  // Move to the next line after each row
+    }
+
+    @Override
+    public void loadXmlFileFromUser() {
+        String xmlFilePath = getXmlFileFullPath();
+        loadXmlFile(xmlFilePath);
+    }
+
+    private int filePathErrorMene()
+    {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("===============================\n");
+        System.out.println("1. Try loading the file again");
+        System.out.println("2. Return to the main menu");
+        System.out.println("\n===============================");
+        System.out.print("Please select an option (1-2): ");
+
+        try {
+            int choice = Integer.parseInt(scanner.nextLine());
+
+            switch (choice) {
+                case 1:
+                    return 1;
+                case 2:
+                    return 2;
+                default:
+                    System.out.println("Invalid choice. Please select either 1 or 2.");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a valid number (1 or 2).");
+        }
+    }
 
 }
