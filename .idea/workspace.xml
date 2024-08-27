@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="ui module - first naive interface">
-      <change afterPath="$PROJECT_DIR$/UI/src/UIManagerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCellImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCellImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/UIManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/UIManager.java" afterDir="false" />
-    </list>
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="displaySheet func impl in the UI" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -123,7 +117,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724665278587</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="displaySheet func impl in the UI">
+      <option name="closed" value="true" />
+      <created>1724687668711</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1724687668711</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -136,7 +138,13 @@
       <map>
         <entry key="aa2ed6a7-9563-421a-a4b9-f9b8a65c8d17">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -147,7 +155,8 @@
     <MESSAGE value="update XmlProcessing&#10;1. update topologicalSort&#10;2. add CircularReferenceException" />
     <MESSAGE value="26.8.24 merge" />
     <MESSAGE value="ui module - first naive interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="ui module - first naive interface" />
+    <MESSAGE value="displaySheet func impl in the UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="displaySheet func impl in the UI" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
