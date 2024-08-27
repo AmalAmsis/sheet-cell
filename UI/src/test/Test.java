@@ -33,9 +33,9 @@ public class Test {
 
         //בדיקת טעינת קובץ
 
-        String filePath1 = "C:/Users/Yarden Daniel/Desktop/computer science/year 2/semester 3/java/projects/sheet_cell/sheet-cell/Engine/src/resources/basic.xml";
-        String filePath2 = "C:/Users/Yarden Daniel/Desktop/computer science/year 2/semester 3/java/projects/sheet_cell/sheet-cell/Engine/src/resources/error-2.xml";
-        String filePath3 = "C:/Users/Yarden Daniel/Desktop/computer science/year 2/semester 3/java/projects/sheet_cell/sheet-cell/Engine/src/resources/error-4.xml";
+        String filePath1 = "C:/Users/Amal Amsis/Desktop/AmalA/Computer Science/JAVA/sheet-cell/Engine/src/resources/basic.xml";
+        String filePath2 = "C:/Users/Amal Amsis/Desktop/AmalA/Computer Science/JAVA/sheet-cell/Engine/src/resources/error-2.xml";
+        String filePath3 = "C:/Users/Amal Amsis/Desktop/AmalA/Computer Science/JAVA/sheet-cell/Engine/src/resources/error-4.xml";
         String filePath4 = "C:\\Users\\Yarden Daniel\\Desktop\\computer science\\year 2\\semester 3\\java\\projects\\sheet_cell\\sheet-cell\\Engine\\src\\resources\\insurance.xml";
         String filePath5 = "C:\\Users\\Yarden Daniel\\Desktop\\computer science\\year 2\\semester 3\\java\\projects\\sheet_cell\\sheet-cell\\Engine\\src\\resources\\notExist.xml";
         String filePath6 = "C:\\Users\\Yarden Daniel\\Desktop\\computer science\\year 2\\semester 3\\java\\projects\\sheet_cell\\sheet-cell\\Engine\\src\\resources\\notXmlFile.xl";
