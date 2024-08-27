@@ -102,31 +102,31 @@ public class Main {
 
          */
 
-        // בדיקה לעבודה עם REF ומעגלים
 
-//        StringExpression str1 = new StringExpression("HELLO");
-//        StringExpression str2 = new StringExpression("    World");
-//        Concat c = new Concat(str1, str2);
-//        System.out.println(c.evaluate().getValue());
-//
-//        try {
-//           String title = "Test1";
-//           int numOfRows = 5;
-//           int numOfCols = 6;
-//           Coordinate coordinate1 = new CoordinateImpl('A', 1);
-//           Coordinate coordinate2 = new CoordinateImpl('B', 2);
-//           Coordinate coordinate3 = new CoordinateImpl('A', 2);
-//           Coordinate coordinate4 = new CoordinateImpl('B', 1);
-//           Sheet sheet = new SheetImpl(title, numOfRows, numOfCols, 10, 10);
-//           sheet.setCell(coordinate1, "1");
-//           sheet.setCell(coordinate2, "{ref,A1}");
-//           sheet.setCell(coordinate3, "{ref,B2}");
-//           sheet.setCell(coordinate1, "{ref,A2}");
-//
-//        }catch (Exception e)
-//        {
-//           System.out.println(e);
-//        }
+
+        StringExpression str1 = new StringExpression("HELLO");
+        StringExpression str2 = new StringExpression("    World");
+        Concat c = new Concat(str1, str2);
+        System.out.println(c.evaluate().getValue());
+
+        try {
+           String title = "Test1";
+           int numOfRows = 5;
+           int numOfCols = 6;
+           Coordinate coordinate1 = new CoordinateImpl('A', 1);
+           Coordinate coordinate2 = new CoordinateImpl('B', 2);
+           Coordinate coordinate3 = new CoordinateImpl('A', 2);
+           Coordinate coordinate4 = new CoordinateImpl('B', 1);
+           Sheet sheet = new SheetImpl(title, numOfRows, numOfCols, 10, 10);
+           sheet.setCell(coordinate1, "1");
+           sheet.setCell(coordinate2, "{ref,A1}");
+           sheet.setCell(coordinate3, "{ref,B2}");
+           sheet.setCell(coordinate1, "{ref,A2}");
+
+        }catch (Exception e)
+        {
+           System.out.println(e);
+        }
 
 
 

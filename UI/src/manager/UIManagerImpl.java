@@ -109,7 +109,7 @@ public class UIManagerImpl implements UIManager {
     }
 
     //להחזיר לפרייבט
-    public static void printSheetToConsole(DTOSheet dtoSheet) {
+    private void printSheetToConsole(DTOSheet dtoSheet) {
         StringBuilder sb = new StringBuilder();
 
         //Adding the title and the version of the sheet to the StringBuilder
@@ -118,6 +118,7 @@ public class UIManagerImpl implements UIManager {
         int numOfColumns = dtoSheet.getNumOfColumns();
         int numOfRows = dtoSheet.getNumOfRows();
         int widthOfColumn = dtoSheet.getWidthOfColumns();
+        int heightOfRow = dtoSheet.getHeightOfRows();
 
         // Adding the top row that represents the columns to the StringBuilder
         printColumnHeaders(numOfColumns, widthOfColumn, sb);
@@ -125,7 +126,7 @@ public class UIManagerImpl implements UIManager {
         // Iterating over each row to print its content
         Map<String, DTOCell> cells = dtoSheet.getCells();
         for (int row = 1; row <= numOfRows; row++) {
-            printRow(row, numOfColumns, widthOfColumn, cells, sb);
+            printRow(row, numOfColumns, widthOfColumn, cells, sb,heightOfRow);
         }
 
         // Printing the final output to the console
@@ -133,14 +134,14 @@ public class UIManagerImpl implements UIManager {
     }
 
     // Adding the title and the version of the sheet to the StringBuilder
-    public static void printSheetHeader(DTOSheet dtoSheet, StringBuilder sb) {
+    private void printSheetHeader(DTOSheet dtoSheet, StringBuilder sb) {
         sb.append("Sheet Title: ").append(dtoSheet.getSheetTitle()).append("\n")
                 .append("Sheet Version: ").append(dtoSheet.getSheetVersion()).append("\n\n");
     }
 
     // Adding the column headers (A, B, C, etc.) to the StringBuilder
-    public static void printColumnHeaders(int numOfColumns, int widthOfColumn, StringBuilder sb) {
-        sb.append("     |");  //Leaving a space of 4 characters for line numbers
+    private void printColumnHeaders(int numOfColumns, int widthOfColumn, StringBuilder sb) {
+        sb.append("    |");  //Leaving a space of 4 characters for line numbers
         for (int col = 0; col < numOfColumns; col++) {
             char columnLetter = (char) ('A' + col);
             int paddingBefore = (widthOfColumn - 1) / 2;
@@ -153,8 +154,8 @@ public class UIManagerImpl implements UIManager {
         sb.append("\n");
     }
     // Adding each row, including the row number and cell values to the StringBuilder
-    public static void printRow(int row, int numOfColumns, int widthOfColumn, Map<String, DTOCell> cells, StringBuilder sb) {
-        sb.append(String.format("%4d", row)).append(" |"); //print the number of the row
+    private void printRow(int row, int numOfColumns, int widthOfColumn, Map<String, DTOCell> cells, StringBuilder sb, int heightOfRow) {
+        sb.append(" ").append(String.format("%02d", row)).append(" |"); //print the number of the row
         for (int col = 0; col < numOfColumns; col++) {
             //create the key of yhe cell
             char columnLetter = (char) ('A' + col);
@@ -188,7 +189,15 @@ public class UIManagerImpl implements UIManager {
         sb.append("\n");  // Move to the next line after each row
     }
 
-
+    private void printEmptyRow(StringBuilder sb,int widthOfColumn ) {
+        sb.append("    |");
+        for (int col = 0; col < widthOfColumn; col++) {
+            sb.append(" ".repeat(widthOfColumn));
+            if (col < widthOfColumn - 1) {
+                sb.append("|");
+            }
+        }
+    }
 
 
 }
