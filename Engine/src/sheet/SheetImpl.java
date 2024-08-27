@@ -45,7 +45,7 @@ public class SheetImpl implements Sheet , Serializable {
         this.numOfRows =stlSheet.getSTLLayout().getRows();
         this.numOfCols =stlSheet.getSTLLayout().getColumns();
         this.heightOfRows = stlSheet.getSTLLayout().getSTLSize().getRowsHeightUnits();
-        this.widthOfCols = stlSheet.getSTLLayout().getSTLSize().getRowsHeightUnits();
+        this.widthOfCols = stlSheet.getSTLLayout().getSTLSize().getColumnWidthUnits();
 
         //load the cell on the list to our map
         this.addSortedListOfStlCellsToSheet(sortedListOfStlCells);

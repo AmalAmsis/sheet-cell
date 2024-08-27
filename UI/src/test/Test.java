@@ -39,19 +39,24 @@ public class Test {
         String filePath4 = "C:\\Users\\Yarden Daniel\\Desktop\\computer science\\year 2\\semester 3\\java\\projects\\sheet_cell\\sheet-cell\\Engine\\src\\resources\\insurance.xml";
         String filePath5 = "C:\\Users\\Yarden Daniel\\Desktop\\computer science\\year 2\\semester 3\\java\\projects\\sheet_cell\\sheet-cell\\Engine\\src\\resources\\notExist.xml";
         String filePath6 = "C:\\Users\\Yarden Daniel\\Desktop\\computer science\\year 2\\semester 3\\java\\projects\\sheet_cell\\sheet-cell\\Engine\\src\\resources\\notXmlFile.xl";
+        String filePath8 = "C:/Users/Yarden Daniel/Desktop/computer science/year 2/semester 3/java/projects/sheet_cell/sheet-cell/Engine/src/resources/basic2.xml";
+
+        String YfilePath1 = "C:/Users/Yarden Daniel/Desktop/computer science/year 2/semester 3/java/projects/sheet_cell/sheet-cell/Engine/src/resources/basic2.xml";
+        String YfilePath2 = "C:/Users/Yarden Daniel/Desktop/computer science/year 2/semester 3/java/projects/sheet_cell/sheet-cell/Engine/src/resources/basic.xml";
 
 
         System.out.println("Test 2 : load basic.xml");
-        manager.loadXmlFile(filePath1);
+        manager.loadXmlFile(YfilePath1);
         manager.displaySheet();
 
-        System.out.println("Test 3 : load error-2.xml");
-        manager.loadXmlFile(filePath2);
-        //manager.displaySheet();
+//        System.out.println("Test 3 : load error-2.xml");
+//        manager.loadXmlFile(filePath2);
+//        manager.displaySheet();
 
 
         System.out.println("Test 3 : load error-4.xml");
-        manager.loadXmlFile(filePath3);
+        manager.loadXmlFile(YfilePath2);
+        manager.displaySheet();
 
     }
 }

@@ -1,9 +1,11 @@
 package manager;
 
+import menu.Command;
+
 public interface UIManager {
 
     //Amal
-    void printMenu();
+    Command printMenuAddGetUserChoice();
     //yarden
     void displaySheet();    //yarden
     void displayCell();
@@ -11,5 +13,6 @@ public interface UIManager {
     void loadXmlFile(String filePath);
     void loadSeralizationFile();
     void saveSeralizationFile();
+    void loadXmlFileFromUser();
 
 }
