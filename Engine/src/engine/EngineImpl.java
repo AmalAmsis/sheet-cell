@@ -4,9 +4,11 @@ import dto.DTOCell;
 import dto.DTOCellImpl;
 import dto.DTOSheet;
 import dto.DTOSheetImpl;
+import jakarta.xml.bind.JAXBException;
 import jaxb.schema.generated.STLCell;
 import jaxb.schema.generated.STLCells;
 import jaxb.schema.generated.STLSheet;
+import jaxb.schema.xmlprocessing.FileDataException;
 import jaxb.schema.xmlprocessing.XmlProcessing;
 import jaxb.schema.xmlprocessing.XmlProcessingImpl;
 import sheet.Sheet;
@@ -30,7 +32,7 @@ public class EngineImpl implements Engine {
     }
 
     @Override
-    public void loadSheetFromXmlFile(String filePath) throws Exception {
+    public void loadSheetFromXmlFile(String filePath) throws FileDataException, JAXBException {
 
         //load the xml file with jaxb
         XmlProcessing xmlProcessing = new XmlProcessingImpl();
@@ -43,7 +45,8 @@ public class EngineImpl implements Engine {
 
 
          Sheet newSheet = new SheetImpl(stlSheet, sortedListOfStlCells);
-         //this.currentSheetState = new SheetStateManagerImpl(newSheet,currentSheetVersionHandler);
+        SheetVersionHandler currentSheetVersionHandler = new SheetVersionHandlerImpl(newSheet);
+         this.currentSheetState = new SheetStateManagerImpl(newSheet,currentSheetVersionHandler);
     }
 
     @Override

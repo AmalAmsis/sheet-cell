@@ -5,10 +5,10 @@ public interface UIManager {
     //Amal
     void printMenu();
     //yarden
-    public void displaySheet();    //yarden
+    void displaySheet();    //yarden
     void displayCell();
     //yarden
-    void loadXmlFile();
+    void loadXmlFile(String filePath);
     void loadSeralizationFile();
     void saveSeralizationFile();
 
