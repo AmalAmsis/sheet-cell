@@ -8,6 +8,7 @@ import sheet.SheetDataRetriever;
 import sheet.coordinate.Coordinate;
 import sheet.effectivevalue.CellType;
 import sheet.effectivevalue.EffectiveValue;
+import sheet.effectivevalue.EffectiveValueImpl;
 
 
 import java.util.ArrayList;
@@ -25,10 +26,16 @@ public class ExpressionEvaluator {
      */
     public static EffectiveValue evaluate(String str, SheetDataRetriever sheet, Coordinate targetCoordinate , boolean isArgument) {
 
-         if(!isArgument)
-         {
-             str = str.trim();
-         }
+        // Handle empty or whitespace-only strings
+        if (str == null || str.trim().isEmpty()) {
+            return new EffectiveValueImpl(CellType.EMPTY, str);
+        }
+
+        if(!isArgument)
+        {
+            str = str.trim();
+        }
+
 
         // Handle numeric values
         if (isNumeric(str)) {
