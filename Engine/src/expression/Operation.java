@@ -1,5 +1,6 @@
 package expression;
 
+import expression.exception.InvalidOperationNameException;
 import expression.impl.math.*;
 import expression.impl.primitive.NumericExpression;
 import expression.impl.str.Concat;
@@ -86,5 +87,14 @@ public enum Operation {
     public int getNumberOfArguments() {
         return numberOfArguments;
     }
+
+    public static Operation fromString(String operationName) {
+        try {
+            return Operation.valueOf(operationName);
+        } catch (IllegalArgumentException e) {
+            throw new InvalidOperationNameException(operationName);
+        }
+    }
+
     abstract EffectiveValue eval(SheetDataRetriever sheet, Coordinate targetCoordinate, Expression... expressions);
 }

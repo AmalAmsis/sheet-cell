@@ -42,10 +42,8 @@ public class EngineImpl implements Engine {
         List<STLCell> sortedListOfStlCells = xmlProcessing.getTopologicalSortOrThrowCircularReferenceException(stlCellList);
 
 
-        //Loading system state
-        Sheet newSheet = new SheetImpl(stlSheet);
-        SheetVersionHandler currentSheetVersionHandler = new SheetVersionHandlerImpl(newSheet);
-        this.currentSheetState = new SheetStateManagerImpl(newSheet,currentSheetVersionHandler);
+         Sheet newSheet = new SheetImpl(stlSheet, sortedListOfStlCells);
+         //this.currentSheetState = new SheetStateManagerImpl(newSheet,currentSheetVersionHandler);
     }
 
     @Override
@@ -71,7 +69,9 @@ public class EngineImpl implements Engine {
     @Override
     public DTOSheet updateCell(String coordinateString, String newOriginalValue) throws Exception {
         if (this.currentSheetState != null){
-            //call Amal function
+            //call Amal function לברר אם הבנתי נכון את הסטייט
+            Coordinate coordinate = this.currentSheetState.getCurrentSheet().convertStringToCoordinate(coordinateString);
+            this.currentSheetState.getCurrentSheet().setCell(coordinate, newOriginalValue);
 
             //return new DTOSheetImpl(mySheet);
         }

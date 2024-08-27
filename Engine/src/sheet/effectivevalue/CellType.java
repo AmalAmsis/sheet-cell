@@ -14,4 +14,8 @@ public enum CellType {
     public boolean isAssignableFrom(Class<?> aType) {
         return type.isAssignableFrom(aType);
     }
+
+    public Class<?> getType() {
+        return type;
+    }
 }

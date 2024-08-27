@@ -27,7 +27,7 @@ public interface Cell {
     void updateValue(String originalValue);
     void updateValueHelper(String originalValue);
     public void removeAllDependsOn();
-    boolean isCircleHelper(Set<Cell> visited, Set<Cell> recStack);
-    public boolean isCircle();
+     List<Cell> detectCycle();
+    List<Cell> detectCycleHelper(Set<Cell> visited, Set<Cell> recStack, List<Cell> path);
 
 }

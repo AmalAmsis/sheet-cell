@@ -1,5 +1,6 @@
 package expression;
 
+import expression.exception.InvalidOperationNameException;
 import expression.impl.primitive.BooleanExpression;
 import expression.impl.primitive.NumericExpression;
 import expression.impl.primitive.StringExpression;
@@ -23,7 +24,7 @@ public class ExpressionEvaluator {
      * @return the evaluated EffectiveValue
      */
     public static EffectiveValue evaluate(String str, SheetDataRetriever sheet, Coordinate targetCoordinate) {
-        str = str.trim();
+
 
         // Handle numeric values
         if (isNumeric(str)) {
@@ -38,28 +39,26 @@ public class ExpressionEvaluator {
         }
 
         // Handle function expressions
-        if (str.startsWith("{") && str.endsWith("}")) {
-            str = str.substring(1, str.length() - 1).trim();
-            String[] parts = splitByComma(str);
+        String strWithoutWhiteSpaces = str.trim();
+        if (strWithoutWhiteSpaces.startsWith("{") && strWithoutWhiteSpaces.endsWith("}")) {
+            strWithoutWhiteSpaces = strWithoutWhiteSpaces.substring(1, strWithoutWhiteSpaces.length() - 1).trim();
+            String[] parts = splitByComma(strWithoutWhiteSpaces);
             String operationName = parts[0].trim().toUpperCase();
 
-            try {
-                Operation operation = Operation.valueOf(operationName);
-                if (parts.length - 1 != operation.getNumberOfArguments()) {
-                    throw new IllegalArgumentException("Incorrect number of arguments for operation: " + operationName + ", expected " + operation.getNumberOfArguments() + ", got " + parts.length);
-                }
 
-                Expression[] expressions = new Expression[operation.getNumberOfArguments()];
-                for (int i = 0; i < expressions.length; i++) {
-                    expressions[i] = parseExpression(parts[i + 1].trim(), sheet, targetCoordinate);
-                }
-
-                return operation.eval(sheet, targetCoordinate, expressions);
-            } catch (IllegalArgumentException e) {
-                throw new IllegalArgumentException("Invalid operation: " + operationName, e);
+            Operation operation = Operation.fromString(operationName);
+            if (parts.length - 1 != operation.getNumberOfArguments()) {
+                throw new IllegalArgumentException("Incorrect number of arguments for operation: " + operationName + ", expected " + operation.getNumberOfArguments() + ", got " + (parts.length-1));
             }
-        }
 
+            Expression[] expressions = new Expression[operation.getNumberOfArguments()];
+            for (int i = 0; i < expressions.length; i++) {
+                expressions[i] = parseExpression(parts[i + 1], sheet, targetCoordinate);
+            }
+
+            return operation.eval(sheet, targetCoordinate, expressions);
+
+        }
         // If none of the conditions match, treat as a string str
         return new StringExpression(str).evaluate();
     }
@@ -98,7 +97,7 @@ public class ExpressionEvaluator {
             }
 
             if (c == ',' && bracesLevel == 0) {
-                parts.add(currentPart.toString().trim());
+                parts.add(currentPart.toString());
                 currentPart.setLength(0);
             } else {
                 currentPart.append(c);
@@ -106,7 +105,7 @@ public class ExpressionEvaluator {
         }
 
         if (currentPart.length() > 0) {
-            parts.add(currentPart.toString().trim());
+            parts.add(currentPart.toString());
         }
 
         return parts.toArray(new String[0]);
@@ -120,6 +119,7 @@ public class ExpressionEvaluator {
      * @return the corresponding Expression object
      */
     private static Expression parseExpression(String str, SheetDataRetriever sheet, Coordinate targetCoordinate) {
+        EffectiveValue effectiveValue = evaluate(str, sheet, targetCoordinate);
         return convertEffectiveValueToExpression(evaluate(str, sheet, targetCoordinate));
     }
 

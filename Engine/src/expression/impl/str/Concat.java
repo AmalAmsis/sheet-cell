@@ -18,6 +18,9 @@ public class Concat extends BinaryExpression {
 
         isValid(value1, value2);
 
+        if (value1.getValue() == "!UNDEFINED!" || value2.getValue() == "!UNDEFINED!") {
+            return new EffectiveValueImpl(CellType.STRING, "!UNDEFINED!");
+        }
         String result = value1.extractValueWithExpectation(String.class) + value2.extractValueWithExpectation(String.class);
         return new EffectiveValueImpl(CellType.STRING, result);
     }
