@@ -60,7 +60,8 @@ public class CellImpl implements Cell, Serializable {
 
     @Override
     public EffectiveValue calculateEffectiveValue(String originalValue) {
-        EffectiveValue effectiveValue = ExpressionEvaluator.evaluate(originalValue, sheet, this.coordinate);
+        boolean isArgument = false;
+        EffectiveValue effectiveValue = ExpressionEvaluator.evaluate(originalValue, sheet, this.coordinate, isArgument);
         return effectiveValue;
     }
 

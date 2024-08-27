@@ -21,19 +21,19 @@ public class Concat extends BinaryExpression {
         if (value1.getValue() == "!UNDEFINED!" || value2.getValue() == "!UNDEFINED!") {
             return new EffectiveValueImpl(CellType.STRING, "!UNDEFINED!");
         }
-        String result = value1.extractValueWithExpectation(String.class) + value2.extractValueWithExpectation(String.class);
+        String result = (value1.extractValueWithExpectation(String.class) + value2.extractValueWithExpectation(String.class)).trim();
         return new EffectiveValueImpl(CellType.STRING, result);
     }
 
     @Override
     protected void isValid(EffectiveValue value1, EffectiveValue value2) {
-        if (value1.getCellType() != CellType.STRING && value2.getCellType() != CellType.STRING) {
+        if (value1.getCellType() != CellType.STRING || value2.getCellType() != CellType.STRING) {
             String message = String.format(
                     "Invalid operation: CONCAT requires both arguments to be of type STRING. " +
                             "Received: value1=%s (type=%s), value2=%s (type=%s)",
-                    value1.extractValueWithExpectation(Object.class).toString(),
+                    value1.getValue().toString(),
                     value1.getCellType().toString(),
-                    value2.extractValueWithExpectation(Object.class).toString(),
+                    value2.getValue().toString(),
                     value2.getCellType().toString()
             );
             throw new IllegalArgumentException(message);

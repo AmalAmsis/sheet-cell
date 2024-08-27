@@ -3,7 +3,8 @@ package sheet.effectivevalue;
 public enum CellType {
     NUMERIC(Double.class) ,
     STRING(String.class) ,
-    BOOLEAN(Boolean.class) ;
+    BOOLEAN(Boolean.class) ,
+    EMPTY(Void.class);
 
     private Class<?> type;
 

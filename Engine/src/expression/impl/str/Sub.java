@@ -41,6 +41,20 @@ public class Sub extends TernaryExpression {
 
     @Override
     protected void isValid(EffectiveValue value1, EffectiveValue value2, EffectiveValue value3) {
+        if (value1.getCellType() != CellType.STRING || value2.getCellType() != CellType.NUMERIC || value3.getCellType() != CellType.NUMERIC ) {
+            String message = String.format(
+                    "Invalid operation: CONCAT requires first argument to be of type STRING, and the other two arguments to be of type NUMIRIC " +
+                            "Received: value1=%s (type=%s), value2=%s (type=%s), value3=%s (type=%s)",
+                    value1.getValue().toString(),
+                    value1.getCellType().toString(),
+                    value2.getValue().toString(),
+                    value2.getCellType().toString(),
+                    value3.getValue().toString(),
+                    value3.getCellType().toString()
+            );
+            throw new IllegalArgumentException(message);
+        }
+
         String source = value1.extractValueWithExpectation(String.class);
         double startDouble = value2.extractValueWithExpectation(Double.class);
         double endDouble = value3.extractValueWithExpectation(Double.class);
