@@ -4,14 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="to string for NUMERIC EffectiveValue">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_08_2024_14_28__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_08_2024_14_28__Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="merge 27/8">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/src/expression/ExpressionEvaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/ExpressionEvaluator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/effectivevalue/EffectiveValueImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/effectivevalue/EffectiveValueImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/menu/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/menu/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Abs.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Abs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Divide.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Divide.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Minus.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Minus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Mod.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Mod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Plus.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Plus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Pow.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Pow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Times.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Times.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/str/Concat.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/str/Concat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/str/Sub.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/str/Sub.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/ExpressionEvaluator$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/ExpressionEvaluator$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/ExpressionEvaluator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/ExpressionEvaluator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Abs.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Abs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Divide.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Divide.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Minus.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Minus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Mod.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Mod.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Plus.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Plus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Pow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Pow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Times.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Times.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/str/Concat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/str/Concat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/str/Sub.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/str/Sub.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/sheet/cell/CellImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/sheet/cell/CellImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +62,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Debug",
+    "Application.Main.executor": "Run",
     "Application.Test.executor": "Run",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "Amal",
@@ -180,7 +198,39 @@
       <option name="project" value="LOCAL‎" />
       <updated>1724753913018</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL‎-00013" summary="str = &quot;    5&quot; is not a double">
+      <option name="closed" value="true" />
+      <created>1724762693305</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL‎-00013" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724762693305</updated>
+    </task>
+    <task id="LOCAL‎-00014" summary="to string for NUMERIC EffectiveValue">
+      <option name="closed" value="true" />
+      <created>1724762713419</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL‎-00014" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724762713419</updated>
+    </task>
+    <task id="LOCAL‎-00015" summary="showSheet">
+      <option name="closed" value="true" />
+      <created>1724762735187</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL‎-00015" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724762735187</updated>
+    </task>
+    <task id="LOCAL‎-00016" summary="merge 27/8">
+      <option name="closed" value="true" />
+      <created>1724762758449</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL‎-00016" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724762758449</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -213,8 +263,11 @@
     <MESSAGE value="displaySheet func impl in the UI" />
     <MESSAGE value="Link between enum and UI manager" />
     <MESSAGE value="xml files for test" />
+    <MESSAGE value="str = &quot;    5&quot; is not a double" />
     <MESSAGE value="to string for NUMERIC EffectiveValue" />
-    <option name="LAST_COMMIT_MESSAGE" value="to string for NUMERIC EffectiveValue" />
+    <MESSAGE value="showSheet" />
+    <MESSAGE value="merge 27/8" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge 27/8" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -241,8 +294,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Engine/src/Main.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="21" />
+          <line>29</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
