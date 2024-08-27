@@ -6,13 +6,53 @@ import engine.Engine;
 import engine.EngineImpl;
 
 import java.util.Map;
+import java.util.Scanner;
 
-public class UIManagerImpl {
+import menu.Command;
 
+public class UIManagerImpl implements UIManager {
+
+    @Override
+    public void printMenu() {
+        System.out.println("\n===============================");
+        System.out.println("          Main Menu            ");
+        System.out.println("===============================\n");
+
+        for (Command command : Command.values()) {
+            System.out.printf("%s\n", command.getDescription());
+        }
+
+        System.out.println("\n===============================");
+        System.out.print("Please select an option (1-" + Command.values().length + "): ");
+        System.out.println();
+    }
+
+
+    @Override
     public void displaySheet(){
         Engine engine = new EngineImpl();
         DTOSheet dtoSheet = engine.displaySheet();
         printSheetToConsole(dtoSheet);
+    }
+
+    @Override
+    public void displayCell() {
+
+    }
+
+    @Override
+    public void loadXmlFile() {
+
+    }
+
+    @Override
+    public void loadSeralizationFile() {
+
+    }
+
+    @Override
+    public void saveSeralizationFile() {
+
     }
 
     //להחזיר לפרייבט
