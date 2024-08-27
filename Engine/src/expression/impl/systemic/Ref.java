@@ -56,7 +56,7 @@ public class Ref extends UnaryExpression {
 
         // Check if the cell is Empty
         if (!sheet.isCellInSheet(coordinate)) {
-            throw throw new IllegalArgumentException(String.format("Invalid operation: REF cannot be executed with an empty cell. The cell '%s' is Empty", coordinate));
+            throw new IllegalArgumentException(String.format("Invalid operation: REF cannot be executed with an empty cell. The cell '%s' is Empty", coordinate));
         }
     }
 }
