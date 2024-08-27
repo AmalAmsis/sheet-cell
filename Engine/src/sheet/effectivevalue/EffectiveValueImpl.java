@@ -1,6 +1,7 @@
 package sheet.effectivevalue;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 
 public class EffectiveValueImpl implements EffectiveValue, Serializable {
     private CellType cellType;
@@ -30,8 +31,13 @@ public class EffectiveValueImpl implements EffectiveValue, Serializable {
         return null;
     }
 
+
     @Override
     public String toString() {
+        if (cellType == CellType.NUMERIC && value instanceof Number) {
+            DecimalFormat decimalFormat = new DecimalFormat("#,###.###");
+            return decimalFormat.format(value);
+        }
         return this.extractValueWithExpectation(cellType.getType()).toString();
     }
 

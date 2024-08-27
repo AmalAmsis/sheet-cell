@@ -7,7 +7,9 @@ import sheet.Sheet;
 import sheet.SheetImpl;
 import sheet.coordinate.Coordinate;
 import sheet.coordinate.CoordinateImpl;
+import sheet.effectivevalue.CellType;
 import sheet.effectivevalue.EffectiveValue;
+import sheet.effectivevalue.EffectiveValueImpl;
 
 //public class Main {
 //    public static void main(String[] args) {
@@ -127,6 +129,21 @@ public class Main {
            System.out.println(e.getMessage());
         }
 
+        EffectiveValue effectiveValue1 = new EffectiveValueImpl(CellType.NUMERIC, 500000.987);
+        EffectiveValue effectiveValue2 = new EffectiveValueImpl(CellType.NUMERIC, 1562566);
+        EffectiveValue effectiveValue3 = new EffectiveValueImpl(CellType.NUMERIC, Double.NaN);
+        EffectiveValue effectiveValue4 = new EffectiveValueImpl(CellType.NUMERIC, 700);
+        EffectiveValue effectiveValue5 = new EffectiveValueImpl(CellType.NUMERIC, 0.65);
+        EffectiveValue effectiveValue6 = new EffectiveValueImpl(CellType.STRING, "hello");
+        EffectiveValue effectiveValue7 = new EffectiveValueImpl(CellType.BOOLEAN, true);
+
+        System.out.println(effectiveValue1);
+        System.out.println(effectiveValue2);
+        System.out.println(effectiveValue3);
+        System.out.println(effectiveValue4);
+        System.out.println(effectiveValue5);
+        System.out.println(effectiveValue6);
+        System.out.println(effectiveValue7);
 
 
      }
