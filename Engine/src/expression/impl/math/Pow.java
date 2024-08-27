@@ -32,9 +32,9 @@ public class Pow extends BinaryExpression {
             String message = String.format(
                     "Invalid operation: POW requires both arguments to be numeric. " +
                             "Received: value1=%s (type=%s), value2=%s (type=%s)",
-                    value1.extractValueWithExpectation(Object.class).toString(),
+                    value1.getValue().toString(),
                     value1.getCellType().toString(),
-                    value2.extractValueWithExpectation(Object.class).toString(),
+                    value2.getValue().toString(),
                     value2.getCellType().toString()
             );
             throw new IllegalArgumentException(message);

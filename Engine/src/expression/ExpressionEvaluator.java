@@ -23,8 +23,12 @@ public class ExpressionEvaluator {
      * @param str the string representation of the str to evaluate
      * @return the evaluated EffectiveValue
      */
-    public static EffectiveValue evaluate(String str, SheetDataRetriever sheet, Coordinate targetCoordinate) {
+    public static EffectiveValue evaluate(String str, SheetDataRetriever sheet, Coordinate targetCoordinate , boolean isArgument) {
 
+         if(!isArgument)
+         {
+             str = str.trim();
+         }
 
         // Handle numeric values
         if (isNumeric(str)) {
@@ -59,6 +63,7 @@ public class ExpressionEvaluator {
             return operation.eval(sheet, targetCoordinate, expressions);
 
         }
+
         // If none of the conditions match, treat as a string str
         return new StringExpression(str).evaluate();
     }
@@ -124,8 +129,9 @@ public class ExpressionEvaluator {
      * @return the corresponding Expression object
      */
     private static Expression parseExpression(String str, SheetDataRetriever sheet, Coordinate targetCoordinate) {
-        EffectiveValue effectiveValue = evaluate(str, sheet, targetCoordinate);
-        return convertEffectiveValueToExpression(evaluate(str, sheet, targetCoordinate));
+        boolean isArgument = true;
+        EffectiveValue effectiveValue = evaluate(str, sheet, targetCoordinate , isArgument);
+        return convertEffectiveValueToExpression(effectiveValue);
     }
 
     /**

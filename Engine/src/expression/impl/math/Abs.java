@@ -25,7 +25,7 @@ public class Abs extends UnaryExpression {
            String message = String.format(
                    "Invalid operation: ABS requires argument to be numeric. " +
                            "Received: value=%s (type=%s)",
-                   value.extractValueWithExpectation(Object.class).toString(),
+                   value.getValue().toString(),
                    value.getCellType().toString()
            );
            throw new IllegalArgumentException(message);
