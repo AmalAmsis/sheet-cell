@@ -6,15 +6,13 @@ public enum Command {
     LOAD_XML_FILE("Load spreadsheet data from xml file") {
         @Override
         public void execute(UIManager manager) {
-
-
-            manager.loadXmlFile("ff");
+            manager.loadXmlFileFromUser();
         }
     },
     SHOW_SHEET("Display the sheet") {
         @Override
         public void execute(UIManager manager) {
-            showSheet(manager);
+            manager.displaySheet();
         }
     },
     SHOW_CELL("Display a single cell's value") {
@@ -52,7 +50,7 @@ public enum Command {
 
 
 
-    EXIT("6. Exit the system") {
+    EXIT("Exit the system") {
         @Override
         public void execute(UIManager manager) {
             exitSystem(manager);

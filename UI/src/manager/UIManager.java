@@ -1,9 +1,11 @@
 package manager;
 
+import menu.Command;
+
 public interface UIManager {
 
     //Amal
-    void printMenu();
+    Command printMenuAddGetUserChoice();
     //yarden
     void displaySheet();    //yarden
     void displayCell();
