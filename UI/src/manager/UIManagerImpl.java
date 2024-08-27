@@ -5,12 +5,21 @@ import dto.DTOSheet;
 import engine.Engine;
 import engine.EngineImpl;
 
+import java.io.FileNotFoundException;
 import java.util.Map;
 import java.util.Scanner;
 
+import jakarta.xml.bind.JAXBException;
+import jaxb.schema.xmlprocessing.FileDataException;
 import menu.Command;
 
 public class UIManagerImpl implements UIManager {
+
+    Engine engine;
+
+    public UIManagerImpl() {
+        engine = new EngineImpl();
+    }
 
     @Override
     public void printMenu() {
@@ -30,7 +39,6 @@ public class UIManagerImpl implements UIManager {
 
     @Override
     public void displaySheet(){
-        Engine engine = new EngineImpl();
         DTOSheet dtoSheet = engine.displaySheet();
         printSheetToConsole(dtoSheet);
     }
@@ -40,8 +48,53 @@ public class UIManagerImpl implements UIManager {
 
     }
 
-    @Override
-    public void loadXmlFile() {
+    //@Override
+    public void loadXmlFile(String filePath) {
+        try{
+            // Attempt to load the sheet from the XML file
+            engine.loadSheetFromXmlFile(filePath);
+            // If successful, print a success message
+            System.out.println("The XML file was loaded successfully.\n");
+
+        } catch (IllegalArgumentException e) {
+            // Handle errors from isXmlFile (e.g., invalid file path or non-XML file)
+            System.err.println("Error: The XML file specifies an" + e.getMessage());
+
+        } catch (FileDataException.InvalidRowCountException e) {
+            // Print a specific error message for invalid row count
+            System.err.println("Error: The XML file specifies an " + e.getMessage() + ".\nPlease ensure the sheet has between 1 and 50 rows.\n");
+
+        } catch (FileDataException.InvalidColumnCountException e) {
+            // Print a specific error message for invalid column count
+            System.err.println("Error: The XML file specifies an " + e.getMessage() + ".\nPlease ensure the sheet has between 1 and 20 columns.\n");
+
+        } catch (FileDataException.InvalidColumnWidthException e) {
+            // Print a specific error message for invalid column width
+            System.err.println("Error: The XML file specifies an " + e.getMessage() + ".\nPlease ensure the column width is a positive number.\n");
+
+        } catch (FileDataException.InvalidRowHeightException e) {
+            // Print a specific error message for invalid row height
+            System.err.println("Error: The XML file specifies an " + e.getMessage() + ".\nPlease ensure the row height is a positive number.\n");
+
+        } catch (FileDataException.CellOutOfBoundsException e) {
+            // Print a specific error message for cell out of bounds
+            System.err.println("Error: One or more cells in the file are outside the valid sheet boundaries.\n.");
+
+        } catch (FileDataException.CircularReferenceException e) {
+            // Print a specific error message for circular reference
+            System.err.println("Error: The file contains a circular reference, which is not allowed.\n");
+
+        } catch (FileNotFoundException e) {
+            // Handle file not found
+            System.err.println("Error: The file was not found at the specified path: " + filePath +"\n");
+
+        } catch (JAXBException e) {
+            System.err.println("Error: Failed to process the XML file. \nThe file might be corrupted or invalid.\n");
+
+        } catch (Exception e) {
+            // Catch any other exceptions
+            System.err.println("Error: An unexpected error occurred: " + e.getMessage());
+        }
 
     }
 
@@ -87,7 +140,7 @@ public class UIManagerImpl implements UIManager {
 
     // Adding the column headers (A, B, C, etc.) to the StringBuilder
     public static void printColumnHeaders(int numOfColumns, int widthOfColumn, StringBuilder sb) {
-        sb.append("    |");  //Leaving a space of 4 characters for line numbers
+        sb.append("     |");  //Leaving a space of 4 characters for line numbers
         for (int col = 0; col < numOfColumns; col++) {
             char columnLetter = (char) ('A' + col);
             int paddingBefore = (widthOfColumn - 1) / 2;
@@ -134,5 +187,8 @@ public class UIManagerImpl implements UIManager {
         }
         sb.append("\n");  // Move to the next line after each row
     }
+
+
+
 
 }

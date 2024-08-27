@@ -27,6 +27,9 @@ public class XmlProcessingImpl implements XmlProcessing {
         isXmlFile(inputXmlFilePath);
         //2.file load STLSheet = fromXmlFileToXmlFile(inputPath)
         STLSheet stlSheet = fromXmlFileToXmlFile(inputXmlFilePath);
+        if(stlSheet == null){
+            throw new IllegalStateException("Failed to load the XML file into a valid sheet object.");
+        }
         //3.rowsValidation
         int rowCount = stlSheet.getSTLLayout().getRows();
         numOfRowsValidation(rowCount);
@@ -124,17 +127,17 @@ public class XmlProcessingImpl implements XmlProcessing {
 
     public void isXmlFile(String file) {
         if (file == null || file.isEmpty()) {
-            throw new IllegalArgumentException("File name cannot be null or empty");
+            throw new IllegalArgumentException("\"Error: The file path you provided is either empty or missing. Please provide a valid file path.\n");
         }
 
         if (!file.toLowerCase().endsWith(".xml")) {
-            throw new IllegalArgumentException("File does not have a .xml extension");
+            throw new IllegalArgumentException("Error: The file does not have a .xml extension. Please provide a valid XML file.\n");
         }
     }
 
-    public void numOfRowsValidation(int rowCount ) throws FileDataException.InvalidRowCountException {
+    public void numOfRowsValidation(int rowCount) throws FileDataException.InvalidRowCountException {
         if (rowCount  < 1 || rowCount  >50) {
-            throw new FileDataException.InvalidRowCountException(rowCount );
+            throw new FileDataException.InvalidRowCountException(rowCount);
         }
     }
 

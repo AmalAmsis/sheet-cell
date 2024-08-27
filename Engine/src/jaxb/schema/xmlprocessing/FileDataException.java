@@ -12,7 +12,7 @@ public class FileDataException extends Exception{
      */
     public static class InvalidRowCountException extends FileDataException {
         public InvalidRowCountException(int rowCount) {
-            super("Invalid number of rows: " + rowCount + ". The number of rows must be between 1 and 50 inclusive.");
+            super("Invalid number of rows: " + rowCount);
         }
     }
 
@@ -21,7 +21,7 @@ public class FileDataException extends Exception{
      */
     public static class InvalidColumnCountException extends FileDataException {
         public InvalidColumnCountException(int columnCount) {
-            super("Invalid number of columns: " + columnCount + ". The number of columns must be between 1 and 20 inclusive.");
+            super("Invalid number of columns: " + columnCount);
         }
     }
 
@@ -31,7 +31,7 @@ public class FileDataException extends Exception{
      */
     public static class InvalidColumnWidthException extends FileDataException {
         public InvalidColumnWidthException(int columnWidth) {
-            super("Invalid column width: " + columnWidth + ". Column width must be a positive integer greater than 0.");
+            super("Invalid column width: " + columnWidth);
         }
     }
 
@@ -40,7 +40,7 @@ public class FileDataException extends Exception{
      */
     public static class InvalidRowHeightException extends FileDataException {
         public InvalidRowHeightException(int rowHeight) {
-            super("Invalid row height: " + rowHeight + ". Row height must be a positive integer greater than 0.");
+            super("Invalid row height: " + rowHeight);
         }
     }
 
@@ -49,7 +49,7 @@ public class FileDataException extends Exception{
      */
     public static class CellOutOfBoundsException extends FileDataException {
         public CellOutOfBoundsException() {
-            super("There is a cell outside the bounds of the sheet.");
+            super("There is a cell outside the borders of the sheet.");
         }
     }
 
