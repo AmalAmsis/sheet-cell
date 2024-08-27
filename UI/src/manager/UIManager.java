@@ -1,3 +1,5 @@
+package manager;
+
 public interface UIManager {
 
     //Amal

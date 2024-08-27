@@ -27,7 +27,7 @@ public class SheetImpl implements Sheet , Serializable {
 
     //CTOR
     public SheetImpl(String title, int numOfRows, int numOfCols, int heightOfRows, int widthOfCols) {
-        this.version = 0;
+        this.version = 1;
         this.title = title;
         this.numOfRows = numOfRows;
         this.numOfCols = numOfCols;
@@ -38,7 +38,7 @@ public class SheetImpl implements Sheet , Serializable {
 
     // 22/8/24 - this ctor from STL object that we got from xml file,
     // we assume that we will get it to the ctor after validation test!
-    public SheetImpl(STLSheet stlSheet) {
+    public SheetImpl(STLSheet stlSheet, List<STLCell> sortedListOfStlCells) {
         //when we load a sheet the version is 1.
         this.version =1;
         this.title = stlSheet.getName();
@@ -48,11 +48,23 @@ public class SheetImpl implements Sheet , Serializable {
         this.widthOfCols = stlSheet.getSTLLayout().getSTLSize().getRowsHeightUnits();
 
         //load the cell on the list to our map
-        for(STLCell stlCell : stlSheet.getSTLCells().getSTLCell()){
+        this.addSortedListOfStlCellsToSheet(sortedListOfStlCells);
+
+            /* לשאול את ירדן מה היא חושבת
             CellImpl cell = new CellImpl(stlCell);
             String key = cell.getId();
             board.put(key, cell);
+             */
+
+    }
+
+    private void addSortedListOfStlCellsToSheet(List<STLCell> sortedListOfStlCells) {
+        for(STLCell stlCell : sortedListOfStlCells) {
+            String originalValue = stlCell.getSTLOriginalValue();//?????????????????????????????????????????????????
+            Coordinate myCoordinate = new CoordinateImpl(stlCell);
+            this.addCell(myCoordinate, originalValue);
         }
+        this.version = 1;
     }
 
     @Override
@@ -95,15 +107,16 @@ public class SheetImpl implements Sheet , Serializable {
         return board.get(coordinate.toString());
     }
 
-    //לטפל במקרה שהcoordinate מחוץ לגבולות המערך
     @Override
     public void setCell(Coordinate coordinate, String originalValue) {
         updateVersion(); // Every change in a cell updates the sheet version.
         try {
+            /*
             if (originalValue.isBlank()) { // If the original value is blank
                 removeCell(coordinate); // Remove the cell if the value is blank.
                 return;
             }
+             */
             if (!isCellInSheet(coordinate)) {
                 addCell(coordinate, originalValue);
             } else {
@@ -165,7 +178,7 @@ public class SheetImpl implements Sheet , Serializable {
         }
     }
 
-    // אם התא משפיע על עוד תאים מה עושים?????????????????????
+    // לא משתמשים
     // Remove a cell from the sheet
     public void removeCell(Coordinate coordinate) {
 

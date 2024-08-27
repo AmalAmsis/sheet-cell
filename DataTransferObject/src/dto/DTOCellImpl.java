@@ -45,8 +45,8 @@ public class DTOCellImpl implements DTOCell {
     }
 
     @Override
-    public Object getEffectiveValue() {
-        return effectiveValue;
+    public String getEffectiveValue() {
+        return effectiveValue.toString();
     }
 
     @Override
