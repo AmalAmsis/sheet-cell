@@ -59,6 +59,7 @@ public enum Command {
 
     private static void showSheet(UIManager manager) {
         // Implement the logic to display the sheet
+        manager.displaySheet();
         System.out.println("Displaying the sheet...");
     }
 
