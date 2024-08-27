@@ -1,7 +1,8 @@
 package sheet.version;
 
+import dto.DTOSheet;
 import sheet.Sheet;
 
 public interface SheetVersionProvider  {
-    Sheet getSheetByVersion(int version);
+    DTOSheet getSheetByVersion(int version);
 }

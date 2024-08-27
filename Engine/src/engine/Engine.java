@@ -2,6 +2,7 @@ package engine;
 
 import dto.DTOCell;
 import dto.DTOSheet;
+import state.SheetStateManager;
 
 public interface Engine {
 
@@ -85,7 +86,7 @@ public interface Engine {
     ///****** edit the Exception ******
     void loadSystemState(String filePath) throws Exception;
 
-
+    public SheetStateManager getCurrentSheetState();
 
 
 }

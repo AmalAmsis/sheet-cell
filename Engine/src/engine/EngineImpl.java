@@ -26,6 +26,11 @@ public class EngineImpl implements Engine {
 
     SheetStateManager currentSheetState;
 
+    public SheetStateManager getCurrentSheetState() {
+        return currentSheetState;
+    }
+
+
     @Override
     public void initializeEmptySystem() {
         this.currentSheetState = null;
@@ -45,7 +50,7 @@ public class EngineImpl implements Engine {
 
 
          Sheet newSheet = new SheetImpl(stlSheet, sortedListOfStlCells);
-        SheetVersionHandler currentSheetVersionHandler = new SheetVersionHandlerImpl(newSheet);
+         SheetVersionHandler currentSheetVersionHandler = new SheetVersionHandlerImpl(newSheet,0);
          this.currentSheetState = new SheetStateManagerImpl(newSheet,currentSheetVersionHandler);
     }
 
@@ -69,14 +74,17 @@ public class EngineImpl implements Engine {
         return null;
     }
 
+    //yarden 27/8
     @Override
     public DTOSheet updateCell(String coordinateString, String newOriginalValue) throws Exception {
         if (this.currentSheetState != null){
             //call Amal function לברר אם הבנתי נכון את הסטייט
             Coordinate coordinate = this.currentSheetState.getCurrentSheet().convertStringToCoordinate(coordinateString);
-            this.currentSheetState.getCurrentSheet().setCell(coordinate, newOriginalValue);
-
-            //return new DTOSheetImpl(mySheet);
+            //yarden 27/8
+           // int numOfUpdatededCells = this.currentSheetState.getCurrentSheet().setCell(coordinate, newOriginalValue);
+            Sheet mySheet = this.currentSheetState.getCurrentSheet();
+            //this.currentSheetState.getVersionHandler().addNewVersion(mySheet,numOfUpdatededCells);
+            return new DTOSheetImpl(mySheet);
         }
         return null;
     }

@@ -15,6 +15,8 @@ public class SheetStateManagerImpl implements Serializable, SheetStateManager {
         this.versionOfCurrentSheet = versionOfCurrentSheet;
     }
 
+
+
     @Override
     public Sheet getCurrentSheet() {
         return currentSheet;
@@ -23,5 +25,10 @@ public class SheetStateManagerImpl implements Serializable, SheetStateManager {
     @Override
     public SheetVersionHandler getVersionHandler() {
         return versionOfCurrentSheet;
+    }
+
+    @Override
+    public void updateSheetState(Sheet newVersionOfSheet, SheetVersionHandler versionOfCurrentSheet) {
+
     }
 }

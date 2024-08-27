@@ -24,7 +24,7 @@ public enum Command {
     UPDATE_CELL("Update a single cell's value") {
         @Override
         public void execute(UIManager manager) {
-            updateCell(manager);
+            manager.updateCell();
         }
     },
     SHOW_VERSIONS("Display versions") {
@@ -44,7 +44,7 @@ public enum Command {
     LOAD_SYSTEM_STATE("Load system state") {
         @Override
         public void execute(UIManager manager) {
-            //todo
+            manager.loadSystemState();
         }
     },
 
