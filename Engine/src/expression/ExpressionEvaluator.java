@@ -70,6 +70,11 @@ public class ExpressionEvaluator {
      * @return true if the string is numeric, false otherwise
      */
     private static boolean isNumeric(String str) {
+        // Trim the string and check if it is different from the original string
+        // str = "    5" is not a double
+        if (!str.trim().equals(str)) {
+            return false;
+        }
         try {
             Double.parseDouble(str);
             return true;
