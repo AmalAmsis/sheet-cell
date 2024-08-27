@@ -26,13 +26,13 @@ public class Plus extends BinaryExpression {
     @Override
     protected void isValid(EffectiveValue value1, EffectiveValue value2) {
         // Check validity before performing the addition
-        if (value1.getCellType() != CellType.NUMERIC && value2.getCellType() != CellType.NUMERIC) {
+        if (value1.getCellType() != CellType.NUMERIC || value2.getCellType() != CellType.NUMERIC) {
             String message = String.format(
                     "Invalid operation: PLUS requires both arguments to be numeric. " +
                             "Received: value1=%s (type=%s), value2=%s (type=%s)",
-                    value1.extractValueWithExpectation(Object.class).toString(),
+                    value1.getValue().toString(),
                     value1.getCellType().toString(),
-                    value2.extractValueWithExpectation(Object.class).toString(),
+                    value2.getValue().toString(),
                     value2.getCellType().toString()
             );
             throw new IllegalArgumentException(message);
