@@ -25,6 +25,12 @@ public class Ref extends UnaryExpression {
     protected EffectiveValue doEvaluate(EffectiveValue value) {
         isValid(value);  // Ensure that the value is valid before proceeding
         Coordinate coordinate = convertStringToCoordinate(value.extractValueWithExpectation(String.class));
+        EffectiveValue result = sheet.getCellEffectiveValue(coordinate);
+        // Check if the cell is Empty
+        if (result.getCellType() == CellType.EMPTY) {
+            throw new IllegalArgumentException(String.format("Invalid operation: REF cannot be executed with an empty cell. The cell '%s' is Empty", coordinate));
+
+        }
         sheet.addDependentCell(this.targetCoordinate, coordinate);
         return sheet.getCellEffectiveValue(coordinate);
     }
@@ -48,9 +54,9 @@ public class Ref extends UnaryExpression {
             throw new IllegalArgumentException(String.format("Invalid operation: REF cannot convert '%s' to a valid coordinate.", cellReference));
         }
 
-        // Check if the cell exists in the sheet
+        // Check if the cell is Empty
         if (!sheet.isCellInSheet(coordinate)) {
-            throw new IllegalArgumentException(String.format("Invalid operation: The cell '%s' is Empty", cellReference));
+            throw throw new IllegalArgumentException(String.format("Invalid operation: REF cannot be executed with an empty cell. The cell '%s' is Empty", coordinate));
         }
     }
 }
