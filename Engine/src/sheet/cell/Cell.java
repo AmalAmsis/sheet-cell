@@ -24,7 +24,7 @@ public interface Cell {
     EffectiveValue calculateEffectiveValue(String originalValue);
     void setEffectiveValue(EffectiveValue effectiveValue);
     String getId();
-    void updateValue(String originalValue);
+    int updateValue(String originalValue);
     void updateValueHelper(String originalValue);
     public void removeAllDependsOn();
      List<Cell> detectCycle();

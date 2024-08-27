@@ -9,10 +9,11 @@ public interface UIManager {
     //yarden
     void displaySheet();    //yarden
     void displayCell();
+    void updateCell();
     //yarden
-    void loadXmlFile(String filePath);
-    void loadSeralizationFile();
-    void saveSeralizationFile();
+    void loadSystemState();
+    void saveSystemState();
     void loadXmlFileFromUser();
+    void displaySheetVersion();
 
 }

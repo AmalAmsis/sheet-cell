@@ -4,8 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="new merge">
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/systemic/Ref.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/systemic/Ref.java" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="working on AppRunner">
+      <change afterPath="$PROJECT_DIR$/Engine/src/sheet/version/SheetVersionData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/engine/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/engine/Engine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/engine/EngineImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/engine/EngineImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/cell/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/cell/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/version/SheetVersionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/version/SheetVersionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/version/SheetVersionHandlerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/version/SheetVersionHandlerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/version/SheetVersionProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/version/SheetVersionProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/state/SheetStateManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/state/SheetStateManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/state/SheetStateManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/state/SheetStateManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/manager/UIManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/manager/UIManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/menu/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/menu/Command.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +201,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724768249092</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="working on AppRunner">
+      <option name="closed" value="true" />
+      <created>1724772152398</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1724772152398</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -221,9 +241,9 @@
     <MESSAGE value="ui module - first naive interface" />
     <MESSAGE value="displaySheet func impl in the UI" />
     <MESSAGE value="for marge 27.8.24" />
-    <MESSAGE value="working on AppRunner" />
     <MESSAGE value="new merge" />
-    <option name="LAST_COMMIT_MESSAGE" value="new merge" />
+    <MESSAGE value="working on AppRunner" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on AppRunner" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -235,8 +255,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java</url>
-          <line>28</line>
+          <line>32</line>
           <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java</url>
+          <line>230</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java</url>
+          <line>229</line>
+          <properties class="manager.UIManagerImpl" method="getXmlFileFullPath">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

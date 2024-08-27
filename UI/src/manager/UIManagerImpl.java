@@ -2,16 +2,21 @@ package manager;
 
 import dto.DTOCell;
 import dto.DTOSheet;
+import dto.DTOSheetImpl;
 import engine.Engine;
 import engine.EngineImpl;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Map;
 import java.util.Scanner;
 
 import jakarta.xml.bind.JAXBException;
 import jaxb.schema.xmlprocessing.FileDataException;
 import menu.Command;
+import sheet.version.SheetVersionData;
+import sheet.version.SheetVersionHandler;
+import state.SheetStateManager;
 
 public class UIManagerImpl implements UIManager {
 
@@ -221,6 +226,8 @@ public class UIManagerImpl implements UIManager {
         loadXmlFile(xmlFilePath);
     }
 
+
+
     public String getXmlFileFullPath(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter the XML file full path: ");
@@ -338,25 +345,149 @@ public class UIManagerImpl implements UIManager {
 
     //*****************************************************************************************//
 
-
-
-
-
     @Override
     public void displayCell() {
 
     }
 
-    //@Override
+
+
+    //*****************************************************************************************//
 
     @Override
-    public void loadSeralizationFile() {
+    public void updateCell() {
+
+
 
     }
 
-    @Override
-    public void saveSeralizationFile() {
+    //*****************************************************************************************//
 
+
+    @Override
+    public void displaySheetVersion() {
+        int selectedVersion = getVersionNumberFromUser();
+        while (selectedVersion == 0) {
+            if(printErrorVersionMenu() ==1){
+                selectedVersion =getVersionNumberFromUser();
+            }
+        }
+        printSheetVersion(selectedVersion);
+    }
+
+    private int getVersionNumberFromUser() {
+        Scanner scanner = new Scanner(System.in);
+        SheetVersionHandler versionHandler = engine.getCurrentSheetState().getVersionHandler();
+        int numOfVersion = versionHandler.getNumOfVersions();
+        System.out.println("Please select a version number from the following list:");
+        versionHandler.printVersionsHistory();
+        System.out.println();
+        int selectedVersion =0;
+        boolean validInput = false;
+        while (!validInput) {
+            System.out.print("Enter your choice: ");
+            try {
+                selectedVersion = Integer.parseInt(scanner.nextLine());
+
+                // בדיקה האם המספר נמצא בטווח התקין
+                if (selectedVersion >= 1 && selectedVersion <= numOfVersion) {
+                    validInput = true;
+                } else {
+                    System.out.println("Error: The number you entered is not in the list of available versions. Please try again.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Error: Invalid input. Please enter a number from the list.");
+            }
+        }
+        return selectedVersion;
+
+    }
+    private int printErrorVersionMenu(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("===============================\n");
+        System.out.println("1. Try selecting a version number again");
+        System.out.println("2. Return to the main menu");
+        System.out.println("\n===============================");
+        System.out.print("Please select an option (1-2): ");
+        while (true) {
+            try {
+                int choice = Integer.parseInt(scanner.nextLine());
+
+                switch (choice) {
+                    case 1:
+                        return 1;
+                    case 2:
+                        return 2;
+                    default:
+                        System.out.println("Invalid choice. Please select either 1 or 2.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a valid number (1 or 2).");
+            }
+        }
+    }
+    private void printSheetVersion(int version) {
+        SheetVersionHandler versionHandler = engine.getCurrentSheetState().getVersionHandler();
+        DTOSheet dtoSheet = versionHandler.getSheetByVersion(version);
+        printSheetToConsole(dtoSheet);
+    }
+
+    //*****************************************************************************************//
+
+    @Override
+    public void loadSystemState() {
+        String inputFilePath = getInputFilePathFromUser();
+        int choice;
+        try{
+            engine.loadSystemState(inputFilePath);
+            System.out.println("System state loaded successfully from " + inputFilePath);
+        }
+//        catch (IOException e) {
+//            System.err.println("Error: Unable to read the file at the specified path. Please check if the file exists and is accessible.");
+//
+//        }
+//        catch (ClassNotFoundException e){
+//            System.err.println("Error: The file contains an unrecognized class. Please ensure the file is valid.");
+//        }
+        catch (Exception e){
+            System.err.println("Error: Failed to load system state. " + e.getMessage());
+            choice = filePathErrorMenu();
+            if(choice ==1) {
+                loadSystemState();
+            }
+
+        }
+    }
+
+    private String getInputFilePathFromUser(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter the full input file path: ");
+        return scanner.nextLine();
+    }
+
+    //*****************************************************************************************//
+
+    @Override
+    public void saveSystemState() {
+        String outputFilePath = getInputFilePathFromUser();
+        int choice;
+        try{
+            engine.saveSystemState(outputFilePath);
+            System.out.println("System state saved successfully to " + outputFilePath);
+        }
+        catch (Exception e) {
+            System.err.println("Error: Failed to load system state. " + e.getMessage());
+            choice = filePathErrorMenu();
+            if (choice == 1) {
+                saveSystemState();
+            }
+        }
+    }
+
+    private String getOutputFilePathFromUser(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter the full output file path: ");
+        return scanner.nextLine();
     }
 
 
