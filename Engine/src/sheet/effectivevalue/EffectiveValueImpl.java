@@ -35,7 +35,7 @@ public class EffectiveValueImpl implements EffectiveValue, Serializable {
     @Override
     public String toString() {
         if (cellType == CellType.NUMERIC && value instanceof Number) {
-            DecimalFormat decimalFormat = new DecimalFormat("#,###.###");
+            DecimalFormat decimalFormat = new DecimalFormat("#,###.##");
             return decimalFormat.format(value);
         }
         return this.extractValueWithExpectation(cellType.getType()).toString();
