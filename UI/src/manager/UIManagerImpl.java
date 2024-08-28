@@ -28,7 +28,6 @@ public class UIManagerImpl implements UIManager {
         engine = new EngineImpl();
     }
 
-
     //*****************************************************************************************//
     @Override
     public Command printMenuAddGetUserChoice() {
@@ -359,7 +358,6 @@ public class UIManagerImpl implements UIManager {
 
     }
 
-
     public void printCellDetails(DTOCell dtoCell) {
         System.out.println("***********************************************************");
         System.out.println("                      Cell Details                          ");
@@ -434,10 +432,6 @@ public class UIManagerImpl implements UIManager {
         }
     }
 
-
-
-
-
     //*****************************************************************************************//
 
     @Override
@@ -501,7 +495,6 @@ public class UIManagerImpl implements UIManager {
     }
 
     //*****************************************************************************************//
-
 
     @Override
     public void displaySheetVersion() {
@@ -573,9 +566,7 @@ public class UIManagerImpl implements UIManager {
         DTOSheet dtoSheet = versionHandler.getSheetByVersion(version);
         printSheetToConsole(dtoSheet);
     }
-
-    private void printVersionsHistory()
-    {
+    private void printVersionsHistory() {
         SheetVersionHandler versionHandler = engine.getCurrentSheetState().getVersionHandler();
 
         StringBuilder sb = new StringBuilder();
