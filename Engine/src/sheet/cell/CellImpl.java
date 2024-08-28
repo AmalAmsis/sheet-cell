@@ -78,6 +78,7 @@ public class CellImpl implements Cell, Serializable {
             }
             return visitedCells.size();
         } catch (Exception e) {
+            visitedCells.clear();
             updateValueHelper(this.originalValue, visitedCells);
             throw e;
         }
@@ -134,8 +135,10 @@ public class CellImpl implements Cell, Serializable {
     @Override
     public void addToDependsOn(Cell cell) {
         try {
-            cell.addToInfluencingOn(this);
-            dependsOn.add(cell);
+            if(!dependsOn.contains(cell)) {
+                cell.addToInfluencingOn(this);
+                dependsOn.add(cell);
+            }
         }
         catch (Exception e) {
             throw e;

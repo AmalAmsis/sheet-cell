@@ -35,7 +35,7 @@ public enum Command {
     SAVE_SYSTEM_STATE("Save system state") {
         @Override
         public void execute(UIManager manager) {
-            //todo
+            manager.saveSystemState();
         }
     },
 
@@ -49,7 +49,6 @@ public enum Command {
     EXIT("Exit the system") {
         @Override
         public void execute(UIManager manager) {
-            exitSystem(manager);
         }
     };
 

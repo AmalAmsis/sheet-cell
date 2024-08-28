@@ -24,7 +24,7 @@ public class Ref extends UnaryExpression {
     @Override
     protected EffectiveValue doEvaluate(EffectiveValue value) {
         isValid(value);  // Ensure that the value is valid before proceeding
-        Coordinate coordinate = convertStringToCoordinate(value.extractValueWithExpectation(String.class));
+        Coordinate coordinate = convertStringToCoordinate(value.extractValueWithExpectation(String.class).toUpperCase());
         EffectiveValue result = sheet.getCellEffectiveValue(coordinate);
         // Check if the cell is Empty
         if (result.getCellType() == CellType.EMPTY) {

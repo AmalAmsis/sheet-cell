@@ -36,27 +36,27 @@ public class SheetVersionHandlerImpl implements SheetVersionHandler, Serializabl
         this.numOfVersions = 0;
     }
 
-    @Override
-    public void printVersionsHistory() {
-        StringBuilder sb = new StringBuilder();
-
-        // Print header for version numbers
-        sb.append("Version number:         |");
-        for (SheetVersionData version : this.versionHistory) {
-            sb.append(" ").append(version.dtoSheet.getSheetVersion()).append(" |");
-        }
-        sb.append("\n");
-
-        // Print header for number of cell changes
-        sb.append("Number of cell changes: |");
-        for (SheetVersionData version : this.versionHistory) {
-            sb.append(" ").append(version.numOfUpdateCells).append(" |");
-        }
-        sb.append("\n");
-
-        // Print the result
-        System.out.println(sb.toString());
-    }
+//    @Override
+//    public void printVersionsHistory() {
+//        StringBuilder sb = new StringBuilder();
+//
+//        // Print header for version numbers
+//        sb.append("Version number:         |");
+//        for (SheetVersionData version : this.versionHistory) {
+//            sb.append(" ").append(version.dtoSheet.getSheetVersion()).append(" |");
+//        }
+//        sb.append("\n");
+//
+//        // Print header for number of cell changes
+//        sb.append("Number of cell changes: |");
+//        for (SheetVersionData version : this.versionHistory) {
+//            sb.append(" ").append(version.numOfUpdateCells).append(" |");
+//        }
+//        sb.append("\n");
+//
+//        // Print the result
+//        System.out.println(sb.toString());
+//    }
 
     @Override
     public int getNumOfVersions() {
@@ -68,6 +68,6 @@ public class SheetVersionHandlerImpl implements SheetVersionHandler, Serializabl
         if (version < 0 || version > this.numOfVersions) {
             throw new IllegalArgumentException("Invalid version number: " + version + ". Please choose a version number between 1 and " + (this.numOfVersions-1) +" (inclusive).");
         }
-        return this.versionHistory.get(version-1).dtoSheet;
+        return this.versionHistory.get(version-1).getDtoSheet();
     }
 }
