@@ -17,9 +17,7 @@ public enum Command {
     },
     SHOW_CELL("Display a single cell's value") {
         @Override
-        public void execute(UIManager manager) {
-            showCell(manager);
-        }
+        public void execute(UIManager manager) {manager.displayCell();}
     },
     UPDATE_CELL("Update a single cell's value") {
         @Override
@@ -30,7 +28,7 @@ public enum Command {
     SHOW_VERSIONS("Display versions") {
         @Override
         public void execute(UIManager manager) {
-            showVersions(manager);
+            manager.displaySheetVersion();
         }
     },
 
@@ -47,8 +45,6 @@ public enum Command {
             manager.loadSystemState();
         }
     },
-
-
 
     EXIT("Exit the system") {
         @Override

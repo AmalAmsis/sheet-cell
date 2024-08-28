@@ -25,7 +25,7 @@ public interface Cell {
     void setEffectiveValue(EffectiveValue effectiveValue);
     String getId();
     int updateValue(String originalValue);
-    void updateValueHelper(String originalValue);
+    void updateValueHelper(String originalValue, Set<Cell> visitedCells);
     public void removeAllDependsOn();
      List<Cell> detectCycle();
     List<Cell> detectCycleHelper(Set<Cell> visited, Set<Cell> recStack, List<Cell> path);

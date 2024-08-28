@@ -1,6 +1,7 @@
 package manager;
 
 import dto.DTOCell;
+import dto.DTOCoordinate;
 import dto.DTOSheet;
 import dto.DTOSheetImpl;
 import engine.Engine;
@@ -8,6 +9,7 @@ import engine.EngineImpl;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -347,8 +349,96 @@ public class UIManagerImpl implements UIManager {
 
     @Override
     public void displayCell() {
+        try {
+            // Step 1: Get cell identity from user
+            String coordinateString = getCoordinateInput();
+            DTOCell dtoCell = engine.displayCell(coordinateString);
+            printCellDetails(dtoCell);
+
+        }catch (Exception e) {
+            printErrorDisplayCellMenu(e.getMessage());
+        }
 
     }
+
+
+    public void printCellDetails(DTOCell dtoCell) {
+        System.out.println("***********************************************************");
+        System.out.println("                      Cell Details                          ");
+        System.out.println("***********************************************************");
+
+        // Cell Identity
+        DTOCoordinate coordinate = dtoCell.getCoordinate();
+        System.out.println("Cell Coordinate: " + coordinate);
+
+        // Original Value
+        System.out.println("Original Value: " + dtoCell.getOriginalValue());
+
+        // Effective Value
+        System.out.println("Effective Value: " + dtoCell.getEffectiveValue());
+
+        // Last Changed Version
+        System.out.println("Last Changed Version: " + dtoCell.getLastModifiedVersion());
+
+        // Direct Dependencies
+        List<DTOCoordinate> dependencies = dtoCell.getDependsOn();
+        System.out.println("Direct Dependencies: " + formatCoordinates(dependencies));
+
+        // Direct Influences
+        List<DTOCoordinate> influences = dtoCell.getInfluencingOn();
+        System.out.println("Direct Influences: " + formatCoordinates(influences));
+
+        System.out.println("***********************************************************");
+    }
+
+    private String formatCoordinates(List<DTOCoordinate> coordinates) {
+        if (coordinates == null || coordinates.isEmpty()) {
+            return "None";
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (DTOCoordinate coordinate : coordinates) {
+            sb.append(coordinate)
+                    .append(" ");
+        }
+        return sb.toString().trim();
+    }
+
+    public void printErrorDisplayCellMenu(String errorMessage) {
+        System.out.println("===========================================================");
+        System.out.println("                     Error Displaying Cell                 ");
+        System.out.println("===========================================================");
+        System.out.println("An error occurred while trying to display the cell details:");
+        System.out.println(errorMessage);
+        System.out.println("Please choose one of the following options:");
+        System.out.println("1. Try again");
+        System.out.println("2. Return to the main menu");
+        System.out.println("===========================================================");
+
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+
+        while (true) {
+            System.out.print("Enter your choice (1 or 2): ");
+            try {
+                choice = Integer.parseInt(scanner.nextLine().trim());
+                if (choice == 1) {
+                    // Call the function that attempts to display cell details again
+                    displayCell(); // Replace with the actual method to display cell details
+                    break;
+                } else if (choice == 2) {
+                    System.out.println("Returning to the main menu...");
+                    break;
+                } else {
+                    System.out.println("Invalid choice. Please select 1 or 2.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a number (1 or 2).");
+            }
+        }
+    }
+
+
 
 
 
@@ -357,8 +447,63 @@ public class UIManagerImpl implements UIManager {
     @Override
     public void updateCell() {
 
+        try {
+            String coordinate = getCoordinateInput();
+            String originalValue = getNewOriginalValueInput();
+            engine.updateCell(coordinate, originalValue);
+        }catch (Exception e) {
+            printErrorUpdateCellMenu(e.getMessage());
+        }
+    }
 
+    private String getCoordinateInput() {
+        System.out.println("Please enter the identity of the cell you want to update.");
+        System.out.println("The identity should consist of a column letter followed by a row number.");
+        System.out.println("For example, if you want to update the cell in column A and row 4, enter 'A4'.");
+        System.out.print("Enter the cell identity (e.g., A4): ");
 
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine().trim();
+        return input;
+    }
+
+    private String getNewOriginalValueInput() {
+        System.out.print("Enter the new original value: ");
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine().trim();
+    }
+
+    public void printErrorUpdateCellMenu(String errorMessage) {
+        System.out.println("===========================================================");
+        System.out.println("                     Error Updating Cell                   ");
+        System.out.println("===========================================================");
+        System.out.println("An error occurred while trying to update the cell:");// להשאיר??
+        System.out.println(errorMessage);
+        System.out.println("Please choose one of the following options:");
+        System.out.println("1. Try again");
+        System.out.println("2. Return to the main menu");
+        System.out.println("===========================================================");
+
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+
+        while (true) {
+            System.out.print("Enter your choice (1 or 2): ");
+            try {
+                choice = Integer.parseInt(scanner.nextLine().trim());
+                if (choice == 1) {
+                    updateCell(); // לקרוא לפונקציה שניסתה לעדכן תא
+                    break;
+                } else if (choice == 2) {
+                    System.out.println("Returning to the main menu...");
+                    break;
+                } else {
+                    System.out.println("Invalid choice. Please select 1 or 2.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a number (1 or 2).");
+            }
+        }
     }
 
     //*****************************************************************************************//
