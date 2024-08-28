@@ -4,21 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="UIManager&#10;implemented:&#10;1.displaySheetVersion&#10;2.loadSystemState&#10;3.saveSystemState">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_08_2024_14_28_[Changes]1/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_08_2024_14_28_[Changes]1/shelved.patch" beforeDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="1.Fixing the setCell method so that it returns how many cells have been update&#10;2. Fixing getCell method so that it deals with empty cells&#10;3. add some function to the enum&#10;4. implements updateCell and showCELL at the manager&#10;5. ref for more than one">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/ExpressionEvaluator$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/ExpressionEvaluator$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/ExpressionEvaluator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/ExpressionEvaluator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Abs.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Minus.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Mod.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Plus.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Times.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/str/Sub.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/systemic/Ref.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/systemic/Ref.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/sheet/cell/Cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/sheet/cell/Cell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/sheet/cell/CellImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/sheet/cell/CellImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/sheet/cell/CellImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,40 +31,25 @@
     &quot;assignee&quot;: &quot;AmalAmsis&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/AmalAmsis/sheet-cell.git",
-    "accountId": "537397b5-d0c5-40c9-8de6-5008f77a31b4"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/AmalAmsis/sheet-cell.git&quot;,
+    &quot;accountId&quot;: &quot;7c3c5dfe-f29d-4945-a690-87b881a1fc0c&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 4
-}]]></component>
-  <component name="ProjectId" id="2lHVWcKfsc8AGlYp3HgnZSytx6a" />
+}</component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.AppRunner.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.Test.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "yarden__branch",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
+    "git-widget-placeholder": "Amal",
     "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "vue.rearranger.settings.migration": "true"
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   }
 }]]></component>
   <component name="RunManager" selected="Application.AppRunner">
@@ -120,15 +94,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.387" />
-        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.387" />
-      </set>
-    </attachedChunks>
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task id="LOCAL‎-00001" summary="update gitignore">
       <option name="closed" value="true" />
@@ -226,35 +191,16 @@
       <option name="project" value="LOCAL" />
       <updated>1724768249092</updated>
     </task>
-    <task id="LOCAL-00013" summary="working on AppRunner">
+    <task id="LOCAL‎-00013" summary="1.Fixing the setCell method so that it returns how many cells have been update&#10;2. Fixing getCell method so that it deals with empty cells&#10;3. add some function to the enum&#10;4. implements updateCell and showCELL at the manager&#10;5. ref for more than one">
       <option name="closed" value="true" />
-      <created>1724772152398</created>
+      <created>1724837477833</created>
       <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1724772152398</updated>
+      <option name="presentableId" value="LOCAL‎-00013" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724837477833</updated>
     </task>
-    <task id="LOCAL-00014" summary="UIManager&#10;implemented:&#10;1.displaySheetVersion&#10;2.loadSystemState&#10;3.saveSystemState">
-      <option name="closed" value="true" />
-      <created>1724782418991</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1724782418991</updated>
-    </task>
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="UIManager&#10;implemented:&#10;1.displaySheetVersion&#10;2.loadSystemState&#10;3.saveSystemState" />
-      <created>1724837022446</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1724837022446</updated>
-      <workItem from="1724837023929" duration="309000" />
-    </task>
-    <option name="localTasksCounter" value="15" />
+    <option name="localTasksCounter" value="14" />
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="OPEN_GENERIC_TABS">
@@ -285,48 +231,29 @@
     <MESSAGE value="ui module - first naive interface" />
     <MESSAGE value="displaySheet func impl in the UI" />
     <MESSAGE value="for marge 27.8.24" />
-    <MESSAGE value="new merge" />
     <MESSAGE value="working on AppRunner" />
-    <MESSAGE value="UIManager&#10;implemented:&#10;1.displaySheetVersion&#10;2.loadSystemState&#10;3.saveSystemState" />
-    <option name="LAST_COMMIT_MESSAGE" value="UIManager&#10;implemented:&#10;1.displaySheetVersion&#10;2.loadSystemState&#10;3.saveSystemState" />
+    <MESSAGE value="1.Fixing the setCell method so that it returns how many cells have been update&#10;2. Fixing getCell method so that it deals with empty cells&#10;3. add some function to the enum&#10;4. implements updateCell and showCELL at the manager&#10;5. ref for more than one" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.Fixing the setCell method so that it returns how many cells have been update&#10;2. Fixing getCell method so that it deals with empty cells&#10;3. add some function to the enum&#10;4. implements updateCell and showCELL at the manager&#10;5. ref for more than one" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/UI/src/test/Test.java</url>
-          <line>51</line>
+          <line>53</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java</url>
-          <line>231</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java</url>
-          <line>125</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java</url>
-          <line>230</line>
-          <properties class="manager.UIManagerImpl" method="getXmlFileFullPath">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="27" />
+          <line>452</line>
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="sheet.cell.CellImpl" memberName="effectiveValue" />
+        <PinnedItemInfo parentTag="java.util.HashMap$Node" memberName="value" />
       </pinned-members>
     </pin-to-top-manager>
   </component>
