@@ -3,10 +3,15 @@ package dto;
 import sheet.cell.Cell;
 import sheet.effectivevalue.EffectiveValue;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
-public class DTOCellImpl implements DTOCell {
+/**
+ * DTOCellImpl is an implementation of the DTOCell interface.
+ * This class is used to create a data transfer object (DTO) for a cell in a spreadsheet.
+ * It serializes the cell's state for transmission between the engine and UI.
+ */
+public class DTOCellImpl implements DTOCell , Serializable {
 
     private DTOCoordinate coordinate;
     private EffectiveValue effectiveValue;
@@ -15,27 +20,31 @@ public class DTOCellImpl implements DTOCell {
     private final List<DTOCoordinate> dependsOn = new ArrayList<>();
     private final List<DTOCoordinate> influencingOn = new ArrayList<>();
 
-    public DTOCellImpl(Cell cell) {
-        //create DTOCoordinate with original cell coordinate
-        this.coordinate =new DTOCoordinateImpl(cell.getCoordinate().getRow(), cell.getCoordinate().getCol());
 
+    /**
+     * Constructs a DTOCellImpl from a Cell object.
+     * Initializes the DTOCellImpl's properties based on the given Cell.
+     * @param cell the Cell object to convert into a DTOCell.
+     */
+    public DTOCellImpl(Cell cell) {
+        this.coordinate =new DTOCoordinateImpl(cell.getCoordinate().getRow(), cell.getCoordinate().getCol());
         this.effectiveValue = cell.getEffectiveValue();
         this.originalValue = cell.getOriginalValue();
         this.lastModifiedVersion = cell.getLastModifiedVersion();
-        //check if working
-        //DependsOn
+        // Add dependencies
         for(Cell dependCell : cell.getDependsOn()) {
             DTOCoordinate dtoCoordinateWhoDependOn = new DTOCoordinateImpl(dependCell.getCoordinate().getRow(), dependCell.getCoordinate().getCol());
             this.addDToDependsOn(dtoCoordinateWhoDependOn);
         }
-        //check if working
-        //InfluencingOn
+
+        // Add influences
         for(Cell Influnecingcell : cell.getInfluencingOn()) {
             DTOCoordinate dtoCoordinateWhoInfluencingOn = new DTOCoordinateImpl(Influnecingcell.getCoordinate().getRow(), Influnecingcell.getCoordinate().getCol());
             this.addDToInfluencingOn(dtoCoordinateWhoInfluencingOn);
         }
     }
 
+    //todo: check if we can delete this function
     public void setCoordinate(DTOCoordinate coordinate) {
         this.coordinate = coordinate;
     }
@@ -69,10 +78,17 @@ public class DTOCellImpl implements DTOCell {
         return influencingOn;
     }
 
+    /**
+     * Adds a coordinate to the list of dependencies (cells this cell depends on).
+     * @param dtoCoordinate the DTOCoordinate to add.
+     */
     public void addDToDependsOn(DTOCoordinate dtoCoordinate) {
         dependsOn.add(dtoCoordinate);
     }
-
+    /**
+     * Adds a coordinate to the list of influences (cells that depend on this cell).
+     * @param dtoCoordinate the DTOCoordinate to add.
+     */
     public void addDToInfluencingOn(DTOCoordinate dtoCoordinate) {
         influencingOn.add(dtoCoordinate);
     }

@@ -4,7 +4,9 @@ import dto.DTOSheet;
 import dto.DTOSheetImpl;
 import sheet.Sheet;
 
-public class SheetVersionData {
+import java.io.Serializable;
+
+public class SheetVersionData implements Serializable {
     private DTOSheet dtoSheet;
     private int numOfUpdateCells;
 
