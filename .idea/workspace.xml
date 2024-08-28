@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="DataTransferObject" />
+      <artifact name="Engine" />
+      <artifact name="UI" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="some changes in update cell" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="ref - coordinate to upper case">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataTransferObject/DataTransferObject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/DataTransferObject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/version/SheetVersionHandlerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/version/SheetVersionHandlerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/systemic/Ref.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/systemic/Ref.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,16 +52,18 @@
     "Application.AppRunner.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.Test.executor": "Run",
+    "JAR Application.UI.jar.executor": "Run",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "Amal",
+    "last_opened_file_path": "C:/Users/Amal Amsis/Desktop/AmalA/Computer Science/JAVA/jaxb-ri-4.0.5/mod",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.AppRunner">
+  <component name="RunManager" selected="JAR Application.UI.jar">
     <configuration name="AppRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="manager.AppRunner" />
       <module name="UI" />
@@ -82,8 +97,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UI.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/UI/UI.jar" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JAR Application.UI.jar" />
         <item itemvalue="Application.AppRunner" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Application.Main" />
@@ -203,7 +223,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1724841754120</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL‎-00015" summary="tests">
+      <option name="closed" value="true" />
+      <created>1724845223024</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL‎-00015" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724845223024</updated>
+    </task>
+    <task id="LOCAL‎-00016" summary="ref - coordinate to upper case">
+      <option name="closed" value="true" />
+      <created>1724845264924</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL‎-00016" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724845264924</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -238,7 +274,9 @@
     <MESSAGE value="working on AppRunner" />
     <MESSAGE value="1.Fixing the setCell method so that it returns how many cells have been update&#10;2. Fixing getCell method so that it deals with empty cells&#10;3. add some function to the enum&#10;4. implements updateCell and showCELL at the manager&#10;5. ref for more than one" />
     <MESSAGE value="some changes in update cell" />
-    <option name="LAST_COMMIT_MESSAGE" value="some changes in update cell" />
+    <MESSAGE value="tests" />
+    <MESSAGE value="ref - coordinate to upper case" />
+    <option name="LAST_COMMIT_MESSAGE" value="ref - coordinate to upper case" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

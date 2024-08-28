@@ -35,7 +35,7 @@ public class SheetVersionHandlerImpl implements SheetVersionHandler, Serializabl
         StringBuilder sb = new StringBuilder();
 
         // Print header for version numbers
-        sb.append("Version number:      |");
+        sb.append("Version number:         |");
         for (SheetVersionData version : this.versionHistory) {
             sb.append(" ").append(version.dtoSheet.getSheetVersion()).append(" |");
         }
