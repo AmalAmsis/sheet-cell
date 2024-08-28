@@ -11,9 +11,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="28/8/24">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="update jar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/engine/EngineImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/engine/EngineImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/version/SheetVersionHandlerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/version/SheetVersionHandlerImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +69,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "editor.preferences.fonts.default",
@@ -255,7 +256,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1724837022446</updated>
-      <workItem from="1724837023929" duration="7333000" />
+      <workItem from="1724837023929" duration="9575000" />
     </task>
     <task id="LOCAL-00015" summary="28/8/24">
       <option name="closed" value="true" />
@@ -265,7 +266,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724837578539</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="update jar">
+      <option name="closed" value="true" />
+      <created>1724844815868</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1724844815868</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -321,7 +330,8 @@
     <MESSAGE value="working on AppRunner" />
     <MESSAGE value="UIManager&#10;implemented:&#10;1.displaySheetVersion&#10;2.loadSystemState&#10;3.saveSystemState" />
     <MESSAGE value="28/8/24" />
-    <option name="LAST_COMMIT_MESSAGE" value="28/8/24" />
+    <MESSAGE value="update jar" />
+    <option name="LAST_COMMIT_MESSAGE" value="update jar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -340,15 +350,6 @@
           <url>file://$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java</url>
           <line>233</line>
           <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java</url>
-          <line>232</line>
-          <properties class="manager.UIManagerImpl" method="getXmlFileFullPath">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
