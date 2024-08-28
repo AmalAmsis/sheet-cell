@@ -228,8 +228,6 @@ public class UIManagerImpl implements UIManager {
         loadXmlFile(xmlFilePath);
     }
 
-
-
     public String getXmlFileFullPath(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter the XML file full path: ");
@@ -390,7 +388,6 @@ public class UIManagerImpl implements UIManager {
 
         System.out.println("***********************************************************");
     }
-
     private String formatCoordinates(List<DTOCoordinate> coordinates) {
         if (coordinates == null || coordinates.isEmpty()) {
             return "None";
@@ -403,7 +400,6 @@ public class UIManagerImpl implements UIManager {
         }
         return sb.toString().trim();
     }
-
     public void printErrorDisplayCellMenu(String errorMessage) {
         System.out.println("===========================================================");
         System.out.println("                     Error Displaying Cell                 ");
@@ -466,13 +462,11 @@ public class UIManagerImpl implements UIManager {
         String input = scanner.nextLine().trim();
         return input;
     }
-
     private String getNewOriginalValueInput() {
         System.out.print("Enter the new original value: ");
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine().trim();
     }
-
     public void printErrorUpdateCellMenu(String errorMessage) {
         System.out.println("===========================================================");
         System.out.println("                     Error Updating Cell                   ");
@@ -525,7 +519,10 @@ public class UIManagerImpl implements UIManager {
         SheetVersionHandler versionHandler = engine.getCurrentSheetState().getVersionHandler();
         int numOfVersion = versionHandler.getNumOfVersions();
         System.out.println("Please select a version number from the following list:");
-        versionHandler.printVersionsHistory();
+
+        //**************************************************************************************//
+        printVersionsHistory();
+        //versionHandler.printVersionsHistory();
         System.out.println();
         int selectedVersion =0;
         boolean validInput = false;
@@ -577,6 +574,30 @@ public class UIManagerImpl implements UIManager {
         printSheetToConsole(dtoSheet);
     }
 
+    private void printVersionsHistory()
+    {
+        SheetVersionHandler versionHandler = engine.getCurrentSheetState().getVersionHandler();
+
+        StringBuilder sb = new StringBuilder();
+
+        // Print header for version numbers
+        sb.append("Version number:         |");
+        for (SheetVersionData version : versionHandler.getVersionHistory()) {
+            sb.append(" ").append(version.getDtoSheet().getSheetVersion()).append(" |");
+        }
+        sb.append("\n");
+
+        // Print header for number of cell changes
+        sb.append("Number of cell changes: |");
+        for (SheetVersionData version : versionHandler.getVersionHistory()) {
+            sb.append(" ").append(version.getNumOfUpdateCells()).append(" |");
+        }
+        sb.append("\n");
+
+        // Print the result
+        System.out.println(sb.toString());
+    }
+
     //*****************************************************************************************//
 
     @Override
@@ -603,7 +624,6 @@ public class UIManagerImpl implements UIManager {
 
         }
     }
-
     private String getInputFilePathFromUser(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter the full input file path: ");
