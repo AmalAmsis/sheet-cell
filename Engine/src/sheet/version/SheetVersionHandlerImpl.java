@@ -12,10 +12,16 @@ public class SheetVersionHandlerImpl implements SheetVersionHandler, Serializabl
     private final List<SheetVersionData> versionHistory;
     private int numOfVersions;
 
+
+
     public SheetVersionHandlerImpl(Sheet currentSheet, int numOfUpdateCells) {
         this.versionHistory = new ArrayList<>();
         this.versionHistory.add(new SheetVersionData(currentSheet,numOfUpdateCells));
         this.numOfVersions = 1;
+    }
+
+    public List<SheetVersionData> getVersionHistory() {
+        return this.versionHistory;
     }
 
     @Override

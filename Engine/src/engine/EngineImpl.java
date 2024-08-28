@@ -50,7 +50,10 @@ public class EngineImpl implements Engine {
 
 
          Sheet newSheet = new SheetImpl(stlSheet, sortedListOfStlCells);
-         SheetVersionHandler currentSheetVersionHandler = new SheetVersionHandlerImpl(newSheet,0);
+         int numOfCellsInTheSheet = newSheet.getBoard().size();
+
+        //********************************************************************************************************************//
+         SheetVersionHandler currentSheetVersionHandler = new SheetVersionHandlerImpl(newSheet,numOfCellsInTheSheet);
          this.currentSheetState = new SheetStateManagerImpl(newSheet,currentSheetVersionHandler);
     }
 
