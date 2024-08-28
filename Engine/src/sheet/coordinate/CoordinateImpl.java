@@ -64,6 +64,7 @@ public class CoordinateImpl implements Coordinate , Serializable {
 
     // Convert a string representation of a coordinate to a Coordinate object
     public static Coordinate convertStringToCoordinate(String stringCoordinate) {
+        stringCoordinate = stringCoordinate.toUpperCase();
         char col = stringCoordinate.charAt(0);
         int row = Integer.parseInt(stringCoordinate.substring(1));
         return new CoordinateImpl(col, row);
