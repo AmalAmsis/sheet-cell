@@ -28,7 +28,6 @@ public class UIManagerImpl implements UIManager {
         engine = new EngineImpl();
     }
 
-
     //*****************************************************************************************//
     @Override
     public Command printMenuAddGetUserChoice() {
@@ -150,6 +149,7 @@ public class UIManagerImpl implements UIManager {
         }
 
         // Printing the final output to the console
+        System.out.println();
         System.out.println(sb.toString());
     }
     // Adding the title and the version of the sheet to the StringBuilder
@@ -230,7 +230,7 @@ public class UIManagerImpl implements UIManager {
 
     public String getXmlFileFullPath(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Please enter the XML file full path: ");
+        System.out.println("\nPlease enter the XML file full path: ");
         return scanner.nextLine();
     }
     public void loadXmlFile(String filePath) {
@@ -249,70 +249,70 @@ public class UIManagerImpl implements UIManager {
             System.err.println("Error: The XML file specifies an" + e.getMessage());
             choice = filePathErrorMenu();
             if(choice ==1){
-                getXmlFileFullPath();
+                loadXmlFileFromUser();
             }
 
         } catch (FileDataException.InvalidRowCountException e) {
             // Print a specific error message for invalid row count
-            System.err.println("Error: The XML file specifies an " + e.getMessage() + ".\nPlease ensure the sheet has between 1 and 50 rows.\n");
+            System.out.println("Error: The XML file specifies an " + e.getMessage() + ".\nPlease ensure the sheet has between 1 and 50 rows.\n");
             choice = filePathErrorMenu();
             if(choice ==1){
-                getXmlFileFullPath();
+                loadXmlFileFromUser();
             }
         } catch (FileDataException.InvalidColumnCountException e) {
             // Print a specific error message for invalid column count
-            System.err.println("Error: The XML file specifies an " + e.getMessage() + ".\nPlease ensure the sheet has between 1 and 20 columns.\n");
+            System.out.println("Error: The XML file specifies an " + e.getMessage() + ".\nPlease ensure the sheet has between 1 and 20 columns.\n");
             choice = filePathErrorMenu();
             if(choice ==1){
-                getXmlFileFullPath();
+                loadXmlFileFromUser();
             }
         } catch (FileDataException.InvalidColumnWidthException e) {
             // Print a specific error message for invalid column width
-            System.err.println("Error: The XML file specifies an " + e.getMessage() + ".\nPlease ensure the column width is a positive number.\n");
+            System.out.println("Error: The XML file specifies an " + e.getMessage() + ".\nPlease ensure the column width is a positive number.\n");
             choice = filePathErrorMenu();
             if(choice ==1){
-                getXmlFileFullPath();
+                loadXmlFileFromUser();
             }
         } catch (FileDataException.InvalidRowHeightException e) {
             // Print a specific error message for invalid row height
-            System.err.println("Error: The XML file specifies an " + e.getMessage() + ".\nPlease ensure the row height is a positive number.\n");
+            System.out.println("Error: The XML file specifies an " + e.getMessage() + ".\nPlease ensure the row height is a positive number.\n");
             choice = filePathErrorMenu();
             if(choice ==1){
-                getXmlFileFullPath();
+                loadXmlFileFromUser();
             }
         } catch (FileDataException.CellOutOfBoundsException e) {
             // Print a specific error message for cell out of bounds
-            System.err.println("Error: One or more cells in the file are outside the valid sheet boundaries.\n.");
+            System.out.println("Error: One or more cells in the file are outside the valid sheet boundaries.\n.");
             choice = filePathErrorMenu();
             if(choice ==1){
-                getXmlFileFullPath();
+                loadXmlFileFromUser();
             }
         } catch (FileDataException.CircularReferenceException e) {
             // Print a specific error message for circular reference
-            System.err.println("Error: The file contains a circular reference, which is not allowed.\n");
+            System.out.println("Error: The file contains a circular reference, which is not allowed.\n");
             choice = filePathErrorMenu();
             if(choice ==1){
-                getXmlFileFullPath();
+                loadXmlFileFromUser();
             }
         } catch (FileNotFoundException e) {
             // Handle file not found
-            System.err.println("Error: The file was not found at the specified path: " + filePath +"\n");
+            System.out.println("Error: The file was not found at the specified path: " + filePath +"\n");
             choice = filePathErrorMenu();
             if(choice ==1){
-                getXmlFileFullPath();
+                loadXmlFileFromUser();
             }
         } catch (JAXBException e) {
-            System.err.println("Error: Failed to process the XML file. \nThe file might be corrupted or invalid.\n");
+            System.out.println("Error: Failed to process the XML file. \nThe file might be corrupted or invalid.\n");
             choice = filePathErrorMenu();
             if(choice ==1){
-                getXmlFileFullPath();
+                loadXmlFileFromUser();
             }
         } catch (Exception e) {
             // Catch any other exceptions
-            System.err.println("Error: An unexpected error occurred: " + e.getMessage());
+            System.out.println("Error: An unexpected error occurred: " + e.getMessage());
             choice = filePathErrorMenu();
             if(choice ==1){
-                getXmlFileFullPath();
+                loadXmlFileFromUser();
             }
         }
 
@@ -358,7 +358,6 @@ public class UIManagerImpl implements UIManager {
         }
 
     }
-
 
     public void printCellDetails(DTOCell dtoCell) {
         System.out.println("***********************************************************");
@@ -434,10 +433,6 @@ public class UIManagerImpl implements UIManager {
         }
     }
 
-
-
-
-
     //*****************************************************************************************//
 
     @Override
@@ -447,6 +442,7 @@ public class UIManagerImpl implements UIManager {
             String coordinate = getCoordinateInput();
             String originalValue = getNewOriginalValueInput();
             engine.updateCell(coordinate, originalValue);
+            displaySheet();
         }catch (Exception e) {
             printErrorUpdateCellMenu(e.getMessage());
         }
@@ -500,8 +496,8 @@ public class UIManagerImpl implements UIManager {
         }
     }
 
-    //*****************************************************************************************//
 
+    //*****************************************************************************************//
 
     @Override
     public void displaySheetVersion() {
@@ -573,9 +569,7 @@ public class UIManagerImpl implements UIManager {
         DTOSheet dtoSheet = versionHandler.getSheetByVersion(version);
         printSheetToConsole(dtoSheet);
     }
-
-    private void printVersionsHistory()
-    {
+    private void printVersionsHistory() {
         SheetVersionHandler versionHandler = engine.getCurrentSheetState().getVersionHandler();
 
         StringBuilder sb = new StringBuilder();
