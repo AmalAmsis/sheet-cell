@@ -5,19 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="working on AppRunner">
-      <change afterPath="$PROJECT_DIR$/Engine/src/sheet/version/SheetVersionData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_08_2024_14_28__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_08_2024_14_28__Changes_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/engine/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/engine/Engine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/src/engine/EngineImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/engine/EngineImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/SheetDataModifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/SheetDataModifier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/src/sheet/cell/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/cell/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/version/SheetVersionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/version/SheetVersionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/version/SheetVersionHandlerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/version/SheetVersionHandlerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/version/SheetVersionProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/version/SheetVersionProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/state/SheetStateManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/state/SheetStateManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/state/SheetStateManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/state/SheetStateManagerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/manager/UIManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/manager/UIManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/UI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/UI/UI.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/src/menu/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/menu/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/test/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/test/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/ExpressionEvaluator$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/ExpressionEvaluator$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/ExpressionEvaluator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/ExpressionEvaluator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/systemic/Ref.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/systemic/Ref.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/sheet/cell/Cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/sheet/cell/Cell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/sheet/cell/CellImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/sheet/cell/CellImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,20 +52,20 @@
   }
 }</component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.AppRunner.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Test.executor&quot;: &quot;Run&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;yarden__branch&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.AppRunner.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.Test.executor": "Run",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "Amal",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.AppRunner">
     <configuration name="AppRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="manager.AppRunner" />
@@ -201,15 +205,7 @@
       <option name="project" value="LOCAL" />
       <updated>1724768249092</updated>
     </task>
-    <task id="LOCAL-00013" summary="working on AppRunner">
-      <option name="closed" value="true" />
-      <created>1724772152398</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1724772152398</updated>
-    </task>
-    <option name="localTasksCounter" value="14" />
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -241,7 +237,6 @@
     <MESSAGE value="ui module - first naive interface" />
     <MESSAGE value="displaySheet func impl in the UI" />
     <MESSAGE value="for marge 27.8.24" />
-    <MESSAGE value="new merge" />
     <MESSAGE value="working on AppRunner" />
     <option name="LAST_COMMIT_MESSAGE" value="working on AppRunner" />
   </component>
@@ -250,33 +245,20 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/UI/src/test/Test.java</url>
-          <line>51</line>
+          <line>53</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java</url>
-          <line>32</line>
+          <line>30</line>
           <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java</url>
-          <line>230</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java</url>
-          <line>229</line>
-          <properties class="manager.UIManagerImpl" method="getXmlFileFullPath">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="sheet.cell.CellImpl" memberName="effectiveValue" />
+        <PinnedItemInfo parentTag="java.util.HashMap$Node" memberName="value" />
       </pinned-members>
     </pin-to-top-manager>
   </component>
