@@ -22,7 +22,7 @@ import state.SheetStateManagerImpl;
 import java.io.*;
 import java.util.List;
 
-public class EngineImpl implements Engine {
+public class EngineImpl implements Engine,Serializable {
 
     SheetStateManager currentSheetState;
 
