@@ -70,6 +70,7 @@ public class EngineImpl implements Engine {
             Coordinate myCoordinate = mySheet.convertStringToCoordinate(coordinateString);
             //If it does not trow exception we are the String is ok.
             return new DTOCellImpl(mySheet.getCell(myCoordinate));
+
         }
         return null;
     }
@@ -81,9 +82,9 @@ public class EngineImpl implements Engine {
             //call Amal function לברר אם הבנתי נכון את הסטייט
             Coordinate coordinate = this.currentSheetState.getCurrentSheet().convertStringToCoordinate(coordinateString);
             //yarden 27/8
-           // int numOfUpdatededCells = this.currentSheetState.getCurrentSheet().setCell(coordinate, newOriginalValue);
+            int numOfUpdatededCells = this.currentSheetState.getCurrentSheet().setCell(coordinate, newOriginalValue);// הורדתי מהערה
             Sheet mySheet = this.currentSheetState.getCurrentSheet();
-            //this.currentSheetState.getVersionHandler().addNewVersion(mySheet,numOfUpdatededCells);
+            this.currentSheetState.getVersionHandler().addNewVersion(mySheet,numOfUpdatededCells);//ורדתי מהערה
             return new DTOSheetImpl(mySheet);
         }
         return null;
@@ -93,8 +94,9 @@ public class EngineImpl implements Engine {
     public DTOSheet displaySheetVersion(int versionNumber) {
         if (this.currentSheetState != null){
             SheetVersionHandler sheetVersionHandler = this.currentSheetState.getVersionHandler();
-            Sheet mySheet = sheetVersionHandler.getSheetByVersion(versionNumber);
-            return new DTOSheetImpl(mySheet);
+            //Sheet mySheet = sheetVersionHandler.getSheetByVersion(versionNumber);
+            //return new DTOSheetImpl(mySheet);
+            return sheetVersionHandler.getSheetByVersion(versionNumber);
         }
         return null;
     }

@@ -104,12 +104,19 @@ public class SheetImpl implements Sheet , Serializable {
 
     @Override
     public Cell getCell(Coordinate coordinate) {
-        return board.get(coordinate.toString());
+        if (isCellInSheet(coordinate)) {
+            return board.get(coordinate.toString());
+        }
+        else
+        {
+            return new CellImpl(coordinate, 0, this);
+        }
     }
 
     @Override
-    public void setCell(Coordinate coordinate, String originalValue) {
-        updateVersion(); // Every change in a cell updates the sheet version.
+    public int setCell(Coordinate coordinate, String originalValue) {
+        updateVersion();// Every change in a cell updates the sheet version.
+        int numOfUpdatededCells = 0;
         try {
             /*
             if (originalValue.isBlank()) { // If the original value is blank
@@ -118,10 +125,12 @@ public class SheetImpl implements Sheet , Serializable {
             }
              */
             if (!isCellInSheet(coordinate)) {
-                addCell(coordinate, originalValue);
+                numOfUpdatededCells = addCell(coordinate, originalValue);
             } else {
-                updateCell(coordinate, originalValue);
+                numOfUpdatededCells = updateCell(coordinate, originalValue);
             }
+            return numOfUpdatededCells;
+
         }catch (Exception e){
             this.version --;
             throw e;
@@ -145,7 +154,7 @@ public class SheetImpl implements Sheet , Serializable {
         Cell mainCell = getCell(mainCellCoordinate);
         Cell effectorCell = getCell(effectorCellCoordinate);
 
-        mainCell.removeAllDependsOn();
+        //mainCell.removeAllDependsOn();
         mainCell.addToDependsOn(effectorCell);
         //effectorCell.addInfluencingOn(mainCell);??????????????????????????????
     }
@@ -159,11 +168,13 @@ public class SheetImpl implements Sheet , Serializable {
     }
 
     // Add a new cell to the sheet
-    public void addCell(Coordinate coordinate, String originalValue) {
+    public int addCell(Coordinate coordinate, String originalValue) {
         try {
+            int numOfUpdatededCells = 0;
             Cell myCell = new CellImpl(coordinate,this.version,this);
             board.put(coordinate.toString(), myCell);
-            myCell.updateValue(originalValue);
+            numOfUpdatededCells = myCell.updateValue(originalValue);
+            return numOfUpdatededCells;
         }catch (Exception e){
             board.remove(coordinate.toString());
             throw e;
@@ -171,11 +182,14 @@ public class SheetImpl implements Sheet , Serializable {
     }
 
     //update cell data.
-    public void updateCell(Coordinate coordinate, String originalValue) {
+    public int updateCell(Coordinate coordinate, String originalValue) {
         Cell myCell = board.get(coordinate.toString());
+        myCell.removeAllDependsOn();
+        int numOfUpdatededCells = 0;
         if(myCell != null) {
-           myCell.updateValue(originalValue);
+           numOfUpdatededCells = myCell.updateValue(originalValue);
         }
+        return numOfUpdatededCells;
     }
 
     // לא משתמשים

@@ -9,7 +9,9 @@ import dto.DTOCoordinateImpl;
 import jaxb.schema.generated.STLCell;
 import sheet.coordinate.Coordinate;
 import sheet.coordinate.CoordinateImpl;
+import sheet.effectivevalue.CellType;
 import sheet.effectivevalue.EffectiveValue;
+import sheet.effectivevalue.EffectiveValueImpl;
 
 import java.io.Serializable;
 import java.util.*;
@@ -27,7 +29,7 @@ public class CellImpl implements Cell, Serializable {
     private SheetDataRetriever sheet;
 
     public CellImpl(Coordinate coordinate, int lastModifiedVersion, SheetDataRetriever sheet) {
-        this.effectiveValue = null;
+        this.effectiveValue = new EffectiveValueImpl(CellType.EMPTY, "");
         this.originalValue = "";
         this.coordinate = coordinate;
         this.lastModifiedVersion = lastModifiedVersion;
@@ -65,29 +67,33 @@ public class CellImpl implements Cell, Serializable {
         return effectiveValue;
     }
 
-
-
     @Override
-    public void updateValue(String originalValue) {
-        //EffectiveValue previousEffectiveValue = this.effectiveValue;
+    public int updateValue(String originalValue) {
+        Set<Cell> visitedCells = new HashSet<>();
         try {
-            updateValueHelper(originalValue);
+            updateValueHelper(originalValue, visitedCells);
             this.originalValue = originalValue;
+            for (Cell cell : visitedCells) {
+                cell.setLastModifiedVersion(sheet.getVersion());
+            }
+            return visitedCells.size();
         } catch (Exception e) {
-            //this.effectiveValue = previousEffectiveValue;
-            updateValueHelper(this.originalValue);
+            updateValueHelper(this.originalValue, visitedCells);
             throw e;
         }
     }
 
     @Override
-    public void updateValueHelper(String originalValue) {
+    public void updateValueHelper(String originalValue, Set<Cell> visitedCells) {
+        // הוסיפי את התא הנוכחי לקבוצה אם הוא לא קיים בה כבר
+        visitedCells.add(this);
         this.effectiveValue = calculateEffectiveValue(originalValue);
+        // עדכני את כל התאים שמושפעים מהתא הנוכחי
         for (Cell cell : influencingOn) {
-            //cell.setEffectiveValue(calculateEffectiveValue(cell.getOriginalValue()));
-            cell.updateValueHelper(cell.getOriginalValue());
+            cell.updateValueHelper(cell.getOriginalValue(), visitedCells);
         }
     }
+
 
     @Override
     public String getOriginalValue() {
@@ -267,7 +273,7 @@ public class CellImpl implements Cell, Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CellImpl cell = (CellImpl) o;
-        return lastModifiedVersion == cell.lastModifiedVersion && Objects.equals(id, cell.id) && Objects.equals(coordinate, cell.coordinate) && Objects.equals(originalValue, cell.originalValue) && Objects.equals(effectiveValue, cell.effectiveValue) && Objects.equals(dependsOn, cell.dependsOn) && Objects.equals(influencingOn, cell.influencingOn) && Objects.equals(sheet, cell.sheet);
+        return  Objects.equals(coordinate, cell.coordinate) ;
     }
 
     @Override

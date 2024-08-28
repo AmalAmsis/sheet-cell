@@ -14,7 +14,7 @@ import javax.swing.*;
 public class Test {
     public static void main(String[] args) {
 
-        UIManager manager = new UIManagerImpl();
+//        UIManager manager = new UIManagerImpl();
 //        manager.printMenu();
 //        String title = "Test1";
 //        int numOfRows = 5;
@@ -43,20 +43,22 @@ public class Test {
 
         String YfilePath1 = "C:/Users/Yarden Daniel/Desktop/computer science/year 2/semester 3/java/projects/sheet_cell/sheet-cell/Engine/src/resources/basic2.xml";
         String YfilePath2 = "C:/Users/Yarden Daniel/Desktop/computer science/year 2/semester 3/java/projects/sheet_cell/sheet-cell/Engine/src/resources/basic.xml";
-
-
-        System.out.println("Test 2 : load basic.xml");
-        manager.loadXmlFile(YfilePath1);
-        manager.displaySheet();
-
-//        System.out.println("Test 3 : load error-2.xml");
-//        manager.loadXmlFile(filePath2);
-//        manager.displaySheet();
-
-
-        System.out.println("Test 3 : load error-4.xml");
-        manager.loadXmlFile(YfilePath2);
-        manager.displaySheet();
-
     }
 }
+
+
+//        System.out.println("Test 2 : load basic.xml");
+//        manager.loadXmlFile(YfilePath1);
+//        manager.displaySheet();
+//
+////        System.out.println("Test 3 : load error-2.xml");
+////        manager.loadXmlFile(filePath2);
+////        manager.displaySheet();
+//
+//
+//        System.out.println("Test 3 : load error-4.xml");
+//        manager.loadXmlFile(YfilePath2);
+//        manager.displaySheet();
+//
+//    }
+//}
