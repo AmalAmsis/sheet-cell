@@ -2,24 +2,31 @@ package sheet.version;
 
 import dto.DTOSheet;
 import sheet.Sheet;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * SheetVersionHandlerImpl is an implementation of the SheetVersionHandler interface.
+ * This class manages the version history of a spreadsheet, including adding new versions,
+ * retrieving version data, and cleaning the version history. It supports serialization.
+ */
 public class SheetVersionHandlerImpl implements SheetVersionHandler, Serializable {
 
-    private final List<SheetVersionData> versionHistory;
-    private int numOfVersions;
+    private final List<SheetVersionData> versionHistory; // List storing the version history of the sheet
+    private int numOfVersions; // The total number of versions stored
 
-
-
+    /** Constructs a SheetVersionHandlerImpl with the initial sheet version.
+     * @param currentSheet the initial state of the sheet.
+     * @param numOfUpdateCells the number of cells that were updated in this version. */
     public SheetVersionHandlerImpl(Sheet currentSheet, int numOfUpdateCells) {
         this.versionHistory = new ArrayList<>();
         this.versionHistory.add(new SheetVersionData(currentSheet,numOfUpdateCells));
         this.numOfVersions = 1;
     }
 
+    /** Returns the version history as a list of SheetVersionData objects.
+     * @return a List of SheetVersionData objects representing the version history. */
     public List<SheetVersionData> getVersionHistory() {
         return this.versionHistory;
     }
@@ -35,28 +42,6 @@ public class SheetVersionHandlerImpl implements SheetVersionHandler, Serializabl
         this.versionHistory.clear();
         this.numOfVersions = 0;
     }
-
-//    @Override
-//    public void printVersionsHistory() {
-//        StringBuilder sb = new StringBuilder();
-//
-//        // Print header for version numbers
-//        sb.append("Version number:         |");
-//        for (SheetVersionData version : this.versionHistory) {
-//            sb.append(" ").append(version.dtoSheet.getSheetVersion()).append(" |");
-//        }
-//        sb.append("\n");
-//
-//        // Print header for number of cell changes
-//        sb.append("Number of cell changes: |");
-//        for (SheetVersionData version : this.versionHistory) {
-//            sb.append(" ").append(version.numOfUpdateCells).append(" |");
-//        }
-//        sb.append("\n");
-//
-//        // Print the result
-//        System.out.println(sb.toString());
-//    }
 
     @Override
     public int getNumOfVersions() {

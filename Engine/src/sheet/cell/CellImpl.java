@@ -1,11 +1,7 @@
 package sheet.cell;
 
-import dto.DTOCell;
 import expression.ExpressionEvaluator;
 import sheet.SheetDataRetriever;
-import dto.DTOCellImpl;
-import dto.DTOCoordinate;
-import dto.DTOCoordinateImpl;
 import jaxb.schema.generated.STLCell;
 import sheet.coordinate.Coordinate;
 import sheet.coordinate.CoordinateImpl;
@@ -17,17 +13,27 @@ import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * CellImpl is an implementation of the Cell interface.
+ * This class represents a cell in a spreadsheet, managing its value, dependencies, and interactions with other cells.
+ * It supports serialization for saving and loading the cell's state.
+ */
 public class CellImpl implements Cell, Serializable {
-    //data member
-    private final String id; // do we need it ?
-    private final Coordinate coordinate;
-    private String originalValue;
-    private EffectiveValue effectiveValue;
-    private int lastModifiedVersion;
-    private final List<Cell> dependsOn;
-    private final List<Cell> influencingOn;
-    private SheetDataRetriever sheet;
 
+    private final String id; // Unique identifier for the cell
+    private final Coordinate coordinate; // Original input value of the cell
+    private String originalValue; // Original input value of the cell
+    private EffectiveValue effectiveValue; // Calculated value of the cell
+    private int lastModifiedVersion; // Version of the cell after last modification
+    private final List<Cell> dependsOn;  // List of cells this cell depends on
+    private final List<Cell> influencingOn; // List of cells that depend on this cell
+    private SheetDataRetriever sheet; // Interface to retrieve data from the sheet
+
+
+    /** Constructs a CellImpl with the specified coordinate, version, and sheet data retriever.
+     * @param coordinate the coordinate of the cell.
+     * @param lastModifiedVersion the version number of the cell after last modification.
+     * @param sheet the sheet data retriever interface. */
     public CellImpl(Coordinate coordinate, int lastModifiedVersion, SheetDataRetriever sheet) {
         this.effectiveValue = new EffectiveValueImpl(CellType.EMPTY, "");
         this.originalValue = "";
@@ -41,21 +47,22 @@ public class CellImpl implements Cell, Serializable {
     }
 
 
+//    //todo: dont think we need this one.
+//    /** Constructs a CellImpl from an STLCell object.
+//     * @param stlCell the STLCell object from an XML file. */
+//    public CellImpl(STLCell stlCell) {
+//        this.originalValue = stlCell.toString();//??????????????????????????????????????????????????????????????
+//        Coordinate myCoordinate = new CoordinateImpl(stlCell);
+//        this.coordinate = myCoordinate;
+//        this.id = myCoordinate.toString();
+//        this.lastModifiedVersion = 1;
+//
+//        this.dependsOn = new ArrayList<>();
+//        this.influencingOn = new ArrayList<>();
+//        //TO DO --> DEPENDSON AND INFLUENING ON.
+//    }
 
-    //22/8/24 - this ctor from STL object that we got from xml file,
-    //we assume that we will get it to the ctor after validation test!
-    public CellImpl(STLCell stlCell) {
-        this.originalValue = stlCell.toString();//??????????????????????????????????????????????????????????????
-        Coordinate myCoordinate = new CoordinateImpl(stlCell);
-        this.coordinate = myCoordinate;
-        this.id = myCoordinate.toString();
-        this.lastModifiedVersion = 1;
-
-        this.dependsOn = new ArrayList<>();
-        this.influencingOn = new ArrayList<>();
-        //TO DO --> DEPENDSON AND INFLUENING ON.
-    }
-
+    @Override
     public Coordinate getCoordinate() {
         return coordinate;
     }
@@ -96,7 +103,6 @@ public class CellImpl implements Cell, Serializable {
         }
     }
 
-
     @Override
     public String getOriginalValue() {
         return originalValue;
@@ -132,7 +138,6 @@ public class CellImpl implements Cell, Serializable {
     }
 
 
-    //TO DO
     @Override
     public void addToDependsOn(Cell cell) {
         try {
@@ -170,7 +175,6 @@ public class CellImpl implements Cell, Serializable {
         return influencingOn;
     }
 
-    //TO DO
     @Override
     public void addToInfluencingOn(Cell cell) {
         this.influencingOn.add(cell);
@@ -185,12 +189,9 @@ public class CellImpl implements Cell, Serializable {
         }
     }
 
-    //TO DO
     @Override
     public void removeInfluencingOn(Cell cell) {
         influencingOn.remove(cell);
-        //cell.removeDependsOn(cell);??????????????????????????????????????????
-
     }
 
     @Override
@@ -200,24 +201,20 @@ public class CellImpl implements Cell, Serializable {
 
     /**
      * Detects if there is a cycle starting from this cell.
-     *
-     * @return A list of cells representing the cycle if one is found, otherwise null.
-     */
+     * @return A list of cells representing the cycle if one is found, otherwise null.*/
     @Override
     public List<Cell> detectCycle() {
         return detectCycleHelper(new HashSet<>(), new HashSet<>(), new ArrayList<>());
     }
 
-    @Override
     /**
      * Helper method to detect cycles using DFS and return the cycle path.
      * If a cell influences another cell, there is a directed edge (or arc) from the influencing cell to the influenced cell.
-     *
      * @param visited Keeps track of fully processed cells (Black Nodes).
      * @param recStack Tracks the current path in DFS (Gray Nodes).
      * @param path Records the current path of cells being visited.
-     * @return A list of cells representing the cycle if one is found, otherwise null.
-     */
+     * @return A list of cells representing the cycle if one is found, otherwise null.*/
+    @Override
     public List<Cell> detectCycleHelper(Set<Cell> visited, Set<Cell> recStack, List<Cell> path) {
         // If this cell is already in the recursion stack, a back edge (cycle) is detected.
         if (recStack.contains(this)) {
@@ -254,9 +251,8 @@ public class CellImpl implements Cell, Serializable {
     }
 
 
-    // 22/8/24
+    //todo : dont in was right now, maybe in the future
     public STLCell convertFromCellToSTLCell() {
-
 
         //preparation for create an STLCell
         String myOriginalValue = this.getOriginalValue();

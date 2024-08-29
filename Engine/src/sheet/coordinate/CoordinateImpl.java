@@ -1,24 +1,27 @@
 package sheet.coordinate;
 
-import dto.DTOCoordinate;
-import dto.DTOCoordinateImpl;
 import jaxb.schema.generated.STLCell;
-
 import java.io.Serializable;
 
+/**
+ * CoordinateImpl is an implementation of the Coordinate interface.
+ * This class represents a cell's coordinate in a spreadsheet and supports serialization.
+ */
 public class CoordinateImpl implements Coordinate , Serializable {
 
-    int row;
-    char col;
+    private int row;
+    private char col;
 
-    //new ctor 22/8/24
-    public CoordinateImpl(int row, char col) {
+    /** Constructs a CoordinateImpl with the specified column and row.
+     * @param col the column letter of the cell.
+     * @param row the row number of the cell. */
+    public CoordinateImpl(char col,int row) {
         this.row = row;
         this.col = col;
     }
 
-    //22/8/24 - this ctor from STL object that we got from xml file,
-    //we assume that we will get it to the ctor after validation test!
+    /** Constructs a CoordinateImpl from an STLCell object.
+     * @param stlCell the STLCell object from an XML file. */
     public CoordinateImpl(STLCell stlCell) {
         this.row = stlCell.getRow();
         this.col = stlCell.getColumn().charAt(0);
@@ -37,11 +40,6 @@ public class CoordinateImpl implements Coordinate , Serializable {
         return col + ":" + row;
     }
 
-    public CoordinateImpl(char col,int row) {
-        this.row = row;
-        this.col = col;
-    }
-
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Coordinate) {
@@ -58,22 +56,26 @@ public class CoordinateImpl implements Coordinate , Serializable {
         return (convertColToNum()+(row*10));
     }
 
+    /** Converts the column character to its numerical equivalent.
+     * @return an integer representing the column's position in the alphabet. */
     public int convertColToNum(){
         return (col-'A' + 1);
     }
 
-    // Convert a string representation of a coordinate to a Coordinate object
+
+    //todo : delete
+    /**
+     * Converts a string representation of a coordinate to a Coordinate object.
+     * The string should be in the format where the first character represents the column
+     * (e.g., 'A', 'B', etc.) and the following characters represent the row number (e.g., "1", "2", etc.).
+     * The column letter is converted to uppercase to handle both lowercase and uppercase input.
+     *
+     * @param stringCoordinate the string representation of the coordinate (e.g., "A1", "b2").
+     * @return a Coordinate object corresponding to the provided string.*/
     public static Coordinate convertStringToCoordinate(String stringCoordinate) {
         stringCoordinate = stringCoordinate.toUpperCase();
         char col = stringCoordinate.charAt(0);
         int row = Integer.parseInt(stringCoordinate.substring(1));
         return new CoordinateImpl(col, row);
     }
-
-//    public DTOCoordinate convertToDTOCoordinate(Coordinate coordinate){
-//        return (new DTOCoordinateImpl(coordinate.getRow(), coordinate.getCol()));
-//    }
-
-
-
 }
