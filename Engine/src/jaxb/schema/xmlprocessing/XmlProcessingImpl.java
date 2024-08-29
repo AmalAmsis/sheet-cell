@@ -25,13 +25,13 @@ public class XmlProcessingImpl implements XmlProcessing {
     private final String JAXB_XML_STL_PACKAGE_NAME = "jaxb.schema.generated";
 
     @Override
-    public STLSheet parseAndValidateXml(String inputXmlFilePath) throws FileDataException, JAXBException {
+    public STLSheet parseAndValidateXml(String inputXmlFilePath) throws FileDataException, JAXBException, FileNotFoundException {
         //1.is the file a xml file
         isXmlFile(inputXmlFilePath);
         //2.file load STLSheet = fromXmlFileToXmlFile(inputPath)
         STLSheet stlSheet = fromXmlFileToXmlFile(inputXmlFilePath);
         if(stlSheet == null){
-            throw new IllegalStateException("Failed to load the XML file into a valid sheet object.");
+            throw new IllegalStateException("Failed to process the XML file. The file may be corrupted or improperly formatted. Please check the file.");
         }
         //3.rowsValidation
         int rowCount = stlSheet.getSTLLayout().getRows();
@@ -56,20 +56,16 @@ public class XmlProcessingImpl implements XmlProcessing {
      * @param inputXmlFilePath the path to the XML file.
      * @return STLSheet object representing the XML content, or null if an error occurs.
      * @throws JAXBException if an error occurs during unmarshalling.*/
-    public STLSheet fromXmlFileToXmlFile(String inputXmlFilePath) throws JAXBException {
+    public STLSheet fromXmlFileToXmlFile(String inputXmlFilePath) throws JAXBException, FileNotFoundException {
 
         STLSheet stlSheet = null;
         try {
             InputStream inputStream = new FileInputStream(inputXmlFilePath);
             stlSheet = deserializeFrom(inputStream);
         } catch (FileNotFoundException e) {
-            e.printStackTrace(); //to do
-            //WE NEED TO RETURN TO THE UI A MESSAGE OF THE EXCEPTION
-            return null;
+            throw new FileNotFoundException("The specified file was not found. Please check the file path and ensure that the file exists.");
         } catch (JAXBException e) {
-            e.printStackTrace();
-            //WE NEED TO RETURN TO THE UI A MESSAGE OF THE EXCEPTION
-            return null;
+            throw new JAXBException("Failed to process the XML file. \nThe file may be corrupted or improperly formatted. \nPlease check the file.");
         }
         return stlSheet;
     }
@@ -120,11 +116,11 @@ public class XmlProcessingImpl implements XmlProcessing {
      *      * @throws IllegalArgumentException if the file path is empty, missing, or does not end with .xml.*/
     public void isXmlFile(String file) {
         if (file == null || file.isEmpty()) {
-            throw new IllegalArgumentException("\"Error: The file path you provided is either empty or missing. Please provide a valid file path.\n");
+            throw new IllegalArgumentException("The file path you provided is either empty or missing. Please provide a valid file path.");
         }
 
         if (!file.toLowerCase().endsWith(".xml")) {
-            throw new IllegalArgumentException("Error: The file does not have a .xml extension. Please provide a valid XML file.\n");
+            throw new IllegalArgumentException("The provided file is not an XML file. \nPlease provide a file with the '.xml' extension.");
         }
     }
 

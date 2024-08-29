@@ -2,7 +2,6 @@ package menu;
 
 import manager.UIManager;
 
-
 /**
  * The Command enum represents various commands that the user can execute.
  * Each command has a description and an abstract execute method that must be implemented by each enum constant.
