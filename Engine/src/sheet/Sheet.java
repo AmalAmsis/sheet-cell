@@ -17,13 +17,6 @@ public interface Sheet extends SheetDataModifier, SheetDataRetriever, SheetDepen
      * @return the Cell object at the specified coordinate, or null if no cell exists at that position. */
     Cell getCell(Coordinate coordinate);
 
-
-    //todo : להעביר את התיעוד למימוש ולמחוק מהinterface
-    //not in was right now - maybe we will need it in te future
-    /** Converts the current state of the sheet into an STLSheet object for serialization.
-     * @return an STLSheet object representing the current state of the sheet. */
-    STLSheet convertFromSheetToStlSheet();
-
     /** Converts a string representation of a coordinate to a Coordinate object.
      * The string should be in the format where the first character represents the column
      * and the following characters represent the row number (e.g., "A1", "B2").

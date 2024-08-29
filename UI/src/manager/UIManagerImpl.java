@@ -3,32 +3,42 @@ package manager;
 import dto.DTOCell;
 import dto.DTOCoordinate;
 import dto.DTOSheet;
-import dto.DTOSheetImpl;
 import engine.Engine;
 import engine.EngineImpl;
-
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
-
 import jakarta.xml.bind.JAXBException;
 import jaxb.schema.xmlprocessing.FileDataException;
 import menu.Command;
 import sheet.version.SheetVersionData;
 import sheet.version.SheetVersionHandler;
-import state.SheetStateManager;
 
+/**
+ * UIManagerImpl implements the UIManager interface, handling user interactions for managing the spreadsheet system.
+ * This class processes user requests such as displaying and updating the sheet, loading and saving system state, and more.
+ */
 public class UIManagerImpl implements UIManager {
 
-    private Engine engine;
-    private boolean isFirst = true;
+    private Engine engine; // The engine responsible for handling the core logic of the system
+    private boolean isFirst; // Flag to determine if it's the first menu interaction
+
+
+    /**
+     * UIManagerImpl constructor
+     */
     public UIManagerImpl() {
-        engine = new EngineImpl();
+        this.engine = new EngineImpl();
+        this.isFirst = true;
     }
 
     //*****************************************************************************************//
+
+    /**
+     * Handles for print the menu and get user choice.
+     * @return the command corresponding to the user's choice.
+     */
     @Override
     public Command printMenuAddGetUserChoice() {
 
@@ -36,27 +46,26 @@ public class UIManagerImpl implements UIManager {
 
         if(isFirstMenu()){
             printFirstMenu();
-            return getChoiceFromFirstMenu();//.execute(this);
+            return getChoiceFromFirstMenu();
         }
         else{
             printMainMenu();
-            return getChoiceFromMainMenu();//execute(this);
+            return getChoiceFromMainMenu();
         }
 
     }
 
+    // Prints the initial menu options to the user
     private void printFirstMenu(){
 
         System.out.println("\n===============================");
         System.out.println("          Main Menu            ");
         System.out.println("===============================\n");
-
         System.out.printf("1." + "%s\n", Command.LOAD_XML_FILE.getDescription());
         System.out.printf("2." + "%s\n", Command.LOAD_SYSTEM_STATE.getDescription());
         System.out.printf("3." + "%s\n", Command.EXIT.getDescription());
-
-
     }
+    // Get the user's selection from the first menu
     private Command getChoiceFromFirstMenu(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please select an option (1-3):");
@@ -84,6 +93,7 @@ public class UIManagerImpl implements UIManager {
         }
 
     }
+    // Prints the main menu options to the user
     private void printMainMenu(){
         System.out.println("\n===============================");
         System.out.println("          Main Menu            ");
@@ -99,6 +109,7 @@ public class UIManagerImpl implements UIManager {
         System.out.print("Please select an option (1-" + Command.values().length + "): ");
         System.out.println();
     }
+    // Get the user's choice from the main menu
     private Command getChoiceFromMainMenu() {
         Scanner scanner = new Scanner(System.in);
 
@@ -117,17 +128,24 @@ public class UIManagerImpl implements UIManager {
             }
         }
     }
+    // Checks whether the initial menu should be shown to the user
     private boolean isFirstMenu(){
         return isFirst;
     }
 
     //*****************************************************************************************//
+
+    /**
+     * Handles the user's request to display the entire sheet.
+     */
+
     @Override
     public void displaySheet(){
         DTOSheet dtoSheet = engine.displaySheet();
         printSheetToConsole(dtoSheet);
     }
 
+    // Prints the entire sheet to the console
     private void printSheetToConsole(DTOSheet dtoSheet) {
         StringBuilder sb = new StringBuilder();
 
@@ -152,12 +170,12 @@ public class UIManagerImpl implements UIManager {
         System.out.println();
         System.out.println(sb.toString());
     }
-    // Adding the title and the version of the sheet to the StringBuilder
+    // Add the title and the version of the sheet to the StringBuilder
     private void printSheetHeader(DTOSheet dtoSheet, StringBuilder sb) {
         sb.append("Sheet Title: ").append(dtoSheet.getSheetTitle()).append("\n")
                 .append("Sheet Version: ").append(dtoSheet.getSheetVersion()).append("\n\n");
     }
-    // Adding the column headers (A, B, C, etc.) to the StringBuilder
+    // Add the column headers (A, B, C, etc.) to the StringBuilder
     private void printColumnHeaders(int numOfColumns, int widthOfColumn, StringBuilder sb) {
         sb.append("    |");  //Leaving a space of 4 characters for line numbers
         for (int col = 0; col < numOfColumns; col++) {
@@ -171,7 +189,7 @@ public class UIManagerImpl implements UIManager {
         }
         sb.append("\n");
     }
-    // Adding each row, including the row number and cell values to the StringBuilder
+    // Add each row, including the row number and cell values to the StringBuilder
     private void printRow(int row, int numOfColumns, int widthOfColumn, Map<String, DTOCell> cells, StringBuilder sb, int heightOfRow) {
 
         sb.append(" ").append(String.format("%02d", row)).append(" |"); //print the number of the row
@@ -210,6 +228,7 @@ public class UIManagerImpl implements UIManager {
             printEmptyRow(sb, widthOfColumn,numOfColumns);
         }
     }
+    // Prints an empty row (used for formatting purposes)
     private void printEmptyRow(StringBuilder sb,int widthOfColumn, int numOfColumns ) {
         sb.append("    |");
         for (int col = 0; col < numOfColumns; col++) {
@@ -222,17 +241,23 @@ public class UIManagerImpl implements UIManager {
     }
 
     //*****************************************************************************************//
+
+    /**
+     * Handles the user's request to load an XML file into the system.
+     */
+
     @Override
     public void loadXmlFileFromUser() {
         String xmlFilePath = getXmlFileFullPath();
         loadXmlFile(xmlFilePath);
     }
-
+    // Prompts the user to enter the full path to the XML file
     public String getXmlFileFullPath(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("\nPlease enter the XML file full path: ");
         return scanner.nextLine();
     }
+    // Loads an XML file from the specified path and handles errors
     public void loadXmlFile(String filePath) {
 
         int choice;
@@ -317,6 +342,7 @@ public class UIManagerImpl implements UIManager {
         }
 
     }
+    // Displays the menu in case of an error loading the file
     private int filePathErrorMenu() {
         Scanner scanner = new Scanner(System.in);
 
@@ -345,6 +371,10 @@ public class UIManagerImpl implements UIManager {
 
     //*****************************************************************************************//
 
+    /**
+     * Handles the user's request to display the details of a specific cell.
+     */
+
     @Override
     public void displayCell() {
         try {
@@ -359,6 +389,7 @@ public class UIManagerImpl implements UIManager {
 
     }
 
+    // Prints the details of the specified cell
     public void printCellDetails(DTOCell dtoCell) {
         System.out.println("***********************************************************");
         System.out.println("                      Cell Details                          ");
@@ -387,6 +418,7 @@ public class UIManagerImpl implements UIManager {
 
         System.out.println("***********************************************************");
     }
+    // Formats the coordinates into a string for display
     private String formatCoordinates(List<DTOCoordinate> coordinates) {
         if (coordinates == null || coordinates.isEmpty()) {
             return "None";
@@ -399,6 +431,7 @@ public class UIManagerImpl implements UIManager {
         }
         return sb.toString().trim();
     }
+    // Handles errors that occur during cell display
     public void printErrorDisplayCellMenu(String errorMessage) {
         System.out.println("===========================================================");
         System.out.println("                     Error Displaying Cell                 ");
@@ -435,6 +468,10 @@ public class UIManagerImpl implements UIManager {
 
     //*****************************************************************************************//
 
+    /**
+     * Handles the user's request to update the value of a specific cell.
+     */
+
     @Override
     public void updateCell() {
 
@@ -448,6 +485,7 @@ public class UIManagerImpl implements UIManager {
         }
     }
 
+    // Prompts the user to enter the identity of the cell to update
     private String getCoordinateInput() {
         System.out.println("Please enter the identity of the cell you want to update.");
         System.out.println("The identity should consist of a column letter followed by a row number.");
@@ -458,11 +496,13 @@ public class UIManagerImpl implements UIManager {
         String input = scanner.nextLine().trim();
         return input;
     }
+    // Prompts the user to enter the new original value for the cell
     private String getNewOriginalValueInput() {
         System.out.print("Enter the new original value: ");
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine().trim();
     }
+    // Handles errors that occur during cell update
     public void printErrorUpdateCellMenu(String errorMessage) {
         System.out.println("===========================================================");
         System.out.println("                     Error Updating Cell                   ");
@@ -496,8 +536,11 @@ public class UIManagerImpl implements UIManager {
         }
     }
 
-
     //*****************************************************************************************//
+
+    /**
+     * Handles the user's request to display a specific version of the sheet.
+     */
 
     @Override
     public void displaySheetVersion() {
@@ -510,15 +553,15 @@ public class UIManagerImpl implements UIManager {
         printSheetVersion(selectedVersion);
     }
 
+    // Prompts the user to select a version number to display
     private int getVersionNumberFromUser() {
         Scanner scanner = new Scanner(System.in);
         SheetVersionHandler versionHandler = engine.getCurrentSheetState().getVersionHandler();
         int numOfVersion = versionHandler.getNumOfVersions();
         System.out.println("Please select a version number from the following list:");
 
-        //**************************************************************************************//
+        // Print version history
         printVersionsHistory();
-        //versionHandler.printVersionsHistory();
         System.out.println();
         int selectedVersion =0;
         boolean validInput = false;
@@ -540,6 +583,7 @@ public class UIManagerImpl implements UIManager {
         return selectedVersion;
 
     }
+    // Displays the error menu if the user selects an invalid version
     private int printErrorVersionMenu(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("===============================\n");
@@ -564,11 +608,13 @@ public class UIManagerImpl implements UIManager {
             }
         }
     }
+    // Prints the specified version of the sheet
     private void printSheetVersion(int version) {
         SheetVersionHandler versionHandler = engine.getCurrentSheetState().getVersionHandler();
         DTOSheet dtoSheet = versionHandler.getSheetByVersion(version);
         printSheetToConsole(dtoSheet);
     }
+    // Prints the history of all versions (num of in each version and in each one how many cells been updated
     private void printVersionsHistory() {
         SheetVersionHandler versionHandler = engine.getCurrentSheetState().getVersionHandler();
 
@@ -594,6 +640,10 @@ public class UIManagerImpl implements UIManager {
 
     //*****************************************************************************************//
 
+    /**
+     * Handles the user's request to load a previously saved system state from a file.
+     */
+
     @Override
     public void loadSystemState() {
         String inputFilePath = getInputFilePathFromUser();
@@ -602,13 +652,6 @@ public class UIManagerImpl implements UIManager {
             engine.loadSystemState(inputFilePath);
             System.out.println("System state loaded successfully from " + inputFilePath);
         }
-//        catch (IOException e) {
-//            System.err.println("Error: Unable to read the file at the specified path. Please check if the file exists and is accessible.");
-//
-//        }
-//        catch (ClassNotFoundException e){
-//            System.err.println("Error: The file contains an unrecognized class. Please ensure the file is valid.");
-//        }
         catch (Exception e){
             System.err.println("Error: Failed to load system state. " + e.getMessage());
             choice = filePathErrorMenu();
@@ -618,6 +661,8 @@ public class UIManagerImpl implements UIManager {
 
         }
     }
+
+    // Prompts the user to enter the full path to the input file
     private String getInputFilePathFromUser(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter the full input file path: ");
@@ -625,6 +670,10 @@ public class UIManagerImpl implements UIManager {
     }
 
     //*****************************************************************************************//
+
+    /**
+     * Handles the user's request to save the current system state to a file.
+     */
 
     @Override
     public void saveSystemState() {
@@ -643,6 +692,7 @@ public class UIManagerImpl implements UIManager {
         }
     }
 
+    // Prompts the user to enter the full path to the output file
     private String getOutputFilePathFromUser(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter the full output file path: ");
