@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-Main-Class: manager.AppRunner
+Main-Class: apprunner.AppRunner
 Class-Path: ../DataTransferObject/DataTransferObject.jar ../Engine/Engine.jar ../Jaxb/jaxb-xjc.jar ../Jaxb/jaxb-impl.jar ../Jaxb/jaxb-core.jar ../Jaxb/jakarta.activation-api.jar ../Jaxb/angus-activation.jar

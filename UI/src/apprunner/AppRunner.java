@@ -1,5 +1,7 @@
-package manager;
+package apprunner;
 
+import manager.UIManager;
+import manager.UIManagerImpl;
 import menu.Command;
 import static menu.Command.EXIT;
 

@@ -11,26 +11,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Adding documentation finished.">
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="I think we are done with the first stage of the exercise">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/engine/EngineImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/engine/EngineImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/XmlProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/XmlProcessing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/XmlProcessingImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/XmlProcessingImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/menu/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/menu/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/systemic/Ref.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/systemic/Ref.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/sheet/cell/CellImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/sheet/cell/CellImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/resources/basic.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/resources/basic2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/resources/error-2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/resources/error-4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/resources/insurance.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/resources/test/test1.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/resources/test/test2.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/Sheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/Sheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/manager/AppRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/apprunner/AppRunner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +56,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.AppRunner.executor": "Debug",
+    "Application.AppRunner.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.Test.executor": "Run",
     "JAR Application.UI.jar.executor": "Run",
@@ -77,13 +70,18 @@
     "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="apprunner" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.AppRunner">
     <configuration name="AppRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="manager.AppRunner" />
+      <option name="MAIN_CLASS_NAME" value="apprunner.AppRunner" />
       <module name="UI" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="manager.*" />
+          <option name="PATTERN" value="apprunner.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -309,7 +307,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724930262090</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="I think we are done with the first stage of the exercise">
+      <option name="closed" value="true" />
+      <created>1724941369093</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1724941369093</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -350,7 +356,8 @@
     <MESSAGE value="accept coordinate with lowercase letters" />
     <MESSAGE value="Adding documentation in progress..&#10;Making a commit to merge the change Amal made in the call to the function that converts a string to a coordinate in the ref function" />
     <MESSAGE value="Adding documentation finished." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding documentation finished." />
+    <MESSAGE value="I think we are done with the first stage of the exercise" />
+    <option name="LAST_COMMIT_MESSAGE" value="I think we are done with the first stage of the exercise" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -366,7 +373,7 @@
           <option name="timeStamp" value="55" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UI/src/manager/AppRunner.java</url>
+          <url>file://$PROJECT_DIR$/UI/src/apprunner/AppRunner.java</url>
           <line>28</line>
           <option name="timeStamp" value="58" />
         </line-breakpoint>

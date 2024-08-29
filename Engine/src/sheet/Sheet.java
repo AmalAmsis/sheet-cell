@@ -1,6 +1,5 @@
 package sheet;
 
-import jaxb.schema.generated.STLSheet;
 import sheet.cell.Cell;
 import sheet.coordinate.Coordinate;
 
