@@ -16,6 +16,7 @@ public interface SheetDataRetriever {
     int getNumOfRows();
     int getNumOfCols();
     public Map<String, Cell> getBoard();
+    Coordinate convertStringToCoordinate(String stringCoordinate);
 
     // Adding a new method to track dependencies
     void addDependentCell(Coordinate mainCell, Coordinate dependentCell);
