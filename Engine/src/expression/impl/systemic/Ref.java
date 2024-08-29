@@ -7,7 +7,6 @@ import sheet.coordinate.Coordinate;
 import sheet.effectivevalue.CellType;
 import sheet.effectivevalue.EffectiveValue;
 
-import static sheet.coordinate.CoordinateImpl.convertStringToCoordinate;
 
 
 public class Ref extends UnaryExpression {
@@ -24,7 +23,7 @@ public class Ref extends UnaryExpression {
     @Override
     protected EffectiveValue doEvaluate(EffectiveValue value) {
         isValid(value);  // Ensure that the value is valid before proceeding
-        Coordinate coordinate = convertStringToCoordinate(value.extractValueWithExpectation(String.class).toUpperCase());
+        Coordinate coordinate = sheet.convertStringToCoordinate (value.extractValueWithExpectation(String.class).toUpperCase());
         EffectiveValue result = sheet.getCellEffectiveValue(coordinate);
         // Check if the cell is Empty
         if (result.getCellType() == CellType.EMPTY) {
@@ -49,7 +48,7 @@ public class Ref extends UnaryExpression {
         }
 
         // Convert the string to a Coordinate object
-        Coordinate coordinate = convertStringToCoordinate(cellReference);
+        Coordinate coordinate = sheet.convertStringToCoordinate(cellReference);
         if (coordinate == null) {
             throw new IllegalArgumentException(String.format("Invalid operation: REF cannot convert '%s' to a valid coordinate.", cellReference));
         }
