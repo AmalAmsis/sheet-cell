@@ -2,7 +2,14 @@ package menu;
 
 import manager.UIManager;
 
+
+/**
+ * The Command enum represents various commands that the user can execute.
+ * Each command has a description and an abstract execute method that must be implemented by each enum constant.
+ * The commands include operations such as loading data, displaying the sheet, updating a cell, and saving the system state.
+ */
 public enum Command {
+
     LOAD_XML_FILE("Load spreadsheet data from xml file") {
         @Override
         public void execute(UIManager manager) {
@@ -64,34 +71,4 @@ public enum Command {
 
     public abstract void execute(UIManager manager);
 
-    private static void loadFile(UIManager manager) {
-        // Implement the logic to load the XML file
-        System.out.println("Loading spreadsheet data file...");
-    }
-
-    private static void showSheet(UIManager manager) {
-        // Implement the logic to display the sheet
-        manager.displaySheet();
-        System.out.println("Displaying the sheet...");
-    }
-
-    private static void showCell(UIManager manager) {
-        // Implement the logic to display a single cell's value
-        System.out.println("Displaying a single cell's value...");
-    }
-
-    private static void updateCell(UIManager manager) {
-        // Implement the logic to update a single cell's value
-        System.out.println("Updating a single cell's value...");
-    }
-
-    private static void showVersions(UIManager manager) {
-        // Implement the logic to display the versions
-        System.out.println("Displaying versions...");
-    }
-
-    private static void exitSystem(UIManager manager) {
-        // Implement the logic to exit the system
-        System.out.println("Exiting the system...");
-    }
 }

@@ -2,7 +2,6 @@ package jaxb.schema.xmlprocessing;
 
 import jaxb.schema.generated.STLCell;
 import jaxb.schema.generated.STLCells;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,30 +10,22 @@ import java.util.Queue;
 import java.util.LinkedList;
 
 
+/**
+ * CellGraphValidator is responsible for validating and processing the graph of cells in a spreadsheet.
+ * It detects circular references and performs topological sorting to determine the correct order of cell evaluations.
+ */
 public class CellGraphValidator {
-    /*
-    אמל אני כותבת לך הסברים בעברית כדי שתביני ואז תמחקי.
-        data member:
-        numOfVertices - מספר התאים שיש בגיליון
-        numOfEdges - מס' הקשתות - הצבעות לתאים
-        adjLists - מפה של רשימות שכנים.
 
-        methods:
-        1) Ctor - מקבל את האובייקט שמכיל את רשימת התאים ויודע לייצר ממנו את הגרף.
-        שימי לב שכרגע הוא מייצר רק את הקודקודים, בניתי פונקציה תמימה של הובפת קשת מ-  ל-  .. יכולה להעזר בה אחרי שאת מפעילה את הלוגיקה.
-        2) String getCellKey(STLCell stlCell) -  כל פעם שאת רוצה לבדוק רשימת שכנים של תא מסויים,
-        את חייבת להשתמש בפונקציה הזאת כדי להגיע למפתח שיתן לך את הרשימה.
-        3) addVertex
-        4) addEdge
+    private int numOfVertices; // Number of vertices (cells) in the graph
+    private int numOfEdges; // Number of edges (dependencies) in the graph
+    private Map<String, List<String>> adjLists; // Adjacency list representing the graph structure
+    private Map<String, STLCell> keyToSTLCellMap; // Map from cell keys to STLCell objects
 
-     */
 
-    private int numOfVertices;
-    private int numOfEdges;
-    private Map<String, List<String>> adjLists;
-    private Map<String,STLCell> keyToSTLCellMap;
-
-    //נכון לעכשיו הקונסטרקטור מייצר גרף רק עם קודקודים. יכולה להוסיף בפנים את המימוש להוספת הקשתות.
+    /**
+     * Constructs a CellGraphValidator from the given STLCells object.
+     * Initializes the graph with vertices and edges based on cell references.
+     * @param stlCells the STLCells object containing the list of cells.*/
     public CellGraphValidator(STLCells stlCells) {
         this.numOfVertices = 0; // Initialize the number of vertices in the graph to 0
         this.numOfEdges = 0; // Initialize the number of edges in the graph to 0
@@ -43,11 +34,11 @@ public class CellGraphValidator {
 
 
         List<STLCell> listOfCells = stlCells.getSTLCell(); // Get the list of cells from the STLCells object
-
+        // Add each cell as a vertex in the graph
         for (STLCell stlCell : listOfCells) {
-            addVertex(stlCell); // Add each cell as a vertex in the graph
+            addVertex(stlCell);
         }
-
+        // Add edges based on cell references
         for (STLCell stlCell : listOfCells) {
             String originalValue = stlCell.getSTLOriginalValue(); // Get the original value of the cell
 
@@ -69,7 +60,9 @@ public class CellGraphValidator {
         }
     }
 
-    // Add a vertex to the graph
+    /**
+     * Adds a vertex (cell) to the graph.
+     * @param stlCell the cell to be added as a vertex.*/
     public void addVertex(STLCell stlCell) {
         String cellKey = getCellKey(stlCell);
         if (!adjLists.containsKey(cellKey)) {
@@ -79,16 +72,13 @@ public class CellGraphValidator {
         }
     }
 
-    // Add an edge between two vertices
+    /**
+     * Adds a directed edge between two vertices (cells) in the graph.
+     * @param from the cell from which the edge originates.
+     * @param to the cell to which the edge points.*/
     public void addEdge(STLCell from, STLCell to) {
         String fromKey = getCellKey(from);
         String toKey = getCellKey(to);
-
-        // Add the vertices if they don't exist
-        // אם עושים את זה יכול ליצור טעויות?
-        // אם אני עושה REF לתא שאין בו תוכן זה שגיאה?
-        addVertex(from);
-        addVertex(to);
 
         // Add the edge
         if (!adjLists.get(fromKey).contains(toKey)) {
@@ -97,14 +87,22 @@ public class CellGraphValidator {
         }
     }
 
-    //כל פעם שאת רוצה לבדוק רשימת שכנים של תא מסויים, את חייבת להשתמש בפונקציה הזאת כדי להגיע למפתח שיתן לך את הרשימה.
+    /**
+     * Generates a unique key for a cell based on its row and column.
+     * This key is used to identify the cell in the adjacency list.
+     * @param stlCell the cell for which to generate the key.
+     * @return a String representing the unique key for the cell.*/
     public String getCellKey(STLCell stlCell) {
         int row = stlCell.getRow();
         char column =stlCell.getColumn().charAt(0);
         return column + ":" + row;
     }
 
-    //מיון טופולוגי - מחזיר רשימה של סדר המיון או Null אם יש מעגל
+    /**
+     * Performs a topological sort on the graph of cells.
+     * If a circular reference is detected, an exception is thrown.
+     * @return a List of STLCell objects sorted in topological order.
+     * @throws FileDataException.CircularReferenceException if a circular reference is detected.*/
     public List<STLCell> topologicalSort() throws FileDataException.CircularReferenceException {
         //inDegree map <key:cellKey, Value:cell inDegree rank)
         Map<String, Integer> inDegree = new HashMap<>();
@@ -154,7 +152,10 @@ public class CellGraphValidator {
 
         return convertToCellList(sortedList);
     }
-
+    /**
+     * Converts a list of cell keys (from topological sort) into a list of STLCell objects.
+     * @param sortedKeys the list of sorted cell keys.
+     * @return a List of STLCell objects corresponding to the sorted keys.*/
     public List<STLCell> convertToCellList(List<String> sortedKeys) {
         List<STLCell> stlCellList = new ArrayList<>();
         for (String key : sortedKeys) {
@@ -165,6 +166,4 @@ public class CellGraphValidator {
         }
         return stlCellList;
     }
-
-
 }

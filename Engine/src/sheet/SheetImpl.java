@@ -1,31 +1,36 @@
 package sheet;
 
-import dto.DTOCell;
-import dto.DTOCoordinate;
-import dto.DTOSheet;
-import dto.DTOSheetImpl;
 import jaxb.schema.generated.*;
 import sheet.coordinate.CoordinateImpl;
 import sheet.effectivevalue.EffectiveValue;
 import sheet.cell.Cell;
 import sheet.cell.CellImpl;
 import sheet.coordinate.Coordinate;
-
 import java.io.Serializable;
 import java.util.*;
 
+/**
+ * SheetImpl is an implementation of the Sheet interface, representing a spreadsheet.
+ * It manages the cells within the sheet, including operations for setting, updating, and retrieving cell data.
+ * The class also handles the conversion of the sheet to and from an STL representation for serialization.
+ */
 public class SheetImpl implements Sheet , Serializable {
 
-    private int version;
-    private final String title;
-    private final Map<String, Cell> board = new HashMap<>();;
-    private final int numOfRows;
-    private final int numOfCols;
-    private final int heightOfRows;
-    private final int widthOfCols;
+    private int version;  // The version number of the sheet
+    private final String title; // The title of the sheet
+    private final Map<String, Cell> board = new HashMap<>();// A map storing the cells in the sheet
+    private final int numOfRows; // The number of rows in the sheet
+    private final int numOfCols; // The number of columns in the sheet
+    private final int heightOfRows; // The height of rows in the sheet
+    private final int widthOfCols; // The width of columns in the sheet
 
 
-    //CTOR
+    /** Constructs a SheetImpl with specified dimensions and title.
+     * @param title the title of the sheet.
+     * @param numOfRows the number of rows in the sheet.
+     * @param numOfCols the number of columns in the sheet.
+     * @param heightOfRows the height of the rows in the sheet.
+     * @param widthOfCols the width of the columns in the sheet. */
     public SheetImpl(String title, int numOfRows, int numOfCols, int heightOfRows, int widthOfCols) {
         this.version = 1;
         this.title = title;
@@ -36,28 +41,21 @@ public class SheetImpl implements Sheet , Serializable {
         //this.board = new HashMap<>();
     }
 
-    // 22/8/24 - this ctor from STL object that we got from xml file,
-    // we assume that we will get it to the ctor after validation test!
+    /** Constructs a SheetImpl from an STL object, typically loaded from an XML file.
+     * The version is set to 1 when loading the sheet.
+     * @param stlSheet the STL sheet object representing the sheet's metadata.
+     * @param sortedListOfStlCells a list of STL cells to be added to the sheet. */
     public SheetImpl(STLSheet stlSheet, List<STLCell> sortedListOfStlCells) {
-        //when we load a sheet the version is 1.
-        this.version =1;
+        this.version =1; //when we load a sheet the version is 1.
         this.title = stlSheet.getName();
         this.numOfRows =stlSheet.getSTLLayout().getRows();
         this.numOfCols =stlSheet.getSTLLayout().getColumns();
         this.heightOfRows = stlSheet.getSTLLayout().getSTLSize().getRowsHeightUnits();
         this.widthOfCols = stlSheet.getSTLLayout().getSTLSize().getColumnWidthUnits();
-
-        //load the cell on the list to our map
-        this.addSortedListOfStlCellsToSheet(sortedListOfStlCells);
-
-            /* לשאול את ירדן מה היא חושבת
-            CellImpl cell = new CellImpl(stlCell);
-            String key = cell.getId();
-            board.put(key, cell);
-             */
-
+        this.addSortedListOfStlCellsToSheet(sortedListOfStlCells); //load the cell on the list to our map
     }
-
+    /** Adds a sorted list of STL cells to the sheet.
+     * @param sortedListOfStlCells a list of STLCell objects to be added to the sheet. */
     private void addSortedListOfStlCellsToSheet(List<STLCell> sortedListOfStlCells) {
         for(STLCell stlCell : sortedListOfStlCells) {
             String originalValue = stlCell.getSTLOriginalValue();//?????????????????????????????????????????????????
@@ -118,12 +116,6 @@ public class SheetImpl implements Sheet , Serializable {
         updateVersion();// Every change in a cell updates the sheet version.
         int numOfUpdatededCells = 0;
         try {
-            /*
-            if (originalValue.isBlank()) { // If the original value is blank
-                removeCell(coordinate); // Remove the cell if the value is blank.
-                return;
-            }
-             */
             if (!isCellInSheet(coordinate)) {
                 numOfUpdatededCells = addCell(coordinate, originalValue);
             } else {
@@ -137,12 +129,11 @@ public class SheetImpl implements Sheet , Serializable {
         }
     }
 
-    // Update the sheet version
+    /** Updates the sheet version. Each update increases the version number by one */
     private void updateVersion() {
         version++;
     }
 
-    // Check if a cell exists in the sheet
     @Override
     public boolean isCellInSheet(Coordinate coordinate) {
         String key = coordinate.toString();
@@ -167,7 +158,10 @@ public class SheetImpl implements Sheet , Serializable {
         return null;
     }
 
-    // Add a new cell to the sheet
+    /** Adds a new cell to the sheet.
+     * @param coordinate the coordinate of the cell to add.
+     * @param originalValue the original value to set in the cell.
+     * @return the number of cells that been update. */
     public int addCell(Coordinate coordinate, String originalValue) {
         try {
             int numOfUpdatededCells = 0;
@@ -181,7 +175,10 @@ public class SheetImpl implements Sheet , Serializable {
         }
     }
 
-    //update cell data.
+    /** Updates the data of an existing cell in the sheet.
+     * @param coordinate the coordinate of the cell to update.
+     * @param originalValue the new value to set in the cell.
+     * @return the number of cells that been update. */
     public int updateCell(Coordinate coordinate, String originalValue) {
         Cell myCell = board.get(coordinate.toString());
         myCell.removeAllDependsOn();
@@ -192,13 +189,15 @@ public class SheetImpl implements Sheet , Serializable {
         return numOfUpdatededCells;
     }
 
-    // לא משתמשים
-    // Remove a cell from the sheet
+    /** Removes a cell from the sheet.
+     * @param coordinate the coordinate of the cell to remove. */
     public void removeCell(Coordinate coordinate) {
 
         board.remove(coordinate.toString());
     }
 
+    /** Returns the letter of the last column in the sheet.
+     * @return a char representing the last column letter. */
     public char getLastColLetter(){
         return (char) ('A' + numOfCols - 1);
     }
@@ -241,8 +240,9 @@ public class SheetImpl implements Sheet , Serializable {
         return new CoordinateImpl(col, row);
     }
 
-    //22/8/24 by yarden --> for creating a xml file from objects
-    //very ugly function - TO DO it nice
+    //not in was right now - maybe we will need it in te future
+    /** Converts the current state of the sheet into an STLSheet object for serialization.
+     * @return an STLSheet object representing the current state of the sheet. */
     public STLSheet convertFromSheetToStlSheet() {
 
         //create the ELEMENT STLCells
