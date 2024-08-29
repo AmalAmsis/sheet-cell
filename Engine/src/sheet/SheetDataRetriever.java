@@ -46,6 +46,7 @@ public interface SheetDataRetriever {
     /** Returns the number of columns in the sheet.
      * @return an integer representing the number of columns. */
     int getNumOfCols();
+    Coordinate convertStringToCoordinate(String stringCoordinate);
 
     /** Returns the board of cells in the sheet.
      * The map's key is a string representation of the cell's coordinate, and the value is the Cell object.

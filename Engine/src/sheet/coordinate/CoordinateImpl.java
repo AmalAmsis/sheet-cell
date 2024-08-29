@@ -62,20 +62,4 @@ public class CoordinateImpl implements Coordinate , Serializable {
         return (col-'A' + 1);
     }
 
-
-    //todo : delete
-    /**
-     * Converts a string representation of a coordinate to a Coordinate object.
-     * The string should be in the format where the first character represents the column
-     * (e.g., 'A', 'B', etc.) and the following characters represent the row number (e.g., "1", "2", etc.).
-     * The column letter is converted to uppercase to handle both lowercase and uppercase input.
-     *
-     * @param stringCoordinate the string representation of the coordinate (e.g., "A1", "b2").
-     * @return a Coordinate object corresponding to the provided string.*/
-    public static Coordinate convertStringToCoordinate(String stringCoordinate) {
-        stringCoordinate = stringCoordinate.toUpperCase();
-        char col = stringCoordinate.charAt(0);
-        int row = Integer.parseInt(stringCoordinate.substring(1));
-        return new CoordinateImpl(col, row);
-    }
 }

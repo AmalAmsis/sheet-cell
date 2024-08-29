@@ -10,7 +10,6 @@ import sheet.SheetDataRetriever;
 import sheet.coordinate.Coordinate;
 import sheet.effectivevalue.EffectiveValue;
 
-import static sheet.coordinate.CoordinateImpl.convertStringToCoordinate;
 
 
 public enum Operation {
