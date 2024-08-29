@@ -79,6 +79,7 @@ public class CellImpl implements Cell, Serializable {
             return visitedCells.size();
         } catch (Exception e) {
             visitedCells.clear();
+            this.removeAllDependsOn();// הוספתי
             updateValueHelper(this.originalValue, visitedCells);
             throw e;
         }
