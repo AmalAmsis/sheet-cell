@@ -266,12 +266,16 @@ public class UIManagerImpl implements UIManager {
             // Attempt to load the sheet from the XML file
             engine.loadSheetFromXmlFile(filePath);
             // If successful, print a success message
-            System.out.println("The XML file was loaded successfully.\n");
+            System.out.println("====================================");
+            System.out.println("The XML file was loaded successfully.");
+            System.out.println("====================================");
+
             isFirst=false;
 
         } catch (IllegalArgumentException e) {
             // Handle errors from isXmlFile (e.g., invalid file path or non-XML file)
-            System.err.println("Error: The XML file specifies an" + e.getMessage());
+            printErrorMessage();
+            System.out.println(e.getMessage());
             choice = filePathErrorMenu();
             if(choice ==1){
                 loadXmlFileFromUser();
@@ -279,62 +283,71 @@ public class UIManagerImpl implements UIManager {
 
         } catch (FileDataException.InvalidRowCountException e) {
             // Print a specific error message for invalid row count
-            System.out.println("Error: The XML file specifies an " + e.getMessage() + ".\nPlease ensure the sheet has between 1 and 50 rows.\n");
+            printErrorMessage();
+            System.out.println("The XML file specifies an " + e.getMessage() + ".\nPlease ensure the sheet has between 1 and 50 rows.");
             choice = filePathErrorMenu();
             if(choice ==1){
                 loadXmlFileFromUser();
             }
         } catch (FileDataException.InvalidColumnCountException e) {
             // Print a specific error message for invalid column count
-            System.out.println("Error: The XML file specifies an " + e.getMessage() + ".\nPlease ensure the sheet has between 1 and 20 columns.\n");
+            printErrorMessage();
+            System.out.println("The XML file specifies an " + e.getMessage() + ".\nPlease ensure the sheet has between 1 and 20 columns.");
             choice = filePathErrorMenu();
             if(choice ==1){
                 loadXmlFileFromUser();
             }
         } catch (FileDataException.InvalidColumnWidthException e) {
             // Print a specific error message for invalid column width
-            System.out.println("Error: The XML file specifies an " + e.getMessage() + ".\nPlease ensure the column width is a positive number.\n");
+            printErrorMessage();
+            System.out.println("The XML file specifies an " + e.getMessage() + ".\nPlease ensure the column width is a positive number.");
             choice = filePathErrorMenu();
             if(choice ==1){
                 loadXmlFileFromUser();
             }
         } catch (FileDataException.InvalidRowHeightException e) {
             // Print a specific error message for invalid row height
-            System.out.println("Error: The XML file specifies an " + e.getMessage() + ".\nPlease ensure the row height is a positive number.\n");
+            printErrorMessage();
+            System.out.println("The XML file specifies an " + e.getMessage() + ".\nPlease ensure the row height is a positive number.");
             choice = filePathErrorMenu();
             if(choice ==1){
                 loadXmlFileFromUser();
             }
         } catch (FileDataException.CellOutOfBoundsException e) {
             // Print a specific error message for cell out of bounds
-            System.out.println("Error: One or more cells in the file are outside the valid sheet boundaries.\n.");
+            printErrorMessage();
+            System.out.println("The file contains one or more cells that are positioned outside the valid sheet boundaries. \nPlease ensure all cells in the file are within the defined grid of the sheet.");
             choice = filePathErrorMenu();
             if(choice ==1){
                 loadXmlFileFromUser();
             }
         } catch (FileDataException.CircularReferenceException e) {
             // Print a specific error message for circular reference
-            System.out.println("Error: The file contains a circular reference, which is not allowed.\n");
+            printErrorMessage();
+            System.out.println("The file contains a circular reference, which is not allowed.");
             choice = filePathErrorMenu();
             if(choice ==1){
                 loadXmlFileFromUser();
             }
         } catch (FileNotFoundException e) {
             // Handle file not found
-            System.out.println("Error: The file was not found at the specified path: " + filePath +"\n");
+            printErrorMessage();
+            System.out.println("The file was not found at the specified path: '" + filePath +"'.");
             choice = filePathErrorMenu();
             if(choice ==1){
                 loadXmlFileFromUser();
             }
         } catch (JAXBException e) {
-            System.out.println("Error: Failed to process the XML file. \nThe file might be corrupted or invalid.\n");
+            printErrorMessage();
+            System.out.println(e.getMessage());
             choice = filePathErrorMenu();
             if(choice ==1){
                 loadXmlFileFromUser();
             }
         } catch (Exception e) {
             // Catch any other exceptions
-            System.out.println("Error: An unexpected error occurred: " + e.getMessage());
+            printErrorMessage();
+            System.out.println("An unexpected error occurred: " + e.getMessage());
             choice = filePathErrorMenu();
             if(choice ==1){
                 loadXmlFileFromUser();
@@ -346,11 +359,11 @@ public class UIManagerImpl implements UIManager {
     private int filePathErrorMenu() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("===============================\n");
+        System.out.println("===============================");
         System.out.println("1. Try loading the file again");
         System.out.println("2. Return to the main menu");
-        System.out.println("\n===============================");
-        System.out.print("Please select an option (1-2): ");
+        System.out.println("===============================");
+        System.out.println("Please select an option (1-2): ");
         while (true) {
             try {
                 int choice = Integer.parseInt(scanner.nextLine());
@@ -650,11 +663,15 @@ public class UIManagerImpl implements UIManager {
         int choice;
         try{
             engine.loadSystemState(inputFilePath);
-            System.out.println("System state loaded successfully from " + inputFilePath);
+            System.out.println("===============================");
+            System.out.println("System state loaded successfully");
+            System.out.println("===============================");
+            isFirst=false;
         }
         catch (Exception e){
-            System.err.println("Error: Failed to load system state. " + e.getMessage());
-            choice = filePathErrorMenu();
+            printErrorMessage();
+            System.out.println(e.getMessage());
+            choice = loadSystemErrorMenu();
             if(choice ==1) {
                 loadSystemState();
             }
@@ -669,6 +686,32 @@ public class UIManagerImpl implements UIManager {
         return scanner.nextLine();
     }
 
+    private int loadSystemErrorMenu() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("===============================");
+        System.out.println("1. Try load the system again");
+        System.out.println("2. Return to the main menu");
+        System.out.println("===============================");
+        System.out.println("Please select an option (1-2): ");
+        while (true) {
+            try {
+                int choice = Integer.parseInt(scanner.nextLine());
+
+                switch (choice) {
+                    case 1:
+                        return 1;
+                    case 2:
+                        return 2;
+                    default:
+                        System.out.println("Invalid choice. Please select either 1 or 2.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a valid number (1 or 2).");
+            }
+        }
+    }
+
     //*****************************************************************************************//
 
     /**
@@ -677,15 +720,19 @@ public class UIManagerImpl implements UIManager {
 
     @Override
     public void saveSystemState() {
-        String outputFilePath = getInputFilePathFromUser();
+        String outputFilePath = getOutputFilePathFromUser();
         int choice;
         try{
             engine.saveSystemState(outputFilePath);
-            System.out.println("System state saved successfully to " + outputFilePath);
+            System.out.println("===============================");
+            System.out.println("System state saved successfully");
+            System.out.println("===============================");
+
         }
         catch (Exception e) {
-            System.err.println("Error: Failed to load system state. " + e.getMessage());
-            choice = filePathErrorMenu();
+            printErrorMessage();
+            System.out.println( e.getMessage());
+            choice = saveSystemErrorMenu();//****************************************************************
             if (choice == 1) {
                 saveSystemState();
             }
@@ -700,5 +747,38 @@ public class UIManagerImpl implements UIManager {
     }
 
 
+
+    private void printErrorMessage(){
+        System.out.println("===============================");
+        System.out.println("            Error:             ");
+        System.out.println("===============================");
+
+    }
+
+    private int saveSystemErrorMenu() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("===============================");
+        System.out.println("1. Try save the system again");
+        System.out.println("2. Return to the main menu");
+        System.out.println("===============================");
+        System.out.println("Please select an option (1-2): ");
+        while (true) {
+            try {
+                int choice = Integer.parseInt(scanner.nextLine());
+
+                switch (choice) {
+                    case 1:
+                        return 1;
+                    case 2:
+                        return 2;
+                    default:
+                        System.out.println("Invalid choice. Please select either 1 or 2.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a valid number (1 or 2).");
+            }
+        }
+    }
 
 }

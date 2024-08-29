@@ -4,6 +4,8 @@ import jakarta.xml.bind.JAXBException;
 import jaxb.schema.generated.STLCell;
 import jaxb.schema.generated.STLCells;
 import jaxb.schema.generated.STLSheet;
+
+import java.io.FileNotFoundException;
 import java.util.List;
 
 /**
@@ -19,7 +21,7 @@ public interface XmlProcessing {
      * @return an STLSheet object representing the parsed and validated spreadsheet.
      * @throws FileDataException if the XML data is invalid or cannot be parsed.
      * @throws JAXBException if there is an issue with the XML binding process. */
-    STLSheet parseAndValidateXml(String xmlPath) throws FileDataException, JAXBException;
+    STLSheet parseAndValidateXml(String xmlPath) throws FileDataException, JAXBException, FileNotFoundException;
 
     /** Performs a topological sort on a list of cells to ensure there are no circular references.
      * If a circular reference is detected, an exception is thrown.

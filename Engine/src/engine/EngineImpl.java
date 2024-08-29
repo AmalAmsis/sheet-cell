@@ -37,7 +37,7 @@ public class EngineImpl implements Engine,Serializable {
     }
 
     @Override
-    public void loadSheetFromXmlFile(String filePath) throws FileDataException, JAXBException {
+    public void loadSheetFromXmlFile(String filePath) throws FileDataException, JAXBException, FileNotFoundException {
 
         //load the xml file with jaxb
         XmlProcessing xmlProcessing = new XmlProcessingImpl();
@@ -97,8 +97,6 @@ public class EngineImpl implements Engine,Serializable {
     public DTOSheet displaySheetVersion(int versionNumber) {
         if (this.currentSheetState != null){
             SheetVersionHandler sheetVersionHandler = this.currentSheetState.getVersionHandler();
-            //Sheet mySheet = sheetVersionHandler.getSheetByVersion(versionNumber);
-            //return new DTOSheetImpl(mySheet);
             return sheetVersionHandler.getSheetByVersion(versionNumber);
         }
         return null;
@@ -110,8 +108,10 @@ public class EngineImpl implements Engine,Serializable {
             // Serialize the current state of the sheet
             out.writeObject(currentSheetState);
             //ui massage: System.out.println("System state saved successfully to " + filePath);
+        } catch (FileNotFoundException e) {
+            throw new FileNotFoundException("The specified file path is invalid or the directory does not exist. \nPlease check the path and try again.");
         } catch (IOException e) {
-            throw new Exception("Failed to save system state: " + e.getMessage(), e);
+            throw new IOException("An issue occurred while saving the system state. \nPlease ensure that you have write permissions and enough disk space.");
         }
     }
 
@@ -121,8 +121,12 @@ public class EngineImpl implements Engine,Serializable {
             // Deserialize the system state from the file
             currentSheetState = (SheetStateManagerImpl) in.readObject();
             //ui massage: System.out.println("System state loaded successfully from " + filePath);
-        } catch (IOException | ClassNotFoundException e) {
-            throw new Exception("Failed to load system state: " + e.getMessage(), e);
+        } catch (FileNotFoundException e) {
+            throw new FileNotFoundException("The specified file was not found. \nPlease check the file path and ensure that the file exists.");
+        } catch (IOException e) {
+            throw new IOException("Error: An issue occurred while reading the file. \nPlease ensure that the file is accessible and not corrupted.");
+        } catch (ClassNotFoundException e) {
+            throw new ClassNotFoundException("Error: The file contains data that is incompatible with the current system version. \nPlease verify the file.");
         }
     }
 }
