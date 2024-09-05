@@ -2,6 +2,7 @@ package expression;
 
 import expression.exception.InvalidOperationNameException;
 import expression.impl.primitive.BooleanExpression;
+import expression.impl.primitive.EmptyExpression;
 import expression.impl.primitive.NumericExpression;
 import expression.impl.primitive.StringExpression;
 import sheet.SheetDataRetriever;
@@ -156,6 +157,8 @@ public class ExpressionEvaluator {
                 return new NumericExpression(value.extractValueWithExpectation(Double.class));
             case STRING:
                 return new StringExpression(value.extractValueWithExpectation(String.class));
+            case EMPTY:
+                return new EmptyExpression();
             default:
                 throw new IllegalArgumentException("Unexpected cell type: " + cellType);
         }

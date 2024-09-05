@@ -11,19 +11,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="I think we are done with the first stage of the exercise">
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="recent revisions">
+      <change afterPath="$PROJECT_DIR$/Engine/src/expression/impl/primitive/EmptyExpression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/resources/basic.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/resources/basic2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/resources/error-2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/resources/error-4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/resources/insurance.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/resources/test/test1.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/resources/test/test2.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/Sheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/Sheet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/manager/AppRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/apprunner/AppRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/ExpressionEvaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/ExpressionEvaluator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/BinaryExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/BinaryExpression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/TernaryExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/TernaryExpression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/UnaryExpression.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/UnaryExpression.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Abs.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Abs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Divide.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Divide.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Minus.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Minus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Mod.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Mod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Plus.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Plus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Pow.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Pow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Times.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Times.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/str/Concat.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/str/Concat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/str/Sub.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/str/Sub.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/systemic/Ref.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/systemic/Ref.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/effectivevalue/EffectiveValueImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/effectivevalue/EffectiveValueImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/BinaryExpression.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/BinaryExpression.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/TernaryExpression.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/TernaryExpression.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/UnaryExpression.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/UnaryExpression.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Divide.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Divide.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Pow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Pow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/str/Concat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/str/Concat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/systemic/Ref.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/impl/systemic/Ref.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,35 +68,44 @@
     &quot;accountId&quot;: &quot;7c3c5dfe-f29d-4945-a690-87b881a1fc0c&quot;
   }
 }</component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2lVWr8yHUr8AHYtfocm3w0Gg67h" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.AppRunner.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.Test.executor": "Run",
     "JAR Application.UI.jar.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "yarden__branch",
+    "git-widget-placeholder": "Amal",
+    "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Amal Amsis/Desktop/AmalA/Computer Science/JAVA/jaxb-ri-4.0.5/mod",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="apprunner" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.AppRunner">
+  <component name="RunManager" selected="JAR Application.UI.jar">
     <configuration name="AppRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="apprunner.AppRunner" />
+      <option name="MAIN_CLASS_NAME" value="manager.AppRunner" />
       <module name="UI" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="apprunner.*" />
+          <option name="PATTERN" value="manager.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -115,13 +139,22 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AppRunner" />
         <item itemvalue="JAR Application.UI.jar" />
+        <item itemvalue="Application.AppRunner" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task id="LOCAL‎-00001" summary="update gitignore">
       <option name="closed" value="true" />
@@ -291,32 +324,19 @@
       <option name="project" value="LOCAL‎" />
       <updated>1724878159571</updated>
     </task>
-    <task id="LOCAL-00022" summary="Adding documentation in progress..&#10;Making a commit to merge the change Amal made in the call to the function that converts a string to a coordinate in the ref function">
+    <task id="LOCAL‎-00022" summary="recent revisions">
       <option name="closed" value="true" />
-      <created>1724925242502</created>
+      <created>1724920837805</created>
       <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1724925242502</updated>
+      <option name="presentableId" value="LOCAL‎-00022" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724920837805</updated>
     </task>
-    <task id="LOCAL-00023" summary="Adding documentation finished.">
-      <option name="closed" value="true" />
-      <created>1724930262090</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1724930262090</updated>
-    </task>
-    <task id="LOCAL-00024" summary="I think we are done with the first stage of the exercise">
-      <option name="closed" value="true" />
-      <created>1724941369093</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1724941369093</updated>
-    </task>
-    <option name="localTasksCounter" value="25" />
+    <option name="localTasksCounter" value="23" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="OPEN_GENERIC_TABS">
@@ -326,6 +346,23 @@
     </option>
     <option name="TAB_STATES">
       <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Amal" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="aa2ed6a7-9563-421a-a4b9-f9b8a65c8d17">
           <value>
             <State>
@@ -354,10 +391,8 @@
     <MESSAGE value="ref - coordinate to upper case" />
     <MESSAGE value="new merge" />
     <MESSAGE value="accept coordinate with lowercase letters" />
-    <MESSAGE value="Adding documentation in progress..&#10;Making a commit to merge the change Amal made in the call to the function that converts a string to a coordinate in the ref function" />
-    <MESSAGE value="Adding documentation finished." />
-    <MESSAGE value="I think we are done with the first stage of the exercise" />
-    <option name="LAST_COMMIT_MESSAGE" value="I think we are done with the first stage of the exercise" />
+    <MESSAGE value="recent revisions" />
+    <option name="LAST_COMMIT_MESSAGE" value="recent revisions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -368,51 +403,18 @@
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/XmlProcessingImpl.java</url>
-          <line>105</line>
-          <option name="timeStamp" value="55" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UI/src/apprunner/AppRunner.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java</url>
-          <line>743</line>
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java</url>
-          <line>359</line>
-          <option name="timeStamp" value="60" />
+          <line>493</line>
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>
-          <line>181</line>
+          <line>191</line>
           <properties class="sheet.SheetImpl" method="updateCell">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/XmlProcessingImpl.java</url>
-          <line>103</line>
-          <properties class="jaxb.schema.xmlprocessing.XmlProcessingImpl" method="deserializeFrom">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="56" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java</url>
-          <line>358</line>
-          <properties class="manager.UIManagerImpl" method="filePathErrorMenu">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="61" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -22,40 +22,64 @@ public class Ref extends UnaryExpression {
 
     @Override
     protected EffectiveValue doEvaluate(EffectiveValue value) {
-        isValid(value);  // Ensure that the value is valid before proceeding
-        Coordinate coordinate = sheet.convertStringToCoordinate (value.extractValueWithExpectation(String.class).toUpperCase());
-        EffectiveValue result = sheet.getCellEffectiveValue(coordinate);
-        // Check if the cell is Empty
-        if (result.getCellType() == CellType.EMPTY) {
-            throw new IllegalArgumentException(String.format("Invalid operation: REF cannot be executed with an empty cell. The cell '%s' is Empty", coordinate));
 
-        }
-        sheet.addDependentCell(this.targetCoordinate, coordinate);
-        return sheet.getCellEffectiveValue(coordinate);
+
+        // Ensure that the value is valid before proceeding
+//        if (!isValid(value))
+//        {
+//          // לשאול מה לעשות במצב כזה? + מה לעשות אם נתנו מחרוזת שלא יכולה להיות קורדינטה
+//        }
+//        else {
+            Coordinate coordinate = sheet.convertStringToCoordinate(value.extractValueWithExpectation(String.class).toUpperCase());
+            EffectiveValue result = sheet.getCellEffectiveValue(coordinate);
+            // Check if the cell is Empty
+            //if (result.getCellType() == CellType.EMPTY) {
+                //throw new IllegalArgumentException(String.format("Invalid operation: REF cannot be executed with an empty cell. The cell '%s' is Empty", coordinate));
+            //}
+            sheet.addDependentCell(this.targetCoordinate, coordinate);
+            return sheet.getCellEffectiveValue(coordinate);
+//        }
     }
 
     @Override
-    protected void isValid(EffectiveValue value) {
+    protected boolean isValid(EffectiveValue value) {
         // Ensure a sheet is set
         if (sheet == null) {
-            throw new IllegalStateException("No sheet has been set.");
+            return false;
+        }
+        // להוסיף  עוד בדיקות
+        else
+        {
+            return true;
         }
 
-        // Ensure the value is a valid string representing a coordinate
-        String cellReference = value.extractValueWithExpectation(String.class);
-        if (cellReference == null || cellReference.trim().isEmpty()) {
-            throw new IllegalArgumentException("Invalid operation: REF requires a non-empty string as an argument.");
-        }
 
-        // Convert the string to a Coordinate object
-        Coordinate coordinate = sheet.convertStringToCoordinate(cellReference);
-        if (coordinate == null) {
-            throw new IllegalArgumentException(String.format("Invalid operation: REF cannot convert '%s' to a valid coordinate.", cellReference));
-        }
 
-        // Check if the cell is Empty
-        if (!sheet.isCellInSheet(coordinate)) {
-            throw new IllegalArgumentException(String.format("Invalid operation: REF cannot be executed with an empty cell. The cell '%s' is Empty", coordinate));
-        }
+
     }
+
+//    @Override
+//    protected void isValid(EffectiveValue value) {
+//        // Ensure a sheet is set
+//        if (sheet == null) {
+//            throw new IllegalStateException("No sheet has been set.");
+//        }
+//
+//        // Ensure the value is a valid string representing a coordinate
+//        String cellReference = value.extractValueWithExpectation(String.class);
+//        if (cellReference == null || cellReference.trim().isEmpty()) {
+//            throw new IllegalArgumentException("Invalid operation: REF requires a non-empty string as an argument.");
+//        }
+//
+//        // Convert the string to a Coordinate object
+//        Coordinate coordinate = sheet.convertStringToCoordinate(cellReference);
+//        if (coordinate == null) {
+//            throw new IllegalArgumentException(String.format("Invalid operation: REF cannot convert '%s' to a valid coordinate.", cellReference));
+//        }
+//
+//        // Check if the cell is Empty
+//        if (!sheet.isCellInSheet(coordinate)) {
+//            throw new IllegalArgumentException(String.format("Invalid operation: REF cannot be executed with an empty cell. The cell '%s' is Empty", coordinate));
+//        }
+//    }
 }
