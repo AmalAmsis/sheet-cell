@@ -15,21 +15,32 @@ public class Abs extends UnaryExpression {
 
     @Override
     protected EffectiveValue doEvaluate(EffectiveValue value) {
-        double result = Math.abs(value.extractValueWithExpectation(Double.class));
+        double result;
+        if(!isValid(value)) {
+            result = Double.NaN;
+        }
+        else {
+            result = Math.abs(value.extractValueWithExpectation(Double.class));
+        }
         return new EffectiveValueImpl(CellType.NUMERIC, result);
     }
 
     @Override
-    protected void isValid(EffectiveValue value) {
-       if (value.getCellType() != CellType.NUMERIC) {
-           String message = String.format(
-                   "Invalid operation: ABS requires argument to be numeric. " +
-                           "Received: value=%s (type=%s)",
-                   value.getValue().toString(),
-                   value.getCellType().toString()
-           );
-           throw new IllegalArgumentException(message);
-       }
-
+    protected boolean isValid(EffectiveValue value) {
+        return (value.getCellType() == CellType.NUMERIC);
     }
+
+//    @Override
+//    protected void isValid(EffectiveValue value) {
+//       if (value.getCellType() != CellType.NUMERIC) {
+//           String message = String.format(
+//                   "Invalid operation: ABS requires argument to be numeric. " +
+//                           "Received: value=%s (type=%s)",
+//                   value.getValue().toString(),
+//                   value.getCellType().toString()
+//           );
+//           throw new IllegalArgumentException(message);
+//       }
+//
+//    }
 }

@@ -2,10 +2,13 @@ package sheet;
 
 import jaxb.schema.generated.*;
 import sheet.coordinate.CoordinateImpl;
+import sheet.effectivevalue.CellType;
 import sheet.effectivevalue.EffectiveValue;
 import sheet.cell.Cell;
 import sheet.cell.CellImpl;
 import sheet.coordinate.Coordinate;
+import sheet.effectivevalue.EffectiveValueImpl;
+
 import java.io.Serializable;
 import java.util.*;
 
@@ -142,6 +145,11 @@ public class SheetImpl implements Sheet , Serializable {
 
     @Override
     public void addDependentCell(Coordinate mainCellCoordinate, Coordinate effectorCellCoordinate) {
+
+        if (!isCellInSheet(effectorCellCoordinate)) {
+            Cell myCell = new CellImpl(effectorCellCoordinate,0,this);//להוסיף שמישהו תלוי בו לא נחשב עדכון עליו
+            board.put(effectorCellCoordinate.toString(), myCell);
+        }
         Cell mainCell = getCell(mainCellCoordinate);
         Cell effectorCell = getCell(effectorCellCoordinate);
 
@@ -155,7 +163,9 @@ public class SheetImpl implements Sheet , Serializable {
         if (isCellInSheet(coordinate)) {
             return board.get(coordinate.toString()).getEffectiveValue();
         }
-        return null;
+        else{
+            return new EffectiveValueImpl(CellType.EMPTY,"");
+        }
     }
 
     /** Adds a new cell to the sheet.
