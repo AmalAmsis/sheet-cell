@@ -39,7 +39,8 @@ public class EffectiveValueImpl implements EffectiveValue, Serializable {
             return decimalFormat.format(value);
         }
         if (cellType == CellType.EMPTY) {
-            return "Empty Cell";
+            //return "Empty Cell";
+            return "";
         }
         return this.extractValueWithExpectation(cellType.getType()).toString();
     }

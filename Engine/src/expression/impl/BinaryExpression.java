@@ -20,6 +20,7 @@ public abstract class BinaryExpression implements Expression {
     }
 
     protected abstract EffectiveValue doEvaluate(EffectiveValue value1, EffectiveValue value2) ;
-    abstract protected void isValid(EffectiveValue value1, EffectiveValue value2) ;
+    abstract protected boolean isValid(EffectiveValue value1, EffectiveValue value2) ;
+    //abstract protected void isValid(EffectiveValue value1, EffectiveValue value2) ;
 
 }
