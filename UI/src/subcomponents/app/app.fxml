@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml">
+
+    <!-- שילוב של קובץ header.fxml בחלק העליון -->
+    <top>
+        <fx:include source="../header/header.fxml"/>
+    </top>
+
+    <!-- שילוב של קובץ Board.fxml במרכז -->
+    <center>
+        <fx:include source="../board/board.fxml"/>
+    </center>
+
+</BorderPane>
