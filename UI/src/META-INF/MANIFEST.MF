@@ -1,3 +1,11 @@
 Manifest-Version: 1.0
 Main-Class: apprunner.AppRunner
 Class-Path: ../DataTransferObject/DataTransferObject.jar ../Engine/Engine.jar ../Jaxb/jaxb-xjc.jar ../Jaxb/jaxb-impl.jar ../Jaxb/jaxb-core.jar ../Jaxb/jakarta.activation-api.jar ../Jaxb/angus-activation.jar
+ ../javaFX/javafx.base.jar
+ ../javaFX/javafx.controls.jar
+ ../javaFX/javafx.fxml.jar
+ ../javaFX/javafx.graphics.jar
+ ../javaFX/javafx.media.jar
+ ../javaFX/javafx.swing.jar
+ ../javaFX/javafx.web.jar
+ ../javaFX/javafx-swt.jar

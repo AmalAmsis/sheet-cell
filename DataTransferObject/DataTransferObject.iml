@@ -7,8 +7,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="Engine" />
-    <orderEntry type="library" name="mod" level="project" />
+    <orderEntry type="module" module-name="Engine" exported="" />
+    <orderEntry type="library" exported="" name="mod" level="project" />
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>

@@ -9,9 +9,9 @@
       <root url="file://$PROJECT_DIR$/../../../jaxb-ri-4.0.5/jaxb-ri-4.0.5/mod" />
       <root url="file://$PROJECT_DIR$/../jaxb-ri-4.0.5/mod" />
     </SOURCES>
-    <jarDirectory url="file://$PROJECT_DIR$/../jaxb-ri-4.0.5/mod" recursive="false" />
     <jarDirectory url="file://$PROJECT_DIR$/../../../jaxb-ri-4.0.5/jaxb-ri-4.0.5/mod" recursive="false" />
-    <jarDirectory url="file://$PROJECT_DIR$/../jaxb-ri-4.0.5/mod" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://$PROJECT_DIR$/../jaxb-ri-4.0.5/mod" recursive="false" />
     <jarDirectory url="file://$PROJECT_DIR$/../../../jaxb-ri-4.0.5/jaxb-ri-4.0.5/mod" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://$PROJECT_DIR$/../jaxb-ri-4.0.5/mod" recursive="false" type="SOURCES" />
   </library>
 </component>
