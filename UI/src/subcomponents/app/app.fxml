@@ -2,16 +2,14 @@
 
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml">
+<BorderPane fx:id="rootPane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="subcomponents.app.AppController">
 
-    <!-- שילוב של קובץ header.fxml בחלק העליון -->
     <top>
         <fx:include source="../header/header.fxml"/>
     </top>
 
-    <!-- שילוב של קובץ Board.fxml במרכז -->
     <center>
-        <fx:include source="../board/board.fxml"/>
+        <fx:include source="../sheet/sheet.fxml"/>
     </center>
 
 </BorderPane>
