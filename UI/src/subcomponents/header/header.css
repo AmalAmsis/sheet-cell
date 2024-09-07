@@ -1,0 +1,8 @@
+.header-label {
+    -fx-border-color: black;       /* צבע המסגרת: שחור */
+    -fx-border-width: 2;           /* עובי המסגרת: 2 פיקסלים */
+    -fx-border-radius: 5;          /* פינות עגולות ברדיוס 5 פיקסלים */
+    -fx-padding: 5;                /* רווח פנימי בין המסגרת לטקסט */
+    -fx-background-color: lightgray; /* צבע רקע: אפור בהיר (לא חובה, אם תרצי להוסיף) */
+    // -fx-text-fill: darkblue;       /* צבע טקסט: כחול כהה (לא חובה, לשינוי צבע הטקסט) */
+}
