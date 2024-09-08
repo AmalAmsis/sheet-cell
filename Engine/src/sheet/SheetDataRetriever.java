@@ -3,6 +3,8 @@ package sheet;
 import sheet.cell.Cell;
 import sheet.coordinate.Coordinate;
 import sheet.effectivevalue.EffectiveValue;
+import sheet.range.RangeReadActions;
+
 import java.util.Map;
 
 
@@ -59,4 +61,12 @@ public interface SheetDataRetriever {
      * @param mainCell the coordinate of the main cell.
      * @param dependentCell the coordinate of the cell that depends on the main cell. */
     void addDependentCell(Coordinate mainCell, Coordinate dependentCell);
+
+    /**
+     * Retrieves a range by its name.
+     *
+     * @param rangeName The name of the range.
+     * @return The range as RangeReadActions, or null if not found in RangeManager.
+     */
+    RangeReadActions getRangeReadActions(String rangeName);
 }

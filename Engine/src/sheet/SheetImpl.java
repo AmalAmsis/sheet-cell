@@ -9,6 +9,7 @@ import sheet.cell.CellImpl;
 import sheet.coordinate.Coordinate;
 import sheet.effectivevalue.EffectiveValueImpl;
 import sheet.range.RangeManager;
+import sheet.range.RangeReadActions;
 
 import java.io.Serializable;
 import java.util.*;
@@ -158,6 +159,11 @@ public class SheetImpl implements Sheet , Serializable {
         //mainCell.removeAllDependsOn();
         mainCell.addToDependsOn(effectorCell);
         //effectorCell.addInfluencingOn(mainCell);??????????????????????????????
+    }
+
+    @Override
+    public RangeReadActions getRangeReadActions(String rangeName) {
+        return rangeManager.getReadOnlyRange(rangeName);
     }
 
     @Override
