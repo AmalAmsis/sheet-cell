@@ -11,22 +11,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Added new Boolean expression functions:&#10;1.Equal&#10;2.Not&#10;3.Bigger&#10;4.Less&#10;5.Or&#10;6.And&#10;7.If">
-      <change afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Percent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Added new Math expression function:PERCENT">
+      <change afterPath="$PROJECT_DIR$/Engine/src/sheet/range/Range.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/sheet/range/RangeImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/sheet/range/RangeManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/sheet/range/RangeManagerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/Operation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,9 +26,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="HTML File" />
         <option value="FxmlFile" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -359,7 +349,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1725627668934</updated>
-      <workItem from="1725627672775" duration="10138000" />
+      <workItem from="1725627672775" duration="14149000" />
     </task>
     <task id="LOCAL‎-00024" summary="Getting started with fxml&#10; components: app, header, board">
       <option name="closed" value="true" />
@@ -385,7 +375,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1725784918231</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL‎-00027" summary="Added new Math expression function:PERCENT">
+      <option name="closed" value="true" />
+      <created>1725786531774</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL‎-00027" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1725786531774</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -448,7 +446,8 @@
     <MESSAGE value="Getting started with fxml&#10; components: app, header, board" />
     <MESSAGE value="Starting part 2!!!&#10;Some system changes:&#10;Mainly in updating a cell using a function:&#10;• Input of a function will be considered incorrect only if it is an incorrect structure: unknown function name; Incorrect amount of arguments, etc.).&#10;• Input of arguments of the wrong type to the function, either directly (for example: concat(4,5)) or indirectly (for example: in a1 there is a number 4 and then concat(ref(a1),aaa)) is performed - it will be considered a valid input ( that doesn't throw exception) but then the function will get an invalid value (according to its type)&#10;• An empty cell has no value. Making a ref to an empty cell is meaningless, but technically it is a valid and proper input. The value of the cell that makes a ref to an empty cell is... the empty cell.&#10;-Note: There is one missing case in the &quot;ref&quot; that needs to be addressed" />
     <MESSAGE value="Added new Boolean expression functions:&#10;1.Equal&#10;2.Not&#10;3.Bigger&#10;4.Less&#10;5.Or&#10;6.And&#10;7.If" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added new Boolean expression functions:&#10;1.Equal&#10;2.Not&#10;3.Bigger&#10;4.Less&#10;5.Or&#10;6.And&#10;7.If" />
+    <MESSAGE value="Added new Math expression function:PERCENT" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added new Math expression function:PERCENT" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
