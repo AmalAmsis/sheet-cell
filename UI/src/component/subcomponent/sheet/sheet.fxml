@@ -3,7 +3,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.control.ScrollPane?>
 
-<ScrollPane fitToWidth="true" fitToHeight="true" xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx/22" fx:controller="subcomponents.sheet.SheetController">
+<ScrollPane fitToWidth="true" fitToHeight="true" xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx/22" fx:controller="component.subcomponent.sheet.SheetController">
   <content>
     <GridPane fx:id="sheetGrid" hgap="1" vgap="1" gridLinesVisible="true" />
   </content>

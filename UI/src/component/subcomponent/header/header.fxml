@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="91.0" prefWidth="600.0" spacing="5.0" stylesheets="@header.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="subcomponents.header.HeaderController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="91.0" prefWidth="600.0" spacing="5.0" stylesheets="@header.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.subcomponent.header.HeaderController">
    <children>
       <HBox prefHeight="37.0" prefWidth="600.0" spacing="5.0">
          <children>
@@ -24,9 +24,9 @@
             <Label fx:id="cellIdLabel" styleClass="header-label" text="cell id" />
             <Label fx:id="originalValueLabel" styleClass="header-label" text="original value" />
             <TextField promptText="action line" />
-            <Button fx:id="updateValueButtom" mnemonicParsing="false" text="active value" />
+            <Button fx:id="updateValueButtom" mnemonicParsing="false" onAction="#CliclMeUpdateValueButtonAction" text="update value" />
             <Label fx:id="currentVersionLabel" styleClass="header-label" text="current version" />
-            <Button fx:id="versionSelectorButtom" mnemonicParsing="false" text="version selector" />
+            <Button fx:id="versionSelectorButtom" mnemonicParsing="false" onAction="#CliclMeVersionSelectorButtomAction" text="version selector" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
