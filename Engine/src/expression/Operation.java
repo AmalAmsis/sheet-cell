@@ -10,7 +10,7 @@ import expression.impl.systemic.Ref;
 import sheet.SheetDataRetriever;
 import sheet.coordinate.Coordinate;
 import sheet.effectivevalue.EffectiveValue;
-
+import sheet.effectivevalue.EffectiveValueImpl;
 
 
 public enum Operation {
@@ -111,7 +111,19 @@ public enum Operation {
         EffectiveValue eval(SheetDataRetriever sheet, Coordinate targetCoordinate, Expression... expressions) {
             return new And(expressions[0],expressions[1]).evaluate();
         }
-    }
+    },
+    IF(3){
+       @Override
+       EffectiveValue eval(SheetDataRetriever sheet, Coordinate targetCoordinate, Expression... expressions) {
+           return new If(expressions[0], expressions[1], expressions[2]).evaluate();
+       }
+    },
+    PERCENT(2){
+        @Override
+        EffectiveValue eval(SheetDataRetriever sheet, Coordinate targetCoordinate, Expression... expressions) {
+            return new Percent(expressions[0], expressions[1]).evaluate();
+        }
+    },
     ;
 
 
