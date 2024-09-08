@@ -7,6 +7,7 @@ public interface RangeManager {
     void removeRange(String name) throws Exception;
     void markRangeInUse(String name) throws Exception;
     void unmarkRangeInUse(String name) throws Exception;
-    RangeReadActions getReadOnlyRange(String name) throws Exception;
+    RangeReadActions getReadOnlyRange(String name) ;
     void displayAllRanges();
+
 }

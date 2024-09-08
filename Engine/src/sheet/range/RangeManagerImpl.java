@@ -93,15 +93,11 @@ public class RangeManagerImpl implements RangeManager {
      * Retrieves a range by its name.
      *
      * @param name The name of the range.
-     * @return The range, or null if not found.
-     * @throws Exception if the range is not found.
+     * @return The range as RangeReadActions, or null if not found.
      */
     @Override
-    public RangeReadActions getReadOnlyRange(String name) throws Exception {
+    public RangeReadActions getReadOnlyRange(String name)  {
         RangeReadActions range = ranges.get(name);
-        if (range == null) {
-            throw new Exception("Range not found.");
-        }
         return range;
     }
 
