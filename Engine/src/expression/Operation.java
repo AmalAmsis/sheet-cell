@@ -1,6 +1,7 @@
 package expression;
 
 import expression.exception.InvalidOperationNameException;
+import expression.impl.bool.*;
 import expression.impl.math.*;
 import expression.impl.primitive.NumericExpression;
 import expression.impl.str.Concat;
@@ -74,7 +75,44 @@ public enum Operation {
         EffectiveValue eval(SheetDataRetriever sheet, Coordinate targetCoordinate, Expression... expressions) {
             return new Ref(expressions[0], sheet, targetCoordinate).evaluate();
         }
-    };
+    },
+    EQUAL(2) {
+        @Override
+        EffectiveValue eval(SheetDataRetriever sheet, Coordinate targetCoordinate, Expression... expressions) {
+            return new Equel(expressions[0],expressions[1]).evaluate();
+        }
+    },
+    NOT(1){
+        @Override
+        EffectiveValue eval(SheetDataRetriever sheet, Coordinate targetCoordinate, Expression... expressions) {
+            return new Not(expressions[0]).evaluate();
+        }
+    },
+    BIGGER(2){
+        @Override
+        EffectiveValue eval(SheetDataRetriever sheet, Coordinate targetCoordinate, Expression... expressions) {
+            return new Bigger(expressions[0],expressions[1]).evaluate();
+        }
+    },
+    LESS(2){
+        @Override
+        EffectiveValue eval(SheetDataRetriever sheet, Coordinate targetCoordinate, Expression... expressions) {
+            return new Less(expressions[0],expressions[1]).evaluate();
+        }
+    },
+    OR(2){
+        @Override
+        EffectiveValue eval(SheetDataRetriever sheet, Coordinate targetCoordinate, Expression... expressions) {
+            return new Or(expressions[0],expressions[1]).evaluate();
+        }
+    },
+    AND(2){
+        @Override
+        EffectiveValue eval(SheetDataRetriever sheet, Coordinate targetCoordinate, Expression... expressions) {
+            return new And(expressions[0],expressions[1]).evaluate();
+        }
+    }
+    ;
 
 
     private final int numberOfArguments;
