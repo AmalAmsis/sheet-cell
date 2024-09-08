@@ -1,9 +1,9 @@
-package apprunner;
+package deprecated.apprunner;
 
-import manager.UIManager;
-import manager.UIManagerImpl;
-import menu.Command;
-import static menu.Command.EXIT;
+import deprecated.manager.UIManager;
+import deprecated.manager.UIManagerImpl;
+import deprecated.menu.Command;
+import static deprecated.menu.Command.EXIT;
 
 
 /**

@@ -1,15 +1,13 @@
-package subcomponents.sheet;
+package component.subcomponent.sheet;
 
+import component.main.app.UIAdapter;
+import dto.DTOCell;
+import dto.DTOSheet;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
-import sheet.SheetImpl;
-import sheet.cell.Cell;
-import sheet.coordinate.Coordinate;
-import sheet.coordinate.CoordinateImpl;
-import subcomponents.cell.CellController;
 
 import java.io.IOException;
 import java.util.Map;
@@ -19,12 +17,20 @@ public class SheetController {
     @FXML
     private GridPane sheetGrid;
 
-    public void loadSheet(SheetImpl sheet) {
+    private UIAdapter uiAdapter;
 
-        int numOfRows = sheet.getNumOfRows();
-        int numOfCols = sheet.getNumOfCols();
-        int WidthOfCols = sheet.getWidthOfCols();
-        int HeightOfRows = sheet.getHeightOfRows();
+    public void setUiAdapter(UIAdapter uiAdapter) {
+        this.uiAdapter = uiAdapter;
+    }
+
+    public void diaplaySheet(DTOSheet dtoSheet) {
+
+
+
+        int numOfRows = dtoSheet.getNumOfRows();
+        int numOfCols = dtoSheet.getNumOfColumns();
+        int WidthOfCols = dtoSheet.getWidthOfColumns();
+        int HeightOfRows = dtoSheet.getHeightOfRows();
 
         // Set the top row to a fixed height of 30 pixels for column headers (A, B, C...)
         sheetGrid.getRowConstraints().add(createRowConstraint(15, true));
@@ -63,23 +69,23 @@ public class SheetController {
         }
 
         // Add cells from the sheet's map
-        Map<String, Cell> board = sheet.getBoard();
+        Map<String, DTOCell> board = dtoSheet.getCells();
         for (int row = 1; row <= numOfRows; row++) {
             for (int col = 1; col <= numOfCols; col++) {
                 String cellKey = createCellKey(col, row); // Create key like "A:1", "B:2", etc.
 
                 // Check if the cell exists in the map
-                Cell cell = board.get(cellKey);
+                DTOCell dtoCell = board.get(cellKey);
 
                 try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/subcomponents/cell/cell.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/component/subcomponent/cell/cell.fxml"));
                     StackPane cellPane = loader.load();
 
                     Label cellLabel = (Label) cellPane.lookup("#cellLabel");
 
-                    if (cell != null) {
+                    if (dtoCell != null) {
                         // If the cell exists in the map, display its effective value
-                        cellLabel.setText(cell.getEffectiveValue().toString());
+                        cellLabel.setText(dtoCell.getEffectiveValue().toString());
                     } else {
                         // If the cell doesn't exist, create an empty cell
                         cellLabel.setText(""); // Empty cell
@@ -148,6 +154,6 @@ public class SheetController {
 
 
     public void initialize() {
-        sheetGrid.setGridLinesVisible(true);
+
     }
 }

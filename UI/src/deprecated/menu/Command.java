@@ -1,6 +1,6 @@
-package menu;
+package deprecated.menu;
 
-import manager.UIManager;
+import deprecated.manager.UIManager;
 
 /**
  * The Command enum represents various commands that the user can execute.
