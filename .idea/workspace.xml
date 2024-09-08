@@ -11,9 +11,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="add new method to sheetImpl : &#10;/**&#10;     * Retrieves a range by its name.&#10;     *&#10;     * @param rangeName The name of the range.&#10;     * @return The range as RangeReadActions, or null if not found in RangeManager.&#10;     */&#10;    RangeReadActions getRangeReadActions(String rangeName);">
-      <change afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Sum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Added new Math expression function:Sum">
+      <change afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Average.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/Operation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +25,8 @@
       <list>
         <option value="HTML File" />
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -346,7 +346,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1725627668934</updated>
-      <workItem from="1725627672775" duration="25057000" />
+      <workItem from="1725627672775" duration="26518000" />
     </task>
     <task id="LOCAL‎-00024" summary="Getting started with fxml&#10; components: app, header, board">
       <option name="closed" value="true" />
@@ -412,7 +412,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1725814845310</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL‎-00032" summary="Added new Math expression function:Sum">
+      <option name="closed" value="true" />
+      <created>1725816788258</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL‎-00032" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1725816788258</updated>
+    </task>
+    <task id="LOCAL‎-00033" summary="Added new Math expression function:Sum">
+      <option name="closed" value="true" />
+      <created>1725817049322</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL‎-00033" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1725817049322</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -479,7 +495,8 @@
     <MESSAGE value="New departments:&#10;1.Range(interface)&#10;2.RangeImpl&#10;3.RangeManager(Interface)&#10;4.RangeManagerImpl&#10;Their purpose: range support and complex functions" />
     <MESSAGE value="split Range interface into 2 interfaces : RangeReadActions,RangeUpdateAction" />
     <MESSAGE value="add new method to sheetImpl : &#10;/**&#10;     * Retrieves a range by its name.&#10;     *&#10;     * @param rangeName The name of the range.&#10;     * @return The range as RangeReadActions, or null if not found in RangeManager.&#10;     */&#10;    RangeReadActions getRangeReadActions(String rangeName);" />
-    <option name="LAST_COMMIT_MESSAGE" value="add new method to sheetImpl : &#10;/**&#10;     * Retrieves a range by its name.&#10;     *&#10;     * @param rangeName The name of the range.&#10;     * @return The range as RangeReadActions, or null if not found in RangeManager.&#10;     */&#10;    RangeReadActions getRangeReadActions(String rangeName);" />
+    <MESSAGE value="Added new Math expression function:Sum" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added new Math expression function:Sum" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
