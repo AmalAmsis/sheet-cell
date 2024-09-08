@@ -12,13 +12,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Starting part 2!!!&#10;Some system changes:&#10;Mainly in updating a cell using a function:&#10;• Input of a function will be considered incorrect only if it is an incorrect structure: unknown function name; Incorrect amount of arguments, etc.).&#10;• Input of arguments of the wrong type to the function, either directly (for example: concat(4,5)) or indirectly (for example: in a1 there is a number 4 and then concat(ref(a1),aaa)) is performed - it will be considered a valid input ( that doesn't throw exception) but then the function will get an invalid value (according to its type)&#10;• An empty cell has no value. Making a ref to an empty cell is meaningless, but technically it is a valid and proper input. The value of the cell that makes a ref to an empty cell is... the empty cell.&#10;-Note: There is one missing case in the &quot;ref&quot; that needs to be addressed">
-      <change afterPath="$PROJECT_DIR$/UI/src/subcomponents/app/app.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UI/src/subcomponents/board/board.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UI/src/subcomponents/header/header.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/expression/impl/bool/And.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/expression/impl/bool/Bigger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/expression/impl/bool/Equel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/expression/impl/bool/If.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/expression/impl/bool/Less.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/expression/impl/bool/Not.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/expression/impl/bool/Or.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/scenebuilder/test.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/ExpressionEvaluator$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/ExpressionEvaluator$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/ExpressionEvaluator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/ExpressionEvaluator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/Operation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,9 +31,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -329,9 +331,25 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1725627668934</updated>
-      <workItem from="1725627672775" duration="783000" />
+      <workItem from="1725627672775" duration="9543000" />
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL‎-00024" summary="Getting started with fxml&#10; components: app, header, board">
+      <option name="closed" value="true" />
+      <created>1725631126063</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL‎-00024" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1725631126063</updated>
+    </task>
+    <task id="LOCAL‎-00025" summary="Starting part 2!!!&#10;Some system changes:&#10;Mainly in updating a cell using a function:&#10;• Input of a function will be considered incorrect only if it is an incorrect structure: unknown function name; Incorrect amount of arguments, etc.).&#10;• Input of arguments of the wrong type to the function, either directly (for example: concat(4,5)) or indirectly (for example: in a1 there is a number 4 and then concat(ref(a1),aaa)) is performed - it will be considered a valid input ( that doesn't throw exception) but then the function will get an invalid value (according to its type)&#10;• An empty cell has no value. Making a ref to an empty cell is meaningless, but technically it is a valid and proper input. The value of the cell that makes a ref to an empty cell is... the empty cell.&#10;-Note: There is one missing case in the &quot;ref&quot; that needs to be addressed">
+      <option name="closed" value="true" />
+      <created>1725631163755</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL‎-00025" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1725631163755</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -391,6 +409,7 @@
     <MESSAGE value="new merge" />
     <MESSAGE value="accept coordinate with lowercase letters" />
     <MESSAGE value="recent revisions" />
+    <MESSAGE value="Getting started with fxml&#10; components: app, header, board" />
     <MESSAGE value="Starting part 2!!!&#10;Some system changes:&#10;Mainly in updating a cell using a function:&#10;• Input of a function will be considered incorrect only if it is an incorrect structure: unknown function name; Incorrect amount of arguments, etc.).&#10;• Input of arguments of the wrong type to the function, either directly (for example: concat(4,5)) or indirectly (for example: in a1 there is a number 4 and then concat(ref(a1),aaa)) is performed - it will be considered a valid input ( that doesn't throw exception) but then the function will get an invalid value (according to its type)&#10;• An empty cell has no value. Making a ref to an empty cell is meaningless, but technically it is a valid and proper input. The value of the cell that makes a ref to an empty cell is... the empty cell.&#10;-Note: There is one missing case in the &quot;ref&quot; that needs to be addressed" />
     <option name="LAST_COMMIT_MESSAGE" value="Starting part 2!!!&#10;Some system changes:&#10;Mainly in updating a cell using a function:&#10;• Input of a function will be considered incorrect only if it is an incorrect structure: unknown function name; Incorrect amount of arguments, etc.).&#10;• Input of arguments of the wrong type to the function, either directly (for example: concat(4,5)) or indirectly (for example: in a1 there is a number 4 and then concat(ref(a1),aaa)) is performed - it will be considered a valid input ( that doesn't throw exception) but then the function will get an invalid value (according to its type)&#10;• An empty cell has no value. Making a ref to an empty cell is meaningless, but technically it is a valid and proper input. The value of the cell that makes a ref to an empty cell is... the empty cell.&#10;-Note: There is one missing case in the &quot;ref&quot; that needs to be addressed" />
   </component>
