@@ -11,12 +11,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Added new Math expression function:PERCENT">
-      <change afterPath="$PROJECT_DIR$/Engine/src/sheet/range/Range.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Engine/src/sheet/range/RangeImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Engine/src/sheet/range/RangeManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Engine/src/sheet/range/RangeManagerImpl.java" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="New departments:&#10;1.Range(interface)&#10;2.RangeImpl&#10;3.RangeManager(Interface)&#10;4.RangeManagerImpl&#10;Their purpose: range support and complex functions">
+      <change afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Sum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/sheet/range/RangeReadActions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/sheet/range/RangeUpdateActions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/Sheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/Sheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/SheetDataRetriever.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/SheetDataRetriever.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/range/Range.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/range/Range.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/range/RangeImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/range/RangeImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +32,8 @@
       <list>
         <option value="HTML File" />
         <option value="FxmlFile" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -349,7 +353,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1725627668934</updated>
-      <workItem from="1725627672775" duration="14149000" />
+      <workItem from="1725627672775" duration="21960000" />
     </task>
     <task id="LOCAL‎-00024" summary="Getting started with fxml&#10; components: app, header, board">
       <option name="closed" value="true" />
@@ -383,7 +387,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1725786531774</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL‎-00028" summary="New departments:&#10;1.Range(interface)&#10;2.RangeImpl&#10;3.RangeManager(Interface)&#10;4.RangeManagerImpl&#10;Their purpose: range support and complex functions">
+      <option name="closed" value="true" />
+      <created>1725792127329</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL‎-00028" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1725792127329</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -447,7 +459,8 @@
     <MESSAGE value="Starting part 2!!!&#10;Some system changes:&#10;Mainly in updating a cell using a function:&#10;• Input of a function will be considered incorrect only if it is an incorrect structure: unknown function name; Incorrect amount of arguments, etc.).&#10;• Input of arguments of the wrong type to the function, either directly (for example: concat(4,5)) or indirectly (for example: in a1 there is a number 4 and then concat(ref(a1),aaa)) is performed - it will be considered a valid input ( that doesn't throw exception) but then the function will get an invalid value (according to its type)&#10;• An empty cell has no value. Making a ref to an empty cell is meaningless, but technically it is a valid and proper input. The value of the cell that makes a ref to an empty cell is... the empty cell.&#10;-Note: There is one missing case in the &quot;ref&quot; that needs to be addressed" />
     <MESSAGE value="Added new Boolean expression functions:&#10;1.Equal&#10;2.Not&#10;3.Bigger&#10;4.Less&#10;5.Or&#10;6.And&#10;7.If" />
     <MESSAGE value="Added new Math expression function:PERCENT" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added new Math expression function:PERCENT" />
+    <MESSAGE value="New departments:&#10;1.Range(interface)&#10;2.RangeImpl&#10;3.RangeManager(Interface)&#10;4.RangeManagerImpl&#10;Their purpose: range support and complex functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="New departments:&#10;1.Range(interface)&#10;2.RangeImpl&#10;3.RangeManager(Interface)&#10;4.RangeManagerImpl&#10;Their purpose: range support and complex functions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -464,7 +477,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>
-          <line>191</line>
+          <line>193</line>
           <properties class="sheet.SheetImpl" method="updateCell">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

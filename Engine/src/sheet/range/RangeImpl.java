@@ -1,6 +1,10 @@
 package sheet.range;
 
 import sheet.coordinate.Coordinate;
+import sheet.coordinate.CoordinateImpl;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class RangeImpl implements Range {
     private final String name;
@@ -50,6 +54,21 @@ public class RangeImpl implements Range {
     @Override
     public boolean isInUse() {
         return usageCount > 0;
+    }
+
+    /**
+     * Returns all coordinates within the range.
+     * @return List of coordinates in the range
+     */
+    @Override
+    public List<Coordinate> getCoordinates() {
+        List<Coordinate> coordinates = new ArrayList<>();
+        for (int row = topLeft.getRow(); row <= bottomRight.getRow(); row++) {
+            for (char col = topLeft.getCol(); col <= bottomRight.getCol(); col++) {
+                coordinates.add(new CoordinateImpl(col, row));
+            }
+        }
+        return coordinates;
     }
 
     @Override

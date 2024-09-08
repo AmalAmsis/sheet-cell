@@ -8,6 +8,7 @@ import sheet.cell.Cell;
 import sheet.cell.CellImpl;
 import sheet.coordinate.Coordinate;
 import sheet.effectivevalue.EffectiveValueImpl;
+import sheet.range.RangeManager;
 
 import java.io.Serializable;
 import java.util.*;
@@ -26,6 +27,7 @@ public class SheetImpl implements Sheet , Serializable {
     private final int numOfCols; // The number of columns in the sheet
     private final int heightOfRows; // The height of rows in the sheet
     private final int widthOfCols; // The width of columns in the sheet
+    private RangeManager rangeManager;
 
 
     /** Constructs a SheetImpl with specified dimensions and title.

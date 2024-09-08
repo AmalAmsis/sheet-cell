@@ -97,8 +97,8 @@ public class RangeManagerImpl implements RangeManager {
      * @throws Exception if the range is not found.
      */
     @Override
-    public Range viewRange(String name) throws Exception {
-        Range range = ranges.get(name);
+    public RangeReadActions getReadOnlyRange(String name) throws Exception {
+        RangeReadActions range = ranges.get(name);
         if (range == null) {
             throw new Exception("Range not found.");
         }
