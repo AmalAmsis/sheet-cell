@@ -24,7 +24,7 @@ import java.util.List;
 
 public class EngineImpl implements Engine,Serializable {
 
-    SheetStateManager currentSheetState;
+    private SheetStateManager currentSheetState;
 
     public SheetStateManager getCurrentSheetState() {
         return currentSheetState;
