@@ -32,6 +32,10 @@ public interface Cell {
      * @return a List of Cell objects that this cell depends on. */
     List<Cell> getDependsOn();
 
+    String getdependsOnRangeName();
+
+    void setdependsOnRangeName(String rangeName);
+
     /** Adds a cell to the list of cells that this cell depends on.
      * @param cell the Cell to add to the depends on list. */
     void addToDependsOn(Cell cell);
@@ -98,5 +102,7 @@ public interface Cell {
      * @param path a list to track the path of the cycle.
      * @return a List of Cell objects that form a cycle. */
     List<Cell> detectCycleHelper(Set<Cell> visited, Set<Cell> recStack, List<Cell> path);
+
+
 
 }

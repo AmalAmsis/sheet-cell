@@ -5,6 +5,8 @@ import sheet.coordinate.Coordinate;
 import java.util.HashMap;
 import java.util.Map;
 
+
+// צריך לתקן את האקספשנים
 /**
  * Manages a collection of ranges and their associated usage counts.
  * Provides methods to add, remove, and view ranges, and to check usage counts.
@@ -23,16 +25,15 @@ public class RangeManagerImpl implements RangeManager {
      * @param name         The unique name for the range.
      * @param topLeft      The top-left coordinate of the range.
      * @param bottomRight  The bottom-right coordinate of the range.
-     * @throws Exception if the range name already exists or if the range is not contiguous.
      */
     @Override
-    public void addRange(String name, Coordinate topLeft, Coordinate bottomRight) throws Exception {
+    public void addRange(String name, Coordinate topLeft, Coordinate bottomRight)  {
         if (ranges.containsKey(name)) {
-            throw new Exception("Range with this name already exists.");
+            throw new IllegalArgumentException("Range with this name already exists.");
         }
 
         if (!isContiguous(topLeft, bottomRight)) {
-            throw new Exception("Range must be contiguous.");
+            throw new IllegalArgumentException("Range must be contiguous.");
         }
 
         ranges.put(name, new RangeImpl(name, topLeft, bottomRight));
@@ -45,15 +46,15 @@ public class RangeManagerImpl implements RangeManager {
      * @throws Exception if the range is in use or not found.
      */
     @Override
-    public void removeRange(String name) throws Exception {
+    public void removeRange(String name)  {
         Range range = ranges.get(name);
         if (range != null) {
             if (range.isInUse()) {
-                throw new Exception("Cannot remove range. It's currently in use by " + range.getUsageCount() + " function(s).");
+                throw new IllegalArgumentException("Cannot remove range. It's currently in use by " + range.getUsageCount() + " function(s).");
             }
             ranges.remove(name);
         } else {
-            throw new Exception("Range not found.");
+            throw new IllegalArgumentException("Range not found.");
         }
     }
 
@@ -64,12 +65,12 @@ public class RangeManagerImpl implements RangeManager {
      * @throws Exception if the range is not found.
      */
     @Override
-    public void markRangeInUse(String name) throws Exception {
+    public void markRangeInUse(String name)  {
         Range range = ranges.get(name);
         if (range != null) {
             range.incrementUsage();
         } else {
-            throw new Exception("Range not found.");
+            throw new IllegalArgumentException("Range not found.");
         }
     }
 
@@ -80,12 +81,12 @@ public class RangeManagerImpl implements RangeManager {
      * @throws Exception if the range is not found.
      */
     @Override
-    public void unmarkRangeInUse(String name) throws Exception {
+    public void unmarkRangeInUse(String name)  {
         Range range = ranges.get(name);
         if (range != null) {
             range.decrementUsage();
         } else {
-            throw new Exception("Range not found.");
+            throw new IllegalArgumentException("Range not found.");
         }
     }
 
@@ -93,15 +94,11 @@ public class RangeManagerImpl implements RangeManager {
      * Retrieves a range by its name.
      *
      * @param name The name of the range.
-     * @return The range, or null if not found.
-     * @throws Exception if the range is not found.
+     * @return The range as RangeReadActions, or null if not found.
      */
     @Override
-    public Range viewRange(String name) throws Exception {
-        Range range = ranges.get(name);
-        if (range == null) {
-            throw new Exception("Range not found.");
-        }
+    public RangeReadActions getReadOnlyRange(String name)  {
+        RangeReadActions range = ranges.get(name);
         return range;
     }
 

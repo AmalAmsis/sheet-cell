@@ -3,6 +3,8 @@ package sheet;
 import sheet.cell.Cell;
 import sheet.coordinate.Coordinate;
 import sheet.effectivevalue.EffectiveValue;
+import sheet.range.RangeReadActions;
+
 import java.util.Map;
 
 
@@ -48,6 +50,7 @@ public interface SheetDataRetriever {
     int getNumOfCols();
     Coordinate convertStringToCoordinate(String stringCoordinate);
 
+    // להעביר לinterface אחר??
     /** Returns the board of cells in the sheet.
      * The map's key is a string representation of the cell's coordinate, and the value is the Cell object.
      * @return a Map containing the cells of the sheet. */
@@ -58,4 +61,15 @@ public interface SheetDataRetriever {
      * @param mainCell the coordinate of the main cell.
      * @param dependentCell the coordinate of the cell that depends on the main cell. */
     void addDependentCell(Coordinate mainCell, Coordinate dependentCell);
+
+    void setCellDependentOnRange(Coordinate coordinateCell, String rangeName);
+
+    /**
+     * Retrieves a range by its name.
+     *
+     * @param rangeName The name of the range.
+     * @return The range as RangeReadActions, or null if not found in RangeManager.
+     */
+    RangeReadActions getRangeReadActions(String rangeName);
+
 }

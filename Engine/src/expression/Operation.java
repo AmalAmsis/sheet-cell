@@ -124,7 +124,18 @@ public enum Operation {
             return new Percent(expressions[0], expressions[1]).evaluate();
         }
     },
-    ;
+    SUM(1){
+        @Override
+        EffectiveValue eval(SheetDataRetriever sheet, Coordinate targetCoordinate, Expression... expressions) {
+            return new Sum(expressions[0], sheet, targetCoordinate).evaluate();
+        }
+    },
+    AVERAGE(1){
+        @Override
+        EffectiveValue eval(SheetDataRetriever sheet, Coordinate targetCoordinate, Expression... expressions) {
+            return new Average(expressions[0], sheet, targetCoordinate).evaluate();
+        }
+    };
 
 
     private final int numberOfArguments;
