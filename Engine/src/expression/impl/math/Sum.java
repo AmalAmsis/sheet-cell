@@ -38,6 +38,7 @@ public class Sum extends UnaryExpression {
             }
             else{
                 double sum = 0;
+                sheet.setCellDependentOnRange(targetCoordinate, rangeName);
                 List<Coordinate> coordintes = range.getCoordinates();
                 for (Coordinate coordinate : coordintes) {
                     sheet.addDependentCell(this.targetCoordinate, coordinate);

@@ -19,4 +19,7 @@ public interface SheetDataModifier {
      * If the cell does not exist, this method does nothing.
      * @param coordinate the coordinate of the cell to remove. */
     void removeCell(Coordinate coordinate);
+
+    void addRangeToManager(String rangeName, String range) throws Exception;
+    void removeRangeFromManager(String rangeName) throws Exception;
 }

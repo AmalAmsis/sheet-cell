@@ -28,6 +28,7 @@ public class CellImpl implements Cell, Serializable {
     private final List<Cell> dependsOn;  // List of cells this cell depends on
     private final List<Cell> influencingOn; // List of cells that depend on this cell
     private SheetDataRetriever sheet; // Interface to retrieve data from the sheet
+    private String dependsOnRangeName;
 
 
     /** Constructs a CellImpl with the specified coordinate, version, and sheet data retriever.
@@ -43,6 +44,7 @@ public class CellImpl implements Cell, Serializable {
         this.influencingOn = new ArrayList<>();
         this.sheet = sheet;
         this.id = coordinate.toString();
+        this.dependsOnRangeName = null;
 
     }
 
@@ -66,6 +68,8 @@ public class CellImpl implements Cell, Serializable {
     public Coordinate getCoordinate() {
         return coordinate;
     }
+
+
 
     @Override
     public EffectiveValue calculateEffectiveValue(String originalValue) {
@@ -137,6 +141,16 @@ public class CellImpl implements Cell, Serializable {
         return dependsOn;
     }
 
+    @Override
+    public String getdependsOnRangeName() {
+        return this.dependsOnRangeName;
+    }
+
+    @Override
+    public void setdependsOnRangeName(String rangeName) {
+        this.dependsOnRangeName = rangeName;
+    }
+
 
     @Override
     public void addToDependsOn(Cell cell) {
@@ -155,6 +169,7 @@ public class CellImpl implements Cell, Serializable {
 
     @Override
     public void removeAllDependsOn() {
+
         Iterator<Cell> iterator = dependsOn.iterator();
         while (iterator.hasNext()) {
             Cell cell = iterator.next();
@@ -184,7 +199,7 @@ public class CellImpl implements Cell, Serializable {
             String cyclePath = cycle.stream()
                     .map(Cell:: getId) // Assuming each Cell has a getId implementation
                     .collect(Collectors.joining(" -> "));
-            String message = String.format("Cycle detected: %s. REF operation failed due to the cycle.", cyclePath);
+            String message = String.format("Cycle detected: %s. Update Cell failed due to the cycle.", cyclePath);
             throw new IllegalArgumentException(message);
         }
     }

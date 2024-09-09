@@ -40,6 +40,7 @@ public class Average extends UnaryExpression {
             }
             else{
                 double sum = 0;
+                sheet.setCellDependentOnRange(targetCoordinate, rangeName);
                 List<Coordinate> coordintes = range.getCoordinates();
                 int numOfCells = 0;
                 for (Coordinate coordinate : coordintes) {

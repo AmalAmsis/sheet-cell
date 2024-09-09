@@ -62,6 +62,8 @@ public interface SheetDataRetriever {
      * @param dependentCell the coordinate of the cell that depends on the main cell. */
     void addDependentCell(Coordinate mainCell, Coordinate dependentCell);
 
+    void setCellDependentOnRange(Coordinate coordinateCell, String rangeName);
+
     /**
      * Retrieves a range by its name.
      *
@@ -69,4 +71,5 @@ public interface SheetDataRetriever {
      * @return The range as RangeReadActions, or null if not found in RangeManager.
      */
     RangeReadActions getRangeReadActions(String rangeName);
+
 }

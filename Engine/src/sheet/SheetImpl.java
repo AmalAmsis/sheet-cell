@@ -9,6 +9,7 @@ import sheet.cell.CellImpl;
 import sheet.coordinate.Coordinate;
 import sheet.effectivevalue.EffectiveValueImpl;
 import sheet.range.RangeManager;
+import sheet.range.RangeManagerImpl;
 import sheet.range.RangeReadActions;
 
 import java.io.Serializable;
@@ -44,6 +45,7 @@ public class SheetImpl implements Sheet , Serializable {
         this.numOfCols = numOfCols;
         this.heightOfRows = heightOfRows;
         this.widthOfCols = widthOfCols;
+        this.rangeManager = new RangeManagerImpl();
         //this.board = new HashMap<>();
     }
 
@@ -162,6 +164,13 @@ public class SheetImpl implements Sheet , Serializable {
     }
 
     @Override
+    public void setCellDependentOnRange(Coordinate coordinateCell, String rangeName) {
+        Cell cell = getCell(coordinateCell);
+        cell.setdependsOnRangeName(rangeName);
+        this.rangeManager.markRangeInUse(rangeName);
+    }
+
+    @Override
     public RangeReadActions getRangeReadActions(String rangeName) {
         return rangeManager.getReadOnlyRange(rangeName);
     }
@@ -200,11 +209,70 @@ public class SheetImpl implements Sheet , Serializable {
     public int updateCell(Coordinate coordinate, String originalValue) {
         Cell myCell = board.get(coordinate.toString());
         myCell.removeAllDependsOn();
+        if(myCell.getdependsOnRangeName() != null) {
+             rangeManager.unmarkRangeInUse(myCell.getdependsOnRangeName());
+             myCell.setdependsOnRangeName(null);
+        }
         int numOfUpdatededCells = 0;
         if(myCell != null) {
            numOfUpdatededCells = myCell.updateValue(originalValue);
         }
         return numOfUpdatededCells;
+    }
+
+    /**
+     * Adds a range of cells to the RangeManager.
+     *
+     * The range is specified as a string in the format "<startCell>..<endCell>" where
+     * <startCell> and <endCell> are valid cell coordinates. Examples of valid ranges include:
+     * <ul>
+     *   <li>A1..A4 – Defines a range of cells in column A.</li>
+     *   <li>A3..D3 – Defines a range of cells in row 3.</li>
+     *   <li>A3..D4 – Defines a 2D range of cells between columns A and D, and between rows 3 and 4.</li>
+     * </ul>
+     *
+     * @param rangeName The unique name assigned to this range.
+     * @param range The string representing the range in the format "<startCell>..<endCell>".
+     * @throws IllegalArgumentException If the range format is invalid or does not contain two valid cell coordinates.
+     * @throws Exception If there is an issue with adding the range to the RangeManager.
+     */
+    public void addRangeToManager(String rangeName, String range) throws Exception {
+
+        // Parse the range string (e.g., A1..A5 or A10..A20)
+        int dotIndex = range.indexOf("..");
+        if (dotIndex == -1) {
+            // Throws an exception if the range format is incorrect
+            throw new IllegalArgumentException("Invalid range format: " + range + "\n"
+                    + "The range should follow one of the following formats:\n"
+                    + "• A1..A4 – Defines a range of cells in column A.\n"
+                    + "• A3..D3 – Defines a range of cells in row 3.\n"
+                    + "• A3..D4 – Defines a 2D range of cells between columns A and D, and between rows 3 and 4.\n"
+                    + "The range format must consist of two valid cell IDs separated by two dots ('..').");
+        }
+
+        // Extract the start cell and end cell from the range string
+        String startCell = range.substring(0, dotIndex);
+        String endCell = range.substring(dotIndex + 2);
+
+        // Ensure cell IDs are properly trimmed and in uppercase for consistency
+        startCell = startCell.trim().toUpperCase();
+        endCell = endCell.trim().toUpperCase();
+
+        // Convert the string representation of the start and end cells into coordinates
+        Coordinate startCoordinate = convertStringToCoordinate(startCell);
+        Coordinate endCoordinate = convertStringToCoordinate(endCell);
+
+        // Add the range to the RangeManager
+        rangeManager.addRange(rangeName, startCoordinate, endCoordinate);
+    }
+
+    /**Removes a range from the rangeManager
+     *
+     * @param rangeName
+     * @throws Exception
+     */
+    public void removeRangeFromManager(String rangeName) throws Exception {
+        rangeManager.removeRange(rangeName);
     }
 
     /** Removes a cell from the sheet.

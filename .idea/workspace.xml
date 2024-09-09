@@ -11,9 +11,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Added new Math expression function:Sum">
-      <change afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Average.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/expression/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/Operation.java" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Added new Math expression function:Average">
+      <change afterPath="$PROJECT_DIR$/Engine/src/sheet/range/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Average.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Average.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/expression/impl/math/Sum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/expression/impl/math/Sum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/SheetDataModifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/SheetDataModifier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/SheetDataRetriever.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/SheetDataRetriever.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/cell/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/cell/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/range/RangeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/range/RangeManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/range/RangeManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/range/RangeManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/expression/Operation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/sheet/cell/CellImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/sheet/cell/CellImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +72,7 @@
     "Application.Main.executor": "Run",
     "Application.Test.executor": "Run",
     "Application.Test2.executor": "Run",
+    "Application.sheet.range.Test.executor": "Run",
     "DefaultHtmlFileTemplate": "HTML File",
     "JAR Application.UI.jar.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -79,7 +91,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Test2">
+  <component name="RunManager" selected="Application.sheet.range.Test">
     <configuration name="AppRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="manager.AppRunner" />
       <module name="UI" />
@@ -106,19 +118,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="test.Test" />
-      <module name="UI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Test2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="subcomponents.test.Test2" />
       <module name="UI" />
@@ -132,17 +131,30 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="sheet.range.Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sheet.range.Test" />
+      <module name="Engine" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sheet.range.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UI.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/UI/UI.jar" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.sheet.range.Test" />
         <item itemvalue="Application.Test2" />
         <item itemvalue="Application.FxmlTest" />
         <item itemvalue="JAR Application.UI.jar" />
         <item itemvalue="Application.AppRunner" />
-        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -346,7 +358,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1725627668934</updated>
-      <workItem from="1725627672775" duration="26518000" />
+      <workItem from="1725627672775" duration="37930000" />
     </task>
     <task id="LOCAL‎-00024" summary="Getting started with fxml&#10; components: app, header, board">
       <option name="closed" value="true" />
@@ -428,7 +440,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1725817049322</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL‎-00034" summary="Added new Math expression function:Average">
+      <option name="closed" value="true" />
+      <created>1725817885819</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL‎-00034" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1725817885819</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -496,7 +516,8 @@
     <MESSAGE value="split Range interface into 2 interfaces : RangeReadActions,RangeUpdateAction" />
     <MESSAGE value="add new method to sheetImpl : &#10;/**&#10;     * Retrieves a range by its name.&#10;     *&#10;     * @param rangeName The name of the range.&#10;     * @return The range as RangeReadActions, or null if not found in RangeManager.&#10;     */&#10;    RangeReadActions getRangeReadActions(String rangeName);" />
     <MESSAGE value="Added new Math expression function:Sum" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added new Math expression function:Sum" />
+    <MESSAGE value="Added new Math expression function:Average" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added new Math expression function:Average" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -513,7 +534,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>
-          <line>199</line>
+          <line>208</line>
           <properties class="sheet.SheetImpl" method="updateCell">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
