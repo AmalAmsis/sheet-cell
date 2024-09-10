@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="rootPane" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HADASH.component.main.app.AppController">
+
+    <top>
+        <fx:include fx:id="headerComponent" source="../../subcomponent/header/header.fxml" />
+    </top>
+
+    <center>
+        <fx:include fx:id="sheetComponent" source="../../subcomponent/sheet/sheet.fxml" />
+    </center>
+    <left>
+        <VBox>
+            <fx:include fx:id="leftComponent" source="../../subcomponent/left/left.fxml" />
+        </VBox>
+    </left>
+
+</BorderPane>

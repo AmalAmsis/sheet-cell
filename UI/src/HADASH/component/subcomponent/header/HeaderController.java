@@ -1,67 +1,39 @@
-package component.subcomponent.header;
+package HADASH.component.subcomponent.header;
 
+import HADASH.component.main.app.AppController;
 import jakarta.xml.bind.JAXBException;
-import javafx.beans.property.SimpleStringProperty;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import component.main.app.UIAdapter;
 import jaxb.schema.xmlprocessing.FileDataException;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 
+
 public class HeaderController {
 
-    @FXML
-    private Label cellIdLabel;
+    private AppController appController;
 
-    @FXML
-    private Label currentVersionLabel;
+    @FXML private Label cellIdLabel;
+    @FXML private Label currentVersionLabel;
+    @FXML private Label filePathLlabel;
+    @FXML private Button loadFileButton;
+    @FXML private Label originalValueLabel;
+    @FXML private Button updateValueButtom;
+    @FXML private Button versionSelectorButtom;
 
-    @FXML
-    private Label filePathLlabel;
 
-    @FXML
-    private Button loadFileButton;
-
-    @FXML
-    private Label originalValueLabel;
-
-    @FXML
-    private Button updateValueButtom;
-
-    @FXML
-    private Button versionSelectorButtom;
-
-    private SimpleStringProperty selectedFileProperty;
-    private Stage primaryStage;
-    private UIAdapter uiAdapter;
-
-    // Setter for the UIAdapter
-    public void setUIAdapter(UIAdapter uiAdapter) {
-        this.uiAdapter = uiAdapter;
+    public void setAppController(AppController appController) {
+        this.appController = appController;
     }
 
     public void initialize() {
-
-        // Initialize the UIAdapter if not already initialized
-        if (uiAdapter == null) {
-            uiAdapter = new UIAdapter();
-        }
-
-        // בתחילת הדרך נוודא שכל הכפתורים חוץ מ-loadFileButton יהיו מושבתים
-        updateValueButtom.setDisable(true);
-        versionSelectorButtom.setDisable(true);
-        //actionTextField.setDisable(true);
-        cellIdLabel.setDisable(true);
-        originalValueLabel.setDisable(true);
-        currentVersionLabel.setDisable(true);
+        appController = new AppController();
     }
-
-
 
 
     @FXML
@@ -72,7 +44,7 @@ public class HeaderController {
         fileChooser.setTitle("Select File");
 
         // Adding filters to specific files (optional)
-        fileChooser.getExtensionFilters().addAll(
+        fileChooser.getExtensionFilters().add(
                 new FileChooser.ExtensionFilter("XML Files", "*.xml")
         );
 
@@ -83,9 +55,8 @@ public class HeaderController {
         if (selectedFile != null) {
             // If a file is selected, load it using the UIAdapter
             try {
-                uiAdapter.loadSheetFromFile(selectedFile.getAbsolutePath());
-                uiAdapter.displaySheet();
-                afterFileWasLoaded(selectedFile);
+                appController.loadSheetFromFile(selectedFile.getAbsolutePath());
+                appController.displaySheet();
 
             } catch (IllegalArgumentException e) {
                 // Handle errors from isXmlFile (e.g., invalid file path or non-XML file)
@@ -147,33 +118,13 @@ public class HeaderController {
         filePathLlabel.setText(message);
     }
 
-    public void afterFileWasLoaded(File selectedFile) {
-        if (selectedFile != null) {
-            filePathLlabel.setText(selectedFile.getAbsolutePath());
 
-
-            // If the file is loaded successfully, we release the buttons and TextField
-            updateValueButtom.setDisable(false);
-            versionSelectorButtom.setDisable(false);
-            //actionTextField.setDisable(false);
-            cellIdLabel.setDisable(false);
-            originalValueLabel.setDisable(false);
-            currentVersionLabel.setDisable(false);
-        } else {
-            filePathLlabel.setText("No file selected");
-        }
-    }
-
-
-    //todo
-    @FXML
-    void CliclMeUpdateValueButtonAction() {
+    @FXML void CliclMeUpdateValueButtonAction(ActionEvent event) {
 
     }
 
-    //todo
-    @FXML
-    void CliclMeVersionSelectorButtomAction() {
+    @FXML void CliclMeVersionSelectorButtomAction(ActionEvent event) {
 
     }
+
 }

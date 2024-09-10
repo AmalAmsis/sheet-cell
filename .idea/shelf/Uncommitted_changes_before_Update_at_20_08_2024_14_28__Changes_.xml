@@ -2,7 +2,6 @@
   <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28_[Changes]/shelved.patch" />
   <option name="DESCRIPTION" value="Uncommitted changes before Update at 20/08/2024 14:28 [Changes]" />
   <binary>
-    <option name="BEFORE_PATH" />
     <option name="AFTER_PATH" value="out/production/Engine/Test/Main.class" />
     <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28_[Changes]/Main.class" />
   </binary>
