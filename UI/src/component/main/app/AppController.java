@@ -1,52 +1,64 @@
 package component.main.app;
 
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.BorderPane;
-import component.subcomponent.sheet.SheetController;
 import component.subcomponent.header.HeaderController;
-
-import java.io.IOException;
+import component.subcomponent.left.LeftController;
+import component.subcomponent.sheet.SheetController;
+import dto.DTOSheet;
+import javafx.fxml.FXML;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.VBox;
+import manager.UIManager;
+import manager.UIManagerImpl;
 
 public class AppController {
+    
+    @FXML private VBox header;
+    @FXML private HeaderController headerController;
+    @FXML private ScrollPane sheet;
+    @FXML private SheetController sheetController;
+    @FXML private ScrollPane left;
+    @FXML private LeftController leftController;
 
-    //Data Member
-    private UIAdapter uiAdapter;
-
-    //FXML Member
-    @FXML
-    private BorderPane rootPane;
+    private UIManager uiManager;
 
     public AppController() {
-        uiAdapter = new UIAdapter();
+      uiManager = new UIManagerImpl();
     }
+
+    public void loadSheetFromFile(String filePath) throws Exception {
+        // Load the sheet from the XML file
+        uiManager.loadSheetFromXmlFile(filePath);
+
+    }
+
+    public void displaySheet(){
+        DTOSheet dtoSheet = uiManager.getDtoSheetForDisplaySheet();
+        sheetController.diaplaySheet(dtoSheet);
+    }
+
 
     @FXML
     public void initialize() {
-        try {
-
-            // Load and set HeaderController
-            FXMLLoader headerLoader = new FXMLLoader(getClass().getResource("/component/subcomponent/header/header.fxml"));
-            rootPane.setTop(headerLoader.load());
-            HeaderController headerController = headerLoader.getController();
-            uiAdapter.setHeaderController(headerController);
-            headerController.setUIAdapter(uiAdapter);
-
-
-            // Load and set SheetController
-            FXMLLoader sheetLoader = new FXMLLoader(getClass().getResource("/component/subcomponent/sheet/sheet.fxml"));
-            rootPane.setCenter(sheetLoader.load());
-            SheetController sheetController = sheetLoader.getController();
-            uiAdapter.setSheetController(sheetController);
-            sheetController.setUiAdapter(uiAdapter);
-
-            headerController.initialize();
-            sheetController.initialize();
-
-
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(headerController != null && sheetController != null && leftController != null) {
+            headerController.setAppController(this);
+            sheetController.setAppController(this);
+            leftController.setAppController(this);
         }
+
     }
 
+    public void setHeaderController(HeaderController headerController) {
+        this.headerController = headerController;
+        headerController.setAppController(this);
+    }
+
+    public void setSheetController(SheetController sheetController) {
+        this.sheetController = sheetController;
+        sheetController.setAppController(this);
+    }
+
+    public void setLeftController(LeftController leftController) {
+        this.leftController = leftController;
+        leftController.setAppController(this);
+    }
 }

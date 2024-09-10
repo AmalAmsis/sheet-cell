@@ -1,6 +1,7 @@
+
 package component.subcomponent.sheet;
 
-import component.main.app.UIAdapter;
+import component.main.app.AppController;
 import dto.DTOCell;
 import dto.DTOSheet;
 import javafx.fxml.FXML;
@@ -14,18 +15,16 @@ import java.util.Map;
 
 public class SheetController {
 
-    @FXML
-    private GridPane sheetGrid;
+    private AppController appController;
 
-    private UIAdapter uiAdapter;
+    @FXML private GridPane sheetGrid;
 
-    public void setUiAdapter(UIAdapter uiAdapter) {
-        this.uiAdapter = uiAdapter;
+    public void setAppController(AppController appController) {
+        this.appController = appController;
     }
 
+
     public void diaplaySheet(DTOSheet dtoSheet) {
-
-
 
         int numOfRows = dtoSheet.getNumOfRows();
         int numOfCols = dtoSheet.getNumOfColumns();
@@ -106,8 +105,6 @@ public class SheetController {
         }
     }
 
-
-    // פונקציה ליצירת ColumnConstraints
     private javafx.scene.layout.ColumnConstraints createColumnConstraint(double preferredWidth, boolean isFixedWidth) {
         javafx.scene.layout.ColumnConstraints column = new javafx.scene.layout.ColumnConstraints();
 
@@ -153,7 +150,5 @@ public class SheetController {
     }
 
 
-    public void initialize() {
-
-    }
 }
+

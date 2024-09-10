@@ -12,7 +12,7 @@ public class FxmlTest extends Application {
     public void start(Stage primaryStage) {
         try {
             // טעינת הקובץ הראשי app.fxml
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/component/main/app/app.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../component/main/app/app.fxml"));
             BorderPane root = loader.load();
 
             // הגדרת הסצנה והבמה (Stage)

@@ -12,8 +12,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Updates classes to allow ranges to be used correctly">
+      <change afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/left/left.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/sheet/cell/Cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/sheet/cell/Cell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/main/app/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/main/app/AppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/main/app/UIAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/main/app/app.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/main/app/app.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/cell/cell.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/cell/cell.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/header/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/header/header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/header/header.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/header/header.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/SheetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/SheetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/sheet.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/sheet.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/test/FxmlTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/test/FxmlTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +35,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="FxmlFile" />
         <option value="Interface" />
+        <option value="FxmlFile" />
+        <option value="CSS File" />
         <option value="Class" />
       </list>
     </option>
@@ -57,18 +69,21 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.AppRunner.executor": "Run",
-    "Application.FxmlTest.executor": "Run",
+    "Application.FxmlTest.executor": "Debug",
     "Application.Main.executor": "Run",
     "Application.Test.executor": "Run",
-    "Application.Test2.executor": "Run",
+    "Application.Test2.executor": "Coverage",
+    "Application.deprecated.apprunner.AppRunner.executor": "Run",
     "Application.sheet.range.Test.executor": "Run",
+    "Application.test.FxmlTest.executor": "Run",
     "DefaultHtmlFileTemplate": "HTML File",
     "JAR Application.UI.jar.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "Amal",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Amal Amsis/Desktop/AmalA/Computer Science/JAVA/openjfx-22.0.2_windows-x64_bin-sdk/javafx-sdk-22.0.2/lib",
+    "last_opened_file_path": "C:/Users/Amal Amsis/Downloads/08. Java FX",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -80,9 +95,56 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.sheet.range.Test">
-    <configuration name="AppRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="manager.AppRunner" />
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\sheet-cell\UI\src\component\subcomponent\header" />
+      <recent name="C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\sheet-cell\UI\src\component\subcomponent\cell" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.FxmlTest">
+    <configuration name="FxmlTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.FxmlTest" />
+      <module name="UI" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\openjfx-22.0.2_windows-x64_bin-sdk\javafx-sdk-22.0.2\lib&quot;  --add-modules javafx.controls,javafx.fxml " />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="subcomponents.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sheet.range.Test" />
+      <module name="UI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sheet.range.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="subcomponents.test.Test2" />
+      <module name="UI" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\openjfx-22.0.2_windows-x64_bin-sdk\javafx-sdk-22.0.2\lib&quot;  --add-modules javafx.controls,javafx.fxml " />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="subcomponents.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="deprecated.apprunner.AppRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="deprecated.apprunner.AppRunner" />
       <module name="UI" />
       <extension name="coverage">
         <pattern>
@@ -94,56 +156,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FxmlTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="subcomponents.test.FxmlTest" />
-      <module name="UI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="subcomponents.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="subcomponents.test.Test2" />
-      <module name="UI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="subcomponents.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="sheet.range.Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sheet.range.Test" />
-      <module name="Engine" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="sheet.range.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="UI.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/UI/UI.jar" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Application.deprecated.apprunner.AppRunner" />
+      <item itemvalue="Application.FxmlTest" />
+      <item itemvalue="Application.Test" />
+      <item itemvalue="Application.Test2" />
+      <item itemvalue="JAR Application.UI.jar" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.sheet.range.Test" />
-        <item itemvalue="Application.Test2" />
         <item itemvalue="Application.FxmlTest" />
+        <item itemvalue="Application.deprecated.apprunner.AppRunner" />
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.Test2" />
         <item itemvalue="JAR Application.UI.jar" />
-        <item itemvalue="Application.AppRunner" />
       </list>
     </recent_temporary>
   </component>
@@ -348,6 +378,8 @@
       <option name="presentableId" value="Default" />
       <updated>1725627668934</updated>
       <workItem from="1725627672775" duration="38406000" />
+      <workItem from="1725874015206" duration="12458000" />
+      <workItem from="1725968132983" duration="6991000" />
     </task>
     <task id="LOCAL‎-00024" summary="Getting started with fxml&#10; components: app, header, board">
       <option name="closed" value="true" />
@@ -445,7 +477,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1725866056107</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL‎-00036" summary="Updates classes to allow ranges to be used correctly">
+      <option name="closed" value="true" />
+      <created>1725866216345</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL‎-00036" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1725866216345</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -467,7 +507,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="Amal" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -527,8 +567,28 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java</url>
-          <line>493</line>
+          <line>29</line>
           <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UI/src/test/FxmlTest.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>
@@ -538,6 +598,15 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/UI/src/test/FxmlTest.java</url>
+          <line>11</line>
+          <properties class="test.FxmlTest" method="start">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -551,5 +620,10 @@
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/sheet_cell_iml$Test2.ic" NAME="Test2 Coverage Results" MODIFIED="1725873978870" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>subcomponents.test.*</FILTER>
+    </SUITE>
   </component>
 </project>
