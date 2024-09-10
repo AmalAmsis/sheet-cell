@@ -1,27 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane fx:id="rootPane" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.main.app.AppController">
 
     <top>
-        <fx:include source="../../subcomponent/header/header.fxml" />
+        <fx:include fx:id="header" source="../../subcomponent/header/header.fxml" />
     </top>
 
     <center>
-        <fx:include source="../../subcomponent/sheet/sheet.fxml" />
+        <fx:include fx:id="sheet" source="../../subcomponent/sheet/sheet.fxml" />
     </center>
-   <left>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label text="Label" />
-            <VBox prefHeight="71.0" prefWidth="100.0" />
-            <Label text="Label" />
-            <VBox prefHeight="87.0" prefWidth="100.0" />
-         </children>
-      </VBox>
-   </left>
+    <left>
+        <VBox>
+            <fx:include fx:id="left" source="../../subcomponent/left/left.fxml" />
+        </VBox>
+    </left>
 
 </BorderPane>
