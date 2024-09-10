@@ -11,20 +11,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Updates classes to allow ranges to be used correctly">
-      <change afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/left/left.fxml" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Beginning of work on the graphical interface.&#10;The main component is the app&#10;which contains 2 components:&#10;header and sheet.&#10;&#10;The sheet contains cell type components.&#10;&#10;I basically defined everyone's fxml files.&#10;&#10;I also built a basic controller for everyone.&#10;&#10;I built a function in sheetController that knows how to receive a sheet and load it to the screen.">
+      <change afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/CellModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/UIModelSheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mod.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/src/component/main/app/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/main/app/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/main/app/UIAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/main/app/app.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/main/app/app.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/cell/cell.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/cell/cell.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/header/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/header/header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/header/header.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/header/header.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/SheetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/SheetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/sheet.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/sheet.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/test/FxmlTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/test/FxmlTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,10 +29,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
-        <option value="Interface" />
         <option value="FxmlFile" />
-        <option value="CSS File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -54,7 +47,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/AmalAmsis/sheet-cell.git&quot;,
-    &quot;accountId&quot;: &quot;7c3c5dfe-f29d-4945-a690-87b881a1fc0c&quot;
+    &quot;accountId&quot;: &quot;537397b5-d0c5-40c9-8de6-5008f77a31b4&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -69,59 +62,43 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.AppRunner.executor": "Run",
-    "Application.FxmlTest.executor": "Debug",
+    "Application.FxmlTest.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.Test.executor": "Run",
-    "Application.Test2.executor": "Coverage",
-    "Application.deprecated.apprunner.AppRunner.executor": "Run",
-    "Application.sheet.range.Test.executor": "Run",
-    "Application.test.FxmlTest.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
+    "Application.Test2.executor": "Debug",
+    "Application.Test3.executor": "Debug",
+    "Application.apprunner.AppRunner.executor": "Run",
+    "Application.test.FxmlTest.executor": "Debug",
     "JAR Application.UI.jar.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Amal",
+    "git-widget-placeholder": "#47 on yarden__branch",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Amal Amsis/Downloads/08. Java FX",
-    "list.type.of.created.stylesheet": "CSS",
+    "last_opened_file_path": "C:/projects/aviad",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15752351",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.JavaFX",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\sheet-cell\UI\src\component\subcomponent\header" />
-      <recent name="C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\sheet-cell\UI\src\component\subcomponent\cell" />
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="subcomponents.test" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.FxmlTest">
+  <component name="RunManager" selected="Application.test.FxmlTest">
     <configuration name="FxmlTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="test.FxmlTest" />
+      <option name="MAIN_CLASS_NAME" value="component.test.FxmlTest" />
       <module name="UI" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\openjfx-22.0.2_windows-x64_bin-sdk\javafx-sdk-22.0.2\lib&quot;  --add-modules javafx.controls,javafx.fxml " />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Yarden Daniel\Desktop\computer science\year 2\semester 3\java\javafx-sdk-22.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml " />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="subcomponents.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sheet.range.Test" />
-      <module name="UI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="sheet.range.*" />
+          <option name="PATTERN" value="component.test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -130,12 +107,12 @@
       </method>
     </configuration>
     <configuration name="Test2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="subcomponents.test.Test2" />
+      <option name="MAIN_CLASS_NAME" value="component.test.Test2" />
       <module name="UI" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\openjfx-22.0.2_windows-x64_bin-sdk\javafx-sdk-22.0.2\lib&quot;  --add-modules javafx.controls,javafx.fxml " />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Yarden Daniel\Desktop\computer science\year 2\semester 3\java\javafx-sdk-22.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml " />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="subcomponents.test.*" />
+          <option name="PATTERN" value="component.test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -143,12 +120,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="deprecated.apprunner.AppRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="deprecated.apprunner.AppRunner" />
+    <configuration name="Test3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="component.test.Test3" />
       <module name="UI" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;$PROJECT_DIR$/../../../javafx-sdk-22.0.2/lib&quot; --add-modules javafx.controls,javafx.fxml " />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="manager.*" />
+          <option name="PATTERN" value="component.test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -156,32 +134,55 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UI.jar" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/UI/UI.jar" />
-      <method v="2" />
+    <configuration name="apprunner.AppRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="apprunner.AppRunner" />
+      <module name="UI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="apprunner.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test.FxmlTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.FxmlTest" />
+      <module name="UI" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\lib\javafx-sdk-22.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <list>
-      <item itemvalue="Application.deprecated.apprunner.AppRunner" />
-      <item itemvalue="Application.FxmlTest" />
-      <item itemvalue="Application.Test" />
+      <item itemvalue="Application.apprunner.AppRunner" />
+      <item itemvalue="Application.test.FxmlTest" />
+      <item itemvalue="Application.Test3" />
       <item itemvalue="Application.Test2" />
-      <item itemvalue="JAR Application.UI.jar" />
+      <item itemvalue="Application.FxmlTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.test.FxmlTest" />
         <item itemvalue="Application.FxmlTest" />
-        <item itemvalue="Application.deprecated.apprunner.AppRunner" />
-        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.apprunner.AppRunner" />
+        <item itemvalue="Application.Test3" />
         <item itemvalue="Application.Test2" />
-        <item itemvalue="JAR Application.UI.jar" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.387" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.387" />
       </set>
     </attachedChunks>
   </component>
@@ -363,129 +364,25 @@
       <option name="project" value="LOCAL‎" />
       <updated>1724920837805</updated>
     </task>
-    <task id="LOCAL‎-00023" summary="Starting part 2!!!&#10;Some system changes:&#10;Mainly in updating a cell using a function:&#10;• Input of a function will be considered incorrect only if it is an incorrect structure: unknown function name; Incorrect amount of arguments, etc.).&#10;• Input of arguments of the wrong type to the function, either directly (for example: concat(4,5)) or indirectly (for example: in a1 there is a number 4 and then concat(ref(a1),aaa)) is performed - it will be considered a valid input ( that doesn't throw exception) but then the function will get an invalid value (according to its type)&#10;• An empty cell has no value. Making a ref to an empty cell is meaningless, but technically it is a valid and proper input. The value of the cell that makes a ref to an empty cell is... the empty cell.&#10;-Note: There is one missing case in the &quot;ref&quot; that needs to be addressed">
-      <option name="closed" value="true" />
-      <created>1725550127956</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL‎-00023" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725550127956</updated>
-    </task>
     <task active="true" id="Default" summary="Default task">
-      <changelist id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Starting part 2!!!&#10;Some system changes:&#10;Mainly in updating a cell using a function:&#10;• Input of a function will be considered incorrect only if it is an incorrect structure: unknown function name; Incorrect amount of arguments, etc.).&#10;• Input of arguments of the wrong type to the function, either directly (for example: concat(4,5)) or indirectly (for example: in a1 there is a number 4 and then concat(ref(a1),aaa)) is performed - it will be considered a valid input ( that doesn't throw exception) but then the function will get an invalid value (according to its type)&#10;• An empty cell has no value. Making a ref to an empty cell is meaningless, but technically it is a valid and proper input. The value of the cell that makes a ref to an empty cell is... the empty cell.&#10;-Note: There is one missing case in the &quot;ref&quot; that needs to be addressed" />
-      <created>1725627668934</created>
+      <changelist id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="commit for marge" />
+      <created>1725627049201</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1725627668934</updated>
-      <workItem from="1725627672775" duration="38406000" />
-      <workItem from="1725874015206" duration="12458000" />
-      <workItem from="1725968132983" duration="6991000" />
+      <updated>1725627049201</updated>
+      <workItem from="1725627050305" duration="1262000" />
+      <workItem from="1725630797186" duration="41534000" />
+      <workItem from="1725807156007" duration="1382000" />
     </task>
-    <task id="LOCAL‎-00024" summary="Getting started with fxml&#10; components: app, header, board">
+    <task id="LOCAL-00023" summary="Beginning of work on the graphical interface.&#10;The main component is the app&#10;which contains 2 components:&#10;header and sheet.&#10;&#10;The sheet contains cell type components.&#10;&#10;I basically defined everyone's fxml files.&#10;&#10;I also built a basic controller for everyone.&#10;&#10;I built a function in sheetController that knows how to receive a sheet and load it to the screen.">
       <option name="closed" value="true" />
-      <created>1725631126063</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL‎-00024" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725631126063</updated>
+      <created>1725723154396</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1725723154396</updated>
     </task>
-    <task id="LOCAL‎-00025" summary="Starting part 2!!!&#10;Some system changes:&#10;Mainly in updating a cell using a function:&#10;• Input of a function will be considered incorrect only if it is an incorrect structure: unknown function name; Incorrect amount of arguments, etc.).&#10;• Input of arguments of the wrong type to the function, either directly (for example: concat(4,5)) or indirectly (for example: in a1 there is a number 4 and then concat(ref(a1),aaa)) is performed - it will be considered a valid input ( that doesn't throw exception) but then the function will get an invalid value (according to its type)&#10;• An empty cell has no value. Making a ref to an empty cell is meaningless, but technically it is a valid and proper input. The value of the cell that makes a ref to an empty cell is... the empty cell.&#10;-Note: There is one missing case in the &quot;ref&quot; that needs to be addressed">
-      <option name="closed" value="true" />
-      <created>1725631163755</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL‎-00025" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725631163755</updated>
-    </task>
-    <task id="LOCAL‎-00026" summary="Added new Boolean expression functions:&#10;1.Equal&#10;2.Not&#10;3.Bigger&#10;4.Less&#10;5.Or&#10;6.And&#10;7.If">
-      <option name="closed" value="true" />
-      <created>1725784918231</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL‎-00026" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725784918231</updated>
-    </task>
-    <task id="LOCAL‎-00027" summary="Added new Math expression function:PERCENT">
-      <option name="closed" value="true" />
-      <created>1725786531774</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL‎-00027" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725786531774</updated>
-    </task>
-    <task id="LOCAL‎-00028" summary="New departments:&#10;1.Range(interface)&#10;2.RangeImpl&#10;3.RangeManager(Interface)&#10;4.RangeManagerImpl&#10;Their purpose: range support and complex functions">
-      <option name="closed" value="true" />
-      <created>1725792127329</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL‎-00028" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725792127329</updated>
-    </task>
-    <task id="LOCAL‎-00029" summary="split Range interface into 2 interfaces : RangeReadActions,RangeUpdateAction">
-      <option name="closed" value="true" />
-      <created>1725813455790</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL‎-00029" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725813455790</updated>
-    </task>
-    <task id="LOCAL‎-00030" summary="split Range interface into 2 interfaces : RangeReadActions,RangeUpdateAction">
-      <option name="closed" value="true" />
-      <created>1725814723420</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL‎-00030" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725814723420</updated>
-    </task>
-    <task id="LOCAL‎-00031" summary="add new method to sheetImpl : &#10;/**&#10;     * Retrieves a range by its name.&#10;     *&#10;     * @param rangeName The name of the range.&#10;     * @return The range as RangeReadActions, or null if not found in RangeManager.&#10;     */&#10;    RangeReadActions getRangeReadActions(String rangeName);">
-      <option name="closed" value="true" />
-      <created>1725814845310</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL‎-00031" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725814845310</updated>
-    </task>
-    <task id="LOCAL‎-00032" summary="Added new Math expression function:Sum">
-      <option name="closed" value="true" />
-      <created>1725816788258</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL‎-00032" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725816788258</updated>
-    </task>
-    <task id="LOCAL‎-00033" summary="Added new Math expression function:Sum">
-      <option name="closed" value="true" />
-      <created>1725817049322</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL‎-00033" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725817049322</updated>
-    </task>
-    <task id="LOCAL‎-00034" summary="Added new Math expression function:Average">
-      <option name="closed" value="true" />
-      <created>1725817885819</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL‎-00034" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725817885819</updated>
-    </task>
-    <task id="LOCAL‎-00035" summary="Updates classes to allow ranges to be used correctly">
-      <option name="closed" value="true" />
-      <created>1725866056107</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL‎-00035" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725866056107</updated>
-    </task>
-    <task id="LOCAL‎-00036" summary="Updates classes to allow ranges to be used correctly">
-      <option name="closed" value="true" />
-      <created>1725866216345</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL‎-00036" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725866216345</updated>
-    </task>
-    <option name="localTasksCounter" value="37" />
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -507,7 +404,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="yarden_branch" />
                       </list>
                     </value>
                   </entry>
@@ -545,17 +442,8 @@
     <MESSAGE value="new merge" />
     <MESSAGE value="accept coordinate with lowercase letters" />
     <MESSAGE value="recent revisions" />
-    <MESSAGE value="Getting started with fxml&#10; components: app, header, board" />
-    <MESSAGE value="Starting part 2!!!&#10;Some system changes:&#10;Mainly in updating a cell using a function:&#10;• Input of a function will be considered incorrect only if it is an incorrect structure: unknown function name; Incorrect amount of arguments, etc.).&#10;• Input of arguments of the wrong type to the function, either directly (for example: concat(4,5)) or indirectly (for example: in a1 there is a number 4 and then concat(ref(a1),aaa)) is performed - it will be considered a valid input ( that doesn't throw exception) but then the function will get an invalid value (according to its type)&#10;• An empty cell has no value. Making a ref to an empty cell is meaningless, but technically it is a valid and proper input. The value of the cell that makes a ref to an empty cell is... the empty cell.&#10;-Note: There is one missing case in the &quot;ref&quot; that needs to be addressed" />
-    <MESSAGE value="Added new Boolean expression functions:&#10;1.Equal&#10;2.Not&#10;3.Bigger&#10;4.Less&#10;5.Or&#10;6.And&#10;7.If" />
-    <MESSAGE value="Added new Math expression function:PERCENT" />
-    <MESSAGE value="New departments:&#10;1.Range(interface)&#10;2.RangeImpl&#10;3.RangeManager(Interface)&#10;4.RangeManagerImpl&#10;Their purpose: range support and complex functions" />
-    <MESSAGE value="split Range interface into 2 interfaces : RangeReadActions,RangeUpdateAction" />
-    <MESSAGE value="add new method to sheetImpl : &#10;/**&#10;     * Retrieves a range by its name.&#10;     *&#10;     * @param rangeName The name of the range.&#10;     * @return The range as RangeReadActions, or null if not found in RangeManager.&#10;     */&#10;    RangeReadActions getRangeReadActions(String rangeName);" />
-    <MESSAGE value="Added new Math expression function:Sum" />
-    <MESSAGE value="Added new Math expression function:Average" />
-    <MESSAGE value="Updates classes to allow ranges to be used correctly" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updates classes to allow ranges to be used correctly" />
+    <MESSAGE value="Beginning of work on the graphical interface.&#10;The main component is the app&#10;which contains 2 components:&#10;header and sheet.&#10;&#10;The sheet contains cell type components.&#10;&#10;I basically defined everyone's fxml files.&#10;&#10;I also built a basic controller for everyone.&#10;&#10;I built a function in sheetController that knows how to receive a sheet and load it to the screen." />
+    <option name="LAST_COMMIT_MESSAGE" value="Beginning of work on the graphical interface.&#10;The main component is the app&#10;which contains 2 components:&#10;header and sheet.&#10;&#10;The sheet contains cell type components.&#10;&#10;I basically defined everyone's fxml files.&#10;&#10;I also built a basic controller for everyone.&#10;&#10;I built a function in sheetController that knows how to receive a sheet and load it to the screen." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -566,47 +454,44 @@
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java</url>
-          <line>29</line>
+          <url>file://$PROJECT_DIR$/UI/src/deprecated/manager/UIManagerImpl.java</url>
+          <line>493</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UI/src/test/FxmlTest.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="38" />
+          <url>file://$PROJECT_DIR$/UI/src/test/Test3.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UI/src/test/Test3.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="61" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="39" />
+          <line>62</line>
+          <option name="timeStamp" value="66" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java</url>
-          <line>52</line>
-          <option name="timeStamp" value="40" />
+          <url>file://$PROJECT_DIR$/UI/src/deprecated/manager/UIManagerImpl.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="68" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="41" />
+          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/sheet/SheetController.java</url>
+          <line>78</line>
+          <option name="timeStamp" value="72" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>
-          <line>208</line>
-          <properties class="sheet.SheetImpl" method="updateCell">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="34" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/sheet/SheetController.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="73" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/UI/src/test/FxmlTest.java</url>
-          <line>11</line>
-          <properties class="test.FxmlTest" method="start">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="37" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/sheet/UIModelSheet.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="74" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -622,8 +507,8 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/sheet_cell_iml$Test2.ic" NAME="Test2 Coverage Results" MODIFIED="1725873978870" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>subcomponents.test.*</FILTER>
+    <SUITE FILE_PATH="coverage/sheet_cell_iml$test_FxmlTest.ic" NAME="test.FxmlTest Coverage Results" MODIFIED="1725807119700" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>test.*</FILTER>
     </SUITE>
   </component>
 </project>

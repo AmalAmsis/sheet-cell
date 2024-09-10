@@ -25,6 +25,14 @@ public class AppController {
       uiManager = new UIManagerImpl();
     }
 
+    //******************************************************************************************************//
+    public void loadAndDisplaySheetFromXmlFile(String filePath) throws Exception {
+        loadSheetFromFile(filePath);
+        displaySheet();
+    }
+
+    //******************************************************************************************************//
+
     public void loadSheetFromFile(String filePath) throws Exception {
         // Load the sheet from the XML file
         uiManager.loadSheetFromXmlFile(filePath);
@@ -33,7 +41,7 @@ public class AppController {
 
     public void displaySheet(){
         DTOSheet dtoSheet = uiManager.getDtoSheetForDisplaySheet();
-        sheetController.diaplaySheet(dtoSheet);
+        sheetController.initSheetAndBindToUIModel(dtoSheet);
     }
 
 

@@ -19,12 +19,78 @@ public class SheetController {
 
     @FXML private GridPane sheetGrid;
 
+
+    //*******************************************************************************************************//
+    private UIModelSheet uiModel;
+
+    public SheetController() {
+        this.uiModel = new UIModelSheet();
+    }
+
+    public void initSheetAndBindToUIModel(DTOSheet dtoSheet){
+
+        sheetGrid.getChildren().clear();
+
+        int numOfRows = dtoSheet.getNumOfRows();
+        int numOfCols = dtoSheet.getNumOfColumns();
+        int WidthOfCols = dtoSheet.getWidthOfColumns();
+        int HeightOfRows = dtoSheet.getHeightOfRows();
+
+        uiModel.initializeModel(numOfRows+1,numOfCols+1);
+
+        for (int col = 1; col <= numOfCols; col++){
+            String colLetter = String.valueOf((char) ('A' + col - 1));
+            String cellKey = getCellId(col, 0);
+            Label cellLabel = new Label();
+            cellLabel.setPrefSize(WidthOfCols, 15);
+            uiModel.setCellValue(cellKey, colLetter);
+            uiModel.bindCellToModel(cellLabel,cellKey);
+            sheetGrid.add(cellLabel, col, 0);
+        }
+
+        for (int row = 1; row <= numOfRows; row++){
+            String cellKey = getCellId(0, row);
+            Label cellLabel = new Label();
+            cellLabel.setPrefSize(15, HeightOfRows);
+            uiModel.setCellValue(cellKey,String.valueOf(row));
+            uiModel.bindCellToModel(cellLabel,cellKey);
+            sheetGrid.add(cellLabel, 0, row);
+        }
+
+
+        for (int row = 1; row <= numOfRows; row++) {
+            for (int col = 1; col <= numOfCols; col++) {
+
+                String cellKey = getCellId(col, row);
+                Label cellLabel = new Label();
+                cellLabel.setPrefSize(WidthOfCols, HeightOfRows);
+
+
+                DTOCell dtoCell = dtoSheet.getCells().get(cellKey);
+                if (dtoCell != null) {
+                    uiModel.setCellValue(cellKey, dtoCell.getEffectiveValue().toString());
+                }
+
+                uiModel.bindCellToModel(cellLabel,cellKey);
+                sheetGrid.add(cellLabel, col, row);
+            }
+        }
+
+    }
+
+
+
+    //*******************************************************************************************************//
+
+
+
+
     public void setAppController(AppController appController) {
         this.appController = appController;
     }
 
 
-    public void diaplaySheet(DTOSheet dtoSheet) {
+    public void diaplaySheet1(DTOSheet dtoSheet) {
 
         int numOfRows = dtoSheet.getNumOfRows();
         int numOfCols = dtoSheet.getNumOfColumns();
@@ -71,7 +137,7 @@ public class SheetController {
         Map<String, DTOCell> board = dtoSheet.getCells();
         for (int row = 1; row <= numOfRows; row++) {
             for (int col = 1; col <= numOfCols; col++) {
-                String cellKey = createCellKey(col, row); // Create key like "A:1", "B:2", etc.
+                String cellKey = getCellId(col, row); // Create key like "A:1", "B:2", etc.
 
                 // Check if the cell exists in the map
                 DTOCell dtoCell = board.get(cellKey);
@@ -144,7 +210,7 @@ public class SheetController {
         return row;
     }
 
-    private String createCellKey(int col, int row) {
+    private String getCellId(int col, int row) {
         char colLetter = (char) ('A' + (col - 1)); // ממיר מספר עמודה לאות, לדוגמה 1 -> A
         return String.valueOf(colLetter) + ":" + row;
     }
