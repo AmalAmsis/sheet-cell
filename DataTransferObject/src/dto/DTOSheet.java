@@ -24,6 +24,9 @@ public interface DTOSheet {
      * and the value is a DTOCell object representing the cell.*/
     Map<String,DTOCell> getCells();
 
+
+    Map<String,DTORange> getRanges();
+
     /**
      * Returns the number of rows in the sheet.
      * @return an integer representing the number of rows.*/
@@ -43,4 +46,6 @@ public interface DTOSheet {
      * Returns the width of the columns in the sheet.
      * @return an integer representing the width of the columns.*/
     int getWidthOfColumns();
+
+
 }

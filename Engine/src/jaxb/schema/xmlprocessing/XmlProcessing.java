@@ -1,9 +1,9 @@
 package jaxb.schema.xmlprocessing;
 
 import jakarta.xml.bind.JAXBException;
-import jaxb.schema.oldgenerated.STLCell;
-import jaxb.schema.oldgenerated.STLCells;
-import jaxb.schema.oldgenerated.STLSheet;
+import jaxb.schema.generated.STLCell;
+import jaxb.schema.generated.STLCells;
+import jaxb.schema.generated.STLSheet;
 
 import java.io.FileNotFoundException;
 import java.util.List;

@@ -19,6 +19,19 @@ public class RangeManagerImpl implements RangeManager {
         this.ranges = new HashMap<>();
     }
 
+    //********************************************************************************************************//
+
+
+    public Map<String, Range> getRanges() {
+        return this.ranges;
+    }
+
+    //********************************************************************************************************//
+
+
+
+
+
     /**
      * Adds a new range to the manager.
      *

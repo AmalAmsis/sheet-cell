@@ -2,7 +2,6 @@ package sheet.cell;
 
 import expression.ExpressionEvaluator;
 import sheet.SheetDataRetriever;
-import jaxb.schema.oldgenerated.STLCell;
 import sheet.coordinate.Coordinate;
 import sheet.effectivevalue.CellType;
 import sheet.effectivevalue.EffectiveValue;
