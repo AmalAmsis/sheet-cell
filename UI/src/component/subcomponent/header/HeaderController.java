@@ -51,7 +51,6 @@ public class HeaderController {
                 try {
                     appController.loadAndDisplaySheetFromXmlFile(selectedFile.getAbsolutePath());
 
-
                 } catch (IllegalArgumentException e) {
                     // Handle errors from isXmlFile (e.g., invalid file path or non-XML file)
                     String message = e.getMessage();

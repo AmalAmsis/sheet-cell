@@ -1,6 +1,6 @@
 package sheet.coordinate;
 
-import jaxb.schema.generated.STLCell;
+import jaxb.schema.oldgenerated.STLCell;
 import java.io.Serializable;
 
 /**

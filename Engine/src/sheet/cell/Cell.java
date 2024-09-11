@@ -1,6 +1,6 @@
 package sheet.cell;
 
-import jaxb.schema.generated.STLCell;
+import jaxb.schema.oldgenerated.STLCell;
 import sheet.coordinate.Coordinate;
 import sheet.effectivevalue.EffectiveValue;
 import java.util.List;
