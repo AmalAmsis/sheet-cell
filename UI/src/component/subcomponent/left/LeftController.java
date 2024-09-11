@@ -10,6 +10,8 @@ public class LeftController {
         this.appController = appController;
     }
 
-
+    public void initialize() {
+        appController = new AppController();
+    }
 
 }
