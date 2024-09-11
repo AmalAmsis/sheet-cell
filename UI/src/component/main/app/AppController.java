@@ -1,8 +1,10 @@
 package component.main.app;
 
 import component.subcomponent.header.HeaderController;
-import component.subcomponent.left.LeftController;
 import component.subcomponent.sheet.SheetController;
+import component.subcomponent.left.LeftController;
+
+
 import dto.DTOSheet;
 import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
@@ -10,8 +12,9 @@ import javafx.scene.layout.VBox;
 import manager.UIManager;
 import manager.UIManagerImpl;
 
+
 public class AppController {
-    
+
     @FXML private VBox header;
     @FXML private HeaderController headerController;
     @FXML private ScrollPane sheet;
@@ -21,9 +24,16 @@ public class AppController {
 
     private UIManager uiManager;
 
-    public AppController() {
-      uiManager = new UIManagerImpl();
+    public AppController(){
+        this.uiManager=new UIManagerImpl();
     }
+
+
+    public void loadAndDisplaySheetFromXmlFile(String filePath) throws Exception {
+        loadSheetFromFile(filePath);
+        displaySheet();
+    }
+
 
     public void loadSheetFromFile(String filePath) throws Exception {
         // Load the sheet from the XML file
@@ -33,13 +43,13 @@ public class AppController {
 
     public void displaySheet(){
         DTOSheet dtoSheet = uiManager.getDtoSheetForDisplaySheet();
-        sheetController.diaplaySheet(dtoSheet);
+        sheetController.initSheetAndBindToUIModel(dtoSheet);
     }
 
 
     @FXML
     public void initialize() {
-        if(headerController != null && sheetController != null && leftController != null) {
+       if(headerController != null && sheetController != null && leftController != null) {
             headerController.setAppController(this);
             sheetController.setAppController(this);
             leftController.setAppController(this);
@@ -61,4 +71,5 @@ public class AppController {
         this.leftController = leftController;
         leftController.setAppController(this);
     }
+
 }

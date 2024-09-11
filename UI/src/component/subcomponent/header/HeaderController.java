@@ -30,7 +30,6 @@ public class HeaderController {
             this.appController = appController;
         }
 
-
         @FXML
         public void CliclMeLoadFileButtonAction() {
 
@@ -50,8 +49,8 @@ public class HeaderController {
             if (selectedFile != null) {
                 // If a file is selected, load it using the UIAdapter
                 try {
-                    appController.loadSheetFromFile(selectedFile.getAbsolutePath());
-                    appController.displaySheet();
+                    appController.loadAndDisplaySheetFromXmlFile(selectedFile.getAbsolutePath());
+
 
                 } catch (IllegalArgumentException e) {
                     // Handle errors from isXmlFile (e.g., invalid file path or non-XML file)
