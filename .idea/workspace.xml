@@ -11,20 +11,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Updates classes to allow ranges to be used correctly">
-      <change afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/left/left.fxml" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="new design fo FXML">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/src/component/main/app/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/main/app/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/main/app/UIAdapter.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/src/component/main/app/app.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/main/app/app.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/cell/cell.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/cell/cell.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/cell/CellController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/cell/cell.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/header/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/header/header.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/header/header.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/header/header.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/left/left.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/left/left.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/SheetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/SheetController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/sheet.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/sheet.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/test/FxmlTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/test/FxmlTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,8 +35,9 @@
         <option value="HTML File" />
         <option value="Interface" />
         <option value="FxmlFile" />
-        <option value="CSS File" />
         <option value="Class" />
+        <option value="JavaFXApplication" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -66,35 +65,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.AppRunner.executor": "Run",
-    "Application.FxmlTest.executor": "Debug",
-    "Application.Main.executor": "Run",
-    "Application.Test.executor": "Run",
-    "Application.Test2.executor": "Coverage",
-    "Application.deprecated.apprunner.AppRunner.executor": "Run",
-    "Application.sheet.range.Test.executor": "Run",
-    "Application.test.FxmlTest.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "JAR Application.UI.jar.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Amal",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Amal Amsis/Downloads/08. Java FX",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.JavaFX",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.AppRunner.executor&quot;: &quot;Run&quot;,
+    &quot;Application.FxmlTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Test.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Test2.executor&quot;: &quot;Coverage&quot;,
+    &quot;Application.deprecated.apprunner.AppRunner.executor&quot;: &quot;Run&quot;,
+    &quot;Application.sheet.range.Test.executor&quot;: &quot;Run&quot;,
+    &quot;Application.test.FxmlTest.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JAR Application.UI.jar.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Amal&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Amal Amsis/Downloads/08. Java FX&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\sheet-cell\UI\src\component\subcomponent\header" />
@@ -379,7 +378,8 @@
       <updated>1725627668934</updated>
       <workItem from="1725627672775" duration="38406000" />
       <workItem from="1725874015206" duration="12458000" />
-      <workItem from="1725968132983" duration="6991000" />
+      <workItem from="1725968132983" duration="9629000" />
+      <workItem from="1726042710021" duration="6217000" />
     </task>
     <task id="LOCAL‎-00024" summary="Getting started with fxml&#10; components: app, header, board">
       <option name="closed" value="true" />
@@ -485,7 +485,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1725866216345</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL‎-00037" summary="new design fo FXML">
+      <option name="closed" value="true" />
+      <created>1725978039397</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL‎-00037" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1725978039397</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -555,7 +563,8 @@
     <MESSAGE value="Added new Math expression function:Sum" />
     <MESSAGE value="Added new Math expression function:Average" />
     <MESSAGE value="Updates classes to allow ranges to be used correctly" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updates classes to allow ranges to be used correctly" />
+    <MESSAGE value="new design fo FXML" />
+    <option name="LAST_COMMIT_MESSAGE" value="new design fo FXML" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -577,17 +586,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java</url>
-          <line>36</line>
+          <line>35</line>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java</url>
-          <line>52</line>
+          <line>51</line>
           <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java</url>
-          <line>37</line>
+          <line>36</line>
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
