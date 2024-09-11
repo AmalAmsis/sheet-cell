@@ -2,7 +2,6 @@ package component.subcomponent.sheet;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
-
 import java.util.HashMap;
 import java.util.Map;
 import javafx.scene.paint.Color;
