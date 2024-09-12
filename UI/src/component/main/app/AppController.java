@@ -5,6 +5,7 @@ import component.subcomponent.sheet.SheetController;
 import component.subcomponent.left.LeftController;
 
 
+import dto.DTOCell;
 import dto.DTOSheet;
 import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
@@ -15,7 +16,7 @@ import manager.UIManagerImpl;
 
 public class AppController {
 
-    @FXML private VBox header;
+    @FXML private ScrollPane header;
     @FXML private HeaderController headerController;
     @FXML private ScrollPane sheet;
     @FXML private SheetController sheetController;
@@ -45,6 +46,12 @@ public class AppController {
         DTOSheet dtoSheet = uiManager.getDtoSheetForDisplaySheet();
         sheetController.initSheetAndBindToUIModel(dtoSheet);
     }
+
+    public void updateHeaderLabels(String cellId) {
+        DTOCell dtoCell = uiManager.getDtoCellForDisplayCell(cellId);
+        headerController.updateLabels(cellId, dtoCell.getOriginalValue());
+    }
+
 
 
     @FXML

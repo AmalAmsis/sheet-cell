@@ -24,9 +24,8 @@ public class UIManagerImpl implements UIManager {
 
     //todo
     @Override
-    public DTOCell getDtoCellForDisplayCell() {
-
-        return null;
+    public DTOCell getDtoCellForDisplayCell(String cellId) {
+        return engine.displayCell(cellId);
     }
 
     //todo
