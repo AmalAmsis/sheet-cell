@@ -117,8 +117,14 @@ public class HeaderController {
 
         }
 
-        @FXML void CliclMeVersionSelectorButtomAction(ActionEvent event) {
+        @FXML
+        void CliclMeVersionSelectorButtomAction(ActionEvent event) {
 
+        }
+
+        public void updateLabels(String cellId, String originalValue) {
+            cellIdLabel.setText(cellId);
+            originalValueLabel.setText(originalValue);
         }
 
 }

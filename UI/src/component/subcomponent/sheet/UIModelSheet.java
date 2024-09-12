@@ -16,6 +16,7 @@ public class UIModelSheet {
         cells = new HashMap<>();
     }
 
+
     public void initializeModel(int numOfRows, int numOfCols) {
 
         cells.clear();
@@ -51,10 +52,15 @@ public class UIModelSheet {
         cells.get(cellId).setFont(font);
     }
 
+
+
+
+
     private String getCellId(int col, int row) {
         char colLetter = (char) ('A' + (col - 1)); // ממיר מספר עמודה לאות, לדוגמה 1 -> A
         return String.valueOf(colLetter) + ":" + row;
     }
+
 
     public void bindCellToModel(Label label, String cellId) {
         CellModel cell = getCell(cellId);

@@ -5,8 +5,11 @@ import component.main.app.AppController;
 
 import dto.DTOCell;
 import dto.DTOSheet;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
@@ -17,6 +20,7 @@ import java.util.Map;
 public class SheetController {
 
     private AppController appController;
+    private ObjectProperty<Label> selectedCell;
 
     @FXML
     private GridPane sheetGrid;
@@ -34,6 +38,22 @@ public class SheetController {
 
     public void initialize() {
         appController = new AppController();
+
+        // selected cell listener
+        selectedCell = new SimpleObjectProperty<>();
+        selectedCell.addListener((observableValue, oldLabelSelection, newSelectedLabel) -> {
+            if (oldLabelSelection != null) {
+                oldLabelSelection.setId(null);
+                for (Node node : sheetGrid.getChildren()) {
+                    ((Label)node).getStyleClass().remove("depends-on-cell");
+                    ((Label)node).getStyleClass().remove("depends-on-cell");
+
+                }
+            }
+            if (newSelectedLabel != null) {
+                newSelectedLabel.setId("selected-cell");
+            }
+        });
     }
 
     public void initSheetAndBindToUIModel(DTOSheet dtoSheet) {
@@ -73,6 +93,7 @@ public class SheetController {
                 String cellKey = getCellId(col, row);
                 Label cellLabel = new Label();
                 cellLabel.setPrefSize(WidthOfCols, HeightOfRows);
+                addClickEventForCell(cellLabel);
 
 
                 DTOCell dtoCell = dtoSheet.getCells().get(cellKey);
@@ -82,6 +103,7 @@ public class SheetController {
 
                 uiModel.bindCellToModel(cellLabel, cellKey);
                 sheetGrid.add(cellLabel, col, row);
+
             }
         }
 
@@ -95,7 +117,37 @@ public class SheetController {
     }
 
 
+
     //*******************************************************************************************************//
+
+
+    private void addClickEventForCell(Label label) {
+        label.setOnMouseClicked(event -> {
+            selectedCell.set(label);
+            int rowIndex = GridPane.getRowIndex(label);
+            int colIndex = GridPane.getColumnIndex(label);
+            char colLetter = (char) ('A' + (colIndex - 1)); // ממיר מספר עמודה לאות, לדוגמה 1 -> A
+            String cellId = String.valueOf(colLetter) + rowIndex;
+            appController.updateHeaderLabels(cellId);
+        });
+    }
+
+
+    public void setColumnWidth(int colIndex, double width) {
+        for (Node node : sheetGrid.getChildren()) {
+            if (GridPane.getColumnIndex(node) == colIndex) {
+                ((Label) node).setPrefWidth(width);
+            }
+        }
+    }
+
+    public void setRowHeight(int rowIndex, double height) {
+        for (Node node : sheetGrid.getChildren()) {
+            if (GridPane.getRowIndex(node) == rowIndex) {
+                ((Label) node).setPrefHeight(height);
+            }
+        }
+    }
 
 }
 
