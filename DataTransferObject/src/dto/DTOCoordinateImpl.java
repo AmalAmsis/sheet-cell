@@ -1,5 +1,7 @@
 package dto;
 
+import sheet.coordinate.Coordinate;
+
 import java.io.Serializable;
 
 /**
@@ -20,6 +22,17 @@ public class DTOCoordinateImpl implements DTOCoordinate, Serializable {
         this.row = row;
         this.col = col;
     }
+
+    //****************************************************************************************************//
+
+    public DTOCoordinateImpl(Coordinate coordinate) {
+        this.row = coordinate.getRow();
+        this.col = coordinate.getCol();
+    }
+
+
+
+        //****************************************************************************************************//
 
     @Override
     public int getRow() {

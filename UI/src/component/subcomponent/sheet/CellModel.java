@@ -15,6 +15,10 @@ public class CellModel {
     private final ObjectProperty<Color> backgroundColor;
     private final ObjectProperty<Font> font;
 
+
+
+
+
     public CellModel() {
         this.value = new SimpleStringProperty("");
         this.alignment = new SimpleObjectProperty<>(Pos.CENTER);
@@ -62,5 +66,6 @@ public class CellModel {
     public void setFont(Font font) {
         this.font.set(font);
     }
+
 
 }

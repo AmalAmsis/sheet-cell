@@ -8,6 +8,7 @@ import jaxb.schema.generated.STLCell;
 import jaxb.schema.generated.STLCells;
 import jaxb.schema.generated.STLLayout;
 import jaxb.schema.generated.STLSheet;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -29,7 +30,7 @@ public class XmlProcessingImpl implements XmlProcessing {
         //1.is the file a xml file
         isXmlFile(inputXmlFilePath);
         //2.file load STLSheet = fromXmlFileToXmlFile(inputPath)
-        STLSheet stlSheet = fromXmlFileToXmlFile(inputXmlFilePath);
+        STLSheet stlSheet = fromXmlFileSTLSheet(inputXmlFilePath);
         if(stlSheet == null){
             throw new IllegalStateException("Failed to process the XML file. The file may be corrupted or improperly formatted. Please check the file.");
         }
@@ -56,7 +57,7 @@ public class XmlProcessingImpl implements XmlProcessing {
      * @param inputXmlFilePath the path to the XML file.
      * @return STLSheet object representing the XML content, or null if an error occurs.
      * @throws JAXBException if an error occurs during unmarshalling.*/
-    public STLSheet fromXmlFileToXmlFile(String inputXmlFilePath) throws JAXBException, FileNotFoundException {
+    public STLSheet fromXmlFileSTLSheet(String inputXmlFilePath) throws JAXBException, FileNotFoundException {
 
         STLSheet stlSheet = null;
         try {

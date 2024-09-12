@@ -50,7 +50,7 @@ public class HeaderController {
                 // If a file is selected, load it using the UIAdapter
                 try {
                     appController.loadAndDisplaySheetFromXmlFile(selectedFile.getAbsolutePath());
-
+                    updateFilePathLabel(selectedFile.getAbsolutePath());
 
                 } catch (IllegalArgumentException e) {
                     // Handle errors from isXmlFile (e.g., invalid file path or non-XML file)

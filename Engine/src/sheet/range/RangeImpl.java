@@ -1,5 +1,6 @@
 package sheet.range;
 
+import jaxb.schema.generated.STLRange;
 import sheet.coordinate.Coordinate;
 import sheet.coordinate.CoordinateImpl;
 

@@ -12,6 +12,7 @@ import sheet.range.RangeManager;
 import sheet.range.RangeManagerImpl;
 import sheet.range.RangeReadActions;
 
+
 import java.io.Serializable;
 import java.util.*;
 
@@ -53,7 +54,9 @@ public class SheetImpl implements Sheet , Serializable {
      * The version is set to 1 when loading the sheet.
      * @param stlSheet the STL sheet object representing the sheet's metadata.
      * @param sortedListOfStlCells a list of STL cells to be added to the sheet. */
-    public SheetImpl(STLSheet stlSheet, List<STLCell> sortedListOfStlCells) {
+
+    //******************************************************************************************************************************//
+    public SheetImpl(STLSheet stlSheet, List<STLCell> sortedListOfStlCells,RangeManager rangeManager) {
         this.version =1; //when we load a sheet the version is 1.
         this.title = stlSheet.getName();
         this.numOfRows =stlSheet.getSTLLayout().getRows();
@@ -61,7 +64,19 @@ public class SheetImpl implements Sheet , Serializable {
         this.heightOfRows = stlSheet.getSTLLayout().getSTLSize().getRowsHeightUnits();
         this.widthOfCols = stlSheet.getSTLLayout().getSTLSize().getColumnWidthUnits();
         this.addSortedListOfStlCellsToSheet(sortedListOfStlCells); //load the cell on the list to our map
+
+        //todo - AMAL - tell me if that ok!!!
+        this.rangeManager = rangeManager;
     }
+
+
+
+    @Override
+    public RangeManager getRangeManager(){
+        return this.rangeManager;
+    }
+
+    //******************************************************************************************************************************//
     /** Adds a sorted list of STL cells to the sheet.
      * @param sortedListOfStlCells a list of STLCell objects to be added to the sheet. */
     private void addSortedListOfStlCellsToSheet(List<STLCell> sortedListOfStlCells) {
@@ -329,44 +344,44 @@ public class SheetImpl implements Sheet , Serializable {
     //not in was right now - maybe we will need it in te future
     /** Converts the current state of the sheet into an STLSheet object for serialization.
      * @return an STLSheet object representing the current state of the sheet. */
-    public STLSheet convertFromSheetToStlSheet() {
-
-        //create the ELEMENT STLCells
-        STLCells stlCells = new STLCells();
-        //create the list of STLCells
-        List<STLCell> stlCellList = stlCells.getSTLCell();
-        for (String key : board.keySet()) {
-
-            //get the actual cell
-            Cell cell = board.get(key);
-            //create STLCell
-            STLCell stlCell = cell.convertFromCellToSTLCell();
-            //add the STLCell to the List
-            stlCellList.add(stlCell);
-        }
-
-        //create the ELEMENT STLSize before STLLayot
-        STLSize stlSize = new STLSize();
-        stlSize.setRowsHeightUnits(heightOfRows);
-        stlSize.setRowsHeightUnits(widthOfCols);
-
-        //create the ELEMENT STLLayot
-        STLLayout stlLayout = new STLLayout();
-        stlLayout.setRows(numOfRows);
-        stlLayout.setColumns(numOfCols);
-        stlLayout.setSTLSize(stlSize);
-
-        //and finally create the ELEMENT STLSheet
-        STLSheet stlSheet = new STLSheet();
-        stlSheet.setName(title);
-        stlSheet.setSTLLayout(stlLayout);
-        stlSheet.setSTLCells(stlCells);
-
-        //STLCell stlCell = new STLCell();
-
-        return stlSheet;
-
-    }
+//    public STLSheet convertFromSheetToStlSheet() {
+//
+//        //create the ELEMENT STLCells
+//        STLCells stlCells = new STLCells();
+//        //create the list of STLCells
+//        List<STLCell> stlCellList = stlCells.getSTLCell();
+//        for (String key : board.keySet()) {
+//
+//            //get the actual cell
+//            Cell cell = board.get(key);
+//            //create STLCell
+//            STLCell stlCell = cell.convertFromCellToSTLCell();
+//            //add the STLCell to the List
+//            stlCellList.add(stlCell);
+//        }
+//
+//        //create the ELEMENT STLSize before STLLayot
+//        STLSize stlSize = new STLSize();
+//        stlSize.setRowsHeightUnits(heightOfRows);
+//        stlSize.setRowsHeightUnits(widthOfCols);
+//
+//        //create the ELEMENT STLLayot
+//        STLLayout stlLayout = new STLLayout();
+//        stlLayout.setRows(numOfRows);
+//        stlLayout.setColumns(numOfCols);
+//        stlLayout.setSTLSize(stlSize);
+//
+//        //and finally create the ELEMENT STLSheet
+//        STLSheet stlSheet = new STLSheet();
+//        stlSheet.setName(title);
+//        stlSheet.setSTLLayout(stlLayout);
+//        stlSheet.setSTLCells(stlCells);
+//
+//        //STLCell stlCell = new STLCell();
+//
+//        return stlSheet;
+//
+//    }
 
 
     @Override
