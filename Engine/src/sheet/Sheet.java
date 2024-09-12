@@ -2,6 +2,7 @@ package sheet;
 
 import sheet.cell.Cell;
 import sheet.coordinate.Coordinate;
+import sheet.range.RangeManager;
 
 
 /**
@@ -16,6 +17,7 @@ public interface Sheet extends SheetDataModifier, SheetDataRetriever, SheetDepen
      * @return the Cell object at the specified coordinate, or null if no cell exists at that position. */
     Cell getCell(Coordinate coordinate);
 
+    RangeManager getRangeManager();
 
     // יש לנו את הפונקציה בעוד interface , למחוק?
     /** Converts a string representation of a coordinate to a Coordinate object.

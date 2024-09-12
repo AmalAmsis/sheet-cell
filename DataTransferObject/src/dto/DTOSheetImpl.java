@@ -3,6 +3,7 @@ package dto;
 import sheet.Sheet;
 import sheet.SheetImpl;
 import sheet.cell.Cell;
+import sheet.range.Range;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -23,6 +24,12 @@ public class DTOSheetImpl implements DTOSheet, Serializable {
     private int heightOfRows;
     private int widthOfCols;
 
+    //**********************************************YARDEN**********************************************//
+
+    private final Map<String, DTORange> ranges;
+
+
+
     /**
      * Constructs a DTOSheetImpl from a Sheet object.
      * Initializes the DTOSheetImpl's properties based on the given Sheet.
@@ -34,13 +41,28 @@ public class DTOSheetImpl implements DTOSheet, Serializable {
         this.numOfCols = sheet.getNumOfCols();
         this.heightOfRows = sheet.getHeightOfRows();
         this.widthOfCols = sheet.getWidthOfCols();
+        this.ranges = new HashMap<>();
 
         //create DTOCell from original board of cells.
         for( Cell cell : sheet.getBoard().values()) {
             DTOCell dtoCell = new DTOCellImpl(cell);
             addDTOCell(dtoCell);
         }
+
+        //**********************************************YARDEN**********************************************//
+        for(Range range : sheet.getRangeManager().getRanges().values()){
+            this.ranges.put(range.getName(), new DTORangeImpl(range)) ;
+        }
+        //**********************************************YARDEN**********************************************//
+
     }
+
+    @Override
+    public Map<String,DTORange> getRanges(){
+        return this.ranges;
+    };
+
+    //**********************************************YARDEN**********************************************//
 
 
     @Override

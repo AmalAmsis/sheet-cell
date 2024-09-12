@@ -5,15 +5,16 @@ import dto.DTOCellImpl;
 import dto.DTOSheet;
 import dto.DTOSheetImpl;
 import jakarta.xml.bind.JAXBException;
-import jaxb.schema.generated.STLCell;
-import jaxb.schema.generated.STLCells;
-import jaxb.schema.generated.STLSheet;
+import jaxb.schema.generated.*;
 import jaxb.schema.xmlprocessing.FileDataException;
 import jaxb.schema.xmlprocessing.XmlProcessing;
 import jaxb.schema.xmlprocessing.XmlProcessingImpl;
 import sheet.Sheet;
 import sheet.SheetImpl;
 import sheet.coordinate.Coordinate;
+import sheet.coordinate.CoordinateImpl;
+import sheet.range.RangeManager;
+import sheet.range.RangeManagerImpl;
 import sheet.version.SheetVersionHandler;
 import sheet.version.SheetVersionHandlerImpl;
 import state.SheetStateManager;
@@ -46,11 +47,21 @@ public class EngineImpl implements Engine,Serializable {
         //Creating a list of cells by topological sorting.
         //Returns a sorted list or exception
         STLCells stlCellList = stlSheet.getSTLCells();
+        char lastLetterOfCol = (char)(stlSheet.getSTLLayout().getColumns() +'A' -1);
+        int latsNumOfRows = stlSheet.getSTLLayout().getRows();
+
+        RangeManager rangeManager = new RangeManagerImpl();
+        if(stlSheet.getSTLRanges() != null) {
+            for (STLRange stlRange: stlSheet.getSTLRanges().getSTLRange()){
+                Coordinate coordinateFrom = convertStringToCoordinate(stlRange.getSTLBoundaries().getFrom(),lastLetterOfCol,latsNumOfRows);
+                Coordinate coordinateTo = convertStringToCoordinate(stlRange.getSTLBoundaries().getTo(),lastLetterOfCol,latsNumOfRows);
+                rangeManager.addRange(stlRange.getName(),coordinateFrom,coordinateTo);
+            }
+        }
+
         List<STLCell> sortedListOfStlCells = xmlProcessing.getTopologicalSortOrThrowCircularReferenceException(stlCellList);
-
-
-         Sheet newSheet = new SheetImpl(stlSheet, sortedListOfStlCells);
-         int numOfCellsInTheSheet = newSheet.getBoard().size();
+        Sheet newSheet = new SheetImpl(stlSheet, sortedListOfStlCells,rangeManager);
+        int numOfCellsInTheSheet = newSheet.getBoard().size();
 
         //********************************************************************************************************************//
          SheetVersionHandler currentSheetVersionHandler = new SheetVersionHandlerImpl(newSheet,numOfCellsInTheSheet);
@@ -128,5 +139,43 @@ public class EngineImpl implements Engine,Serializable {
         } catch (ClassNotFoundException e) {
             throw new ClassNotFoundException("Error: The file contains data that is incompatible with the current system version. \nPlease verify the file.");
         }
+    }
+
+
+    public Coordinate convertStringToCoordinate(String stringCoordinate,char lastLatterOfCol, int lastNumOfrow) {
+        // Check if the input is null or of incorrect length
+        if (stringCoordinate == null || stringCoordinate.length() < 2 || stringCoordinate.length() > 3) {
+            throw new IllegalArgumentException("Input must be between 2 to 3 characters long and non-null.");
+        }
+
+
+        // get the col letter and checking that a letter representing the column is in the col range of the sheet
+        char col = stringCoordinate.toUpperCase().charAt(0);
+        if (col < 'A' || col > lastLatterOfCol) {
+            throw new IllegalArgumentException("Column must be a letter between A and " + lastLatterOfCol + ".");
+        }
+
+        //the follow must be a number
+        for (int i = 1; i < stringCoordinate.length(); i++) {
+            if (!Character.isDigit(stringCoordinate.charAt(i))) {
+                throw new IllegalArgumentException("The input format is invalid. It should be a letter followed by digits.");
+            }
+        }
+
+        // get row number
+        int row;
+        try {
+            row = Integer.parseInt(stringCoordinate.substring(1));
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Row must be a valid number.");
+        }
+
+        // check if is in the row range
+        if (row < 1 || row > lastNumOfrow) {
+            throw new IllegalArgumentException("Row must be between 1 and " + lastNumOfrow + ".");
+        }
+
+        // create the coordinate
+        return new CoordinateImpl(col, row);
     }
 }

@@ -60,7 +60,7 @@ public interface Cell {
     //todo: I dont think we need this function.
     /** Converts this cell into an STLCell object for serialization.
      * @return an STLCell object representing this cell. */
-    STLCell convertFromCellToSTLCell();
+    //STLCell convertFromCellToSTLCell();
 
     /** Returns the coordinate of the cell.
      * @return a Coordinate object representing the cell's position. */

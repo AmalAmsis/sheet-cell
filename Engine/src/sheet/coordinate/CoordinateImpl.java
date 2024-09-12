@@ -1,6 +1,8 @@
 package sheet.coordinate;
 
 import jaxb.schema.generated.STLCell;
+import jaxb.schema.generated.STLRange;
+
 import java.io.Serializable;
 
 /**
@@ -26,6 +28,7 @@ public class CoordinateImpl implements Coordinate , Serializable {
         this.row = stlCell.getRow();
         this.col = stlCell.getColumn().charAt(0);
     }
+
 
     @Override
     public int getRow() {
