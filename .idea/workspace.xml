@@ -11,31 +11,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Generated JAXB classes from XSD schema using xjc&#10;&#10;- Used xjc to generate Java classes from 'shtisel-v2.xsd'.&#10;- Placed the generated classes in 'jaxb.schema.genarated' package.">
-      <change afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTORange.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTORangeImpl.java" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Adding DTORange class&#10;&#10;adapted the following classes to it in Engine module:&#10;&#10;1.sheet&#10;- RangeManager getRangeManager();&#10;&#10;2. sheetImpl&#10;-Constructor update: public SheetImpl(STLSheet stlSheet, List&lt;STLCell&gt; sortedListOfStlCells)&#10;- implementation of getRangeManager().&#10;&#10;3. RangeManager&#10;-Map&lt;String, Range&gt; getRanges();&#10;&#10;4. RangeManagerImpl&#10;- Implementation of:  Map&lt;String, Range&gt; getRanges();&#10;&#10;&#10;DTO module adjustments&#10;&#10;1. DTOCoordinateImpl&#10;- Adding a constructor public DTOCoordinateImpl(Coordinate coordinate)&#10;&#10;2. DTOSheet&#10;-Map&lt;String,DTORange&gt; getRanges();&#10;&#10;3. DTOShetImpl&#10;-Adding a member: private final Map&lt;String, DTORange&gt; ranges;&#10;-Constructor update: public DTOSheetImpl(Sheet sheet)&#10;-Implementation Map&lt;String,DTORange&gt; getRanges();">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCoordinateImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCoordinateImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheetImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/src/engine/EngineImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/engine/EngineImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/jaxb/schema/oldgenerated/ObjectFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/jaxb/schema/oldgenerated/STLCell.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/jaxb/schema/oldgenerated/STLCells.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/jaxb/schema/oldgenerated/STLLayout.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/jaxb/schema/oldgenerated/STLSheet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/jaxb/schema/oldgenerated/STLSize.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/CellGraphValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/CellGraphValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/XmlProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/XmlProcessing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/XmlProcessingImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/XmlProcessingImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/Sheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/Sheet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/src/sheet/cell/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/cell/Cell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/coordinate/CoordinateImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/coordinate/CoordinateImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/range/RangeImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/range/RangeImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/range/RangeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/range/RangeManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/range/RangeManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/range/RangeManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +66,7 @@
     &quot;Application.Test2.executor&quot;: &quot;Debug&quot;,
     &quot;Application.Test3.executor&quot;: &quot;Debug&quot;,
     &quot;Application.apprunner.AppRunner.executor&quot;: &quot;Run&quot;,
-    &quot;Application.test.FxmlTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.test.FxmlTest.executor&quot;: &quot;Debug&quot;,
     &quot;JAR Application.UI.jar.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
@@ -390,7 +372,7 @@
       <workItem from="1725627050305" duration="1262000" />
       <workItem from="1725630797186" duration="41534000" />
       <workItem from="1725807156007" duration="1382000" />
-      <workItem from="1726053985447" duration="8431000" />
+      <workItem from="1726053985447" duration="14031000" />
     </task>
     <task id="LOCAL-00023" summary="Beginning of work on the graphical interface.&#10;The main component is the app&#10;which contains 2 components:&#10;header and sheet.&#10;&#10;The sheet contains cell type components.&#10;&#10;I basically defined everyone's fxml files.&#10;&#10;I also built a basic controller for everyone.&#10;&#10;I built a function in sheetController that knows how to receive a sheet and load it to the screen.">
       <option name="closed" value="true" />
@@ -424,7 +406,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726055431865</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Adding DTORange class&#10;&#10;adapted the following classes to it in Engine module:&#10;&#10;1.sheet&#10;- RangeManager getRangeManager();&#10;&#10;2. sheetImpl&#10;-Constructor update: public SheetImpl(STLSheet stlSheet, List&lt;STLCell&gt; sortedListOfStlCells)&#10;- implementation of getRangeManager().&#10;&#10;3. RangeManager&#10;-Map&lt;String, Range&gt; getRanges();&#10;&#10;4. RangeManagerImpl&#10;- Implementation of:  Map&lt;String, Range&gt; getRanges();&#10;&#10;&#10;DTO module adjustments&#10;&#10;1. DTOCoordinateImpl&#10;- Adding a constructor public DTOCoordinateImpl(Coordinate coordinate)&#10;&#10;2. DTOSheet&#10;-Map&lt;String,DTORange&gt; getRanges();&#10;&#10;3. DTOShetImpl&#10;-Adding a member: private final Map&lt;String, DTORange&gt; ranges;&#10;-Constructor update: public DTOSheetImpl(Sheet sheet)&#10;-Implementation Map&lt;String,DTORange&gt; getRanges();">
+      <option name="closed" value="true" />
+      <created>1726063063124</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1726063063124</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -488,7 +478,8 @@
     <MESSAGE value="commit after fixing the mess" />
     <MESSAGE value="deleted HADASH package" />
     <MESSAGE value="Generated JAXB classes from XSD schema using xjc&#10;&#10;- Used xjc to generate Java classes from 'shtisel-v2.xsd'.&#10;- Placed the generated classes in 'jaxb.schema.genarated' package." />
-    <option name="LAST_COMMIT_MESSAGE" value="Generated JAXB classes from XSD schema using xjc&#10;&#10;- Used xjc to generate Java classes from 'shtisel-v2.xsd'.&#10;- Placed the generated classes in 'jaxb.schema.genarated' package." />
+    <MESSAGE value="Adding DTORange class&#10;&#10;adapted the following classes to it in Engine module:&#10;&#10;1.sheet&#10;- RangeManager getRangeManager();&#10;&#10;2. sheetImpl&#10;-Constructor update: public SheetImpl(STLSheet stlSheet, List&lt;STLCell&gt; sortedListOfStlCells)&#10;- implementation of getRangeManager().&#10;&#10;3. RangeManager&#10;-Map&lt;String, Range&gt; getRanges();&#10;&#10;4. RangeManagerImpl&#10;- Implementation of:  Map&lt;String, Range&gt; getRanges();&#10;&#10;&#10;DTO module adjustments&#10;&#10;1. DTOCoordinateImpl&#10;- Adding a constructor public DTOCoordinateImpl(Coordinate coordinate)&#10;&#10;2. DTOSheet&#10;-Map&lt;String,DTORange&gt; getRanges();&#10;&#10;3. DTOShetImpl&#10;-Adding a member: private final Map&lt;String, DTORange&gt; ranges;&#10;-Constructor update: public DTOSheetImpl(Sheet sheet)&#10;-Implementation Map&lt;String,DTORange&gt; getRanges();" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding DTORange class&#10;&#10;adapted the following classes to it in Engine module:&#10;&#10;1.sheet&#10;- RangeManager getRangeManager();&#10;&#10;2. sheetImpl&#10;-Constructor update: public SheetImpl(STLSheet stlSheet, List&lt;STLCell&gt; sortedListOfStlCells)&#10;- implementation of getRangeManager().&#10;&#10;3. RangeManager&#10;-Map&lt;String, Range&gt; getRanges();&#10;&#10;4. RangeManagerImpl&#10;- Implementation of:  Map&lt;String, Range&gt; getRanges();&#10;&#10;&#10;DTO module adjustments&#10;&#10;1. DTOCoordinateImpl&#10;- Adding a constructor public DTOCoordinateImpl(Coordinate coordinate)&#10;&#10;2. DTOSheet&#10;-Map&lt;String,DTORange&gt; getRanges();&#10;&#10;3. DTOShetImpl&#10;-Adding a member: private final Map&lt;String, DTORange&gt; ranges;&#10;-Constructor update: public DTOSheetImpl(Sheet sheet)&#10;-Implementation Map&lt;String,DTORange&gt; getRanges();" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -514,34 +505,34 @@
           <option name="timeStamp" value="61" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java</url>
-          <line>61</line>
-          <option name="timeStamp" value="66" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/UI/src/deprecated/manager/UIManagerImpl.java</url>
           <line>31</line>
           <option name="timeStamp" value="68" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/sheet/SheetController.java</url>
-          <line>78</line>
-          <option name="timeStamp" value="72" />
+          <url>file://$PROJECT_DIR$/Engine/src/engine/EngineImpl.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="81" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/sheet/SheetController.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="73" />
+          <url>file://$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheetImpl.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="84" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/XmlProcessingImpl.java</url>
-          <line>61</line>
-          <option name="timeStamp" value="77" />
+          <line>50</line>
+          <option name="timeStamp" value="86" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/XmlProcessingImpl.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="78" />
+          <url>file://$PROJECT_DIR$/Engine/src/engine/EngineImpl.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="87" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

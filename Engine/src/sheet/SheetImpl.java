@@ -56,7 +56,7 @@ public class SheetImpl implements Sheet , Serializable {
      * @param sortedListOfStlCells a list of STL cells to be added to the sheet. */
 
     //******************************************************************************************************************************//
-    public SheetImpl(STLSheet stlSheet, List<STLCell> sortedListOfStlCells) {
+    public SheetImpl(STLSheet stlSheet, List<STLCell> sortedListOfStlCells,RangeManager rangeManager) {
         this.version =1; //when we load a sheet the version is 1.
         this.title = stlSheet.getName();
         this.numOfRows =stlSheet.getSTLLayout().getRows();
@@ -66,14 +66,9 @@ public class SheetImpl implements Sheet , Serializable {
         this.addSortedListOfStlCellsToSheet(sortedListOfStlCells); //load the cell on the list to our map
 
         //todo - AMAL - tell me if that ok!!!
-        this.rangeManager = new RangeManagerImpl();
-        for (STLRange stlRange: stlSheet.getSTLRanges().getSTLRange()){
-            Coordinate coordinateFrom = convertStringToCoordinate(stlRange.getSTLBoundaries().getFrom());
-            Coordinate coordinateTo = convertStringToCoordinate(stlRange.getSTLBoundaries().getTo());
-            rangeManager.addRange(stlRange.getName(),coordinateFrom,coordinateTo);
-        }
-
+        this.rangeManager = rangeManager;
     }
+
 
 
     @Override

@@ -1,6 +1,7 @@
 package sheet.cell;
 
 import expression.ExpressionEvaluator;
+import jaxb.schema.generated.STLCell;
 import sheet.SheetDataRetriever;
 import sheet.coordinate.Coordinate;
 import sheet.effectivevalue.CellType;
