@@ -18,6 +18,7 @@ import manager.UIManagerImpl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 
 public class AppController {
@@ -86,6 +87,13 @@ public class AppController {
             cellsId.add(dtoCoordinate.toString());
         }
         return cellsId;
+    }
+
+    public void updateCellValue(String newOriginalValue){
+        String CellId = sheetController.getSelectedCellId();
+        DTOSheet dtoSheet= uiManager.updateCellValue(CellId,newOriginalValue);
+        sheetController.UpdateSheetValues(dtoSheet);
+        //displaySheet();//??????????????????????????????????????????
     }
 
 

@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import manager.UIManager;
 
 import java.io.IOException;
 import java.util.List;
@@ -156,6 +157,16 @@ public class SheetController {
         }
     }
 
+    public String getSelectedCellId(){
+       return getCellModelId(selectedCell.get());
+    }
+
+    public void UpdateSheetValues(DTOSheet dtoSheet){
+        Map<String,DTOCell> sheetMap = dtoSheet.getCells();
+        for (DTOCell cell : sheetMap.values()) {
+            uiModel.setCellValue(cell.getCoordinate().toString(), cell.getEffectiveValue().toString());
+        }
+    }
 
     public void setColumnWidth(int colIndex, double width) {
         for (Node node : sheetGrid.getChildren()) {
