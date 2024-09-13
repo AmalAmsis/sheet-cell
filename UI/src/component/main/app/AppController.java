@@ -1,17 +1,23 @@
 package component.main.app;
 
 import component.subcomponent.header.HeaderController;
+import component.subcomponent.sheet.CellStyle;
 import component.subcomponent.sheet.SheetController;
 import component.subcomponent.left.LeftController;
 
 
 import dto.DTOCell;
+import dto.DTOCoordinate;
 import dto.DTOSheet;
 import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import manager.UIManager;
 import manager.UIManagerImpl;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class AppController {
@@ -47,9 +53,39 @@ public class AppController {
         sheetController.initSheetAndBindToUIModel(dtoSheet);
     }
 
-    public void updateHeaderLabels(String cellId) {
+    public void unShowCellData(String cellId) {
         DTOCell dtoCell = uiManager.getDtoCellForDisplayCell(cellId);
-        headerController.updateLabels(cellId, dtoCell.getOriginalValue());
+        headerController.updateLabels("", "","");
+
+        List<DTOCoordinate> dtoCoordinateDependsOnCellsList = dtoCell.getDependsOn();
+        List<String> DependsOnCellsId = TurnDtoCoordinateListToCellIdList(dtoCoordinateDependsOnCellsList);
+        sheetController.addBorderForCells(CellStyle.NORMAL_CELL_BORDER_COLOR.getColorValue(), CellStyle.NORMAL_CELL_BORDER_STYLE.getStyleValue(), CellStyle.NORMAL_CELL_BORDER_WIDTH.getWidthValue(), DependsOnCellsId);
+
+        List<DTOCoordinate> dtoCoordinateInfluencingOnCellsList = dtoCell.getInfluencingOn();
+        List<String> InfluencingOnCellsId = TurnDtoCoordinateListToCellIdList(dtoCoordinateInfluencingOnCellsList);
+        sheetController.addBorderForCells(CellStyle.NORMAL_CELL_BORDER_COLOR.getColorValue(), CellStyle.NORMAL_CELL_BORDER_STYLE.getStyleValue(), CellStyle.NORMAL_CELL_BORDER_WIDTH.getWidthValue(), InfluencingOnCellsId);
+    }
+
+    public void showCellData(String cellId) {
+        DTOCell dtoCell = uiManager.getDtoCellForDisplayCell(cellId);
+        headerController.updateLabels(cellId, dtoCell.getOriginalValue(), String.valueOf(dtoCell.getLastModifiedVersion()));
+
+        List<DTOCoordinate> dtoCoordinateDependsOnCellsList = dtoCell.getDependsOn();
+        List<String> DependsOnCellsId = TurnDtoCoordinateListToCellIdList(dtoCoordinateDependsOnCellsList);
+        sheetController.addBorderForCells(CellStyle.DEPENDS_ON_CELL_BORDER_COLOR.getColorValue(), CellStyle.DEPENDS_ON_CELL_BORDER_STYLE.getStyleValue(), CellStyle.DEPENDS_ON_CELL_BORDER_WIDTH.getWidthValue(), DependsOnCellsId);
+
+        List<DTOCoordinate> dtoCoordinateInfluencingOnCellsList = dtoCell.getInfluencingOn();
+        List<String> InfluencingOnCellsId = TurnDtoCoordinateListToCellIdList(dtoCoordinateInfluencingOnCellsList);
+        sheetController.addBorderForCells(CellStyle.INFLUENCING_ON_CELL_BORDER_COLOR.getColorValue(), CellStyle.INFLUENCING_ON_CELL_BORDER_STYLE.getStyleValue(), CellStyle.INFLUENCING_ON_CELL_BORDER_WIDTH.getWidthValue(), InfluencingOnCellsId);
+
+    }
+
+    private List<String> TurnDtoCoordinateListToCellIdList(List<DTOCoordinate> dtoCoordinateList) {
+        List<String> cellsId = new ArrayList<>();
+        for (DTOCoordinate dtoCoordinate : dtoCoordinateList) {
+            cellsId.add(dtoCoordinate.toString());
+        }
+        return cellsId;
     }
 
 

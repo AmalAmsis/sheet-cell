@@ -24,6 +24,7 @@ public class HeaderController {
         @FXML private Label originalValueLabel;
         @FXML private Button updateValueButtom;
         @FXML private Button versionSelectorButtom;
+        @FXML private Label lastModifiedVersionLabel;
 
 
         public void setAppController(AppController appController) {
@@ -122,9 +123,10 @@ public class HeaderController {
 
         }
 
-        public void updateLabels(String cellId, String originalValue) {
+        public void updateLabels(String cellId, String originalValue, String lastModifiedVersion) {
             cellIdLabel.setText(cellId);
             originalValueLabel.setText(originalValue);
+            lastModifiedVersionLabel.setText(lastModifiedVersion);
         }
 
 }
