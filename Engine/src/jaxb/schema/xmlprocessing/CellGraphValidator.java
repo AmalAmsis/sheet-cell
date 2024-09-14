@@ -2,6 +2,10 @@ package jaxb.schema.xmlprocessing;
 
 import jaxb.schema.generated.STLCell;
 import jaxb.schema.generated.STLCells;
+import sheet.coordinate.Coordinate;
+import sheet.range.Range;
+import sheet.range.RangeManager;
+import sheet.range.RangeReadActions;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,7 +31,7 @@ public class CellGraphValidator {
      * Constructs a CellGraphValidator from the given STLCells object.
      * Initializes the graph with vertices and edges based on cell references.
      * @param stlCells the STLCells object containing the list of cells.*/
-    public CellGraphValidator(STLCells stlCells) {
+    public CellGraphValidator(STLCells stlCells, RangeManager rangeManager) {
         this.numOfVertices = 0; // Initialize the number of vertices in the graph to 0
         this.numOfEdges = 0; // Initialize the number of edges in the graph to 0
         this.adjLists = new HashMap<>(); // Initialize the adjacency list map, which will hold the graph's structure
@@ -43,19 +47,90 @@ public class CellGraphValidator {
         for (STLCell stlCell : listOfCells) {
             String originalValue = stlCell.getSTLOriginalValue(); // Get the original value of the cell
 
-            // Check if the original value starts with "{REF," and ends with "}"
-            if (originalValue.startsWith("{REF,") && originalValue.endsWith("}")) {
-                // Extract the referenced cell's key by trimming the "{REF," from the start and "}" from the end
-                String referencedCell = originalValue.substring(5, originalValue.length() - 1).trim();
+            // Check if the original value contains "{REF," and ends with "}"
+            if (originalValue.contains("{REF,") && originalValue.contains("}")) {
+                // Find the starting index of "{REF,"
+                int startIndex = originalValue.indexOf("{REF,") + 5; // Move past "{REF,"
+
+                // Find the ending index of "}"
+                int endIndex = originalValue.indexOf("}", startIndex);
+
+                // Extract the referenced cell's key by trimming any surrounding spaces
+                String referencedCell = originalValue.substring(startIndex, endIndex).trim();
 
                 // Find the cell in the list that matches the referenced cell's key
                 STLCell refCell = listOfCells.stream()
-                        .filter(cell -> getCellKey(cell).equals(referencedCell)) // Use the getCellKey method to get the key for comparison
+                        .filter(cell -> getCellKey(cell).replace(":", "").equals(referencedCell)) // Use the getCellKey method to get the key for comparison
                         .findFirst() // Find the first match
                         .orElse(null); // If no match is found, return null
 
                 if (refCell != null) {
                     addEdge(refCell, stlCell); // If the referenced cell is found, add an edge from it to the current cell
+                }
+            }
+
+            // Check if the original value contains "{SUM," and ends with "}"
+            if (originalValue.contains("{SUM,") && originalValue.contains("}")) {
+                // Find the starting index of "{SUM,"
+                int startIndex = originalValue.indexOf("{SUM,") + 5; // Move past "{SUM,"
+
+                // Find the ending index of "}"
+                int endIndex = originalValue.indexOf("}", startIndex);
+
+                String rangeName = originalValue.substring(startIndex, endIndex).trim();
+
+                if (!rangeManager.isRangeExist(rangeName))
+                {
+                    throw new RuntimeException("SUM on range that does not exist,Range not found: " + rangeName);
+                }
+
+                RangeReadActions range = rangeManager.getReadOnlyRange(rangeName);
+                List<Coordinate> coordinates = range.getCoordinates();
+                for (Coordinate coordinate : coordinates) {
+
+                    String referencedCell = coordinate.toString();
+                    // Find the cell in the list that matches the referenced cell's key
+                    STLCell refCell = listOfCells.stream()
+                            .filter(cell -> getCellKey(cell).equals(referencedCell)) // Use the getCellKey method to get the key for comparison
+                            .findFirst() // Find the first match
+                            .orElse(null); // If no match is found, return null
+
+                    if (refCell != null) {
+                        addEdge(refCell, stlCell); // If the referenced cell is found, add an edge from it to the current cell
+                    }
+                }
+            }
+
+            // Check if the original value contains "{AVERAGE," and ends with "}"
+            if (originalValue.contains("{AVERAGE,") && originalValue.contains("}")) {
+                // Find the starting index of "{AVERAGE,"
+                int startIndex = originalValue.indexOf("{AVERAGE,") + 9; // Move past "{AVERAGE,"
+
+                // Find the ending index of "}"
+                int endIndex = originalValue.indexOf("}", startIndex);
+
+                String rangeName = originalValue.substring(startIndex, endIndex).trim();
+
+                if (!rangeManager.isRangeExist(rangeName))
+                {
+                    throw new RuntimeException("AVERAGE on range that does not exist,Range not found: " + rangeName);
+                }
+
+                RangeReadActions range = rangeManager.getReadOnlyRange(rangeName);
+                List<Coordinate> coordinates = range.getCoordinates();
+                for (Coordinate coordinate : coordinates) {
+
+                    String referencedCell = coordinate.toString();
+
+                    // Find the cell in the list that matches the referenced cell's key
+                    STLCell refCell = listOfCells.stream()
+                            .filter(cell -> getCellKey(cell).equals(referencedCell)) // Use the getCellKey method to get the key for comparison
+                            .findFirst() // Find the first match
+                            .orElse(null); // If no match is found, return null
+
+                    if (refCell != null) {
+                        addEdge(refCell, stlCell); // If the referenced cell is found, add an edge from it to the current cell
+                    }
                 }
             }
         }

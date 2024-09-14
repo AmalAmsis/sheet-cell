@@ -2,8 +2,12 @@ package component.subcomponent.header;
 
 import component.main.app.AppController;
 import jakarta.xml.bind.JAXBException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
+import javafx.scene.control.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -19,7 +23,8 @@ import java.io.IOException;
 
 public class HeaderController {
 
-        private AppController appController;
+
+    private AppController appController;
 
         @FXML private Label cellIdLabel;
         @FXML private Label currentVersionLabel; //only Yarden
@@ -28,10 +33,36 @@ public class HeaderController {
         @FXML private Label originalValueLabel;
         @FXML private Button updateValueButtom;
         @FXML private Button versionSelectorButtom; //only Yarden
+        @FXML private TextField actionLineTextField;
+        @FXML private Button updateValueButton;
+        @FXML private Button versionSelectorButton;
+        @FXML private Label lastModifiedVersionLabel;
+        @FXML private Label cellBackgroundColoeLabel;
+        @FXML private ColorPicker cellBackgroundColorPicker;
+        @FXML private Label textColorLabel;
+        @FXML private ColorPicker textColorPicker;
+        @FXML private Label alignmentLabel;
+        @FXML private ChoiceBox<String> alignmentChoiceBox;
+        @FXML private Label rowWidthLabel;
+        @FXML private Spinner<Double> doubleSpinner;
+        @FXML private Label columnWidthLabel;
+        @FXML private Spinner<Double> columnWidthSpinner;
+
+
+
 
 
         public void setAppController(AppController appController) {
             this.appController = appController;
+        }
+
+        @FXML
+        private void initialize() {
+            // alignment box
+            ObservableList<String> options =
+                    FXCollections.observableArrayList( "Left", "Center", "Right" );
+            alignmentChoiceBox.setItems(options);
+
         }
 
 
@@ -119,7 +150,11 @@ public class HeaderController {
         }
 
 
-        @FXML void CliclMeUpdateValueButtonAction(ActionEvent event) {
+        @FXML void ClickMeUpdateValueButtonAction(ActionEvent event) {
+
+            String originalValue = actionLineTextField.getText();
+            appController.updateCellValue(originalValue);
+            actionLineTextField.clear();
 
         }
 
@@ -145,9 +180,10 @@ public class HeaderController {
 
         }
 
-        public void updateLabels(String cellId, String originalValue) {
+        public void updateLabels(String cellId, String originalValue, String lastModifiedVersion) {
             cellIdLabel.setText(cellId);
             originalValueLabel.setText(originalValue);
+            lastModifiedVersionLabel.setText(lastModifiedVersion);
         }
 
 }
