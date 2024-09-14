@@ -8,12 +8,18 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import jaxb.schema.xmlprocessing.FileDataException;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class HeaderController {
 
@@ -21,10 +27,12 @@ public class HeaderController {
     private AppController appController;
 
         @FXML private Label cellIdLabel;
-        @FXML private Label currentVersionLabel;
+        @FXML private Label currentVersionLabel; //only Yarden
         @FXML private Label filePathLlabel;
         @FXML private Button loadFileButton;
         @FXML private Label originalValueLabel;
+        @FXML private Button updateValueButtom;
+        @FXML private Button versionSelectorButtom; //only Yarden
         @FXML private TextField actionLineTextField;
         @FXML private Button updateValueButton;
         @FXML private Button versionSelectorButton;
@@ -57,6 +65,8 @@ public class HeaderController {
 
         }
 
+
+        // only yarden
         @FXML
         public void CliclMeLoadFileButtonAction() {
 
@@ -148,8 +158,25 @@ public class HeaderController {
 
         }
 
+
+    // only Yarden
         @FXML
         void CliclMeVersionSelectorButtomAction(ActionEvent event) {
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/component/popup/versionSelector.fxml"));
+                Parent root = loader.load();
+
+                Stage stage = new Stage();
+                stage.setTitle("Version Selector");
+                stage.setScene(new Scene(root));
+                stage.show();
+
+
+            }catch (IOException e){
+                e.printStackTrace();
+
+            }
 
         }
 
