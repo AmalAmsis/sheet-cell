@@ -11,17 +11,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="commit for marge">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="versionSelctor is working.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/main/app/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/main/app/AppController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/src/component/popup/VersionSelectorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/popup/VersionSelectorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/popup/versionSelector.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/popup/versionSelector.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/header/header.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/header/header.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/SheetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/SheetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/manager/UIManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/manager/UIManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/UIModelSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/UIModelSheet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -380,7 +374,7 @@
       <workItem from="1725630797186" duration="41534000" />
       <workItem from="1725807156007" duration="1382000" />
       <workItem from="1726053985447" duration="18219000" />
-      <workItem from="1726310407207" duration="14326000" />
+      <workItem from="1726310407207" duration="16237000" />
     </task>
     <task id="LOCAL-00023" summary="Beginning of work on the graphical interface.&#10;The main component is the app&#10;which contains 2 components:&#10;header and sheet.&#10;&#10;The sheet contains cell type components.&#10;&#10;I basically defined everyone's fxml files.&#10;&#10;I also built a basic controller for everyone.&#10;&#10;I built a function in sheetController that knows how to receive a sheet and load it to the screen.">
       <option name="closed" value="true" />
@@ -446,7 +440,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726312328246</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="versionSelctor is working.">
+      <option name="closed" value="true" />
+      <created>1726328949154</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1726328949154</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -513,7 +515,8 @@
     <MESSAGE value="Adding DTORange class&#10;&#10;adapted the following classes to it in Engine module:&#10;&#10;1.sheet&#10;- RangeManager getRangeManager();&#10;&#10;2. sheetImpl&#10;-Constructor update: public SheetImpl(STLSheet stlSheet, List&lt;STLCell&gt; sortedListOfStlCells)&#10;- implementation of getRangeManager().&#10;&#10;3. RangeManager&#10;-Map&lt;String, Range&gt; getRanges();&#10;&#10;4. RangeManagerImpl&#10;- Implementation of:  Map&lt;String, Range&gt; getRanges();&#10;&#10;&#10;DTO module adjustments&#10;&#10;1. DTOCoordinateImpl&#10;- Adding a constructor public DTOCoordinateImpl(Coordinate coordinate)&#10;&#10;2. DTOSheet&#10;-Map&lt;String,DTORange&gt; getRanges();&#10;&#10;3. DTOShetImpl&#10;-Adding a member: private final Map&lt;String, DTORange&gt; ranges;&#10;-Constructor update: public DTOSheetImpl(Sheet sheet)&#10;-Implementation Map&lt;String,DTORange&gt; getRanges();" />
     <MESSAGE value="Preparing the test of the ranges by loading the xml file in EngineImpl" />
     <MESSAGE value="commit for marge" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit for marge" />
+    <MESSAGE value="versionSelctor is working." />
+    <option name="LAST_COMMIT_MESSAGE" value="versionSelctor is working." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -542,11 +545,6 @@
           <url>file://$PROJECT_DIR$/UI/src/deprecated/manager/UIManagerImpl.java</url>
           <line>31</line>
           <option name="timeStamp" value="68" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UI/src/component/popup/VersionSelectorController.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="106" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

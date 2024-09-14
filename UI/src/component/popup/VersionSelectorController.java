@@ -20,14 +20,9 @@ public class VersionSelectorController {
 
     private AppController appController;
 
-    @FXML
-    private Label numOfChangesInSelectedVersionLabel;
-
-    @FXML
-    private Label selectedVersionLabel;
-
-    @FXML
-    private MenuButton versionMenuBar;
+    @FXML private Label numOfChangesInSelectedVersionLabel;
+    @FXML private Label selectedVersionLabel;
+    @FXML private MenuButton versionMenuBar;
 
     public void setAppController(AppController appController) {
         this.appController = appController;
@@ -65,11 +60,10 @@ public class VersionSelectorController {
             e.printStackTrace();
         }
 
-        return;
     }
 
 
-    public void loadTovVersionMenuBar() {
+    public void loadVersionToMenuBar() {
 
         int numOfVersion = appController.getNumOfVersions();
         versionMenuBar.getItems().clear();
@@ -86,9 +80,9 @@ public class VersionSelectorController {
     public void setVersionData(int version){
         int numOfChanges = appController.getNumOfChangesInVersion(version);
         numOfChangesInSelectedVersionLabel.setText(String.valueOf(numOfChanges));
-
-        // עדכון התווית selectedVersionLabel
         selectedVersionLabel.setText(String.valueOf(version));
+        numOfChangesInSelectedVersionLabel.setStyle("-fx-font-weight: bold; -fx-text-fill: #1abc9c; -fx-font-size: 14px;");
+        selectedVersionLabel.setStyle("-fx-font-weight: bold; -fx-text-fill: #1abc9c; -fx-font-size: 14px;");
     }
 
 

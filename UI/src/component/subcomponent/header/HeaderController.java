@@ -7,7 +7,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -171,7 +170,7 @@ public class HeaderController {
 
                 VersionSelectorController controller = loader.getController();
                 controller.setAppController(appController);
-                controller.loadTovVersionMenuBar();
+                controller.loadVersionToMenuBar();
 
                 Stage stage = new Stage();
                 stage.setTitle("Version Selector");
