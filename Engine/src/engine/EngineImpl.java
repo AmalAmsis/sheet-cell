@@ -59,7 +59,7 @@ public class EngineImpl implements Engine,Serializable {
             }
         }
 
-        List<STLCell> sortedListOfStlCells = xmlProcessing.getTopologicalSortOrThrowCircularReferenceException(stlCellList);
+        List<STLCell> sortedListOfStlCells = xmlProcessing.getTopologicalSortOrThrowCircularReferenceException(stlCellList, rangeManager);
         Sheet newSheet = new SheetImpl(stlSheet, sortedListOfStlCells,rangeManager);
         int numOfCellsInTheSheet = newSheet.getBoard().size();
 

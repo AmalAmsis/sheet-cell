@@ -30,8 +30,16 @@ public class UIManagerImpl implements UIManager {
 
     //todo
     @Override
-    public void updateCellValue() {
+    public DTOSheet updateCellValue(String coordinateString, String value) {
+        try {
+            engine.updateCell(coordinateString, value);
+            DTOSheet dtoSheet = getDtoSheetForDisplaySheet();
+            return dtoSheet;
+        }
+        catch (Exception e) {
 
+        }
+        return null;
     }
 
     @Override

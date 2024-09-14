@@ -16,7 +16,7 @@ public class FxmlTest extends Application {
             BorderPane root = loader.load();
 
             // הגדרת הסצנה והבמה (Stage)
-            Scene scene = new Scene(root, 600, 400);
+            Scene scene = new Scene(root, 800, 400);
             primaryStage.setScene(scene);
             primaryStage.setTitle("Test JavaFX App");
             primaryStage.show();

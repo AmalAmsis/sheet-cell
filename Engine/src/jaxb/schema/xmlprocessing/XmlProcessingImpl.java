@@ -8,6 +8,7 @@ import jaxb.schema.generated.STLCell;
 import jaxb.schema.generated.STLCells;
 import jaxb.schema.generated.STLLayout;
 import jaxb.schema.generated.STLSheet;
+import sheet.range.RangeManager;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -202,8 +203,8 @@ public class XmlProcessingImpl implements XmlProcessing {
     }
 
     @Override
-    public List<STLCell> getTopologicalSortOrThrowCircularReferenceException(STLCells listOfCells) throws FileDataException.CircularReferenceException {
-        CellGraphValidator cellGraphValidator = new CellGraphValidator(listOfCells);
+    public List<STLCell> getTopologicalSortOrThrowCircularReferenceException(STLCells listOfCells, RangeManager rangeManager) throws FileDataException.CircularReferenceException {
+        CellGraphValidator cellGraphValidator = new CellGraphValidator(listOfCells, rangeManager);
         return cellGraphValidator.topologicalSort();
     }
 

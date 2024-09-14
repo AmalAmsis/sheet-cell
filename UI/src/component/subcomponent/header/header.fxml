@@ -2,16 +2,23 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ColorPicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 
-<ScrollPane fitToHeight="true" fitToWidth="true" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.subcomponent.header.HeaderController">
+<ScrollPane fitToHeight="true" fitToWidth="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="139.0" prefWidth="848.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.subcomponent.header.HeaderController">
    <content>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="91.0" prefWidth="600.0" spacing="5.0" stylesheets="@header.css">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="131.0" prefWidth="835.0" spacing="5.0" stylesheets="@header.css">
           <children>
               <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="37.0" prefWidth="599.0" spacing="5.0">
                   <children>
@@ -22,20 +29,50 @@
                       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                   </padding>
               </HBox>
-              <HBox prefHeight="31.0" prefWidth="600.0" spacing="5.0">
+              <HBox prefHeight="37.0" prefWidth="854.0" spacing="5.0">
                   <children>
-                      <Label fx:id="cellIdLabel" styleClass="header-label" text="cell id" />
-                      <Label fx:id="originalValueLabel" styleClass="header-label" text="original value" />
-                      <TextField promptText="action line" />
-                      <Button fx:id="updateValueButtom" mnemonicParsing="false" onAction="#CliclMeUpdateValueButtonAction" text="update value" />
-                      <Label fx:id="currentVersionLabel" styleClass="header-label" text="current version" />
+                      <Label fx:id="cellIdLabel" prefHeight="26.0" prefWidth="44.0" styleClass="header-label" text="cell id" />
+                  <Label fx:id="lastModifiedVersionLabel" prefHeight="26.0" prefWidth="124.0" styleClass="header-label" text=" last modified version" />
+                      <Label fx:id="originalValueLabel" prefHeight="26.0" prefWidth="153.0" styleClass="header-label" text="original value" />
+                      <TextField fx:id="actionLineTextField" promptText="action line" />
+                      <Button fx:id="updateValueButton" mnemonicParsing="false" onAction="#ClickMeUpdateValueButtonAction" text="update value" />
+                      <Label fx:id="currentVersionLabel" prefHeight="26.0" prefWidth="124.0" styleClass="header-label" text="current sheet version" />
                       <Button fx:id="versionSelectorButtom" mnemonicParsing="false" onAction="#CliclMeVersionSelectorButtomAction" text="version selector" />
                   </children>
                   <padding>
                       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                   </padding>
               </HBox>
-              <Separator prefWidth="200.0" />
+              <Separator prefHeight="0.0" prefWidth="849.0" />
+            <GridPane prefHeight="50.0" prefWidth="574.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="407.20001220703125" minWidth="0.0" prefWidth="147.20001373291015" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="715.1999816894531" minWidth="0.0" prefWidth="188.79998626708985" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="715.1999816894531" minWidth="10.0" prefWidth="117.39996337890625" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="715.1999816894531" minWidth="10.0" prefWidth="137.80001220703127" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="715.1999816894531" minWidth="10.0" prefWidth="251.39998779296877" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="31.199993896484376" minHeight="10.0" prefHeight="13.399981689453124" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="36.60001831054687" minHeight="10.0" prefHeight="36.60001831054687" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Cell background color" />
+                  <ColorPicker prefHeight="26.0" prefWidth="104.0" GridPane.rowIndex="1" />
+                  <Label text="Text color" GridPane.columnIndex="1" />
+                  <ColorPicker prefHeight="26.0" prefWidth="94.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <value>
+                        <Color />
+                     </value>
+                  </ColorPicker>
+                  <Label text="Alignment" GridPane.columnIndex="2" />
+                  <ChoiceBox fx:id="alignmentChoiceBox" prefHeight="8.0" prefWidth="91.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Spinner prefHeight="26.0" prefWidth="114.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <Spinner prefHeight="26.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                  <Label text="Row width" GridPane.columnIndex="3" />
+                  <Label text="column width" GridPane.columnIndex="4" />
+               </children>
+            </GridPane>
           </children>
       </VBox>
    </content>

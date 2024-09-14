@@ -1,5 +1,6 @@
 package component.subcomponent.sheet;
 
+import javafx.css.StyleClass;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import java.util.HashMap;
@@ -52,6 +53,13 @@ public class UIModelSheet {
         cells.get(cellId).setFont(font);
     }
 
+    //Amal
+    public void setCellBorderColor(String cellId, Color color) {cells.get(cellId).setBorderColor(color);}
+
+    public void setCellBorderWidth(String cellId, double width) {cells.get(cellId).setBorderWidth(width);}
+
+    public void setCellBorderStyle(String cellId, String style) {cells.get(cellId).setBorderStyle(style);}
+
 
 
 
@@ -66,18 +74,21 @@ public class UIModelSheet {
         CellModel cell = getCell(cellId);
 
         label.textProperty().bind(cell.valueProperty());
-
         label.alignmentProperty().bind(cell.alignmentProperty());
-
         label.textFillProperty().bind(cell.textColorProperty());
-
         label.fontProperty().bind(cell.fontProperty());
 
-        cell.backgroundColorProperty().addListener((obs, oldColor, newColor) -> {
-            label.setStyle("-fx-background-color: " + toRgbString(newColor) + ";");
-        });
+        // מחילים את הסגנון הראשוני
+        updateLabelStyle(label, cell);
 
-        label.setStyle("-fx-background-color: " + toRgbString(cell.backgroundColorProperty().get()) + ";");
+        // מאזינים לשינויים במאפיינים וקוראים לעדכון הסגנון
+        cell.backgroundColorProperty().addListener((obs, oldColor, newColor) -> updateLabelStyle(label, cell));
+        cell.borderColorProperty().addListener((obs, oldColor, newColor) -> updateLabelStyle(label, cell));
+        cell.borderWidthProperty().addListener((obs, oldWidth, newWidth) -> updateLabelStyle(label, cell));
+        cell.borderStyleProperty().addListener((obs, oldStyle, newStyle) -> updateLabelStyle(label, cell));
+
+
+
 
     }
 
@@ -86,6 +97,17 @@ public class UIModelSheet {
         int g = (int) (color.getGreen() * 255);
         int b = (int) (color.getBlue() * 255);
         return "rgb(" + r + "," + g + "," + b + ")";
+    }
+
+    private void updateLabelStyle(Label label, CellModel cell) {
+        String style = String.format(
+                "-fx-background-color: %s; -fx-border-color: %s; -fx-border-width: %spx; -fx-border-style: %s;",
+                toRgbString(cell.backgroundColorProperty().get()),
+                toRgbString(cell.borderColorProperty().get()),
+                cell.borderWidthProperty().get(),
+                cell.borderStyleProperty().get()
+        );
+        label.setStyle(style);
     }
 
 
