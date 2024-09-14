@@ -1,9 +1,6 @@
 package engine;
 
-import dto.DTOCell;
-import dto.DTOCellImpl;
-import dto.DTOSheet;
-import dto.DTOSheetImpl;
+import dto.*;
 import jakarta.xml.bind.JAXBException;
 import jaxb.schema.generated.*;
 import jaxb.schema.xmlprocessing.FileDataException;
@@ -13,15 +10,19 @@ import sheet.Sheet;
 import sheet.SheetImpl;
 import sheet.coordinate.Coordinate;
 import sheet.coordinate.CoordinateImpl;
+import sheet.range.Range;
 import sheet.range.RangeManager;
 import sheet.range.RangeManagerImpl;
+import sheet.range.RangeReadActions;
 import sheet.version.SheetVersionHandler;
 import sheet.version.SheetVersionHandlerImpl;
 import state.SheetStateManager;
 import state.SheetStateManagerImpl;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class EngineImpl implements Engine,Serializable {
 
@@ -29,6 +30,35 @@ public class EngineImpl implements Engine,Serializable {
 
     public SheetStateManager getCurrentSheetState() {
         return currentSheetState;
+    }
+
+    @Override
+    public void addNewRange(String rangeName, String fromCoordinate, String toCoordinate) throws Exception
+    {
+        String range = fromCoordinate + ".." + toCoordinate;
+        currentSheetState.getCurrentSheet().addRangeToManager(rangeName,range);
+    }
+
+    @Override
+    public void removeRange(String rangeName) throws Exception{
+        currentSheetState.getCurrentSheet().removeRangeFromManager(rangeName);
+
+    }
+
+    @Override
+    public DTORange getRange(String rangeName) {
+        RangeReadActions range = currentSheetState.getCurrentSheet().getRangeReadActions(rangeName);
+        return new DTORangeImpl(range);
+    }
+
+    @Override
+    public List<DTORange> getAllRanges() {
+        List<DTORange> ranges = new ArrayList<DTORange>();
+        Map<String,Range> rangesMap = currentSheetState.getCurrentSheet().getRangeManager().getRanges();
+        for (Range range : rangesMap.values()) {
+            ranges.add(new DTORangeImpl(range));
+        }
+        return ranges;
     }
 
 

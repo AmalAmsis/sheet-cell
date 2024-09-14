@@ -1,11 +1,14 @@
 package manager;
 
 import dto.DTOCell;
+import dto.DTORange;
 import dto.DTOSheet;
 import engine.Engine;
 import engine.EngineImpl;
 import sheet.version.SheetVersionData;
 import sheet.version.SheetVersionHandler;
+
+import java.util.List;
 
 public class UIManagerImpl implements UIManager {
 
@@ -69,5 +72,26 @@ public class UIManagerImpl implements UIManager {
     public int getNumOfChangesInVersion(int version){
        return engine.getCurrentSheetState().getVersionHandler().getVersionHistory().get(version).getNumOfUpdateCells();
     }
+
+    @Override
+    public void addNewRange(String rangeName, String from, String to) throws Exception {
+        engine.addNewRange(rangeName, from, to);
+    }
+
+    @Override
+    public void removeRange(String rangeName) throws Exception {
+        engine.removeRange(rangeName);
+    }
+
+    @Override
+    public DTORange getRange(String rangeName) throws Exception {
+        return engine.getRange(rangeName);
+    }
+
+    @Override
+    public List<DTORange> getAllRanges() throws Exception {
+        return engine.getAllRanges();
+    }
+
 
 }

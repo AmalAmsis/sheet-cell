@@ -24,14 +24,14 @@ import java.io.IOException;
 public class HeaderController {
 
 
-    private AppController appController;
+        private AppController appController;
 
         @FXML private Label cellIdLabel;
         @FXML private Label currentVersionLabel; //only Yarden
         @FXML private Label filePathLlabel;
         @FXML private Button loadFileButton;
         @FXML private Label originalValueLabel;
-        @FXML private Button updateValueButtom;
+        @FXML private Button getUpdateValueButton;
         @FXML private Button versionSelectorButtom; //only Yarden
         @FXML private TextField actionLineTextField;
         @FXML private Button updateValueButton;
@@ -61,7 +61,7 @@ public class HeaderController {
                     FXCollections.observableArrayList( "Left", "Center", "Right" );
             alignmentChoiceBox.setItems(options);
 
-            setDisableInButtom(true);
+            setDisableInButton(true);
 
         }
 
@@ -88,7 +88,7 @@ public class HeaderController {
                 try {
                     appController.loadAndDisplaySheetFromXmlFile(selectedFile.getAbsolutePath());
                     updateFilePathLabel(selectedFile.getAbsolutePath());
-                    setDisableInButtom(false);
+                    setDisableInButton(false);
 
                 } catch (IllegalArgumentException e) {
                     // Handle errors from isXmlFile (e.g., invalid file path or non-XML file)
@@ -191,8 +191,8 @@ public class HeaderController {
             lastModifiedVersionLabel.setText(lastModifiedVersion);
         }
 
-        private void setDisableInButtom(boolean isEnable){
-            updateValueButtom.setDisable(isEnable);
+        private void setDisableInButton(boolean isEnable){
+            updateValueButton.setDisable(isEnable);
             versionSelectorButtom.setDisable(isEnable);
         }
 

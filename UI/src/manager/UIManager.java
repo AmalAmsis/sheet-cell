@@ -1,7 +1,10 @@
 package manager;
 
+import dto.DTORange;
 import dto.DTOSheet;
 import dto.DTOCell;
+
+import java.util.List;
 
 public interface UIManager {
     DTOSheet getDtoSheetForDisplaySheet();
@@ -12,4 +15,9 @@ public interface UIManager {
     int getNumOfVersion();
     DTOSheet getSheetInVersion(int version);
     int getNumOfChangesInVersion(int version);
+    void addNewRange(String rangeName , String from, String to) throws Exception;
+    void removeRange(String rangeName) throws Exception;
+    DTORange getRange(String rangeName) throws Exception;
+    List<DTORange> getAllRanges() throws Exception;
+
 }

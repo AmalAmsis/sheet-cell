@@ -1,22 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.layout.VBox?>
-
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Spinner?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.TextField?>
-<ScrollPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.subcomponent.left.LeftController">
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane prefHeight="440.0" prefWidth="156.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.subcomponent.left.LeftController">
    <content>
-      <VBox prefHeight="270.0" prefWidth="100.0" stylesheets="@left.css">
+      <VBox prefHeight="434.0" prefWidth="138.0" stylesheets="@left.css">
          <children>
             <Label text="command" />
-            <VBox prefHeight="101.0" prefWidth="100.0">
+            <VBox prefHeight="216.0" prefWidth="138.0">
             </VBox>
             <Label text="range" />
-            <VBox prefHeight="87.0" prefWidth="100.0" />
+            <Accordion>
+              <panes>
+                <TitledPane animated="false" text="add new range">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TextField fx:id="newRangeNameTextField" layoutX="17.0" layoutY="20.0" prefHeight="26.0" prefWidth="102.0" promptText="new range name" />
+                              <TextField fx:id="toTextField" layoutX="75.0" layoutY="59.0" prefHeight="26.0" prefWidth="38.0" promptText="to" />
+                              <TextField fx:id="fromTextField" layoutX="21.0" layoutY="59.0" prefHeight="26.0" prefWidth="40.0" promptText="from" />
+                              <Label layoutX="63.0" layoutY="54.0" prefHeight="36.0" prefWidth="7.0" text="-">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="addNewRangeButton" layoutX="50.0" layoutY="104.0" mnemonicParsing="false" onAction="#ClickMeAddNewRangeButton" text="add" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </TitledPane>
+                <TitledPane animated="false" text="delete range">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ChoiceBox fx:id="removeRangeChoiceBox" layoutX="7.0" layoutY="14.0" prefHeight="26.0" prefWidth="121.0" />
+                              <Button fx:id="removeRangeButton" layoutX="40.0" layoutY="59.0" mnemonicParsing="false" onAction="#ClickMeRemoveRange" text="remove" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </TitledPane>
+                <TitledPane animated="false" text="show range">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ChoiceBox fx:id="showRangeChoiceBox" layoutX="11.0" layoutY="14.0" prefHeight="26.0" prefWidth="114.0" />
+                              <Button fx:id="showRangeButton" layoutX="46.0" layoutY="59.0" mnemonicParsing="false" onAction="#ClickMeShowRange" text="show" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </TitledPane>
+              </panes>
+            </Accordion>
          </children>
       </VBox>
    </content>
