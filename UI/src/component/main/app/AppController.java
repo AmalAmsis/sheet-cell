@@ -4,6 +4,7 @@ import component.subcomponent.header.HeaderController;
 import component.subcomponent.sheet.CellStyle;
 import component.subcomponent.sheet.SheetController;
 import component.subcomponent.left.LeftController;
+import component.popup.VersionSelectorController;
 
 
 import dto.DTOCell;
@@ -121,6 +122,19 @@ public class AppController {
     public void setLeftController(LeftController leftController) {
         this.leftController = leftController;
         leftController.setAppController(this);
+    }
+
+
+    public int getNumOfVersions(){
+        return uiManager.getNumOfVersion();
+    }
+
+    public DTOSheet getSheetByVersion(int version) {
+        return uiManager.getSheetInVersion(version);
+    }
+
+    public int getNumOfChangesInVersion(int version) {
+        return uiManager.getNumOfChangesInVersion(version);
     }
 
 }

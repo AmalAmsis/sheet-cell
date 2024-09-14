@@ -1,12 +1,12 @@
 package component.subcomponent.header;
 
 import component.main.app.AppController;
+import component.popup.VersionSelectorController;
 import jakarta.xml.bind.JAXBException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -50,8 +50,6 @@ public class HeaderController {
 
 
 
-
-
         public void setAppController(AppController appController) {
             this.appController = appController;
         }
@@ -62,6 +60,8 @@ public class HeaderController {
             ObservableList<String> options =
                     FXCollections.observableArrayList( "Left", "Center", "Right" );
             alignmentChoiceBox.setItems(options);
+
+            setDisableInButtom(true);
 
         }
 
@@ -88,6 +88,7 @@ public class HeaderController {
                 try {
                     appController.loadAndDisplaySheetFromXmlFile(selectedFile.getAbsolutePath());
                     updateFilePathLabel(selectedFile.getAbsolutePath());
+                    setDisableInButtom(false);
 
                 } catch (IllegalArgumentException e) {
                     // Handle errors from isXmlFile (e.g., invalid file path or non-XML file)
@@ -167,6 +168,10 @@ public class HeaderController {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/component/popup/versionSelector.fxml"));
                 Parent root = loader.load();
 
+                VersionSelectorController controller = loader.getController();
+                controller.setAppController(appController);
+                controller.loadVersionToMenuBar();
+
                 Stage stage = new Stage();
                 stage.setTitle("Version Selector");
                 stage.setScene(new Scene(root));
@@ -184,6 +189,11 @@ public class HeaderController {
             cellIdLabel.setText(cellId);
             originalValueLabel.setText(originalValue);
             lastModifiedVersionLabel.setText(lastModifiedVersion);
+        }
+
+        private void setDisableInButtom(boolean isEnable){
+            updateValueButtom.setDisable(isEnable);
+            versionSelectorButtom.setDisable(isEnable);
         }
 
 }

@@ -17,7 +17,6 @@ public class UIModelSheet {
         cells = new HashMap<>();
     }
 
-
     public void initializeModel(int numOfRows, int numOfCols) {
 
         cells.clear();
@@ -59,9 +58,6 @@ public class UIModelSheet {
     public void setCellBorderWidth(String cellId, double width) {cells.get(cellId).setBorderWidth(width);}
 
     public void setCellBorderStyle(String cellId, String style) {cells.get(cellId).setBorderStyle(style);}
-
-
-
 
 
     private String getCellId(int col, int row) {
