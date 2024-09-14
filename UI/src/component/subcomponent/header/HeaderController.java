@@ -4,6 +4,9 @@ import component.main.app.AppController;
 import jakarta.xml.bind.JAXBException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
@@ -12,24 +15,27 @@ import jaxb.schema.xmlprocessing.FileDataException;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class HeaderController {
 
         private AppController appController;
 
         @FXML private Label cellIdLabel;
-        @FXML private Label currentVersionLabel;
+        @FXML private Label currentVersionLabel; //only Yarden
         @FXML private Label filePathLlabel;
         @FXML private Button loadFileButton;
         @FXML private Label originalValueLabel;
         @FXML private Button updateValueButtom;
-        @FXML private Button versionSelectorButtom;
+        @FXML private Button versionSelectorButtom; //only Yarden
 
 
         public void setAppController(AppController appController) {
             this.appController = appController;
         }
 
+
+        // only yarden
         @FXML
         public void CliclMeLoadFileButtonAction() {
 
@@ -117,8 +123,25 @@ public class HeaderController {
 
         }
 
+
+    // only Yarden
         @FXML
         void CliclMeVersionSelectorButtomAction(ActionEvent event) {
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/component/popup/versionSelector.fxml"));
+                Parent root = loader.load();
+
+                Stage stage = new Stage();
+                stage.setTitle("Version Selector");
+                stage.setScene(new Scene(root));
+                stage.show();
+
+
+            }catch (IOException e){
+                e.printStackTrace();
+
+            }
 
         }
 
