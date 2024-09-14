@@ -92,7 +92,7 @@ public class SheetController {
         for (int row = 1; row <= numOfRows; row++) {
             String cellKey = getCellId(0, row);
             Label cellLabel = new Label();
-            cellLabel.setPrefSize(15, HeightOfRows);
+            cellLabel.setPrefSize(25, HeightOfRows);
             uiModel.setCellValue(cellKey, String.valueOf(row));
             uiModel.bindCellToModel(cellLabel, cellKey);
             sheetGrid.add(cellLabel, 0, row);
@@ -126,11 +126,6 @@ public class SheetController {
     private String getCellId(int col, int row) {
         char colLetter = (char) ('A' + (col - 1)); // ממיר מספר עמודה לאות, לדוגמה 1 -> A
         return String.valueOf(colLetter) + ":" + row;
-    }
-
-    public void displaySheetByVersion(int version){
-        DTOSheet dtoSheet = appController.getSheetByVersion(version);
-        initSheetAndBindToUIModel(dtoSheet);
     }
 
     //*******************************************************************************************************//

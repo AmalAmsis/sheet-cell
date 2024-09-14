@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.popup.VersionSelectorController">
+<ScrollPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.subcomponent.popup.versionselector.VersionSelectorController">
    <content>
        <VBox fillWidth="true" maxWidth="Infinity" prefWidth="400.0" VBox.vgrow="ALWAYS">
        <children>
