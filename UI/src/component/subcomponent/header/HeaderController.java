@@ -24,14 +24,14 @@ import java.io.IOException;
 public class HeaderController {
 
 
-    private AppController appController;
+        private AppController appController;
 
         @FXML private Label cellIdLabel;
         @FXML private Label currentVersionLabel; //only Yarden
         @FXML private Label filePathLlabel;
         @FXML private Button loadFileButton;
         @FXML private Label originalValueLabel;
-        @FXML private Button updateValueButtom;
+        @FXML private Button getUpdateValueButton;
         @FXML private Button versionSelectorButtom; //only Yarden
         @FXML private TextField actionLineTextField;
         @FXML private Button updateValueButton;
