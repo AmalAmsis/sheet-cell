@@ -63,10 +63,11 @@ public class SheetImpl implements Sheet , Serializable {
         this.numOfCols =stlSheet.getSTLLayout().getColumns();
         this.heightOfRows = stlSheet.getSTLLayout().getSTLSize().getRowsHeightUnits();
         this.widthOfCols = stlSheet.getSTLLayout().getSTLSize().getColumnWidthUnits();
+        this.rangeManager = rangeManager;
         this.addSortedListOfStlCellsToSheet(sortedListOfStlCells); //load the cell on the list to our map
 
         //todo - AMAL - tell me if that ok!!!
-        this.rangeManager = rangeManager;
+        //this.rangeManager = rangeManager;
     }
 
 

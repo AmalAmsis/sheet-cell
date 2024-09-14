@@ -11,6 +11,7 @@ public interface RangeManager {
     void unmarkRangeInUse(String name) ;
     RangeReadActions getReadOnlyRange(String name) ;
     void displayAllRanges();
+    Boolean isRangeExist(String range);
 
     //*********************************************************YARDEN
     Map<String, Range> getRanges();

@@ -13,10 +13,13 @@
   <component name="ChangeListManager">
     <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Adding the ability to update the information inside the cell by updating it in the information row (using a special button)&#10; There is still no treatment in case of a failed update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/main/app/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/main/app/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/SheetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/SheetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/manager/UIManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/manager/UIManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/engine/EngineImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/engine/EngineImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/CellGraphValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/CellGraphValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/XmlProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/XmlProcessing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/XmlProcessingImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/XmlProcessingImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/range/RangeManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/range/RangeManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/range/RangeManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/range/RangeManagerImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,11 +66,11 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.AppRunner.executor": "Run",
-    "Application.FxmlTest.executor": "Debug",
+    "Application.FxmlTest.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.Test.executor": "Run",
     "Application.Test2.executor": "Coverage",
-    "Application.deprecated.apprunner.AppRunner.executor": "Run",
+    "Application.deprecated.apprunner.AppRunner.executor": "Debug",
     "Application.sheet.range.Test.executor": "Run",
     "Application.test.FxmlTest.executor": "Run",
     "DefaultHtmlFileTemplate": "HTML File",
@@ -99,6 +102,7 @@
     <configuration name="FxmlTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="test.FxmlTest" />
       <module name="UI" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\openjfx-22.0.2_windows-x64_bin-sdk\javafx-sdk-22.0.2\lib&quot;  --add-modules javafx.controls,javafx.fxml " />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="test.*" />
@@ -373,7 +377,8 @@
       <workItem from="1725627672775" duration="38406000" />
       <workItem from="1725874015206" duration="12458000" />
       <workItem from="1725968132983" duration="9629000" />
-      <workItem from="1726042710021" duration="76555000" />
+      <workItem from="1726042710021" duration="76800000" />
+      <workItem from="1726303761970" duration="7468000" />
     </task>
     <task id="LOCAL‎-00024" summary="Getting started with fxml&#10; components: app, header, board">
       <option name="closed" value="true" />
@@ -527,7 +532,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1726268313169</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL‎-00043" summary="Adding the ability to update the information inside the cell by updating it in the information row (using a special button)&#10; There is still no treatment in case of a failed update">
+      <option name="closed" value="true" />
+      <created>1726303722046</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL‎-00043" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1726303722046</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -609,13 +622,23 @@
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Engine/src/expression/ExpressionEvaluator.java</url>
-          <line>60</line>
-          <option name="timeStamp" value="60" />
+          <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>
+          <line>315</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/CellGraphValidator.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>
-          <line>223</line>
+          <line>224</line>
           <properties class="sheet.SheetImpl" method="updateCell">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

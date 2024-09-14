@@ -28,8 +28,10 @@ public class RangeManagerImpl implements RangeManager {
 
     //********************************************************************************************************//
 
-
-
+    @Override
+    public Boolean isRangeExist(String range) {
+        return this.ranges.containsKey(range);
+    }
 
 
     /**

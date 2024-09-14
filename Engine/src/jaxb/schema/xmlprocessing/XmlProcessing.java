@@ -4,6 +4,7 @@ import jakarta.xml.bind.JAXBException;
 import jaxb.schema.generated.STLCell;
 import jaxb.schema.generated.STLCells;
 import jaxb.schema.generated.STLSheet;
+import sheet.range.RangeManager;
 
 import java.io.FileNotFoundException;
 import java.util.List;
@@ -28,5 +29,5 @@ public interface XmlProcessing {
      * @param listOfCells the STLCells object containing the list of cells to sort.
      * @return a List of STLCell objects sorted in topological order.
      * @throws FileDataException.CircularReferenceException if a circular reference is detected among the cells. */
-    List<STLCell> getTopologicalSortOrThrowCircularReferenceException(STLCells listOfCells) throws FileDataException.CircularReferenceException;
+    List<STLCell> getTopologicalSortOrThrowCircularReferenceException(STLCells listOfCells, RangeManager rangeManager) throws FileDataException.CircularReferenceException;
 }
