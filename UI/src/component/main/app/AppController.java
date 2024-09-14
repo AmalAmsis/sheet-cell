@@ -4,7 +4,6 @@ import component.subcomponent.header.HeaderController;
 import component.subcomponent.sheet.CellStyle;
 import component.subcomponent.sheet.SheetController;
 import component.subcomponent.left.LeftController;
-import component.popup.VersionSelectorController;
 
 
 import dto.DTOCell;
@@ -13,14 +12,11 @@ import dto.DTORange;
 import dto.DTOSheet;
 import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import manager.UIManager;
 import manager.UIManagerImpl;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 
 public class AppController {

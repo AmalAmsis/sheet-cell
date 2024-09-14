@@ -1,7 +1,7 @@
 package component.subcomponent.header;
 
 import component.main.app.AppController;
-import component.popup.VersionSelectorController;
+import component.subcomponent.popup.versionselector.VersionSelectorController;
 import jakarta.xml.bind.JAXBException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -165,7 +165,7 @@ public class HeaderController {
         void CliclMeVersionSelectorButtomAction(ActionEvent event) {
 
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/component/popup/versionSelector.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/component/subcomponent/popup/versionselector/versionSelector.fxml"));
                 Parent root = loader.load();
 
                 VersionSelectorController controller = loader.getController();

@@ -1,7 +1,9 @@
-package component.popup;
+package component.subcomponent.popup.versionselector;
 
 import component.main.app.AppController;
+import component.subcomponent.popup.viewonlysheet.ViewOnlySheetController;
 import component.subcomponent.sheet.SheetController;
+import dto.DTOSheet;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -40,15 +42,14 @@ public class VersionSelectorController {
         loadVersion(version);
     }
 
-
     public void loadVersion(int version) {
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/component/subcomponent/sheet/sheet.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/component/subcomponent/popup/viewonlysheet/viewOnlySheet.fxml"));
             Parent root = loader.load();
 
-            SheetController sheetController = loader.getController();
-            sheetController.setAppController(appController);
-            sheetController.displaySheetByVersion(version);
+            ViewOnlySheetController viewOnlySheetController = loader.getController();
+            viewOnlySheetController.setAppController(appController);
+            viewOnlySheetController.displayViewOnlySheetByVersion(version);
 
             Stage stage = new Stage();
             stage.setTitle("Version " + version);
@@ -61,6 +62,28 @@ public class VersionSelectorController {
         }
 
     }
+
+
+//    public void loadVersion(int version) {
+//        try{
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/component/subcomponent/sheet/sheet.fxml"));
+//            Parent root = loader.load();
+//
+//            SheetController sheetController = loader.getController();
+//            sheetController.setAppController(appController);
+//            sheetController.displaySheetByVersion(version);
+//
+//            Stage stage = new Stage();
+//            stage.setTitle("Version " + version);
+//            stage.setScene(new Scene(root));
+//            stage.show();
+//
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
 
 
     public void loadVersionToMenuBar() {
