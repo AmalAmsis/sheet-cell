@@ -7,6 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 
+import java.util.List;
+
 
 public class LeftController {
 
@@ -47,6 +49,7 @@ public class LeftController {
         fromTextField.textProperty().addListener((observable, oldValue, newValue) -> validateAddNewRangeButton());
         toTextField.textProperty().addListener((observable, oldValue, newValue) -> validateAddNewRangeButton());
 
+
     }
 
     // פונקציה לבדיקת השדות ולהפעלת הכפתור
@@ -62,17 +65,60 @@ public class LeftController {
 
     @FXML
     void ClickMeAddNewRangeButton(ActionEvent event) {
+        String rangeName = newRangeNameTextField.getText();
+        String from = fromTextField.getText();
+        String to = toTextField.getText();
+
+        if (rangeName.isEmpty() || from.isEmpty() || to.isEmpty()) {
+            // Show an error message or prompt the user to fill in all fields
+            return;
+        }
+
+
+        // Call appController to add the new range
+        appController.addNewRange(rangeName, from, to);
+
+        // Clear text fields after successful operation
+        newRangeNameTextField.clear();
+        fromTextField.clear();
+        toTextField.clear();
+
+        // Optionally update the choice boxes
+        updateChoiceBoxes();
 
     }
 
     @FXML
     void ClickMeRemoveRange(ActionEvent event) {
+        String selectedRange = removeRangeChoiceBox.getSelectionModel().getSelectedItem();
+
+        if (selectedRange != null) {
+            // Call appController to remove the selected range
+            appController.removeRange(selectedRange);
+
+            // Update the choice boxes after removal
+            updateChoiceBoxes();
+        }
 
     }
 
     @FXML
     void ClickMeShowRange(ActionEvent event) {
+        String selectedRange = showRangeChoiceBox.getSelectionModel().getSelectedItem();
 
+        if (selectedRange != null) {
+            // Call appController to show/highlight the selected range
+            appController.showRange(selectedRange);
+        }
+    }
+
+    public void updateChoiceBoxes() {
+        // Get the updated list of ranges from appController
+        List<String> ranges = appController.getAllRanges();
+
+        // Update the ChoiceBoxes
+        removeRangeChoiceBox.getItems().setAll(ranges);
+        showRangeChoiceBox.getItems().setAll(ranges);
     }
 
 }

@@ -35,7 +35,7 @@
                   <Label fx:id="lastModifiedVersionLabel" prefHeight="26.0" prefWidth="124.0" styleClass="header-label" text=" last modified version" />
                       <Label fx:id="originalValueLabel" prefHeight="26.0" prefWidth="153.0" styleClass="header-label" text="original value" />
                       <TextField fx:id="actionLineTextField" promptText="action line" />
-                      <Button fx:id="updateValueButtom" mnemonicParsing="false" onAction="#ClickMeUpdateValueButtonAction" text="update value" />
+                      <Button fx:id="updateValueButton" mnemonicParsing="false" onAction="#ClickMeUpdateValueButtonAction" text="update value" />
                       <Label fx:id="currentVersionLabel" prefHeight="26.0" prefWidth="124.0" styleClass="header-label" text="current sheet version" />
                       <Button fx:id="versionSelectorButtom" mnemonicParsing="false" onAction="#CliclMeVersionSelectorButtomAction" text="version selector" />
                   </children>

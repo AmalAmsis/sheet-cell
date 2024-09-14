@@ -9,6 +9,7 @@ import component.popup.VersionSelectorController;
 
 import dto.DTOCell;
 import dto.DTOCoordinate;
+import dto.DTORange;
 import dto.DTOSheet;
 import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
@@ -41,6 +42,7 @@ public class AppController {
     public void loadAndDisplaySheetFromXmlFile(String filePath) throws Exception {
         loadSheetFromFile(filePath);
         displaySheet();
+        leftController.updateChoiceBoxes();
     }
 
 
@@ -135,6 +137,47 @@ public class AppController {
 
     public int getNumOfChangesInVersion(int version) {
         return uiManager.getNumOfChangesInVersion(version);
+    }
+
+    public void addNewRange(String rangeName,String from,String to) {
+        try {
+            uiManager.addNewRange(rangeName, from, to);
+        }catch (Exception e) {
+            // popup
+        }
+    }
+    public void removeRange(String selectedRange){
+        try {
+            uiManager.removeRange(selectedRange);
+        }catch (Exception e) {
+            // popup
+        }
+
+    }
+    public void showRange(String selectedRange){
+        try {
+            DTORange dtoRange = uiManager.getRange(selectedRange);
+            List<DTOCoordinate> dtoCoordinateDependsOnCellsList = dtoRange.getCoordinates();
+            List <String> cellsId = TurnDtoCoordinateListToCellIdList(dtoCoordinateDependsOnCellsList);
+            sheetController.addBorderForCells(CellStyle.RANGE_CELL_BORDER_COLOR.getColorValue(), CellStyle.RANGE_CELL_BORDER_STYLE.getStyleValue(), CellStyle.RANGE_CELL_BORDER_WIDTH.getWidthValue(), cellsId);
+        }catch (Exception e){
+            //popup
+        }
+
+    }
+
+    public List<String> getAllRanges(){
+        try {
+            List<String> ranges = new ArrayList<>();
+            List<DTORange> allRanges = uiManager.getAllRanges();
+            for (DTORange range : allRanges) {
+                ranges.add(range.getName() +"  : "+ range.getTopLeftCoordinate().toString().replace(":", "") + "-" + range.getBottomRightCoordinate().toString().replace(":", ""));
+            }
+            return ranges;
+        }catch (Exception e) {
+            //POPUP
+        }
+        return null;
     }
 
 }

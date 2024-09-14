@@ -1,8 +1,11 @@
 package engine;
 
 import dto.DTOCell;
+import dto.DTORange;
 import dto.DTOSheet;
 import state.SheetStateManager;
+
+import java.util.List;
 
 public interface Engine {
 
@@ -87,6 +90,14 @@ public interface Engine {
     void loadSystemState(String filePath) throws Exception;
 
     public SheetStateManager getCurrentSheetState();
+
+    void addNewRange(String rangeName, String fromCoordinate, String toCoordinate) throws Exception;
+
+    void removeRange(String rangeName)throws Exception;
+
+    DTORange getRange(String rangeName);
+
+    List<DTORange> getAllRanges();
 
 
 }

@@ -13,6 +13,7 @@ public class RangeImpl implements Range {
     private final Coordinate bottomRight;
     private int usageCount;
 
+
     public RangeImpl(String name, Coordinate topLeft, Coordinate bottomRight) {
         this.name = name;
         this.topLeft = topLeft;
