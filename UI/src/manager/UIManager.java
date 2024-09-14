@@ -9,4 +9,7 @@ public interface UIManager {
     DTOSheet updateCellValue(String coordinateString, String value);
     void loadSheetFromXmlFile(String filePath) throws Exception;
     void initSystem();
+    int getNumOfVersion();
+    DTOSheet getSheetInVersion(int version);
+    int getNumOfChangesInVersion(int version);
 }
