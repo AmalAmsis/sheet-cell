@@ -4,6 +4,8 @@ import dto.DTOCell;
 import dto.DTOSheet;
 import engine.Engine;
 import engine.EngineImpl;
+import sheet.version.SheetVersionData;
+import sheet.version.SheetVersionHandler;
 
 public class UIManagerImpl implements UIManager {
 
@@ -52,4 +54,20 @@ public class UIManagerImpl implements UIManager {
     public void initSystem() {
 
     }
+
+    @Override
+    public int getNumOfVersion(){
+        return engine.getCurrentSheetState().getVersionHandler().getNumOfVersions();
+    }
+
+    @Override
+    public DTOSheet getSheetInVersion(int version){
+        return engine.getCurrentSheetState().getVersionHandler().getSheetByVersion(version);
+    }
+
+    @Override
+    public int getNumOfChangesInVersion(int version){
+       return engine.getCurrentSheetState().getVersionHandler().getVersionHistory().get(version).getNumOfUpdateCells();
+    }
+
 }

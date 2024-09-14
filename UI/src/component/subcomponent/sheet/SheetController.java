@@ -128,7 +128,10 @@ public class SheetController {
         return String.valueOf(colLetter) + ":" + row;
     }
 
-
+    public void displaySheetByVersion(int version){
+        DTOSheet dtoSheet = appController.getSheetByVersion(version);
+        initSheetAndBindToUIModel(dtoSheet);
+    }
 
     //*******************************************************************************************************//
 
