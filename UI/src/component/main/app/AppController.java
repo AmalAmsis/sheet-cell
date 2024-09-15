@@ -171,7 +171,8 @@ public class AppController {
             List<String> ranges = new ArrayList<>();
             List<DTORange> allRanges = uiManager.getAllRanges();
             for (DTORange range : allRanges) {
-                ranges.add(range.getName() +"  : "+ range.getTopLeftCoordinate().toString().replace(":", "") + "-" + range.getBottomRightCoordinate().toString().replace(":", ""));
+                ranges.add(range.getName());
+                //+"  : "+ range.getTopLeftCoordinate().toString().replace(":", "") + "-" + range.getBottomRightCoordinate().toString().replace(":", ""));
             }
             return ranges;
         }catch (Exception e) {
