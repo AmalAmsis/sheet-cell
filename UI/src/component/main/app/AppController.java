@@ -11,6 +11,8 @@ import dto.DTOCell;
 import dto.DTOCoordinate;
 import dto.DTORange;
 import dto.DTOSheet;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
@@ -33,6 +35,11 @@ public class AppController {
     @FXML private LeftController leftController;
 
     private UIManager uiManager;
+    private ObjectProperty<String> selectedCellId = new SimpleObjectProperty<>();
+    private ObjectProperty<String> selectedRangeId = new SimpleObjectProperty<>();
+
+    // רשימה שמחזיקה את התאים שסומנו בעבר
+    private List<String> previouslySelectedCells = new ArrayList<>();
 
     public AppController(){
         this.uiManager=new UIManagerImpl();
@@ -58,30 +65,59 @@ public class AppController {
     }
 
     public void unShowCellData(String cellId) {
-        DTOCell dtoCell = uiManager.getDtoCellForDisplayCell(cellId);
+        DTOCell dtoCell = uiManager.getDtoCellForDisplayCell(cellId.replace(":",""));
         headerController.updateLabels("", "","");
+        clearPreviousSelection();
 
-        List<DTOCoordinate> dtoCoordinateDependsOnCellsList = dtoCell.getDependsOn();
-        List<String> DependsOnCellsId = TurnDtoCoordinateListToCellIdList(dtoCoordinateDependsOnCellsList);
-        sheetController.addBorderForCells(CellStyle.NORMAL_CELL_BORDER_COLOR.getColorValue(), CellStyle.NORMAL_CELL_BORDER_STYLE.getStyleValue(), CellStyle.NORMAL_CELL_BORDER_WIDTH.getWidthValue(), DependsOnCellsId);
 
-        List<DTOCoordinate> dtoCoordinateInfluencingOnCellsList = dtoCell.getInfluencingOn();
-        List<String> InfluencingOnCellsId = TurnDtoCoordinateListToCellIdList(dtoCoordinateInfluencingOnCellsList);
-        sheetController.addBorderForCells(CellStyle.NORMAL_CELL_BORDER_COLOR.getColorValue(), CellStyle.NORMAL_CELL_BORDER_STYLE.getStyleValue(), CellStyle.NORMAL_CELL_BORDER_WIDTH.getWidthValue(), InfluencingOnCellsId);
+//        List<DTOCoordinate> dtoCoordinateDependsOnCellsList = dtoCell.getDependsOn();
+//        List<String> DependsOnCellsId = TurnDtoCoordinateListToCellIdList(dtoCoordinateDependsOnCellsList);
+//        sheetController.addBorderForCells(CellStyle.NORMAL_CELL_BORDER_COLOR.getColorValue(), CellStyle.NORMAL_CELL_BORDER_STYLE.getStyleValue(), CellStyle.NORMAL_CELL_BORDER_WIDTH.getWidthValue(), DependsOnCellsId);
+//
+//        List<DTOCoordinate> dtoCoordinateInfluencingOnCellsList = dtoCell.getInfluencingOn();
+//        List<String> InfluencingOnCellsId = TurnDtoCoordinateListToCellIdList(dtoCoordinateInfluencingOnCellsList);
+//        sheetController.addBorderForCells(CellStyle.NORMAL_CELL_BORDER_COLOR.getColorValue(), CellStyle.NORMAL_CELL_BORDER_STYLE.getStyleValue(), CellStyle.NORMAL_CELL_BORDER_WIDTH.getWidthValue(), InfluencingOnCellsId);
     }
 
     public void showCellData(String cellId) {
-        DTOCell dtoCell = uiManager.getDtoCellForDisplayCell(cellId);
-        headerController.updateLabels(cellId, dtoCell.getOriginalValue(), String.valueOf(dtoCell.getLastModifiedVersion()));
+        clearPreviousSelection();  // נקה את הסימון הקודם
+
+        //String cellIdWith = cellId.substring(0, 1) + ":" + cellId.substring(1);
+        List<String>selectedCell  = new ArrayList<>();
+        selectedCell.add(cellId);
+
+        sheetController.addBorderForCells(
+                CellStyle.SELECTED_CELL_BORDER_COLOR.getColorValue(),
+                CellStyle.SELECTED_CELL_BORDER_STYLE.getStyleValue(),
+                CellStyle.SELECTED_CELL_BORDER_WIDTH.getWidthValue(), selectedCell);
+
+
+        // המשך עם הלוגיקה להצגת תא
+        DTOCell dtoCell = uiManager.getDtoCellForDisplayCell(cellId.replace(":", ""));
+        headerController.updateLabels(cellId.replace(":",""), dtoCell.getOriginalValue(), String.valueOf(dtoCell.getLastModifiedVersion()));
 
         List<DTOCoordinate> dtoCoordinateDependsOnCellsList = dtoCell.getDependsOn();
         List<String> DependsOnCellsId = TurnDtoCoordinateListToCellIdList(dtoCoordinateDependsOnCellsList);
-        sheetController.addBorderForCells(CellStyle.DEPENDS_ON_CELL_BORDER_COLOR.getColorValue(), CellStyle.DEPENDS_ON_CELL_BORDER_STYLE.getStyleValue(), CellStyle.DEPENDS_ON_CELL_BORDER_WIDTH.getWidthValue(), DependsOnCellsId);
+        sheetController.addBorderForCells(
+                CellStyle.DEPENDS_ON_CELL_BORDER_COLOR.getColorValue(),
+                CellStyle.DEPENDS_ON_CELL_BORDER_STYLE.getStyleValue(),
+                CellStyle.DEPENDS_ON_CELL_BORDER_WIDTH.getWidthValue(),
+                DependsOnCellsId
+        );
 
         List<DTOCoordinate> dtoCoordinateInfluencingOnCellsList = dtoCell.getInfluencingOn();
         List<String> InfluencingOnCellsId = TurnDtoCoordinateListToCellIdList(dtoCoordinateInfluencingOnCellsList);
-        sheetController.addBorderForCells(CellStyle.INFLUENCING_ON_CELL_BORDER_COLOR.getColorValue(), CellStyle.INFLUENCING_ON_CELL_BORDER_STYLE.getStyleValue(), CellStyle.INFLUENCING_ON_CELL_BORDER_WIDTH.getWidthValue(), InfluencingOnCellsId);
+        sheetController.addBorderForCells(
+                CellStyle.INFLUENCING_ON_CELL_BORDER_COLOR.getColorValue(),
+                CellStyle.INFLUENCING_ON_CELL_BORDER_STYLE.getStyleValue(),
+                CellStyle.INFLUENCING_ON_CELL_BORDER_WIDTH.getWidthValue(),
+                InfluencingOnCellsId
+        );
 
+        // נוסיף את התאים המסומנים כעת לרשימה של התאים שנצטרך לנקות בעתיד
+        previouslySelectedCells.add(cellId);
+        previouslySelectedCells.addAll(DependsOnCellsId);
+        previouslySelectedCells.addAll(InfluencingOnCellsId);
     }
 
     private List<String> TurnDtoCoordinateListToCellIdList(List<DTOCoordinate> dtoCoordinateList) {
@@ -93,8 +129,8 @@ public class AppController {
     }
 
     public void updateCellValue(String newOriginalValue){
-        String CellId = sheetController.getSelectedCellId();
-        DTOSheet dtoSheet= uiManager.updateCellValue(CellId,newOriginalValue);
+        //String CellId = sheetController.getSelectedCellId();
+        DTOSheet dtoSheet= uiManager.updateCellValue(selectedCellId.getValue(),newOriginalValue);
         sheetController.UpdateSheetValues(dtoSheet);
         //displaySheet();//??????????????????????????????????????????
     }
@@ -103,12 +139,55 @@ public class AppController {
 
     @FXML
     public void initialize() {
-       if(headerController != null && sheetController != null && leftController != null) {
+        if (headerController != null && sheetController != null && leftController != null) {
             headerController.setAppController(this);
             sheetController.setAppController(this);
             leftController.setAppController(this);
         }
 
+        // מאזין לשינויים בתא הנבחר
+        selectedCellId.addListener((observable, oldCellId, newCellId) -> {
+            if (oldCellId != null) {
+                unShowCellData(oldCellId);  // ביטול סימון מהתא הישן
+            }
+            if (newCellId != null) {
+                showCellData(newCellId);  // סימון התא החדש
+            }
+        });
+
+        // מאזין לשינויים ב-Range הנבחר
+        selectedRangeId.addListener((observable, oldRangeId, newRangeId) -> {
+            if (oldRangeId != null) {
+                clearPreviousSelection();  // ניקוי ה-Range הישן
+            }
+            if (newRangeId != null) {
+                showRange(newRangeId);  // הצגת ה-Range החדש
+            }
+        });
+
+    }
+
+    public void clearPreviousSelection() {
+        if (!previouslySelectedCells.isEmpty()) {
+            // מחזיר את התאים שסומנו למצבם הרגיל
+            sheetController.addBorderForCells(
+                    CellStyle.NORMAL_CELL_BORDER_COLOR.getColorValue(),
+                    CellStyle.NORMAL_CELL_BORDER_STYLE.getStyleValue(),
+                    CellStyle.NORMAL_CELL_BORDER_WIDTH.getWidthValue(),
+                    previouslySelectedCells
+            );
+            previouslySelectedCells.clear();  // נקה את הרשימה לאחר הסרת הסימון
+        }
+    }
+
+    // שינוי התא הנבחר
+    public void selectCell(String cellId) {
+        selectedCellId.set(cellId);  // מפעיל את ה-Listener
+    }
+
+    // שינוי ה-Range הנבחר
+    public void selectRange(String rangeId) {
+        selectedRangeId.set(rangeId);  // מפעיל את ה-Listener
     }
 
     public void setHeaderController(HeaderController headerController) {
@@ -148,22 +227,34 @@ public class AppController {
     }
     public void removeRange(String selectedRange){
         try {
+            selectedRangeId.set(selectedRange);
             uiManager.removeRange(selectedRange);
+            clearPreviousSelection();
         }catch (Exception e) {
+
             // popup
         }
 
     }
-    public void showRange(String selectedRange){
+    public void showRange(String selectedRange) {
+        clearPreviousSelection();  // נקה את הסימון הקודם
+
         try {
             DTORange dtoRange = uiManager.getRange(selectedRange);
             List<DTOCoordinate> dtoCoordinateDependsOnCellsList = dtoRange.getCoordinates();
-            List <String> cellsId = TurnDtoCoordinateListToCellIdList(dtoCoordinateDependsOnCellsList);
-            sheetController.addBorderForCells(CellStyle.RANGE_CELL_BORDER_COLOR.getColorValue(), CellStyle.RANGE_CELL_BORDER_STYLE.getStyleValue(), CellStyle.RANGE_CELL_BORDER_WIDTH.getWidthValue(), cellsId);
-        }catch (Exception e){
+            List<String> cellsId = TurnDtoCoordinateListToCellIdList(dtoCoordinateDependsOnCellsList);
+            sheetController.addBorderForCells(
+                    CellStyle.RANGE_CELL_BORDER_COLOR.getColorValue(),
+                    CellStyle.RANGE_CELL_BORDER_STYLE.getStyleValue(),
+                    CellStyle.RANGE_CELL_BORDER_WIDTH.getWidthValue(),
+                    cellsId
+            );
+
+            // עדכן את הרשימה עם התאים הנוכחיים
+            previouslySelectedCells.addAll(cellsId);
+        } catch (Exception e) {
             //popup
         }
-
     }
 
     public List<String> getAllRanges(){

@@ -24,7 +24,7 @@ import java.util.Map;
 public class SheetController {
 
     private AppController appController;
-    private ObjectProperty<Label> selectedCell;
+    //private ObjectProperty<Label> selectedCell;
 
     @FXML
     private GridPane sheetGrid;
@@ -45,27 +45,27 @@ public class SheetController {
 
         // לסדר את הקוד
         // selected cell listener
-        selectedCell = new SimpleObjectProperty<>();
-        selectedCell.addListener((observableValue, oldLabelSelection, newSelectedLabel) -> {
-            if (oldLabelSelection != null) {
-                int row = GridPane.getRowIndex(oldLabelSelection);
-                int col = GridPane.getColumnIndex(oldLabelSelection);
-                String oldCellId = getCellId(col, row);
-                String cellId = getCellModelId(oldLabelSelection);
-                appController.unShowCellData(cellId);
-                uiModel.setCellBorderColor(oldCellId, CellStyle.NORMAL_CELL_BORDER_COLOR.getColorValue());
-                uiModel.setCellBorderWidth(oldCellId, CellStyle.NORMAL_CELL_BORDER_WIDTH.getWidthValue());
-                uiModel.setCellBorderStyle(oldCellId,CellStyle.NORMAL_CELL_BORDER_STYLE.getStyleValue());
-            }
-            if (newSelectedLabel != null) {
-                int row = GridPane.getRowIndex(newSelectedLabel);
-                int col = GridPane.getColumnIndex(newSelectedLabel);
-                String cellId = getCellId(col, row);
-                uiModel.setCellBorderColor(cellId, CellStyle.SELECTED_CELL_BORDER_COLOR.getColorValue());
-                uiModel.setCellBorderWidth(cellId, CellStyle.SELECTED_CELL_BORDER_WIDTH.getWidthValue());
-                uiModel.setCellBorderStyle(cellId,CellStyle.SELECTED_CELL_BORDER_STYLE.getStyleValue());
-            }
-        });
+//        selectedCell = new SimpleObjectProperty<>();
+//        selectedCell.addListener((observableValue, oldLabelSelection, newSelectedLabel) -> {
+//            if (oldLabelSelection != null) {
+//                int row = GridPane.getRowIndex(oldLabelSelection);
+//                int col = GridPane.getColumnIndex(oldLabelSelection);
+//                String oldCellId = getCellId(col, row);
+//                String cellId = getCellModelId(oldLabelSelection);
+//                appController.unShowCellData(cellId);
+//                uiModel.setCellBorderColor(oldCellId, CellStyle.NORMAL_CELL_BORDER_COLOR.getColorValue());
+//                uiModel.setCellBorderWidth(oldCellId, CellStyle.NORMAL_CELL_BORDER_WIDTH.getWidthValue());
+//                uiModel.setCellBorderStyle(oldCellId,CellStyle.NORMAL_CELL_BORDER_STYLE.getStyleValue());
+//            }
+//            if (newSelectedLabel != null) {
+//                int row = GridPane.getRowIndex(newSelectedLabel);
+//                int col = GridPane.getColumnIndex(newSelectedLabel);
+//                String cellId = getCellId(col, row);
+//                uiModel.setCellBorderColor(cellId, CellStyle.SELECTED_CELL_BORDER_COLOR.getColorValue());
+//                uiModel.setCellBorderWidth(cellId, CellStyle.SELECTED_CELL_BORDER_WIDTH.getWidthValue());
+//                uiModel.setCellBorderStyle(cellId,CellStyle.SELECTED_CELL_BORDER_STYLE.getStyleValue());
+//            }
+//        });
     }
 
     public void initSheetAndBindToUIModel(DTOSheet dtoSheet) {
@@ -145,9 +145,10 @@ public class SheetController {
 
     private void addClickEventForCell(Label label) {
         label.setOnMouseClicked(event -> {
-            selectedCell.set(label);
-            String cellId = getCellModelId(label);
-            appController.showCellData(cellId);
+            int row = GridPane.getRowIndex(label);// תא מוצג באופן הבא A:1
+            int col = GridPane.getColumnIndex(label);
+            String cellId = getCellId(col, row);
+            appController.selectCell(cellId);  // שינוי התא הנבחר דרך המאזין
         });
     }
 
@@ -160,9 +161,9 @@ public class SheetController {
         }
     }
 
-    public String getSelectedCellId(){
-       return getCellModelId(selectedCell.get());
-    }
+//    public String getSelectedCellId(){
+//       return getCellModelId(selectedCell.get());
+//    }
 
     public void UpdateSheetValues(DTOSheet dtoSheet){
         Map<String,DTOCell> sheetMap = dtoSheet.getCells();
