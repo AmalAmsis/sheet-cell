@@ -11,17 +11,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Highlighting the Data label in the version selector">
-      <change afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/popup/viewonlysheet/UIModelViewOnlySheet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/popup/viewonlysheet/ViewOnlySheetController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/popup/viewonlysheet/viewOnlySheet.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Update version manager with a new independent class: ViewOnlySheet, instead of was the original sheet class.&#10;&#10;we will was in this class to display the sort sheet and filtered sheet.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/main/app/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/main/app/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/popup/VersionSelectorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/popup/versionselector/VersionSelectorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/popup/versionSelector.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/popup/versionselector/versionSelector.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/SheetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/SheetController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,13 +64,13 @@
     "Application.Test2.executor": "Debug",
     "Application.Test3.executor": "Debug",
     "Application.apprunner.AppRunner.executor": "Run",
-    "Application.test.FxmlTest.executor": "Debug",
+    "Application.test.FxmlTest.executor": "Run",
     "JAR Application.UI.jar.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "yarden__branch",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/projects/aviad",
+    "last_opened_file_path": "C:/projects/06. Java 8",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -384,7 +375,7 @@
       <workItem from="1725630797186" duration="41534000" />
       <workItem from="1725807156007" duration="1382000" />
       <workItem from="1726053985447" duration="18219000" />
-      <workItem from="1726310407207" duration="21402000" />
+      <workItem from="1726310407207" duration="23608000" />
     </task>
     <task id="LOCAL-00023" summary="Beginning of work on the graphical interface.&#10;The main component is the app&#10;which contains 2 components:&#10;header and sheet.&#10;&#10;The sheet contains cell type components.&#10;&#10;I basically defined everyone's fxml files.&#10;&#10;I also built a basic controller for everyone.&#10;&#10;I built a function in sheetController that knows how to receive a sheet and load it to the screen.">
       <option name="closed" value="true" />
@@ -466,7 +457,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726330810619</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Update version manager with a new independent class: ViewOnlySheet, instead of was the original sheet class.&#10;&#10;we will was in this class to display the sort sheet and filtered sheet.">
+      <option name="closed" value="true" />
+      <created>1726350337998</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1726350337998</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -535,7 +534,8 @@
     <MESSAGE value="commit for marge" />
     <MESSAGE value="versionSelctor is working." />
     <MESSAGE value="Highlighting the Data label in the version selector" />
-    <option name="LAST_COMMIT_MESSAGE" value="Highlighting the Data label in the version selector" />
+    <MESSAGE value="Update version manager with a new independent class: ViewOnlySheet, instead of was the original sheet class.&#10;&#10;we will was in this class to display the sort sheet and filtered sheet." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update version manager with a new independent class: ViewOnlySheet, instead of was the original sheet class.&#10;&#10;we will was in this class to display the sort sheet and filtered sheet." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -572,12 +572,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/popup/viewonlysheet/ViewOnlySheetController.java</url>
-          <line>29</line>
+          <line>26</line>
           <option name="timeStamp" value="117" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/popup/viewonlysheet/ViewOnlySheetController.java</url>
-          <line>31</line>
+          <line>28</line>
           <option name="timeStamp" value="118" />
         </line-breakpoint>
       </breakpoints>
