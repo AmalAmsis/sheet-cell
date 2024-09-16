@@ -182,6 +182,11 @@ public class SheetController {
         }
     }
 
+
+    public UIModelSheet getCurrentUIModel() {
+        return uiModel;
+    }
+
 }
 
 

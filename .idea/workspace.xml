@@ -11,8 +11,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Update version manager with a new independent class: ViewOnlySheet, instead of was the original sheet class.&#10;&#10;we will was in this class to display the sort sheet and filtered sheet.">
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="First construction of the sortSheet class&#10;Has not yet been checked for correctness">
+      <change afterPath="$PROJECT_DIR$/Engine/src/sheet/sortsheet/RangeValidationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/test/sortSheetTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCellImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCellImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheetImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/engine/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/engine/Engine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/engine/EngineImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/engine/EngineImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/coordinate/Coordinate.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/coordinate/Coordinate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/coordinate/CoordinateImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/coordinate/CoordinateImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/sortsheet/SortSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/sortsheet/SortSheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/sortsheet/SortSheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/sortsheet/SortSheetImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/main/app/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/main/app/AppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/left/left.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/left/left.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/left/left.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/left/left.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/popup/viewonlysheet/UIModelViewOnlySheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/popup/viewonlysheet/UIModelViewOnlySheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/popup/viewonlysheet/ViewOnlySheetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/popup/viewonlysheet/ViewOnlySheetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/SheetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/SheetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/UIModelSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/UIModelSheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/manager/UIManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/manager/UIManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/sheet/cell/CellImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/sheet/cell/CellImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +46,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="FxmlFile" />
+        <option value="Interface" />
+        <option value="Exception" />
         <option value="Class" />
       </list>
     </option>
@@ -44,7 +69,7 @@
   }
 }</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -64,7 +89,8 @@
     "Application.Test2.executor": "Debug",
     "Application.Test3.executor": "Debug",
     "Application.apprunner.AppRunner.executor": "Run",
-    "Application.test.FxmlTest.executor": "Run",
+    "Application.sortSheetTest.executor": "Debug",
+    "Application.test.FxmlTest.executor": "Debug",
     "JAR Application.UI.jar.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -107,20 +133,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="component.test.Test2" />
-      <module name="UI" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Yarden Daniel\Desktop\computer science\year 2\semester 3\java\javafx-sdk-22.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml " />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="component.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Test3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="component.test.Test3" />
       <module name="UI" />
@@ -148,6 +160,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="sortSheetTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.sortSheetTest" />
+      <module name="Engine" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="test.FxmlTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="test.FxmlTest" />
       <module name="UI" />
@@ -163,19 +188,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.sortSheetTest" />
       <item itemvalue="Application.apprunner.AppRunner" />
       <item itemvalue="Application.test.FxmlTest" />
       <item itemvalue="Application.Test3" />
-      <item itemvalue="Application.Test2" />
       <item itemvalue="Application.FxmlTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.test.FxmlTest" />
+        <item itemvalue="Application.sortSheetTest" />
         <item itemvalue="Application.FxmlTest" />
         <item itemvalue="Application.apprunner.AppRunner" />
         <item itemvalue="Application.Test3" />
-        <item itemvalue="Application.Test2" />
       </list>
     </recent_temporary>
   </component>
@@ -375,7 +400,7 @@
       <workItem from="1725630797186" duration="41534000" />
       <workItem from="1725807156007" duration="1382000" />
       <workItem from="1726053985447" duration="18219000" />
-      <workItem from="1726310407207" duration="23608000" />
+      <workItem from="1726310407207" duration="58182000" />
     </task>
     <task id="LOCAL-00023" summary="Beginning of work on the graphical interface.&#10;The main component is the app&#10;which contains 2 components:&#10;header and sheet.&#10;&#10;The sheet contains cell type components.&#10;&#10;I basically defined everyone's fxml files.&#10;&#10;I also built a basic controller for everyone.&#10;&#10;I built a function in sheetController that knows how to receive a sheet and load it to the screen.">
       <option name="closed" value="true" />
@@ -465,7 +490,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726350337998</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="First construction of the sortSheet class&#10;Has not yet been checked for correctness">
+      <option name="closed" value="true" />
+      <created>1726409074095</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1726409074095</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -535,7 +568,8 @@
     <MESSAGE value="versionSelctor is working." />
     <MESSAGE value="Highlighting the Data label in the version selector" />
     <MESSAGE value="Update version manager with a new independent class: ViewOnlySheet, instead of was the original sheet class.&#10;&#10;we will was in this class to display the sort sheet and filtered sheet." />
-    <option name="LAST_COMMIT_MESSAGE" value="Update version manager with a new independent class: ViewOnlySheet, instead of was the original sheet class.&#10;&#10;we will was in this class to display the sort sheet and filtered sheet." />
+    <MESSAGE value="First construction of the sortSheet class&#10;Has not yet been checked for correctness" />
+    <option name="LAST_COMMIT_MESSAGE" value="First construction of the sortSheet class&#10;Has not yet been checked for correctness" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -571,14 +605,34 @@
           <option name="timeStamp" value="116" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/popup/viewonlysheet/ViewOnlySheetController.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="117" />
+          <url>file://$PROJECT_DIR$/Engine/src/test/sortSheetTest.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="126" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/popup/viewonlysheet/ViewOnlySheetController.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="118" />
+          <line>44</line>
+          <option name="timeStamp" value="153" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java</url>
+          <line>186</line>
+          <option name="timeStamp" value="156" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Engine/src/sheet/sortsheet/SortSheetImpl.java</url>
+          <line>97</line>
+          <option name="timeStamp" value="165" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Engine/src/sheet/sortsheet/SortSheetImpl.java</url>
+          <line>161</line>
+          <option name="timeStamp" value="170" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Engine/src/sheet/sortsheet/SortSheetImpl.java</url>
+          <line>164</line>
+          <option name="timeStamp" value="171" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -591,6 +645,7 @@
     <watches-manager>
       <configuration name="Application">
         <watch expression="rangeManager" />
+        <watch expression="getRowInRange(from, to)" />
       </configuration>
     </watches-manager>
   </component>

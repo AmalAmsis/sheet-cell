@@ -6,6 +6,7 @@ import component.subcomponent.sheet.SheetController;
 import component.subcomponent.left.LeftController;
 
 
+import component.subcomponent.sheet.UIModelSheet;
 import dto.DTOCell;
 import dto.DTOCoordinate;
 import dto.DTORange;
@@ -14,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
 import manager.UIManager;
 import manager.UIManagerImpl;
+import sheet.coordinate.Coordinate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -176,4 +178,13 @@ public class AppController {
         return null;
     }
 
+    public UIModelSheet getCurrentUIModel() {
+        return sheetController.getCurrentUIModel();
+    }
+
+    public DTOSheet getSortedSheet(String from, String to, List<Character> listOfColumnsPriorities) throws Exception {
+        return uiManager.getSortedSheet( from,  to,  listOfColumnsPriorities);
+    }
 }
+
+

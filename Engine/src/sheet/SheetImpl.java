@@ -33,6 +33,7 @@ public class SheetImpl implements Sheet , Serializable {
     private RangeManager rangeManager;
 
 
+
     /** Constructs a SheetImpl with specified dimensions and title.
      * @param title the title of the sheet.
      * @param numOfRows the number of rows in the sheet.
@@ -47,7 +48,6 @@ public class SheetImpl implements Sheet , Serializable {
         this.heightOfRows = heightOfRows;
         this.widthOfCols = widthOfCols;
         this.rangeManager = new RangeManagerImpl();
-        //this.board = new HashMap<>();
     }
 
     /** Constructs a SheetImpl from an STL object, typically loaded from an XML file.
@@ -66,8 +66,6 @@ public class SheetImpl implements Sheet , Serializable {
         this.rangeManager = rangeManager;
         this.addSortedListOfStlCellsToSheet(sortedListOfStlCells); //load the cell on the list to our map
 
-        //todo - AMAL - tell me if that ok!!!
-        //this.rangeManager = rangeManager;
     }
 
 

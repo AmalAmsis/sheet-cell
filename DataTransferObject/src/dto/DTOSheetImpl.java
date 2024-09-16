@@ -72,16 +72,18 @@ public class DTOSheetImpl implements DTOSheet, Serializable {
         this(sheet);
 
         int rowIdx = from.getRow();
+        char colIdx = from.getCol();
+        Coordinate coordinate = new CoordinateImpl(colIdx, rowIdx);
+
         for (List<Cell> row : sortedRows) {
-            int colIdx = from.getCol();
             for (Cell cell : row) {
-                Coordinate coordinate = new CoordinateImpl((char) ('A' + colIdx), rowIdx);
-                DTOCell dtoCell = new DTOCellImpl(cell);
+                coordinate.setCol(colIdx);
+                coordinate.setRow(rowIdx);
+                DTOCell dtoCell = new DTOCellImpl(cell,coordinate);
                 addDTOCell(dtoCell);
                 colIdx++;
             }
-            if (rowIdx >= to.getRow()) {
-                break; }
+            colIdx = from.getCol();
             rowIdx++;
         }
     }

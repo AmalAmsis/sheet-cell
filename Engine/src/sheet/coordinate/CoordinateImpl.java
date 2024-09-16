@@ -29,6 +29,14 @@ public class CoordinateImpl implements Coordinate , Serializable {
         this.col = stlCell.getColumn().charAt(0);
     }
 
+    @Override
+    public void setCol(char col) {
+        this.col = col;
+    }
+    @Override
+    public void setRow(int row) {
+        this.row = row;
+    }
 
     @Override
     public int getRow() {

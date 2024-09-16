@@ -3,8 +3,10 @@ package engine;
 import dto.DTOCell;
 import dto.DTORange;
 import dto.DTOSheet;
+import sheet.coordinate.Coordinate;
 import state.SheetStateManager;
 
+import java.util.Comparator;
 import java.util.List;
 
 public interface Engine {
@@ -100,4 +102,5 @@ public interface Engine {
     List<DTORange> getAllRanges();
 
 
+    DTOSheet getSortedSheet(String from, String to, List<Character> listOfColumnsPriorities) throws Exception;
 }

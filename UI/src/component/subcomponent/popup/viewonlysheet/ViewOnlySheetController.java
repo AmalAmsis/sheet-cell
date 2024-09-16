@@ -1,6 +1,8 @@
 package component.subcomponent.popup.viewonlysheet;
 
 import component.main.app.AppController;
+import component.subcomponent.sheet.CellModel;
+import component.subcomponent.sheet.UIModelSheet;
 import dto.DTOCell;
 import dto.DTOSheet;
 import javafx.fxml.FXML;
@@ -12,10 +14,10 @@ public class ViewOnlySheetController {
     @FXML private GridPane viewOnlySheetGridPane;
 
     AppController appController;
-    UIModelViewOnlySheet uiModelViewOnlySheet;
+    UIModelSheet uiModelSheet;
 
     public void initialize() {
-        uiModelViewOnlySheet = new UIModelViewOnlySheet();
+        uiModelSheet = new UIModelSheet();
     }
 
     public void setAppController(AppController appController) {
@@ -23,7 +25,10 @@ public class ViewOnlySheetController {
     }
 
 
-    public void initViewOnlySheetAndBindToUIModel(DTOSheet dtoSheet) {
+
+
+    public void initViewOnlySheetAndBindToUIModel(DTOSheet dtoSheet,boolean includeVisuals) {
+
         viewOnlySheetGridPane.getChildren().clear();
 
         int numOfRows = dtoSheet.getNumOfRows();
@@ -31,15 +36,22 @@ public class ViewOnlySheetController {
         int WidthOfCols = dtoSheet.getWidthOfColumns();
         int HeightOfRows = dtoSheet.getHeightOfRows();
 
-        uiModelViewOnlySheet.initializeModel(numOfRows+1, numOfCols+1);
+        uiModelSheet.initializeModel(numOfRows+1, numOfCols+1);
+
+
+        //check thr casting!
+        if (includeVisuals) {
+            UIModelSheet originalModel = appController.getCurrentUIModel(); // המודל המקורי מהגיליון הראשי
+            uiModelSheet = originalModel.copyModel(); // יצירת עותק מהמודל המקורי
+        }
 
         for (int col = 1; col <= numOfCols; col++) {
             String colLetter = String.valueOf((char) ('A' + col - 1));
             String cellKey = getCellId(col, 0);
             Label cellLabel = new Label();
             cellLabel.setPrefSize(WidthOfCols, 15);
-            uiModelViewOnlySheet.setCellValue(cellKey, colLetter);
-            uiModelViewOnlySheet.bindCellToModel(cellLabel, cellKey);
+            uiModelSheet.setCellValue(cellKey, colLetter);
+            uiModelSheet.bindCellToModel(cellLabel, cellKey);
             viewOnlySheetGridPane.add(cellLabel, col, 0);
         }
 
@@ -47,8 +59,8 @@ public class ViewOnlySheetController {
             String cellKey = getCellId(0, row);
             Label cellLabel = new Label();
             cellLabel.setPrefSize(25, HeightOfRows);
-            uiModelViewOnlySheet.setCellValue(cellKey, String.valueOf(row));
-            uiModelViewOnlySheet.bindCellToModel(cellLabel, cellKey);
+            uiModelSheet.setCellValue(cellKey, String.valueOf(row));
+            uiModelSheet.bindCellToModel(cellLabel, cellKey);
             viewOnlySheetGridPane.add(cellLabel, 0, row);
         }
 
@@ -59,13 +71,25 @@ public class ViewOnlySheetController {
                 Label cellLabel = new Label();
                 cellLabel.setPrefSize(WidthOfCols, HeightOfRows);
 
-
                 DTOCell dtoCell = dtoSheet.getCells().get(cellKey);
                 if (dtoCell != null) {
-                    uiModelViewOnlySheet.setCellValue(cellKey, dtoCell.getEffectiveValue().toString());
+                    uiModelSheet.setCellValue(cellKey, dtoCell.getEffectiveValue().toString());
+
+                    //*****************************************************************************************//
+                    if (includeVisuals) {
+                        String originalCellId = dtoCell.getCellId();  // מזהה התא המקורי
+                        CellModel originalCellModel = appController.getCurrentUIModel().getCell(originalCellId); // קבלת העיצוב מהמודל הראשי
+
+                        if (originalCellModel != null) {
+                            uiModelSheet.setCellBackgroundColor(cellKey, originalCellModel.backgroundColorProperty().get());
+                            uiModelSheet.setCellTextColor(cellKey, originalCellModel.textColorProperty().get());
+                            uiModelSheet.setCellFont(cellKey, originalCellModel.fontProperty().get());
+                        }
+                    }
                 }
 
-                uiModelViewOnlySheet.bindCellToModel(cellLabel, cellKey);
+                //*****************************************************************************************//
+                uiModelSheet.bindCellToModel(cellLabel, cellKey);
                 viewOnlySheetGridPane.add(cellLabel, col, row);
 
             }
@@ -74,7 +98,7 @@ public class ViewOnlySheetController {
 
     public void displayViewOnlySheetByVersion(int version) {
         DTOSheet dtoSheet = appController.getSheetByVersion(version);
-        initViewOnlySheetAndBindToUIModel(dtoSheet);
+        initViewOnlySheetAndBindToUIModel(dtoSheet,false);
 
     }
 

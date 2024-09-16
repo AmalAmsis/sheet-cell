@@ -1,6 +1,7 @@
 package dto;
 
 import sheet.cell.Cell;
+import sheet.coordinate.Coordinate;
 import sheet.effectivevalue.EffectiveValue;
 
 import java.io.Serializable;
@@ -13,6 +14,7 @@ import java.util.List;
  */
 public class DTOCellImpl implements DTOCell , Serializable {
 
+    private String cellId;
     private DTOCoordinate coordinate;
     private EffectiveValue effectiveValue;
     private String originalValue;
@@ -31,6 +33,7 @@ public class DTOCellImpl implements DTOCell , Serializable {
         this.effectiveValue = cell.getEffectiveValue();
         this.originalValue = cell.getOriginalValue();
         this.lastModifiedVersion = cell.getLastModifiedVersion();
+        this.cellId = cell.getId();
         // Add dependencies
         for(Cell dependCell : cell.getDependsOn()) {
             DTOCoordinate dtoCoordinateWhoDependOn = new DTOCoordinateImpl(dependCell.getCoordinate().getRow(), dependCell.getCoordinate().getCol());
@@ -43,6 +46,31 @@ public class DTOCellImpl implements DTOCell , Serializable {
             this.addDToInfluencingOn(dtoCoordinateWhoInfluencingOn);
         }
     }
+
+
+    //ctor for filer sheet
+    public DTOCellImpl(Cell cell, Coordinate coordinate) {
+
+        int row = coordinate.getRow();
+        char col = coordinate.getCol();
+
+        this.coordinate =new DTOCoordinateImpl(row, col);
+        this.effectiveValue = cell.getEffectiveValue();
+        this.originalValue = cell.getOriginalValue();
+        this.lastModifiedVersion = cell.getLastModifiedVersion();
+        // Add dependencies
+        for(Cell dependCell : cell.getDependsOn()) {
+            DTOCoordinate dtoCoordinateWhoDependOn = new DTOCoordinateImpl(dependCell.getCoordinate().getRow(), dependCell.getCoordinate().getCol());
+            this.addDToDependsOn(dtoCoordinateWhoDependOn);
+        }
+
+        // Add influences
+        for(Cell Influnecingcell : cell.getInfluencingOn()) {
+            DTOCoordinate dtoCoordinateWhoInfluencingOn = new DTOCoordinateImpl(Influnecingcell.getCoordinate().getRow(), Influnecingcell.getCoordinate().getCol());
+            this.addDToInfluencingOn(dtoCoordinateWhoInfluencingOn);
+        }
+    }
+
 
     //todo: check if we can delete this function
     public void setCoordinate(DTOCoordinate coordinate) {
@@ -78,6 +106,10 @@ public class DTOCellImpl implements DTOCell , Serializable {
         return influencingOn;
     }
 
+    @Override
+    public String getCellId() {
+        return cellId;
+    }
     /**
      * Adds a coordinate to the list of dependencies (cells this cell depends on).
      * @param dtoCoordinate the DTOCoordinate to add.

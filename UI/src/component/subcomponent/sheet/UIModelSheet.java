@@ -107,4 +107,32 @@ public class UIModelSheet {
     }
 
 
+    public UIModelSheet copyModel() {
+        UIModelSheet newModel = new UIModelSheet();
+        copyCellsTo(newModel);
+        return newModel;
+    }
+
+    // פונקציה שמעתיקה את התאים ממודל אחד למודל אחר
+    protected void copyCellsTo(UIModelSheet newModel) {
+        for (Map.Entry<String, CellModel> entry : this.cells.entrySet()) {
+            String cellId = entry.getKey();
+            CellModel originalCell = entry.getValue();
+
+            CellModel newCell = new CellModel();
+            newCell.setValue(originalCell.valueProperty().get());
+            newCell.setAlignment(originalCell.alignmentProperty().get());
+            newCell.setTextColor(originalCell.textColorProperty().get());
+            newCell.setBackgroundColor(originalCell.backgroundColorProperty().get());
+            newCell.setFont(originalCell.fontProperty().get());
+            newCell.setBorderColor(originalCell.borderColorProperty().get());
+            newCell.setBorderWidth(originalCell.borderWidthProperty().get());
+            newCell.setBorderStyle(originalCell.borderStyleProperty().get());
+
+            newModel.cells.put(cellId, newCell);
+        }
+    }
+
+
+
 }
