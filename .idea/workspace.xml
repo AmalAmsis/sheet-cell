@@ -11,11 +11,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="commit for marge">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Refactored sorting and filtering functionality into modular structure (all in command package). Sorting is now functional, filter preparation is in progress. &#10;&#10;&#10;Added a custom error message class for displaying consistent error pop-ups.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCellImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCellImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/popup/viewonlysheet/ViewOnlySheetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/popup/viewonlysheet/ViewOnlySheetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/FileDataException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/FileDataException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/command/filtersortdatapreparation/FilterSortPreparerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/command/filtersortdatapreparation/FilterSortPreparerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/command/filtersortdatapreparation/ValidationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/command/filtersortdatapreparation/ValidationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/header/header.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/header/header.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +28,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Interface" />
         <option value="Exception" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -89,9 +91,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\projects\sheet-cell\Engine\src\sheet" />
       <recent name="C:\projects\sheet-cell\UI\src\component\subcomponent\popup\versionselector" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="sheet.command.filtersortdatapreparation" />
       <recent name="component.subcomponent.popup.versionselector" />
       <recent name="jaxb.schema.generated" />
       <recent name="subcomponents.test" />
@@ -380,7 +384,7 @@
       <workItem from="1725807156007" duration="1382000" />
       <workItem from="1726053985447" duration="18219000" />
       <workItem from="1726310407207" duration="66973000" />
-      <workItem from="1726579961504" duration="745000" />
+      <workItem from="1726579961504" duration="10735000" />
     </task>
     <task id="LOCAL-00023" summary="Beginning of work on the graphical interface.&#10;The main component is the app&#10;which contains 2 components:&#10;header and sheet.&#10;&#10;The sheet contains cell type components.&#10;&#10;I basically defined everyone's fxml files.&#10;&#10;I also built a basic controller for everyone.&#10;&#10;I built a function in sheetController that knows how to receive a sheet and load it to the screen.">
       <option name="closed" value="true" />
@@ -494,7 +498,23 @@
       <option name="project" value="LOCAL" />
       <updated>1726572936106</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="The design of the cell goes along with it when sorting">
+      <option name="closed" value="true" />
+      <created>1726580759055</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1726580759055</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Refactored sorting and filtering functionality into modular structure (all in command package). Sorting is now functional, filter preparation is in progress. &#10;&#10;&#10;Added a custom error message class for displaying consistent error pop-ups.">
+      <option name="closed" value="true" />
+      <created>1726591284621</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1726591284621</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -540,8 +560,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update XmlProcessing&#10;1. update topologicalSort&#10;2. add CircularReferenceException" />
-    <MESSAGE value="26.8.24 merge" />
     <MESSAGE value="ui module - first naive interface" />
     <MESSAGE value="displaySheet func impl in the UI" />
     <MESSAGE value="for marge 27.8.24" />
@@ -565,7 +583,9 @@
     <MESSAGE value="First construction of the sortSheet class&#10;Has not yet been checked for correctness" />
     <MESSAGE value="Sorting works, both in the engine and in the graphical interface.&#10;I also did the design aspect of the cells that moved with the cell together with the sorting...&#10;we just need to check that it works.ness" />
     <MESSAGE value="commit for marge" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit for marge" />
+    <MESSAGE value="The design of the cell goes along with it when sorting" />
+    <MESSAGE value="Refactored sorting and filtering functionality into modular structure (all in command package). Sorting is now functional, filter preparation is in progress. &#10;&#10;&#10;Added a custom error message class for displaying consistent error pop-ups." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored sorting and filtering functionality into modular structure (all in command package). Sorting is now functional, filter preparation is in progress. &#10;&#10;&#10;Added a custom error message class for displaying consistent error pop-ups." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -602,18 +622,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Engine/src/test/sortSheetTest.java</url>
-          <line>68</line>
+          <line>65</line>
           <option name="timeStamp" value="126" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Engine/src/sheet/sortsheet/SortSheetImpl.java</url>
-          <line>161</line>
-          <option name="timeStamp" value="170" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Engine/src/sheet/sortsheet/SortSheetImpl.java</url>
-          <line>164</line>
-          <option name="timeStamp" value="171" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

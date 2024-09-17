@@ -14,9 +14,9 @@ import sheet.range.Range;
 import sheet.range.RangeManager;
 import sheet.range.RangeManagerImpl;
 import sheet.range.RangeReadActions;
-import sheet.sortsheet.RangeValidationException;
-import sheet.sortsheet.SortSheet;
-import sheet.sortsheet.SortSheetImpl;
+import sheet.command.filtersortdatapreparation.ValidationException;
+import sheet.command.sortsheet.SortSheet;
+import sheet.command.sortsheet.SortSheetImpl;
 import sheet.version.SheetVersionHandler;
 import sheet.version.SheetVersionHandlerImpl;
 import state.SheetStateManager;
@@ -26,7 +26,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.SortedSet;
 
 public class EngineImpl implements Engine,Serializable {
 
@@ -71,7 +70,7 @@ public class EngineImpl implements Engine,Serializable {
         SortSheet sortSheet = new SortSheetImpl(currentSheetState.getCurrentSheet());
         try{
              return  sortSheet.getSortedSheet( from,  to,  listOfColumnsPriorities);
-        }catch ( RangeValidationException e){
+        }catch ( ValidationException e){
             throw new Exception(e.getMessage());
         }
 

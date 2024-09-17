@@ -3,13 +3,10 @@ package test;
 import dto.DTOCell;
 import dto.DTOSheet;
 import dto.DTOSheetImpl;
-import sheet.Sheet;
 import sheet.SheetImpl;
-import sheet.cell.CellImpl;
 import sheet.coordinate.Coordinate;
 import sheet.coordinate.CoordinateImpl;
-import sheet.sortsheet.RangeValidationException;
-import sheet.sortsheet.SortSheetImpl;
+import sheet.command.sortsheet.SortSheetImpl;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,7 @@
 package component.subcomponent.left;
 
 import component.main.app.AppController;
+import component.subcomponent.popup.errormessage.ErrorMessage;
 import component.subcomponent.popup.viewonlysheet.ViewOnlySheetController;
 import dto.DTOSheet;
 import javafx.event.ActionEvent;
@@ -193,7 +194,7 @@ public class LeftController {
 
 
         } catch (Exception e) {
-            System.out.println("Error during sorting: " + e.getMessage());
+             new ErrorMessage(e.getMessage());
         }
 
     }
