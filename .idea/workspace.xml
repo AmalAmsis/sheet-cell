@@ -11,12 +11,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Synchronized selected cell with text alignment settings:&#10;&#10;- Implemented synchronization between the selected cell and the text alignment in the ChoiceBox.&#10;- Ensured that the ChoiceBox reflects the current alignment (left, center, right) of the selected cell's content.&#10;- Added listeners to update cell alignment dynamically based on the ChoiceBox selection.">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="add ErrorMessage for ranges actions and update cell (UI)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/main/app/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/main/app/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/manager/UIManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/manager/UIManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/left/left.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/left/left.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/left/left.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/left/left.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,14 +179,6 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task id="LOCAL-00006" summary="ui module - first naive interface">
-      <option name="closed" value="true" />
-      <created>1724665209722</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1724665209722</updated>
-    </task>
     <task id="LOCAL-00007" summary="ui module - first naive interface">
       <option name="closed" value="true" />
       <created>1724665278587</created>
@@ -586,7 +576,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1726605879558</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL‎-00055" summary="add ErrorMessage for ranges actions and update cell (UI)">
+      <option name="closed" value="true" />
+      <created>1726607618287</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL‎-00055" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1726607618287</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -632,7 +630,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Getting started with fxml&#10; components: app, header, board" />
     <MESSAGE value="Starting part 2!!!&#10;Some system changes:&#10;Mainly in updating a cell using a function:&#10;• Input of a function will be considered incorrect only if it is an incorrect structure: unknown function name; Incorrect amount of arguments, etc.).&#10;• Input of arguments of the wrong type to the function, either directly (for example: concat(4,5)) or indirectly (for example: in a1 there is a number 4 and then concat(ref(a1),aaa)) is performed - it will be considered a valid input ( that doesn't throw exception) but then the function will get an invalid value (according to its type)&#10;• An empty cell has no value. Making a ref to an empty cell is meaningless, but technically it is a valid and proper input. The value of the cell that makes a ref to an empty cell is... the empty cell.&#10;-Note: There is one missing case in the &quot;ref&quot; that needs to be addressed" />
     <MESSAGE value="Added new Boolean expression functions:&#10;1.Equal&#10;2.Not&#10;3.Bigger&#10;4.Less&#10;5.Or&#10;6.And&#10;7.If" />
     <MESSAGE value="Added new Math expression function:PERCENT" />
@@ -657,7 +654,8 @@
     <MESSAGE value="nhanced cell customization and layout management:&#10;&#10;- Implemented functionality to change cell background and text colors using ColorPickers.&#10;- Added listeners for Spinners to adjust row height and column width dynamically.&#10;- Improved handling of cell text alignment with the ChoiceBox, allowing for center, left, and right alignment.&#10;- Refined interaction between HeaderController and SheetController to ensure seamless updates to cell properties.&#10;&#10;- Improved logic for applying styles and dimensions to ensure consistent behavior across the grid." />
     <MESSAGE value="Editing code to change row height and colunm width" />
     <MESSAGE value="Synchronized selected cell with text alignment settings:&#10;&#10;- Implemented synchronization between the selected cell and the text alignment in the ChoiceBox.&#10;- Ensured that the ChoiceBox reflects the current alignment (left, center, right) of the selected cell's content.&#10;- Added listeners to update cell alignment dynamically based on the ChoiceBox selection." />
-    <option name="LAST_COMMIT_MESSAGE" value="Synchronized selected cell with text alignment settings:&#10;&#10;- Implemented synchronization between the selected cell and the text alignment in the ChoiceBox.&#10;- Ensured that the ChoiceBox reflects the current alignment (left, center, right) of the selected cell's content.&#10;- Added listeners to update cell alignment dynamically based on the ChoiceBox selection." />
+    <MESSAGE value="add ErrorMessage for ranges actions and update cell (UI)" />
+    <option name="LAST_COMMIT_MESSAGE" value="add ErrorMessage for ranges actions and update cell (UI)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -698,15 +696,6 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="119" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/UI/src/component/main/app/AppController.java</url>
-          <line>131</line>
-          <properties class="component.main.app.AppController" method="updateCellValue">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="129" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

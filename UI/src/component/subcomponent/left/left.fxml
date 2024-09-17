@@ -18,10 +18,10 @@
    <content>
       <VBox prefHeight="532.0" prefWidth="207.0" stylesheets="@left.css">
          <children>
-            <Label text="command" />
+            <Label styleClass="header-label" stylesheets="@left.css" text="command" />
             <Accordion prefHeight="252.0" prefWidth="207.0">
                <panes>
-                  <TitledPane animated="false" prefHeight="199.0" prefWidth="191.0" text="Custom Sort">
+                  <TitledPane animated="false" prefHeight="199.0" prefWidth="191.0" stylesheets="@left.css" text="Custom Sort">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="191.0" prefWidth="189.0">
                            <children>
@@ -48,7 +48,7 @@
                         </AnchorPane>
                      </content>
                   </TitledPane>
-                  <TitledPane animated="false" layoutX="10.0" layoutY="10.0" prefHeight="199.0" prefWidth="191.0" text="Custom Filter">
+                  <TitledPane animated="false" layoutX="10.0" layoutY="10.0" prefHeight="199.0" prefWidth="191.0" stylesheets="@left.css" text="Custom Filter">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="172.0" prefWidth="205.0">
                            <children>
@@ -77,42 +77,42 @@
                   </TitledPane>
                </panes>
             </Accordion>
-            <Label text="range" />
+            <Label styleClass="header-label" stylesheets="@left.css" text="range" />
             <Accordion prefHeight="222.0" prefWidth="219.0">
               <panes>
-                <TitledPane animated="false" text="add new range">
+                <TitledPane animated="false" stylesheets="@left.css" text="add new range">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <TextField fx:id="newRangeNameTextField" layoutX="17.0" layoutY="20.0" prefHeight="26.0" prefWidth="102.0" promptText="new range name" />
-                              <TextField fx:id="toTextField" layoutX="75.0" layoutY="59.0" prefHeight="26.0" prefWidth="38.0" promptText="to" />
-                              <TextField fx:id="fromTextField" layoutX="21.0" layoutY="59.0" prefHeight="26.0" prefWidth="40.0" promptText="from" />
-                              <Label layoutX="63.0" layoutY="54.0" prefHeight="36.0" prefWidth="7.0" text="-">
+                              <TextField fx:id="newRangeNameTextField" layoutX="43.0" layoutY="21.0" prefHeight="26.0" prefWidth="102.0" promptText="new range name" />
+                              <TextField fx:id="toTextField" layoutX="103.0" layoutY="59.0" prefHeight="26.0" prefWidth="38.0" promptText="to" />
+                              <TextField fx:id="fromTextField" layoutX="46.0" layoutY="59.0" prefHeight="26.0" prefWidth="40.0" promptText="from" />
+                              <Label layoutX="89.0" layoutY="54.0" prefHeight="36.0" prefWidth="7.0" text="-">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="addNewRangeButton" layoutX="50.0" layoutY="104.0" mnemonicParsing="false" onAction="#ClickMeAddNewRangeButton" text="add" />
+                              <Button fx:id="addNewRangeButton" layoutX="66.0" layoutY="96.0" mnemonicParsing="false" onAction="#ClickMeAddNewRangeButton" prefHeight="26.0" prefWidth="56.0" text="add" />
                            </children>
                         </AnchorPane>
                   </content>
                 </TitledPane>
-                <TitledPane animated="false" text="delete range">
+                <TitledPane animated="false" stylesheets="@left.css" text="delete range">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <ChoiceBox fx:id="removeRangeChoiceBox" layoutX="7.0" layoutY="14.0" prefHeight="26.0" prefWidth="121.0" />
-                              <Button fx:id="removeRangeButton" layoutX="40.0" layoutY="59.0" mnemonicParsing="false" onAction="#ClickMeRemoveRange" text="remove" />
+                              <ChoiceBox fx:id="removeRangeChoiceBox" layoutX="35.0" layoutY="25.0" prefHeight="26.0" prefWidth="121.0" />
+                              <Button fx:id="removeRangeButton" layoutX="68.0" layoutY="79.0" mnemonicParsing="false" onAction="#ClickMeRemoveRange" text="remove" />
                            </children>
                         </AnchorPane>
                   </content>
                 </TitledPane>
-                <TitledPane animated="false" text="show range">
+                <TitledPane animated="false" stylesheets="@left.css" text="show range">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <ChoiceBox fx:id="showRangeChoiceBox" layoutX="11.0" layoutY="14.0" prefHeight="26.0" prefWidth="114.0" />
-                              <Button fx:id="showRangeButton" layoutX="46.0" layoutY="59.0" mnemonicParsing="false" onAction="#ClickMeShowRange" text="show" />
+                              <ChoiceBox fx:id="showRangeChoiceBox" layoutX="45.0" layoutY="28.0" prefHeight="26.0" prefWidth="114.0" />
+                              <Button fx:id="showRangeButton" layoutX="88.0" layoutY="83.0" mnemonicParsing="false" onAction="#ClickMeShowRange" text="show" />
                            </children>
                         </AnchorPane>
                   </content>

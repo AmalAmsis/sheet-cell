@@ -46,11 +46,12 @@
               <Separator prefHeight="0.0" prefWidth="849.0" />
             <GridPane prefHeight="50.0" prefWidth="574.0">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="407.20001220703125" minWidth="0.0" prefWidth="147.20001373291015" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="715.1999816894531" minWidth="0.0" prefWidth="188.79998626708985" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="715.1999816894531" minWidth="10.0" prefWidth="117.39996337890625" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="715.1999816894531" minWidth="10.0" prefWidth="137.80001220703127" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="715.1999816894531" minWidth="10.0" prefWidth="251.39998779296877" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="407.20001220703125" minWidth="0.0" prefWidth="144.60000610351562" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="715.1999816894531" minWidth="0.0" prefWidth="110.99998474121094" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="715.1999816894531" minWidth="10.0" prefWidth="155.80001525878907" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="715.1999816894531" minWidth="0.0" prefWidth="132.6000244140625" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="715.1999816894531" minWidth="10.0" prefWidth="135.39997558593745" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="715.1999816894531" minWidth="10.0" prefWidth="159.80001220703127" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints maxHeight="31.199993896484376" minHeight="10.0" prefHeight="13.399981689453124" vgrow="SOMETIMES" />
@@ -59,18 +60,19 @@
                <children>
                   <Label text="Cell background color" />
                   <ColorPicker fx:id="cellBackgroundColorPicker" prefHeight="26.0" prefWidth="104.0" GridPane.rowIndex="1" />
-                  <Label text="Text color" GridPane.columnIndex="1" />
+                  <Label prefHeight="18.0" prefWidth="68.0" text="Text color" GridPane.columnIndex="1" />
                   <ColorPicker fx:id="textColorPicker" prefHeight="26.0" prefWidth="94.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <value>
                         <Color />
                      </value>
                   </ColorPicker>
-                  <Label text="Alignment" GridPane.columnIndex="2" />
-                  <ChoiceBox fx:id="alignmentChoiceBox" prefHeight="8.0" prefWidth="91.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Spinner fx:id="rowHeightSpinner" prefHeight="26.0" prefWidth="114.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                  <Spinner fx:id="columnWidthSpinner" prefHeight="26.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                  <Label text=" Row height" GridPane.columnIndex="3" />
-                  <Label text="column width" GridPane.columnIndex="4" />
+                  <Label text="Alignment" GridPane.columnIndex="3" />
+                  <ChoiceBox fx:id="alignmentChoiceBox" prefHeight="8.0" prefWidth="91.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <Spinner fx:id="rowHeightSpinner" prefHeight="26.0" prefWidth="113.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                  <Spinner fx:id="columnWidthSpinner" prefHeight="26.0" prefWidth="120.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                  <Label text=" Row height" GridPane.columnIndex="4" />
+                  <Label text="column width" GridPane.columnIndex="5" />
+                  <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                </children>
             </GridPane>
           </children>
