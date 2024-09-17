@@ -11,12 +11,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Editing code to change row height and colunm width">
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Synchronized selected cell with text alignment settings:&#10;&#10;- Implemented synchronization between the selected cell and the text alignment in the ChoiceBox.&#10;- Ensured that the ChoiceBox reflects the current alignment (left, center, right) of the selected cell's content.&#10;- Added listeners to update cell alignment dynamically based on the ChoiceBox selection.">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/src/component/main/app/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/main/app/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/SheetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/SheetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/UIModelSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/UIModelSheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/manager/UIManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/manager/UIManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,35 +60,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.AppRunner.executor&quot;: &quot;Run&quot;,
-    &quot;Application.FxmlTest.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Test.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Test2.executor&quot;: &quot;Coverage&quot;,
-    &quot;Application.deprecated.apprunner.AppRunner.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.sheet.range.Test.executor&quot;: &quot;Run&quot;,
-    &quot;Application.test.FxmlTest.executor&quot;: &quot;Run&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;JAR Application.UI.jar.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Amal&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Amal Amsis/Downloads/08. Java FX&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.AppRunner.executor": "Run",
+    "Application.FxmlTest.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.Test.executor": "Run",
+    "Application.Test2.executor": "Coverage",
+    "Application.deprecated.apprunner.AppRunner.executor": "Debug",
+    "Application.sheet.range.Test.executor": "Run",
+    "Application.test.FxmlTest.executor": "Run",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JAR Application.UI.jar.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "Amal",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Amal Amsis/Downloads/08. Java FX",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.JavaFX",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\sheet-cell\UI\src\component\subcomponent\header" />
@@ -181,14 +181,6 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task id="LOCAL-00005" summary="26.8.24 merge">
-      <option name="closed" value="true" />
-      <created>1724662850499</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1724662850499</updated>
-    </task>
     <task id="LOCAL-00006" summary="ui module - first naive interface">
       <option name="closed" value="true" />
       <created>1724665209722</created>
@@ -586,7 +578,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1726575808593</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL‎-00054" summary="Synchronized selected cell with text alignment settings:&#10;&#10;- Implemented synchronization between the selected cell and the text alignment in the ChoiceBox.&#10;- Ensured that the ChoiceBox reflects the current alignment (left, center, right) of the selected cell's content.&#10;- Added listeners to update cell alignment dynamically based on the ChoiceBox selection.">
+      <option name="closed" value="true" />
+      <created>1726605879558</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL‎-00054" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1726605879558</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -632,7 +632,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="recent revisions" />
     <MESSAGE value="Getting started with fxml&#10; components: app, header, board" />
     <MESSAGE value="Starting part 2!!!&#10;Some system changes:&#10;Mainly in updating a cell using a function:&#10;• Input of a function will be considered incorrect only if it is an incorrect structure: unknown function name; Incorrect amount of arguments, etc.).&#10;• Input of arguments of the wrong type to the function, either directly (for example: concat(4,5)) or indirectly (for example: in a1 there is a number 4 and then concat(ref(a1),aaa)) is performed - it will be considered a valid input ( that doesn't throw exception) but then the function will get an invalid value (according to its type)&#10;• An empty cell has no value. Making a ref to an empty cell is meaningless, but technically it is a valid and proper input. The value of the cell that makes a ref to an empty cell is... the empty cell.&#10;-Note: There is one missing case in the &quot;ref&quot; that needs to be addressed" />
     <MESSAGE value="Added new Boolean expression functions:&#10;1.Equal&#10;2.Not&#10;3.Bigger&#10;4.Less&#10;5.Or&#10;6.And&#10;7.If" />
@@ -657,7 +656,8 @@
     <MESSAGE value="commit1" />
     <MESSAGE value="nhanced cell customization and layout management:&#10;&#10;- Implemented functionality to change cell background and text colors using ColorPickers.&#10;- Added listeners for Spinners to adjust row height and column width dynamically.&#10;- Improved handling of cell text alignment with the ChoiceBox, allowing for center, left, and right alignment.&#10;- Refined interaction between HeaderController and SheetController to ensure seamless updates to cell properties.&#10;&#10;- Improved logic for applying styles and dimensions to ensure consistent behavior across the grid." />
     <MESSAGE value="Editing code to change row height and colunm width" />
-    <option name="LAST_COMMIT_MESSAGE" value="Editing code to change row height and colunm width" />
+    <MESSAGE value="Synchronized selected cell with text alignment settings:&#10;&#10;- Implemented synchronization between the selected cell and the text alignment in the ChoiceBox.&#10;- Ensured that the ChoiceBox reflects the current alignment (left, center, right) of the selected cell's content.&#10;- Added listeners to update cell alignment dynamically based on the ChoiceBox selection." />
+    <option name="LAST_COMMIT_MESSAGE" value="Synchronized selected cell with text alignment settings:&#10;&#10;- Implemented synchronization between the selected cell and the text alignment in the ChoiceBox.&#10;- Ensured that the ChoiceBox reflects the current alignment (left, center, right) of the selected cell's content.&#10;- Added listeners to update cell alignment dynamically based on the ChoiceBox selection." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -672,11 +672,6 @@
           <line>147</line>
           <option name="timeStamp" value="65" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UI/src/component/main/app/AppController.java</url>
-          <line>167</line>
-          <option name="timeStamp" value="128" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>
           <line>223</line>
@@ -688,7 +683,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java</url>
-          <line>260</line>
+          <line>210</line>
           <properties class="component.subcomponent.header.HeaderController">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -697,12 +692,21 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java</url>
-          <line>38</line>
-          <properties class="manager.UIManagerImpl">
+          <line>39</line>
+          <properties class="manager.UIManagerImpl" method="updateCellValue">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="119" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/UI/src/component/main/app/AppController.java</url>
+          <line>131</line>
+          <properties class="component.main.app.AppController" method="updateCellValue">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="129" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

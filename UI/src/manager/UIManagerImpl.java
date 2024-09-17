@@ -1,5 +1,6 @@
 package manager;
 
+import component.subcomponent.popup.errormessage.ErrorMessage;
 import dto.DTOCell;
 import dto.DTORange;
 import dto.DTOSheet;
@@ -36,14 +37,9 @@ public class UIManagerImpl implements UIManager {
 
     //todo
     @Override
-    public DTOSheet updateCellValue(String coordinateString, String value) {
-        try {
-            engine.updateCell(coordinateString, value);
-            return getDtoSheetForDisplaySheet();
-        }
-        catch (Exception e) {
-            return null;
-        }
+    public DTOSheet updateCellValue(String coordinateString, String value) throws Exception {
+        engine.updateCell(coordinateString, value);
+        return getDtoSheetForDisplaySheet();
     }
 
     @Override
