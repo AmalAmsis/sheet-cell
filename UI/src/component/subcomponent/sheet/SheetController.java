@@ -183,31 +183,33 @@ public class SheetController {
     }
 
     public void setColumnWidth(int colIndex, int width) {
-        // מצא את כל התאים (לייבלים) בעמודה הזו ושנה להם את הגודל
-        for (Node node : sheetGrid.getChildren()) {
-            if (GridPane.getColumnIndex(node) == colIndex && node instanceof Label) {
-                Label cellLabel = (Label) node;
-                cellLabel.setPrefWidth(width);  // קובע את רוחב הלייבל החדש
-                cellLabel.setMinWidth(width);
-                cellLabel.setMaxWidth(width);
-                String cellId = getCellId(colIndex, GridPane.getRowIndex(node));
-                uiModel.setCellWidth(cellId,width);
-            }
-        }
+        uiModel.setColumnWidth(colIndex, width);
+//        // מצא את כל התאים (לייבלים) בעמודה הזו ושנה להם את הגודל
+//        for (Node node : sheetGrid.getChildren()) {
+//            if (GridPane.getColumnIndex(node) == colIndex && node instanceof Label) {
+//                Label cellLabel = (Label) node;
+//                cellLabel.setPrefWidth(width);  // קובע את רוחב הלייבל החדש
+//                cellLabel.setMinWidth(width);
+//                cellLabel.setMaxWidth(width);
+//                String cellId = getCellId(colIndex, GridPane.getRowIndex(node));
+//                uiModel.setCellWidth(cellId,width);
+//            }
+//        }
     }
 
     public void setRowHeight(int rowIndex, int height) {
-        // מצא את כל התאים (לייבלים) בעמודה הזו ושנה להם את הגודל
-        for (Node node : sheetGrid.getChildren()) {
-            if (GridPane.getRowIndex(node) == rowIndex && node instanceof Label) {
-                Label cellLabel = (Label) node;
-                cellLabel.setPrefHeight(height);// קובע את גובה הלייבל החדש
-                cellLabel.setMaxHeight(height);
-                cellLabel.setMinHeight(height);
-                String cellId = getCellId(GridPane.getColumnIndex(cellLabel), rowIndex);
-                uiModel.setCellHeight(cellId,height);
-            }
-        }
+        uiModel.setRowHeight(rowIndex, height);
+//        // מצא את כל התאים (לייבלים) בעמודה הזו ושנה להם את הגודל
+//        for (Node node : sheetGrid.getChildren()) {
+//            if (GridPane.getRowIndex(node) == rowIndex && node instanceof Label) {
+//                Label cellLabel = (Label) node;
+//                cellLabel.setPrefHeight(height);// קובע את גובה הלייבל החדש
+//                cellLabel.setMaxHeight(height);
+//                cellLabel.setMinHeight(height);
+//                String cellId = getCellId(GridPane.getColumnIndex(cellLabel), rowIndex);
+//                uiModel.setCellHeight(cellId,height);
+//            }
+//        }
     }
 
 
