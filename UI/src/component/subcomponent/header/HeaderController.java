@@ -261,7 +261,7 @@ public class HeaderController {
 
         }
 
-        public void updateHeaderValues(String cellId, String originalValue, String lastModifiedVersion, Color textColor, Color backgroundColor, int width, int height) {
+        public void updateHeaderValues(String cellId, String originalValue, String lastModifiedVersion, Color textColor, Color backgroundColor, int width, int height, String aligment) {
             cellIdLabel.setText(cellId);
             originalValueLabel.setText(originalValue);
             lastModifiedVersionLabel.setText(lastModifiedVersion);
@@ -269,6 +269,7 @@ public class HeaderController {
             textColorPicker.setValue(textColor);
             columnWidthSpinner.getValueFactory().setValue(width);
             rowHeightSpinner.getValueFactory().setValue(height);
+            alignmentChoiceBox.getSelectionModel().select(aligment);
 //            // השבתת מאזינים
 //            columnWidthSpinner.valueProperty().removeListener(columnWidthListener);
 //            rowHeightSpinner.valueProperty().removeListener(rowHeightListener);

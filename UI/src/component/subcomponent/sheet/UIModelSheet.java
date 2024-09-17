@@ -169,6 +169,10 @@ public class UIModelSheet {
             cells.get(cellId).setAlignment(alignment);
         }
     }
+
+    public Pos getCellAlignment(String cellId) {
+        return cells.get(cellId).alignmentProperty().getValue();
+    }
     public UIModelSheet copyModel() {
         UIModelSheet newModel = new UIModelSheet();
         copyCellsTo(newModel);

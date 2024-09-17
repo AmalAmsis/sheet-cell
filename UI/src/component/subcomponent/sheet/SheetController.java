@@ -239,6 +239,23 @@ public class SheetController {
         return uiModel.getCellWidth(cellId);
     }
 
+    public String getCellAligmentString(String cellId) {
+        Pos alignment = uiModel.getCellAlignment(cellId);
+        String alignmentString = alignment.toString();
+        switch (alignment) {
+            case Pos.CENTER:
+                alignmentString = "Center";
+                break;
+            case Pos.CENTER_LEFT:
+                alignmentString = "Left";
+                break;
+            case Pos.CENTER_RIGHT:
+                alignmentString = "Right";
+                break;
+        }
+        return alignmentString;
+    }
+
 
     public void setColumnAlignment(int colIndex, Pos alignment) {
         uiModel.setColumnAlignment(colIndex,alignment);
