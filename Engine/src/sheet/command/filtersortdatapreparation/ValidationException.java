@@ -42,7 +42,7 @@ public class ValidationException extends Exception {
    * Exception thrown when a column is selected that does not contain numeric values.
    */
   public static class NonNumericColumnException extends ValidationException {
-    public NonNumericColumnException(char column) {
+    public NonNumericColumnException() {
       super("One or more columns contain non-numeric values.\n All columns selected for sorting must contain only numeric values.");
     }
   }

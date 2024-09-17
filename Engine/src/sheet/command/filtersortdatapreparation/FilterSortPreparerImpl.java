@@ -29,7 +29,7 @@ public class FilterSortPreparerImpl implements FilterSortPreparer {
         }
         for (Character column : listOfColumnsPriorities) {
             if (!isColumnNumeric(from, to, column)) {
-                throw new ValidationException.NonNumericColumnException(column);
+                throw new ValidationException.NonNumericColumnException();
             }
         }
     }

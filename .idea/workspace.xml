@@ -11,18 +11,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="The design of the cell goes along with it when sorting">
-      <change afterPath="$PROJECT_DIR$/Engine/src/sheet/command/filtersortdatapreparation/FilterSortPreparer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Engine/src/sheet/command/filtersortdatapreparation/FilterSortPreparerImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/popup/errormessage/ErrorMessage.java" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Refactored sorting and filtering functionality into modular structure (all in command package). Sorting is now functional, filter preparation is in progress. &#10;&#10;&#10;Added a custom error message class for displaying consistent error pop-ups.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/engine/EngineImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/engine/EngineImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/sortsheet/RangeValidationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/command/filtersortdatapreparation/ValidationException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/sortsheet/SortSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/command/sortsheet/SortSheet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/sortsheet/SortSheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/command/sortsheet/SortSheetImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/test/sortSheetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/test/sortSheetTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/popup/viewonlysheet/ViewOnlySheetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/popup/viewonlysheet/ViewOnlySheetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/FileDataException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/FileDataException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/command/filtersortdatapreparation/FilterSortPreparerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/command/filtersortdatapreparation/FilterSortPreparerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/command/filtersortdatapreparation/ValidationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/command/filtersortdatapreparation/ValidationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/header/header.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/header/header.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -389,7 +384,7 @@
       <workItem from="1725807156007" duration="1382000" />
       <workItem from="1726053985447" duration="18219000" />
       <workItem from="1726310407207" duration="66973000" />
-      <workItem from="1726579961504" duration="8892000" />
+      <workItem from="1726579961504" duration="10735000" />
     </task>
     <task id="LOCAL-00023" summary="Beginning of work on the graphical interface.&#10;The main component is the app&#10;which contains 2 components:&#10;header and sheet.&#10;&#10;The sheet contains cell type components.&#10;&#10;I basically defined everyone's fxml files.&#10;&#10;I also built a basic controller for everyone.&#10;&#10;I built a function in sheetController that knows how to receive a sheet and load it to the screen.">
       <option name="closed" value="true" />
@@ -511,7 +506,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726580759055</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Refactored sorting and filtering functionality into modular structure (all in command package). Sorting is now functional, filter preparation is in progress. &#10;&#10;&#10;Added a custom error message class for displaying consistent error pop-ups.">
+      <option name="closed" value="true" />
+      <created>1726591284621</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1726591284621</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -557,7 +560,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="26.8.24 merge" />
     <MESSAGE value="ui module - first naive interface" />
     <MESSAGE value="displaySheet func impl in the UI" />
     <MESSAGE value="for marge 27.8.24" />
@@ -582,7 +584,8 @@
     <MESSAGE value="Sorting works, both in the engine and in the graphical interface.&#10;I also did the design aspect of the cells that moved with the cell together with the sorting...&#10;we just need to check that it works.ness" />
     <MESSAGE value="commit for marge" />
     <MESSAGE value="The design of the cell goes along with it when sorting" />
-    <option name="LAST_COMMIT_MESSAGE" value="The design of the cell goes along with it when sorting" />
+    <MESSAGE value="Refactored sorting and filtering functionality into modular structure (all in command package). Sorting is now functional, filter preparation is in progress. &#10;&#10;&#10;Added a custom error message class for displaying consistent error pop-ups." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored sorting and filtering functionality into modular structure (all in command package). Sorting is now functional, filter preparation is in progress. &#10;&#10;&#10;Added a custom error message class for displaying consistent error pop-ups." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
