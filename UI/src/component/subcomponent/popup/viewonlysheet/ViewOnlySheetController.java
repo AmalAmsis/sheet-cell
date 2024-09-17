@@ -70,8 +70,6 @@ public class ViewOnlySheetController {
 
                 String cellKey = getCellId(col, row);
                 Label cellLabel = new Label();
-                //cellLabel.setPrefSize(WidthOfCols, HeightOfRows);
-
 
                 DTOCell dtoCell = dtoSheet.getCells().get(cellKey);
                 if (dtoCell != null) {
@@ -91,11 +89,6 @@ public class ViewOnlySheetController {
                             uiModelSheet.setCellBorderStyle(cellKey, CellStyle.NORMAL_CELL_BORDER_STYLE.getStyleValue());
                             uiModelSheet.setCellBorderWidth(cellKey, CellStyle.NORMAL_CELL_BORDER_WIDTH.getWidthValue());
 
-
-                            //cause problem !
-                            // Copy other visual attributes like height and width
-                            //uiModelSheet.setCellHeight(cellKey, originalCellModel.hightProperty().get());
-                            //uiModelSheet.setCellWidth(cellKey, originalCellModel.widthProperty().get());
                         }
                     }
                 }

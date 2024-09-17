@@ -1,4 +1,4 @@
-package sheet.sortsheet;
+package sheet.command.filtersortdatapreparation;
 
 import sheet.coordinate.Coordinate;
 
@@ -7,38 +7,43 @@ import sheet.coordinate.Coordinate;
  * This class provides specific nested exceptions for different types of validation errors
  * encountered when processing ranges and coordinates.
  */
-public class RangeValidationException extends Exception {
+public class ValidationException extends Exception {
 
   /** Constructs a RangeValidationException with the specified detail message.
    * @param message the detail message. */
-  public RangeValidationException(String message) {
+  public ValidationException(String message) {
     super(message);
   }
 
   /**
    * Exception thrown when the 'from' coordinate is after the 'to' coordinate.
    */
-  public static class InvalidRangeOrderException extends RangeValidationException {
+  public static class InvalidRangeOrderException extends ValidationException {
     public InvalidRangeOrderException(Coordinate from, Coordinate to) {
-      super("'From' coordinate " + from.toString() + " must be before 'To' coordinate " + to.toString() + ".");
+      super("The 'From' coordinate (" + from.toString() + ") must have a column letter\n" +
+              " that is the same or " + "or comes before the 'To' coordinate's (" + to.toString() + ").\n" +
+              " Similarly, " + "the row number of the 'From' coordinate must be\n" +
+              " the same or smaller than the 'To' coordinate.\n\n");
+
     }
   }
 
   /**
    * Exception thrown when the coordinates are outside the boundaries of the sheet.
    */
-  public static class CoordinateOutOfBoundsException extends RangeValidationException {
+  public static class CoordinateOutOfBoundsException extends ValidationException {
     public CoordinateOutOfBoundsException(Coordinate coord) {
-      super("Coordinate " + coord + " is outside the sheet's boundaries.");
+      super("At list one of the coordinate is outside the valid boundaries of the sheet.\n" +
+              " Please select a coordinate within the sheet.");
     }
   }
 
   /**
    * Exception thrown when a column is selected that does not contain numeric values.
    */
-  public static class NonNumericColumnException extends RangeValidationException {
+  public static class NonNumericColumnException extends ValidationException {
     public NonNumericColumnException(char column) {
-      super("Column " + column + " does not contain only numeric values.");
+      super("One or more columns contain non-numeric values.\n All columns selected for sorting must contain only numeric values.");
     }
   }
 
