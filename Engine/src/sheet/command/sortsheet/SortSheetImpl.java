@@ -1,9 +1,12 @@
-package sheet.sortsheet;
+package sheet.command.sortsheet;
 
 import dto.DTOSheet;
 import dto.DTOSheetImpl;
 import sheet.Sheet;
 import sheet.cell.Cell;
+import sheet.command.filtersortdatapreparation.FilterSortPreparer;
+import sheet.command.filtersortdatapreparation.FilterSortPreparerImpl;
+import sheet.command.filtersortdatapreparation.ValidationException;
 import sheet.coordinate.Coordinate;
 import sheet.coordinate.CoordinateImpl;
 import sheet.effectivevalue.CellType;
@@ -13,86 +16,35 @@ import sheet.effectivevalue.EffectiveValue;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class SortSheetImpl implements SortSheet {
 
-    private Sheet sheet;
+    //copy -delete
+    private FilterSortPreparer sortPreparer;
 
+    //copy
     public SortSheetImpl(Sheet sheet) {
-        this.sheet = sheet;
+        this.sortPreparer = new FilterSortPreparerImpl(sheet);
     }
 
     @Override
-    public DTOSheet getSortedSheet(String from, String to, List<Character> listOfColumnsPriorities) throws RangeValidationException {
+    public DTOSheet getSortedSheet(String from, String to, List<Character> listOfColumnsPriorities) throws ValidationException {
 
         Coordinate fromCoordinate = convertStringToCoordinate(from);
         Coordinate toCoordinate = convertStringToCoordinate(to);
         Character firstColInRange = fromCoordinate.getCol();
 
+        sortPreparer.sortValidator(fromCoordinate,toCoordinate,listOfColumnsPriorities);
 
-        validateRange(fromCoordinate,toCoordinate,listOfColumnsPriorities);
-
-        List<List<Cell>> ListOfRows = getRowInRange(fromCoordinate, toCoordinate).stream()
+        List<List<Cell>> ListOfSortedRows = sortPreparer.getRowInRange(fromCoordinate,toCoordinate).stream()
                 .sorted((row1, row2) -> compareRows(row1, row2, listOfColumnsPriorities,firstColInRange))
                 .collect(Collectors.toList());
 
 
-        return new DTOSheetImpl(sheet, ListOfRows,fromCoordinate,toCoordinate);
+        return new DTOSheetImpl(sortPreparer.getSheet(), ListOfSortedRows,fromCoordinate,toCoordinate);
     };
 
 
-    private void validateRange(Coordinate from, Coordinate to ,List<Character> listOfColumnsPriorities) throws RangeValidationException{
-        if (from.getRow() > to.getRow() || from.getCol() > to.getCol()) {
-            throw new RangeValidationException.InvalidRangeOrderException(from, to);
-        }
-        if (!isCoordinateWithinSheet(from) || !isCoordinateWithinSheet(to)) {
-            throw new RangeValidationException.CoordinateOutOfBoundsException(from);
-        }
-        for (Character column : listOfColumnsPriorities) {
-            if (!isColumnNumeric(from, to, column)) {
-                throw new RangeValidationException.NonNumericColumnException(column);
-            }
-        }
-    }
-
-    private boolean isCoordinateWithinSheet(Coordinate coordinate) {
-        int maxRow = sheet.getNumOfRows();
-        char maxCol = (char)('A' + sheet.getNumOfCols() -1);
-
-        return !(coordinate.getRow() < 1 || coordinate.getRow() > maxRow ||  coordinate.getCol() < 'A' || coordinate.getCol() > maxCol);
-    }
-
-
-    private boolean isColumnNumeric(Coordinate from, Coordinate to, Character column) {
-        // שלב 1: קבלת השורות בטווח
-        List<List<Cell>> rowsInRange = getRowInRange(from, to);
-
-// שלב 2: יצירת משתנה עבור אינדקס העמודה
-        char col = from.getCol();
-        int columnIndex = column - col;
-
-// שלב 3: יצירת משתנה בוליאני שיבדוק אם כל הערכים מספריים
-        boolean allNumeric = true;
-
-// שלב 4: מעבר על כל שורה בטווח
-        for (List<Cell> row : rowsInRange) {
-            // קבלת התא באינדקס העמודה הנכון
-            Cell cellInColumn = row.get(columnIndex);
-
-            // קבלת הערך האפקטיבי של התא
-            EffectiveValue effectiveValue = cellInColumn.getEffectiveValue();
-
-            // בדיקה אם הערך הוא מסוג NUMERIC
-            if (effectiveValue.getCellType() != CellType.NUMERIC) {
-                allNumeric = false;  // אם יש ערך שאינו מספרי, משנים את allNumeric ל-false
-                break;  // יציאה מהלולאה כי אין צורך לבדוק יותר
-            }
-        }
-
-// שלב 5: החזרת התוצאה הסופית
-        return allNumeric;
-    }
 
     private int compareRows(List<Cell> row1, List<Cell> row2, List<Character> listOfColumnsPriorities,Character firstColInRange) {
         List<Double> key1 = createSortingKey(row1, listOfColumnsPriorities,firstColInRange);
@@ -122,27 +74,6 @@ public class SortSheetImpl implements SortSheet {
         return 0;  // אם כל הערכים זהים, נחזיר 0 (שווה)
     }
 
-
-    private List<List<Cell>> getRowInRange(Coordinate from, Coordinate to){
-        List<List<Cell>> listOfRows = new ArrayList<>();
-
-        for(int row=from.getRow();row<=to.getRow();row++){
-            List<Cell> currentRow = new ArrayList<>();
-            for(char col = from.getCol();col<=to.getCol();col++){
-
-                Coordinate currentCoordinate = new CoordinateImpl(col, row);
-
-                Cell cell = sheet.getCell(currentCoordinate);
-
-                System.out.println("Adding cell at " + currentCoordinate + ": " + cell.getEffectiveValue().getValue());
-
-                currentRow.add(cell);
-            }
-            listOfRows.add(currentRow);
-        }
-
-        return listOfRows;
-    }
 
     private String createCellKey(int col, int row) {
         return (char) ('A' + col) + Integer.toString(row);
@@ -179,26 +110,6 @@ public class SortSheetImpl implements SortSheet {
         }
 
         return sortingKey;
-
-
-
-
-//        return columns.stream()
-//                .map(column -> {
-//                    EffectiveValue effectiveValue = row.get(getColumnIndex(column)).getEffectiveValue();
-//
-//                    // אם התא ריק או אינו מספרי, נחזיר אינסוף כדי למקם אותו אחרון
-//                    if (effectiveValue.getCellType() != CellType.NUMERIC) {
-//                        System.out.println("Non-numeric or empty cell found at column: " + column);
-//
-//                        return Double.POSITIVE_INFINITY;  // תאים ריקים או לא מספריים יהיו בסוף המיון
-//                    }
-//
-//                    Double value = (Double) effectiveValue.getValue();
-//                    System.out.println("Sorting key for column " + column + ": " + value);
-//                    return value;  // החזרת ערך מספרי רגיל
-//                })
-//                .collect(Collectors.toList());
     }
 
 

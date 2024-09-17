@@ -22,7 +22,7 @@
           <children>
               <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="37.0" prefWidth="599.0" spacing="5.0">
                   <children>
-                      <Button fx:id="loadFileButton" mnemonicParsing="false" onAction="#CliclMeLoadFileButtonAction" text="load file" />
+                      <Button fx:id="loadFileButton" mnemonicParsing="false" onAction="#ClickMeLoadFileButtonAction" text="load file" />
                       <Label fx:id="filePathLlabel" prefHeight="32.0" prefWidth="437.0" styleClass="header-label" text="file path" />
                   </children>
                   <padding>
@@ -37,7 +37,7 @@
                       <TextField fx:id="actionLineTextField" promptText="action line" />
                       <Button fx:id="updateValueButton" mnemonicParsing="false" onAction="#ClickMeUpdateValueButtonAction" text="update value" />
                       <Label fx:id="currentVersionLabel" prefHeight="26.0" prefWidth="124.0" styleClass="header-label" text="current sheet version" />
-                      <Button fx:id="versionSelectorButtom" mnemonicParsing="false" onAction="#CliclMeVersionSelectorButtomAction" text="version selector" />
+                      <Button fx:id="versionSelectorButtom" mnemonicParsing="false" onAction="#ClickMeVersionSelectorButtonAction" text="version selector" />
                   </children>
                   <padding>
                       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

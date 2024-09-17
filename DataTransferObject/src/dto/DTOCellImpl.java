@@ -51,6 +51,7 @@ public class DTOCellImpl implements DTOCell , Serializable {
     //ctor for filer sheet
     public DTOCellImpl(Cell cell, Coordinate coordinate) {
 
+        this.cellId = cell.getId();
         int row = coordinate.getRow();
         char col = coordinate.getCol();
 

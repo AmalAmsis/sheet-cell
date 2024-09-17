@@ -2,6 +2,7 @@ package component.subcomponent.popup.viewonlysheet;
 
 import component.main.app.AppController;
 import component.subcomponent.sheet.CellModel;
+import component.subcomponent.sheet.CellStyle;
 import component.subcomponent.sheet.UIModelSheet;
 import dto.DTOCell;
 import dto.DTOSheet;
@@ -69,8 +70,6 @@ public class ViewOnlySheetController {
 
                 String cellKey = getCellId(col, row);
                 Label cellLabel = new Label();
-                cellLabel.setPrefSize(WidthOfCols, HeightOfRows);
-
 
                 DTOCell dtoCell = dtoSheet.getCells().get(cellKey);
                 if (dtoCell != null) {
@@ -82,9 +81,14 @@ public class ViewOnlySheetController {
                         CellModel originalCellModel = appController.getCurrentUIModel().getCell(originalCellId); // קבלת העיצוב מהמודל הראשי
 
                         if (originalCellModel != null) {
+                            // Set the original cell's visuals (background, text color, font, etc.)
                             uiModelSheet.setCellBackgroundColor(cellKey, originalCellModel.backgroundColorProperty().get());
                             uiModelSheet.setCellTextColor(cellKey, originalCellModel.textColorProperty().get());
                             uiModelSheet.setCellFont(cellKey, originalCellModel.fontProperty().get());
+                            uiModelSheet.setCellBorderColor(cellKey, CellStyle.NORMAL_CELL_BORDER_COLOR.getColorValue());
+                            uiModelSheet.setCellBorderStyle(cellKey, CellStyle.NORMAL_CELL_BORDER_STYLE.getStyleValue());
+                            uiModelSheet.setCellBorderWidth(cellKey, CellStyle.NORMAL_CELL_BORDER_WIDTH.getWidthValue());
+
                         }
                     }
                 }
