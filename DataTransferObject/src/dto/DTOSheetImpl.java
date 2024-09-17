@@ -3,10 +3,14 @@ package dto;
 import sheet.Sheet;
 import sheet.SheetImpl;
 import sheet.cell.Cell;
+import sheet.coordinate.Coordinate;
+import sheet.coordinate.CoordinateImpl;
 import sheet.range.Range;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -57,11 +61,32 @@ public class DTOSheetImpl implements DTOSheet, Serializable {
 
     }
 
+
+
     @Override
     public Map<String,DTORange> getRanges(){
         return this.ranges;
     };
 
+    public DTOSheetImpl(Sheet sheet, List<List<Cell>> sortedRows, Coordinate from, Coordinate to) {
+        this(sheet);
+
+        int rowIdx = from.getRow();
+        char colIdx = from.getCol();
+        Coordinate coordinate = new CoordinateImpl(colIdx, rowIdx);
+
+        for (List<Cell> row : sortedRows) {
+            for (Cell cell : row) {
+                coordinate.setCol(colIdx);
+                coordinate.setRow(rowIdx);
+                DTOCell dtoCell = new DTOCellImpl(cell,coordinate);
+                addDTOCell(dtoCell);
+                colIdx++;
+            }
+            colIdx = from.getCol();
+            rowIdx++;
+        }
+    }
     //**********************************************YARDEN**********************************************//
 
 

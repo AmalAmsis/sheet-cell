@@ -3,6 +3,7 @@ package manager;
 import dto.DTORange;
 import dto.DTOSheet;
 import dto.DTOCell;
+import sheet.coordinate.Coordinate;
 
 import java.util.List;
 
@@ -20,4 +21,5 @@ public interface UIManager {
     DTORange getRange(String rangeName) throws Exception;
     List<DTORange> getAllRanges() throws Exception;
 
+    DTOSheet getSortedSheet(String from, String to, List<Character> listOfColumnsPriorities) throws Exception ;
 }

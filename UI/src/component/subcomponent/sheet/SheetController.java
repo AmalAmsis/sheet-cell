@@ -241,6 +241,11 @@ public class SheetController {
     public void setColumnAlignment(int colIndex, Pos alignment) {
         uiModel.setColumnAlignment(colIndex,alignment);
     }
+
+    public UIModelSheet getCurrentUIModel() {
+        return uiModel;
+    }
+
 }
 
 

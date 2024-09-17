@@ -5,6 +5,7 @@ import dto.DTORange;
 import dto.DTOSheet;
 import engine.Engine;
 import engine.EngineImpl;
+import sheet.coordinate.Coordinate;
 import sheet.version.SheetVersionData;
 import sheet.version.SheetVersionHandler;
 
@@ -91,5 +92,10 @@ public class UIManagerImpl implements UIManager {
         return engine.getAllRanges();
     }
 
+
+    @Override
+    public DTOSheet getSortedSheet(String from, String to, List<Character> listOfColumnsPriorities) throws Exception {
+        return engine.getSortedSheet( from,  to, listOfColumnsPriorities);
+    }
 
 }

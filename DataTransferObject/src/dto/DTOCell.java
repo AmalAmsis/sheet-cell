@@ -40,4 +40,6 @@ public interface DTOCell {
      * @return a List of DTOCoordinate objects that are influenced by this cell.*/
     List<DTOCoordinate> getInfluencingOn();
 
+    String getCellId();
+
 }

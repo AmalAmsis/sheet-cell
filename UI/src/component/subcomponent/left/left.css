@@ -1,0 +1,6 @@
+.label-with-border {
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-padding: 5;
+    -fx-background-color: #f0f0f0; /* צבע רקע בהיר */
+}

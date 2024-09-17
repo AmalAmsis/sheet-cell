@@ -15,5 +15,10 @@ public interface Coordinate {
      * Returns the column letter of the cell.
      * @return a char representing the column letter.*/
     char getCol();
+
+     void setCol(char col);
+     void setRow(int row);
+
+
 }
 

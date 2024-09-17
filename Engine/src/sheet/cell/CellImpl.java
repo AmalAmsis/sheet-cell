@@ -48,6 +48,7 @@ public class CellImpl implements Cell, Serializable {
     }
 
 
+
 //    //todo: dont think we need this one.
 //    /** Constructs a CellImpl from an STLCell object.
 //     * @param stlCell the STLCell object from an XML file. */

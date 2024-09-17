@@ -6,6 +6,7 @@ import component.subcomponent.sheet.SheetController;
 import component.subcomponent.left.LeftController;
 
 
+import component.subcomponent.sheet.UIModelSheet;
 import dto.DTOCell;
 import dto.DTOCoordinate;
 import dto.DTORange;
@@ -18,6 +19,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.paint.Color;
 import manager.UIManager;
 import manager.UIManagerImpl;
+import sheet.coordinate.Coordinate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -137,7 +139,7 @@ public class AppController {
 
     @FXML
     public void initialize() {
-        if (headerController != null && sheetController != null && leftController != null) {
+       if(headerController != null && sheetController != null && leftController != null) {
             headerController.setAppController(this);
             sheetController.setAppController(this);
             leftController.setAppController(this);
@@ -257,6 +259,7 @@ public class AppController {
         } catch (Exception e) {
             //popup
         }
+
     }
 
     public List<String> getAllRanges(){
@@ -274,6 +277,13 @@ public class AppController {
         return null;
     }
 
+    public UIModelSheet getCurrentUIModel() {
+        return sheetController.getCurrentUIModel();
+    }
+
+    public DTOSheet getSortedSheet(String from, String to, List<Character> listOfColumnsPriorities) throws Exception {
+        return uiManager.getSortedSheet( from,  to,  listOfColumnsPriorities);
+    }
     public void setSelectedCellBackgroundColor(Color backgroundColor) {
         sheetController.setCellBackgroundColor(selectedCellId.getValue() ,backgroundColor);
     }
@@ -298,3 +308,5 @@ public class AppController {
         sheetController.setColumnAlignment(colIndex, alignment);
     }
 }
+
+

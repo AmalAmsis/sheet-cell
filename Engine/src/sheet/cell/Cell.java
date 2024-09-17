@@ -103,6 +103,4 @@ public interface Cell {
      * @return a List of Cell objects that form a cycle. */
     List<Cell> detectCycleHelper(Set<Cell> visited, Set<Cell> recStack, List<Cell> path);
 
-
-
 }
