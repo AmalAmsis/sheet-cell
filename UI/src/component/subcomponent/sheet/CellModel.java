@@ -66,10 +66,10 @@ public class CellModel {
         return borderWidth;
     }
 
-    public IntegerProperty HightProperty() {
+    public IntegerProperty hightProperty() {
         return Hight;
     }
-    public IntegerProperty WidthProperty() {
+    public IntegerProperty widthProperty() {
         return Width;
     }
 

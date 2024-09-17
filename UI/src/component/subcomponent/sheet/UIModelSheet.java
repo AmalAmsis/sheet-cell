@@ -13,6 +13,7 @@ public class UIModelSheet {
 
     private final Map<String, CellModel> cells;
     private int numberOfRows;
+    private int numberOfColumns;
     private int cellWidth;
     private int cellHeight;
 
@@ -23,6 +24,7 @@ public class UIModelSheet {
     public void initializeModel(int numOfRows, int numOfCols, int cellWidth, int cellHeight) {
 
         this.numberOfRows = numOfRows;
+        this.numberOfColumns = numOfCols;
         cells.clear();
         for (int row = 0; row <= numOfRows; row++) {
             for (int col = 0; col <= numOfCols; col++) {
@@ -48,10 +50,10 @@ public class UIModelSheet {
     }
 
     public int getCellHeight(String cellId) {
-        return  cells.get(cellId).HightProperty().getValue();
+        return  cells.get(cellId).hightProperty().getValue();
     }
     public int getCellWidth(String cellId) {
-        return  cells.get(cellId).WidthProperty().getValue();
+        return  cells.get(cellId).widthProperty().getValue();
     }
 
     public void setCellValue(String cellId, String value) {
@@ -104,6 +106,14 @@ public class UIModelSheet {
         label.alignmentProperty().bind(cell.alignmentProperty());
         label.textFillProperty().bind(cell.textColorProperty());
         label.fontProperty().bind(cell.fontProperty());
+        label.prefWidthProperty().bind(cell.widthProperty());
+        label.maxWidthProperty().bind(cell.widthProperty());
+        label.minWidthProperty().bind(cell.widthProperty());
+        label.prefHeightProperty().bind(cell.hightProperty());
+        label.maxHeightProperty().bind(cell.hightProperty());
+        label.minHeightProperty().bind(cell.hightProperty());
+
+
 
         // מחילים את הסגנון הראשוני
         updateLabelStyle(label, cell);
@@ -113,6 +123,7 @@ public class UIModelSheet {
         cell.borderColorProperty().addListener((obs, oldColor, newColor) -> updateLabelStyle(label, cell));
         cell.borderWidthProperty().addListener((obs, oldWidth, newWidth) -> updateLabelStyle(label, cell));
         cell.borderStyleProperty().addListener((obs, oldStyle, newStyle) -> updateLabelStyle(label, cell));
+
 
 
 
@@ -135,6 +146,20 @@ public class UIModelSheet {
                 cell.borderStyleProperty().get()
         );
         label.setStyle(style);
+    }
+
+    public void setColumnWidth(int colIndex, int width) {
+        for (int row =0;row<numberOfRows; row++){
+            String cellId = getCellId(colIndex, row);
+            cells.get(cellId).setWidth(width);
+        }
+    }
+
+    public void setRowHeight(int rowIndex, int height) {
+        for (int col = 0; col<numberOfColumns; col++){
+            String cellId = getCellId(col, rowIndex);
+            cells.get(cellId).setHight(height);
+        }
     }
 
 
@@ -165,8 +190,8 @@ public class UIModelSheet {
             newCell.setBorderColor(originalCell.borderColorProperty().get());
             newCell.setBorderWidth(originalCell.borderWidthProperty().get());
             newCell.setBorderStyle(originalCell.borderStyleProperty().get());
-            newCell.setHight(originalCell.HightProperty().get());
-            newCell.setWidth(originalCell.WidthProperty().get());
+            newCell.setHight(originalCell.hightProperty().get());
+            newCell.setWidth(originalCell.widthProperty().get());
             newCell.setAlignment(originalCell.alignmentProperty().get());
 
             newModel.cells.put(cellId, newCell);

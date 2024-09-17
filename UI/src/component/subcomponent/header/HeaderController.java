@@ -118,6 +118,23 @@ public class HeaderController {
 //            SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10, 5);
 //            columnWidthSpinner.setValueFactory(valueFactory);
 
+            // השבתת מאזינים
+            columnWidthSpinner.valueProperty().removeListener(columnWidthListener);
+            rowHeightSpinner.valueProperty().removeListener(rowHeightListener);
+
+
+            // עדכון ערכי ה-Spinner
+            SpinnerValueFactory<Integer> widthValueFactory =
+                    new SpinnerValueFactory.IntegerSpinnerValueFactory(10, 200, 100, 1);
+            columnWidthSpinner.setValueFactory(widthValueFactory);
+
+            SpinnerValueFactory<Integer> rowValueFactory =
+                    new SpinnerValueFactory.IntegerSpinnerValueFactory(10, 200, 100, 1);
+            rowHeightSpinner.setValueFactory(rowValueFactory);
+
+            // החזרת מאזינים
+            columnWidthSpinner.valueProperty().addListener(columnWidthListener);
+            rowHeightSpinner.valueProperty().addListener(rowHeightListener);
 
 
             setDisableInButton(true);
@@ -250,22 +267,24 @@ public class HeaderController {
             lastModifiedVersionLabel.setText(lastModifiedVersion);
             cellBackgroundColorPicker.setValue(backgroundColor);
             textColorPicker.setValue(textColor);
-            // השבתת מאזינים
-            columnWidthSpinner.valueProperty().removeListener(columnWidthListener);
-            rowHeightSpinner.valueProperty().removeListener(rowHeightListener);
+            columnWidthSpinner.getValueFactory().setValue(width);
+            rowHeightSpinner.getValueFactory().setValue(height);
+//            // השבתת מאזינים
+//            columnWidthSpinner.valueProperty().removeListener(columnWidthListener);
+//            rowHeightSpinner.valueProperty().removeListener(rowHeightListener);
 
-            // עדכון ערכי ה-Spinner
-            SpinnerValueFactory<Integer> widthValueFactory =
-                    new SpinnerValueFactory.IntegerSpinnerValueFactory(10, 200, width, 1);
-            columnWidthSpinner.setValueFactory(widthValueFactory);
+//            // עדכון ערכי ה-Spinner
+//            SpinnerValueFactory<Integer> widthValueFactory =
+//                    new SpinnerValueFactory.IntegerSpinnerValueFactory(10, 200, width, 1);
+//            columnWidthSpinner.setValueFactory(widthValueFactory);
+//
+//            SpinnerValueFactory<Integer> rowValueFactory =
+//                    new SpinnerValueFactory.IntegerSpinnerValueFactory(10, 200, height, 1);
+//            rowHeightSpinner.setValueFactory(rowValueFactory);
 
-            SpinnerValueFactory<Integer> rowValueFactory =
-                    new SpinnerValueFactory.IntegerSpinnerValueFactory(10, 200, height, 1);
-            rowHeightSpinner.setValueFactory(rowValueFactory);
-
-            // החזרת מאזינים
-            columnWidthSpinner.valueProperty().addListener(columnWidthListener);
-            rowHeightSpinner.valueProperty().addListener(rowHeightListener);
+//            // החזרת מאזינים
+//            columnWidthSpinner.valueProperty().addListener(columnWidthListener);
+//            rowHeightSpinner.valueProperty().addListener(rowHeightListener);
 
         }
 
