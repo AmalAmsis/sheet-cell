@@ -9,6 +9,7 @@ public enum CellStyle {
     NORMAL_CELL_BORDER_STYLE("solid"),     // סגנון המסגרת של תא רגיל
     NORMAL_CELL_BORDER_WIDTH(2.0),         // רוחב המסגרת של תא רגיל
     NORMAL_CELL_BACKGROUND_COLOR(Color.WHITE), // צבע הרקע של תא רגיל
+    NORMAL_CELL_TEXT_COLOR(Color.BLACK),
 
 
     SELECTED_CELL_BORDER_COLOR(Color.PINK),

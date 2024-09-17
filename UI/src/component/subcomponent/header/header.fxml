@@ -58,18 +58,18 @@
               </rowConstraints>
                <children>
                   <Label text="Cell background color" />
-                  <ColorPicker prefHeight="26.0" prefWidth="104.0" GridPane.rowIndex="1" />
+                  <ColorPicker fx:id="cellBackgroundColorPicker" prefHeight="26.0" prefWidth="104.0" GridPane.rowIndex="1" />
                   <Label text="Text color" GridPane.columnIndex="1" />
-                  <ColorPicker prefHeight="26.0" prefWidth="94.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <ColorPicker fx:id="textColorPicker" prefHeight="26.0" prefWidth="94.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <value>
                         <Color />
                      </value>
                   </ColorPicker>
                   <Label text="Alignment" GridPane.columnIndex="2" />
                   <ChoiceBox fx:id="alignmentChoiceBox" prefHeight="8.0" prefWidth="91.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Spinner prefHeight="26.0" prefWidth="114.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                  <Spinner prefHeight="26.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                  <Label text="Row width" GridPane.columnIndex="3" />
+                  <Spinner fx:id="rowHeightSpinner" prefHeight="26.0" prefWidth="114.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <Spinner fx:id="columnWidthSpinner" prefHeight="26.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                  <Label text=" Row height" GridPane.columnIndex="3" />
                   <Label text="column width" GridPane.columnIndex="4" />
                </children>
             </GridPane>

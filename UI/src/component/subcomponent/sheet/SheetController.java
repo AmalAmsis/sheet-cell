@@ -10,9 +10,12 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.css.StyleClass;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import manager.UIManager;
@@ -24,7 +27,7 @@ import java.util.Map;
 public class SheetController {
 
     private AppController appController;
-    private ObjectProperty<Label> selectedCell;
+    //private ObjectProperty<Label> selectedCell;
 
     @FXML
     private GridPane sheetGrid;
@@ -45,27 +48,27 @@ public class SheetController {
 
         // לסדר את הקוד
         // selected cell listener
-        selectedCell = new SimpleObjectProperty<>();
-        selectedCell.addListener((observableValue, oldLabelSelection, newSelectedLabel) -> {
-            if (oldLabelSelection != null) {
-                int row = GridPane.getRowIndex(oldLabelSelection);
-                int col = GridPane.getColumnIndex(oldLabelSelection);
-                String oldCellId = getCellId(col, row);
-                String cellId = getCellModelId(oldLabelSelection);
-                appController.unShowCellData(cellId);
-                uiModel.setCellBorderColor(oldCellId, CellStyle.NORMAL_CELL_BORDER_COLOR.getColorValue());
-                uiModel.setCellBorderWidth(oldCellId, CellStyle.NORMAL_CELL_BORDER_WIDTH.getWidthValue());
-                uiModel.setCellBorderStyle(oldCellId,CellStyle.NORMAL_CELL_BORDER_STYLE.getStyleValue());
-            }
-            if (newSelectedLabel != null) {
-                int row = GridPane.getRowIndex(newSelectedLabel);
-                int col = GridPane.getColumnIndex(newSelectedLabel);
-                String cellId = getCellId(col, row);
-                uiModel.setCellBorderColor(cellId, CellStyle.SELECTED_CELL_BORDER_COLOR.getColorValue());
-                uiModel.setCellBorderWidth(cellId, CellStyle.SELECTED_CELL_BORDER_WIDTH.getWidthValue());
-                uiModel.setCellBorderStyle(cellId,CellStyle.SELECTED_CELL_BORDER_STYLE.getStyleValue());
-            }
-        });
+//        selectedCell = new SimpleObjectProperty<>();
+//        selectedCell.addListener((observableValue, oldLabelSelection, newSelectedLabel) -> {
+//            if (oldLabelSelection != null) {
+//                int row = GridPane.getRowIndex(oldLabelSelection);
+//                int col = GridPane.getColumnIndex(oldLabelSelection);
+//                String oldCellId = getCellId(col, row);
+//                String cellId = getCellModelId(oldLabelSelection);
+//                appController.unShowCellData(cellId);
+//                uiModel.setCellBorderColor(oldCellId, CellStyle.NORMAL_CELL_BORDER_COLOR.getColorValue());
+//                uiModel.setCellBorderWidth(oldCellId, CellStyle.NORMAL_CELL_BORDER_WIDTH.getWidthValue());
+//                uiModel.setCellBorderStyle(oldCellId,CellStyle.NORMAL_CELL_BORDER_STYLE.getStyleValue());
+//            }
+//            if (newSelectedLabel != null) {
+//                int row = GridPane.getRowIndex(newSelectedLabel);
+//                int col = GridPane.getColumnIndex(newSelectedLabel);
+//                String cellId = getCellId(col, row);
+//                uiModel.setCellBorderColor(cellId, CellStyle.SELECTED_CELL_BORDER_COLOR.getColorValue());
+//                uiModel.setCellBorderWidth(cellId, CellStyle.SELECTED_CELL_BORDER_WIDTH.getWidthValue());
+//                uiModel.setCellBorderStyle(cellId,CellStyle.SELECTED_CELL_BORDER_STYLE.getStyleValue());
+//            }
+//        });
     }
 
     public void initSheetAndBindToUIModel(DTOSheet dtoSheet) {
@@ -77,13 +80,15 @@ public class SheetController {
         int WidthOfCols = dtoSheet.getWidthOfColumns();
         int HeightOfRows = dtoSheet.getHeightOfRows();
 
-        uiModel.initializeModel(numOfRows + 1, numOfCols + 1);
+        uiModel.initializeModel(numOfRows + 1, numOfCols + 1, WidthOfCols, HeightOfRows);
 
         for (int col = 1; col <= numOfCols; col++) {
             String colLetter = String.valueOf((char) ('A' + col - 1));
             String cellKey = getCellId(col, 0);
             Label cellLabel = new Label();
             cellLabel.setPrefSize(WidthOfCols, 15);
+            cellLabel.setMinSize(WidthOfCols, 15);
+            cellLabel.setMaxSize(WidthOfCols, 15);
             uiModel.setCellValue(cellKey, colLetter);
             uiModel.bindCellToModel(cellLabel, cellKey);
             sheetGrid.add(cellLabel, col, 0);
@@ -92,7 +97,9 @@ public class SheetController {
         for (int row = 1; row <= numOfRows; row++) {
             String cellKey = getCellId(0, row);
             Label cellLabel = new Label();
-            cellLabel.setPrefSize(25, HeightOfRows);
+            cellLabel.setPrefSize(20, HeightOfRows);
+            cellLabel.setMinSize(20, HeightOfRows);
+            cellLabel.setMaxSize(20, HeightOfRows);
             uiModel.setCellValue(cellKey, String.valueOf(row));
             uiModel.bindCellToModel(cellLabel, cellKey);
             sheetGrid.add(cellLabel, 0, row);
@@ -105,6 +112,8 @@ public class SheetController {
                 String cellKey = getCellId(col, row);
                 Label cellLabel = new Label();
                 cellLabel.setPrefSize(WidthOfCols, HeightOfRows);
+                cellLabel.setMinSize(WidthOfCols, HeightOfRows);
+                cellLabel.setMaxSize(WidthOfCols, HeightOfRows);
                 addClickEventForCell(cellLabel);
 
 
@@ -128,6 +137,11 @@ public class SheetController {
         return String.valueOf(colLetter) + ":" + row;
     }
 
+    public void displaySheetByVersion(int version){
+        DTOSheet dtoSheet = appController.getSheetByVersion(version);
+        initSheetAndBindToUIModel(dtoSheet);
+    }
+
     //*******************************************************************************************************//
 
     private String getCellModelId(Label label){
@@ -140,9 +154,10 @@ public class SheetController {
 
     private void addClickEventForCell(Label label) {
         label.setOnMouseClicked(event -> {
-            selectedCell.set(label);
-            String cellId = getCellModelId(label);
-            appController.showCellData(cellId);
+            int row = GridPane.getRowIndex(label);// תא מוצג באופן הבא A:1
+            int col = GridPane.getColumnIndex(label);
+            String cellId = getCellId(col, row);
+            appController.selectCell(cellId);  // שינוי התא הנבחר דרך המאזין
         });
     }
 
@@ -155,33 +170,77 @@ public class SheetController {
         }
     }
 
-    public String getSelectedCellId(){
-       return getCellModelId(selectedCell.get());
-    }
+//    public String getSelectedCellId(){
+//       return getCellModelId(selectedCell.get());
+//    }
 
     public void UpdateSheetValues(DTOSheet dtoSheet){
         Map<String,DTOCell> sheetMap = dtoSheet.getCells();
         for (DTOCell cell : sheetMap.values()) {
             uiModel.setCellValue(cell.getCoordinate().toString(), cell.getEffectiveValue().toString());
         }
+        appController.SelectSameCell();
     }
 
-    public void setColumnWidth(int colIndex, double width) {
+    public void setColumnWidth(int colIndex, int width) {
+        // מצא את כל התאים (לייבלים) בעמודה הזו ושנה להם את הגודל
         for (Node node : sheetGrid.getChildren()) {
-            if (GridPane.getColumnIndex(node) == colIndex) {
-                ((Label) node).setPrefWidth(width);
+            if (GridPane.getColumnIndex(node) == colIndex && node instanceof Label) {
+                Label cellLabel = (Label) node;
+                cellLabel.setPrefWidth(width);  // קובע את רוחב הלייבל החדש
+                cellLabel.setMinWidth(width);
+                cellLabel.setMaxWidth(width);
+                String cellId = getCellId(colIndex, GridPane.getRowIndex(node));
+                uiModel.setCellWidth(cellId,width);
             }
         }
     }
 
-    public void setRowHeight(int rowIndex, double height) {
+    public void setRowHeight(int rowIndex, int height) {
+        // מצא את כל התאים (לייבלים) בעמודה הזו ושנה להם את הגודל
         for (Node node : sheetGrid.getChildren()) {
-            if (GridPane.getRowIndex(node) == rowIndex) {
-                ((Label) node).setPrefHeight(height);
+            if (GridPane.getRowIndex(node) == rowIndex && node instanceof Label) {
+                Label cellLabel = (Label) node;
+                cellLabel.setPrefHeight(height);// קובע את גובה הלייבל החדש
+                cellLabel.setMaxHeight(height);
+                cellLabel.setMinHeight(height);
+                String cellId = getCellId(GridPane.getColumnIndex(cellLabel), rowIndex);
+                uiModel.setCellHeight(cellId,height);
             }
         }
     }
 
+
+
+    public void setCellBackgroundColor(String cellId, Color backgroundColor) {
+        uiModel.setCellBackgroundColor(cellId, backgroundColor);
+    }
+
+    public void setCellTextColor(String cellId, Color textColor) {
+        uiModel.setCellTextColor(cellId, textColor);
+
+    }
+
+    public Color getCellTextColor(String cellId) {
+        return uiModel.getCellTextColor(cellId);
+    }
+
+    public Color getCellBackgroundColor(String cellId) {
+        return uiModel.getCellBackgroundColor(cellId);
+    }
+
+    public int getCellHeight(String cellId) {
+        return uiModel.getCellHeight(cellId);
+    }
+
+    public int getCellWidth(String cellId) {
+        return uiModel.getCellWidth(cellId);
+    }
+
+
+    public void setColumnAlignment(int colIndex, Pos alignment) {
+        uiModel.setColumnAlignment(colIndex,alignment);
+    }
 }
 
 

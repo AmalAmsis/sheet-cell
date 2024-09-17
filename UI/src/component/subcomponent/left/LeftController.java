@@ -95,7 +95,7 @@ public class LeftController {
         if (selectedRange != null) {
             // Call appController to remove the selected range
             appController.removeRange(selectedRange);
-
+            removeRangeChoiceBox.getSelectionModel().clearSelection();
             // Update the choice boxes after removal
             updateChoiceBoxes();
         }
@@ -108,7 +108,8 @@ public class LeftController {
 
         if (selectedRange != null) {
             // Call appController to show/highlight the selected range
-            appController.showRange(selectedRange);
+            appController.selectRange(selectedRange);
+            showRangeChoiceBox.getSelectionModel().getSelectedItem();
         }
     }
 
