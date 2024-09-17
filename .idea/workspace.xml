@@ -11,11 +11,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment=" handling commands relatedto ranges in UI">
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="commit1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/engine/EngineImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/engine/EngineImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/src/component/main/app/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/main/app/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/header/header.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/header/header.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/popup/viewonlysheet/ViewOnlySheetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/popup/viewonlysheet/ViewOnlySheetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/CellModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/CellModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/CellStyle.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/CellStyle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/SheetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/SheetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/UIModelSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/UIModelSheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,14 +187,6 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task id="LOCAL‎-00001" summary="update gitignore">
-      <option name="closed" value="true" />
-      <created>1724498833313</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL‎-00001" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1724498833313</updated>
-    </task>
     <task id="LOCAL‎-00002" summary="update gitignore">
       <option name="closed" value="true" />
       <created>1724499100075</created>
@@ -577,7 +576,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1726408976080</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL‎-00049" summary="commit1">
+      <option name="closed" value="true" />
+      <created>1726415165928</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL‎-00049" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1726415165928</updated>
+    </task>
+    <task id="LOCAL‎-00050" summary="commit1">
+      <option name="closed" value="true" />
+      <created>1726478967817</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL‎-00050" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1726478967817</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -623,8 +638,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="tests" />
-    <MESSAGE value="ref - coordinate to upper case" />
     <MESSAGE value="new merge" />
     <MESSAGE value="accept coordinate with lowercase letters" />
     <MESSAGE value="recent revisions" />
@@ -648,7 +661,9 @@
     <MESSAGE value="." />
     <MESSAGE value="Starting handling commands relatedto ranges in UI" />
     <MESSAGE value=" handling commands relatedto ranges in UI" />
-    <option name="LAST_COMMIT_MESSAGE" value=" handling commands relatedto ranges in UI" />
+    <MESSAGE value="Highlighting the Data label in the version selector" />
+    <MESSAGE value="commit1" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -663,6 +678,11 @@
           <line>147</line>
           <option name="timeStamp" value="65" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UI/src/component/main/app/AppController.java</url>
+          <line>151</line>
+          <option name="timeStamp" value="128" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>
           <line>225</line>
@@ -674,7 +694,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java</url>
-          <line>184</line>
+          <line>243</line>
           <properties class="component.subcomponent.header.HeaderController">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -682,13 +702,13 @@
           <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/UI/src/component/main/app/AppController.java</url>
-          <line>81</line>
-          <properties class="component.main.app.AppController" method="showCellData">
+          <url>file://$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java</url>
+          <line>37</line>
+          <properties class="manager.UIManagerImpl" method="updateCellValue">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="68" />
+          <option name="timeStamp" value="119" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -31,7 +31,7 @@ public class ViewOnlySheetController {
         int WidthOfCols = dtoSheet.getWidthOfColumns();
         int HeightOfRows = dtoSheet.getHeightOfRows();
 
-        uiModelViewOnlySheet.initializeModel(numOfRows+1, numOfCols+1);
+        uiModelViewOnlySheet.initializeModel(numOfRows+1, numOfCols+1, WidthOfCols, HeightOfRows);
 
         for (int col = 1; col <= numOfCols; col++) {
             String colLetter = String.valueOf((char) ('A' + col - 1));

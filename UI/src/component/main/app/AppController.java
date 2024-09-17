@@ -13,7 +13,9 @@ import dto.DTOSheet;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.paint.Color;
 import manager.UIManager;
 import manager.UIManagerImpl;
 
@@ -62,7 +64,7 @@ public class AppController {
 
     public void unShowCellData(String cellId) {
         DTOCell dtoCell = uiManager.getDtoCellForDisplayCell(cellId.replace(":",""));
-        headerController.updateLabels("", "","");
+        headerController.updateHeaderValues("", "","", CellStyle.NORMAL_CELL_BACKGROUND_COLOR.getColorValue(), CellStyle.NORMAL_CELL_TEXT_COLOR.getColorValue(),sheetController.getCellWidth(selectedCellId.getValue()), sheetController.getCellHeight(selectedCellId.getValue()) );
         clearPreviousSelection();
 
 
@@ -90,7 +92,7 @@ public class AppController {
 
         // המשך עם הלוגיקה להצגת תא
         DTOCell dtoCell = uiManager.getDtoCellForDisplayCell(cellId.replace(":", ""));
-        headerController.updateLabels(cellId.replace(":",""), dtoCell.getOriginalValue(), String.valueOf(dtoCell.getLastModifiedVersion()));
+        headerController.updateHeaderValues(cellId.replace(":",""), dtoCell.getOriginalValue(), String.valueOf(dtoCell.getLastModifiedVersion()), sheetController.getCellTextColor(selectedCellId.getValue()), sheetController.getCellBackgroundColor(selectedCellId.getValue()), sheetController.getCellWidth(selectedCellId.getValue()), sheetController.getCellHeight(selectedCellId.getValue()) );
 
         List<DTOCoordinate> dtoCoordinateDependsOnCellsList = dtoCell.getDependsOn();
         List<String> DependsOnCellsId = TurnDtoCoordinateListToCellIdList(dtoCoordinateDependsOnCellsList);
@@ -181,6 +183,10 @@ public class AppController {
         selectedCellId.set(cellId);  // מפעיל את ה-Listener
     }
 
+    public void SelectSameCell() {
+        showCellData(selectedCellId.getValue());
+    }
+
     // שינוי ה-Range הנבחר
     public void selectRange(String rangeId) {
         selectedRangeId.set(rangeId);  // מפעיל את ה-Listener
@@ -268,4 +274,27 @@ public class AppController {
         return null;
     }
 
+    public void setSelectedCellBackgroundColor(Color backgroundColor) {
+        sheetController.setCellBackgroundColor(selectedCellId.getValue() ,backgroundColor);
+    }
+
+    public void setSelectedCellTextColor(Color textColor) {
+        sheetController.setCellTextColor(selectedCellId.getValue(),textColor);
+    }
+
+    public void setSelectedColumnWidth(Integer newVal) {
+        int colIndex = selectedCellId.getValue().charAt(0) - 'A' +1;
+        sheetController.setColumnWidth(colIndex, newVal);
+    }
+
+    public void setSelectedRowHeight(Integer newVal) {
+        String[] parts = selectedCellId.getValue().split(":");
+        int row =Integer.parseInt(parts[1]);
+        sheetController.setRowHeight(row, newVal);
+    }
+
+    public void setSelectedColumnAlignment(Pos alignment) {
+        int colIndex = selectedCellId.getValue().charAt(0) - 'A' +1;
+        sheetController.setColumnAlignment(colIndex, alignment);
+    }
 }
