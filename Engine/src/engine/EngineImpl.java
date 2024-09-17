@@ -140,7 +140,7 @@ public class EngineImpl implements Engine,Serializable {
     public DTOSheet updateCell(String coordinateString, String newOriginalValue) throws Exception {
         if (this.currentSheetState != null){
             //call Amal function לברר אם הבנתי נכון את הסטייט
-            Coordinate coordinate = this.currentSheetState.getCurrentSheet().convertStringToCoordinate(coordinateString);
+            Coordinate coordinate = this.currentSheetState.getCurrentSheet().convertStringToCoordinate(coordinateString.replace(":",""));
             //yarden 27/8
             int numOfUpdatededCells = this.currentSheetState.getCurrentSheet().setCell(coordinate, newOriginalValue);// הורדתי מהערה
             Sheet mySheet = this.currentSheetState.getCurrentSheet();

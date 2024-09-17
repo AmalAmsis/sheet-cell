@@ -12,24 +12,41 @@ import javafx.scene.text.Font;
 public class UIModelSheet {
 
     private final Map<String, CellModel> cells;
+    private int numberOfRows;
 
     public UIModelSheet() {
         cells = new HashMap<>();
     }
 
-    public void initializeModel(int numOfRows, int numOfCols) {
+    public void initializeModel(int numOfRows, int numOfCols, int cellWidth, int cellHeight) {
 
+        this.numberOfRows = numOfRows;
         cells.clear();
         for (int row = 0; row <= numOfRows; row++) {
             for (int col = 0; col <= numOfCols; col++) {
                 String cellKey = getCellId(col, row);
-                cells.put(cellKey, new CellModel());
+                cells.put(cellKey, new CellModel(cellHeight, cellWidth));
             }
         }
     }
 
     public CellModel getCell(String cellId) {
         return cells.get(cellId);
+    }
+
+    public Color getCellTextColor(String cellId) {
+        return cells.get(cellId).textColorProperty().getValue();
+    }
+
+    public Color getCellBackgroundColor(String cellId) {
+        return cells.get(cellId).backgroundColorProperty().getValue();
+    }
+
+    public int getCellHeight(String cellId) {
+        return  cells.get(cellId).HightProperty().getValue();
+    }
+    public int getCellWidth(String cellId) {
+        return  cells.get(cellId).WidthProperty().getValue();
     }
 
     public void setCellValue(String cellId, String value) {
@@ -51,6 +68,15 @@ public class UIModelSheet {
     public void setCellFont(String cellId, Font font) {
         cells.get(cellId).setFont(font);
     }
+
+    public void setCellWidth(String cellId, int width) {
+        cells.get(cellId).setWidth(width);
+    }
+    public void setCellHeight(String cellId, int height) {
+        cells.get(cellId).setHight(height);
+    }
+
+
 
     //Amal
     public void setCellBorderColor(String cellId, Color color) {cells.get(cellId).setBorderColor(color);}
@@ -107,6 +133,12 @@ public class UIModelSheet {
     }
 
 
+    public void setColumnAlignment(int colIndex, Pos alignment) {
+        for (int row = 1; row<numberOfRows; row++){
+            String cellId = getCellId(colIndex, row);
+            cells.get(cellId).setAlignment(alignment);
+        }
+    }
     public UIModelSheet copyModel() {
         UIModelSheet newModel = new UIModelSheet();
         copyCellsTo(newModel);

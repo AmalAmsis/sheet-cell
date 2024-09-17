@@ -39,13 +39,11 @@ public class UIManagerImpl implements UIManager {
     public DTOSheet updateCellValue(String coordinateString, String value) {
         try {
             engine.updateCell(coordinateString, value);
-            DTOSheet dtoSheet = getDtoSheetForDisplaySheet();
-            return dtoSheet;
+            return getDtoSheetForDisplaySheet();
         }
         catch (Exception e) {
-
+            return null;
         }
-        return null;
     }
 
     @Override

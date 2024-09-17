@@ -36,7 +36,7 @@ public class ViewOnlySheetController {
         int WidthOfCols = dtoSheet.getWidthOfColumns();
         int HeightOfRows = dtoSheet.getHeightOfRows();
 
-        uiModelSheet.initializeModel(numOfRows+1, numOfCols+1);
+        uiModelSheet.initializeModel(numOfRows+1, numOfCols+1, WidthOfCols, HeightOfRows);
 
 
         //check thr casting!
@@ -70,6 +70,7 @@ public class ViewOnlySheetController {
                 String cellKey = getCellId(col, row);
                 Label cellLabel = new Label();
                 cellLabel.setPrefSize(WidthOfCols, HeightOfRows);
+
 
                 DTOCell dtoCell = dtoSheet.getCells().get(cellKey);
                 if (dtoCell != null) {

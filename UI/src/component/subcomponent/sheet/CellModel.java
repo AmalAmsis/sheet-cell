@@ -15,19 +15,23 @@ public class CellModel {
     private final ObjectProperty<Color> borderColor;
     private final StringProperty borderStyle;
     private final DoubleProperty borderWidth;
+    private final IntegerProperty Hight;
+    private final IntegerProperty Width;
 
 
 
 
-    public CellModel() {
+    public CellModel(int hight, int width) {
         this.value = new SimpleStringProperty("");
-        this.alignment = new SimpleObjectProperty<>(Pos.CENTER);
+        this.alignment = new SimpleObjectProperty<>(Pos.CENTER_LEFT);
         this.textColor = new SimpleObjectProperty<>(Color.BLACK);
         this.backgroundColor = new SimpleObjectProperty<>(CellStyle.NORMAL_CELL_BACKGROUND_COLOR.getColorValue());
         this.font = new SimpleObjectProperty<>(Font.getDefault());
         this.borderColor = new SimpleObjectProperty<>(CellStyle.NORMAL_CELL_BORDER_COLOR.getColorValue());
         this.borderStyle = new SimpleStringProperty(CellStyle.NORMAL_CELL_BORDER_STYLE.getStyleValue());
         this.borderWidth = new SimpleDoubleProperty(CellStyle.NORMAL_CELL_BORDER_WIDTH.getWidthValue());
+        this.Hight = new SimpleIntegerProperty(hight);
+        this.Width = new SimpleIntegerProperty(width);
     }
 
     public StringProperty valueProperty() {
@@ -62,6 +66,13 @@ public class CellModel {
         return borderWidth;
     }
 
+    public IntegerProperty HightProperty() {
+        return Hight;
+    }
+    public IntegerProperty WidthProperty() {
+        return Width;
+    }
+
     public void setValue(String value) {
         this.value.set(value);
     }
@@ -92,6 +103,14 @@ public class CellModel {
 
     public void setBorderWidth(double width) {
         this.borderWidth.set(width);
+    }
+
+    public void setHight(Integer hight) {
+        this.Hight.set(hight);
+    }
+
+    public void setWidth(Integer width) {
+        this.Width.set(width);
     }
 
 }
