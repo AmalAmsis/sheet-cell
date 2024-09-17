@@ -11,32 +11,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="First construction of the sortSheet class&#10;Has not yet been checked for correctness">
-      <change afterPath="$PROJECT_DIR$/Engine/src/sheet/sortsheet/RangeValidationException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Engine/src/test/sortSheetTest.java" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Sorting works, both in the engine and in the graphical interface.&#10;I also did the design aspect of the cells that moved with the cell together with the sorting...&#10;we just need to check that it works.ness">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCellImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCellImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheetImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/engine/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/engine/Engine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/engine/EngineImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/engine/EngineImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/cell/CellImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/coordinate/Coordinate.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/coordinate/Coordinate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/coordinate/CoordinateImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/coordinate/CoordinateImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/sortsheet/SortSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/sortsheet/SortSheet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/sortsheet/SortSheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/sortsheet/SortSheetImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/main/app/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/main/app/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/left/left.css" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/left/left.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/left/left.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/left/left.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/popup/viewonlysheet/UIModelViewOnlySheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/popup/viewonlysheet/UIModelViewOnlySheet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/popup/viewonlysheet/ViewOnlySheetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/popup/viewonlysheet/ViewOnlySheetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/SheetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/SheetController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/UIModelSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/UIModelSheet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/manager/UIManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/manager/UIManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Engine/sheet/cell/CellImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Engine/sheet/cell/CellImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +67,7 @@
     "Application.Test3.executor": "Debug",
     "Application.apprunner.AppRunner.executor": "Run",
     "Application.sortSheetTest.executor": "Debug",
-    "Application.test.FxmlTest.executor": "Debug",
+    "Application.test.FxmlTest.executor": "Run",
     "JAR Application.UI.jar.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -400,7 +377,7 @@
       <workItem from="1725630797186" duration="41534000" />
       <workItem from="1725807156007" duration="1382000" />
       <workItem from="1726053985447" duration="18219000" />
-      <workItem from="1726310407207" duration="58182000" />
+      <workItem from="1726310407207" duration="62419000" />
     </task>
     <task id="LOCAL-00023" summary="Beginning of work on the graphical interface.&#10;The main component is the app&#10;which contains 2 components:&#10;header and sheet.&#10;&#10;The sheet contains cell type components.&#10;&#10;I basically defined everyone's fxml files.&#10;&#10;I also built a basic controller for everyone.&#10;&#10;I built a function in sheetController that knows how to receive a sheet and load it to the screen.">
       <option name="closed" value="true" />
@@ -498,7 +475,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726409074095</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Sorting works, both in the engine and in the graphical interface.&#10;I also did the design aspect of the cells that moved with the cell together with the sorting...&#10;we just need to check that it works.ness">
+      <option name="closed" value="true" />
+      <created>1726516875296</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1726516875296</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -544,7 +529,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update gitignore" />
     <MESSAGE value="update XmlProcessing&#10;1. update topologicalSort&#10;2. add CircularReferenceException" />
     <MESSAGE value="26.8.24 merge" />
     <MESSAGE value="ui module - first naive interface" />
@@ -569,7 +553,8 @@
     <MESSAGE value="Highlighting the Data label in the version selector" />
     <MESSAGE value="Update version manager with a new independent class: ViewOnlySheet, instead of was the original sheet class.&#10;&#10;we will was in this class to display the sort sheet and filtered sheet." />
     <MESSAGE value="First construction of the sortSheet class&#10;Has not yet been checked for correctness" />
-    <option name="LAST_COMMIT_MESSAGE" value="First construction of the sortSheet class&#10;Has not yet been checked for correctness" />
+    <MESSAGE value="Sorting works, both in the engine and in the graphical interface.&#10;I also did the design aspect of the cells that moved with the cell together with the sorting...&#10;we just need to check that it works.ness" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sorting works, both in the engine and in the graphical interface.&#10;I also did the design aspect of the cells that moved with the cell together with the sorting...&#10;we just need to check that it works.ness" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -610,21 +595,6 @@
           <option name="timeStamp" value="126" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/popup/viewonlysheet/ViewOnlySheetController.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="153" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java</url>
-          <line>186</line>
-          <option name="timeStamp" value="156" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Engine/src/sheet/sortsheet/SortSheetImpl.java</url>
-          <line>97</line>
-          <option name="timeStamp" value="165" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/sortsheet/SortSheetImpl.java</url>
           <line>161</line>
           <option name="timeStamp" value="170" />
@@ -646,6 +616,7 @@
       <configuration name="Application">
         <watch expression="rangeManager" />
         <watch expression="getRowInRange(from, to)" />
+        <watch expression="getColumnIndex(column,firstColInRange" />
       </configuration>
     </watches-manager>
   </component>

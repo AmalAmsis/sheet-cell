@@ -13,6 +13,8 @@ public class UIModelSheet {
 
     private final Map<String, CellModel> cells;
     private int numberOfRows;
+    private int cellWidth;
+    private int cellHeight;
 
     public UIModelSheet() {
         cells = new HashMap<>();
@@ -28,6 +30,9 @@ public class UIModelSheet {
                 cells.put(cellKey, new CellModel(cellHeight, cellWidth));
             }
         }
+
+        this.cellWidth = cellWidth;
+        this.cellHeight = cellHeight;
     }
 
     public CellModel getCell(String cellId) {
@@ -151,7 +156,7 @@ public class UIModelSheet {
             String cellId = entry.getKey();
             CellModel originalCell = entry.getValue();
 
-            CellModel newCell = new CellModel();
+            CellModel newCell = new CellModel(cellWidth, cellHeight);
             newCell.setValue(originalCell.valueProperty().get());
             newCell.setAlignment(originalCell.alignmentProperty().get());
             newCell.setTextColor(originalCell.textColorProperty().get());
@@ -160,6 +165,9 @@ public class UIModelSheet {
             newCell.setBorderColor(originalCell.borderColorProperty().get());
             newCell.setBorderWidth(originalCell.borderWidthProperty().get());
             newCell.setBorderStyle(originalCell.borderStyleProperty().get());
+            newCell.setHight(originalCell.HightProperty().get());
+            newCell.setWidth(originalCell.WidthProperty().get());
+            newCell.setAlignment(originalCell.alignmentProperty().get());
 
             newModel.cells.put(cellId, newCell);
         }
