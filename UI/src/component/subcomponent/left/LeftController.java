@@ -288,6 +288,26 @@ public class LeftController {
             return;
         }
 
+        try{
+            DTOSheet filterSheet = appController.getfilterSheet(selectedColumnValues, from, to);
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/component/subcomponent/popup/viewonlysheet/viewOnlySheet.fxml"));
+            Parent root = loader.load();
+
+            ViewOnlySheetController viewOnlySheetController = loader.getController();
+            viewOnlySheetController.setAppController(appController);
+            viewOnlySheetController.initViewOnlySheetAndBindToUIModel(filterSheet,true);
+
+            Stage stage = new Stage();
+            stage.setTitle("filterSheet");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+
+
+        } catch (Exception e) {
+            new ErrorMessage(e.getMessage());
+        }
 
 
 

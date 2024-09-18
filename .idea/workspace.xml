@@ -11,13 +11,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Start to work on the design of the filter feature.">
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="the design of filer is almost done, &#10;next start working on the logic of the filtering feature">
+      <change afterPath="$PROJECT_DIR$/Engine/src/sheet/command/filtersheet/FilterSheet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/sheet/command/filtersheet/FilterSheetImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheetImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/engine/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/engine/Engine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/engine/EngineImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/engine/EngineImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/command/filtersortdatapreparation/FilterSortPreparer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/command/filtersortdatapreparation/FilterSortPreparer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/command/filtersortdatapreparation/FilterSortPreparerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/command/filtersortdatapreparation/FilterSortPreparerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/command/sortsheet/SortSheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/command/sortsheet/SortSheetImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/src/component/main/app/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/main/app/AppController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/left/left.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/left/left.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/CellModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/CellModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/SheetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/sheet/SheetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/popup/viewonlysheet/ViewOnlySheetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/popup/viewonlysheet/ViewOnlySheetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/manager/UIManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/manager/UIManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -384,7 +393,7 @@
       <workItem from="1725807156007" duration="1382000" />
       <workItem from="1726053985447" duration="18219000" />
       <workItem from="1726310407207" duration="66973000" />
-      <workItem from="1726579961504" duration="21030000" />
+      <workItem from="1726579961504" duration="26962000" />
     </task>
     <task id="LOCAL-00023" summary="Beginning of work on the graphical interface.&#10;The main component is the app&#10;which contains 2 components:&#10;header and sheet.&#10;&#10;The sheet contains cell type components.&#10;&#10;I basically defined everyone's fxml files.&#10;&#10;I also built a basic controller for everyone.&#10;&#10;I built a function in sheetController that knows how to receive a sheet and load it to the screen.">
       <option name="closed" value="true" />
@@ -530,7 +539,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726594311020</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="the design of filer is almost done, &#10;next start working on the logic of the filtering feature">
+      <option name="closed" value="true" />
+      <created>1726658584476</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1726658584476</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -576,7 +593,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="for marge 27.8.24" />
     <MESSAGE value="working on AppRunner" />
     <MESSAGE value="1.Fixing the setCell method so that it returns how many cells have been update&#10;2. Fixing getCell method so that it deals with empty cells&#10;3. add some function to the enum&#10;4. implements updateCell and showCELL at the manager&#10;5. ref for more than one" />
     <MESSAGE value="some changes in update cell" />
@@ -601,7 +617,8 @@
     <MESSAGE value="Refactored sorting and filtering functionality into modular structure (all in command package). Sorting is now functional, filter preparation is in progress. &#10;&#10;&#10;Added a custom error message class for displaying consistent error pop-ups." />
     <MESSAGE value="Added error pop-up for file loading failures." />
     <MESSAGE value="Start to work on the design of the filter feature." />
-    <option name="LAST_COMMIT_MESSAGE" value="Start to work on the design of the filter feature." />
+    <MESSAGE value="the design of filer is almost done, &#10;next start working on the logic of the filtering feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="the design of filer is almost done, &#10;next start working on the logic of the filtering feature" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -641,11 +658,36 @@
           <line>65</line>
           <option name="timeStamp" value="126" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Engine/src/sheet/command/filtersheet/FilterSheetImpl.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="198" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/popup/viewonlysheet/ViewOnlySheetController.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="208" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/popup/viewonlysheet/ViewOnlySheetController.java</url>
+          <line>77</line>
+          <option name="timeStamp" value="209" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/Engine/src/sheet/command/sortsheet/SortSheetImpl.java</url>
+          <line>110</line>
+          <properties class="sheet.command.sortsheet.SortSheetImpl" method="convertStringToCoordinate">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="194" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="sheet.cell.CellImpl" memberName="effectiveValue" />
+        <PinnedItemInfo parentTag="dto.DTOSheetImpl" memberName="board" />
         <PinnedItemInfo parentTag="java.util.HashMap$Node" memberName="value" />
       </pinned-members>
     </pin-to-top-manager>
@@ -655,6 +697,10 @@
         <watch expression="getRowInRange(from, to)" />
         <watch expression="getColumnIndex(column,firstColInRange" />
         <watch expression="sortSheet.getSortedSheet( from,  to,  listOfColumnsPriorities)" />
+        <watch expression="DTOSheetImpl(filteredRows,fromCoordinate,filterPreparer.getSheet()" />
+        <watch expression=" new DTOSheetImpl(filteredRows,fromCoordinate,filterPreparer.getSheet())" />
+        <watch expression="colLetter" />
+        <watch expression="dtoSheet.getFirstColumnLetter()" />
       </configuration>
     </watches-manager>
   </component>

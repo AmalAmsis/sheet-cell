@@ -23,6 +23,7 @@ import sheet.coordinate.Coordinate;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 
 public class AppController {
@@ -292,7 +293,12 @@ public class AppController {
         return uiManager.getSortedSheet(from, to, listOfColumnsPriorities);
     }
 
-    public void setSelectedCellBackgroundColor(Color backgroundColor) {
+    public DTOSheet getfilterSheet(Map<String, List<String>> selectedColumnValues, String from, String to) throws Exception {
+        return uiManager.filterSheet(selectedColumnValues, from, to);
+    }
+
+
+        public void setSelectedCellBackgroundColor(Color backgroundColor) {
         sheetController.setCellBackgroundColor(selectedCellId.getValue(), backgroundColor);
     }
 

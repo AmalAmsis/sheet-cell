@@ -12,4 +12,5 @@ public interface FilterSortPreparer {
     void filterValidator(Coordinate from, Coordinate to ) throws ValidationException;
     List<List<Cell>> getRowInRange(Coordinate from, Coordinate to);
     Sheet getSheet();
+    Coordinate convertStringToCoordinate(String stringCoordinate);
 }

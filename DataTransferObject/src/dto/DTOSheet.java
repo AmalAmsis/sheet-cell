@@ -47,5 +47,6 @@ public interface DTOSheet {
      * @return an integer representing the width of the columns.*/
     int getWidthOfColumns();
 
-
+    char getFirstColumnLetter();
+    int getFirstRow();
 }

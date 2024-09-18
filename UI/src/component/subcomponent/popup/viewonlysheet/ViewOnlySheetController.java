@@ -43,11 +43,16 @@ public class ViewOnlySheetController {
         //check thr casting!
         if (includeVisuals) {
             UIModelSheet originalModel = appController.getCurrentUIModel(); // המודל המקורי מהגיליון הראשי
-            uiModelSheet = originalModel.copyModel(); // יצירת עותק מהמודל המקורי
+            uiModelSheet = originalModel.copyModel();// יצירת עותק מהמודל המקורי
         }
 
+
         for (int col = 1; col <= numOfCols; col++) {
-            String colLetter = String.valueOf((char) ('A' + col - 1));
+
+            String colLetter = String.valueOf((char) ('A' + col - 1));;
+            if(dtoSheet.getFirstColumnLetter() != '0'){
+                colLetter = String.valueOf((char)(dtoSheet.getFirstColumnLetter() +col -1));
+            }
             String cellKey = getCellId(col, 0);
             Label cellLabel = new Label();
             cellLabel.setPrefSize(WidthOfCols, 15);
@@ -68,7 +73,15 @@ public class ViewOnlySheetController {
         for (int row = 1; row <= numOfRows; row++) {
             for (int col = 1; col <= numOfCols; col++) {
 
-                String cellKey = getCellId(col, row);
+                int realCol = col;
+                int realRow = row;
+                if(dtoSheet.getFirstColumnLetter() != '0'){
+                    realCol = dtoSheet.getFirstColumnLetter() -'A' + col;
+                }
+                if(dtoSheet.getFirstRow()!=1){
+                    realRow = dtoSheet.getFirstRow();
+                }
+                String cellKey = getCellId(realCol, realRow);
                 Label cellLabel = new Label();
 
                 DTOCell dtoCell = dtoSheet.getCells().get(cellKey);

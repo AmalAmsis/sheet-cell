@@ -100,5 +100,33 @@ public class FilterSortPreparerImpl implements FilterSortPreparer {
         return allNumeric;
     }
 
+    @Override public Coordinate convertStringToCoordinate(String stringCoordinate) {
+        // Check if the input is null or of incorrect length
+        if (stringCoordinate == null || stringCoordinate.length() < 2 || stringCoordinate.length() > 3) {
+            throw new IllegalArgumentException("Input must be between 2 to 3 characters long and non-null.");
+        }
+
+        // get the col letter and checking that a letter representing the column is in the col range of the sheet
+        char col = stringCoordinate.toUpperCase().charAt(0);
+
+
+        //the follow must be a number
+        for (int i = 1; i < stringCoordinate.length(); i++) {
+            if (!Character.isDigit(stringCoordinate.charAt(i))) {
+                throw new IllegalArgumentException("The input format is invalid. It should be a letter followed by digits.");
+            }
+        }
+
+        // get row number
+        int row;
+        try {
+            row = Integer.parseInt(stringCoordinate.substring(1));
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Row must be a valid number.");
+        }
+
+        // create the coordinate
+        return new CoordinateImpl(col, row);
+    }
 
 }

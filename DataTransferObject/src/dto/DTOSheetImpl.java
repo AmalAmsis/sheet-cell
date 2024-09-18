@@ -27,6 +27,8 @@ public class DTOSheetImpl implements DTOSheet, Serializable {
     private int numOfCols;
     private int heightOfRows;
     private int widthOfCols;
+    private char firstColumn = '0';
+    private int firstRow = 1;
 
     //**********************************************YARDEN**********************************************//
 
@@ -87,7 +89,47 @@ public class DTOSheetImpl implements DTOSheet, Serializable {
             rowIdx++;
         }
     }
+
+
+    public DTOSheetImpl(List<List<Cell>> filteredRows , Coordinate from,Sheet sheet) {
+        this.version = sheet.getVersion();
+        this.title = sheet.getTitle();
+        this.numOfRows = filteredRows.size();
+        this.numOfCols = filteredRows.get(0).size();
+        this.heightOfRows = sheet.getHeightOfRows();
+        this.widthOfCols = sheet.getWidthOfCols();
+        this.ranges = new HashMap<>();
+        this.firstColumn = from.getCol();
+        this.firstRow = from.getRow();
+
+        int rowIdx = from.getRow();
+        char colIdx = from.getCol();
+
+        Coordinate coordinate = new CoordinateImpl(colIdx, rowIdx);
+
+        for (List<Cell> row : filteredRows) {
+            for (Cell cell : row) {
+                coordinate.setCol(colIdx);
+                coordinate.setRow(rowIdx);
+                DTOCell dtoCell = new DTOCellImpl(cell,coordinate);
+                addDTOCell(dtoCell);
+                colIdx++;
+            }
+            colIdx = from.getCol();
+
+            rowIdx++;
+        }
+
+    }
     //**********************************************YARDEN**********************************************//
+
+    @Override public char getFirstColumnLetter(){
+        return firstColumn;
+    };
+
+    @Override public int getFirstRow(){
+        return firstRow;
+    };
 
 
     @Override

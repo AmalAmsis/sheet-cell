@@ -3,11 +3,13 @@ package engine;
 import dto.DTOCell;
 import dto.DTORange;
 import dto.DTOSheet;
+import sheet.command.filtersortdatapreparation.ValidationException;
 import sheet.coordinate.Coordinate;
 import state.SheetStateManager;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 
 public interface Engine {
 
@@ -103,4 +105,6 @@ public interface Engine {
 
 
     DTOSheet getSortedSheet(String from, String to, List<Character> listOfColumnsPriorities) throws Exception;
+    DTOSheet filterSheet(Map<String, List<String>> selectedColumnValues, String from, String to) throws Exception;
+
 }
