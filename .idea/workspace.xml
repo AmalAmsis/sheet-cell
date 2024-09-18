@@ -11,11 +11,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="wrap text">
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="add back to default Button">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/header/header.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/header/header.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +73,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "Amal",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Amal Amsis/Downloads/08. Java FX",
+    "last_opened_file_path": "C:/Users/Amal Amsis/Desktop/tasks",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -180,14 +178,6 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task id="LOCAL-00009" summary="displaySheet func impl in the UI">
-      <option name="closed" value="true" />
-      <created>1724741970413</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1724741970413</updated>
-    </task>
     <task id="LOCAL-00010" summary="for marge 27.8.24">
       <option name="closed" value="true" />
       <created>1724751200079</created>
@@ -312,6 +302,8 @@
       <workItem from="1726042710021" duration="76800000" />
       <workItem from="1726303761970" duration="10112000" />
       <workItem from="1726317889050" duration="26981000" />
+      <workItem from="1726655129491" duration="3934000" />
+      <workItem from="1726661798033" duration="2021000" />
     </task>
     <task id="LOCAL‎-00024" summary="Getting started with fxml&#10; components: app, header, board">
       <option name="closed" value="true" />
@@ -585,7 +577,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1726648504743</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL‎-00058" summary="add back to default Button">
+      <option name="closed" value="true" />
+      <created>1726652716862</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL‎-00058" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1726652716862</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -631,7 +631,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added new Math expression function:PERCENT" />
     <MESSAGE value="New departments:&#10;1.Range(interface)&#10;2.RangeImpl&#10;3.RangeManager(Interface)&#10;4.RangeManagerImpl&#10;Their purpose: range support and complex functions" />
     <MESSAGE value="split Range interface into 2 interfaces : RangeReadActions,RangeUpdateAction" />
     <MESSAGE value="add new method to sheetImpl : &#10;/**&#10;     * Retrieves a range by its name.&#10;     *&#10;     * @param rangeName The name of the range.&#10;     * @return The range as RangeReadActions, or null if not found in RangeManager.&#10;     */&#10;    RangeReadActions getRangeReadActions(String rangeName);" />
@@ -656,7 +655,8 @@
     <MESSAGE value="add ErrorMessage for ranges actions and update cell (UI)" />
     <MESSAGE value="design" />
     <MESSAGE value="wrap text" />
-    <option name="LAST_COMMIT_MESSAGE" value="wrap text" />
+    <MESSAGE value="add back to default Button" />
+    <option name="LAST_COMMIT_MESSAGE" value="add back to default Button" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -679,15 +679,6 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java</url>
-          <line>211</line>
-          <properties class="component.subcomponent.header.HeaderController">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java</url>
