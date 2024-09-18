@@ -72,7 +72,7 @@
                   <Spinner fx:id="columnWidthSpinner" prefHeight="26.0" prefWidth="120.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
                   <Label text=" Row height" GridPane.columnIndex="4" />
                   <Label text="column width" GridPane.columnIndex="5" />
-                  <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Button fx:id="BackToDefaultButton" mnemonicParsing="false" onAction="#ClickMeBackToDefaultButton" text="Back to default" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                </children>
             </GridPane>
           </children>

@@ -3,6 +3,7 @@ package component.subcomponent.header;
 import component.main.app.AppController;
 import component.subcomponent.popup.errormessage.ErrorMessage;
 import component.subcomponent.popup.versionselector.VersionSelectorController;
+import component.subcomponent.sheet.CellStyle;
 import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -52,7 +53,7 @@ public class HeaderController {
         @FXML private Spinner<Integer> rowHeightSpinner;
         @FXML private Label columnWidthLabel;
         @FXML private Spinner<Integer> columnWidthSpinner;
-
+        @FXML private Button BackToDefaultButton;
 
 
         public void setAppController(AppController appController) {
@@ -242,6 +243,15 @@ public class HeaderController {
         private void setDisableInButton(boolean isEnable){
             updateValueButton.setDisable(isEnable);
             versionSelectorButtom.setDisable(isEnable);
+        }
+
+        @FXML
+        void ClickMeBackToDefaultButton(ActionEvent event) {
+            appController.setSelectedCellBackgroundColor( CellStyle.NORMAL_CELL_BACKGROUND_COLOR.getColorValue()); // איפוס צבע הרקע
+            appController.setSelectedCellTextColor( CellStyle.NORMAL_CELL_TEXT_COLOR.getColorValue()); // איפוס צבע הטקסט
+            cellBackgroundColorPicker.setValue(CellStyle.NORMAL_CELL_BACKGROUND_COLOR.getColorValue());
+            textColorPicker.setValue(CellStyle.NORMAL_CELL_TEXT_COLOR.getColorValue());
+
         }
 
 }
