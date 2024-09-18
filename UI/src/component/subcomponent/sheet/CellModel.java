@@ -77,6 +77,10 @@ public class CellModel {
         this.value.set(value);
     }
 
+    public String getValue() {
+        return this.value.get();
+    }
+
     public void setAlignment(Pos alignment) {
         this.alignment.set(alignment);
     }

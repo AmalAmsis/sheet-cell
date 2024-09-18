@@ -43,11 +43,16 @@ public class ViewOnlySheetController {
         //check thr casting!
         if (includeVisuals) {
             UIModelSheet originalModel = appController.getCurrentUIModel(); // המודל המקורי מהגיליון הראשי
-            uiModelSheet = originalModel.copyModel(); // יצירת עותק מהמודל המקורי
+            uiModelSheet = originalModel.copyModel();// יצירת עותק מהמודל המקורי
         }
 
+
         for (int col = 1; col <= numOfCols; col++) {
-            String colLetter = String.valueOf((char) ('A' + col - 1));
+
+            String colLetter = String.valueOf((char) ('A' + col - 1));;
+            if(dtoSheet.getFirstColumnLetter() != '0'){
+                colLetter = String.valueOf((char)(dtoSheet.getFirstColumnLetter() +col -1));
+            }
             String cellKey = getCellId(col, 0);
             Label cellLabel = new Label();
             cellLabel.setPrefSize(WidthOfCols, 15);
@@ -63,12 +68,21 @@ public class ViewOnlySheetController {
             uiModelSheet.setCellValue(cellKey, String.valueOf(row));
             uiModelSheet.bindCellToModel(cellLabel, cellKey);
             viewOnlySheetGridPane.add(cellLabel, 0, row);
+
         }
 
         for (int row = 1; row <= numOfRows; row++) {
             for (int col = 1; col <= numOfCols; col++) {
 
-                String cellKey = getCellId(col, row);
+                int realCol = col;
+                int realRow = row;
+                if(dtoSheet.getFirstColumnLetter() != '0'){
+                    realCol = dtoSheet.getFirstColumnLetter() -'A' + col;
+                }
+                if(dtoSheet.getFirstRow()!=1){
+                    realRow = dtoSheet.getFirstRow()+row-1;
+                }
+                String cellKey = getCellId(realCol, realRow);
                 Label cellLabel = new Label();
 
                 DTOCell dtoCell = dtoSheet.getCells().get(cellKey);
@@ -89,7 +103,16 @@ public class ViewOnlySheetController {
                             uiModelSheet.setCellBorderStyle(cellKey, CellStyle.NORMAL_CELL_BORDER_STYLE.getStyleValue());
                             uiModelSheet.setCellBorderWidth(cellKey, CellStyle.NORMAL_CELL_BORDER_WIDTH.getWidthValue());
 
+                            originalCellModel.hightProperty().get();
+
+                            //todo: need to adjust the height of the number column
+
                         }
+                    }
+
+                    for(int i=0;i<=numOfRows;i++ ){
+                        String cellID = getCellId(0,i);
+                        uiModelSheet.setCellHeight(cellID,uiModelSheet.getCellHeight(getCellId(1,i)));
                     }
                 }
 
@@ -111,5 +134,10 @@ public class ViewOnlySheetController {
     private String getCellId(int col, int row) {
         char colLetter = (char) ('A' + (col - 1)); // ממיר מספר עמודה לאות, לדוגמה 1 -> A
         return String.valueOf(colLetter) + ":" + row;
+    }
+
+
+    private int getRealRowFromCellId(String cellId) {
+        return Integer.parseInt(cellId.substring(1));
     }
 }

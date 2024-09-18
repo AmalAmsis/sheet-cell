@@ -6,6 +6,7 @@ import dto.DTOCell;
 import sheet.coordinate.Coordinate;
 
 import java.util.List;
+import java.util.Map;
 
 public interface UIManager {
     DTOSheet getDtoSheetForDisplaySheet();
@@ -22,4 +23,6 @@ public interface UIManager {
     List<DTORange> getAllRanges() throws Exception;
 
     DTOSheet getSortedSheet(String from, String to, List<Character> listOfColumnsPriorities) throws Exception ;
-}
+    DTOSheet filterSheet(Map<String, List<String>> selectedColumnValues, String from, String to) throws Exception;
+
+    }

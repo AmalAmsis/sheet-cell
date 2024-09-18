@@ -8,6 +8,8 @@ import jaxb.schema.xmlprocessing.XmlProcessing;
 import jaxb.schema.xmlprocessing.XmlProcessingImpl;
 import sheet.Sheet;
 import sheet.SheetImpl;
+import sheet.command.filtersheet.FilterSheet;
+import sheet.command.filtersheet.FilterSheetImpl;
 import sheet.coordinate.Coordinate;
 import sheet.coordinate.CoordinateImpl;
 import sheet.range.Range;
@@ -74,6 +76,15 @@ public class EngineImpl implements Engine,Serializable {
             throw new Exception(e.getMessage());
         }
 
+    }
+
+    @Override public DTOSheet filterSheet(Map<String, List<String>> selectedColumnValues, String from, String to) throws Exception{
+        FilterSheet filterSheet = new FilterSheetImpl(currentSheetState.getCurrentSheet());
+        try{
+            return  filterSheet.filterSheet(selectedColumnValues, from, to);
+        }catch ( ValidationException e){
+            throw new Exception(e.getMessage());
+        }
     }
 
 

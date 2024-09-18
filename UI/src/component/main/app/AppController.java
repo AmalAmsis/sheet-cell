@@ -24,16 +24,23 @@ import sheet.coordinate.Coordinate;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 
 public class AppController {
 
-    @FXML private ScrollPane header;
-    @FXML private HeaderController headerController;
-    @FXML private ScrollPane sheet;
-    @FXML private SheetController sheetController;
-    @FXML private ScrollPane left;
-    @FXML private LeftController leftController;
+    @FXML
+    private ScrollPane header;
+    @FXML
+    private HeaderController headerController;
+    @FXML
+    private ScrollPane sheet;
+    @FXML
+    private SheetController sheetController;
+    @FXML
+    private ScrollPane left;
+    @FXML
+    private LeftController leftController;
 
     private UIManager uiManager;
     private ObjectProperty<String> selectedCellId = new SimpleObjectProperty<>();
@@ -42,8 +49,8 @@ public class AppController {
     // רשימה שמחזיקה את התאים שסומנו בעבר
     private List<String> previouslySelectedCells = new ArrayList<>();
 
-    public AppController(){
-        this.uiManager=new UIManagerImpl();
+    public AppController() {
+        this.uiManager = new UIManagerImpl();
     }
 
 
@@ -60,7 +67,7 @@ public class AppController {
 
     }
 
-    public void displaySheet(){
+    public void displaySheet() {
         DTOSheet dtoSheet = uiManager.getDtoSheetForDisplaySheet();
         sheetController.initSheetAndBindToUIModel(dtoSheet);
     }
@@ -84,7 +91,7 @@ public class AppController {
         clearPreviousSelection();  // נקה את הסימון הקודם
 
         //String cellIdWith = cellId.substring(0, 1) + ":" + cellId.substring(1);
-        List<String>selectedCell  = new ArrayList<>();
+        List<String> selectedCell = new ArrayList<>();
         selectedCell.add(cellId);
 
         sheetController.addBorderForCells(
@@ -146,7 +153,7 @@ public class AppController {
 
     @FXML
     public void initialize() {
-       if(headerController != null && sheetController != null && leftController != null) {
+        if (headerController != null && sheetController != null && leftController != null) {
             headerController.setAppController(this);
             sheetController.setAppController(this);
             leftController.setAppController(this);
@@ -217,7 +224,7 @@ public class AppController {
     }
 
 
-    public int getNumOfVersions(){
+    public int getNumOfVersions() {
         return uiManager.getNumOfVersion();
     }
 
@@ -229,14 +236,15 @@ public class AppController {
         return uiManager.getNumOfChangesInVersion(version);
     }
 
-    public void addNewRange(String rangeName,String from,String to) {
+    public void addNewRange(String rangeName, String from, String to) {
         try {
             uiManager.addNewRange(rangeName, from, to);
         }catch (Exception e) {
             new ErrorMessage(e.getMessage());
         }
     }
-    public void removeRange(String selectedRange){
+
+    public void removeRange(String selectedRange) {
         try {
             selectedRangeId.set(selectedRange);
             uiManager.removeRange(selectedRange);
@@ -246,6 +254,7 @@ public class AppController {
         }
 
     }
+
     public void showRange(String selectedRange) {
         clearPreviousSelection();  // נקה את הסימון הקודם
 
@@ -268,7 +277,7 @@ public class AppController {
 
     }
 
-    public List<String> getAllRanges(){
+    public List<String> getAllRanges() {
         try {
             List<String> ranges = new ArrayList<>();
             List<DTORange> allRanges = uiManager.getAllRanges();
@@ -288,31 +297,42 @@ public class AppController {
     }
 
     public DTOSheet getSortedSheet(String from, String to, List<Character> listOfColumnsPriorities) throws Exception {
-        return uiManager.getSortedSheet( from,  to,  listOfColumnsPriorities);
+        return uiManager.getSortedSheet(from, to, listOfColumnsPriorities);
     }
-    public void setSelectedCellBackgroundColor(Color backgroundColor) {
-        sheetController.setCellBackgroundColor(selectedCellId.getValue() ,backgroundColor);
+
+    public DTOSheet getfilterSheet(Map<String, List<String>> selectedColumnValues, String from, String to) throws Exception {
+        return uiManager.filterSheet(selectedColumnValues, from, to);
+    }
+
+
+        public void setSelectedCellBackgroundColor(Color backgroundColor) {
+        sheetController.setCellBackgroundColor(selectedCellId.getValue(), backgroundColor);
     }
 
     public void setSelectedCellTextColor(Color textColor) {
-        sheetController.setCellTextColor(selectedCellId.getValue(),textColor);
+        sheetController.setCellTextColor(selectedCellId.getValue(), textColor);
     }
 
     public void setSelectedColumnWidth(Integer newVal) {
-        int colIndex = selectedCellId.getValue().charAt(0) - 'A' +1;
+        int colIndex = selectedCellId.getValue().charAt(0) - 'A' + 1;
         sheetController.setColumnWidth(colIndex, newVal);
     }
 
     public void setSelectedRowHeight(Integer newVal) {
         String[] parts = selectedCellId.getValue().split(":");
-        int row =Integer.parseInt(parts[1]);
+        int row = Integer.parseInt(parts[1]);
         sheetController.setRowHeight(row, newVal);
     }
 
     public void setSelectedColumnAlignment(Pos alignment) {
-        int colIndex = selectedCellId.getValue().charAt(0) - 'A' +1;
+        int colIndex = selectedCellId.getValue().charAt(0) - 'A' + 1;
         sheetController.setColumnAlignment(colIndex, alignment);
     }
+
+
+    public List<String> getColumnValues(char column, int firstRow, int lastRow) {
+        return sheetController.getColumnValues(column, firstRow, lastRow);
+    }
+
+
 }
-
-

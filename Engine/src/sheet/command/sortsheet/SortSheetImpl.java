@@ -75,11 +75,6 @@ public class SortSheetImpl implements SortSheet {
     }
 
 
-    private String createCellKey(int col, int row) {
-        return (char) ('A' + col) + Integer.toString(row);
-    }
-
-
     private int getColumnIndex(Character column, Character firstColInRange) {
         return column - firstColInRange;
     }

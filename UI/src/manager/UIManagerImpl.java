@@ -11,6 +11,7 @@ import sheet.version.SheetVersionData;
 import sheet.version.SheetVersionHandler;
 
 import java.util.List;
+import java.util.Map;
 
 public class UIManagerImpl implements UIManager {
 
@@ -54,18 +55,18 @@ public class UIManagerImpl implements UIManager {
     }
 
     @Override
-    public int getNumOfVersion(){
+    public int getNumOfVersion() {
         return engine.getCurrentSheetState().getVersionHandler().getNumOfVersions();
     }
 
     @Override
-    public DTOSheet getSheetInVersion(int version){
+    public DTOSheet getSheetInVersion(int version) {
         return engine.getCurrentSheetState().getVersionHandler().getSheetByVersion(version);
     }
 
     @Override
-    public int getNumOfChangesInVersion(int version){
-       return engine.getCurrentSheetState().getVersionHandler().getVersionHistory().get(version).getNumOfUpdateCells();
+    public int getNumOfChangesInVersion(int version) {
+        return engine.getCurrentSheetState().getVersionHandler().getVersionHistory().get(version).getNumOfUpdateCells();
     }
 
     @Override
@@ -91,7 +92,11 @@ public class UIManagerImpl implements UIManager {
 
     @Override
     public DTOSheet getSortedSheet(String from, String to, List<Character> listOfColumnsPriorities) throws Exception {
-        return engine.getSortedSheet( from,  to, listOfColumnsPriorities);
+        return engine.getSortedSheet(from, to, listOfColumnsPriorities);
     }
 
+    @Override
+    public DTOSheet filterSheet(Map<String, List<String>> selectedColumnValues, String from, String to) throws Exception {
+        return engine.filterSheet(selectedColumnValues, from, to);
+    }
 }

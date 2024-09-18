@@ -21,6 +21,7 @@ import javafx.scene.paint.Color;
 import manager.UIManager;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -28,6 +29,7 @@ public class SheetController {
 
     private AppController appController;
     //private ObjectProperty<Label> selectedCell;
+
 
     @FXML
     private GridPane sheetGrid;
@@ -136,6 +138,10 @@ public class SheetController {
     private String getCellId(int col, int row) {
         char colLetter = (char) ('A' + (col - 1)); // ממיר מספר עמודה לאות, לדוגמה 1 -> A
         return String.valueOf(colLetter) + ":" + row;
+    }
+
+    private String getCellIdBuCharCol(char col, int row){
+        return String.valueOf(col) + ":" + row;
     }
 
     public void displaySheetByVersion(int version){
@@ -264,6 +270,21 @@ public class SheetController {
 
     public UIModelSheet getCurrentUIModel() {
         return uiModel;
+    }
+
+    public List<String> getColumnValues(char column, int firstRow, int lastRow ) {
+
+        List<String> listOfColumnsValue = new ArrayList<String>();
+
+        for(int colNum =firstRow; colNum<=lastRow ; colNum++){
+            String cellId = getCellIdBuCharCol(column,colNum);
+            String value = uiModel.getCell(cellId).getValue();
+            if( value!=""){
+                listOfColumnsValue.add(value);
+            }
+        }
+
+        return listOfColumnsValue;
     }
 
 }
