@@ -109,11 +109,6 @@ public class ViewOnlySheetController {
 
                         }
                     }
-
-                    for(int i=0;i<=numOfRows;i++ ){
-                        String cellID = getCellId(0,i);
-                        uiModelSheet.setCellHeight(cellID,uiModelSheet.getCellHeight(getCellId(1,i)));
-                    }
                 }
 
                 //*****************************************************************************************//
