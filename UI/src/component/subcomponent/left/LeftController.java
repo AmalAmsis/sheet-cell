@@ -414,7 +414,7 @@ public class LeftController {
 
         // אם הפונקציה מחזירה null, לא לעדכן את התפריט
         if (columnsInRange == null) {
-            System.out.println("Invalid input! Please enter a valid range.");
+           new ErrorMessage("Invalid input! Please enter a valid range.");
             return;
         }
 

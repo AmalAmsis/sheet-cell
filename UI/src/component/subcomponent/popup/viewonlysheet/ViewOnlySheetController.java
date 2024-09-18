@@ -103,9 +103,16 @@ public class ViewOnlySheetController {
                             uiModelSheet.setCellBorderStyle(cellKey, CellStyle.NORMAL_CELL_BORDER_STYLE.getStyleValue());
                             uiModelSheet.setCellBorderWidth(cellKey, CellStyle.NORMAL_CELL_BORDER_WIDTH.getWidthValue());
 
+                            originalCellModel.hightProperty().get();
+
                             //todo: need to adjust the height of the number column
 
                         }
+                    }
+
+                    for(int i=0;i<=numOfRows;i++ ){
+                        String cellID = getCellId(0,i);
+                        uiModelSheet.setCellHeight(cellID,uiModelSheet.getCellHeight(getCellId(1,i)));
                     }
                 }
 

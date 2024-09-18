@@ -15,119 +15,116 @@
 <?import javafx.scene.text.Font?>
 
 <ScrollPane prefHeight="533.0" prefWidth="235.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.subcomponent.left.LeftController">
-   <content>
-      <VBox alignment="TOP_CENTER" prefHeight="532.0" prefWidth="207.0" stylesheets="@left.css">
-         <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" text="Command" textAlignment="CENTER" VBox.vgrow="ALWAYS">
-               <font>
-                  <Font size="14.0" />
-               </font></Label>
-            <Accordion prefHeight="229.0" prefWidth="207.0">
-            <Label styleClass="header-label" stylesheets="@left.css" text="command" />
-            <Accordion prefHeight="252.0" prefWidth="207.0">
-               <panes>
-                  <TitledPane animated="false" prefHeight="199.0" prefWidth="191.0" stylesheets="@left.css" text="Custom Sort">
-                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="191.0" prefWidth="189.0">
-                           <children>
-                              <TextField fx:id="sortToTextField" layoutX="118.0" layoutY="28.0" prefHeight="26.0" prefWidth="38.0" promptText="to" />
-                              <TextField fx:id="sortFromTextField" layoutX="53.0" layoutY="28.0" prefHeight="26.0" prefWidth="40.0" promptText="from" />
-                              <Label layoutX="98.0" layoutY="23.0" prefHeight="36.0" prefWidth="7.0" text="-">
-                                 <font>
-                                    <Font size="25.0" />
-                                 </font>
-                              </Label>
-                              <Button fx:id="sortButton" layoutX="89.0" layoutY="145.0" mnemonicParsing="false" onAction="#ClickMeSortButton" text="Sort" />
-                              <Label layoutX="41.0" layoutY="5.0" text="Enter range for sorting:" />
-                              <MenuButton fx:id="selectColumnsToSortByMenu" layoutX="18.0" layoutY="67.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="170.0" text="Select columns to sort by:" />
-                              <Button fx:id="sortHelpButton" layoutX="184.0" layoutY="5.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" text="?">
-                                 <font>
-                                    <Font size="8.0" />
-                                 </font>
-                                  <tooltip>
-                                      <Tooltip text="To sort the data:\n1. Enter the range in the 'from' and 'to' fields (e.g., A1 to C5).\n2. Select the columns to sort by using the dropdown.\n3. Specify the sorting priority by selecting multiple columns.\n   - The first column selected will have the highest priority.\n   - The second column will be sorted within the first, and so on.\n4. Click 'Sort' to apply the sorting." />
-                                  </tooltip>
-                              </Button>
-                              <FlowPane fx:id="selectedSortColumnsFlowPane" hgap="5" layoutX="35.0" layoutY="103.0" prefHeight="31.0" prefWidth="132.0" stylesheets="@left.css" vgap="5" />
-                              <Button fx:id="resetSortButton" layoutX="141.0" layoutY="145.0" mnemonicParsing="false" onAction="#clickMeResetSortButton" text="Reset" />
-                           </children>
-                        </AnchorPane>
-                     </content>
-                  </TitledPane>
-                  <TitledPane animated="false" layoutX="10.0" layoutY="10.0" prefHeight="199.0" prefWidth="191.0" stylesheets="@left.css" text="Custom Filter">
-                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="142.0" prefWidth="205.0">
-                           <children>
-                              <TextField fx:id="filterToTextField" layoutX="118.0" layoutY="28.0" prefHeight="26.0" prefWidth="38.0" promptText="to" />
-                              <TextField fx:id="filterFromTextField" layoutX="53.0" layoutY="28.0" prefHeight="26.0" prefWidth="40.0" promptText="from" />
-                              <Label layoutX="98.0" layoutY="23.0" prefHeight="36.0" prefWidth="7.0" text="-">
-                                 <font>
-                                    <Font size="25.0" />
-                                 </font>
-                              </Label>
-                              <Button fx:id="filterButton" layoutX="82.0" layoutY="134.0" mnemonicParsing="false" onAction="#ClickMeFilterButton" text="Filter" />
-                              <Label layoutX="39.0" layoutY="5.0" text="Enter range for filtering:" />
-                              <Button fx:id="filterHelpButton" layoutX="184.0" layoutY="5.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" text="?">
-                                 <font>
-                                    <Font size="8.0" />
-                                 </font>
-                                 <tooltip>
-                                    <Tooltip text="To sort the data:\n1. Enter the range in the 'from' and 'to' fields (e.g., A1 to C5).\n2. Select the columns to sort by using the dropdown.\n3. Specify the sorting priority by selecting multiple columns.\n   - The first column selected will have the highest priority.\n   - The second column will be sorted within the first, and so on.\n4. Click 'Sort' to apply the sorting." />
-                                 </tooltip>
-                              </Button>
-                              <FlowPane fx:id="filterDataFlowPane" hgap="5" layoutX="17.0" layoutY="98.0" prefHeight="25.0" prefWidth="171.0" stylesheets="@left.css" vgap="5" />
-                              <MenuButton fx:id="selectColumnsToFilterByMenu" layoutX="17.0" layoutY="64.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="172.0" text="Select columns to filter by:" />
-                              <Button fx:id="resetFilterButton" layoutX="140.0" layoutY="134.0" mnemonicParsing="false" onAction="#clickMeResetFilterButton" text="Reset" />
-                           </children>
-                        </AnchorPane>
-                     </content>
-                  </TitledPane>
-               </panes>
-            </Accordion>
-            <Label text="Range" />
-            <Label styleClass="header-label" stylesheets="@left.css" text="range" />
-            <Accordion prefHeight="222.0" prefWidth="219.0">
-              <panes>
-                <TitledPane animated="false" stylesheets="@left.css" text="add new range">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <TextField fx:id="newRangeNameTextField" layoutX="43.0" layoutY="21.0" prefHeight="26.0" prefWidth="102.0" promptText="new range name" />
-                              <TextField fx:id="toTextField" layoutX="103.0" layoutY="59.0" prefHeight="26.0" prefWidth="38.0" promptText="to" />
-                              <TextField fx:id="fromTextField" layoutX="46.0" layoutY="59.0" prefHeight="26.0" prefWidth="40.0" promptText="from" />
-                              <Label layoutX="89.0" layoutY="54.0" prefHeight="36.0" prefWidth="7.0" text="-">
-                                 <font>
-                                    <Font size="25.0" />
-                                 </font>
-                              </Label>
-                              <Button fx:id="addNewRangeButton" layoutX="66.0" layoutY="96.0" mnemonicParsing="false" onAction="#ClickMeAddNewRangeButton" prefHeight="26.0" prefWidth="56.0" text="add" />
-                           </children>
-                        </AnchorPane>
-                  </content>
-                </TitledPane>
-                <TitledPane animated="false" stylesheets="@left.css" text="delete range">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <ChoiceBox fx:id="removeRangeChoiceBox" layoutX="35.0" layoutY="25.0" prefHeight="26.0" prefWidth="121.0" />
-                              <Button fx:id="removeRangeButton" layoutX="68.0" layoutY="79.0" mnemonicParsing="false" onAction="#ClickMeRemoveRange" text="remove" />
-                           </children>
-                        </AnchorPane>
-                  </content>
-                </TitledPane>
-                <TitledPane animated="false" stylesheets="@left.css" text="show range">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <ChoiceBox fx:id="showRangeChoiceBox" layoutX="45.0" layoutY="28.0" prefHeight="26.0" prefWidth="114.0" />
-                              <Button fx:id="showRangeButton" layoutX="88.0" layoutY="83.0" mnemonicParsing="false" onAction="#ClickMeShowRange" text="show" />
-                           </children>
-                        </AnchorPane>
-                  </content>
-                </TitledPane>
-              </panes>
-            </Accordion>
-         </children>
-      </VBox>
-   </content>
+    <content>
+        <VBox alignment="TOP_CENTER" prefHeight="532.0" prefWidth="207.0" stylesheets="left.css">
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" text="Command" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                    <font>
+                        <Font size="14.0" />
+                    </font></Label>
+                <Accordion prefHeight="229.0" prefWidth="207.0">
+                    <panes>
+                        <TitledPane animated="false" prefHeight="199.0" prefWidth="191.0" text="Custom Sort">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="191.0" prefWidth="189.0">
+                                    <children>
+                                        <TextField fx:id="sortToTextField" layoutX="118.0" layoutY="28.0" prefHeight="26.0" prefWidth="38.0" promptText="to" />
+                                        <TextField fx:id="sortFromTextField" layoutX="53.0" layoutY="28.0" prefHeight="26.0" prefWidth="40.0" promptText="from" />
+                                        <Label layoutX="98.0" layoutY="23.0" prefHeight="36.0" prefWidth="7.0" text="-">
+                                            <font>
+                                                <Font size="25.0" />
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="sortButton" layoutX="89.0" layoutY="145.0" mnemonicParsing="false" onAction="#ClickMeSortButton" text="Sort" />
+                                        <Label layoutX="41.0" layoutY="5.0" text="Enter range for sorting:" />
+                                        <MenuButton fx:id="selectColumnsToSortByMenu" layoutX="18.0" layoutY="67.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="170.0" text="Select columns to sort by:" />
+                                        <Button fx:id="sortHelpButton" layoutX="184.0" layoutY="5.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" text="?">
+                                            <font>
+                                                <Font size="8.0" />
+                                            </font>
+                                            <tooltip>
+                                                <Tooltip text="To sort the data:\n1. Enter the range in the 'from' and 'to' fields (e.g., A1 to C5).\n2. Select the columns to sort by using the dropdown.\n3. Specify the sorting priority by selecting multiple columns.\n   - The first column selected will have the highest priority.\n   - The second column will be sorted within the first, and so on.\n4. Click 'Sort' to apply the sorting." />
+                                            </tooltip>
+                                        </Button>
+                                        <FlowPane fx:id="selectedSortColumnsFlowPane" hgap="5" layoutX="35.0" layoutY="103.0" prefHeight="31.0" prefWidth="132.0" stylesheets="@../../../../projects/sheet-cell/UI/src/component/subcomponent/left/left.css" vgap="5" />
+                                        <Button fx:id="resetSortButton" layoutX="141.0" layoutY="145.0" mnemonicParsing="false" onAction="#clickMeResetSortButton" text="Reset" />
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </TitledPane>
+                        <TitledPane animated="false" layoutX="10.0" layoutY="10.0" prefHeight="199.0" prefWidth="191.0" text="Custom Filter">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="142.0" prefWidth="205.0">
+                                    <children>
+                                        <TextField fx:id="filterToTextField" layoutX="118.0" layoutY="28.0" prefHeight="26.0" prefWidth="38.0" promptText="to" />
+                                        <TextField fx:id="filterFromTextField" layoutX="53.0" layoutY="28.0" prefHeight="26.0" prefWidth="40.0" promptText="from" />
+                                        <Label layoutX="98.0" layoutY="23.0" prefHeight="36.0" prefWidth="7.0" text="-">
+                                            <font>
+                                                <Font size="25.0" />
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="filterButton" layoutX="82.0" layoutY="134.0" mnemonicParsing="false" onAction="#ClickMeFilterButton" text="Filter" />
+                                        <Label layoutX="39.0" layoutY="5.0" text="Enter range for filtering:" />
+                                        <Button fx:id="filterHelpButton" layoutX="184.0" layoutY="5.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" text="?">
+                                            <font>
+                                                <Font size="8.0" />
+                                            </font>
+                                            <tooltip>
+                                                <Tooltip text="To sort the data:\n1. Enter the range in the 'from' and 'to' fields (e.g., A1 to C5).\n2. Select the columns to sort by using the dropdown.\n3. Specify the sorting priority by selecting multiple columns.\n   - The first column selected will have the highest priority.\n   - The second column will be sorted within the first, and so on.\n4. Click 'Sort' to apply the sorting." />
+                                            </tooltip>
+                                        </Button>
+                                        <FlowPane fx:id="filterDataFlowPane" hgap="5" layoutX="17.0" layoutY="98.0" prefHeight="25.0" prefWidth="171.0" stylesheets="@../../../../projects/sheet-cell/UI/src/component/subcomponent/left/left.css" vgap="5" />
+                                        <MenuButton fx:id="selectColumnsToFilterByMenu" layoutX="17.0" layoutY="64.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="172.0" text="Select columns to filter by:" />
+                                        <Button fx:id="resetFilterButton" layoutX="140.0" layoutY="134.0" mnemonicParsing="false" onAction="#clickMeResetFilterButton" text="Reset" />
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </TitledPane>
+                    </panes>
+                </Accordion>
+                <Label text="Range" />
+                <Accordion prefHeight="222.0" prefWidth="219.0">
+                    <panes>
+                        <TitledPane animated="false" text="add new range">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <TextField fx:id="newRangeNameTextField" layoutX="17.0" layoutY="20.0" prefHeight="26.0" prefWidth="102.0" promptText="new range name" />
+                                        <TextField fx:id="toTextField" layoutX="75.0" layoutY="59.0" prefHeight="26.0" prefWidth="38.0" promptText="to" />
+                                        <TextField fx:id="fromTextField" layoutX="21.0" layoutY="59.0" prefHeight="26.0" prefWidth="40.0" promptText="from" />
+                                        <Label layoutX="63.0" layoutY="54.0" prefHeight="36.0" prefWidth="7.0" text="-">
+                                            <font>
+                                                <Font size="25.0" />
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="addNewRangeButton" layoutX="50.0" layoutY="104.0" mnemonicParsing="false" onAction="#ClickMeAddNewRangeButton" text="add" />
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </TitledPane>
+                        <TitledPane animated="false" text="delete range">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <ChoiceBox fx:id="removeRangeChoiceBox" layoutX="7.0" layoutY="14.0" prefHeight="26.0" prefWidth="121.0" />
+                                        <Button fx:id="removeRangeButton" layoutX="40.0" layoutY="59.0" mnemonicParsing="false" onAction="#ClickMeRemoveRange" text="remove" />
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </TitledPane>
+                        <TitledPane animated="false" text="show range">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <ChoiceBox fx:id="showRangeChoiceBox" layoutX="11.0" layoutY="14.0" prefHeight="26.0" prefWidth="114.0" />
+                                        <Button fx:id="showRangeButton" layoutX="46.0" layoutY="59.0" mnemonicParsing="false" onAction="#ClickMeShowRange" text="show" />
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </TitledPane>
+                    </panes>
+                </Accordion>
+            </children>
+        </VBox>
+    </content>
 </ScrollPane>
