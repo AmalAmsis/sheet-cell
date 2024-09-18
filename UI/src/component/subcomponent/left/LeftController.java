@@ -15,7 +15,9 @@ import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class LeftController {
@@ -36,8 +38,18 @@ public class LeftController {
     @FXML private Button sortHelpButton;
     @FXML private TextField sortFromTextField;
     @FXML private TextField sortToTextField;
-    @FXML private MenuButton selectColumnsMenu;
-    @FXML private FlowPane selectedColumnsFlowPane;
+    @FXML private MenuButton selectColumnsToSortByMenu;
+    @FXML private FlowPane selectedSortColumnsFlowPane;
+
+
+    @FXML private Button filterButton;
+    @FXML private Button filterHelpButton;
+    @FXML private TextField filterFromTextField;
+    @FXML private TextField filterToTextField;
+    @FXML private MenuButton selectColumnsToFilterByMenu;
+    @FXML private FlowPane filterDataFlowPane;
+
+
 
 
     public void setAppController(AppController appController) {
@@ -68,10 +80,12 @@ public class LeftController {
 
 
         //yarden
-        setTooltip();
+        setSortTooltip();
         //sortHelpButton.setDisable(true); (need to add it after)
-        selectColumnsMenu.setOnShowing(event -> updateMenuItems());
+        selectColumnsToSortByMenu.setOnShowing(event -> updateMenuItems(selectColumnsToSortByMenu,selectedSortColumnsFlowPane,sortFromTextField,sortToTextField));
 
+        setFilterTooltip();
+        selectColumnsToFilterByMenu.setOnShowing(event -> updateMenuItems(selectColumnsToFilterByMenu,filterDataFlowPane,filterFromTextField,filterToTextField));
     }
 
     // פונקציה לבדיקת השדות ולהפעלת הכפתור
@@ -144,13 +158,11 @@ public class LeftController {
         showRangeChoiceBox.getItems().setAll(ranges);
     }
 
-
-
-
     //command section
 
+    //SORT
     @FXML
-    public void ClickMeSortButtom(){
+    public void ClickMeSortButton(){
 
         String from = sortFromTextField.getText();
         String to = sortToTextField.getText();
@@ -161,7 +173,7 @@ public class LeftController {
         }
 
         List<Character> listOfColumnsPriorities = new ArrayList<>();
-        for (Node labelNode : selectedColumnsFlowPane.getChildren()) {
+        for (Node labelNode : selectedSortColumnsFlowPane.getChildren()) {
             if (labelNode instanceof Label) {
                 String labelText = ((Label) labelNode).getText();
                 if (!labelText.isEmpty()) {
@@ -173,8 +185,8 @@ public class LeftController {
 
         sortFromTextField.clear();
         sortToTextField.clear();
-        selectedColumnsFlowPane.getChildren().clear();
-        selectColumnsMenu.getItems().clear();
+        selectedSortColumnsFlowPane.getChildren().clear();
+        selectColumnsToSortByMenu.getItems().clear();
 
         try{
             DTOSheet sortedSheet = appController.getSortedSheet(from, to, listOfColumnsPriorities);
@@ -198,9 +210,7 @@ public class LeftController {
         }
 
     }
-
-
-    private void setTooltip(){
+    private void setSortTooltip(){
         String tooltipText = "To sort the data int the sheet:\n"
                 + "1. Enter the range in the 'from' and 'to' fields (e.g., A1 to C5).\n"
                 + "   - Make sure the range covers valid rows and columns.\n"
@@ -216,13 +226,133 @@ public class LeftController {
         sortHelpTooltip.setStyle("-fx-font-size: 14px;");
         sortHelpButton.setTooltip(sortHelpTooltip);  // הצמדת ה-Tooltip לכפתור
     }
+    private void setupSortMenuItemEvents(String column, MenuItem columnItem) {
 
-    private void updateMenuItems() {
+        selectColumnsToSortByMenu.getItems().remove(columnItem);
 
-        selectColumnsMenu.getItems().clear();
+        if (!selectedSortColumnsFlowPane.getChildren().contains(new Label(column))) {
+            Label label = new Label(column);
+            label.getStyleClass().add("label-with-border");
+            selectedSortColumnsFlowPane.getChildren().add(label);
+        }
 
-        String fromText = sortFromTextField.getText();
-        String toText = sortToTextField.getText();
+    }
+
+    //FILTER
+    @FXML public void ClickMeFilterButton(){
+
+        Map<String, List<String>> selectedColumnValues = new HashMap<>();
+
+        for (Node node : filterDataFlowPane.getChildren()) {
+            if (node instanceof MenuButton) {
+                MenuButton menuButton = (MenuButton) node;
+                String column = menuButton.getText();  // שם העמודה (למשל A, B, C...)
+
+                // רשימה לאחסון הערכים המסומנים
+                List<String> selectedValues = new ArrayList<>();
+
+                // עובר על כל MenuItem בתוך MenuButton
+                for (MenuItem item : menuButton.getItems()) {
+                    if (item instanceof CustomMenuItem) {
+                        CustomMenuItem customMenuItem = (CustomMenuItem) item;
+                        Node content = customMenuItem.getContent();
+
+                        // בודק אם התוכן הוא CheckBox
+                        if (content instanceof CheckBox) {
+                            CheckBox checkBox = (CheckBox) content;
+
+                            // אם ה-CheckBox מסומן, הוסף את הערך שלו לרשימה
+                            if (checkBox.isSelected()) {
+                                selectedValues.add(checkBox.getText());
+                            }
+                        }
+                    }
+                }
+
+                // אם יש ערכים שנבחרו, הוסף אותם למפה
+                if (!selectedValues.isEmpty()) {
+                    selectedColumnValues.put(column, selectedValues);
+                }
+            }
+
+
+
+        }
+
+
+        String from = filterFromTextField.getText();
+        String to = filterToTextField.getText();
+
+        if (from.isEmpty() || to.isEmpty()) {
+            // Show an error message or prompt the user to fill in all fields
+            return;
+        }
+
+
+
+
+
+    }
+    private void setFilterTooltip(){
+        String tooltipText = "To filter the data int the sheet:\n"
+                + "1. Enter the range in the 'from' and 'to' fields (e.g., A1 to C5).\n"
+                + "   - Make sure the range covers valid rows and columns.\n"
+                + "2. Select the columns to filter by clicking on the column headers.\n"
+                + "3. For each selected column, choose the values you want to display after filtering.\\n\n"
+                + "4. Click 'filter' to apply the filtering to the selected range.";
+
+        Tooltip filterHelpTooltip = new Tooltip(tooltipText);
+        filterHelpTooltip.setStyle("-fx-font-size: 14px;");
+        filterHelpButton.setTooltip(filterHelpTooltip);  // הצמדת ה-Tooltip לכפתור
+    }
+    private void setupFilterMenuItemEvents(String column,MenuItem columnItem, int firsRow,int lastRow) {
+
+        selectColumnsToFilterByMenu.getItems().remove(columnItem);
+
+        boolean columnExists = filterDataFlowPane.getChildren().stream()
+                .anyMatch(node -> node instanceof MenuButton && ((MenuButton) node).getText().equals(column));
+
+
+        if (!columnExists) {
+            // הוספת comboBox ל-flowPane
+            filterDataFlowPane.getChildren().add(setupCustomMenuButtonForColumnSelection(column,firsRow,lastRow));
+        }
+    }
+
+
+
+    private MenuButton setupCustomMenuButtonForColumnSelection(String column,int firsRow,int lastRow) {
+        // יצירת MenuButton עבור העמודה
+        MenuButton menuButton = new MenuButton(column);
+
+        // קבלת ערכים עבור העמודה
+        List<String> columnsValues = appController.getColumnValues(column.charAt(0),firsRow,lastRow);
+
+        // הוספת CheckBox עבור כל ערך ל-MenuButton
+        for (String value : columnsValues) {
+            CheckBox checkBox = new CheckBox(value);
+
+            // יצירת CustomMenuItem שמכיל את ה-CheckBox
+            CustomMenuItem menuItem = new CustomMenuItem(checkBox);
+            menuItem.setHideOnClick(false); // מונע סגירה של ה-MenuButton לאחר לחיצה
+
+            // הוספת ה-MenuItem ל-MenuButton
+            menuButton.getItems().add(menuItem);
+        }
+
+        return menuButton;
+    }
+
+
+
+    //BOTh (SORT AND filter)
+    private void updateMenuItems(MenuButton menuButton ,FlowPane flowPane,TextField fromTextField,TextField toTextField) {
+
+        menuButton.getItems().clear();
+
+
+        String fromText = fromTextField.getText();
+        String toText = toTextField.getText();
 
         // בדיקה שהשדות אינם ריקים ושהקלט תקין
         if (fromText.isEmpty() || toText.isEmpty()) {
@@ -230,6 +360,8 @@ public class LeftController {
         }
 
         List<String> columnsInRange = getColumnsInRange(fromText, toText);
+        int firstRowInRange = getFirstRowInRange(fromText);
+        int lastRowInRange = getLastRowInRange(toText);
 
         // אם הפונקציה מחזירה null, לא לעדכן את התפריט
         if (columnsInRange == null) {
@@ -238,29 +370,53 @@ public class LeftController {
         }
 
         // עדכון הרשימה ב-UI
-        selectColumnsMenu.getItems().clear();
+        menuButton.getItems().clear();
         for (String column : columnsInRange) {
             MenuItem columnItem = new MenuItem(column);
-            columnItem.setOnAction(event -> {setupMenuItemEvents(column, columnItem );});
-            selectColumnsMenu.getItems().add(columnItem);
+
+            if(menuButton.equals(selectColumnsToSortByMenu)) {
+                columnItem.setOnAction(event -> {
+                    setupSortMenuItemEvents( column, columnItem);
+                });
+            }
+            else {
+
+                columnItem.setOnAction(event -> {
+                    setupFilterMenuItemEvents(column, columnItem,firstRowInRange,lastRowInRange);
+                });
+
+            }
+            menuButton.getItems().add(columnItem);
         }
 
 
     }
-
-    private void setupMenuItemEvents(String column,MenuItem columnItem) {
-
-        selectColumnsMenu.getItems().remove(columnItem);
-
-        if (!selectedColumnsFlowPane.getChildren().contains(new Label(column))) {
-            Label label = new Label(column);
-            label.getStyleClass().add("label-with-border");
-            selectedColumnsFlowPane.getChildren().add(label);
+    private int getFirstRowInRange(String fromText) {
+        int index =1;
+        while (index < fromText.length() && !Character.isDigit(fromText.charAt(index))) {
+            index++;
+        }
+        if (index < fromText.length()) {
+            String numberPart = fromText.substring(index);
+            return Integer.parseInt(numberPart); // המרת המחרוזת למספר שלם
+        } else {
+            throw new IllegalArgumentException("No numeric part found in the input string: " + fromText);
         }
 
     }
+    private int getLastRowInRange(String ToText) {
+        int index =1;
+        while (index < ToText.length() && !Character.isDigit(ToText.charAt(index))) {
+            index++;
+        }
+        if (index < ToText.length()) {
+            String numberPart = ToText.substring(index);
+            return Integer.parseInt(numberPart); // המרת המחרוזת למספר שלם
+        } else {
+            throw new IllegalArgumentException("No numeric part found in the input string: " + ToText);
+        }
 
-
+    }
     public List<String> getColumnsInRange(String from, String to) {
 
         if (from.length() > 3 || to.length() > 3) {
@@ -282,6 +438,10 @@ public class LeftController {
             return null; // אם אין מספרים אחרי האותיות, מחזירים null
         }
 
+        if( Integer.parseInt(fromRow) ==0 || Integer.parseInt(toRow) ==0){
+            return null;
+        }
+
         List<String> columnsInRange = new ArrayList<>();
 
         // עוברים על האותיות בין from ל-to
@@ -292,4 +452,10 @@ public class LeftController {
         return columnsInRange;
     }
 
-}
+
+
+
+
+    }
+
+
