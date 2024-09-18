@@ -11,7 +11,7 @@ import java.util.Map;
 public interface UIManager {
     DTOSheet getDtoSheetForDisplaySheet();
     DTOCell getDtoCellForDisplayCell(String cellId);
-    DTOSheet updateCellValue(String coordinateString, String value);
+    DTOSheet updateCellValue(String coordinateString, String value) throws Exception;
     void loadSheetFromXmlFile(String filePath) throws Exception;
     void initSystem();
     int getNumOfVersion();
