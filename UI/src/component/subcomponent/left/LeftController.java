@@ -131,7 +131,8 @@ public class LeftController {
         if (selectedRange != null) {
             // Call appController to show/highlight the selected range
             appController.selectRange(selectedRange);
-            showRangeChoiceBox.getSelectionModel().getSelectedItem();
+            showRangeChoiceBox.getSelectionModel().clearSelection();
+
         }
     }
 

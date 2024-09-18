@@ -1,6 +1,7 @@
 package component.main.app;
 
 import component.subcomponent.header.HeaderController;
+import component.subcomponent.popup.errormessage.ErrorMessage;
 import component.subcomponent.sheet.CellStyle;
 import component.subcomponent.sheet.SheetController;
 import component.subcomponent.left.LeftController;
@@ -66,7 +67,7 @@ public class AppController {
 
     public void unShowCellData(String cellId) {
         DTOCell dtoCell = uiManager.getDtoCellForDisplayCell(cellId.replace(":",""));
-        headerController.updateHeaderValues("", "","", CellStyle.NORMAL_CELL_BACKGROUND_COLOR.getColorValue(), CellStyle.NORMAL_CELL_TEXT_COLOR.getColorValue(),sheetController.getCellWidth(selectedCellId.getValue()), sheetController.getCellHeight(selectedCellId.getValue()) );
+        headerController.updateHeaderValues("", "","", CellStyle.NORMAL_CELL_BACKGROUND_COLOR.getColorValue(), CellStyle.NORMAL_CELL_TEXT_COLOR.getColorValue(),sheetController.getCellWidth(selectedCellId.getValue()), sheetController.getCellHeight(selectedCellId.getValue()), sheetController.getCellAligmentString(selectedCellId.getValue()) );
         clearPreviousSelection();
 
 
@@ -94,7 +95,7 @@ public class AppController {
 
         // המשך עם הלוגיקה להצגת תא
         DTOCell dtoCell = uiManager.getDtoCellForDisplayCell(cellId.replace(":", ""));
-        headerController.updateHeaderValues(cellId.replace(":",""), dtoCell.getOriginalValue(), String.valueOf(dtoCell.getLastModifiedVersion()), sheetController.getCellTextColor(selectedCellId.getValue()), sheetController.getCellBackgroundColor(selectedCellId.getValue()), sheetController.getCellWidth(selectedCellId.getValue()), sheetController.getCellHeight(selectedCellId.getValue()) );
+        headerController.updateHeaderValues(cellId.replace(":",""), dtoCell.getOriginalValue(), String.valueOf(dtoCell.getLastModifiedVersion()), sheetController.getCellTextColor(selectedCellId.getValue()), sheetController.getCellBackgroundColor(selectedCellId.getValue()), sheetController.getCellWidth(selectedCellId.getValue()), sheetController.getCellHeight(selectedCellId.getValue()), sheetController.getCellAligmentString(selectedCellId.getValue()) );
 
         List<DTOCoordinate> dtoCoordinateDependsOnCellsList = dtoCell.getDependsOn();
         List<String> DependsOnCellsId = TurnDtoCoordinateListToCellIdList(dtoCoordinateDependsOnCellsList);
@@ -129,10 +130,16 @@ public class AppController {
     }
 
     public void updateCellValue(String newOriginalValue){
-        //String CellId = sheetController.getSelectedCellId();
-        DTOSheet dtoSheet= uiManager.updateCellValue(selectedCellId.getValue(),newOriginalValue);
-        sheetController.UpdateSheetValues(dtoSheet);
-        //displaySheet();//??????????????????????????????????????????
+        try {
+            //String CellId = sheetController.getSelectedCellId();
+            DTOSheet dtoSheet = uiManager.updateCellValue(selectedCellId.getValue(), newOriginalValue);
+            sheetController.UpdateSheetValues(dtoSheet);
+            //displaySheet();//??????????????????????????????????????????
+        }catch (Exception e){
+            new ErrorMessage(e.getMessage());
+        }
+
+
     }
 
 
@@ -226,7 +233,7 @@ public class AppController {
         try {
             uiManager.addNewRange(rangeName, from, to);
         }catch (Exception e) {
-            // popup
+            new ErrorMessage(e.getMessage());
         }
     }
     public void removeRange(String selectedRange){
@@ -235,8 +242,7 @@ public class AppController {
             uiManager.removeRange(selectedRange);
             clearPreviousSelection();
         }catch (Exception e) {
-
-            // popup
+            new ErrorMessage(e.getMessage());
         }
 
     }
@@ -257,7 +263,7 @@ public class AppController {
             // עדכן את הרשימה עם התאים הנוכחיים
             previouslySelectedCells.addAll(cellsId);
         } catch (Exception e) {
-            //popup
+            new ErrorMessage(e.getMessage());
         }
 
     }
@@ -272,7 +278,7 @@ public class AppController {
             }
             return ranges;
         }catch (Exception e) {
-            //POPUP
+            new ErrorMessage(e.getMessage());
         }
         return null;
     }
