@@ -68,6 +68,7 @@ public class ViewOnlySheetController {
             uiModelSheet.setCellValue(cellKey, String.valueOf(row));
             uiModelSheet.bindCellToModel(cellLabel, cellKey);
             viewOnlySheetGridPane.add(cellLabel, 0, row);
+
         }
 
         for (int row = 1; row <= numOfRows; row++) {
@@ -79,7 +80,7 @@ public class ViewOnlySheetController {
                     realCol = dtoSheet.getFirstColumnLetter() -'A' + col;
                 }
                 if(dtoSheet.getFirstRow()!=1){
-                    realRow = dtoSheet.getFirstRow();
+                    realRow = dtoSheet.getFirstRow()+row-1;
                 }
                 String cellKey = getCellId(realCol, realRow);
                 Label cellLabel = new Label();
@@ -101,6 +102,8 @@ public class ViewOnlySheetController {
                             uiModelSheet.setCellBorderColor(cellKey, CellStyle.NORMAL_CELL_BORDER_COLOR.getColorValue());
                             uiModelSheet.setCellBorderStyle(cellKey, CellStyle.NORMAL_CELL_BORDER_STYLE.getStyleValue());
                             uiModelSheet.setCellBorderWidth(cellKey, CellStyle.NORMAL_CELL_BORDER_WIDTH.getWidthValue());
+
+                            //todo: need to adjust the height of the number column
 
                         }
                     }
@@ -124,5 +127,10 @@ public class ViewOnlySheetController {
     private String getCellId(int col, int row) {
         char colLetter = (char) ('A' + (col - 1)); // ממיר מספר עמודה לאות, לדוגמה 1 -> A
         return String.valueOf(colLetter) + ":" + row;
+    }
+
+
+    private int getRealRowFromCellId(String cellId) {
+        return Integer.parseInt(cellId.substring(1));
     }
 }

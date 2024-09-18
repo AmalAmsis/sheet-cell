@@ -40,7 +40,7 @@ public class LeftController {
     @FXML private TextField sortToTextField;
     @FXML private MenuButton selectColumnsToSortByMenu;
     @FXML private FlowPane selectedSortColumnsFlowPane;
-
+    @FXML private Button resetSortButton;
 
     @FXML private Button filterButton;
     @FXML private Button filterHelpButton;
@@ -48,6 +48,7 @@ public class LeftController {
     @FXML private TextField filterToTextField;
     @FXML private MenuButton selectColumnsToFilterByMenu;
     @FXML private FlowPane filterDataFlowPane;
+    @FXML private Button resetFilterButton;
 
 
 
@@ -81,7 +82,8 @@ public class LeftController {
 
         //yarden
         setSortTooltip();
-        //sortHelpButton.setDisable(true); (need to add it after)
+        sortButton.setDisable(true);
+        filterButton.setDisable(true);
         selectColumnsToSortByMenu.setOnShowing(event -> updateMenuItems(selectColumnsToSortByMenu,selectedSortColumnsFlowPane,sortFromTextField,sortToTextField));
 
         setFilterTooltip();
@@ -187,6 +189,7 @@ public class LeftController {
         sortToTextField.clear();
         selectedSortColumnsFlowPane.getChildren().clear();
         selectColumnsToSortByMenu.getItems().clear();
+        sortButton.setDisable(true);
 
         try{
             DTOSheet sortedSheet = appController.getSortedSheet(from, to, listOfColumnsPriorities);
@@ -234,7 +237,17 @@ public class LeftController {
             Label label = new Label(column);
             label.getStyleClass().add("label-with-border");
             selectedSortColumnsFlowPane.getChildren().add(label);
+            sortButton.setDisable(false);
         }
+
+
+    }
+    @FXML public void clickMeResetSortButton(){
+        sortFromTextField.clear();
+        sortToTextField.clear();
+        selectedSortColumnsFlowPane.getChildren().clear();
+        selectColumnsToSortByMenu.getItems().clear();
+        sortButton.setDisable(false);
 
     }
 
@@ -279,7 +292,6 @@ public class LeftController {
 
         }
 
-
         String from = filterFromTextField.getText();
         String to = filterToTextField.getText();
 
@@ -287,6 +299,13 @@ public class LeftController {
             // Show an error message or prompt the user to fill in all fields
             return;
         }
+
+        filterFromTextField.clear();
+        filterToTextField.clear();
+        filterDataFlowPane.getChildren().clear();
+        selectColumnsToFilterByMenu.getItems().clear();
+        filterButton.setDisable(true);
+
 
         try{
             DTOSheet filterSheet = appController.getfilterSheet(selectedColumnValues, from, to);
@@ -336,9 +355,18 @@ public class LeftController {
         if (!columnExists) {
             // הוספת comboBox ל-flowPane
             filterDataFlowPane.getChildren().add(setupCustomMenuButtonForColumnSelection(column,firsRow,lastRow));
+            filterButton.setDisable(false);
         }
-    }
 
+
+    }
+    @FXML public void clickMeResetFilterButton(){
+        filterFromTextField.clear();
+        filterToTextField.clear();
+        filterDataFlowPane.getChildren().clear();
+        selectColumnsToFilterByMenu.getItems().clear();
+        filterButton.setDisable(true);
+    }
 
 
     private MenuButton setupCustomMenuButtonForColumnSelection(String column,int firsRow,int lastRow) {

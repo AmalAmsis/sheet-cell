@@ -11,22 +11,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="the design of filer is almost done, &#10;next start working on the logic of the filtering feature">
-      <change afterPath="$PROJECT_DIR$/Engine/src/sheet/command/filtersheet/FilterSheet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Engine/src/sheet/command/filtersheet/FilterSheetImpl.java" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="filter feature is working! &#10;need to do last checks and make it look nicer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheetImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/engine/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/engine/Engine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/engine/EngineImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/engine/EngineImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/command/filtersortdatapreparation/FilterSortPreparer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/command/filtersortdatapreparation/FilterSortPreparer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/command/filtersortdatapreparation/FilterSortPreparerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/command/filtersortdatapreparation/FilterSortPreparerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/command/sortsheet/SortSheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/command/sortsheet/SortSheetImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/component/main/app/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/main/app/AppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheet/command/filtersheet/FilterSheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheet/command/filtersheet/FilterSheetImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/left/left.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/left/left.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/popup/viewonlysheet/ViewOnlySheetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/popup/viewonlysheet/ViewOnlySheetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/manager/UIManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/manager/UIManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -393,7 +383,7 @@
       <workItem from="1725807156007" duration="1382000" />
       <workItem from="1726053985447" duration="18219000" />
       <workItem from="1726310407207" duration="66973000" />
-      <workItem from="1726579961504" duration="26962000" />
+      <workItem from="1726579961504" duration="34481000" />
     </task>
     <task id="LOCAL-00023" summary="Beginning of work on the graphical interface.&#10;The main component is the app&#10;which contains 2 components:&#10;header and sheet.&#10;&#10;The sheet contains cell type components.&#10;&#10;I basically defined everyone's fxml files.&#10;&#10;I also built a basic controller for everyone.&#10;&#10;I built a function in sheetController that knows how to receive a sheet and load it to the screen.">
       <option name="closed" value="true" />
@@ -547,7 +537,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726658584476</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="filter feature is working! &#10;need to do last checks and make it look nicer">
+      <option name="closed" value="true" />
+      <created>1726664035603</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1726664035603</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -593,7 +591,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="working on AppRunner" />
     <MESSAGE value="1.Fixing the setCell method so that it returns how many cells have been update&#10;2. Fixing getCell method so that it deals with empty cells&#10;3. add some function to the enum&#10;4. implements updateCell and showCELL at the manager&#10;5. ref for more than one" />
     <MESSAGE value="some changes in update cell" />
     <MESSAGE value="tests" />
@@ -618,7 +615,8 @@
     <MESSAGE value="Added error pop-up for file loading failures." />
     <MESSAGE value="Start to work on the design of the filter feature." />
     <MESSAGE value="the design of filer is almost done, &#10;next start working on the logic of the filtering feature" />
-    <option name="LAST_COMMIT_MESSAGE" value="the design of filer is almost done, &#10;next start working on the logic of the filtering feature" />
+    <MESSAGE value="filter feature is working! &#10;need to do last checks and make it look nicer" />
+    <option name="LAST_COMMIT_MESSAGE" value="filter feature is working! &#10;need to do last checks and make it look nicer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -659,19 +657,19 @@
           <option name="timeStamp" value="126" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Engine/src/sheet/command/filtersheet/FilterSheetImpl.java</url>
-          <line>59</line>
-          <option name="timeStamp" value="198" />
+          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java</url>
+          <line>256</line>
+          <option name="timeStamp" value="218" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/popup/viewonlysheet/ViewOnlySheetController.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="208" />
+          <url>file://$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheetImpl.java</url>
+          <line>122</line>
+          <option name="timeStamp" value="220" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/popup/viewonlysheet/ViewOnlySheetController.java</url>
-          <line>77</line>
-          <option name="timeStamp" value="209" />
+          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java</url>
+          <line>317</line>
+          <option name="timeStamp" value="225" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/command/sortsheet/SortSheetImpl.java</url>

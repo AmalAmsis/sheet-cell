@@ -16,10 +16,13 @@
 
 <ScrollPane prefHeight="533.0" prefWidth="235.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.subcomponent.left.LeftController">
    <content>
-      <VBox prefHeight="532.0" prefWidth="207.0" stylesheets="@left.css">
+      <VBox alignment="TOP_CENTER" prefHeight="532.0" prefWidth="207.0" stylesheets="@left.css">
          <children>
-            <Label text="command" />
-            <Accordion prefHeight="231.0" prefWidth="207.0">
+            <Label alignment="CENTER" contentDisplay="CENTER" text="Command" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Accordion prefHeight="229.0" prefWidth="207.0">
                <panes>
                   <TitledPane animated="false" prefHeight="199.0" prefWidth="191.0" text="Custom Sort">
                      <content>
@@ -32,7 +35,7 @@
                                     <Font size="25.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="sortButton" layoutX="80.0" layoutY="145.0" mnemonicParsing="false" onAction="#ClickMeSortButton" text="sort" />
+                              <Button fx:id="sortButton" layoutX="89.0" layoutY="145.0" mnemonicParsing="false" onAction="#ClickMeSortButton" text="Sort" />
                               <Label layoutX="41.0" layoutY="5.0" text="Enter range for sorting:" />
                               <MenuButton fx:id="selectColumnsToSortByMenu" layoutX="18.0" layoutY="67.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="170.0" text="Select columns to sort by:" />
                               <Button fx:id="sortHelpButton" layoutX="184.0" layoutY="5.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" text="?">
@@ -44,6 +47,7 @@
                                   </tooltip>
                               </Button>
                               <FlowPane fx:id="selectedSortColumnsFlowPane" hgap="5" layoutX="35.0" layoutY="103.0" prefHeight="31.0" prefWidth="132.0" stylesheets="@left.css" vgap="5" />
+                              <Button fx:id="resetSortButton" layoutX="141.0" layoutY="145.0" mnemonicParsing="false" onAction="#clickMeResetSortButton" text="Reset" />
                            </children>
                         </AnchorPane>
                      </content>
@@ -59,7 +63,7 @@
                                     <Font size="25.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="filterButton" layoutX="82.0" layoutY="134.0" mnemonicParsing="false" onAction="#ClickMeFilterButton" text="filter" />
+                              <Button fx:id="filterButton" layoutX="82.0" layoutY="134.0" mnemonicParsing="false" onAction="#ClickMeFilterButton" text="Filter" />
                               <Label layoutX="39.0" layoutY="5.0" text="Enter range for filtering:" />
                               <Button fx:id="filterHelpButton" layoutX="184.0" layoutY="5.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" text="?">
                                  <font>
@@ -71,13 +75,14 @@
                               </Button>
                               <FlowPane fx:id="filterDataFlowPane" hgap="5" layoutX="17.0" layoutY="98.0" prefHeight="25.0" prefWidth="171.0" stylesheets="@left.css" vgap="5" />
                               <MenuButton fx:id="selectColumnsToFilterByMenu" layoutX="17.0" layoutY="64.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="172.0" text="Select columns to filter by:" />
+                              <Button fx:id="resetFilterButton" layoutX="140.0" layoutY="134.0" mnemonicParsing="false" onAction="#clickMeResetFilterButton" text="Reset" />
                            </children>
                         </AnchorPane>
                      </content>
                   </TitledPane>
                </panes>
             </Accordion>
-            <Label text="range" />
+            <Label text="Range" />
             <Accordion prefHeight="222.0" prefWidth="219.0">
               <panes>
                 <TitledPane animated="false" text="add new range">
