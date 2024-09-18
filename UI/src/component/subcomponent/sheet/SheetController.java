@@ -111,6 +111,7 @@ public class SheetController {
 
                 String cellKey = getCellId(col, row);
                 Label cellLabel = new Label();
+                cellLabel.setWrapText(true);
                 cellLabel.setPrefSize(WidthOfCols, HeightOfRows);
                 cellLabel.setMinSize(WidthOfCols, HeightOfRows);
                 cellLabel.setMaxSize(WidthOfCols, HeightOfRows);
