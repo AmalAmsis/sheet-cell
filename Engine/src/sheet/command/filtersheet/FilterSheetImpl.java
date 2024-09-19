@@ -90,8 +90,7 @@ public class FilterSheetImpl implements FilterSheet {
 
         System.out.println("Number of rows after filtering: " + filteredRows.size());
 
-
-        return new DTOSheetImpl(filteredRows,fromCoordinate,filterPreparer.getSheet());
+        return new DTOSheetImpl(filteredRows,fromCoordinate,filterPreparer.getSheet(),toCoordinate);
     };
 
     private char getColumnName(int column, Character firstColInRange) {

@@ -77,6 +77,7 @@ public class DTOSheetImpl implements DTOSheet, Serializable {
         char colIdx = from.getCol();
         Coordinate coordinate = new CoordinateImpl(colIdx, rowIdx);
 
+
         for (List<Cell> row : sortedRows) {
             for (Cell cell : row) {
                 coordinate.setCol(colIdx);
@@ -91,21 +92,16 @@ public class DTOSheetImpl implements DTOSheet, Serializable {
     }
 
 
-    public DTOSheetImpl(List<List<Cell>> filteredRows , Coordinate from,Sheet sheet) {
-        this.version = sheet.getVersion();
-        this.title = sheet.getTitle();
-        this.numOfRows = filteredRows.size();
-        this.numOfCols = filteredRows.get(0).size();
-        this.heightOfRows = sheet.getHeightOfRows();
-        this.widthOfCols = sheet.getWidthOfCols();
-        this.ranges = new HashMap<>();
-        this.firstColumn = from.getCol();
-        this.firstRow = from.getRow();
+    public DTOSheetImpl(List<List<Cell>> filteredRows , Coordinate from,Sheet sheet,Coordinate to) {
+        this(sheet);
 
         int rowIdx = from.getRow();
         char colIdx = from.getCol();
-
         Coordinate coordinate = new CoordinateImpl(colIdx, rowIdx);
+
+        int lastRowInRange = to.getRow();
+        char firstColInRange = from.getCol();
+        char lastColInRange = to.getCol();
 
         for (List<Cell> row : filteredRows) {
             for (Cell cell : row) {
@@ -116,9 +112,20 @@ public class DTOSheetImpl implements DTOSheet, Serializable {
                 colIdx++;
             }
             colIdx = from.getCol();
-
             rowIdx++;
         }
+
+        while (rowIdx <= lastRowInRange) {
+            for(int i=rowIdx; i<=lastRowInRange; i++) {
+                char j;
+                for (j = firstColInRange; j <= lastColInRange; j++) {
+                    removeDTOCell(j, rowIdx);
+                }
+            }
+            rowIdx++;
+        }
+
+
 
     }
     //**********************************************YARDEN**********************************************//
@@ -172,6 +179,20 @@ public class DTOSheetImpl implements DTOSheet, Serializable {
     public void addDTOCell(DTOCell dtoCell) {
         DTOCoordinate dtoCoordinate = dtoCell.getCoordinate();
         board.put(dtoCoordinate.toString(), dtoCell);
+    }
+
+    public DTOCell getDTOCell(int col,int row) {
+        char realCol = (char)(col + 'A' -1);
+        DTOCoordinate dtoCoordinate = new DTOCoordinateImpl(row,realCol);
+        String key = dtoCoordinate.toString();
+        return this.board.get(key);
+    }
+
+    public void removeDTOCell(char col,int row) {
+        DTOCoordinate dtoCoordinate = new DTOCoordinateImpl(row,col);
+        String key = dtoCoordinate.toString();
+        this.board.remove(key);
+
     }
 
 }
