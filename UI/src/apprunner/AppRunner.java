@@ -16,7 +16,7 @@ public class AppRunner extends Application {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../component/main/app/app.fxml"));
             BorderPane root = loader.load();
 
-            Scene scene = new Scene(root, 800, 400);
+            Scene scene = new Scene(root, 850, 680);
             primaryStage.setScene(scene);
             primaryStage.setTitle("Test JavaFX App");
             primaryStage.show();
