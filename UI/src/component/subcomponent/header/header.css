@@ -41,3 +41,32 @@
     -fx-spacing: 5px;               /* מרווח קטן בין האלמנטים */
     -fx-padding: 5px;               /* רווח פנימי קטן */
 }
+.progress-bar {
+    -fx-background-radius:30 ;
+    -fx-accent: #de00fd; /* Purple color */
+    -fx-padding:1 ;
+    -fx-background-insets: 30;
+}
+
+
+
+.choice-box .arrow {
+    -fx-background-color: #16a085;   /* Orange arrow */
+}
+
+.choice-box:hover {
+    -fx-border-color: #16a085;       /* Orange border on hover */
+}
+
+.choice-box:focused {
+    -fx-border-color: #16a085;       /* Darker orange when focused */
+}
+
+.choice-box .label {
+    -fx-text-fill: #424242;          /* Dark gray text */
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 5 0 5;
+}
+
+
