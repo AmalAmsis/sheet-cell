@@ -18,7 +18,7 @@
     <content>
         <VBox alignment="TOP_CENTER" prefHeight="532.0" prefWidth="207.0" stylesheets="left.css">
             <children>
-                <Label alignment="CENTER" contentDisplay="CENTER" text="Command" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                <Label alignment="CENTER" contentDisplay="CENTER" stylesheets="@left.css" text="Command" textAlignment="CENTER" VBox.vgrow="ALWAYS">
                     <font>
                         <Font size="14.0" />
                     </font></Label>
@@ -85,7 +85,7 @@
                 <Label text="Range" />
                 <Accordion prefHeight="222.0" prefWidth="219.0">
                     <panes>
-                        <TitledPane animated="false" text="add new range">
+                        <TitledPane animated="false" stylesheets="@left.css" text="add new range">
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                     <children>
