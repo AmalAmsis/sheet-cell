@@ -5,6 +5,8 @@ import component.subcomponent.popup.errormessage.ErrorMessage;
 import component.subcomponent.popup.versionselector.VersionSelectorController;
 import component.subcomponent.sheet.CellStyle;
 import javafx.application.Platform;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -31,6 +33,7 @@ public class HeaderController {
     // Global listeners for column width and row height changes
     private ChangeListener<Integer> columnWidthListener;
     private ChangeListener<Integer> rowHeightListener;
+
 
     @FXML private Label cellIdLabel;
     @FXML private Label currentVersionLabel; // only Yarden
@@ -64,6 +67,8 @@ public class HeaderController {
 
     @FXML
     private void initialize() {
+
+
         // Listens to background color changes
         cellBackgroundColorPicker.setOnAction(event -> {
             Color backgroundColor = cellBackgroundColorPicker.getValue();
@@ -132,8 +137,24 @@ public class HeaderController {
         rowHeightSpinner.valueProperty().addListener(rowHeightListener);
 
         // Disable certain buttons initially
-        setDisableInButton(true);
+        // setDisableInButton(true);
     }
+
+    public void bindingToIsSelected(BooleanProperty isSelected) {
+        columnWidthSpinner.disableProperty().bind(isSelected.not());
+        rowHeightSpinner.disableProperty().bind(isSelected.not());
+        actionLineTextField.disableProperty().bind(isSelected.not());
+        alignmentChoiceBox.disableProperty().bind(isSelected.not());
+        cellBackgroundColorPicker.disableProperty().bind(isSelected.not());
+        textColorPicker.disableProperty().bind(isSelected.not());
+        BackToDefaultButton.disableProperty().bind(isSelected.not());
+        updateValueButton.disableProperty().bind(isSelected.not());
+    }
+
+    public void bindingToIsFileLoaded(BooleanProperty isFileLoaded) {
+        versionSelectorButton.disableProperty().bind(isFileLoaded.not());
+    }
+
 
     /**
      * Updates the file path label with the given message.
@@ -160,7 +181,7 @@ public class HeaderController {
                 },
                 (path) -> {
                     updateFilePathLabel(path); // Update file path label
-                    setDisableInButton(false); // Enable buttons
+
                 }
         );
 
@@ -264,14 +285,14 @@ public class HeaderController {
         alignmentChoiceBox.getSelectionModel().select(alignment);
     }
 
-    /**
-     * Enables or disables certain buttons based on user interaction.
-     * @param isEnable true to disable buttons, false to enable
-     */
-    private void setDisableInButton(boolean isEnable) {
-        updateValueButton.setDisable(isEnable);
-        versionSelectorButton.setDisable(isEnable);
-    }
+//    /**
+//     * Enables or disables certain buttons based on user interaction.
+//     * @param isEnable true to disable buttons, false to enable
+//     */
+//    private void setDisableInButton(boolean isEnable) {
+//        updateValueButton.setDisable(isEnable);
+//        versionSelectorButton.setDisable(isEnable);
+//    }
 
     /**
      * Resets the cell's text color and background color to default values.
