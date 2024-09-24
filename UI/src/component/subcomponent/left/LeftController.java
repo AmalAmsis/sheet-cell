@@ -4,6 +4,7 @@ import component.main.app.AppController;
 import component.subcomponent.popup.errormessage.ErrorMessage;
 import component.subcomponent.popup.viewonlysheet.ViewOnlySheetController;
 import dto.DTOSheet;
+import javafx.beans.property.BooleanProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -80,7 +81,7 @@ public class LeftController {
         toTextField.textProperty().addListener((observable, oldValue, newValue) -> validateAddNewRangeButton());
 
 
-        //yarden
+
         setSortTooltip();
         sortButton.setDisable(true);
         filterButton.setDisable(true);
@@ -250,6 +251,17 @@ public class LeftController {
         selectColumnsToSortByMenu.getItems().clear();
         sortButton.setDisable(false);
 
+    }
+
+    public void bindingToIsFileLoaded(BooleanProperty isFileLoaded) {
+        toTextField.disableProperty().bind(isFileLoaded.not());
+        fromTextField.disableProperty().bind(isFileLoaded.not());
+        filterToTextField.disableProperty().bind(isFileLoaded.not());
+        filterFromTextField.disableProperty().bind(isFileLoaded.not());
+        sortToTextField.disableProperty().bind(isFileLoaded.not());
+        sortFromTextField.disableProperty().bind(isFileLoaded.not());
+        removeRangeChoiceBox.disableProperty().bind(isFileLoaded.not());
+        showRangeChoiceBox.disableProperty().bind(isFileLoaded.not());
     }
 
     //FILTER
@@ -500,9 +512,6 @@ public class LeftController {
 
         return columnsInRange;
     }
-
-
-
 
 
     }

@@ -12,7 +12,9 @@ import dto.DTOCell;
 import dto.DTOCoordinate;
 import dto.DTORange;
 import dto.DTOSheet;
+import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
@@ -45,6 +47,8 @@ public class AppController {
     private UIManager uiManager;
     private ObjectProperty<String> selectedCellId = new SimpleObjectProperty<>();
     private ObjectProperty<String> selectedRangeId = new SimpleObjectProperty<>();
+    private BooleanProperty isSelected = new SimpleBooleanProperty();
+    private BooleanProperty isFileLoaded = new SimpleBooleanProperty();
 
     // רשימה שמחזיקה את התאים שסומנו בעבר
     private List<String> previouslySelectedCells = new ArrayList<>();
@@ -53,11 +57,49 @@ public class AppController {
         this.uiManager = new UIManagerImpl();
     }
 
+    @FXML
+    public void initialize() {
+        if (headerController != null && sheetController != null && leftController != null) {
+            headerController.setAppController(this);
+            sheetController.setAppController(this);
+            leftController.setAppController(this);
+        }
+
+        isSelected.setValue(false);
+        isFileLoaded.setValue(false);
+        headerController.bindingToIsSelected(isSelected);
+        leftController.bindingToIsFileLoaded(isFileLoaded);
+
+        // מאזין לשינויים בתא הנבחר
+        selectedCellId.addListener((observable, oldCellId, newCellId) -> {
+            if (oldCellId != null) {
+                unShowCellData(oldCellId);  // ביטול סימון מהתא הישן
+            }
+            if (newCellId != null) {
+                showCellData(newCellId);// סימון התא החדש
+                isSelected.setValue(true);
+            }
+        });
+
+        // מאזין לשינויים ב-Range הנבחר
+        selectedRangeId.addListener((observable, oldRangeId, newRangeId) -> {
+            if (oldRangeId != null) {
+                clearPreviousSelection();  // ניקוי ה-Range הישן
+            }
+            if (newRangeId != null) {
+                showRange(newRangeId);  // הצגת ה-Range החדש
+                isSelected.setValue(false);
+            }
+        });
+
+    }
+
 
     public void loadAndDisplaySheetFromXmlFile(String filePath) throws Exception {
         loadSheetFromFile(filePath);
         displaySheet();
         leftController.updateChoiceBoxes();
+        isFileLoaded.setValue(true);
     }
 
 
@@ -151,35 +193,7 @@ public class AppController {
 
 
 
-    @FXML
-    public void initialize() {
-        if (headerController != null && sheetController != null && leftController != null) {
-            headerController.setAppController(this);
-            sheetController.setAppController(this);
-            leftController.setAppController(this);
-        }
 
-        // מאזין לשינויים בתא הנבחר
-        selectedCellId.addListener((observable, oldCellId, newCellId) -> {
-            if (oldCellId != null) {
-                unShowCellData(oldCellId);  // ביטול סימון מהתא הישן
-            }
-            if (newCellId != null) {
-                showCellData(newCellId);  // סימון התא החדש
-            }
-        });
-
-        // מאזין לשינויים ב-Range הנבחר
-        selectedRangeId.addListener((observable, oldRangeId, newRangeId) -> {
-            if (oldRangeId != null) {
-                clearPreviousSelection();  // ניקוי ה-Range הישן
-            }
-            if (newRangeId != null) {
-                showRange(newRangeId);  // הצגת ה-Range החדש
-            }
-        });
-
-    }
 
     public void clearPreviousSelection() {
         if (!previouslySelectedCells.isEmpty()) {
