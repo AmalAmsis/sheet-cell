@@ -44,6 +44,12 @@ public class UIManagerImpl implements UIManager {
     }
 
     @Override
+    public DTOSheet updateTemporaryCellValue(String coordinateString, String newOriginalValue) {
+        DTOSheet sheet = engine.updateTemporaryCellValue(coordinateString, newOriginalValue);
+        return sheet;
+    }
+
+    @Override
     public void loadSheetFromXmlFile(String filePath) throws Exception {
         engine.loadSheetFromXmlFile(filePath);
     }
