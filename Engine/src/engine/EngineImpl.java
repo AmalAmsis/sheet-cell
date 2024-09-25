@@ -160,6 +160,16 @@ public class EngineImpl implements Engine,Serializable {
         return null;
     }
 
+    public DTOSheet updateTemporaryCellValue(String coordinateString, String newOriginalValue)  {
+        if (this.currentSheetState != null){
+            Sheet mySheet = this.currentSheetState.getCurrentSheet();
+            Coordinate coordinate =mySheet.convertStringToCoordinate(coordinateString.replace(":",""));
+            int numOfUpdatededCells = mySheet.setCell(coordinate, newOriginalValue);
+            return new DTOSheetImpl(mySheet);
+        }
+        return null;
+    }
+
     @Override
     public DTOSheet displaySheetVersion(int versionNumber) {
         if (this.currentSheetState != null){

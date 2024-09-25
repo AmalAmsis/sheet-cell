@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.control.ScrollPane?>
+
+<ScrollPane fitToHeight="true" fitToWidth="true" maxHeight="600" maxWidth="800" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.subcomponent.popup.dynamicAnalysisSheet.DynamicAnalysisSheetController">
+    <content>
+        <GridPane>
+            <children>
+                <!-- גיליון התאים -->
+                <GridPane fx:id="dynamicAnalysisSheetGridPane" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <HBox prefHeight="100.0" prefWidth="346.0" spacing="5.0">
+                    <children>
+                        <Label prefHeight="18.0" prefWidth="98.0" text="Value Slider:" />
+                        <!-- ה-slider -->
+                        <Slider fx:id="valueSlider" max="300.0" prefHeight="14.0" prefWidth="294.0" />
+                    </children>
+                    <GridPane.margin>
+                        <Insets />
+                    </GridPane.margin>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                    </padding>
+                </HBox>
+            </children>
+            <columnConstraints>
+                <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints />
+            </rowConstraints>
+        </GridPane>
+    </content>
+</ScrollPane>

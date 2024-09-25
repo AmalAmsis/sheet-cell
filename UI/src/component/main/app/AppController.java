@@ -22,7 +22,6 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.paint.Color;
 import manager.UIManager;
 import manager.UIManagerImpl;
-import sheet.coordinate.Coordinate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +48,7 @@ public class AppController {
     private ObjectProperty<String> selectedRangeId = new SimpleObjectProperty<>();
     private BooleanProperty isSelected = new SimpleBooleanProperty();
     private BooleanProperty isFileLoaded = new SimpleBooleanProperty();
+    private BooleanProperty isNumericCellSelected = new SimpleBooleanProperty();
 
     // רשימה שמחזיקה את התאים שסומנו בעבר
     private List<String> previouslySelectedCells = new ArrayList<>();
@@ -67,8 +67,10 @@ public class AppController {
 
         isSelected.setValue(false);
         isFileLoaded.setValue(false);
+        isNumericCellSelected.setValue(false);
         headerController.bindingToIsSelected(isSelected);
         leftController.bindingToIsFileLoaded(isFileLoaded);
+        leftController.bindingToNumericCellIsSelected(isNumericCellSelected);
 
         // מאזין לשינויים בתא הנבחר
         selectedCellId.addListener((observable, oldCellId, newCellId) -> {
@@ -78,6 +80,13 @@ public class AppController {
             if (newCellId != null) {
                 showCellData(newCellId);// סימון התא החדש
                 isSelected.setValue(true);
+                DTOCell dtoCell = uiManager.getDtoCellForDisplayCell(newCellId.replace(":", ""));
+                if(isNumeric(dtoCell.getOriginalValue())){
+                    isNumericCellSelected.setValue(true);
+                }
+                else {
+                    isNumericCellSelected.setValue(false);
+                }
             }
         });
 
@@ -89,6 +98,7 @@ public class AppController {
             if (newRangeId != null) {
                 showRange(newRangeId);  // הצגת ה-Range החדש
                 isSelected.setValue(false);
+                isNumericCellSelected.setValue(false);
             }
         });
 
@@ -349,4 +359,23 @@ public class AppController {
     }
 
 
+    public String getSelectedCellKey() {
+        return selectedCellId.getValue();
+    }
+
+    public DTOSheet getCurrentSheetDTO() {
+        return uiManager.getDtoSheetForDisplaySheet();
+    }
+
+    public DTOSheet updateTemporaryCellValue(String cellKey, double newValue) {
+        return uiManager.updateTemporaryCellValue(cellKey, String.valueOf(newValue));
+    }
+    public boolean isNumeric(String str) {
+        try {
+            Double.parseDouble(str);  // אפשר להשתמש גם ב-Integer.parseInt עבור מספרים שלמים
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
 }

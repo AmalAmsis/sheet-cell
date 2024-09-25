@@ -12,6 +12,7 @@ public interface UIManager {
     DTOSheet getDtoSheetForDisplaySheet();
     DTOCell getDtoCellForDisplayCell(String cellId);
     DTOSheet updateCellValue(String coordinateString, String value) throws Exception;
+     DTOSheet updateTemporaryCellValue(String coordinateString, String newOriginalValue);
     void loadSheetFromXmlFile(String filePath) throws Exception;
     void initSystem();
     int getNumOfVersion();

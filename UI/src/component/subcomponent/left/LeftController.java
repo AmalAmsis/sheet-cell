@@ -1,6 +1,7 @@
 package component.subcomponent.left;
 
 import component.main.app.AppController;
+import component.subcomponent.popup.dynamicAnalysisSheet.DynamicAnalysisSheetController;
 import component.subcomponent.popup.errormessage.ErrorMessage;
 import component.subcomponent.popup.viewonlysheet.ViewOnlySheetController;
 import dto.DTOSheet;
@@ -15,6 +16,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -50,6 +52,12 @@ public class LeftController {
     @FXML private MenuButton selectColumnsToFilterByMenu;
     @FXML private FlowPane filterDataFlowPane;
     @FXML private Button resetFilterButton;
+
+    @FXML private TextField minValueField;
+    @FXML private TextField maxValueField;
+    @FXML private TextField stepSizeField;
+    @FXML private Slider valueSlider;
+    @FXML private Button applyButton;
 
 
 
@@ -262,6 +270,13 @@ public class LeftController {
         sortFromTextField.disableProperty().bind(isFileLoaded.not());
         removeRangeChoiceBox.disableProperty().bind(isFileLoaded.not());
         showRangeChoiceBox.disableProperty().bind(isFileLoaded.not());
+    }
+
+    public void bindingToNumericCellIsSelected(BooleanProperty isCellSelected) {
+        maxValueField.disableProperty().bind(isCellSelected.not());
+        minValueField.disableProperty().bind(isCellSelected.not());
+        stepSizeField.disableProperty().bind(isCellSelected.not());
+        applyButton.disableProperty().bind(isCellSelected.not());
     }
 
     //FILTER
@@ -511,6 +526,45 @@ public class LeftController {
         }
 
         return columnsInRange;
+    }
+
+    @FXML
+    private void handleDynamicAnalysis() {
+        try {
+            // קבלת הערכים מה-TextFields
+            double minValue = Double.parseDouble(minValueField.getText());
+            double maxValue = Double.parseDouble(maxValueField.getText());
+            double stepSize = Double.parseDouble(stepSizeField.getText());
+
+            //צריך לתקן
+            String selectedCellKey = appController.getSelectedCellKey(); // לקבל את תא שנבחר
+            showDynamicAnalysisPopup(selectedCellKey, minValue, maxValue, stepSize);
+
+
+
+        } catch (NumberFormatException e) {
+            new ErrorMessage("Please enter valid numeric values.");
+        }
+    }
+
+    public void showDynamicAnalysisPopup(String cellKey, double minValue, double maxValue, double stepSize) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/component/subcomponent/popup/dynamicAnalysisSheet/dynamicAnalysisSheet.fxml"));
+            Parent root = loader.load();
+
+            DynamicAnalysisSheetController controller = loader.getController();
+            controller.setAppController(appController);
+
+            // Initialize the popup with the selected cell and range values
+            controller.initDynamicAnalysisSheet(appController.getCurrentSheetDTO(), cellKey, minValue, maxValue, stepSize);
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Dynamic Analysis");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

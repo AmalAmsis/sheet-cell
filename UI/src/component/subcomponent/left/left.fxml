@@ -10,7 +10,10 @@
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -86,6 +89,37 @@
                         <Font name="Bell MT Italic" size="14.0" />
                      </font>
                         </TitledPane>
+                  <TitledPane animated="false" stylesheets="@left.css" text="untitled">
+                    <content>
+                        <GridPane fx:id="dynamicAnalysisPane" alignment="CENTER" hgap="10" vgap="10">
+                            <!-- Minimum Value -->
+                            <Label prefHeight="18.0" prefWidth="61.0" text="Min Value:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                            <TextField fx:id="minValueField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                            <!-- Maximum Value -->
+                            <Label text="Max Value:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                            <TextField fx:id="maxValueField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                            <!-- Step Size -->
+                            <Label text="Step Size:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                            <TextField fx:id="stepSizeField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                            <!-- Apply Button -->
+                            <Button fx:id="applyButton" onAction="#handleDynamicAnalysis" text="Apply" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                           <columnConstraints>
+                              <ColumnConstraints maxWidth="75.80000000000001" minWidth="50.39998016357421" prefWidth="73.39997558593751" />
+                              <ColumnConstraints maxWidth="124.80001983642578" minWidth="81.6" prefWidth="84.0000244140625" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                           </rowConstraints>
+                        </GridPane>
+
+                    </content>
+                  </TitledPane>
                     </panes>
                 </Accordion>
                 <Label text="Range">
@@ -98,15 +132,15 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                     <children>
-                                        <TextField fx:id="newRangeNameTextField" layoutX="41.0" layoutY="14.0" prefHeight="26.0" prefWidth="102.0" promptText="new range name" styleClass="sr-label" stylesheets="@left.css" />
-                                        <TextField fx:id="toTextField" layoutX="101.0" layoutY="50.0" prefHeight="26.0" prefWidth="38.0" promptText="to" styleClass="sr-label" stylesheets="@left.css" />
-                                        <TextField fx:id="fromTextField" layoutX="44.0" layoutY="50.0" prefHeight="26.0" prefWidth="40.0" promptText="from" styleClass="sr-label" stylesheets="@left.css" />
-                                        <Label layoutX="87.0" layoutY="45.0" prefHeight="36.0" prefWidth="7.0" text="-">
+                                        <TextField fx:id="newRangeNameTextField" layoutX="41.0" prefHeight="26.0" prefWidth="102.0" promptText="new range name" styleClass="sr-label" stylesheets="@left.css" />
+                                        <TextField fx:id="toTextField" layoutX="97.0" layoutY="36.0" prefHeight="26.0" prefWidth="38.0" promptText="to" styleClass="sr-label" stylesheets="@left.css" />
+                                        <TextField fx:id="fromTextField" layoutX="41.0" layoutY="36.0" prefHeight="26.0" prefWidth="40.0" promptText="from" styleClass="sr-label" stylesheets="@left.css" />
+                                        <Label layoutX="87.0" layoutY="31.0" prefHeight="36.0" prefWidth="7.0" text="-">
                                             <font>
                                                 <Font size="25.0" />
                                             </font>
                                         </Label>
-                                        <Button fx:id="addNewRangeButton" layoutX="72.0" layoutY="81.0" mnemonicParsing="false" onAction="#ClickMeAddNewRangeButton" stylesheets="@left.css" text="add" />
+                                        <Button fx:id="addNewRangeButton" layoutX="72.0" layoutY="64.0" mnemonicParsing="false" onAction="#ClickMeAddNewRangeButton" stylesheets="@left.css" text="add" />
                                     </children>
                                 </AnchorPane>
                             </content>
