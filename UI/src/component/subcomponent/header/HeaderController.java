@@ -304,4 +304,13 @@ public class HeaderController {
         cellBackgroundColorPicker.setValue(CellStyle.NORMAL_CELL_BACKGROUND_COLOR.getColorValue());
         textColorPicker.setValue(CellStyle.NORMAL_CELL_TEXT_COLOR.getColorValue());
     }
+
+
+    public void changeToFirstStyle(ActionEvent actionEvent) {
+        appController.applyTheme("Style 1");
+    }
+
+    public void changeToSecondStyle(ActionEvent actionEvent) {
+        appController.applyTheme("Style 2");
+    }
 }
