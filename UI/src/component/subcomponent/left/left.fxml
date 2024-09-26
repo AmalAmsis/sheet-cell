@@ -21,27 +21,27 @@
     <content>
         <VBox alignment="TOP_CENTER" prefHeight="532.0" prefWidth="207.0">
             <children>
-                <Label alignment="CENTER" contentDisplay="CENTER" stylesheets="@left.css" text="Command" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                <Label alignment="CENTER" contentDisplay="CENTER" text="Command" textAlignment="CENTER" VBox.vgrow="ALWAYS">
                     <font>
                         <Font name="Blackadder ITC" size="22.0" />
                     </font></Label>
                 <Accordion prefHeight="229.0" prefWidth="207.0">
                     <panes>
-                        <TitledPane animated="false" prefHeight="199.0" prefWidth="191.0" stylesheets="@left.css" text="Custom Sort">
+                        <TitledPane animated="false" prefHeight="199.0" prefWidth="191.0" text="Custom Sort">
                             <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="191.0" prefWidth="189.0">
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="174.0" prefWidth="206.0">
                                     <children>
-                                        <TextField fx:id="sortToTextField" layoutX="94.0" layoutY="28.0" prefHeight="26.0" prefWidth="38.0" promptText="to" styleClass="sr-label" stylesheets="@left.css" />
-                                        <TextField fx:id="sortFromTextField" layoutX="44.0" layoutY="28.0" prefHeight="26.0" prefWidth="40.0" promptText="from" styleClass="sr-label" stylesheets="@left.css" />
-                                        <Label layoutX="84.0" layoutY="23.0" prefHeight="36.0" prefWidth="7.0" text="-">
+                                        <TextField fx:id="sortToTextField" layoutX="109.0" layoutY="27.0" prefHeight="26.0" prefWidth="38.0" promptText="to" styleClass="sr-label" />
+                                        <TextField fx:id="sortFromTextField" layoutX="54.0" layoutY="27.0" prefHeight="27.0" prefWidth="39.0" promptText="from" styleClass="sr-label" />
+                                        <Label layoutX="97.0" layoutY="23.0" prefHeight="36.0" prefWidth="7.0" text="-">
                                             <font>
                                                 <Font size="25.0" />
                                             </font>
                                         </Label>
-                                        <Button fx:id="sortButton" layoutX="84.0" layoutY="123.0" mnemonicParsing="false" onAction="#ClickMeSortButton" stylesheets="@left.css" text="Sort" />
+                                        <Button fx:id="sortButton" layoutX="20.0" layoutY="107.0" mnemonicParsing="false" onAction="#ClickMeSortButton" text="Sort" />
                                         <Label layoutX="28.0" layoutY="5.0" text="Enter range for sorting:" />
-                                        <MenuButton fx:id="selectColumnsToSortByMenu" layoutX="4.0" layoutY="62.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="170.0" text="Select columns to sort by:" />
-                                        <Button fx:id="sortHelpButton" layoutX="161.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" text="?">
+                                        <MenuButton fx:id="selectColumnsToSortByMenu" layoutX="11.0" layoutY="60.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="182.0" text="Select columns to sort by:" />
+                                        <Button fx:id="sortHelpButton" layoutX="173.0" layoutY="113.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" text="?">
                                             <font>
                                                 <Font size="8.0" />
                                             </font>
@@ -49,8 +49,8 @@
                                                 <Tooltip text="To sort the data:\n1. Enter the range in the 'from' and 'to' fields (e.g., A1 to C5).\n2. Select the columns to sort by using the dropdown.\n3. Specify the sorting priority by selecting multiple columns.\n   - The first column selected will have the highest priority.\n   - The second column will be sorted within the first, and so on.\n4. Click 'Sort' to apply the sorting." />
                                             </tooltip>
                                         </Button>
-                                        <FlowPane fx:id="selectedSortColumnsFlowPane" hgap="5" layoutX="23.0" layoutY="88.0" prefHeight="31.0" prefWidth="132.0" vgap="5" />
-                                        <Button fx:id="resetSortButton" layoutX="132.0" layoutY="123.0" mnemonicParsing="false" onAction="#clickMeResetSortButton" stylesheets="@left.css" text="Reset" />
+                                        <FlowPane fx:id="selectedSortColumnsFlowPane" hgap="5" layoutX="41.0" layoutY="95.0" prefHeight="25.0" prefWidth="132.0" vgap="5" />
+                                        <Button fx:id="resetSortButton" layoutX="67.0" layoutY="107.0" mnemonicParsing="false" onAction="#clickMeResetSortButton" prefHeight="14.0" prefWidth="52.0" text="Reset" />
                                     </children>
                                 </AnchorPane>
                             </content>
@@ -58,18 +58,18 @@
                         <Font name="Bell MT Italic" size="14.0" />
                      </font>
                         </TitledPane>
-                        <TitledPane animated="false" layoutX="10.0" layoutY="10.0" prefHeight="199.0" prefWidth="191.0" stylesheets="@left.css" text="Custom Filter">
+                        <TitledPane animated="false" layoutX="10.0" layoutY="10.0" prefHeight="199.0" prefWidth="191.0" text="Custom Filter">
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="142.0" prefWidth="205.0">
                                     <children>
-                                        <TextField fx:id="filterToTextField" layoutX="105.0" layoutY="28.0" prefHeight="26.0" prefWidth="38.0" promptText="to" styleClass="sr-label" stylesheets="@left.css" />
-                                        <TextField fx:id="filterFromTextField" layoutX="42.0" layoutY="28.0" prefHeight="26.0" prefWidth="40.0" promptText="from" styleClass="sr-label" stylesheets="@left.css" />
+                                        <TextField fx:id="filterToTextField" layoutX="105.0" layoutY="28.0" prefHeight="26.0" prefWidth="38.0" promptText="to" styleClass="sr-label" />
+                                        <TextField fx:id="filterFromTextField" layoutX="42.0" layoutY="28.0" prefHeight="26.0" prefWidth="40.0" promptText="from" styleClass="sr-label" />
                                         <Label layoutX="87.0" layoutY="23.0" prefHeight="36.0" prefWidth="7.0" text="-">
                                             <font>
                                                 <Font size="25.0" />
                                             </font>
                                         </Label>
-                                        <Button fx:id="filterButton" layoutX="71.0" layoutY="114.0" mnemonicParsing="false" onAction="#ClickMeFilterButton" stylesheets="@left.css" text="Filter" />
+                                        <Button fx:id="filterButton" layoutX="19.0" layoutY="107.0" mnemonicParsing="false" onAction="#ClickMeFilterButton" text="Filter" />
                                         <Label layoutX="29.0" layoutY="4.0" text="Enter range for filtering:" />
                                         <Button fx:id="filterHelpButton" layoutX="166.0" layoutY="3.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="0.0" text="?">
                                             <font>
@@ -80,8 +80,8 @@
                                             </tooltip>
                                         </Button>
                                         <FlowPane fx:id="filterDataFlowPane" hgap="5" layoutX="7.0" layoutY="88.0" prefHeight="25.0" prefWidth="171.0" vgap="5" />
-                                        <MenuButton fx:id="selectColumnsToFilterByMenu" layoutX="1.0" layoutY="63.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="182.0" text="Select columns to filter by:" />
-                                        <Button fx:id="resetFilterButton" layoutX="132.0" layoutY="114.0" mnemonicParsing="false" onAction="#clickMeResetFilterButton" stylesheets="@left.css" text="Reset" />
+                                        <MenuButton fx:id="selectColumnsToFilterByMenu" layoutX="1.0" layoutY="60.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="182.0" text="Select columns to filter by:" />
+                                        <Button fx:id="resetFilterButton" layoutX="73.0" layoutY="107.0" mnemonicParsing="false" onAction="#clickMeResetFilterButton" text="Reset" />
                                     </children>
                                 </AnchorPane>
                             </content>
@@ -89,7 +89,7 @@
                         <Font name="Bell MT Italic" size="14.0" />
                      </font>
                         </TitledPane>
-                  <TitledPane animated="false" stylesheets="@left.css" text="untitled">
+                  <TitledPane animated="false">
                     <content>
                         <GridPane fx:id="dynamicAnalysisPane" alignment="CENTER" hgap="10" vgap="10">
                             <!-- Minimum Value -->
@@ -122,25 +122,25 @@
                   </TitledPane>
                     </panes>
                 </Accordion>
-                <Label text="Range">
+                <Label prefHeight="30.0" prefWidth="51.0" text="Range">
                <font>
                   <Font name="Blackadder ITC" size="22.0" />
                </font></Label>
-                <Accordion prefHeight="222.0" prefWidth="219.0">
+                <Accordion prefHeight="225.0" prefWidth="207.0">
                     <panes>
-                        <TitledPane animated="false" stylesheets="@left.css" text="add new range">
+                        <TitledPane animated="false" text="add new range">
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                     <children>
-                                        <TextField fx:id="newRangeNameTextField" layoutX="41.0" prefHeight="26.0" prefWidth="102.0" promptText="new range name" styleClass="sr-label" stylesheets="@left.css" />
-                                        <TextField fx:id="toTextField" layoutX="97.0" layoutY="36.0" prefHeight="26.0" prefWidth="38.0" promptText="to" styleClass="sr-label" stylesheets="@left.css" />
-                                        <TextField fx:id="fromTextField" layoutX="41.0" layoutY="36.0" prefHeight="26.0" prefWidth="40.0" promptText="from" styleClass="sr-label" stylesheets="@left.css" />
-                                        <Label layoutX="87.0" layoutY="31.0" prefHeight="36.0" prefWidth="7.0" text="-">
+                                        <TextField fx:id="newRangeNameTextField" layoutX="44.0" layoutY="14.0" prefHeight="27.0" prefWidth="105.0" promptText="new range name" styleClass="sr-label" />
+                                        <TextField fx:id="toTextField" layoutX="107.0" layoutY="48.0" prefHeight="26.0" prefWidth="38.0" promptText="to" styleClass="sr-label" />
+                                        <TextField fx:id="fromTextField" layoutX="57.0" layoutY="48.0" prefHeight="26.0" prefWidth="40.0" promptText="from" styleClass="sr-label" />
+                                        <Label layoutX="97.0" layoutY="40.0" prefHeight="36.0" prefWidth="7.0" text="-">
                                             <font>
                                                 <Font size="25.0" />
                                             </font>
                                         </Label>
-                                        <Button fx:id="addNewRangeButton" layoutX="72.0" layoutY="64.0" mnemonicParsing="false" onAction="#ClickMeAddNewRangeButton" stylesheets="@left.css" text="add" />
+                                        <Button fx:id="addNewRangeButton" layoutX="82.0" layoutY="86.0" mnemonicParsing="false" onAction="#ClickMeAddNewRangeButton" text="add" />
                                     </children>
                                 </AnchorPane>
                             </content>
@@ -148,12 +148,12 @@
                         <Font name="Bell MT Italic" size="14.0" />
                      </font>
                         </TitledPane>
-                        <TitledPane animated="false" stylesheets="@left.css" text="show range">
+                        <TitledPane animated="false" text="show range">
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                     <children>
                                         <ChoiceBox fx:id="showRangeChoiceBox" layoutX="35.0" layoutY="22.0" prefHeight="26.0" prefWidth="114.0" />
-                                        <Button fx:id="showRangeButton" layoutX="70.0" layoutY="66.0" mnemonicParsing="false" onAction="#ClickMeShowRange" stylesheets="@left.css" text="show" />
+                                        <Button fx:id="showRangeButton" layoutX="70.0" layoutY="66.0" mnemonicParsing="false" onAction="#ClickMeShowRange" text="show" />
                                     </children>
                                 </AnchorPane>
                             </content>
@@ -161,12 +161,12 @@
                         <Font name="Bell MT Italic" size="14.0" />
                      </font>
                         </TitledPane>
-                        <TitledPane animated="false" stylesheets="@left.css" text="delete range">
+                        <TitledPane animated="false" text="delete range">
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                     <children>
                                         <ChoiceBox fx:id="removeRangeChoiceBox" layoutX="35.0" layoutY="25.0" prefHeight="26.0" prefWidth="121.0" />
-                                        <Button fx:id="removeRangeButton" layoutX="68.0" layoutY="72.0" mnemonicParsing="false" onAction="#ClickMeRemoveRange" stylesheets="@left.css" text="remove" />
+                                        <Button fx:id="removeRangeButton" layoutX="68.0" layoutY="72.0" mnemonicParsing="false" onAction="#ClickMeRemoveRange" text="remove" />
                                     </children>
                                 </AnchorPane>
                             </content>

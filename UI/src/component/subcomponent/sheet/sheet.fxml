@@ -5,6 +5,6 @@
 
 <ScrollPane fitToHeight="true" fitToWidth="true" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.subcomponent.sheet.SheetController">
     <content>
-        <GridPane fx:id="sheetGrid" gridLinesVisible="true" hgap="1" stylesheets="@single-cell.css" vgap="1" />
+        <GridPane fx:id="sheetGrid" gridLinesVisible="true" hgap="1"  vgap="1" />
     </content>
 </ScrollPane>

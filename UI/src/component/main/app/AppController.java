@@ -18,8 +18,10 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import manager.UIManager;
 import manager.UIManagerImpl;
 
@@ -43,6 +45,7 @@ public class AppController {
     @FXML
     private LeftController leftController;
 
+    private Stage primaryStage;
     private UIManager uiManager;
     private ObjectProperty<String> selectedCellId = new SimpleObjectProperty<>();
     private ObjectProperty<String> selectedRangeId = new SimpleObjectProperty<>();
@@ -378,4 +381,32 @@ public class AppController {
             return false;
         }
     }
+
+    public void setPrimaryStage(Stage stage) {
+        this.primaryStage = stage;
+    }
+
+    // פונקציה לטעינת ערכת צבעים
+    public void applyTheme(String theme) {
+        if(theme == "Style 1") {
+            Scene scene = primaryStage.getScene();
+            scene.getStylesheets().clear(); // נקה את כל ה-stylesheets הקיימים
+            String leftCssFile = getClass().getResource("/component/subcomponent/left/left.css").toExternalForm();
+            String headerCssFile = getClass().getResource("/component/subcomponent/header/header.css").toExternalForm();
+            scene.getStylesheets().add(leftCssFile);
+            scene.getStylesheets().add(headerCssFile);
+        }
+        else {
+            Scene scene = primaryStage.getScene();
+            scene.getStylesheets().clear(); // נקה את כל ה-stylesheets הקיימים
+            String leftCssFile = getClass().getResource("/component/subcomponent/left/secondLeft.css").toExternalForm();
+            String headerCssFile = getClass().getResource("/component/subcomponent/header/secondHeader.css").toExternalForm();
+            String singleCellCssFile = getClass().getResource("/component/subcomponent/sheet/single-cell.css").toExternalForm();
+            scene.getStylesheets().add(leftCssFile);
+            scene.getStylesheets().add(headerCssFile);
+            scene.getStylesheets().add(singleCellCssFile);
+
+        }
+    }
+
 }
