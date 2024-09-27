@@ -45,14 +45,12 @@ public class FilterSheetImpl implements FilterSheet {
                         // מציאת שם העמודה הנוכחי (A, B, C...) לפי האינדקס
                         char columnName = (char) (fromCoordinate.getCol() + colIndex);
 
-                        System.out.println("Checking column: " + columnName + ", with value: " + effectiveValue.getValue());
 
                         // בדיקה אם יש ערכים נבחרים לעמודה הזו
                         if (selectedColumnValues.containsKey(String.valueOf(columnName))) {
                             // רשימת הערכים הנבחרים לעמודה זו
                             List<String> allowedValues = selectedColumnValues.get(String.valueOf(columnName));
 
-                            System.out.println("Allowed values for column " + columnName + ": " + allowedValues);
 
                             // השוואה לפי סוג ערך
                             switch (effectiveValue.getCellType()) {
@@ -78,7 +76,6 @@ public class FilterSheetImpl implements FilterSheet {
                             }
 
                             if (rowShouldRemain) {
-                                System.out.println("Row remains due to match in column " + columnName);
                                 break;
                             }
                         }
@@ -88,7 +85,6 @@ public class FilterSheetImpl implements FilterSheet {
                 })
                 .collect(Collectors.toList());
 
-        System.out.println("Number of rows after filtering: " + filteredRows.size());
 
         return new DTOSheetImpl(filteredRows,fromCoordinate,filterPreparer.getSheet(),toCoordinate);
     };
