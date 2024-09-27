@@ -527,6 +527,7 @@ public class AppController {
 
     public List<String> getColumnValuesInRange(String range) throws IllegalArgumentException {
         List<String> values = new ArrayList<>();
+        range = range.trim().toUpperCase();
 
         // בדיקת פורמט הטווח
         if (!range.matches("[A-Z]\\d+\\.\\.[A-Z]\\d+")) {

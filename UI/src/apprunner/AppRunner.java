@@ -24,6 +24,11 @@ public class AppRunner extends Application {
             primaryStage.setScene(scene);
             primaryStage.setTitle("Main Application");
 
+
+            // Set minimum window size to prevent it from becoming too small
+            primaryStage.setMinWidth(500);  // Set your desired minimum width
+            primaryStage.setMinHeight(300); // Set your desired minimum height
+
             // הטענת ערכת צבעים דיפולטית
             appController.applyTheme("Style 1");
 
