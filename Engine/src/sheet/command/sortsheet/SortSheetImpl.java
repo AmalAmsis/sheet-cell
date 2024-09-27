@@ -55,7 +55,6 @@ public class SortSheetImpl implements SortSheet {
             Double value1 = key1.get(i);
             Double value2 = key2.get(i);
 
-            System.out.println("Comparing values: " + value1 + " vs " + value2);
 
             // טיפול בתאים ריקים (אינסוף)
             if (value1.isInfinite() && !value2.isInfinite()) {
@@ -66,7 +65,6 @@ public class SortSheetImpl implements SortSheet {
                 // השוואה רגילה של מספרים
                 int comparison = value1.compareTo(value2);
                 if (comparison != 0) {
-                    System.out.println("Returning comparison result: " + comparison);
                     return comparison;  // אם יש הבדל, נחזיר את תוצאת ההשוואה
                 }
             }
@@ -90,15 +88,12 @@ public class SortSheetImpl implements SortSheet {
 
             // אם התא ריק או אינו מספרי, נחזיר אינסוף כדי למקם אותו אחרון
             if (effectiveValue.getCellType() != CellType.NUMERIC) {
-                System.out.println("Non-numeric or empty cell found at column: " + column);
                 sortingKey.add(Double.POSITIVE_INFINITY);  // תאים ריקים או לא מספריים יהיו בסוף המיון
             } else {
                 try {
                     Double value = Double.parseDouble(effectiveValue.getValue().toString());
-                    System.out.println("Sorting key for column " + column + ": " + value);
                     sortingKey.add(value);
                 } catch (NumberFormatException e) {
-                    System.out.println("Error converting value to Double at column: " + column);
                     sortingKey.add(Double.POSITIVE_INFINITY);  // במקרה של שגיאה בהמרה, נכניס אינסוף
                 }
             }

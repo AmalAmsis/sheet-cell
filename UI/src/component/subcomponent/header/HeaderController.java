@@ -6,18 +6,17 @@ import component.subcomponent.popup.versionselector.VersionSelectorController;
 import component.subcomponent.sheet.CellStyle;
 import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
-import javafx.scene.control.*;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -34,9 +33,8 @@ public class HeaderController {
     private ChangeListener<Integer> columnWidthListener;
     private ChangeListener<Integer> rowHeightListener;
 
-
     @FXML private Label cellIdLabel;
-    @FXML private Label currentVersionLabel; // only Yarden
+    @FXML private Label currentVersionLabel;
     @FXML private Label filePathLlabel;
     @FXML private Button loadFileButton;
     @FXML private Label originalValueLabel;
@@ -65,10 +63,11 @@ public class HeaderController {
         this.appController = appController;
     }
 
+    /**
+     * Initializes listeners and binds controls to their respective properties.
+     */
     @FXML
     private void initialize() {
-
-
         // Listens to background color changes
         cellBackgroundColorPicker.setOnAction(event -> {
             Color backgroundColor = cellBackgroundColorPicker.getValue();
@@ -115,8 +114,7 @@ public class HeaderController {
         });
 
         // Set options for alignment choice box
-        ObservableList<String> options =
-                FXCollections.observableArrayList("Left", "Center", "Right");
+        ObservableList<String> options = FXCollections.observableArrayList("Left", "Center", "Right");
         alignmentChoiceBox.setItems(options);
 
         // Temporarily disable listeners
@@ -124,12 +122,10 @@ public class HeaderController {
         rowHeightSpinner.valueProperty().removeListener(rowHeightListener);
 
         // Initialize spinner value factories
-        SpinnerValueFactory<Integer> widthValueFactory =
-                new SpinnerValueFactory.IntegerSpinnerValueFactory(10, 200, 100, 1);
+        SpinnerValueFactory<Integer> widthValueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(10, 200, 100, 1);
         columnWidthSpinner.setValueFactory(widthValueFactory);
 
-        SpinnerValueFactory<Integer> rowValueFactory =
-                new SpinnerValueFactory.IntegerSpinnerValueFactory(10, 200, 100, 1);
+        SpinnerValueFactory<Integer> rowValueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(10, 200, 100, 1);
         rowHeightSpinner.setValueFactory(rowValueFactory);
 
         // Re-enable listeners
@@ -140,6 +136,9 @@ public class HeaderController {
         // setDisableInButton(true);
     }
 
+    /**
+     * Binds the visibility and activity of various controls to whether a cell is selected.
+     */
     public void bindingToIsSelected(BooleanProperty isSelected) {
         columnWidthSpinner.disableProperty().bind(isSelected.not());
         rowHeightSpinner.disableProperty().bind(isSelected.not());
@@ -151,10 +150,12 @@ public class HeaderController {
         updateValueButton.disableProperty().bind(isSelected.not());
     }
 
+    /**
+     * Binds the visibility and activity of controls based on whether a file is loaded.
+     */
     public void bindingToIsFileLoaded(BooleanProperty isFileLoaded) {
         versionSelectorButton.disableProperty().bind(isFileLoaded.not());
     }
-
 
     /**
      * Updates the file path label with the given message.
@@ -169,7 +170,6 @@ public class HeaderController {
      * @param filePath the file path to be loaded
      */
     private void loadFileWithProgress(String filePath) {
-        // Create the loading task
         Task<Boolean> loadFileTask = new LoadFileTask(
                 filePath,
                 (path) -> {
@@ -179,41 +179,33 @@ public class HeaderController {
                         throw new RuntimeException(e.getMessage());
                     }
                 },
-                (path) -> {
-                    updateFilePathLabel(path); // Update file path label
-
-                }
+                (path) -> updateFilePathLabel(path)
         );
 
-        // Bind progress bar to task's progress
         fileLoadingProgressBar.progressProperty().bind(loadFileTask.progressProperty());
-        fileLoadingProgressBar.setVisible(true);  // Show the progress bar when the task starts
+        fileLoadingProgressBar.setVisible(true);
 
-        // Update status label during the task
         loadFileTask.messageProperty().addListener((obs, oldMessage, newMessage) -> {
-            progressLabel.setText(newMessage);  // Update label with the current task status
+            progressLabel.setText(newMessage);
         });
 
-        // Handle task completion
         loadFileTask.setOnSucceeded(event -> {
-            fileLoadingProgressBar.setVisible(false);  // Hide the progress bar upon successful completion
-            progressLabel.setVisible(false);  // Hide the status label
+            fileLoadingProgressBar.setVisible(false);
+            progressLabel.setVisible(false);
         });
 
-        // Handle task failure
         loadFileTask.setOnFailed(event -> {
             new ErrorMessage("Failed to load the file.");
-            fileLoadingProgressBar.setVisible(false);  // Hide the progress bar if the task fails
+            fileLoadingProgressBar.setVisible(false);
         });
 
-        // Start the task in a new thread
         Thread thread = new Thread(loadFileTask);
         thread.setDaemon(true);  // Ensure the thread doesn't block JVM shutdown
         thread.start();
     }
 
     /**
-     * Click event for loading a file with progress updates.
+     * Handles file selection and loading.
      */
     @FXML
     public void ClickMeLoadFileButtonAction() {
@@ -232,7 +224,7 @@ public class HeaderController {
     }
 
     /**
-     * Click event to update the selected cell value.
+     * Updates the selected cell value.
      */
     @FXML
     void ClickMeUpdateValueButtonAction(ActionEvent event) {
@@ -264,15 +256,7 @@ public class HeaderController {
     }
 
     /**
-     * Updates header values including text color, background color, alignment, etc.
-     * @param cellId               the ID of the cell
-     * @param originalValue        the original value of the cell
-     * @param lastModifiedVersion  the last modified version
-     * @param textColor            the text color
-     * @param backgroundColor      the background color
-     * @param width                the column width
-     * @param height               the row height
-     * @param alignment            the alignment of the cell
+     * Updates header values, including text color, background color, alignment, etc.
      */
     public void updateHeaderValues(String cellId, String originalValue, String lastModifiedVersion, Color textColor, Color backgroundColor, int width, int height, String alignment) {
         cellIdLabel.setText(cellId);
@@ -285,17 +269,8 @@ public class HeaderController {
         alignmentChoiceBox.getSelectionModel().select(alignment);
     }
 
-//    /**
-//     * Enables or disables certain buttons based on user interaction.
-//     * @param isEnable true to disable buttons, false to enable
-//     */
-//    private void setDisableInButton(boolean isEnable) {
-//        updateValueButton.setDisable(isEnable);
-//        versionSelectorButton.setDisable(isEnable);
-//    }
-
     /**
-     * Resets the cell's text color and background color to default values.
+     * Resets the cell's text and background color to default values.
      */
     @FXML
     void ClickMeBackToDefaultButton(ActionEvent event) {
@@ -305,11 +280,16 @@ public class HeaderController {
         textColorPicker.setValue(CellStyle.NORMAL_CELL_TEXT_COLOR.getColorValue());
     }
 
-
+    /**
+     * Changes the theme to the first style.
+     */
     public void changeToFirstStyle(ActionEvent actionEvent) {
         appController.applyTheme("Style 1");
     }
 
+    /**
+     * Changes the theme to the second style.
+     */
     public void changeToSecondStyle(ActionEvent actionEvent) {
         appController.applyTheme("Style 2");
     }

@@ -57,7 +57,7 @@
                      </GridPane.margin>
                   </Label>
                   <MenuButton fx:id="versionMenuBar" mnemonicParsing="false" opacity="0.6" prefHeight="25.0" prefWidth="281.0" text="Please select the version" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                  <Button mnemonicParsing="false" onAction="#clickMeOKButtom" text="OK" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                  <Button fx:id="okButton" mnemonicParsing="false" onAction="#clickMeOKButtom" text="OK" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
                   <Button mnemonicParsing="false" onAction="#clickMeCancelButtom" text="Cancel" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
                   <Label fx:id="selectedVersionLabel" GridPane.columnIndex="3" GridPane.rowIndex="2">
                      <font>

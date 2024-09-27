@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
@@ -25,6 +26,20 @@ public class VersionSelectorController {
     @FXML private Label numOfChangesInSelectedVersionLabel;
     @FXML private Label selectedVersionLabel;
     @FXML private MenuButton versionMenuBar;
+    @FXML private Button okButton;
+
+    public void initialize() {
+        // Disable the OK button initially
+        okButton.setDisable(true);
+
+        // Add listener to enable OK button when an item is selected
+        versionMenuBar.getItems().forEach(menuItem ->
+                menuItem.setOnAction(event -> {
+                    versionMenuBar.setText(menuItem.getText()); // Update the MenuButton text
+                    okButton.setDisable(false);  // Enable the OK button
+                })
+        );
+    }
 
     public void setAppController(AppController appController) {
         this.appController = appController;
@@ -96,6 +111,13 @@ public class VersionSelectorController {
 
             int version = i;
             versionItem.setOnAction(e -> {setVersionData(version);});
+
+            // Add an action listener to each menu item when it's added
+            versionItem.setOnAction(e -> {
+                setVersionData(version);
+                okButton.setDisable(false); // Enable the OK button when a version is selected
+            });
+
             versionMenuBar.getItems().add(versionItem);
         }
     }

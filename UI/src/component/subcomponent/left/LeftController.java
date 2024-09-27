@@ -3,6 +3,7 @@ package component.subcomponent.left;
 import component.main.app.AppController;
 import component.subcomponent.popup.dynamicAnalysisSheet.DynamicAnalysisSheetController;
 import component.subcomponent.popup.errormessage.ErrorMessage;
+import component.subcomponent.popup.graph.GraphController;
 import component.subcomponent.popup.viewonlysheet.ViewOnlySheetController;
 import dto.DTOSheet;
 import javafx.beans.property.BooleanProperty;
@@ -21,6 +22,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javafx.scene.control.Tooltip;
 
 
 public class LeftController {
@@ -59,6 +61,8 @@ public class LeftController {
     @FXML private Slider valueSlider;
     @FXML private Button applyButton;
 
+    @FXML private Button generateGraphButton;
+
 
 
 
@@ -90,12 +94,12 @@ public class LeftController {
 
 
 
-        setSortTooltip();
+        //setSortTooltip();
         sortButton.setDisable(true);
         filterButton.setDisable(true);
         selectColumnsToSortByMenu.setOnShowing(event -> updateMenuItems(selectColumnsToSortByMenu,selectedSortColumnsFlowPane,sortFromTextField,sortToTextField));
 
-        setFilterTooltip();
+        //setFilterTooltip();
         selectColumnsToFilterByMenu.setOnShowing(event -> updateMenuItems(selectColumnsToFilterByMenu,filterDataFlowPane,filterFromTextField,filterToTextField));
     }
 
@@ -223,22 +227,24 @@ public class LeftController {
         }
 
     }
-    private void setSortTooltip(){
-        String tooltipText = "To sort the data int the sheet:\n"
-                + "1. Enter the range in the 'from' and 'to' fields (e.g., A1 to C5).\n"
-                + "   - Make sure the range covers valid rows and columns.\n"
-                + "2. Select the columns to sort by clicking on the column headers.\n"
-                + "   - The order in which you click the columns will determine the sorting priority.\n"
-                + "   - The first column clicked has the highest priority, the second column clicked will be sorted within the first, and so on.\n"
-                + "3. Sorting applies only to numeric values.\n"
-                + "   - Cells with empty values are treated as infinity and sorted last.\n"
-                + "4. Click 'Sort' to apply the sorting to the selected range.";
 
+//    private void setSortTooltip(){
+//        String tooltipText = "To sort the data int the sheet:\n"
+//                + "1. Enter the range in the 'from' and 'to' fields (e.g., A1 to C5).\n"
+//                + "   - Make sure the range covers valid rows and columns.\n"
+//                + "2. Select the columns to sort by clicking on the column headers.\n"
+//                + "   - The order in which you click the columns will determine the sorting priority.\n"
+//                + "   - The first column clicked has the highest priority, the second column clicked will be sorted within the first, and so on.\n"
+//                + "3. Sorting applies only to numeric values.\n"
+//                + "   - Cells with empty values are treated as infinity and sorted last.\n"
+//                + "4. Click 'Sort' to apply the sorting to the selected range.";
+//
+//
+//        Tooltip sortHelpTooltip = new Tooltip(tooltipText);
+//        sortHelpTooltip.setStyle("-fx-font-size: 14px;");
+//        sortHelpButton.setTooltip(sortHelpTooltip);  // הצמדת ה-Tooltip לכפתור
+//    }
 
-        Tooltip sortHelpTooltip = new Tooltip(tooltipText);
-        sortHelpTooltip.setStyle("-fx-font-size: 14px;");
-        sortHelpButton.setTooltip(sortHelpTooltip);  // הצמדת ה-Tooltip לכפתור
-    }
     private void setupSortMenuItemEvents(String column, MenuItem columnItem) {
 
         selectColumnsToSortByMenu.getItems().remove(columnItem);
@@ -252,6 +258,7 @@ public class LeftController {
 
 
     }
+
     @FXML public void clickMeResetSortButton(){
         sortFromTextField.clear();
         sortToTextField.clear();
@@ -270,6 +277,7 @@ public class LeftController {
         sortFromTextField.disableProperty().bind(isFileLoaded.not());
         removeRangeChoiceBox.disableProperty().bind(isFileLoaded.not());
         showRangeChoiceBox.disableProperty().bind(isFileLoaded.not());
+        generateGraphButton.disableProperty().bind(isFileLoaded.not());
     }
 
     public void bindingToNumericCellIsSelected(BooleanProperty isCellSelected) {
@@ -357,21 +365,23 @@ public class LeftController {
         }
 
 
-
-
     }
-    private void setFilterTooltip(){
-        String tooltipText = "To filter the data int the sheet:\n"
-                + "1. Enter the range in the 'from' and 'to' fields (e.g., A1 to C5).\n"
-                + "   - Make sure the range covers valid rows and columns.\n"
-                + "2. Select the columns to filter by clicking on the column headers.\n"
-                + "3. For each selected column, choose the values you want to display after filtering.\\n\n"
-                + "4. Click 'filter' to apply the filtering to the selected range.";
 
-        Tooltip filterHelpTooltip = new Tooltip(tooltipText);
-        filterHelpTooltip.setStyle("-fx-font-size: 14px;");
-        filterHelpButton.setTooltip(filterHelpTooltip);  // הצמדת ה-Tooltip לכפתור
-    }
+//    private void setFilterTooltip() {
+//        String tooltipText = "To filter the data in the sheet:\n"
+//                + "1. Enter the range in the 'from' and 'to' fields (e.g., A1 to C5).\n"
+//                + "   - Make sure the range covers valid rows and columns.\n"
+//                + "2. Select the columns to filter by clicking on the column headers.\n"
+//                + "3. For each selected column, choose the values you want to display after filtering.\n"
+//                + "4. Click 'filter' to apply the filtering to the selected range.";
+//
+//        Tooltip filterHelpTooltip = new Tooltip(tooltipText);
+//        filterHelpTooltip.setStyle("-fx-font-size: 14px;");
+//        filterHelpButton.setTooltip(filterHelpTooltip);  // Attach the tooltip to the filter help button
+//    }
+
+
+
     private void setupFilterMenuItemEvents(String column,MenuItem columnItem, int firsRow,int lastRow) {
 
         selectColumnsToFilterByMenu.getItems().remove(columnItem);
@@ -388,6 +398,7 @@ public class LeftController {
 
 
     }
+
     @FXML public void clickMeResetFilterButton(){
         filterFromTextField.clear();
         filterToTextField.clear();
@@ -467,6 +478,7 @@ public class LeftController {
 
 
     }
+
     private int getFirstRowInRange(String fromText) {
         int index =1;
         while (index < fromText.length() && !Character.isDigit(fromText.charAt(index))) {
@@ -480,6 +492,7 @@ public class LeftController {
         }
 
     }
+
     private int getLastRowInRange(String ToText) {
         int index =1;
         while (index < ToText.length() && !Character.isDigit(ToText.charAt(index))) {
@@ -493,6 +506,7 @@ public class LeftController {
         }
 
     }
+
     public List<String> getColumnsInRange(String from, String to) {
 
         if (from.length() > 3 || to.length() > 3) {
@@ -567,7 +581,24 @@ public class LeftController {
         }
     }
 
+    @FXML
+    private void handleGenerateGraph() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/component/subcomponent/popup/graph/graphSelector.fxml"));
+            Parent root = loader.load();
 
+            GraphController graphController = loader.getController();
+            graphController.setAppController(appController);
+
+            Stage stage = new Stage();
+            stage.setTitle("Select Data for Graph");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (Exception e) {
+           new ErrorMessage(e.getMessage());
+        }
     }
+}
 
 

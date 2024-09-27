@@ -57,8 +57,6 @@ public class FilterSortPreparerImpl implements FilterSortPreparer {
 
                 Cell cell = this.sheet.getCell(currentCoordinate);
 
-                System.out.println("Adding cell at " + currentCoordinate + ": " + cell.getEffectiveValue().getValue());
-
                 currentRow.add(cell);
             }
             listOfRows.add(currentRow);
