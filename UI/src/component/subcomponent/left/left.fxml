@@ -16,15 +16,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane prefHeight="533.0" prefWidth="235.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.subcomponent.left.LeftController">
+<ScrollPane prefHeight="639.0" prefWidth="245.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.subcomponent.left.LeftController">
     <content>
-        <VBox alignment="TOP_CENTER" prefHeight="532.0" prefWidth="207.0">
+        <VBox alignment="TOP_CENTER" prefHeight="626.0" prefWidth="207.0">
             <children>
                 <Label alignment="CENTER" contentDisplay="CENTER" text="Command" textAlignment="CENTER" VBox.vgrow="ALWAYS">
                     <font>
                         <Font name="Blackadder ITC" size="22.0" />
                     </font></Label>
-                <Accordion prefHeight="229.0" prefWidth="207.0">
+                <Accordion prefHeight="283.0" prefWidth="207.0">
                     <panes>
                         <TitledPane animated="false" prefHeight="199.0" prefWidth="191.0" text="Custom Sort">
                             <content>
@@ -106,13 +106,21 @@
                         <Font name="Bell MT Italic" size="14.0" />
                      </font>
                   </TitledPane>
+                  <TitledPane prefHeight="200.0" prefWidth="200.0" text=" Generate Graph">
+                     <font>
+                        <Font name="Bell MT Italic" size="14.0" />
+                     </font>
+                     <content>
+                         <Button fx:id="generateGraphButton" onAction="#handleGenerateGraph" text="Generate Graph" />
+                     </content>
+                  </TitledPane>
                     </panes>
                 </Accordion>
                 <Label prefHeight="30.0" prefWidth="51.0" text="Range">
                <font>
                   <Font name="Blackadder ITC" size="22.0" />
                </font></Label>
-                <Accordion prefHeight="225.0" prefWidth="207.0">
+                <Accordion prefHeight="209.0" prefWidth="207.0">
                     <panes>
                         <TitledPane animated="false" text="add new range">
                             <content>

@@ -3,6 +3,7 @@ package component.subcomponent.left;
 import component.main.app.AppController;
 import component.subcomponent.popup.dynamicAnalysisSheet.DynamicAnalysisSheetController;
 import component.subcomponent.popup.errormessage.ErrorMessage;
+import component.subcomponent.popup.graph.GraphController;
 import component.subcomponent.popup.viewonlysheet.ViewOnlySheetController;
 import dto.DTOSheet;
 import javafx.beans.property.BooleanProperty;
@@ -59,6 +60,8 @@ public class LeftController {
     @FXML private TextField stepSizeField;
     @FXML private Slider valueSlider;
     @FXML private Button applyButton;
+
+    @FXML private Button generateGraphButton;
 
 
 
@@ -274,6 +277,7 @@ public class LeftController {
         sortFromTextField.disableProperty().bind(isFileLoaded.not());
         removeRangeChoiceBox.disableProperty().bind(isFileLoaded.not());
         showRangeChoiceBox.disableProperty().bind(isFileLoaded.not());
+        generateGraphButton.disableProperty().bind(isFileLoaded.not());
     }
 
     public void bindingToNumericCellIsSelected(BooleanProperty isCellSelected) {
@@ -577,7 +581,24 @@ public class LeftController {
         }
     }
 
+    @FXML
+    private void handleGenerateGraph() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/component/subcomponent/popup/graph/graphSelector.fxml"));
+            Parent root = loader.load();
 
+            GraphController graphController = loader.getController();
+            graphController.setAppController(appController);
+
+            Stage stage = new Stage();
+            stage.setTitle("Select Data for Graph");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (Exception e) {
+           new ErrorMessage(e.getMessage());
+        }
     }
+}
 
 

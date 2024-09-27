@@ -20,7 +20,7 @@ public class AppRunner extends Application {
             AppController appController = loader.getController();
             appController.setPrimaryStage(primaryStage);
 
-            Scene scene = new Scene(root, 900, 680);
+            Scene scene = new Scene(root, 900, 780);
             primaryStage.setScene(scene);
             primaryStage.setTitle("Main Application");
 
