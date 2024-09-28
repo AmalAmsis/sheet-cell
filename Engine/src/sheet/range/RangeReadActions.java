@@ -15,4 +15,10 @@ public interface RangeReadActions {
     List<Coordinate> getCoordinates();
     @Override
     String toString();
+
+    String getTopLeftCoordinate();
+
+    String getBottomRightCoordinate();
+
+    Range createDeepCopy();
 }

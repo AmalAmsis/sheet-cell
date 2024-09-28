@@ -16,4 +16,5 @@ public interface RangeManager {
     //*********************************************************YARDEN
     Map<String, Range> getRanges();
 
+    RangeManager createDeepCopy();
 }

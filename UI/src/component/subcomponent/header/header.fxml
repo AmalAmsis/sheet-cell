@@ -99,7 +99,7 @@
                       <Spinner fx:id="columnWidthSpinner" prefHeight="26.0" prefWidth="89.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
 
                       <Button fx:id="BackToDefaultButton" onAction="#ClickMeBackToDefaultButton" text="Back to default" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                      <MenuButton text="Themes" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                      <MenuButton fx:id="themesMenuButton" text="Themes" GridPane.columnIndex="6" GridPane.rowIndex="1">
                           <items>
                               <MenuItem onAction="#changeToFirstStyle" text="Style 1" />
                               <MenuItem onAction="#changeToSecondStyle" text="Style 2" />

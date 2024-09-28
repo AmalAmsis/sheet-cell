@@ -26,6 +26,21 @@ public class RangeManagerImpl implements RangeManager {
         return this.ranges;
     }
 
+    @Override
+    public RangeManager createDeepCopy() {
+        RangeManagerImpl deepCopyManager = new RangeManagerImpl();
+
+        // ביצוע העתקה עמוקה של כל טווח במפה
+        for (Map.Entry<String, Range> entry : this.ranges.entrySet()) {
+            // הנחנו שלמחלקה Range יש מתודה createDeepCopy שמבצעת העתקה עמוקה לטווח
+            Range copiedRange = entry.getValue().createDeepCopy();
+            deepCopyManager.ranges.put(entry.getKey(), copiedRange);
+        }
+
+        return deepCopyManager;
+    }
+
+
     //********************************************************************************************************//
 
     @Override
@@ -44,11 +59,15 @@ public class RangeManagerImpl implements RangeManager {
     @Override
     public void addRange(String name, Coordinate topLeft, Coordinate bottomRight)  {
         if (ranges.containsKey(name)) {
-            throw new IllegalArgumentException("Range with this name already exists.");
+            throw new IllegalArgumentException("Range with the name '" + name + "' already exists with coordinates topLeft: "
+                    + ranges.get(name).getTopLeftCoordinate()
+                    + " bottomRight: "
+                    + ranges.get(name).getBottomRightCoordinate()
+                    + ". Please choose a different name or remove the existing range.");
         }
 
         if (!isContiguous(topLeft, bottomRight)) {
-            throw new IllegalArgumentException("Range must be contiguous.");
+            throw new IllegalArgumentException("Range must be contiguous. range: " + name + " topLeft: " + topLeft + " bottomRight: " + bottomRight);
         }
 
         ranges.put(name, new RangeImpl(name, topLeft, bottomRight));
@@ -145,5 +164,8 @@ public class RangeManagerImpl implements RangeManager {
 
         return (topLeft.getRow() <= bottomRight.getRow()) && (topLeft.getCol() <= bottomRight.getCol());
     }
+
+
+
 
 }

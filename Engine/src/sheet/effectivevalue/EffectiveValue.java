@@ -5,4 +5,5 @@ public interface EffectiveValue {
     Object getValue();
     <T> T extractValueWithExpectation(Class<T> type);
 
+    EffectiveValue createDeepCopy();
 }

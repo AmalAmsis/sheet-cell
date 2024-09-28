@@ -189,6 +189,32 @@ public class SheetImpl implements Sheet , Serializable {
         return rangeManager.getReadOnlyRange(rangeName);
     }
 
+
+    @Override
+    public Sheet createDeepCopy() {
+        // Create a new SheetImpl with the same title and dimensions
+        SheetImpl copy = new SheetImpl(this.title, this.numOfRows, this.numOfCols, this.heightOfRows, this.widthOfCols);
+
+        // Create a map to track copied cells to prevent infinite recursion and cyclic references
+        Map<String, Cell> copiedCells = new HashMap<>();
+
+        // Copy the board (cells) deeply
+        for (Map.Entry<String, Cell> entry : this.board.entrySet()) {
+            // Deep copy each cell and put it into the new board
+            copy.board.put(entry.getKey(), entry.getValue().createDeepCopy(copiedCells));
+        }
+
+        // Deep copy the range manager if it holds mutable state
+        copy.rangeManager = this.rangeManager.createDeepCopy();
+
+        // Copy the version (though this might be managed independently)
+        copy.version = this.version;
+
+        return copy;
+    }
+
+
+
     @Override
     public EffectiveValue getCellEffectiveValue(Coordinate coordinate) {
         if (isCellInSheet(coordinate)) {

@@ -10,6 +10,7 @@ import dto.DTOCell;
 import dto.DTOCoordinate;
 import dto.DTORange;
 import dto.DTOSheet;
+import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -26,6 +27,8 @@ import manager.UIManagerImpl;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import static com.sun.javafx.application.PlatformImpl.runLater;
 
 /**
  * This class is the main controller for the application.
@@ -121,10 +124,15 @@ public class AppController {
      * @throws Exception if there is an error during loading.
      */
     public void loadAndDisplaySheetFromXmlFile(String filePath) throws Exception {
+        // Load the sheet from the file
         loadSheetFromFile(filePath);
-        displaySheet();
-        leftController.updateChoiceBoxes();
-        isFileLoaded.setValue(true);
+
+        // Use Platform.runLater to ensure the UI updates are done on the JavaFX Application Thread
+        Platform.runLater(() -> {
+            displaySheet();  // Update the display with the loaded sheet
+            leftController.updateChoiceBoxes();  // Update any necessary UI components (like choice boxes)
+            isFileLoaded.setValue(true);  // Indicate that the file is successfully loaded
+        });
     }
 
     /**
