@@ -93,4 +93,20 @@ public class RangeImpl implements Range {
         return bottomRight.toString();
     }
 
+    @Override
+    public Range createDeepCopy() {
+        // יצירת עותק עמוק של הקואורדינטות topLeft ו-bottomRight
+        Coordinate copiedTopLeft = new CoordinateImpl(this.topLeft.getCol(), this.topLeft.getRow());
+        Coordinate copiedBottomRight = new CoordinateImpl(this.bottomRight.getCol(), this.bottomRight.getRow());
+
+        // יצירת עותק חדש של ה-Range עם הקואורדינטות המועתקות
+        RangeImpl copiedRange = new RangeImpl(this.name, copiedTopLeft, copiedBottomRight);
+
+        // העתקת ערך ה-usageCount
+        copiedRange.usageCount = this.usageCount;
+
+        return copiedRange;
+    }
+
+
 }

@@ -26,6 +26,21 @@ public class RangeManagerImpl implements RangeManager {
         return this.ranges;
     }
 
+    @Override
+    public RangeManager createDeepCopy() {
+        RangeManagerImpl deepCopyManager = new RangeManagerImpl();
+
+        // ביצוע העתקה עמוקה של כל טווח במפה
+        for (Map.Entry<String, Range> entry : this.ranges.entrySet()) {
+            // הנחנו שלמחלקה Range יש מתודה createDeepCopy שמבצעת העתקה עמוקה לטווח
+            Range copiedRange = entry.getValue().createDeepCopy();
+            deepCopyManager.ranges.put(entry.getKey(), copiedRange);
+        }
+
+        return deepCopyManager;
+    }
+
+
     //********************************************************************************************************//
 
     @Override
@@ -149,5 +164,8 @@ public class RangeManagerImpl implements RangeManager {
 
         return (topLeft.getRow() <= bottomRight.getRow()) && (topLeft.getCol() <= bottomRight.getCol());
     }
+
+
+
 
 }

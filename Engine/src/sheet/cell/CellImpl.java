@@ -295,4 +295,31 @@ public class CellImpl implements Cell, Serializable {
     public int hashCode() {
         return Objects.hash(coordinate);
     }
+
+    @Override
+    public Cell createDeepCopy(Map<String, Cell> copiedCells) {
+        // Check if this cell has already been copied to avoid infinite recursion
+        if (copiedCells.containsKey(this.getId())) {
+            return copiedCells.get(this.getId());
+        }
+
+        // Create a new cell copy and store it in the map
+        CellImpl copiedCell = new CellImpl(this.coordinate, this.lastModifiedVersion, this.sheet);
+        copiedCell.setOriginalValue(this.originalValue);
+        copiedCell.setEffectiveValue(this.effectiveValue.createDeepCopy());
+
+        copiedCells.put(this.getId(), copiedCell); // Track the copied cell to avoid recursion
+
+        // Deep copy the dependencies and influenced cells
+        for (Cell dependentCell : this.dependsOn) {
+            copiedCell.addToDependsOn(dependentCell.createDeepCopy(copiedCells));
+        }
+        for (Cell influencingCell : this.influencingOn) {
+            copiedCell.addToInfluencingOn(influencingCell.createDeepCopy(copiedCells));
+        }
+
+        return copiedCell;
+    }
+
+
 }

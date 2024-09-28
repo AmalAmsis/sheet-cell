@@ -160,12 +160,18 @@ public class EngineImpl implements Engine,Serializable {
         return null;
     }
 
-    public DTOSheet updateTemporaryCellValue(String coordinateString, String newOriginalValue)  {
-        if (this.currentSheetState != null){
-            Sheet mySheet = this.currentSheetState.getCurrentSheet();
-            Coordinate coordinate =mySheet.convertStringToCoordinate(coordinateString.replace(":",""));
-            int numOfUpdatededCells = mySheet.setCell(coordinate, newOriginalValue);
-            return new DTOSheetImpl(mySheet);
+    public DTOSheet updateTemporaryCellValue(String coordinateString, String newOriginalValue) {
+        if (this.currentSheetState != null) {
+            // Create a deep copy of the current sheet
+            Sheet myOriginalSheet = this.currentSheetState.getCurrentSheet();
+            Sheet mySheetCopy = myOriginalSheet.createDeepCopy(); // Assuming you have a deep copy method
+
+            // Convert coordinate and update the copied sheet
+            Coordinate coordinate = mySheetCopy.convertStringToCoordinate(coordinateString.replace(":", ""));
+            int numOfUpdatedCells = mySheetCopy.setCell(coordinate, newOriginalValue);
+
+            // Return the DTO for the updated copy
+            return new DTOSheetImpl(mySheetCopy);
         }
         return null;
     }

@@ -4,6 +4,7 @@ import jaxb.schema.generated.STLCell;
 import sheet.coordinate.Coordinate;
 import sheet.effectivevalue.EffectiveValue;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -103,4 +104,5 @@ public interface Cell {
      * @return a List of Cell objects that form a cycle. */
     List<Cell> detectCycleHelper(Set<Cell> visited, Set<Cell> recStack, List<Cell> path);
 
+    Cell createDeepCopy(Map<String, Cell> copiedCells);
 }

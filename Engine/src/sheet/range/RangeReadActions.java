@@ -19,4 +19,6 @@ public interface RangeReadActions {
     String getTopLeftCoordinate();
 
     String getBottomRightCoordinate();
+
+    Range createDeepCopy();
 }
