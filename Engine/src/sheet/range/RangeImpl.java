@@ -83,4 +83,14 @@ public class RangeImpl implements Range {
                 '}';
     }
 
+    @Override
+    public String getTopLeftCoordinate() {
+        return topLeft.toString();
+    }
+
+    @Override
+    public String getBottomRightCoordinate() {
+        return bottomRight.toString();
+    }
+
 }

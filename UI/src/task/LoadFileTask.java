@@ -1,5 +1,6 @@
 package task;
 
+import component.subcomponent.popup.errormessage.ErrorMessage;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 
@@ -27,33 +28,33 @@ public class LoadFileTask extends Task<Boolean> {
     @Override
     protected Boolean call() throws Exception {
         try {
-            // Stage 1: Initiating file fetch
+            // Simulate loading stages with messages and progress updates
             updateMessage("Initiating file fetch...");
-            updateProgress(0.1, 1); // 10% progress
-            sleepForAWhile(SLEEP_TIME); // Simulating delay
+            updateProgress(0.1, 1);
+            sleepForAWhile(SLEEP_TIME);
 
-            // Stage 2: Verifying file location
             updateMessage("Verifying file location...");
-            updateProgress(0.3, 1); // 30% progress
-            sleepForAWhile(SLEEP_TIME); // Simulating delay
+            updateProgress(0.3, 1);
+            sleepForAWhile(SLEEP_TIME);
 
-            // Stage 3: Preparing file for loading
             updateMessage("Preparing file for loading...");
-            updateProgress(0.5, 1); // 50% progress
-            sleepForAWhile(SLEEP_TIME); // Simulating delay
+            updateProgress(0.5, 1);
+            sleepForAWhile(SLEEP_TIME);
 
-            // Stage 4: Loading the file
+            // Stage 4: Loading the file outside of Platform.runLater
             updateMessage("Loading the file...");
-            updateProgress(0.8, 1); // 80% progress
+            updateProgress(0.8, 1);
             sleepForAWhile(SLEEP_TIME);
-            Platform.runLater(() -> loadFileFunction.accept(fileName)); // Actual file loading
 
-            // Stage 5: Finalizing the loading process
+            // Load the file directly in the task, not in runLater
+            loadFileFunction.accept(fileName);
+
+            // Finalizing stage
             updateMessage("Finalizing the loading process...");
-            updateProgress(1, 1); // 100% progress
+            updateProgress(1, 1);
             sleepForAWhile(SLEEP_TIME);
 
-            // Call the success handler
+            // Handle success
             Platform.runLater(() -> {
                 updateMessage("Success: File loaded successfully!");
                 loadingSuccessFunction.accept(fileName);
@@ -62,11 +63,14 @@ public class LoadFileTask extends Task<Boolean> {
             return true; // Task succeeded
 
         } catch (Exception e) {
-            // Handle any errors that occur during the loading process
-            updateMessage("Error: Failed to load the file. " + e.getMessage());
-            return false;
+            // Catch the exception and ensure the task fails
+            updateMessage("Error: " + e.getMessage());
+            throw e;  // Rethrow to ensure task failure is handled
         }
     }
+
+
+
 
 
     /**

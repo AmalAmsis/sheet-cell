@@ -44,11 +44,15 @@ public class RangeManagerImpl implements RangeManager {
     @Override
     public void addRange(String name, Coordinate topLeft, Coordinate bottomRight)  {
         if (ranges.containsKey(name)) {
-            throw new IllegalArgumentException("Range with this name already exists.");
+            throw new IllegalArgumentException("Range with the name '" + name + "' already exists with coordinates topLeft: "
+                    + ranges.get(name).getTopLeftCoordinate()
+                    + " bottomRight: "
+                    + ranges.get(name).getBottomRightCoordinate()
+                    + ". Please choose a different name or remove the existing range.");
         }
 
         if (!isContiguous(topLeft, bottomRight)) {
-            throw new IllegalArgumentException("Range must be contiguous.");
+            throw new IllegalArgumentException("Range must be contiguous. range: " + name + " topLeft: " + topLeft + " bottomRight: " + bottomRight);
         }
 
         ranges.put(name, new RangeImpl(name, topLeft, bottomRight));

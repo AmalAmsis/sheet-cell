@@ -169,10 +169,6 @@ public class HeaderController {
         filePathLlabel.setText(message);
     }
 
-    /**
-     * Loads the selected file with a progress bar, showing updates to the user.
-     * @param filePath the file path to be loaded
-     */
     private void loadFileWithProgress(String filePath) {
         Task<Boolean> loadFileTask = new LoadFileTask(
                 filePath,
@@ -180,10 +176,11 @@ public class HeaderController {
                     try {
                         appController.loadAndDisplaySheetFromXmlFile(path);
                     } catch (Exception e) {
-                        throw new RuntimeException(e.getMessage());
+                        // Handle error directly
+                        throw new RuntimeException("Error: Failed to load the file. " + e.getMessage(), e);
                     }
                 },
-                (path) -> updateFilePathLabel(path)
+                (path) -> updateFilePathLabel(path) // Success handler
         );
 
         fileLoadingProgressBar.progressProperty().bind(loadFileTask.progressProperty());
@@ -199,8 +196,14 @@ public class HeaderController {
         });
 
         loadFileTask.setOnFailed(event -> {
-            new ErrorMessage("Failed to load the file.");
+            Throwable exception = loadFileTask.getException();
+            if (exception != null) {
+                new ErrorMessage(exception.getMessage());  // Display the actual error message
+            } else {
+                new ErrorMessage("Failed to load the file.");
+            }
             fileLoadingProgressBar.setVisible(false);
+            progressLabel.setVisible(false);
         });
 
         Thread thread = new Thread(loadFileTask);
@@ -208,23 +211,32 @@ public class HeaderController {
         thread.start();
     }
 
+
+
+
+
     /**
      * Handles file selection and loading.
      */
     @FXML
     public void ClickMeLoadFileButtonAction() {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Select File");
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("XML Files", "*.xml"));
+        try {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Select File");
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("XML Files", "*.xml"));
 
-        Stage stage = (Stage) loadFileButton.getScene().getWindow();
-        File selectedFile = fileChooser.showOpenDialog(stage);
+            Stage stage = (Stage) loadFileButton.getScene().getWindow();
+            File selectedFile = fileChooser.showOpenDialog(stage);
 
-        if (selectedFile != null) {
-            loadFileWithProgress(selectedFile.getAbsolutePath());
-        } else {
-            new ErrorMessage("No file selected");
+            if (selectedFile != null) {
+                loadFileWithProgress(selectedFile.getAbsolutePath());
+            } else {
+                new ErrorMessage("No file selected");
+            }
+        }catch (Exception e) {
+            new ErrorMessage(e.getMessage());
         }
+
     }
 
     /**
