@@ -54,6 +54,7 @@ public class HeaderController {
     @FXML private Button BackToDefaultButton;
     @FXML private ProgressBar fileLoadingProgressBar;  // Progress bar for loading
     @FXML private Label progressLabel;  // Label for status updates
+    @FXML private MenuButton themesMenuButton;
 
     /**
      * Sets the reference to the main application controller.
@@ -111,7 +112,10 @@ public class HeaderController {
                     break;
             }
             appController.setSelectedColumnAlignment(alignment);  // Apply selected alignment
+
         });
+
+        themesMenuButton.setText("Style 1");
 
         // Set options for alignment choice box
         ObservableList<String> options = FXCollections.observableArrayList("Left", "Center", "Right");
@@ -285,6 +289,7 @@ public class HeaderController {
      */
     public void changeToFirstStyle(ActionEvent actionEvent) {
         appController.applyTheme("Style 1");
+        themesMenuButton.setText("Style 1");
     }
 
     /**
@@ -292,5 +297,6 @@ public class HeaderController {
      */
     public void changeToSecondStyle(ActionEvent actionEvent) {
         appController.applyTheme("Style 2");
+        themesMenuButton.setText("Style 2");
     }
 }
