@@ -64,6 +64,10 @@ public class EffectiveValueImpl implements EffectiveValue, Serializable {
             //return "Empty Cell";
             return "";
         }
+
+        if (cellType == CellType.BOOLEAN){
+            return Boolean.toString((Boolean) value).toUpperCase();
+        }
         return this.extractValueWithExpectation(cellType.getType()).toString();
     }
 

@@ -23,7 +23,7 @@ public class CellModel {
 
     public CellModel(int hight, int width) {
         this.value = new SimpleStringProperty("");
-        this.alignment = new SimpleObjectProperty<>(Pos.CENTER_LEFT);
+        this.alignment = new SimpleObjectProperty<>(Pos.CENTER);
         this.textColor = new SimpleObjectProperty<>(Color.BLACK);
         this.backgroundColor = new SimpleObjectProperty<>(CellStyle.NORMAL_CELL_BACKGROUND_COLOR.getColorValue());
         this.font = new SimpleObjectProperty<>(Font.getDefault());
