@@ -9,12 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="last merge before submit part 2">
-      <change afterPath="$PROJECT_DIR$/Server/Server.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/HelloWorldServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/web/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="starting part 3!!!">
+      <change afterPath="$PROJECT_DIR$/Client/src/component/login/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/component/login/login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/component/login/login.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,9 +26,9 @@
         <option value="Interface" />
         <option value="JavaFXApplication" />
         <option value="Enum" />
-        <option value="CSS File" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -83,13 +81,13 @@
     "git-widget-placeholder": "Amal",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Amal Amsis/Desktop/AmalA/Computer Science/JAVA/tomcat/apache-tomcat-10.1.30",
+    "last_opened_file_path": "C:/Users/Amal Amsis/Downloads/Online Chat V3/Online Chat V3",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.applicationServers",
@@ -293,15 +291,7 @@
       <workItem from="1726661798033" duration="90668000" />
       <workItem from="1727444169481" duration="27511000" />
       <workItem from="1727514654686" duration="90000" />
-      <workItem from="1727521816129" duration="19773000" />
-    </task>
-    <task id="LOCAL‎-00027" summary="Added new Math expression function:PERCENT">
-      <option name="closed" value="true" />
-      <created>1725786531774</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL‎-00027" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725786531774</updated>
+      <workItem from="1727521816129" duration="24969000" />
     </task>
     <task id="LOCAL‎-00028" summary="New departments:&#10;1.Range(interface)&#10;2.RangeImpl&#10;3.RangeManager(Interface)&#10;4.RangeManagerImpl&#10;Their purpose: range support and complex functions">
       <option name="closed" value="true" />
@@ -687,7 +677,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1727686072001</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL‎-00076" summary="starting part 3!!!">
+      <option name="closed" value="true" />
+      <created>1728557909026</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL‎-00076" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1728557909027</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -733,7 +731,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=" handling commands relatedto ranges in UI" />
     <MESSAGE value="Highlighting the Data label in the version selector" />
     <MESSAGE value="commit1" />
     <MESSAGE value="nhanced cell customization and layout management:&#10;&#10;- Implemented functionality to change cell background and text colors using ColorPickers.&#10;- Added listeners for Spinners to adjust row height and column width dynamically.&#10;- Improved handling of cell text alignment with the ChoiceBox, allowing for center, left, and right alignment.&#10;- Refined interaction between HeaderController and SheetController to ensure seamless updates to cell properties.&#10;&#10;- Improved logic for applying styles and dimensions to ensure consistent behavior across the grid." />
@@ -758,7 +755,8 @@
     <MESSAGE value="Fixed the handling of Platform.runLater in AppController's loadAndDisplaySheetFromXmlFile method to ensure that UI updates are executed correctly on the JavaFX Application Thread. Added proper lambda syntax for multiple statements.&#10;&#10;Improved error handling: The application now properly stops processing if an invalid file or conflicting range is detected during XML file loading. This prevents the application from attempting to display corrupted data after encountering an exception." />
     <MESSAGE value="Implemented deep copy functionality across multiple components:&#10;- Added createDeepCopy method in SheetImpl to handle deep copying of sheets, including copying cells, the range manager, and all related data.&#10;- Implemented deep copy for CellImpl, ensuring correct copying of cell dependencies (dependsOn and influencingOn) while avoiding recursion issues with cyclic references.&#10;- Added tracking maps in SheetImpl and CellImpl (copiedCells) to prevent infinite recursion during the deep copy process.&#10;- Implemented deep copy functionality for RangeImpl and RangeManagerImpl to ensure ranges and their usage counts are copied correctly.&#10;- Ensured that all dependent entities such as cells, ranges, and the range manager are copied deeply, maintaining consistency and avoiding shared references between the original and copied sheets." />
     <MESSAGE value="last merge before submit part 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="last merge before submit part 2" />
+    <MESSAGE value="starting part 3!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="starting part 3!!!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
