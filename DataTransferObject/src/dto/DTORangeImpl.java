@@ -1,8 +1,7 @@
 package dto;
 
-import sheet.coordinate.Coordinate;
-import sheet.range.Range;
-import sheet.range.RangeReadActions;
+import sheetmanager.sheet.coordinate.Coordinate;
+import sheetmanager.sheet.range.RangeReadActions;
 
 import java.util.ArrayList;
 import java.util.List;

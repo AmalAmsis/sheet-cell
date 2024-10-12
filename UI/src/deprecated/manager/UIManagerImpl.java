@@ -3,17 +3,17 @@ package deprecated.manager;
 import dto.DTOCell;
 import dto.DTOCoordinate;
 import dto.DTOSheet;
-import engine.Engine;
-import engine.EngineImpl;
+import sheetmanager.SheetManager;
+import sheetmanager.SheetManagerImpl;
 import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import jakarta.xml.bind.JAXBException;
-import jaxb.schema.xmlprocessing.FileDataException;
+import uploadfilemanager.jaxb.xmlprocessing.FileDataException;
 import deprecated.menu.Command;
-import sheet.version.SheetVersionData;
-import sheet.version.SheetVersionHandler;
+import sheetmanager.sheet.version.SheetVersionData;
+import sheetmanager.sheet.version.SheetVersionHandler;
 
 /**
  * UIManagerImpl implements the UIManager interface, handling user interactions for managing the spreadsheet system.
@@ -21,7 +21,7 @@ import sheet.version.SheetVersionHandler;
  */
 public class UIManagerImpl implements UIManager {
 
-    private Engine engine; // The engine responsible for handling the core logic of the system
+    private SheetManager sheetManager; // The engine responsible for handling the core logic of the system
     private boolean isFirst; // Flag to determine if it's the first menu interaction
 
 
@@ -29,7 +29,7 @@ public class UIManagerImpl implements UIManager {
      * UIManagerImpl constructor
      */
     public UIManagerImpl() {
-        this.engine = new EngineImpl();
+        this.sheetManager = new SheetManagerImpl();
         this.isFirst = true;
     }
 
@@ -141,7 +141,7 @@ public class UIManagerImpl implements UIManager {
 
     @Override
     public void displaySheet(){
-        DTOSheet dtoSheet = engine.displaySheet();
+        DTOSheet dtoSheet = sheetManager.displaySheet();
         printSheetToConsole(dtoSheet);
     }
 
@@ -264,7 +264,7 @@ public class UIManagerImpl implements UIManager {
 
         try{
             // Attempt to load the sheet from the XML file
-            engine.loadSheetFromXmlFile(filePath);
+            sheetManager.loadSheetFromXmlFile(filePath);
             // If successful, print a success message
             System.out.println("====================================");
             System.out.println("The XML file was loaded successfully.");
@@ -393,7 +393,7 @@ public class UIManagerImpl implements UIManager {
         try {
             // Step 1: Get cell identity from user
             String coordinateString = getCoordinateInput();
-            DTOCell dtoCell = engine.displayCell(coordinateString);
+            DTOCell dtoCell = sheetManager.displayCell(coordinateString);
             printCellDetails(dtoCell);
 
         }catch (Exception e) {
@@ -491,7 +491,7 @@ public class UIManagerImpl implements UIManager {
         try {
             String coordinate = getCoordinateInput();
             String originalValue = getNewOriginalValueInput();
-            engine.updateCell(coordinate, originalValue);
+            sheetManager.updateCell(coordinate, originalValue);
             displaySheet();
         }catch (Exception e) {
             printErrorUpdateCellMenu(e.getMessage());
@@ -569,7 +569,7 @@ public class UIManagerImpl implements UIManager {
     // Prompts the user to select a version number to display
     private int getVersionNumberFromUser() {
         Scanner scanner = new Scanner(System.in);
-        SheetVersionHandler versionHandler = engine.getCurrentSheetState().getVersionHandler();
+        SheetVersionHandler versionHandler = sheetManager.getCurrentSheetState().getVersionHandler();
         int numOfVersion = versionHandler.getNumOfVersions();
         System.out.println("Please select a version number from the following list:");
 
@@ -623,13 +623,13 @@ public class UIManagerImpl implements UIManager {
     }
     // Prints the specified version of the sheet
     private void printSheetVersion(int version) {
-        SheetVersionHandler versionHandler = engine.getCurrentSheetState().getVersionHandler();
+        SheetVersionHandler versionHandler = sheetManager.getCurrentSheetState().getVersionHandler();
         DTOSheet dtoSheet = versionHandler.getSheetByVersion(version);
         printSheetToConsole(dtoSheet);
     }
     // Prints the history of all versions (num of in each version and in each one how many cells been updated
     private void printVersionsHistory() {
-        SheetVersionHandler versionHandler = engine.getCurrentSheetState().getVersionHandler();
+        SheetVersionHandler versionHandler = sheetManager.getCurrentSheetState().getVersionHandler();
 
         StringBuilder sb = new StringBuilder();
 
@@ -662,7 +662,7 @@ public class UIManagerImpl implements UIManager {
         String inputFilePath = getInputFilePathFromUser();
         int choice;
         try{
-            engine.loadSystemState(inputFilePath);
+            sheetManager.loadSystemState(inputFilePath);
             System.out.println("===============================");
             System.out.println("System state loaded successfully");
             System.out.println("===============================");
@@ -723,7 +723,7 @@ public class UIManagerImpl implements UIManager {
         String outputFilePath = getOutputFilePathFromUser();
         int choice;
         try{
-            engine.saveSystemState(outputFilePath);
+            sheetManager.saveSystemState(outputFilePath);
             System.out.println("===============================");
             System.out.println("System state saved successfully");
             System.out.println("===============================");

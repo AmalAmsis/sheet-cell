@@ -1,6 +1,6 @@
 package dto;
 
-import sheet.coordinate.Coordinate;
+import sheetmanager.sheet.coordinate.Coordinate;
 
 import java.io.Serializable;
 

@@ -9,25 +9,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="starting part 3!!!&#10;linking the tomcat and dividing it into new models and starting work on login">
-      <change afterPath="$PROJECT_DIR$/Client/src/component/login/TestLogin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/component/login/TestLogin2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/util/Constants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/util/http/HttpClientUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/util/http/SimpleCookieManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Engine/src/users/UserManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Engine/src/users/UserManagerImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/servlets/LightweightLoginServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/servlets/LoginServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/servlets/LogoutServlet.java" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="refactoring the Engine module">
+      <change afterPath="$PROJECT_DIR$/Engine/src/test/UploadFileTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/login/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/Server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/Server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/constants/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/constants/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/allsheetsmanager/AllSheetsManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/allsheetsmanager/AllSheetsManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheetmanager/SheetManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheetmanager/SheetManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheetmanager/expression/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheetmanager/expression/Operation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/uploadfilemanager/LoadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/uploadfilemanager/LoadFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/utils/ServletUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/utils/ServletUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/utils/SessionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/utils/SessionUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/web/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Expression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/ExpressionEvaluator$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/ExpressionEvaluator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/BinaryExpression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/TernaryExpression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/UnaryExpression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Divide.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Pow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/primitive/BooleanExpression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/primitive/NumericExpression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/primitive/StringExpression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/str/Concat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/systemic/Ref.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/sheet/cell/Cell.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/sheet/cell/CellImpl.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,11 +53,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
-        <option value="JavaFXApplication" />
-        <option value="Enum" />
         <option value="FxmlFile" />
-        <option value="CSS File" />
+        <option value="Exception" />
+        <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -59,7 +73,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/AmalAmsis/sheet-cell.git&quot;,
-    &quot;accountId&quot;: &quot;7c3c5dfe-f29d-4945-a690-87b881a1fc0c&quot;
+    &quot;accountId&quot;: &quot;537397b5-d0c5-40c9-8de6-5008f77a31b4&quot;
   }
 }</component>
   <component name="LogFilters">
@@ -68,6 +82,9 @@
     <option name="FILTER_INFO" value="true" />
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -84,60 +101,57 @@
     "Application.FxmlTest.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.Test.executor": "Run",
-    "Application.Test2.executor": "Coverage",
+    "Application.Test2.executor": "Debug",
+    "Application.Test3.executor": "Debug",
     "Application.TestLogin.executor": "Run",
     "Application.TestLogin2.executor": "Run",
-    "Application.deprecated.apprunner.AppRunner.executor": "Debug",
-    "Application.sheet.range.Test.executor": "Run",
+    "Application.UploadFileTest.executor": "Debug",
+    "Application.apprunner.AppRunner.executor": "Run",
+    "Application.main.executor": "Run",
+    "Application.sortSheetTest.executor": "Debug",
     "Application.test.FxmlTest.executor": "Run",
     "DefaultHtmlFileTemplate": "HTML File",
+    "JAR Application.UI.jar (1).executor": "Run",
     "JAR Application.UI.jar.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Tomcat Server.Tomcat 10.1.30.executor": "Run",
-    "git-widget-placeholder": "Amal",
-    "jdk.selected.JAVA_MODULE": "21",
+    "Tomcat Server.Tomcat 10.1.26.executor": "Run",
+    "git-widget-placeholder": "yarden__branch",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Amal Amsis/Desktop/AmalA/Computer Science/JAVA/okHttp/kotlin-stdlib-common-1.4.10.jar",
-    "list.type.of.created.stylesheet": "CSS",
+    "last_opened_file_path": "C:/lib/gson/gson-2.1.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.1706642",
-    "settings.editor.selected.configurable": "preferences.applicationServers",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15752351",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\sheet-cell\UI\src\component\subcomponent\header" />
-      <recent name="C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\sheet-cell\UI\src\component\subcomponent\cell" />
+      <recent name="C:\projects\sheet-cell\Engine\uploadfilemanager" />
+      <recent name="C:\projects\sheet-cell\Server\src\model" />
+      <recent name="C:\projects\sheet-cell\Engine\src\sheet" />
+      <recent name="C:\projects\sheet-cell\UI\src\component\subcomponent\popup\versionselector" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="sheet.command.filtersortdatapreparation" />
+      <recent name="component.subcomponent.popup.versionselector" />
+      <recent name="jaxb.schema.generated" />
+      <recent name="subcomponents.test" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TestLogin">
+  <component name="RunManager" selected="Application.UploadFileTest">
     <configuration name="AppRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="apprunner.AppRunner" />
       <module name="UI" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\openjfx-22.0.2_windows-x64_bin-sdk\javafx-sdk-22.0.2\lib&quot;  --add-modules javafx.controls,javafx.fxml " />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\lib\javafx-sdk-22.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sheet.range.Test" />
-      <module name="UI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="sheet.range.*" />
+          <option name="PATTERN" value="apprunner.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -148,7 +162,7 @@
     <configuration name="TestLogin" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="component.login.TestLogin" />
       <module name="Client" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\openjfx-22.0.2_windows-x64_bin-sdk\javafx-sdk-22.0.2\lib&quot;  --add-modules javafx.controls,javafx.fxml " />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\lib\javafx-sdk-22.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="component.login.*" />
@@ -162,7 +176,7 @@
     <configuration name="TestLogin2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="component.login.TestLogin2" />
       <module name="Client" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\openjfx-22.0.2_windows-x64_bin-sdk\javafx-sdk-22.0.2\lib&quot;  --add-modules javafx.controls,javafx.fxml " />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\lib\javafx-sdk-22.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="component.login.*" />
@@ -173,12 +187,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="deprecated.apprunner.AppRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="deprecated.apprunner.AppRunner" />
-      <module name="UI" />
+    <configuration name="UploadFileTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.UploadFileTest" />
+      <module name="Engine" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="manager.*" />
+          <option name="PATTERN" value="test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -186,12 +200,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UI.jar" type="JarApplication">
+    <configuration name="UI.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/UI/UI.jar" />
       <method v="2" />
     </configuration>
-    <configuration name="Tomcat 10.1.30" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.30" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-      <option name="OPEN_IN_BROWSER" value="false" />
+    <configuration name="Tomcat 10.1.26" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.26" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/Server_web_exploded/" />
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -202,7 +216,7 @@
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="f1eb443b-e7ff-474e-9cdd-4956939d6e27" />
+        <option name="BASE_DIRECTORY_NAME" value="c83da37e-e68c-48b5-aeaa-cf8728f3057c" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -210,7 +224,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="63385" />
+        <option name="DEBUG_PORT" value="62409" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -280,447 +294,437 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.UploadFileTest" />
       <item itemvalue="Application.TestLogin2" />
       <item itemvalue="Application.TestLogin" />
-      <item itemvalue="Application.deprecated.apprunner.AppRunner" />
       <item itemvalue="Application.AppRunner" />
-      <item itemvalue="Application.Test" />
       <item itemvalue="JAR Application.UI.jar" />
-      <item itemvalue="Tomcat Server.Tomcat 10.1.30" />
+      <item itemvalue="Tomcat Server.Tomcat 10.1.26" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TestLogin" />
+        <item itemvalue="Application.UploadFileTest" />
         <item itemvalue="Application.TestLogin2" />
+        <item itemvalue="Application.TestLogin" />
         <item itemvalue="Application.AppRunner" />
-        <item itemvalue="Application.deprecated.apprunner.AppRunner" />
-        <item itemvalue="Application.Test" />
+        <item itemvalue="JAR Application.UI.jar" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.387" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.387" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task id="LOCAL‎-00001" summary="update gitignore">
+      <option name="closed" value="true" />
+      <created>1724498833313</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL‎-00001" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724498833313</updated>
+    </task>
+    <task id="LOCAL‎-00002" summary="update gitignore">
+      <option name="closed" value="true" />
+      <created>1724499100075</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL‎-00002" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724499100075</updated>
+    </task>
+    <task id="LOCAL-00003" summary="update XmlProcessing&#10;1. update topologicalSort&#10;2. add CircularReferenceException">
+      <option name="closed" value="true" />
+      <created>1724578073765</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1724578073765</updated>
+    </task>
+    <task id="LOCAL-00004" summary="26.8.24 merge">
+      <option name="closed" value="true" />
+      <created>1724662696741</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1724662696741</updated>
+    </task>
+    <task id="LOCAL-00005" summary="26.8.24 merge">
+      <option name="closed" value="true" />
+      <created>1724662850499</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1724662850499</updated>
+    </task>
+    <task id="LOCAL-00006" summary="ui module - first naive interface">
+      <option name="closed" value="true" />
+      <created>1724665209722</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1724665209722</updated>
+    </task>
+    <task id="LOCAL-00007" summary="ui module - first naive interface">
+      <option name="closed" value="true" />
+      <created>1724665278587</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1724665278587</updated>
+    </task>
+    <task id="LOCAL-00008" summary="displaySheet func impl in the UI">
+      <option name="closed" value="true" />
+      <created>1724687668711</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1724687668711</updated>
+    </task>
+    <task id="LOCAL-00009" summary="displaySheet func impl in the UI">
+      <option name="closed" value="true" />
+      <created>1724741970413</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1724741970413</updated>
+    </task>
+    <task id="LOCAL-00010" summary="for marge 27.8.24">
+      <option name="closed" value="true" />
+      <created>1724751200079</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1724751200079</updated>
+    </task>
+    <task id="LOCAL-00011" summary="for marge 27.8.24">
+      <option name="closed" value="true" />
+      <created>1724762867503</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1724762867503</updated>
+    </task>
+    <task id="LOCAL-00012" summary="working on AppRunner">
+      <option name="closed" value="true" />
+      <created>1724768249092</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1724768249092</updated>
+    </task>
+    <task id="LOCAL‎-00013" summary="1.Fixing the setCell method so that it returns how many cells have been update&#10;2. Fixing getCell method so that it deals with empty cells&#10;3. add some function to the enum&#10;4. implements updateCell and showCELL at the manager&#10;5. ref for more than one">
+      <option name="closed" value="true" />
+      <created>1724837477833</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL‎-00013" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724837477833</updated>
+    </task>
+    <task id="LOCAL‎-00014" summary="some changes in update cell">
+      <option name="closed" value="true" />
+      <created>1724841754120</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL‎-00014" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724841754120</updated>
+    </task>
+    <task id="LOCAL‎-00015" summary="tests">
+      <option name="closed" value="true" />
+      <created>1724845223024</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL‎-00015" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724845223024</updated>
+    </task>
+    <task id="LOCAL‎-00016" summary="ref - coordinate to upper case">
+      <option name="closed" value="true" />
+      <created>1724845264924</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL‎-00016" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724845264924</updated>
+    </task>
+    <task id="LOCAL‎-00017" summary="new merge">
+      <option name="closed" value="true" />
+      <created>1724848180673</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL‎-00017" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724848180673</updated>
+    </task>
+    <task id="LOCAL‎-00018" summary="new merge">
+      <option name="closed" value="true" />
+      <created>1724848563755</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL‎-00018" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724848563755</updated>
+    </task>
+    <task id="LOCAL‎-00019" summary="new merge">
+      <option name="closed" value="true" />
+      <created>1724849758921</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL‎-00019" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724849758921</updated>
+    </task>
+    <task id="LOCAL‎-00020" summary="new merge">
+      <option name="closed" value="true" />
+      <created>1724876137334</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL‎-00020" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724876137334</updated>
+    </task>
+    <task id="LOCAL‎-00021" summary="accept coordinate with lowercase letters">
+      <option name="closed" value="true" />
+      <created>1724878159571</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL‎-00021" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724878159571</updated>
+    </task>
+    <task id="LOCAL‎-00022" summary="recent revisions">
+      <option name="closed" value="true" />
+      <created>1724920837805</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL‎-00022" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724920837805</updated>
+    </task>
     <task active="true" id="Default" summary="Default task">
-      <changelist id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Starting part 2!!!&#10;Some system changes:&#10;Mainly in updating a cell using a function:&#10;• Input of a function will be considered incorrect only if it is an incorrect structure: unknown function name; Incorrect amount of arguments, etc.).&#10;• Input of arguments of the wrong type to the function, either directly (for example: concat(4,5)) or indirectly (for example: in a1 there is a number 4 and then concat(ref(a1),aaa)) is performed - it will be considered a valid input ( that doesn't throw exception) but then the function will get an invalid value (according to its type)&#10;• An empty cell has no value. Making a ref to an empty cell is meaningless, but technically it is a valid and proper input. The value of the cell that makes a ref to an empty cell is... the empty cell.&#10;-Note: There is one missing case in the &quot;ref&quot; that needs to be addressed" />
-      <created>1725627668934</created>
+      <changelist id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="commit for marge" />
+      <created>1725627049201</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1725627668934</updated>
-      <workItem from="1725627672775" duration="38406000" />
-      <workItem from="1725874015206" duration="12458000" />
-      <workItem from="1725968132983" duration="9629000" />
-      <workItem from="1726042710021" duration="76800000" />
-      <workItem from="1726303761970" duration="10112000" />
-      <workItem from="1726317889050" duration="26981000" />
-      <workItem from="1726655129491" duration="3934000" />
-      <workItem from="1726661798033" duration="90668000" />
-      <workItem from="1727444169481" duration="27511000" />
-      <workItem from="1727514654686" duration="90000" />
-      <workItem from="1727521816129" duration="38018000" />
-      <workItem from="1728658271429" duration="35000" />
-      <workItem from="1728659469841" duration="20711000" />
+      <updated>1725627049201</updated>
+      <workItem from="1725627050305" duration="1262000" />
+      <workItem from="1725630797186" duration="41534000" />
+      <workItem from="1725807156007" duration="1382000" />
+      <workItem from="1726053985447" duration="18219000" />
+      <workItem from="1726310407207" duration="66973000" />
+      <workItem from="1726579961504" duration="36838000" />
+      <workItem from="1727002880546" duration="4477000" />
+      <workItem from="1728288122947" duration="1900000" />
+      <workItem from="1728509615912" duration="1624000" />
+      <workItem from="1728512012176" duration="100000" />
+      <workItem from="1728519610502" duration="2599000" />
+      <workItem from="1728558040053" duration="27070000" />
     </task>
-    <task id="LOCAL‎-00029" summary="split Range interface into 2 interfaces : RangeReadActions,RangeUpdateAction">
+    <task id="LOCAL-00023" summary="Beginning of work on the graphical interface.&#10;The main component is the app&#10;which contains 2 components:&#10;header and sheet.&#10;&#10;The sheet contains cell type components.&#10;&#10;I basically defined everyone's fxml files.&#10;&#10;I also built a basic controller for everyone.&#10;&#10;I built a function in sheetController that knows how to receive a sheet and load it to the screen.">
       <option name="closed" value="true" />
-      <created>1725813455790</created>
+      <created>1725723154396</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1725723154396</updated>
+    </task>
+    <task id="LOCAL-00024" summary="deleted HADASH package">
+      <option name="closed" value="true" />
+      <created>1726049939214</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1726049939214</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Generated JAXB classes from XSD schema using xjc&#10;&#10;- Used xjc to generate Java classes from 'shtisel-v2.xsd'.&#10;- Placed the generated classes in 'jaxb.schema.genarated' package.">
+      <option name="closed" value="true" />
+      <created>1726055255613</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1726055255613</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Generated JAXB classes from XSD schema using xjc&#10;&#10;- Used xjc to generate Java classes from 'shtisel-v2.xsd'.&#10;- Placed the generated classes in 'jaxb.schema.genarated' package.">
+      <option name="closed" value="true" />
+      <created>1726055431865</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1726055431865</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Adding DTORange class&#10;&#10;adapted the following classes to it in Engine module:&#10;&#10;1.sheet&#10;- RangeManager getRangeManager();&#10;&#10;2. sheetImpl&#10;-Constructor update: public SheetImpl(STLSheet stlSheet, List&lt;STLCell&gt; sortedListOfStlCells)&#10;- implementation of getRangeManager().&#10;&#10;3. RangeManager&#10;-Map&lt;String, Range&gt; getRanges();&#10;&#10;4. RangeManagerImpl&#10;- Implementation of:  Map&lt;String, Range&gt; getRanges();&#10;&#10;&#10;DTO module adjustments&#10;&#10;1. DTOCoordinateImpl&#10;- Adding a constructor public DTOCoordinateImpl(Coordinate coordinate)&#10;&#10;2. DTOSheet&#10;-Map&lt;String,DTORange&gt; getRanges();&#10;&#10;3. DTOShetImpl&#10;-Adding a member: private final Map&lt;String, DTORange&gt; ranges;&#10;-Constructor update: public DTOSheetImpl(Sheet sheet)&#10;-Implementation Map&lt;String,DTORange&gt; getRanges();">
+      <option name="closed" value="true" />
+      <created>1726063063124</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1726063063124</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Preparing the test of the ranges by loading the xml file in EngineImpl">
+      <option name="closed" value="true" />
+      <created>1726133116326</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1726133116326</updated>
+    </task>
+    <task id="LOCAL-00029" summary="commit for marge">
+      <option name="closed" value="true" />
+      <created>1726133192368</created>
       <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL‎-00029" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725813455790</updated>
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1726133192368</updated>
     </task>
-    <task id="LOCAL‎-00030" summary="split Range interface into 2 interfaces : RangeReadActions,RangeUpdateAction">
+    <task id="LOCAL-00030" summary="commit for marge">
       <option name="closed" value="true" />
-      <created>1725814723420</created>
+      <created>1726312328246</created>
       <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL‎-00030" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725814723420</updated>
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1726312328246</updated>
     </task>
-    <task id="LOCAL‎-00031" summary="add new method to sheetImpl : &#10;/**&#10;     * Retrieves a range by its name.&#10;     *&#10;     * @param rangeName The name of the range.&#10;     * @return The range as RangeReadActions, or null if not found in RangeManager.&#10;     */&#10;    RangeReadActions getRangeReadActions(String rangeName);">
+    <task id="LOCAL-00031" summary="versionSelctor is working.">
       <option name="closed" value="true" />
-      <created>1725814845310</created>
+      <created>1726328949154</created>
       <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL‎-00031" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725814845310</updated>
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1726328949154</updated>
     </task>
-    <task id="LOCAL‎-00032" summary="Added new Math expression function:Sum">
+    <task id="LOCAL-00032" summary="Highlighting the Data label in the version selector">
       <option name="closed" value="true" />
-      <created>1725816788258</created>
+      <created>1726330810619</created>
       <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL‎-00032" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725816788258</updated>
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1726330810619</updated>
     </task>
-    <task id="LOCAL‎-00033" summary="Added new Math expression function:Sum">
+    <task id="LOCAL-00033" summary="Update version manager with a new independent class: ViewOnlySheet, instead of was the original sheet class.&#10;&#10;we will was in this class to display the sort sheet and filtered sheet.">
       <option name="closed" value="true" />
-      <created>1725817049322</created>
+      <created>1726350337998</created>
       <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL‎-00033" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725817049322</updated>
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1726350337998</updated>
     </task>
-    <task id="LOCAL‎-00034" summary="Added new Math expression function:Average">
+    <task id="LOCAL-00034" summary="First construction of the sortSheet class&#10;Has not yet been checked for correctness">
       <option name="closed" value="true" />
-      <created>1725817885819</created>
+      <created>1726409074095</created>
       <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL‎-00034" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725817885819</updated>
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1726409074095</updated>
     </task>
-    <task id="LOCAL‎-00035" summary="Updates classes to allow ranges to be used correctly">
+    <task id="LOCAL-00035" summary="Sorting works, both in the engine and in the graphical interface.&#10;I also did the design aspect of the cells that moved with the cell together with the sorting...&#10;we just need to check that it works.ness">
       <option name="closed" value="true" />
-      <created>1725866056107</created>
+      <created>1726516875296</created>
       <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL‎-00035" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725866056107</updated>
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1726516875296</updated>
     </task>
-    <task id="LOCAL‎-00036" summary="Updates classes to allow ranges to be used correctly">
+    <task id="LOCAL-00036" summary="commit for marge">
       <option name="closed" value="true" />
-      <created>1725866216345</created>
+      <created>1726572936106</created>
       <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL‎-00036" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725866216345</updated>
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1726572936106</updated>
     </task>
-    <task id="LOCAL‎-00037" summary="new design fo FXML">
+    <task id="LOCAL-00037" summary="The design of the cell goes along with it when sorting">
       <option name="closed" value="true" />
-      <created>1725978039397</created>
+      <created>1726580759055</created>
       <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL‎-00037" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725978039397</updated>
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1726580759055</updated>
     </task>
-    <task id="LOCAL‎-00038" summary="new design for FXML">
+    <task id="LOCAL-00038" summary="Refactored sorting and filtering functionality into modular structure (all in command package). Sorting is now functional, filter preparation is in progress. &#10;&#10;&#10;Added a custom error message class for displaying consistent error pop-ups.">
       <option name="closed" value="true" />
-      <created>1726049499045</created>
+      <created>1726591284621</created>
       <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL‎-00038" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726049499045</updated>
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1726591284621</updated>
     </task>
-    <task id="LOCAL‎-00039" summary="adding UIMODEL">
+    <task id="LOCAL-00039" summary="Added error pop-up for file loading failures.">
       <option name="closed" value="true" />
-      <created>1726049539177</created>
+      <created>1726592772731</created>
       <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL‎-00039" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726049539177</updated>
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1726592772731</updated>
     </task>
-    <task id="LOCAL‎-00040" summary="Add ability to a sheet by clicking a cell is framed and the relevant data of the cell is updated in the header">
+    <task id="LOCAL-00040" summary="Start to work on the design of the filter feature.">
       <option name="closed" value="true" />
-      <created>1726133587270</created>
+      <created>1726594311020</created>
       <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL‎-00040" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726133587270</updated>
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1726594311020</updated>
     </task>
-    <task id="LOCAL‎-00041" summary="Support the possibility to get the full information for each selected cell.&#10;The application now contains a &quot;work line&quot; in which the various information of a selected cell will be displayed.&#10;The selection of the cell will be done by clicking on it (as in all known spreadsheet applications) and by clicking on it the cell will be highlighted in a red frame&#10;When selecting a certain cell in the sheet, you see:&#10;• In the work line:&#10;o Cell identity (example: 5A).&#10;o The original value of the cell&#10;o The last version in which it was updated&#10;• Highlight in a light blue frame all the cells that this cell relies on (if there are any)&#10;• All the cells that this cell affects are highlighted in a light green frame">
+    <task id="LOCAL-00041" summary="the design of filer is almost done, &#10;next start working on the logic of the filtering feature">
       <option name="closed" value="true" />
-      <created>1726249472430</created>
+      <created>1726658584476</created>
       <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL‎-00041" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726249472430</updated>
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1726658584476</updated>
     </task>
-    <task id="LOCAL‎-00042" summary="Adding the ability to update the information inside the cell by updating it in the information row (using a special button)&#10; There is still no treatment in case of a failed update">
+    <task id="LOCAL-00042" summary="filter feature is working! &#10;need to do last checks and make it look nicer">
       <option name="closed" value="true" />
-      <created>1726268313169</created>
+      <created>1726664035603</created>
       <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL‎-00042" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726268313169</updated>
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1726664035603</updated>
     </task>
-    <task id="LOCAL‎-00043" summary="Adding the ability to update the information inside the cell by updating it in the information row (using a special button)&#10; There is still no treatment in case of a failed update">
+    <task id="LOCAL-00043" summary="filter feature is working&#10;only remain to adjust the height of the number column.">
       <option name="closed" value="true" />
-      <created>1726303722046</created>
+      <created>1726671764546</created>
       <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL‎-00043" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726303722046</updated>
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1726671764546</updated>
     </task>
-    <task id="LOCAL‎-00044" summary="Handiling the new methods from the xml (sum, everage...)">
+    <task id="LOCAL-00044" summary="commit for marge">
       <option name="closed" value="true" />
-      <created>1726311877594</created>
+      <created>1726690041542</created>
       <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL‎-00044" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726311877594</updated>
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1726690041542</updated>
     </task>
-    <task id="LOCAL‎-00045" summary="Starting handling commands relatedto ranges in UI">
+    <task id="LOCAL-00045" summary="sheet version size fixed">
       <option name="closed" value="true" />
-      <created>1726334893606</created>
+      <created>1726690811072</created>
       <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL‎-00045" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726334893606</updated>
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1726690811072</updated>
     </task>
-    <task id="LOCAL‎-00046" summary=".">
+    <task id="LOCAL-00046" summary="filter feature been change">
       <option name="closed" value="true" />
-      <created>1726335306708</created>
+      <created>1726736333332</created>
       <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL‎-00046" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726335306708</updated>
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1726736333332</updated>
     </task>
-    <task id="LOCAL‎-00047" summary="Starting handling commands relatedto ranges in UI">
+    <task id="LOCAL-00047" summary="Starting work on the server.&#10;The beginning of the development of the file upload">
       <option name="closed" value="true" />
-      <created>1726346391853</created>
+      <created>1728729973686</created>
       <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL‎-00047" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726346391853</updated>
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1728729973686</updated>
     </task>
-    <task id="LOCAL‎-00048" summary=" handling commands relatedto ranges in UI">
+    <task id="LOCAL-00048" summary="refactoring the Engine module">
       <option name="closed" value="true" />
-      <created>1726408976080</created>
+      <created>1728735425266</created>
       <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL‎-00048" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726408976080</updated>
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1728735425266</updated>
     </task>
-    <task id="LOCAL‎-00049" summary="commit1">
-      <option name="closed" value="true" />
-      <created>1726415165928</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL‎-00049" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726415165928</updated>
-    </task>
-    <task id="LOCAL‎-00050" summary="commit1">
-      <option name="closed" value="true" />
-      <created>1726478967817</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL‎-00050" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726478967817</updated>
-    </task>
-    <task id="LOCAL‎-00051" summary="nhanced cell customization and layout management:&#10;&#10;- Implemented functionality to change cell background and text colors using ColorPickers.&#10;- Added listeners for Spinners to adjust row height and column width dynamically.&#10;- Improved handling of cell text alignment with the ChoiceBox, allowing for center, left, and right alignment.&#10;- Refined interaction between HeaderController and SheetController to ensure seamless updates to cell properties.&#10;&#10;- Improved logic for applying styles and dimensions to ensure consistent behavior across the grid.">
-      <option name="closed" value="true" />
-      <created>1726570943547</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL‎-00051" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726570943547</updated>
-    </task>
-    <task id="LOCAL‎-00052" summary="nhanced cell customization and layout management:&#10;&#10;- Implemented functionality to change cell background and text colors using ColorPickers.&#10;- Added listeners for Spinners to adjust row height and column width dynamically.&#10;- Improved handling of cell text alignment with the ChoiceBox, allowing for center, left, and right alignment.&#10;- Refined interaction between HeaderController and SheetController to ensure seamless updates to cell properties.&#10;&#10;- Improved logic for applying styles and dimensions to ensure consistent behavior across the grid.">
-      <option name="closed" value="true" />
-      <created>1726571783280</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL‎-00052" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726571783280</updated>
-    </task>
-    <task id="LOCAL‎-00053" summary="Editing code to change row height and colunm width">
-      <option name="closed" value="true" />
-      <created>1726575808593</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL‎-00053" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726575808593</updated>
-    </task>
-    <task id="LOCAL‎-00054" summary="Synchronized selected cell with text alignment settings:&#10;&#10;- Implemented synchronization between the selected cell and the text alignment in the ChoiceBox.&#10;- Ensured that the ChoiceBox reflects the current alignment (left, center, right) of the selected cell's content.&#10;- Added listeners to update cell alignment dynamically based on the ChoiceBox selection.">
-      <option name="closed" value="true" />
-      <created>1726605879558</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL‎-00054" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726605879558</updated>
-    </task>
-    <task id="LOCAL‎-00055" summary="add ErrorMessage for ranges actions and update cell (UI)">
-      <option name="closed" value="true" />
-      <created>1726607618287</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL‎-00055" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726607618287</updated>
-    </task>
-    <task id="LOCAL‎-00056" summary="design">
-      <option name="closed" value="true" />
-      <created>1726611476870</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL‎-00056" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726611476870</updated>
-    </task>
-    <task id="LOCAL‎-00057" summary="wrap text">
-      <option name="closed" value="true" />
-      <created>1726648504743</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL‎-00057" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726648504743</updated>
-    </task>
-    <task id="LOCAL‎-00058" summary="add back to default Button">
-      <option name="closed" value="true" />
-      <created>1726652716862</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL‎-00058" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726652716862</updated>
-    </task>
-    <task id="LOCAL‎-00059" summary="commit for merge">
-      <option name="closed" value="true" />
-      <created>1726686978983</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL‎-00059" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726686978983</updated>
-    </task>
-    <task id="LOCAL‎-00060" summary="commit for merge">
-      <option name="closed" value="true" />
-      <created>1726691050610</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL‎-00060" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726691050610</updated>
-    </task>
-    <task id="LOCAL‎-00061" summary="Added simulated delay for file loading task in JFX with progress bar&#10;&#10;- Implemented JFX Task for file loading with progress bar to provide visual feedback.&#10;- Added a simulated delay (1-2 seconds) in each loading step to simulate the process.&#10;- Bound progress and status updates to the progress bar and label.&#10;- Ensured that the progress bar is hidden upon successful or failed task completion.">
-      <option name="closed" value="true" />
-      <created>1726862279782</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL‎-00061" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726862279782</updated>
-    </task>
-    <task id="LOCAL‎-00062" summary="Styled Header and Left Panel UI components:&#10;- Added visual design improvements to Header section.&#10;- Updated Left panel layout for better user experience.&#10;- Adjusted styles for TitledPane, ProgressBar, ChoiceBox, ColorPicker, and other UI elements.">
-      <option name="closed" value="true" />
-      <created>1726867185098</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL‎-00062" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726867185098</updated>
-    </task>
-    <task id="LOCAL‎-00063" summary="Fixed and improved the Scroll behavior and layout for better user experience and smoother navigation.">
-      <option name="closed" value="true" />
-      <created>1726869376701</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL‎-00063" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726869376701</updated>
-    </task>
-    <task id="LOCAL‎-00064" summary="Added JAR creation and binding for UI interactivity&#10;&#10;- Created the JAR file for the project, ensuring all necessary dependencies are included (JavaFX, JAXB, etc.).&#10;- Implemented binding for interactive elements (buttons, text fields, choice boxes, etc.), allowing them to be enabled/disabled dynamically based on whether a cell is selected and a file is loaded.&#10;- Improved user experience by ensuring UI components are only accessible when relevant actions (like selecting a cell or loading a file) have been completed.">
-      <option name="closed" value="true" />
-      <created>1727162552483</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL‎-00064" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1727162552483</updated>
-    </task>
-    <task id="LOCAL‎-00065" summary="Added dynamic analysis feature with a value range slider for numerical cells. &#10;&#10;- Implemented functionality allowing users to select a cell, set a minimum and maximum value, and define the step size. &#10;- Added a slider for users to dynamically adjust the selected cell's value within the defined range.&#10;- The sheet updates in real-time with each change made by the slider.&#10;- Changes are temporary and do not permanently modify the cell's value in the sheet or create a new version.">
-      <option name="closed" value="true" />
-      <created>1727250661491</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL‎-00065" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1727250661491</updated>
-    </task>
-    <task id="LOCAL‎-00066" summary="Implemented theme switching functionality with support for at least 2 additional color schemes beyond the default. The following UI elements were updated as part of the theme changes:&#10;&#10;1. Background color for the entire screen.&#10;2. Button styling and appearance across the UI.&#10;3. Updated font and font size for all labels on the screen to reflect the selected theme.&#10;&#10;Added a mechanism for users to easily switch between these themes through the UI.">
-      <option name="closed" value="true" />
-      <created>1727344530282</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL‎-00066" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1727344530282</updated>
-    </task>
-    <task id="LOCAL‎-00067" summary="Refactored version selection functionality:&#10;- Added dynamic linking between okButton and versionMenuBar to ensure the button is only enabled when a version is selected.&#10;- Fixed the dynamic creation of MenuItems and ensured proper action listeners are attached during runtime.&#10;&#10;General updates:&#10;- Cleaned up several classes.&#10;- Added documentation across classes for clarity and future maintenance.">
-      <option name="closed" value="true" />
-      <created>1727459501744</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL‎-00067" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1727459501744</updated>
-    </task>
-    <task id="LOCAL‎-00068" summary="Implemented graph creation feature for numerical data in the sheet. &#10;&#10;- Added functionality for generating line and bar charts based on user-selected X and Y axis ranges.&#10;- Created error handling for invalid range formats and non-numeric values in the selected cells.&#10;- Added detailed validation to ensure the X and Y ranges contain equal numbers of values.&#10;- Updated UI to allow users to select cell ranges for graph creation, including new controls for selecting and confirming range input.&#10;- Enhanced error messaging for invalid input formats and mismatched value counts between X and Y axis selections.&#10;- Documentation and comments added across relevant classes to clarify the graph creation process and error handling mechanisms.">
-      <option name="closed" value="true" />
-      <created>1727467691517</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL‎-00068" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1727467691517</updated>
-    </task>
-    <task id="LOCAL‎-00069" summary="Added minimum window size restrictions to prevent excessive resizing. Updated graph functionality to convert lowercase cell identifiers (e.g., 'a1') to uppercase (e.g., 'A1') for consistency and usability.">
-      <option name="closed" value="true" />
-      <created>1727471631617</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL‎-00069" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1727471631617</updated>
-    </task>
-    <task id="LOCAL‎-00070" summary="&#10;&#10;- Cleaned up several classes.">
-      <option name="closed" value="true" />
-      <created>1727472800355</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL‎-00070" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1727472800355</updated>
-    </task>
-    <task id="LOCAL‎-00071" summary="&#10;final updates before submission">
-      <option name="closed" value="true" />
-      <created>1727504207391</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL‎-00071" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1727504207391</updated>
-    </task>
-    <task id="LOCAL‎-00072" summary="Fixed the handling of Platform.runLater in AppController's loadAndDisplaySheetFromXmlFile method to ensure that UI updates are executed correctly on the JavaFX Application Thread. Added proper lambda syntax for multiple statements.&#10;&#10;Improved error handling: The application now properly stops processing if an invalid file or conflicting range is detected during XML file loading. This prevents the application from attempting to display corrupted data after encountering an exception.">
-      <option name="closed" value="true" />
-      <created>1727509772196</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL‎-00072" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1727509772196</updated>
-    </task>
-    <task id="LOCAL‎-00073" summary="Implemented deep copy functionality across multiple components:&#10;- Added createDeepCopy method in SheetImpl to handle deep copying of sheets, including copying cells, the range manager, and all related data.&#10;- Implemented deep copy for CellImpl, ensuring correct copying of cell dependencies (dependsOn and influencingOn) while avoiding recursion issues with cyclic references.&#10;- Added tracking maps in SheetImpl and CellImpl (copiedCells) to prevent infinite recursion during the deep copy process.&#10;- Implemented deep copy functionality for RangeImpl and RangeManagerImpl to ensure ranges and their usage counts are copied correctly.&#10;- Ensured that all dependent entities such as cells, ranges, and the range manager are copied deeply, maintaining consistency and avoiding shared references between the original and copied sheets.">
-      <option name="closed" value="true" />
-      <created>1727513166472</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL‎-00073" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1727513166472</updated>
-    </task>
-    <task id="LOCAL‎-00074" summary="Implemented deep copy functionality across multiple components:&#10;- Added createDeepCopy method in SheetImpl to handle deep copying of sheets, including copying cells, the range manager, and all related data.&#10;- Implemented deep copy for CellImpl, ensuring correct copying of cell dependencies (dependsOn and influencingOn) while avoiding recursion issues with cyclic references.&#10;- Added tracking maps in SheetImpl and CellImpl (copiedCells) to prevent infinite recursion during the deep copy process.&#10;- Implemented deep copy functionality for RangeImpl and RangeManagerImpl to ensure ranges and their usage counts are copied correctly.&#10;- Ensured that all dependent entities such as cells, ranges, and the range manager are copied deeply, maintaining consistency and avoiding shared references between the original and copied sheets.">
-      <option name="closed" value="true" />
-      <created>1727513264183</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL‎-00074" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1727513264183</updated>
-    </task>
-    <task id="LOCAL‎-00075" summary="last merge before submit part 2">
-      <option name="closed" value="true" />
-      <created>1727686072001</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL‎-00075" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1727686072001</updated>
-    </task>
-    <task id="LOCAL‎-00076" summary="starting part 3!!!">
-      <option name="closed" value="true" />
-      <created>1728557909026</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL‎-00076" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1728557909027</updated>
-    </task>
-    <task id="LOCAL‎-00077" summary="starting part 3!!!&#10;linking the tomcat and dividing it into new models and starting work on login">
-      <option name="closed" value="true" />
-      <created>1728593353294</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL‎-00077" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1728593353294</updated>
-    </task>
-    <option name="localTasksCounter" value="78" />
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -742,7 +746,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="Amal" />
+                        <option value="yarden_branch" />
                       </list>
                     </value>
                   </entry>
@@ -766,32 +770,32 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="commit1" />
-    <MESSAGE value="nhanced cell customization and layout management:&#10;&#10;- Implemented functionality to change cell background and text colors using ColorPickers.&#10;- Added listeners for Spinners to adjust row height and column width dynamically.&#10;- Improved handling of cell text alignment with the ChoiceBox, allowing for center, left, and right alignment.&#10;- Refined interaction between HeaderController and SheetController to ensure seamless updates to cell properties.&#10;&#10;- Improved logic for applying styles and dimensions to ensure consistent behavior across the grid." />
-    <MESSAGE value="Editing code to change row height and colunm width" />
-    <MESSAGE value="Synchronized selected cell with text alignment settings:&#10;&#10;- Implemented synchronization between the selected cell and the text alignment in the ChoiceBox.&#10;- Ensured that the ChoiceBox reflects the current alignment (left, center, right) of the selected cell's content.&#10;- Added listeners to update cell alignment dynamically based on the ChoiceBox selection." />
-    <MESSAGE value="add ErrorMessage for ranges actions and update cell (UI)" />
-    <MESSAGE value="design" />
-    <MESSAGE value="wrap text" />
-    <MESSAGE value="add back to default Button" />
-    <MESSAGE value="commit for merge" />
-    <MESSAGE value="Added simulated delay for file loading task in JFX with progress bar&#10;&#10;- Implemented JFX Task for file loading with progress bar to provide visual feedback.&#10;- Added a simulated delay (1-2 seconds) in each loading step to simulate the process.&#10;- Bound progress and status updates to the progress bar and label.&#10;- Ensured that the progress bar is hidden upon successful or failed task completion." />
-    <MESSAGE value="Styled Header and Left Panel UI components:&#10;- Added visual design improvements to Header section.&#10;- Updated Left panel layout for better user experience.&#10;- Adjusted styles for TitledPane, ProgressBar, ChoiceBox, ColorPicker, and other UI elements." />
-    <MESSAGE value="Fixed and improved the Scroll behavior and layout for better user experience and smoother navigation." />
-    <MESSAGE value="Added JAR creation and binding for UI interactivity&#10;&#10;- Created the JAR file for the project, ensuring all necessary dependencies are included (JavaFX, JAXB, etc.).&#10;- Implemented binding for interactive elements (buttons, text fields, choice boxes, etc.), allowing them to be enabled/disabled dynamically based on whether a cell is selected and a file is loaded.&#10;- Improved user experience by ensuring UI components are only accessible when relevant actions (like selecting a cell or loading a file) have been completed." />
-    <MESSAGE value="Added dynamic analysis feature with a value range slider for numerical cells. &#10;&#10;- Implemented functionality allowing users to select a cell, set a minimum and maximum value, and define the step size. &#10;- Added a slider for users to dynamically adjust the selected cell's value within the defined range.&#10;- The sheet updates in real-time with each change made by the slider.&#10;- Changes are temporary and do not permanently modify the cell's value in the sheet or create a new version." />
-    <MESSAGE value="Implemented theme switching functionality with support for at least 2 additional color schemes beyond the default. The following UI elements were updated as part of the theme changes:&#10;&#10;1. Background color for the entire screen.&#10;2. Button styling and appearance across the UI.&#10;3. Updated font and font size for all labels on the screen to reflect the selected theme.&#10;&#10;Added a mechanism for users to easily switch between these themes through the UI." />
-    <MESSAGE value="Refactored version selection functionality:&#10;- Added dynamic linking between okButton and versionMenuBar to ensure the button is only enabled when a version is selected.&#10;- Fixed the dynamic creation of MenuItems and ensured proper action listeners are attached during runtime.&#10;&#10;General updates:&#10;- Cleaned up several classes.&#10;- Added documentation across classes for clarity and future maintenance." />
-    <MESSAGE value="Implemented graph creation feature for numerical data in the sheet. &#10;&#10;- Added functionality for generating line and bar charts based on user-selected X and Y axis ranges.&#10;- Created error handling for invalid range formats and non-numeric values in the selected cells.&#10;- Added detailed validation to ensure the X and Y ranges contain equal numbers of values.&#10;- Updated UI to allow users to select cell ranges for graph creation, including new controls for selecting and confirming range input.&#10;- Enhanced error messaging for invalid input formats and mismatched value counts between X and Y axis selections.&#10;- Documentation and comments added across relevant classes to clarify the graph creation process and error handling mechanisms." />
-    <MESSAGE value="Added minimum window size restrictions to prevent excessive resizing. Updated graph functionality to convert lowercase cell identifiers (e.g., 'a1') to uppercase (e.g., 'A1') for consistency and usability." />
-    <MESSAGE value="&#10;&#10;- Cleaned up several classes." />
-    <MESSAGE value="&#10;final updates before submission" />
-    <MESSAGE value="Fixed the handling of Platform.runLater in AppController's loadAndDisplaySheetFromXmlFile method to ensure that UI updates are executed correctly on the JavaFX Application Thread. Added proper lambda syntax for multiple statements.&#10;&#10;Improved error handling: The application now properly stops processing if an invalid file or conflicting range is detected during XML file loading. This prevents the application from attempting to display corrupted data after encountering an exception." />
-    <MESSAGE value="Implemented deep copy functionality across multiple components:&#10;- Added createDeepCopy method in SheetImpl to handle deep copying of sheets, including copying cells, the range manager, and all related data.&#10;- Implemented deep copy for CellImpl, ensuring correct copying of cell dependencies (dependsOn and influencingOn) while avoiding recursion issues with cyclic references.&#10;- Added tracking maps in SheetImpl and CellImpl (copiedCells) to prevent infinite recursion during the deep copy process.&#10;- Implemented deep copy functionality for RangeImpl and RangeManagerImpl to ensure ranges and their usage counts are copied correctly.&#10;- Ensured that all dependent entities such as cells, ranges, and the range manager are copied deeply, maintaining consistency and avoiding shared references between the original and copied sheets." />
-    <MESSAGE value="last merge before submit part 2" />
-    <MESSAGE value="starting part 3!!!" />
-    <MESSAGE value="starting part 3!!!&#10;linking the tomcat and dividing it into new models and starting work on login" />
-    <option name="LAST_COMMIT_MESSAGE" value="starting part 3!!!&#10;linking the tomcat and dividing it into new models and starting work on login" />
+    <MESSAGE value="accept coordinate with lowercase letters" />
+    <MESSAGE value="recent revisions" />
+    <MESSAGE value="Beginning of work on the graphical interface.&#10;The main component is the app&#10;which contains 2 components:&#10;header and sheet.&#10;&#10;The sheet contains cell type components.&#10;&#10;I basically defined everyone's fxml files.&#10;&#10;I also built a basic controller for everyone.&#10;&#10;I built a function in sheetController that knows how to receive a sheet and load it to the screen." />
+    <MESSAGE value="commit after fixing the mess" />
+    <MESSAGE value="deleted HADASH package" />
+    <MESSAGE value="Generated JAXB classes from XSD schema using xjc&#10;&#10;- Used xjc to generate Java classes from 'shtisel-v2.xsd'.&#10;- Placed the generated classes in 'jaxb.schema.genarated' package." />
+    <MESSAGE value="Adding DTORange class&#10;&#10;adapted the following classes to it in Engine module:&#10;&#10;1.sheet&#10;- RangeManager getRangeManager();&#10;&#10;2. sheetImpl&#10;-Constructor update: public SheetImpl(STLSheet stlSheet, List&lt;STLCell&gt; sortedListOfStlCells)&#10;- implementation of getRangeManager().&#10;&#10;3. RangeManager&#10;-Map&lt;String, Range&gt; getRanges();&#10;&#10;4. RangeManagerImpl&#10;- Implementation of:  Map&lt;String, Range&gt; getRanges();&#10;&#10;&#10;DTO module adjustments&#10;&#10;1. DTOCoordinateImpl&#10;- Adding a constructor public DTOCoordinateImpl(Coordinate coordinate)&#10;&#10;2. DTOSheet&#10;-Map&lt;String,DTORange&gt; getRanges();&#10;&#10;3. DTOShetImpl&#10;-Adding a member: private final Map&lt;String, DTORange&gt; ranges;&#10;-Constructor update: public DTOSheetImpl(Sheet sheet)&#10;-Implementation Map&lt;String,DTORange&gt; getRanges();" />
+    <MESSAGE value="Preparing the test of the ranges by loading the xml file in EngineImpl" />
+    <MESSAGE value="versionSelctor is working." />
+    <MESSAGE value="Highlighting the Data label in the version selector" />
+    <MESSAGE value="Update version manager with a new independent class: ViewOnlySheet, instead of was the original sheet class.&#10;&#10;we will was in this class to display the sort sheet and filtered sheet." />
+    <MESSAGE value="First construction of the sortSheet class&#10;Has not yet been checked for correctness" />
+    <MESSAGE value="Sorting works, both in the engine and in the graphical interface.&#10;I also did the design aspect of the cells that moved with the cell together with the sorting...&#10;we just need to check that it works.ness" />
+    <MESSAGE value="The design of the cell goes along with it when sorting" />
+    <MESSAGE value="Refactored sorting and filtering functionality into modular structure (all in command package). Sorting is now functional, filter preparation is in progress. &#10;&#10;&#10;Added a custom error message class for displaying consistent error pop-ups." />
+    <MESSAGE value="Added error pop-up for file loading failures." />
+    <MESSAGE value="Start to work on the design of the filter feature." />
+    <MESSAGE value="the design of filer is almost done, &#10;next start working on the logic of the filtering feature" />
+    <MESSAGE value="filter feature is working! &#10;need to do last checks and make it look nicer" />
+    <MESSAGE value="filter feature is working&#10;only remain to adjust the height of the number column." />
+    <MESSAGE value="commit for marge" />
+    <MESSAGE value="sheet version size fixed" />
+    <MESSAGE value="filter feature been change" />
+    <MESSAGE value="Starting work on the server.&#10;The beginning of the development of the file upload" />
+    <MESSAGE value="refactoring the Engine module" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring the Engine module" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -802,57 +806,121 @@
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Server/src/servlets/LightweightLoginServlet.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="136" />
+          <url>file://$PROJECT_DIR$/UI/src/deprecated/manager/UIManagerImpl.java</url>
+          <line>493</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UI/src/test/Test3.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UI/src/test/Test3.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/popup/versionselector/VersionSelectorController.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="116" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Engine/src/test/sortSheetTest.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="126" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java</url>
+          <line>291</line>
+          <option name="timeStamp" value="218" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheetImpl.java</url>
+          <line>115</line>
+          <option name="timeStamp" value="234" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheetImpl.java</url>
+          <line>95</line>
+          <option name="timeStamp" value="235" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java</url>
+          <line>353</line>
+          <option name="timeStamp" value="237" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UI/src/deprecated/manager/UIManagerImpl.java</url>
+          <line>255</line>
+          <option name="timeStamp" value="239" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UI/src/deprecated/manager/UIManagerImpl.java</url>
+          <line>359</line>
+          <option name="timeStamp" value="240" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Engine/src/uploadfilemanager/jaxb/xmlprocessing/XmlProcessingImpl.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="241" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Engine/src/uploadfilemanager/LoadFile.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="256" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Engine/src/uploadfilemanager/LoadFile.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="257" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>
-          <line>249</line>
-          <properties class="sheet.SheetImpl">
+          <url>file://$PROJECT_DIR$/Engine/src/sheetmanager/sheet/command/sortsheet/SortSheetImpl.java</url>
+          <line>105</line>
+          <properties class="sheetmanager.sheet.command.sortsheet.SortSheetImpl">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="34" />
+          <option name="timeStamp" value="194" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java</url>
-          <line>40</line>
-          <properties class="manager.UIManagerImpl" method="updateCellValue">
+          <url>file://$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java</url>
+          <line>20</line>
+          <properties class="servlets.FileUploadServlet" method="doPost">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="119" />
+          <option name="timeStamp" value="248" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/popup/dynamicAnalysisSheet/DynamicAnalysisSheetController.java</url>
-          <line>126</line>
-          <properties class="component.subcomponent.popup.dynamicAnalysisSheet.DynamicAnalysisSheetController">
+          <url>file://$PROJECT_DIR$/Engine/src/sheetmanager/SheetManagerImpl.java</url>
+          <line>179</line>
+          <properties class="sheetmanager.SheetManagerImpl" method="saveSystemState">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="127" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/popup/dynamicAnalysisSheet/DynamicAnalysisSheetController.java</url>
-          <line>103</line>
-          <properties class="component.subcomponent.popup.dynamicAnalysisSheet.DynamicAnalysisSheetController" method="onSliderValueChanged">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="128" />
+          <option name="timeStamp" value="251" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="sheet.cell.CellImpl" memberName="effectiveValue" />
+        <PinnedItemInfo parentTag="dto.DTOSheetImpl" memberName="board" />
         <PinnedItemInfo parentTag="java.util.HashMap$Node" memberName="value" />
       </pinned-members>
     </pin-to-top-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="((HashMap)((DTOSheetImpl)dtoSheet).board).entrySet().toArray()[0]" custom="dto.DTOSheetImpl,java.util.HashMap" />
+        <watch expression="rangeManager" />
+        <watch expression="getRowInRange(from, to)" />
+        <watch expression="getColumnIndex(column,firstColInRange" />
+        <watch expression="sortSheet.getSortedSheet( from,  to,  listOfColumnsPriorities)" />
+        <watch expression="DTOSheetImpl(filteredRows,fromCoordinate,filterPreparer.getSheet()" />
+        <watch expression=" new DTOSheetImpl(filteredRows,fromCoordinate,filterPreparer.getSheet())" />
+        <watch expression="colLetter" />
+        <watch expression="dtoSheet.getFirstColumnLetter()" />
       </configuration>
     </watches-manager>
   </component>
@@ -861,8 +929,8 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/sheet_cell_iml$Test2.ic" NAME="Test2 Coverage Results" MODIFIED="1725873978870" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>subcomponents.test.*</FILTER>
+    <SUITE FILE_PATH="coverage/sheet_cell_iml$test_FxmlTest.ic" NAME="test.FxmlTest Coverage Results" MODIFIED="1725807119700" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>test.*</FILTER>
     </SUITE>
   </component>
 </project>

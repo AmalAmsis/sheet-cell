@@ -1,7 +1,5 @@
 package dto;
 
-import sheet.range.RangeReadActions;
-
 import java.util.List;
 
 public interface DTORange {
