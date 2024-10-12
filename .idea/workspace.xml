@@ -9,10 +9,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="starting part 3!!!">
-      <change afterPath="$PROJECT_DIR$/Client/src/component/login/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/component/login/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/component/login/login.fxml" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="starting part 3!!!&#10;linking the tomcat and dividing it into new models and starting work on login">
+      <change afterPath="$PROJECT_DIR$/Client/src/component/login/TestLogin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/component/login/TestLogin2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/util/Constants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/util/http/HttpClientUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/util/http/SimpleCookieManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/users/UserManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/users/UserManagerImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/servlets/LightweightLoginServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/servlets/LoginServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/servlets/LogoutServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/login/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/Server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/Server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/constants/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/constants/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/utils/ServletUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/utils/ServletUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/utils/SessionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/utils/SessionUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/web/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,12 +38,12 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="Interface" />
         <option value="JavaFXApplication" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="FxmlFile" />
         <option value="CSS File" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -70,6 +85,8 @@
     "Application.Main.executor": "Run",
     "Application.Test.executor": "Run",
     "Application.Test2.executor": "Coverage",
+    "Application.TestLogin.executor": "Run",
+    "Application.TestLogin2.executor": "Run",
     "Application.deprecated.apprunner.AppRunner.executor": "Debug",
     "Application.sheet.range.Test.executor": "Run",
     "Application.test.FxmlTest.executor": "Run",
@@ -81,7 +98,7 @@
     "git-widget-placeholder": "Amal",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Amal Amsis/Downloads/Online Chat V3/Online Chat V3",
+    "last_opened_file_path": "C:/Users/Amal Amsis/Desktop/AmalA/Computer Science/JAVA/okHttp/kotlin-stdlib-common-1.4.10.jar",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -89,7 +106,7 @@
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
+    "project.structure.side.proportion": "0.1706642",
     "settings.editor.selected.configurable": "preferences.applicationServers",
     "vue.rearranger.settings.migration": "true"
   }
@@ -100,7 +117,7 @@
       <recent name="C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\sheet-cell\UI\src\component\subcomponent\cell" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.30">
+  <component name="RunManager" selected="Application.TestLogin">
     <configuration name="AppRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="apprunner.AppRunner" />
       <module name="UI" />
@@ -128,13 +145,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="subcomponents.test.Test2" />
-      <module name="UI" />
+    <configuration name="TestLogin" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="component.login.TestLogin" />
+      <module name="Client" />
       <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\openjfx-22.0.2_windows-x64_bin-sdk\javafx-sdk-22.0.2\lib&quot;  --add-modules javafx.controls,javafx.fxml " />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="subcomponents.test.*" />
+          <option name="PATTERN" value="component.login.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestLogin2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="component.login.TestLogin2" />
+      <module name="Client" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\openjfx-22.0.2_windows-x64_bin-sdk\javafx-sdk-22.0.2\lib&quot;  --add-modules javafx.controls,javafx.fxml " />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="component.login.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -249,19 +280,21 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.TestLogin2" />
+      <item itemvalue="Application.TestLogin" />
       <item itemvalue="Application.deprecated.apprunner.AppRunner" />
       <item itemvalue="Application.AppRunner" />
       <item itemvalue="Application.Test" />
-      <item itemvalue="Application.Test2" />
       <item itemvalue="JAR Application.UI.jar" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.30" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TestLogin" />
+        <item itemvalue="Application.TestLogin2" />
         <item itemvalue="Application.AppRunner" />
         <item itemvalue="Application.deprecated.apprunner.AppRunner" />
         <item itemvalue="Application.Test" />
-        <item itemvalue="Application.Test2" />
       </list>
     </recent_temporary>
   </component>
@@ -291,15 +324,9 @@
       <workItem from="1726661798033" duration="90668000" />
       <workItem from="1727444169481" duration="27511000" />
       <workItem from="1727514654686" duration="90000" />
-      <workItem from="1727521816129" duration="24969000" />
-    </task>
-    <task id="LOCAL‎-00028" summary="New departments:&#10;1.Range(interface)&#10;2.RangeImpl&#10;3.RangeManager(Interface)&#10;4.RangeManagerImpl&#10;Their purpose: range support and complex functions">
-      <option name="closed" value="true" />
-      <created>1725792127329</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL‎-00028" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725792127329</updated>
+      <workItem from="1727521816129" duration="38018000" />
+      <workItem from="1728658271429" duration="35000" />
+      <workItem from="1728659469841" duration="20711000" />
     </task>
     <task id="LOCAL‎-00029" summary="split Range interface into 2 interfaces : RangeReadActions,RangeUpdateAction">
       <option name="closed" value="true" />
@@ -685,7 +712,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1728557909027</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL‎-00077" summary="starting part 3!!!&#10;linking the tomcat and dividing it into new models and starting work on login">
+      <option name="closed" value="true" />
+      <created>1728593353294</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL‎-00077" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1728593353294</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -731,7 +766,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Highlighting the Data label in the version selector" />
     <MESSAGE value="commit1" />
     <MESSAGE value="nhanced cell customization and layout management:&#10;&#10;- Implemented functionality to change cell background and text colors using ColorPickers.&#10;- Added listeners for Spinners to adjust row height and column width dynamically.&#10;- Improved handling of cell text alignment with the ChoiceBox, allowing for center, left, and right alignment.&#10;- Refined interaction between HeaderController and SheetController to ensure seamless updates to cell properties.&#10;&#10;- Improved logic for applying styles and dimensions to ensure consistent behavior across the grid." />
     <MESSAGE value="Editing code to change row height and colunm width" />
@@ -756,7 +790,8 @@
     <MESSAGE value="Implemented deep copy functionality across multiple components:&#10;- Added createDeepCopy method in SheetImpl to handle deep copying of sheets, including copying cells, the range manager, and all related data.&#10;- Implemented deep copy for CellImpl, ensuring correct copying of cell dependencies (dependsOn and influencingOn) while avoiding recursion issues with cyclic references.&#10;- Added tracking maps in SheetImpl and CellImpl (copiedCells) to prevent infinite recursion during the deep copy process.&#10;- Implemented deep copy functionality for RangeImpl and RangeManagerImpl to ensure ranges and their usage counts are copied correctly.&#10;- Ensured that all dependent entities such as cells, ranges, and the range manager are copied deeply, maintaining consistency and avoiding shared references between the original and copied sheets." />
     <MESSAGE value="last merge before submit part 2" />
     <MESSAGE value="starting part 3!!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="starting part 3!!!" />
+    <MESSAGE value="starting part 3!!!&#10;linking the tomcat and dividing it into new models and starting work on login" />
+    <option name="LAST_COMMIT_MESSAGE" value="starting part 3!!!&#10;linking the tomcat and dividing it into new models and starting work on login" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -765,6 +800,11 @@
           <url>file://$PROJECT_DIR$/UI/src/test/Test.java</url>
           <line>53</line>
           <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Server/src/servlets/LightweightLoginServlet.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="136" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>
