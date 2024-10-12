@@ -1,8 +1,8 @@
 package dto;
 
-import sheet.cell.Cell;
-import sheet.coordinate.Coordinate;
-import sheet.effectivevalue.EffectiveValue;
+import sheetmanager.sheet.cell.Cell;
+import sheetmanager.sheet.coordinate.Coordinate;
+import sheetmanager.sheet.effectivevalue.EffectiveValue;
 
 import java.io.Serializable;
 import java.util.ArrayList;

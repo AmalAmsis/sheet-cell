@@ -1,9 +1,7 @@
 package utils;
 
-import engine.Engine;
-import engine.EngineImpl;
 import jakarta.servlet.ServletContext;
-import sheetsManager.SheetsManager;
+import allsheetsmanager.AllSheetsManagerImpl;
 
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -15,18 +13,18 @@ import static constants.Constants.INT_PARAMETER_ERROR;
 public class ServletUtils {
     private static final String USER_MANAGER_ATTRIBUTE_NAME = "userManager";
     private static final String CHAT_MANAGER_ATTRIBUTE_NAME = "chatManager";
-    private static final String SHEETS_MANAGER_ATTRIBUTE_NAME = "sheetsManager";
+    private static final String SHEETS_MANAGER_ATTRIBUTE_NAME = "allsheetsmanager";
 
     private static final Object sheetManagerLock = new Object();
 
 
-    public static SheetsManager getSheetManager(ServletContext servletContext){
+    public static AllSheetsManagerImpl getSheetManager(ServletContext servletContext){
         synchronized (sheetManagerLock) {
             if (servletContext.getAttribute(SHEETS_MANAGER_ATTRIBUTE_NAME) == null) {
-                servletContext.setAttribute(SHEETS_MANAGER_ATTRIBUTE_NAME, new SheetsManager());
+                servletContext.setAttribute(SHEETS_MANAGER_ATTRIBUTE_NAME, new AllSheetsManagerImpl());
             }
         }
-        return (SheetsManager) servletContext.getAttribute(SHEETS_MANAGER_ATTRIBUTE_NAME);
+        return (AllSheetsManagerImpl) servletContext.getAttribute(SHEETS_MANAGER_ATTRIBUTE_NAME);
 
     }
 

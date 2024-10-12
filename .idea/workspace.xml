@@ -9,17 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="filter feature been change">
-      <change afterPath="$PROJECT_DIR$/Engine/src/loadfile/LoadFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Engine/src/sheetsManager/SheetsManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/web/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Starting work on the server.&#10;The beginning of the development of the file upload">
+      <change afterPath="$PROJECT_DIR$/Engine/src/sheetmanager/SheetManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/sheetmanager/SheetManagerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/src/engine/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/engine/Engine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/engine/EngineImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/engine/EngineImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/XmlProcessingImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/XmlProcessingImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheetsManager/SheetsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/allsheetsmanager/AllSheetsManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/Server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/Server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/utils/ServletUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/utils/ServletUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/utils/SessionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/utils/SessionUtils.java" afterDir="false" />
     </list>
@@ -33,9 +31,9 @@
       <list>
         <option value="FxmlFile" />
         <option value="Exception" />
-        <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -81,6 +79,8 @@
     "Application.Test.executor": "Run",
     "Application.Test2.executor": "Debug",
     "Application.Test3.executor": "Debug",
+    "Application.TestLogin.executor": "Run",
+    "Application.TestLogin2.executor": "Run",
     "Application.apprunner.AppRunner.executor": "Run",
     "Application.main.executor": "Run",
     "Application.sortSheetTest.executor": "Debug",
@@ -90,10 +90,10 @@
     "JAR Application.UI.jar.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Tomcat Server.Tomcat 10.1.26.executor": "Debug",
+    "Tomcat Server.Tomcat 10.1.26.executor": "Run",
     "git-widget-placeholder": "yarden__branch",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/projects/11. Servlets",
+    "last_opened_file_path": "C:/lib/gson/gson-2.1.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -146,12 +146,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="apprunner.main" />
-      <module name="UI" />
+    <configuration name="TestLogin" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="component.login.TestLogin" />
+      <module name="Client" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\lib\javafx-sdk-22.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="apprunner.*" />
+          <option name="PATTERN" value="component.login.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -159,9 +160,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UI.jar (1)" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/UItest/UI.jar" />
-      <method v="2" />
+    <configuration name="TestLogin2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="component.login.TestLogin2" />
+      <module name="Client" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\lib\javafx-sdk-22.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="component.login.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="UI.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/UI/UI.jar" />
@@ -257,20 +268,20 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.TestLogin2" />
+      <item itemvalue="Application.TestLogin" />
       <item itemvalue="Application.Main" />
-      <item itemvalue="Application.main" />
       <item itemvalue="Application.AppRunner" />
       <item itemvalue="JAR Application.UI.jar" />
-      <item itemvalue="JAR Application.UI.jar (1)" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.26" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TestLogin2" />
+        <item itemvalue="Application.TestLogin" />
         <item itemvalue="Application.AppRunner" />
         <item itemvalue="JAR Application.UI.jar" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JAR Application.UI.jar (1)" />
-        <item itemvalue="Application.main" />
       </list>
     </recent_temporary>
   </component>
@@ -477,7 +488,7 @@
       <workItem from="1728509615912" duration="1624000" />
       <workItem from="1728512012176" duration="100000" />
       <workItem from="1728519610502" duration="2599000" />
-      <workItem from="1728558040053" duration="20851000" />
+      <workItem from="1728558040053" duration="23708000" />
     </task>
     <task id="LOCAL-00023" summary="Beginning of work on the graphical interface.&#10;The main component is the app&#10;which contains 2 components:&#10;header and sheet.&#10;&#10;The sheet contains cell type components.&#10;&#10;I basically defined everyone's fxml files.&#10;&#10;I also built a basic controller for everyone.&#10;&#10;I built a function in sheetController that knows how to receive a sheet and load it to the screen.">
       <option name="closed" value="true" />
@@ -671,7 +682,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726736333332</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Starting work on the server.&#10;The beginning of the development of the file upload">
+      <option name="closed" value="true" />
+      <created>1728729973686</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1728729973686</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -717,7 +736,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ref - coordinate to upper case" />
     <MESSAGE value="new merge" />
     <MESSAGE value="accept coordinate with lowercase letters" />
     <MESSAGE value="recent revisions" />
@@ -742,7 +760,8 @@
     <MESSAGE value="commit for marge" />
     <MESSAGE value="sheet version size fixed" />
     <MESSAGE value="filter feature been change" />
-    <option name="LAST_COMMIT_MESSAGE" value="filter feature been change" />
+    <MESSAGE value="Starting work on the server.&#10;The beginning of the development of the file upload" />
+    <option name="LAST_COMMIT_MESSAGE" value="Starting work on the server.&#10;The beginning of the development of the file upload" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

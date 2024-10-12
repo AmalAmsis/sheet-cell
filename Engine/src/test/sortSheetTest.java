@@ -3,10 +3,10 @@ package test;
 import dto.DTOCell;
 import dto.DTOSheet;
 import dto.DTOSheetImpl;
-import sheet.SheetImpl;
-import sheet.coordinate.Coordinate;
-import sheet.coordinate.CoordinateImpl;
-import sheet.command.sortsheet.SortSheetImpl;
+import sheetmanager.sheet.SheetImpl;
+import sheetmanager.sheet.coordinate.Coordinate;
+import sheetmanager.sheet.coordinate.CoordinateImpl;
+import sheetmanager.sheet.command.sortsheet.SortSheetImpl;
 
 import java.util.ArrayList;
 import java.util.List;
