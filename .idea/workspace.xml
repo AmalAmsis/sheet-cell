@@ -9,17 +9,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Starting work on the server.&#10;The beginning of the development of the file upload">
-      <change afterPath="$PROJECT_DIR$/Engine/src/sheetmanager/SheetManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Engine/src/sheetmanager/SheetManagerImpl.java" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="refactoring the Engine module">
+      <change afterPath="$PROJECT_DIR$/Engine/src/test/UploadFileTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/engine/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/engine/Engine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheetsManager/SheetsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/allsheetsmanager/AllSheetsManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/Server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/Server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/allsheetsmanager/AllSheetsManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/allsheetsmanager/AllSheetsManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheetmanager/SheetManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheetmanager/SheetManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheetmanager/expression/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheetmanager/expression/Operation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/uploadfilemanager/LoadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/uploadfilemanager/LoadFile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/utils/ServletUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/utils/ServletUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/utils/SessionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/utils/SessionUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Expression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/ExpressionEvaluator$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/ExpressionEvaluator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/Operation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/BinaryExpression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/TernaryExpression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/UnaryExpression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Divide.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/math/Pow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/primitive/BooleanExpression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/primitive/NumericExpression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/primitive/StringExpression.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/str/Concat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/expression/impl/systemic/Ref.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/sheet/cell/Cell.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Engine/sheet/cell/CellImpl.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +56,8 @@
         <option value="FxmlFile" />
         <option value="Exception" />
         <option value="HTML File" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -81,6 +105,7 @@
     "Application.Test3.executor": "Debug",
     "Application.TestLogin.executor": "Run",
     "Application.TestLogin2.executor": "Run",
+    "Application.UploadFileTest.executor": "Debug",
     "Application.apprunner.AppRunner.executor": "Run",
     "Application.main.executor": "Run",
     "Application.sortSheetTest.executor": "Debug",
@@ -107,6 +132,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\projects\sheet-cell\Engine\uploadfilemanager" />
       <recent name="C:\projects\sheet-cell\Server\src\model" />
       <recent name="C:\projects\sheet-cell\Engine\src\sheet" />
       <recent name="C:\projects\sheet-cell\UI\src\component\subcomponent\popup\versionselector" />
@@ -118,24 +144,11 @@
       <recent name="subcomponents.test" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.26">
+  <component name="RunManager" selected="Application.UploadFileTest">
     <configuration name="AppRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="apprunner.AppRunner" />
       <module name="UI" />
       <option name="VM_PARAMETERS" value="--module-path &quot;C:\lib\javafx-sdk-22.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="apprunner.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="apprunner.Main" />
-      <module name="UI" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="apprunner.*" />
@@ -167,6 +180,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="component.login.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UploadFileTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.UploadFileTest" />
+      <module name="Engine" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -268,20 +294,20 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.UploadFileTest" />
       <item itemvalue="Application.TestLogin2" />
       <item itemvalue="Application.TestLogin" />
-      <item itemvalue="Application.Main" />
       <item itemvalue="Application.AppRunner" />
       <item itemvalue="JAR Application.UI.jar" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.26" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.UploadFileTest" />
         <item itemvalue="Application.TestLogin2" />
         <item itemvalue="Application.TestLogin" />
         <item itemvalue="Application.AppRunner" />
         <item itemvalue="JAR Application.UI.jar" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -488,7 +514,7 @@
       <workItem from="1728509615912" duration="1624000" />
       <workItem from="1728512012176" duration="100000" />
       <workItem from="1728519610502" duration="2599000" />
-      <workItem from="1728558040053" duration="23708000" />
+      <workItem from="1728558040053" duration="27070000" />
     </task>
     <task id="LOCAL-00023" summary="Beginning of work on the graphical interface.&#10;The main component is the app&#10;which contains 2 components:&#10;header and sheet.&#10;&#10;The sheet contains cell type components.&#10;&#10;I basically defined everyone's fxml files.&#10;&#10;I also built a basic controller for everyone.&#10;&#10;I built a function in sheetController that knows how to receive a sheet and load it to the screen.">
       <option name="closed" value="true" />
@@ -690,7 +716,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728729973686</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="refactoring the Engine module">
+      <option name="closed" value="true" />
+      <created>1728735425266</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1728735425266</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -736,7 +770,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="new merge" />
     <MESSAGE value="accept coordinate with lowercase letters" />
     <MESSAGE value="recent revisions" />
     <MESSAGE value="Beginning of work on the graphical interface.&#10;The main component is the app&#10;which contains 2 components:&#10;header and sheet.&#10;&#10;The sheet contains cell type components.&#10;&#10;I basically defined everyone's fxml files.&#10;&#10;I also built a basic controller for everyone.&#10;&#10;I built a function in sheetController that knows how to receive a sheet and load it to the screen." />
@@ -761,7 +794,8 @@
     <MESSAGE value="sheet version size fixed" />
     <MESSAGE value="filter feature been change" />
     <MESSAGE value="Starting work on the server.&#10;The beginning of the development of the file upload" />
-    <option name="LAST_COMMIT_MESSAGE" value="Starting work on the server.&#10;The beginning of the development of the file upload" />
+    <MESSAGE value="refactoring the Engine module" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring the Engine module" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -803,12 +837,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheetImpl.java</url>
-          <line>117</line>
+          <line>115</line>
           <option name="timeStamp" value="234" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheetImpl.java</url>
-          <line>97</line>
+          <line>95</line>
           <option name="timeStamp" value="235" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -827,19 +861,24 @@
           <option name="timeStamp" value="240" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Engine/src/jaxb/schema/xmlprocessing/XmlProcessingImpl.java</url>
+          <url>file://$PROJECT_DIR$/Engine/src/uploadfilemanager/jaxb/xmlprocessing/XmlProcessingImpl.java</url>
           <line>31</line>
           <option name="timeStamp" value="241" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="243" />
+          <url>file://$PROJECT_DIR$/Engine/src/uploadfilemanager/LoadFile.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="256" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Engine/src/uploadfilemanager/LoadFile.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="257" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/Engine/src/sheet/command/sortsheet/SortSheetImpl.java</url>
+          <url>file://$PROJECT_DIR$/Engine/src/sheetmanager/sheet/command/sortsheet/SortSheetImpl.java</url>
           <line>105</line>
-          <properties class="sheet.command.sortsheet.SortSheetImpl" method="convertStringToCoordinate">
+          <properties class="sheetmanager.sheet.command.sortsheet.SortSheetImpl">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -853,6 +892,15 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="248" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/Engine/src/sheetmanager/SheetManagerImpl.java</url>
+          <line>179</line>
+          <properties class="sheetmanager.SheetManagerImpl" method="saveSystemState">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="251" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

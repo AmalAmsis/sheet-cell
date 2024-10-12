@@ -1,7 +1,7 @@
 package utils;
 
 import jakarta.servlet.ServletContext;
-import allsheetsmanager.AllSheetsManagerImpl;
+import allsheetsmanager.AllSheetsManager;
 
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -18,13 +18,13 @@ public class ServletUtils {
     private static final Object sheetManagerLock = new Object();
 
 
-    public static AllSheetsManagerImpl getSheetManager(ServletContext servletContext){
+    public static AllSheetsManager getSheetManager(ServletContext servletContext){
         synchronized (sheetManagerLock) {
             if (servletContext.getAttribute(SHEETS_MANAGER_ATTRIBUTE_NAME) == null) {
-                servletContext.setAttribute(SHEETS_MANAGER_ATTRIBUTE_NAME, new AllSheetsManagerImpl());
+                servletContext.setAttribute(SHEETS_MANAGER_ATTRIBUTE_NAME, new AllSheetsManager());
             }
         }
-        return (AllSheetsManagerImpl) servletContext.getAttribute(SHEETS_MANAGER_ATTRIBUTE_NAME);
+        return (AllSheetsManager) servletContext.getAttribute(SHEETS_MANAGER_ATTRIBUTE_NAME);
 
     }
 

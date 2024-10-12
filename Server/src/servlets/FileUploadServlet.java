@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
-import allsheetsmanager.AllSheetsManagerImpl;
+import allsheetsmanager.AllSheetsManager;
 import utils.ServletUtils;
 
 import java.io.IOException;
@@ -20,7 +20,7 @@ public class FileUploadServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        AllSheetsManagerImpl sheetsManager = ServletUtils.getSheetManager(getServletContext());
+        AllSheetsManager sheetsManager = ServletUtils.getSheetManager(getServletContext());
 
         // Retrieve the uploaded file from the form-data with the name 'file'
         Part filePart = request.getPart("file"); // "file" is the key name for the file in the form-data

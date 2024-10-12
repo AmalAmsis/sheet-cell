@@ -1,8 +1,6 @@
 package sheetmanager.expression;
 
 import sheetmanager.expression.exception.InvalidOperationNameException;
-import expression.impl.bool.*;
-import expression.impl.math.*;
 import sheetmanager.expression.impl.bool.*;
 import sheetmanager.expression.impl.math.*;
 import sheetmanager.expression.impl.str.Concat;

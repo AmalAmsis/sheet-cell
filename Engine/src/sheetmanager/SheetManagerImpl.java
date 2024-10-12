@@ -40,27 +40,23 @@ public class SheetManagerImpl implements SheetManager,Serializable {
         return currentSheetState;
     }
 
-    @Override
-    public void addNewRange(String rangeName, String fromCoordinate, String toCoordinate) throws Exception
+    @Override public void addNewRange(String rangeName, String fromCoordinate, String toCoordinate) throws Exception
     {
         String range = fromCoordinate + ".." + toCoordinate;
         currentSheetState.getCurrentSheet().addRangeToManager(rangeName,range);
     }
 
-    @Override
-    public void removeRange(String rangeName) throws Exception{
+    @Override public void removeRange(String rangeName) throws Exception{
         currentSheetState.getCurrentSheet().removeRangeFromManager(rangeName);
 
     }
 
-    @Override
-    public DTORange getRange(String rangeName) {
+    @Override public DTORange getRange(String rangeName) {
         RangeReadActions range = currentSheetState.getCurrentSheet().getRangeReadActions(rangeName);
         return new DTORangeImpl(range);
     }
 
-    @Override
-    public List<DTORange> getAllRanges() {
+    @Override public List<DTORange> getAllRanges() {
         List<DTORange> ranges = new ArrayList<DTORange>();
         Map<String,Range> rangesMap = currentSheetState.getCurrentSheet().getRangeManager().getRanges();
         for (Range range : rangesMap.values()) {
@@ -69,8 +65,7 @@ public class SheetManagerImpl implements SheetManager,Serializable {
         return ranges;
     }
 
-    @Override
-    public DTOSheet getSortedSheet(String from, String to, List<Character> listOfColumnsPriorities)throws Exception{
+    @Override public DTOSheet getSortedSheet(String from, String to, List<Character> listOfColumnsPriorities)throws Exception{
 
         SortSheet sortSheet = new SortSheetImpl(currentSheetState.getCurrentSheet());
         try{
@@ -91,13 +86,11 @@ public class SheetManagerImpl implements SheetManager,Serializable {
     }
 
 
-    @Override
-    public void initializeEmptySystem() {
+    @Override public void initializeEmptySystem() {
         this.currentSheetState = null;
     }
 
-    @Override
-    public void loadSheetFromXmlFile(String filePath) throws FileDataException, JAXBException, FileNotFoundException {
+    @Override public void loadSheetFromXmlFile(String filePath) throws FileDataException, JAXBException, FileNotFoundException {
 
         //load the xml file with jaxb
         XmlProcessing xmlProcessing = new XmlProcessingImpl();
@@ -127,8 +120,7 @@ public class SheetManagerImpl implements SheetManager,Serializable {
          this.currentSheetState = new SheetStateManagerImpl(newSheet,currentSheetVersionHandler);
     }
 
-    @Override
-    public DTOSheet displaySheet() {
+    @Override public DTOSheet displaySheet() {
         if (this.currentSheetState != null) {
             Sheet mySheet = this.currentSheetState.getCurrentSheet();
             return new DTOSheetImpl(mySheet);
@@ -136,8 +128,7 @@ public class SheetManagerImpl implements SheetManager,Serializable {
         return null;
     }
 
-    @Override
-    public DTOCell displayCell(String coordinateString) {
+    @Override public DTOCell displayCell(String coordinateString) {
         if (this.currentSheetState != null){
             Sheet mySheet = this.currentSheetState.getCurrentSheet();
             Coordinate myCoordinate = mySheet.convertStringToCoordinate(coordinateString);
@@ -149,8 +140,7 @@ public class SheetManagerImpl implements SheetManager,Serializable {
     }
 
     //yarden 27/8
-    @Override
-    public DTOSheet updateCell(String coordinateString, String newOriginalValue) throws Exception {
+    @Override public DTOSheet updateCell(String coordinateString, String newOriginalValue) throws Exception {
         if (this.currentSheetState != null){
             //call Amal function לברר אם הבנתי נכון את הסטייט
             Coordinate coordinate = this.currentSheetState.getCurrentSheet().convertStringToCoordinate(coordinateString.replace(":",""));
@@ -179,8 +169,7 @@ public class SheetManagerImpl implements SheetManager,Serializable {
         return null;
     }
 
-    @Override
-    public DTOSheet displaySheetVersion(int versionNumber) {
+    @Override public DTOSheet displaySheetVersion(int versionNumber) {
         if (this.currentSheetState != null){
             SheetVersionHandler sheetVersionHandler = this.currentSheetState.getVersionHandler();
             return sheetVersionHandler.getSheetByVersion(versionNumber);
@@ -188,8 +177,7 @@ public class SheetManagerImpl implements SheetManager,Serializable {
         return null;
     }
 
-    @Override
-    public void saveSystemState(String filePath) throws Exception {
+    @Override public void saveSystemState(String filePath) throws Exception {
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filePath))) {
             // Serialize the current state of the sheet
             out.writeObject(currentSheetState);
@@ -201,8 +189,7 @@ public class SheetManagerImpl implements SheetManager,Serializable {
         }
     }
 
-    @Override
-    public void loadSystemState(String filePath) throws Exception {
+    @Override public void loadSystemState(String filePath) throws Exception {
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filePath))) {
             // Deserialize the system state from the file
             currentSheetState = (SheetStateManagerImpl) in.readObject();
@@ -256,8 +243,7 @@ public class SheetManagerImpl implements SheetManager,Serializable {
 
 
     //******************************************************************************************************************************//
-    @Override
-    public void loadsheetFromStream(InputStream inputStream, String fileName) throws Exception{
+    @Override public void loadsheetFromStream(InputStream inputStream, String fileName) throws Exception{
         LoadFile loadFile = new LoadFile();
         XmlProcessing xmlProcessing = new XmlProcessingImpl();
         STLSheet stlSheet = loadFile.parseAndValidatefile(inputStream, fileName);

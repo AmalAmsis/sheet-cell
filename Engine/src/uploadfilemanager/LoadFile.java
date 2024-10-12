@@ -17,7 +17,8 @@ import java.util.List;
 
 public class LoadFile {
 
-    private final String JAXB_XML_STL_PACKAGE_NAME = "jaxb.schema.generated";
+    //todo - check it
+    private final String JAXB_XML_STL_PACKAGE_NAME = "uploadfilemanager.jaxb.generated";
 
     public STLSheet parseAndValidatefile(InputStream inputStream, String fileName) throws FileDataException, JAXBException, FileNotFoundException {
         //1.is the file a xml file
