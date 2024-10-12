@@ -19,6 +19,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="Tomcat 10.1.30" level="application_server_libraries" />
+    <orderEntry type="library" exported="" name="apache-tomcat-10.1" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="Tomcat 10.1.26" level="application_server_libraries" />
+    <orderEntry type="module" module-name="Engine" exported="" />
   </component>
 </module>

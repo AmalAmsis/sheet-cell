@@ -6,6 +6,7 @@ import jaxb.schema.generated.*;
 import jaxb.schema.xmlprocessing.FileDataException;
 import jaxb.schema.xmlprocessing.XmlProcessing;
 import jaxb.schema.xmlprocessing.XmlProcessingImpl;
+import loadfile.LoadFile;
 import sheet.Sheet;
 import sheet.SheetImpl;
 import sheet.command.filtersheet.FilterSheet;
@@ -32,7 +33,6 @@ import java.util.Map;
 public class EngineImpl implements Engine,Serializable {
 
     private SheetStateManager currentSheetState;
-
     public SheetStateManager getCurrentSheetState() {
         return currentSheetState;
     }
@@ -250,4 +250,38 @@ public class EngineImpl implements Engine,Serializable {
         // create the coordinate
         return new CoordinateImpl(col, row);
     }
+
+
+    //******************************************************************************************************************************//
+    @Override
+    public void loadsheetFromStream(InputStream inputStream, String fileName) throws Exception{
+        LoadFile loadFile = new LoadFile();
+        XmlProcessing xmlProcessing = new XmlProcessingImpl();
+        STLSheet stlSheet = loadFile.parseAndValidatefile(inputStream, fileName);
+
+
+        //Creating a list of cells by topological sorting.
+        //Returns a sorted list or exception
+        STLCells stlCellList = stlSheet.getSTLCells();
+        char lastLetterOfCol = (char)(stlSheet.getSTLLayout().getColumns() +'A' -1);
+        int latsNumOfRows = stlSheet.getSTLLayout().getRows();
+
+        RangeManager rangeManager = new RangeManagerImpl();
+        if(stlSheet.getSTLRanges() != null) {
+            for (STLRange stlRange: stlSheet.getSTLRanges().getSTLRange()){
+                Coordinate coordinateFrom = convertStringToCoordinate(stlRange.getSTLBoundaries().getFrom(),lastLetterOfCol,latsNumOfRows);
+                Coordinate coordinateTo = convertStringToCoordinate(stlRange.getSTLBoundaries().getTo(),lastLetterOfCol,latsNumOfRows);
+                rangeManager.addRange(stlRange.getName(),coordinateFrom,coordinateTo);
+            }
+        }
+
+        List<STLCell> sortedListOfStlCells = xmlProcessing.getTopologicalSortOrThrowCircularReferenceException(stlCellList, rangeManager);
+        Sheet newSheet = new SheetImpl(stlSheet, sortedListOfStlCells,rangeManager);
+        int numOfCellsInTheSheet = newSheet.getBoard().size();
+
+        //********************************************************************************************************************//
+        SheetVersionHandler currentSheetVersionHandler = new SheetVersionHandlerImpl(newSheet,numOfCellsInTheSheet);
+        this.currentSheetState = new SheetStateManagerImpl(newSheet,currentSheetVersionHandler);
+    }
+
 }

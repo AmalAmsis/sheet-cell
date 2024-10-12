@@ -1,37 +1,29 @@
-package jaxb.schema.xmlprocessing;
+package loadfile;
 
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
-import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.Unmarshaller;
 import jaxb.schema.generated.STLCell;
 import jaxb.schema.generated.STLCells;
 import jaxb.schema.generated.STLLayout;
 import jaxb.schema.generated.STLSheet;
+import jaxb.schema.xmlprocessing.CellGraphValidator;
+import jaxb.schema.xmlprocessing.FileDataException;
 import sheet.range.RangeManager;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.List;
 
-/**
- * XmlProcessingImpl is an implementation of the XmlProcessing interface.
- * This class provides methods for processing and validating XML data related to spreadsheets,
- * including parsing, validating, and converting XML files into Java objects.
- */
-public class XmlProcessingImpl implements XmlProcessing {
+public class LoadFile {
 
-    //the package path of the generated classes
     private final String JAXB_XML_STL_PACKAGE_NAME = "jaxb.schema.generated";
 
-    @Override
-    public STLSheet parseAndValidateXml(String inputXmlFilePath) throws FileDataException, JAXBException, FileNotFoundException {
+    public STLSheet parseAndValidatefile(InputStream inputStream, String fileName) throws FileDataException, JAXBException, FileNotFoundException {
         //1.is the file a xml file
-        isXmlFile(inputXmlFilePath);
+        isXmlFile(fileName);
         //2.file load STLSheet = fromXmlFileToXmlFile(inputPath)
-        STLSheet stlSheet = fromXmlFileSTLSheet(inputXmlFilePath);
+        STLSheet stlSheet = fromInputStreamToSTLSheet(inputStream);
         if(stlSheet == null){
             throw new IllegalStateException("Failed to process the XML file. The file may be corrupted or improperly formatted. Please check the file.");
         }
@@ -52,27 +44,6 @@ public class XmlProcessingImpl implements XmlProcessing {
         return stlSheet;
     }
 
-    /**
-     * Reads an XML file and converts it into a Java object (STLSheet) using JAXB's unmarshal process.
-     * If the function returns null, it means that the file was not found or an error occurred.
-     * @param inputXmlFilePath the path to the XML file.
-     * @return STLSheet object representing the XML content, or null if an error occurs.
-     * @throws JAXBException if an error occurs during unmarshalling.*/
-    public STLSheet fromXmlFileSTLSheet(String inputXmlFilePath) throws JAXBException, FileNotFoundException {
-
-        STLSheet stlSheet = null;
-        try {
-            InputStream inputStream = new FileInputStream(inputXmlFilePath);
-            stlSheet = deserializeFrom(inputStream);
-        } catch (FileNotFoundException e) {
-            throw new FileNotFoundException("The specified file was not found. Please check the file path and ensure that the file exists.");
-        } catch (JAXBException e) {
-            throw new JAXBException("Failed to process the XML file. \nThe file may be corrupted or improperly formatted. \nPlease check the file.");
-        }
-        return stlSheet;
-    }
-
-
     public STLSheet fromInputStreamToSTLSheet(InputStream inputStream) throws JAXBException {
 
         STLSheet stlSheet = null;
@@ -84,37 +55,6 @@ public class XmlProcessingImpl implements XmlProcessing {
         return stlSheet;
     }
 
-
-    //not in was right new - maybe in the future
-    /**
-     * Serializes an STLSheet object into an XML file at the given path.
-     *
-     * @param inputXmlFilePath the path where the XML file will be saved.
-     * @param stlSheet the STLSheet object to be serialized.
-     * @throws JAXBException if an error occurs during marshalling.*/
-    void fromObjectToXmlFile(String inputXmlFilePath, STLSheet stlSheet) throws JAXBException{
-
-        try {
-            File file = new File(inputXmlFilePath);
-            JAXBContext jaxbContext = JAXBContext.newInstance(STLSheet.class);
-            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-            jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            jaxbMarshaller.marshal(stlSheet, file);
-        }
-        catch (JAXBException e) {
-            e.printStackTrace();
-            //WE NEED TO RETURN TO THE UI A MESSAGE OF THE EXCEPTION
-
-        }
-
-    }
-
-    /**
-     * Converts an InputStream representing an XML file into an STLSheet object using JAXB.
-     * @param inputXmlFilePath the InputStream of the XML file.
-     * @return STLSheet object representing the XML content.
-     * @throws JAXBException if an error occurs during unmarshalling.
-     */
     public STLSheet deserializeFrom(InputStream inputXmlFilePath) throws JAXBException {
         //Create JAXB context for the generated classes
         JAXBContext jaxbContext = JAXBContext.newInstance(JAXB_XML_STL_PACKAGE_NAME);
@@ -124,10 +64,6 @@ public class XmlProcessingImpl implements XmlProcessing {
         return (STLSheet) jaxbUnmarshaller.unmarshal(inputXmlFilePath);
     }
 
-    /**
-     * Validates that the provided file path points to an XML file.
-     *      * @param file the file path to validate.
-     *      * @throws IllegalArgumentException if the file path is empty, missing, or does not end with .xml.*/
     public void isXmlFile(String file) {
         if (file == null || file.isEmpty()) {
             throw new IllegalArgumentException("The file path you provided is either empty or missing. Please provide a valid file path.");
@@ -214,7 +150,6 @@ public class XmlProcessingImpl implements XmlProcessing {
 
     }
 
-    @Override
     public List<STLCell> getTopologicalSortOrThrowCircularReferenceException(STLCells listOfCells, RangeManager rangeManager) throws FileDataException.CircularReferenceException {
         CellGraphValidator cellGraphValidator = new CellGraphValidator(listOfCells, rangeManager);
         return cellGraphValidator.topologicalSort();

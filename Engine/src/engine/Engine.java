@@ -7,6 +7,7 @@ import sheet.command.filtersortdatapreparation.ValidationException;
 import sheet.coordinate.Coordinate;
 import state.SheetStateManager;
 
+import java.io.InputStream;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -29,8 +30,15 @@ public interface Engine {
      * @param filePath The path to the file from which the sheet will be loaded.
      * @throws Exception If there is an issue loading the file.
      */
-    ///****** edit the Exception ******
     void loadSheetFromXmlFile(String filePath) throws Exception;
+
+
+    //**************************************************************************************************//
+
+    void loadsheetFromStream(InputStream inputStream, String fileName) throws Exception;
+
+    //**************************************************************************************************//
+
 
     /**
      * Action #2
@@ -57,7 +65,6 @@ public interface Engine {
      * @return A DTOSheet object representing the updated sheet.
      * @throws Exception If there is an issue
      */
-    ///****** edit the Exception ******
     DTOSheet updateCell(String coordinateString, String newOriginalValue) throws Exception;
 
     /**
@@ -93,7 +100,7 @@ public interface Engine {
     ///****** edit the Exception ******
     void loadSystemState(String filePath) throws Exception;
 
-    public SheetStateManager getCurrentSheetState();
+    SheetStateManager getCurrentSheetState();
 
     void addNewRange(String rangeName, String fromCoordinate, String toCoordinate) throws Exception;
 
@@ -106,6 +113,6 @@ public interface Engine {
 
     DTOSheet getSortedSheet(String from, String to, List<Character> listOfColumnsPriorities) throws Exception;
     DTOSheet filterSheet(Map<String, List<String>> selectedColumnValues, String from, String to) throws Exception;
-    public DTOSheet updateTemporaryCellValue(String coordinateString, String newOriginalValue);
+    DTOSheet updateTemporaryCellValue(String coordinateString, String newOriginalValue);
 
 }

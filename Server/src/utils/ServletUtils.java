@@ -1,16 +1,35 @@
 package utils;
 
 import jakarta.servlet.ServletContext;
-import jakarta.servlet.http.HttpServletRequest;
+import sheetsManager.SheetsManager;
+
+
 
 public class ServletUtils {
     private static final String USER_MANAGER_ATTRIBUTE_NAME = "userManager";
     private static final String CHAT_MANAGER_ATTRIBUTE_NAME = "chatManager";
+    private static final String SHEETS_MANAGER_ATTRIBUTE_NAME = "sheetsManager";
+
+    private static final Object sheetManagerLock = new Object();
+
+
+    public static SheetsManager getSheetManager(ServletContext servletContext){
+        synchronized (sheetManagerLock) {
+            if (servletContext.getAttribute(SHEETS_MANAGER_ATTRIBUTE_NAME) == null) {
+                servletContext.setAttribute(SHEETS_MANAGER_ATTRIBUTE_NAME, new SheetsManager());
+            }
+        }
+        return (SheetsManager) servletContext.getAttribute(SHEETS_MANAGER_ATTRIBUTE_NAME);
+
+    }
+
 
     /*
     Note how the synchronization is done only on the question and\or creation of the relevant managers and once they exists -
     the actual fetch of them is remained un-synchronized for performance POV
      */
+
+    /*
     private static final Object userManagerLock = new Object();
     private static final Object chatManagerLock = new Object();
 
@@ -43,4 +62,5 @@ public class ServletUtils {
         }
         return INT_PARAMETER_ERROR;
     }
+     */
 }
