@@ -21,7 +21,7 @@ public class SheetCellClient extends Application {
 
         primaryStage.setMinHeight(600);
         primaryStage.setMinWidth(600);
-        primaryStage.setTitle("Chat App Client");
+        primaryStage.setTitle("Sheet Cell Client");
 
         URL loginPage = getClass().getResource(MAIN_PAGE_FXML_RESOURCE_LOCATION);
         try {

@@ -76,7 +76,7 @@ public class LoginController  {
                 } else {
 
                     Platform.runLater(() -> {
-                        DashboardController.updateUserName(userName);
+                        sheetCellAppMainController.updateUserName(userName);
                         //chatAppMainController.switchToChatRoom();
                     });
                 }

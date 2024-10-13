@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="DataTransferObject" />
-      <artifact name="Engine" />
       <artifact name="Server:Web exploded" />
-      <artifact name="UI" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
@@ -13,8 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="fix loadSheet url">
-      <change beforePath="$PROJECT_DIR$/Client/src/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/util/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/web/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/servlets/updateCellServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/login/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/login/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/login/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/main/sheetCellAppMain.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/main/sheetCellAppMain.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/SheetCellClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/SheetCellClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/allsheetsmanager/AllSheetsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/allsheetsmanager/AllSheetsManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +108,7 @@
       <recent name="C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\sheet-cell\UI\src\component\subcomponent\cell" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TestLoadFile">
+  <component name="RunManager" selected="Application.SheetCellClient">
     <configuration name="AppRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="apprunner.AppRunner" />
       <module name="UI" />
@@ -281,9 +283,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TestLoadFile" />
         <item itemvalue="Application.SheetCellClient" />
         <item itemvalue="Application.TestLogin" />
+        <item itemvalue="Application.TestLoadFile" />
         <item itemvalue="Application.AppRunner" />
         <item itemvalue="Application.TestLogin2" />
       </list>
@@ -321,14 +323,6 @@
       <workItem from="1728768355881" duration="44000" />
       <workItem from="1728768423746" duration="14000" />
       <workItem from="1728768460006" duration="5531000" />
-    </task>
-    <task id="LOCAL‎-00033" summary="Added new Math expression function:Sum">
-      <option name="closed" value="true" />
-      <created>1725817049322</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL‎-00033" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725817049322</updated>
     </task>
     <task id="LOCAL‎-00034" summary="Added new Math expression function:Average">
       <option name="closed" value="true" />
@@ -714,7 +708,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1728814749377</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL‎-00082" summary="fix loadSheet url">
+      <option name="closed" value="true" />
+      <created>1728815028683</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL‎-00082" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1728815028683</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -799,11 +801,6 @@
           <url>file://$PROJECT_DIR$/Server/src/servlets/LightweightLoginServlet.java</url>
           <line>21</line>
           <option name="timeStamp" value="136" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Client/src/main/SheetCellClient.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="137" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>
