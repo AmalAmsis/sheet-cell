@@ -9,14 +9,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="fix loadSheet url">
-      <change afterPath="$PROJECT_DIR$/Server/src/servlets/updateCellServlet.java" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="updateCellServlet">
+      <change afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/selectedSheetView.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/SelectedSheetViewHeaderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/selectedSheetViewHeader.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/selectedSheetViewLeft.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/sheet/CellModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/sheet/CellStyle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/sheet/SelectedSheetController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/sheet/UIModelSheet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/sheet/selectedSheet.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/login/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/login/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/login/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/main/sheetCellAppMain.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/main/sheetCellAppMain.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/SheetCellClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/SheetCellClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/allsheetsmanager/AllSheetsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/allsheetsmanager/AllSheetsManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,8 +36,8 @@
         <option value="Enum" />
         <option value="CSS File" />
         <option value="Interface" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -89,13 +94,13 @@
     "git-widget-placeholder": "Amal",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Amal Amsis/Downloads/Online Chat V3/Online Chat V3",
+    "last_opened_file_path": "C:/Users/Amal Amsis/Desktop/AmalA/Computer Science/JAVA/sheet-cell/Client/src/component/selectedSheetView/subcomponents",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.1706642",
     "settings.editor.selected.configurable": "preferences.applicationServers",
@@ -103,12 +108,19 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\sheet-cell\Client\src\component\selectedSheetView\subcomponents" />
+      <recent name="C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\sheet-cell\Client\src\component\selectedSheetView" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\sheet-cell\UI\src\component\subcomponent\header" />
       <recent name="C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\sheet-cell\UI\src\component\subcomponent\cell" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="component.selectedSheetView.subcomponent.sheet" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.SheetCellClient">
+  <component name="RunManager" selected="Application.TestLoadFile">
     <configuration name="AppRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="apprunner.AppRunner" />
       <module name="UI" />
@@ -283,9 +295,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TestLoadFile" />
         <item itemvalue="Application.SheetCellClient" />
         <item itemvalue="Application.TestLogin" />
-        <item itemvalue="Application.TestLoadFile" />
         <item itemvalue="Application.AppRunner" />
         <item itemvalue="Application.TestLogin2" />
       </list>
@@ -323,14 +335,6 @@
       <workItem from="1728768355881" duration="44000" />
       <workItem from="1728768423746" duration="14000" />
       <workItem from="1728768460006" duration="5531000" />
-    </task>
-    <task id="LOCAL‎-00034" summary="Added new Math expression function:Average">
-      <option name="closed" value="true" />
-      <created>1725817885819</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL‎-00034" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725817885819</updated>
     </task>
     <task id="LOCAL‎-00035" summary="Updates classes to allow ranges to be used correctly">
       <option name="closed" value="true" />
@@ -716,7 +720,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1728815028683</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL‎-00083" summary="updateCellServlet">
+      <option name="closed" value="true" />
+      <created>1728832084069</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL‎-00083" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1728832084070</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -762,7 +774,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add ErrorMessage for ranges actions and update cell (UI)" />
     <MESSAGE value="design" />
     <MESSAGE value="wrap text" />
     <MESSAGE value="add back to default Button" />
@@ -787,7 +798,8 @@
     <MESSAGE value="Prepared FXML and controller structure for dashboard layout&#10;&#10;- Created `dashboardHeader.fxml` to define the layout for the header section of the dashboard.&#10;- Added `DashboardHeaderController.java` to handle the logic and interaction for the header section.&#10;- Organized the project structure under `subcomponents/header` for better modularization.&#10;- Added placeholders for subcomponents in the dashboard (availableSheets, commands, and Permissions)." />
     <MESSAGE value="Initial implementation of sheetCellMainController and main FXML for client navigation&#10;&#10;- Implemented `sheetCellMainController` to handle the main client logic and navigation between views (login, dashboard, and sheet).&#10;- Created the main FXML layout to manage transitions between different screens.&#10;- Set up the initial structure for handling view changes dynamically within the client.&#10;- Further adjustments and improvements to navigation and layout are needed before finalizing." />
     <MESSAGE value="fix loadSheet url" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix loadSheet url" />
+    <MESSAGE value="updateCellServlet" />
+    <option name="LAST_COMMIT_MESSAGE" value="updateCellServlet" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
