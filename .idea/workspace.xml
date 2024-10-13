@@ -2,19 +2,18 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
+      <artifact name="DataTransferObject" />
+      <artifact name="Engine" />
       <artifact name="Server:Web exploded" />
+      <artifact name="UI" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Initial implementation of sheetCellMainController and main FXML for client navigation&#10;&#10;- Implemented `sheetCellMainController` to handle the main client logic and navigation between views (login, dashboard, and sheet).&#10;- Created the main FXML layout to manage transitions between different screens.&#10;- Set up the initial structure for handling view changes dynamically within the client.&#10;- Further adjustments and improvements to navigation and layout are needed before finalizing.">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/DashboardHeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/DashboardHeaderController.java" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="fix loadSheet url">
       <change beforePath="$PROJECT_DIR$/Client/src/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/util/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/web/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -322,14 +321,6 @@
       <workItem from="1728768355881" duration="44000" />
       <workItem from="1728768423746" duration="14000" />
       <workItem from="1728768460006" duration="5531000" />
-    </task>
-    <task id="LOCAL‎-00032" summary="Added new Math expression function:Sum">
-      <option name="closed" value="true" />
-      <created>1725816788258</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL‎-00032" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725816788258</updated>
     </task>
     <task id="LOCAL‎-00033" summary="Added new Math expression function:Sum">
       <option name="closed" value="true" />
@@ -715,7 +706,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1728810677633</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL‎-00081" summary="fix loadSheet url">
+      <option name="closed" value="true" />
+      <created>1728814749377</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL‎-00081" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1728814749377</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -761,7 +760,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Synchronized selected cell with text alignment settings:&#10;&#10;- Implemented synchronization between the selected cell and the text alignment in the ChoiceBox.&#10;- Ensured that the ChoiceBox reflects the current alignment (left, center, right) of the selected cell's content.&#10;- Added listeners to update cell alignment dynamically based on the ChoiceBox selection." />
     <MESSAGE value="add ErrorMessage for ranges actions and update cell (UI)" />
     <MESSAGE value="design" />
     <MESSAGE value="wrap text" />
@@ -786,7 +784,8 @@
     <MESSAGE value="Implemented unique username validation and login flow for the client&#10;&#10;- **Client module**:&#10;  - Added login flow with `LoginController.java` to handle user input and authentication.&#10;  - Updated `login.fxml` to define the layout and bind buttons to controller methods.&#10;  - Created CSS styling in `login.css` for error labels, main action buttons, and quit buttons.&#10;  - Implemented test classes (`TestLogin.java`, `TestLogin2.java`) for validating login functionality.&#10;&#10;- **Engine module**:&#10;  - Added `UserManager.java` and `UserManagerImpl.java` to handle user management, ensuring that each user has a unique name.&#10; &#10;&#10;- **Server module**:&#10;  - `LightweightLoginServlet.java`: Handles basic user login and session creation, ensuring that only unique usernames are allowed.&#10;  - `LogoutServlet.java`: Manages user logout and session termination.&#10;  - `ServletUtils.java`: Utility functions for managing user sessions and attributes.&#10;  - `SessionUtils.java`: Utility functions for session management.&#10;  - `Constants.java`: Stores constant values used across the application.&#10;&#10;- Fixed issues with class loading and servlet integration in the login process." />
     <MESSAGE value="Prepared FXML and controller structure for dashboard layout&#10;&#10;- Created `dashboardHeader.fxml` to define the layout for the header section of the dashboard.&#10;- Added `DashboardHeaderController.java` to handle the logic and interaction for the header section.&#10;- Organized the project structure under `subcomponents/header` for better modularization.&#10;- Added placeholders for subcomponents in the dashboard (availableSheets, commands, and Permissions)." />
     <MESSAGE value="Initial implementation of sheetCellMainController and main FXML for client navigation&#10;&#10;- Implemented `sheetCellMainController` to handle the main client logic and navigation between views (login, dashboard, and sheet).&#10;- Created the main FXML layout to manage transitions between different screens.&#10;- Set up the initial structure for handling view changes dynamically within the client.&#10;- Further adjustments and improvements to navigation and layout are needed before finalizing." />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial implementation of sheetCellMainController and main FXML for client navigation&#10;&#10;- Implemented `sheetCellMainController` to handle the main client logic and navigation between views (login, dashboard, and sheet).&#10;- Created the main FXML layout to manage transitions between different screens.&#10;- Set up the initial structure for handling view changes dynamically within the client.&#10;- Further adjustments and improvements to navigation and layout are needed before finalizing." />
+    <MESSAGE value="fix loadSheet url" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix loadSheet url" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
