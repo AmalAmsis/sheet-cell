@@ -9,16 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Prepared FXML and controller structure for dashboard layout&#10;&#10;- Created `dashboardHeader.fxml` to define the layout for the header section of the dashboard.&#10;- Added `DashboardHeaderController.java` to handle the logic and interaction for the header section.&#10;- Organized the project structure under `subcomponents/header` for better modularization.&#10;- Added placeholders for subcomponents in the dashboard (availableSheets, commands, and Permissions).">
-      <change afterPath="$PROJECT_DIR$/Client/src/component/dashboard/main/DashboardController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/component/main/sheetCellAppMain.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/main/SheetCellClient.java" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Initial implementation of sheetCellMainController and main FXML for client navigation&#10;&#10;- Implemented `sheetCellMainController` to handle the main client logic and navigation between views (login, dashboard, and sheet).&#10;- Created the main FXML layout to manage transitions between different screens.&#10;- Set up the initial structure for handling view changes dynamically within the client.&#10;- Further adjustments and improvements to navigation and layout are needed before finalizing.">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/login/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/DashboardHeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/DashboardHeaderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/util/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/web/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +74,7 @@
     "Application.SheetCellClient.executor": "Run",
     "Application.Test.executor": "Run",
     "Application.Test2.executor": "Coverage",
+    "Application.TestLoadFile.executor": "Run",
     "Application.TestLogin.executor": "Run",
     "Application.TestLogin2.executor": "Run",
     "Application.deprecated.apprunner.AppRunner.executor": "Debug",
@@ -109,7 +107,7 @@
       <recent name="C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\sheet-cell\UI\src\component\subcomponent\cell" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SheetCellClient">
+  <component name="RunManager" selected="Application.TestLoadFile">
     <configuration name="AppRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="apprunner.AppRunner" />
       <module name="UI" />
@@ -138,6 +136,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestLoadFile" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="component.dashboard.subcomponents.header.TestLoadFile" />
+      <module name="Client" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\openjfx-22.0.2_windows-x64_bin-sdk\javafx-sdk-22.0.2\lib&quot;  --add-modules javafx.controls,javafx.fxml " />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="component.dashboard.subcomponents.header.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestLogin" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="component.login.TestLogin" />
       <module name="Client" />
@@ -159,19 +171,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="component.login.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="deprecated.apprunner.AppRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="deprecated.apprunner.AppRunner" />
-      <module name="UI" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="manager.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -273,21 +272,21 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.TestLoadFile" />
       <item itemvalue="Application.SheetCellClient" />
       <item itemvalue="Application.TestLogin2" />
       <item itemvalue="Application.TestLogin" />
-      <item itemvalue="Application.deprecated.apprunner.AppRunner" />
       <item itemvalue="Application.AppRunner" />
       <item itemvalue="JAR Application.UI.jar" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.30" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TestLoadFile" />
         <item itemvalue="Application.SheetCellClient" />
         <item itemvalue="Application.TestLogin" />
         <item itemvalue="Application.AppRunner" />
         <item itemvalue="Application.TestLogin2" />
-        <item itemvalue="Application.deprecated.apprunner.AppRunner" />
       </list>
     </recent_temporary>
   </component>
@@ -322,15 +321,7 @@
       <workItem from="1728659469841" duration="25867000" />
       <workItem from="1728768355881" duration="44000" />
       <workItem from="1728768423746" duration="14000" />
-      <workItem from="1728768460006" duration="5060000" />
-    </task>
-    <task id="LOCAL‎-00031" summary="add new method to sheetImpl : &#10;/**&#10;     * Retrieves a range by its name.&#10;     *&#10;     * @param rangeName The name of the range.&#10;     * @return The range as RangeReadActions, or null if not found in RangeManager.&#10;     */&#10;    RangeReadActions getRangeReadActions(String rangeName);">
-      <option name="closed" value="true" />
-      <created>1725814845310</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL‎-00031" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725814845310</updated>
+      <workItem from="1728768460006" duration="5531000" />
     </task>
     <task id="LOCAL‎-00032" summary="Added new Math expression function:Sum">
       <option name="closed" value="true" />
@@ -716,7 +707,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1728740400003</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL‎-00080" summary="Initial implementation of sheetCellMainController and main FXML for client navigation&#10;&#10;- Implemented `sheetCellMainController` to handle the main client logic and navigation between views (login, dashboard, and sheet).&#10;- Created the main FXML layout to manage transitions between different screens.&#10;- Set up the initial structure for handling view changes dynamically within the client.&#10;- Further adjustments and improvements to navigation and layout are needed before finalizing.">
+      <option name="closed" value="true" />
+      <created>1728810677633</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL‎-00080" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1728810677633</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -738,7 +737,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="Amal" />
+                        <option value="HEAD" />
                       </list>
                     </value>
                   </entry>
@@ -762,7 +761,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Editing code to change row height and colunm width" />
     <MESSAGE value="Synchronized selected cell with text alignment settings:&#10;&#10;- Implemented synchronization between the selected cell and the text alignment in the ChoiceBox.&#10;- Ensured that the ChoiceBox reflects the current alignment (left, center, right) of the selected cell's content.&#10;- Added listeners to update cell alignment dynamically based on the ChoiceBox selection." />
     <MESSAGE value="add ErrorMessage for ranges actions and update cell (UI)" />
     <MESSAGE value="design" />
@@ -787,7 +785,8 @@
     <MESSAGE value="starting part 3!!!&#10;linking the tomcat and dividing it into new models and starting work on login" />
     <MESSAGE value="Implemented unique username validation and login flow for the client&#10;&#10;- **Client module**:&#10;  - Added login flow with `LoginController.java` to handle user input and authentication.&#10;  - Updated `login.fxml` to define the layout and bind buttons to controller methods.&#10;  - Created CSS styling in `login.css` for error labels, main action buttons, and quit buttons.&#10;  - Implemented test classes (`TestLogin.java`, `TestLogin2.java`) for validating login functionality.&#10;&#10;- **Engine module**:&#10;  - Added `UserManager.java` and `UserManagerImpl.java` to handle user management, ensuring that each user has a unique name.&#10; &#10;&#10;- **Server module**:&#10;  - `LightweightLoginServlet.java`: Handles basic user login and session creation, ensuring that only unique usernames are allowed.&#10;  - `LogoutServlet.java`: Manages user logout and session termination.&#10;  - `ServletUtils.java`: Utility functions for managing user sessions and attributes.&#10;  - `SessionUtils.java`: Utility functions for session management.&#10;  - `Constants.java`: Stores constant values used across the application.&#10;&#10;- Fixed issues with class loading and servlet integration in the login process." />
     <MESSAGE value="Prepared FXML and controller structure for dashboard layout&#10;&#10;- Created `dashboardHeader.fxml` to define the layout for the header section of the dashboard.&#10;- Added `DashboardHeaderController.java` to handle the logic and interaction for the header section.&#10;- Organized the project structure under `subcomponents/header` for better modularization.&#10;- Added placeholders for subcomponents in the dashboard (availableSheets, commands, and Permissions)." />
-    <option name="LAST_COMMIT_MESSAGE" value="Prepared FXML and controller structure for dashboard layout&#10;&#10;- Created `dashboardHeader.fxml` to define the layout for the header section of the dashboard.&#10;- Added `DashboardHeaderController.java` to handle the logic and interaction for the header section.&#10;- Organized the project structure under `subcomponents/header` for better modularization.&#10;- Added placeholders for subcomponents in the dashboard (availableSheets, commands, and Permissions)." />
+    <MESSAGE value="Initial implementation of sheetCellMainController and main FXML for client navigation&#10;&#10;- Implemented `sheetCellMainController` to handle the main client logic and navigation between views (login, dashboard, and sheet).&#10;- Created the main FXML layout to manage transitions between different screens.&#10;- Set up the initial structure for handling view changes dynamically within the client.&#10;- Further adjustments and improvements to navigation and layout are needed before finalizing." />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial implementation of sheetCellMainController and main FXML for client navigation&#10;&#10;- Implemented `sheetCellMainController` to handle the main client logic and navigation between views (login, dashboard, and sheet).&#10;- Created the main FXML layout to manage transitions between different screens.&#10;- Set up the initial structure for handling view changes dynamically within the client.&#10;- Further adjustments and improvements to navigation and layout are needed before finalizing." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

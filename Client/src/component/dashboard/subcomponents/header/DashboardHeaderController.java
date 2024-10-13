@@ -14,7 +14,8 @@ import util.http.HttpClientUtil;
 import java.io.File;
 import java.io.IOException;
 
-import static util.Constants.BASE_URL;
+import static util.Constants.LOAD;
+
 
 public class DashboardHeaderController {
 
@@ -41,7 +42,7 @@ public class DashboardHeaderController {
                                 .build();
 
                 Request request = new Request.Builder()
-                        .url(BASE_URL + RESOURCE)
+                        .url( LOAD)
                         .post(body)
                         .build();
 
