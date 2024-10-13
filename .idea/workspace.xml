@@ -9,18 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="commit for marge">
-      <change afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/TestLoadFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/component/popup/error/ErrorMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="create the client side of load file feature">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/DashboardHeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/DashboardHeaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/dashboardHeader.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/dashboardHeader.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/util/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/util/http/HttpClientUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/util/http/HttpClientUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/web/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -311,14 +303,6 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task id="LOCAL‎-00001" summary="update gitignore">
-      <option name="closed" value="true" />
-      <created>1724498833313</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL‎-00001" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1724498833313</updated>
-    </task>
     <task id="LOCAL‎-00002" summary="update gitignore">
       <option name="closed" value="true" />
       <created>1724499100075</created>
@@ -504,7 +488,7 @@
       <workItem from="1728509615912" duration="1624000" />
       <workItem from="1728512012176" duration="100000" />
       <workItem from="1728519610502" duration="2599000" />
-      <workItem from="1728558040053" duration="37593000" />
+      <workItem from="1728558040053" duration="38278000" />
     </task>
     <task id="LOCAL-00023" summary="Beginning of work on the graphical interface.&#10;The main component is the app&#10;which contains 2 components:&#10;header and sheet.&#10;&#10;The sheet contains cell type components.&#10;&#10;I basically defined everyone's fxml files.&#10;&#10;I also built a basic controller for everyone.&#10;&#10;I built a function in sheetController that knows how to receive a sheet and load it to the screen.">
       <option name="closed" value="true" />
@@ -722,7 +706,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728738040867</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="create the client side of load file feature">
+      <option name="closed" value="true" />
+      <created>1728749843788</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1728749843789</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -768,7 +760,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="accept coordinate with lowercase letters" />
     <MESSAGE value="recent revisions" />
     <MESSAGE value="Beginning of work on the graphical interface.&#10;The main component is the app&#10;which contains 2 components:&#10;header and sheet.&#10;&#10;The sheet contains cell type components.&#10;&#10;I basically defined everyone's fxml files.&#10;&#10;I also built a basic controller for everyone.&#10;&#10;I built a function in sheetController that knows how to receive a sheet and load it to the screen." />
     <MESSAGE value="commit after fixing the mess" />
@@ -793,7 +784,8 @@
     <MESSAGE value="Starting work on the server.&#10;The beginning of the development of the file upload" />
     <MESSAGE value="refactoring the Engine module" />
     <MESSAGE value="commit for marge" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit for marge" />
+    <MESSAGE value="create the client side of load file feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="create the client side of load file feature" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

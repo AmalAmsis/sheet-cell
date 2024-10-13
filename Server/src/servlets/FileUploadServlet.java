@@ -17,7 +17,7 @@ import java.io.InputStream;
 @MultipartConfig(fileSizeThreshold = 1024 * 1024, maxFileSize = 1024 * 1024 * 5, maxRequestSize = 1024 * 1024 * 5 * 5)
 public class FileUploadServlet extends HttpServlet {
 
-    @Override public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    @Override protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         AllSheetsManager sheetsManager = ServletUtils.getSheetManager(getServletContext());
 
@@ -41,6 +41,10 @@ public class FileUploadServlet extends HttpServlet {
         {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         }
+    }
+
+    @Override protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.getWriter().println("bla bla bla");
     }
 
 }
