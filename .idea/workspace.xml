@@ -9,9 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="create the client side of load file feature">
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="commit for marge">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/DashboardHeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/DashboardHeaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/dashboardHeader.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/dashboardHeader.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/util/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/Server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/Server.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -85,7 +88,7 @@
     "JAR Application.UI.jar.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Tomcat Server.Tomcat 10.1.26.executor": "Debug",
+    "Tomcat Server.Tomcat 10.1.26.executor": "Run",
     "git-widget-placeholder": "yarden__branch",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/projects/sheet-cell/Client/src/component/dashboard/subcomponents/header/dashboardHeader.fxml",
@@ -93,7 +96,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15752351",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.JavaFX",
@@ -114,7 +117,7 @@
       <recent name="subcomponents.test" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.26">
+  <component name="RunManager" selected="Application.TestLoadFile">
     <configuration name="AppRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="apprunner.AppRunner" />
       <module name="UI" />
@@ -303,14 +306,6 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task id="LOCAL‎-00002" summary="update gitignore">
-      <option name="closed" value="true" />
-      <created>1724499100075</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL‎-00002" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1724499100075</updated>
-    </task>
     <task id="LOCAL-00003" summary="update XmlProcessing&#10;1. update topologicalSort&#10;2. add CircularReferenceException">
       <option name="closed" value="true" />
       <created>1724578073765</created>
@@ -488,7 +483,7 @@
       <workItem from="1728509615912" duration="1624000" />
       <workItem from="1728512012176" duration="100000" />
       <workItem from="1728519610502" duration="2599000" />
-      <workItem from="1728558040053" duration="38278000" />
+      <workItem from="1728558040053" duration="53345000" />
     </task>
     <task id="LOCAL-00023" summary="Beginning of work on the graphical interface.&#10;The main component is the app&#10;which contains 2 components:&#10;header and sheet.&#10;&#10;The sheet contains cell type components.&#10;&#10;I basically defined everyone's fxml files.&#10;&#10;I also built a basic controller for everyone.&#10;&#10;I built a function in sheetController that knows how to receive a sheet and load it to the screen.">
       <option name="closed" value="true" />
@@ -714,7 +709,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728749843789</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="commit for marge">
+      <option name="closed" value="true" />
+      <created>1728811123333</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1728811123333</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -783,9 +786,9 @@
     <MESSAGE value="filter feature been change" />
     <MESSAGE value="Starting work on the server.&#10;The beginning of the development of the file upload" />
     <MESSAGE value="refactoring the Engine module" />
-    <MESSAGE value="commit for marge" />
     <MESSAGE value="create the client side of load file feature" />
-    <option name="LAST_COMMIT_MESSAGE" value="create the client side of load file feature" />
+    <MESSAGE value="commit for marge" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit for marge" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -856,39 +859,29 @@
           <option name="timeStamp" value="241" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Engine/src/uploadfilemanager/LoadFile.java</url>
-          <line>62</line>
-          <option name="timeStamp" value="256" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Engine/src/uploadfilemanager/LoadFile.java</url>
-          <line>64</line>
-          <option name="timeStamp" value="257" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Client/src/component/login/LoginController.java</url>
           <line>86</line>
           <option name="timeStamp" value="261" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/DashboardHeaderController.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="265" />
+          <line>94</line>
+          <option name="timeStamp" value="273" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/TestLoadFile.java</url>
-          <line>16</line>
-          <option name="timeStamp" value="269" />
+          <url>file://$PROJECT_DIR$/Engine/src/test/UploadFileTest.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="279" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Engine/src/allsheetsmanager/AllSheetsManager.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="280" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/DashboardHeaderController.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="270" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="271" />
+          <line>57</line>
+          <option name="timeStamp" value="285" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheetmanager/sheet/command/sortsheet/SortSheetImpl.java</url>
@@ -907,6 +900,12 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="251" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java</url>
+          <line>45</line>
+          <properties field="cellBackgroundColorPicker" class="component.subcomponent.header.HeaderController" />
+          <option name="timeStamp" value="281" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

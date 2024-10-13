@@ -5,6 +5,10 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import okhttp3.*;
@@ -15,14 +19,19 @@ import java.io.File;
 import java.io.IOException;
 
 import static util.Constants.BASE_URL;
+import static util.Constants.LOAD;
 
 public class DashboardHeaderController {
 
-    @FXML
-    private Button loadSheetFileButton;
+    @FXML private Button loadSheetFileButton;
+    @FXML private Button ackOrDenyPermissionRequestButton;
+    @FXML private Button requestPermissionButton;
+    @FXML private Button viewSheetButton;
+    @FXML private VBox availableSheetTable;
 
-    @FXML
-    void handleLoadSheetFile(ActionEvent event) {
+
+
+    @FXML void loadSheetFileButtonHandler(ActionEvent event) {
         try {
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Select File");
@@ -33,52 +42,51 @@ public class DashboardHeaderController {
 
             if (selectedFile != null) {
 
-                String RESOURCE = "/upload-file";
-
                 RequestBody body =
                         new MultipartBody.Builder()
-                                .addFormDataPart("file", selectedFile.getName(), RequestBody.create(selectedFile, MediaType.parse("application/xml")))
+                                .addFormDataPart("file", selectedFile.getName(), RequestBody.create(selectedFile, MediaType.parse("text/plain")))
                                 .build();
 
                 Request request = new Request.Builder()
-                        .url(BASE_URL + RESOURCE)
+                        .url(LOAD)
                         .post(body)
                         .build();
 
                 Call call = HttpClientUtil.HTTP_CLIENT.newCall(request);
+                Response response = call.execute();
 
-                call.enqueue(new Callback() {
-                    @Override
-                    public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
-                        if (response.code() != 200) {
-                            String responseBody = response.body().string();
-                            Platform.runLater(() ->
-                                    new ErrorMessage("Something went wrong: " + responseBody)
-                            );
-                        } else {
-                            Platform.runLater(() -> {
-                                //had the file.
-                                new ErrorMessage("yessssssssss");
-                            });
-                        }
-                    }
+                if (response.isSuccessful()) {
+                    CheckBox checkBox = new CheckBox(selectedFile.getName());
+                    availableSheetTable.getChildren().add(checkBox);
+                }else{
+                    new ErrorMessage("Something went wrong: " + response.body().string());
 
-                    @Override public void onFailure(@NotNull Call call, IOException e) {
-                        Platform.runLater(() -> new ErrorMessage("Failed to upload file: " + e.getMessage()));
-                    }
-                });
+                }
 
 
-                // loadFileWithProgress(selectedFile.getAbsolutePath());
             } else {
                 new ErrorMessage("No file selected");
             }
-            }catch (Exception e) {
-                new ErrorMessage(e.getMessage());
-            }
-
+        }catch (Exception e) {
+            new ErrorMessage(e.getMessage());
         }
+
     }
+
+    @FXML void ackOrDenyPermissionRequestButtonHandler(ActionEvent event) {
+
+    }
+
+    @FXML void requestPermissionButtonHandler(ActionEvent event) {
+
+    }
+
+    @FXML void viewSheetButtonHandler(ActionEvent event) {
+
+    }
+
+
+}
 
 
 
