@@ -106,6 +106,7 @@ public class SelectedSheetViewController {
     }
 
     private void showRange(String newRangeId) {
+
     }
 
     private void clearPreviousSelection() {
@@ -126,8 +127,20 @@ public class SelectedSheetViewController {
     }
 
 
+    public void setSelectedCellBackgroundColor(Color backgroundColor) {
+    }
 
+    public void setSelectedCellTextColor(Color textColor) {
+    }
 
+    public void setSelectedColumnWidth(Integer newVal) {
+    }
+
+    public void setSelectedRowHeight(Integer newVal) {
+    }
+
+    public void setSelectedColumnAlignment(Pos alignment) {
+    }
 }
 
 

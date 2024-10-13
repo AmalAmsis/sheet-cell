@@ -9,19 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="updateCellServlet">
-      <change afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/selectedSheetView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/SelectedSheetViewHeaderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/selectedSheetViewHeader.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/selectedSheetViewLeft.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/sheet/CellModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/sheet/CellStyle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/sheet/SelectedSheetController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/sheet/UIModelSheet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/sheet/selectedSheet.fxml" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Prepared FXML for displaying selected sheet view layout&#10;&#10;- Created `selectedSheetView.fxml` to define the layout for displaying the selected sheet.&#10;- Added subcomponents:&#10;  - `selectedSheetViewHeader.fxml` to handle the header section.&#10;  - `selectedSheetViewLeft.fxml` for the left-side controls (currently placeholders).&#10;  - `selectedSheet.fxml` for the main sheet display.&#10;- Structured the layout to include sections for the available sheets table, permissions table, and commands (view, request permission, acknowledge/deny).&#10;- Initial layout setup without implementing functionality or actions.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/SelectedSheetViewHeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/SelectedSheetViewHeaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -335,14 +327,6 @@
       <workItem from="1728768355881" duration="44000" />
       <workItem from="1728768423746" duration="14000" />
       <workItem from="1728768460006" duration="5531000" />
-    </task>
-    <task id="LOCAL‎-00035" summary="Updates classes to allow ranges to be used correctly">
-      <option name="closed" value="true" />
-      <created>1725866056107</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL‎-00035" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725866056107</updated>
     </task>
     <task id="LOCAL‎-00036" summary="Updates classes to allow ranges to be used correctly">
       <option name="closed" value="true" />
@@ -728,7 +712,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1728832084070</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL‎-00084" summary="Prepared FXML for displaying selected sheet view layout&#10;&#10;- Created `selectedSheetView.fxml` to define the layout for displaying the selected sheet.&#10;- Added subcomponents:&#10;  - `selectedSheetViewHeader.fxml` to handle the header section.&#10;  - `selectedSheetViewLeft.fxml` for the left-side controls (currently placeholders).&#10;  - `selectedSheet.fxml` for the main sheet display.&#10;- Structured the layout to include sections for the available sheets table, permissions table, and commands (view, request permission, acknowledge/deny).&#10;- Initial layout setup without implementing functionality or actions.">
+      <option name="closed" value="true" />
+      <created>1728847192281</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL‎-00084" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1728847192281</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -774,7 +766,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="design" />
     <MESSAGE value="wrap text" />
     <MESSAGE value="add back to default Button" />
     <MESSAGE value="commit for merge" />
@@ -799,7 +790,8 @@
     <MESSAGE value="Initial implementation of sheetCellMainController and main FXML for client navigation&#10;&#10;- Implemented `sheetCellMainController` to handle the main client logic and navigation between views (login, dashboard, and sheet).&#10;- Created the main FXML layout to manage transitions between different screens.&#10;- Set up the initial structure for handling view changes dynamically within the client.&#10;- Further adjustments and improvements to navigation and layout are needed before finalizing." />
     <MESSAGE value="fix loadSheet url" />
     <MESSAGE value="updateCellServlet" />
-    <option name="LAST_COMMIT_MESSAGE" value="updateCellServlet" />
+    <MESSAGE value="Prepared FXML for displaying selected sheet view layout&#10;&#10;- Created `selectedSheetView.fxml` to define the layout for displaying the selected sheet.&#10;- Added subcomponents:&#10;  - `selectedSheetViewHeader.fxml` to handle the header section.&#10;  - `selectedSheetViewLeft.fxml` for the left-side controls (currently placeholders).&#10;  - `selectedSheet.fxml` for the main sheet display.&#10;- Structured the layout to include sections for the available sheets table, permissions table, and commands (view, request permission, acknowledge/deny).&#10;- Initial layout setup without implementing functionality or actions." />
+    <option name="LAST_COMMIT_MESSAGE" value="Prepared FXML for displaying selected sheet view layout&#10;&#10;- Created `selectedSheetView.fxml` to define the layout for displaying the selected sheet.&#10;- Added subcomponents:&#10;  - `selectedSheetViewHeader.fxml` to handle the header section.&#10;  - `selectedSheetViewLeft.fxml` for the left-side controls (currently placeholders).&#10;  - `selectedSheet.fxml` for the main sheet display.&#10;- Structured the layout to include sections for the available sheets table, permissions table, and commands (view, request permission, acknowledge/deny).&#10;- Initial layout setup without implementing functionality or actions." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
