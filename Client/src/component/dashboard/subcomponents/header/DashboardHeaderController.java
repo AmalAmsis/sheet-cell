@@ -58,6 +58,17 @@ public class DashboardHeaderController {
                 if (response.isSuccessful()) {
                     CheckBox checkBox = new CheckBox(selectedFile.getName());
                     availableSheetTable.getChildren().add(checkBox);
+
+                    checkBox.setOnAction(e -> {
+                        if (checkBox.isSelected()) {
+                            for (var child : availableSheetTable.getChildren()) {
+                                if (child instanceof CheckBox && child != checkBox) {
+                                    ((CheckBox) child).setSelected(false);
+                                }
+                            }
+                        }
+                    });
+
                 }else{
                     new ErrorMessage("Something went wrong: " + response.body().string());
 

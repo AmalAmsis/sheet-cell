@@ -9,13 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="commit for marge">
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="upload file feature wark in client and server side.&#10;Remain to design the feature in a graphic interface on the client side">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/DashboardHeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/DashboardHeaderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/dashboardHeader.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/dashboardHeader.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/util/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/Server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Server/Server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +72,7 @@
     "Application.Test.executor": "Run",
     "Application.Test2.executor": "Debug",
     "Application.Test3.executor": "Debug",
-    "Application.TestLoadFile.executor": "Debug",
+    "Application.TestLoadFile.executor": "Run",
     "Application.TestLogin.executor": "Run",
     "Application.TestLogin2.executor": "Run",
     "Application.UploadFileTest.executor": "Debug",
@@ -306,14 +303,6 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task id="LOCAL-00003" summary="update XmlProcessing&#10;1. update topologicalSort&#10;2. add CircularReferenceException">
-      <option name="closed" value="true" />
-      <created>1724578073765</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1724578073765</updated>
-    </task>
     <task id="LOCAL-00004" summary="26.8.24 merge">
       <option name="closed" value="true" />
       <created>1724662696741</created>
@@ -483,7 +472,7 @@
       <workItem from="1728509615912" duration="1624000" />
       <workItem from="1728512012176" duration="100000" />
       <workItem from="1728519610502" duration="2599000" />
-      <workItem from="1728558040053" duration="53345000" />
+      <workItem from="1728558040053" duration="55188000" />
     </task>
     <task id="LOCAL-00023" summary="Beginning of work on the graphical interface.&#10;The main component is the app&#10;which contains 2 components:&#10;header and sheet.&#10;&#10;The sheet contains cell type components.&#10;&#10;I basically defined everyone's fxml files.&#10;&#10;I also built a basic controller for everyone.&#10;&#10;I built a function in sheetController that knows how to receive a sheet and load it to the screen.">
       <option name="closed" value="true" />
@@ -717,7 +706,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728811123333</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="upload file feature wark in client and server side.&#10;Remain to design the feature in a graphic interface on the client side">
+      <option name="closed" value="true" />
+      <created>1728829500361</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1728829500361</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -763,7 +760,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="recent revisions" />
     <MESSAGE value="Beginning of work on the graphical interface.&#10;The main component is the app&#10;which contains 2 components:&#10;header and sheet.&#10;&#10;The sheet contains cell type components.&#10;&#10;I basically defined everyone's fxml files.&#10;&#10;I also built a basic controller for everyone.&#10;&#10;I built a function in sheetController that knows how to receive a sheet and load it to the screen." />
     <MESSAGE value="commit after fixing the mess" />
     <MESSAGE value="deleted HADASH package" />
@@ -788,7 +784,8 @@
     <MESSAGE value="refactoring the Engine module" />
     <MESSAGE value="create the client side of load file feature" />
     <MESSAGE value="commit for marge" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit for marge" />
+    <MESSAGE value="upload file feature wark in client and server side.&#10;Remain to design the feature in a graphic interface on the client side" />
+    <option name="LAST_COMMIT_MESSAGE" value="upload file feature wark in client and server side.&#10;Remain to design the feature in a graphic interface on the client side" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -865,7 +862,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/DashboardHeaderController.java</url>
-          <line>94</line>
+          <line>100</line>
           <option name="timeStamp" value="273" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -877,11 +874,6 @@
           <url>file://$PROJECT_DIR$/Engine/src/allsheetsmanager/AllSheetsManager.java</url>
           <line>23</line>
           <option name="timeStamp" value="280" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/DashboardHeaderController.java</url>
-          <line>57</line>
-          <option name="timeStamp" value="285" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheetmanager/sheet/command/sortsheet/SortSheetImpl.java</url>
