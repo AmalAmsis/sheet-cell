@@ -9,11 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Implemented unique username validation and login flow for the client&#10;&#10;- **Client module**:&#10;  - Added login flow with `LoginController.java` to handle user input and authentication.&#10;  - Updated `login.fxml` to define the layout and bind buttons to controller methods.&#10;  - Created CSS styling in `login.css` for error labels, main action buttons, and quit buttons.&#10;  - Implemented test classes (`TestLogin.java`, `TestLogin2.java`) for validating login functionality.&#10;&#10;- **Engine module**:&#10;  - Added `UserManager.java` and `UserManagerImpl.java` to handle user management, ensuring that each user has a unique name.&#10; &#10;&#10;- **Server module**:&#10;  - `LightweightLoginServlet.java`: Handles basic user login and session creation, ensuring that only unique usernames are allowed.&#10;  - `LogoutServlet.java`: Manages user logout and session termination.&#10;  - `ServletUtils.java`: Utility functions for managing user sessions and attributes.&#10;  - `SessionUtils.java`: Utility functions for session management.&#10;  - `Constants.java`: Stores constant values used across the application.&#10;&#10;- Fixed issues with class loading and servlet integration in the login process.">
-      <change afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/DashboardHeaderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/dashboardHeader.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Prepared FXML and controller structure for dashboard layout&#10;&#10;- Created `dashboardHeader.fxml` to define the layout for the header section of the dashboard.&#10;- Added `DashboardHeaderController.java` to handle the logic and interaction for the header section.&#10;- Organized the project structure under `subcomponents/header` for better modularization.&#10;- Added placeholders for subcomponents in the dashboard (availableSheets, commands, and Permissions).">
+      <change afterPath="$PROJECT_DIR$/Client/src/component/dashboard/main/DashboardController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/component/main/sheetCellAppMain.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/main/SheetCellClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/login/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/util/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server.zip" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +33,8 @@
         <option value="Enum" />
         <option value="CSS File" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -64,46 +69,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.AppRunner.executor&quot;: &quot;Run&quot;,
-    &quot;Application.FxmlTest.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Test.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Test2.executor&quot;: &quot;Coverage&quot;,
-    &quot;Application.TestLogin.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TestLogin2.executor&quot;: &quot;Run&quot;,
-    &quot;Application.deprecated.apprunner.AppRunner.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.sheet.range.Test.executor&quot;: &quot;Run&quot;,
-    &quot;Application.test.FxmlTest.executor&quot;: &quot;Run&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;JAR Application.UI.jar.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Tomcat Server.Tomcat 10.1.30.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Amal&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Amal Amsis/Desktop/AmalA/Computer Science/JAVA/okHttp/kotlin-stdlib-common-1.4.10.jar&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.1706642&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.applicationServers&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.AppRunner.executor": "Run",
+    "Application.FxmlTest.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.SheetCellClient.executor": "Run",
+    "Application.Test.executor": "Run",
+    "Application.Test2.executor": "Coverage",
+    "Application.TestLogin.executor": "Run",
+    "Application.TestLogin2.executor": "Run",
+    "Application.deprecated.apprunner.AppRunner.executor": "Debug",
+    "Application.sheet.range.Test.executor": "Run",
+    "Application.test.FxmlTest.executor": "Run",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JAR Application.UI.jar.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Tomcat Server.Tomcat 10.1.30.executor": "Run",
+    "git-widget-placeholder": "Amal",
+    "jdk.selected.JAVA_MODULE": "21",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Amal Amsis/Downloads/Online Chat V3/Online Chat V3",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.1706642",
+    "settings.editor.selected.configurable": "preferences.applicationServers",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\sheet-cell\UI\src\component\subcomponent\header" />
       <recent name="C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\sheet-cell\UI\src\component\subcomponent\cell" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AppRunner">
+  <component name="RunManager" selected="Application.SheetCellClient">
     <configuration name="AppRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="apprunner.AppRunner" />
       <module name="UI" />
@@ -118,12 +124,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sheet.range.Test" />
-      <module name="UI" />
+    <configuration name="SheetCellClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.SheetCellClient" />
+      <module name="Client" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\openjfx-22.0.2_windows-x64_bin-sdk\javafx-sdk-22.0.2\lib&quot;  --add-modules javafx.controls,javafx.fxml " />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sheet.range.*" />
+          <option name="PATTERN" value="main.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -266,21 +273,21 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.SheetCellClient" />
       <item itemvalue="Application.TestLogin2" />
       <item itemvalue="Application.TestLogin" />
       <item itemvalue="Application.deprecated.apprunner.AppRunner" />
       <item itemvalue="Application.AppRunner" />
-      <item itemvalue="Application.Test" />
       <item itemvalue="JAR Application.UI.jar" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.30" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AppRunner" />
+        <item itemvalue="Application.SheetCellClient" />
         <item itemvalue="Application.TestLogin" />
+        <item itemvalue="Application.AppRunner" />
         <item itemvalue="Application.TestLogin2" />
         <item itemvalue="Application.deprecated.apprunner.AppRunner" />
-        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -312,15 +319,10 @@
       <workItem from="1727514654686" duration="90000" />
       <workItem from="1727521816129" duration="38018000" />
       <workItem from="1728658271429" duration="35000" />
-      <workItem from="1728659469841" duration="24619000" />
-    </task>
-    <task id="LOCAL‎-00030" summary="split Range interface into 2 interfaces : RangeReadActions,RangeUpdateAction">
-      <option name="closed" value="true" />
-      <created>1725814723420</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL‎-00030" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1725814723420</updated>
+      <workItem from="1728659469841" duration="25867000" />
+      <workItem from="1728768355881" duration="44000" />
+      <workItem from="1728768423746" duration="14000" />
+      <workItem from="1728768460006" duration="5060000" />
     </task>
     <task id="LOCAL‎-00031" summary="add new method to sheetImpl : &#10;/**&#10;     * Retrieves a range by its name.&#10;     *&#10;     * @param rangeName The name of the range.&#10;     * @return The range as RangeReadActions, or null if not found in RangeManager.&#10;     */&#10;    RangeReadActions getRangeReadActions(String rangeName);">
       <option name="closed" value="true" />
@@ -706,7 +708,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1728732708075</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL‎-00079" summary="Prepared FXML and controller structure for dashboard layout&#10;&#10;- Created `dashboardHeader.fxml` to define the layout for the header section of the dashboard.&#10;- Added `DashboardHeaderController.java` to handle the logic and interaction for the header section.&#10;- Organized the project structure under `subcomponents/header` for better modularization.&#10;- Added placeholders for subcomponents in the dashboard (availableSheets, commands, and Permissions).">
+      <option name="closed" value="true" />
+      <created>1728740400002</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL‎-00079" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1728740400003</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -752,7 +762,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="nhanced cell customization and layout management:&#10;&#10;- Implemented functionality to change cell background and text colors using ColorPickers.&#10;- Added listeners for Spinners to adjust row height and column width dynamically.&#10;- Improved handling of cell text alignment with the ChoiceBox, allowing for center, left, and right alignment.&#10;- Refined interaction between HeaderController and SheetController to ensure seamless updates to cell properties.&#10;&#10;- Improved logic for applying styles and dimensions to ensure consistent behavior across the grid." />
     <MESSAGE value="Editing code to change row height and colunm width" />
     <MESSAGE value="Synchronized selected cell with text alignment settings:&#10;&#10;- Implemented synchronization between the selected cell and the text alignment in the ChoiceBox.&#10;- Ensured that the ChoiceBox reflects the current alignment (left, center, right) of the selected cell's content.&#10;- Added listeners to update cell alignment dynamically based on the ChoiceBox selection." />
     <MESSAGE value="add ErrorMessage for ranges actions and update cell (UI)" />
@@ -777,7 +786,8 @@
     <MESSAGE value="starting part 3!!!" />
     <MESSAGE value="starting part 3!!!&#10;linking the tomcat and dividing it into new models and starting work on login" />
     <MESSAGE value="Implemented unique username validation and login flow for the client&#10;&#10;- **Client module**:&#10;  - Added login flow with `LoginController.java` to handle user input and authentication.&#10;  - Updated `login.fxml` to define the layout and bind buttons to controller methods.&#10;  - Created CSS styling in `login.css` for error labels, main action buttons, and quit buttons.&#10;  - Implemented test classes (`TestLogin.java`, `TestLogin2.java`) for validating login functionality.&#10;&#10;- **Engine module**:&#10;  - Added `UserManager.java` and `UserManagerImpl.java` to handle user management, ensuring that each user has a unique name.&#10; &#10;&#10;- **Server module**:&#10;  - `LightweightLoginServlet.java`: Handles basic user login and session creation, ensuring that only unique usernames are allowed.&#10;  - `LogoutServlet.java`: Manages user logout and session termination.&#10;  - `ServletUtils.java`: Utility functions for managing user sessions and attributes.&#10;  - `SessionUtils.java`: Utility functions for session management.&#10;  - `Constants.java`: Stores constant values used across the application.&#10;&#10;- Fixed issues with class loading and servlet integration in the login process." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented unique username validation and login flow for the client&#10;&#10;- **Client module**:&#10;  - Added login flow with `LoginController.java` to handle user input and authentication.&#10;  - Updated `login.fxml` to define the layout and bind buttons to controller methods.&#10;  - Created CSS styling in `login.css` for error labels, main action buttons, and quit buttons.&#10;  - Implemented test classes (`TestLogin.java`, `TestLogin2.java`) for validating login functionality.&#10;&#10;- **Engine module**:&#10;  - Added `UserManager.java` and `UserManagerImpl.java` to handle user management, ensuring that each user has a unique name.&#10; &#10;&#10;- **Server module**:&#10;  - `LightweightLoginServlet.java`: Handles basic user login and session creation, ensuring that only unique usernames are allowed.&#10;  - `LogoutServlet.java`: Manages user logout and session termination.&#10;  - `ServletUtils.java`: Utility functions for managing user sessions and attributes.&#10;  - `SessionUtils.java`: Utility functions for session management.&#10;  - `Constants.java`: Stores constant values used across the application.&#10;&#10;- Fixed issues with class loading and servlet integration in the login process." />
+    <MESSAGE value="Prepared FXML and controller structure for dashboard layout&#10;&#10;- Created `dashboardHeader.fxml` to define the layout for the header section of the dashboard.&#10;- Added `DashboardHeaderController.java` to handle the logic and interaction for the header section.&#10;- Organized the project structure under `subcomponents/header` for better modularization.&#10;- Added placeholders for subcomponents in the dashboard (availableSheets, commands, and Permissions)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Prepared FXML and controller structure for dashboard layout&#10;&#10;- Created `dashboardHeader.fxml` to define the layout for the header section of the dashboard.&#10;- Added `DashboardHeaderController.java` to handle the logic and interaction for the header section.&#10;- Organized the project structure under `subcomponents/header` for better modularization.&#10;- Added placeholders for subcomponents in the dashboard (availableSheets, commands, and Permissions)." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -791,6 +801,11 @@
           <url>file://$PROJECT_DIR$/Server/src/servlets/LightweightLoginServlet.java</url>
           <line>21</line>
           <option name="timeStamp" value="136" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/main/SheetCellClient.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="137" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>

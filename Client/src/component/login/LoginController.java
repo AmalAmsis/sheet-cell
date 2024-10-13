@@ -1,6 +1,8 @@
 package component.login;
 
 
+import component.dashboard.main.DashboardController;
+import component.main.SheetCellAppMainController;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -24,7 +26,7 @@ public class LoginController  {
     @FXML
     public Label errorMessageLabel;
 
-    //private ChatAppMainController chatAppMainController;
+    private SheetCellAppMainController sheetCellAppMainController;
 
     private final StringProperty errorMessageProperty = new SimpleStringProperty();
 
@@ -74,7 +76,7 @@ public class LoginController  {
                 } else {
 
                     Platform.runLater(() -> {
-                        //chatAppMainController.updateUserName(userName);
+                        DashboardController.updateUserName(userName);
                         //chatAppMainController.switchToChatRoom();
                     });
                 }
@@ -92,11 +94,13 @@ public class LoginController  {
         Platform.exit();
     }
 
+    public void setSheetCellAppMainController(SheetCellAppMainController sheetCellAppMainController) {
+        this.sheetCellAppMainController = sheetCellAppMainController;
+    }
+
 //    private void updateHttpStatusLine(String data) {
 //        chatAppMainController.updateHttpLine(data);
 //    }
 
-//    public void setChatAppMainController(ChatAppMainController chatAppMainController) {
-//        this.chatAppMainController = chatAppMainController;
-//    }
+
 }
