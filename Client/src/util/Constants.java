@@ -16,7 +16,7 @@ public class Constants {
 
     public final static String LOGIN_PAGE = FULL_SERVER_PATH + "/loginShortResponse";
     public final static String LOGOUT = FULL_SERVER_PATH + "/logout";
-    public final static String REGISTER = FULL_SERVER_PATH +  "/upload-file";
+    public final static String LOAD = FULL_SERVER_PATH +  "/upload-file";
 
     // GSON instance
     public final static Gson GSON_INSTANCE = new Gson();
