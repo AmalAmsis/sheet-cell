@@ -9,6 +9,7 @@ public class Constants {
 
     // fxml locations
     public final static String LOGIN_PAGE_FXML_RESOURCE_LOCATION = "/component/login/login.fxml";
+    public final static String SELECTED_SHEET_VIEW_FXML_RESOURCE_LOCATION = "/component/selectedSheetView/main/selectedSheetView.fxml";
     public final static String MAIN_PAGE_FXML_RESOURCE_LOCATION = "/component/main/sheetCellAppMain.fxml";
 
     // Server resources locations

@@ -1,6 +1,7 @@
 package component.main;
 
 import component.login.LoginController;
+import component.selectedSheetView.main.SelectedSheetViewController;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleStringProperty;
@@ -26,6 +27,9 @@ public class SheetCellAppMainController implements Closeable {
     private GridPane loginComponent;
     private LoginController loginComponentController;
 
+    private GridPane selectedSheetViewComponent;
+    private SelectedSheetViewController selectedSheetViewComponentController;
+
     @Override
     public void close() throws IOException {
 
@@ -43,6 +47,7 @@ public class SheetCellAppMainController implements Closeable {
 
         // prepare components
         loadLoginPage();
+        loadSelectedSheetViewPage();
 
     }
 
@@ -69,6 +74,19 @@ public class SheetCellAppMainController implements Closeable {
             loginComponentController.setSheetCellAppMainController(this);
             setMainPanelTo(loginComponent);
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void loadSelectedSheetViewPage(){
+        URL selectedSheetViewPageUrl = getClass().getResource(SELECTED_SHEET_VIEW_FXML_RESOURCE_LOCATION);
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(selectedSheetViewPageUrl);
+            selectedSheetViewComponent = fxmlLoader.load();
+            selectedSheetViewComponentController = fxmlLoader.getController();
+            selectedSheetViewComponentController.setSheetCellAppMainController(this);
+        }catch (IOException e){
             e.printStackTrace();
         }
     }

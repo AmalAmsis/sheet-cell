@@ -1,5 +1,6 @@
 package component.selectedSheetView.main;
 
+import component.main.SheetCellAppMainController;
 import component.selectedSheetView.subcomponent.header.SelectedSheetViewHeaderController;
 import component.selectedSheetView.subcomponent.left.SelectedSheetViewLeftController;
 import component.selectedSheetView.subcomponent.sheet.SelectedSheetController;
@@ -22,6 +23,8 @@ import java.util.List;
  * manages cell selection, and provides the main logic for user interactions.
  */
 public class SelectedSheetViewController {
+
+    private SheetCellAppMainController sheetCellAppMainController;
 
     @FXML
     private ScrollPane header;
@@ -98,6 +101,10 @@ public class SelectedSheetViewController {
                 isNumericCellSelected.setValue(false);
             }
         });
+    }
+
+    public void setSheetCellAppMainController(SheetCellAppMainController sheetCellAppMainController) {
+        this.sheetCellAppMainController = sheetCellAppMainController;
     }
 
     /**
@@ -200,4 +207,6 @@ public class SelectedSheetViewController {
         // Implementation for retrieving ranges (placeholder)
         return allRanges;
     }
+
+
 }
