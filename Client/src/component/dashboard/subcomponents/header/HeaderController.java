@@ -1,35 +1,27 @@
 package component.dashboard.subcomponents.header;
 
+import component.dashboard.subcomponents.maindashboard.DashboardController;
 import component.popup.error.ErrorMessage;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import okhttp3.*;
-import org.jetbrains.annotations.NotNull;
 import util.http.HttpClientUtil;
 
 import java.io.File;
-import java.io.IOException;
 
-import static util.Constants.BASE_URL;
 import static util.Constants.LOAD;
 
-public class DashboardHeaderController {
+public class HeaderController {
+
+
+    private DashboardController dashboardController;
 
     @FXML private Button loadSheetFileButton;
     @FXML private Button ackOrDenyPermissionRequestButton;
-    @FXML private Button requestPermissionButton;
-    @FXML private Button viewSheetButton;
-    @FXML private VBox availableSheetTable;
-
-
 
     @FXML void loadSheetFileButtonHandler(ActionEvent event) {
         try {
@@ -57,18 +49,7 @@ public class DashboardHeaderController {
 
                 if (response.isSuccessful()) {
                     CheckBox checkBox = new CheckBox(selectedFile.getName());
-                    availableSheetTable.getChildren().add(checkBox);
-
-                    checkBox.setOnAction(e -> {
-                        if (checkBox.isSelected()) {
-                            for (var child : availableSheetTable.getChildren()) {
-                                if (child instanceof CheckBox && child != checkBox) {
-                                    ((CheckBox) child).setSelected(false);
-                                }
-                            }
-                        }
-                    });
-
+                   dashboardController.addSheetToAvailableSheets(checkBox);
                 }else{
                     new ErrorMessage("Something went wrong: " + response.body().string());
 
@@ -84,18 +65,10 @@ public class DashboardHeaderController {
 
     }
 
-    @FXML void ackOrDenyPermissionRequestButtonHandler(ActionEvent event) {
 
+    public void setDashboardController(DashboardController dashboardController) {
+        this.dashboardController = dashboardController;
     }
-
-    @FXML void requestPermissionButtonHandler(ActionEvent event) {
-
-    }
-
-    @FXML void viewSheetButtonHandler(ActionEvent event) {
-
-    }
-
 
 }
 
