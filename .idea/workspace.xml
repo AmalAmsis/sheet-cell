@@ -9,10 +9,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="upload file feature wark in client and server side.&#10;Remain to design the feature in a graphic interface on the client side">
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="marge">
+      <change afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availablesheets/AvailableSheetsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availablesheets/availablesheets.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/command.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/header.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/maindashboard/DashboardController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/maindashboard/dashboard.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/DashboardHeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/DashboardHeaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/dashboardHeader.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/dashboardHeader.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/DashboardHeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/HeaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/TestLoadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/maindashboard/TestLoadFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/dashboardHeader.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,10 +30,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Exception" />
         <option value="HTML File" />
         <option value="Interface" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -72,7 +80,7 @@
     "Application.Test.executor": "Run",
     "Application.Test2.executor": "Debug",
     "Application.Test3.executor": "Debug",
-    "Application.TestLoadFile.executor": "Run",
+    "Application.TestLoadFile.executor": "Debug",
     "Application.TestLogin.executor": "Run",
     "Application.TestLogin2.executor": "Run",
     "Application.UploadFileTest.executor": "Debug",
@@ -108,6 +116,7 @@
       <recent name="C:\projects\sheet-cell\UI\src\component\subcomponent\popup\versionselector" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="component.dashboard.subcomponents.maindashboard" />
       <recent name="sheet.command.filtersortdatapreparation" />
       <recent name="component.subcomponent.popup.versionselector" />
       <recent name="jaxb.schema.generated" />
@@ -130,12 +139,12 @@
       </method>
     </configuration>
     <configuration name="TestLoadFile" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="component.dashboard.subcomponents.header.TestLoadFile" />
+      <option name="MAIN_CLASS_NAME" value="component.dashboard.subcomponents.maindashboard.TestLoadFile" />
       <module name="Client" />
       <option name="VM_PARAMETERS" value="--module-path &quot;C:\lib\javafx-sdk-22.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="component.dashboard.subcomponents.header.*" />
+          <option name="PATTERN" value="component.dashboard.subcomponents.maindashboard.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -303,14 +312,6 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task id="LOCAL-00004" summary="26.8.24 merge">
-      <option name="closed" value="true" />
-      <created>1724662696741</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1724662696741</updated>
-    </task>
     <task id="LOCAL-00005" summary="26.8.24 merge">
       <option name="closed" value="true" />
       <created>1724662850499</created>
@@ -472,7 +473,8 @@
       <workItem from="1728509615912" duration="1624000" />
       <workItem from="1728512012176" duration="100000" />
       <workItem from="1728519610502" duration="2599000" />
-      <workItem from="1728558040053" duration="55188000" />
+      <workItem from="1728558040053" duration="63545000" />
+      <workItem from="1728904787559" duration="1567000" />
     </task>
     <task id="LOCAL-00023" summary="Beginning of work on the graphical interface.&#10;The main component is the app&#10;which contains 2 components:&#10;header and sheet.&#10;&#10;The sheet contains cell type components.&#10;&#10;I basically defined everyone's fxml files.&#10;&#10;I also built a basic controller for everyone.&#10;&#10;I built a function in sheetController that knows how to receive a sheet and load it to the screen.">
       <option name="closed" value="true" />
@@ -714,7 +716,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728829500361</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="marge">
+      <option name="closed" value="true" />
+      <created>1728831997971</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1728831997971</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -760,7 +770,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Beginning of work on the graphical interface.&#10;The main component is the app&#10;which contains 2 components:&#10;header and sheet.&#10;&#10;The sheet contains cell type components.&#10;&#10;I basically defined everyone's fxml files.&#10;&#10;I also built a basic controller for everyone.&#10;&#10;I built a function in sheetController that knows how to receive a sheet and load it to the screen." />
     <MESSAGE value="commit after fixing the mess" />
     <MESSAGE value="deleted HADASH package" />
     <MESSAGE value="Generated JAXB classes from XSD schema using xjc&#10;&#10;- Used xjc to generate Java classes from 'shtisel-v2.xsd'.&#10;- Placed the generated classes in 'jaxb.schema.genarated' package." />
@@ -785,7 +794,8 @@
     <MESSAGE value="create the client side of load file feature" />
     <MESSAGE value="commit for marge" />
     <MESSAGE value="upload file feature wark in client and server side.&#10;Remain to design the feature in a graphic interface on the client side" />
-    <option name="LAST_COMMIT_MESSAGE" value="upload file feature wark in client and server side.&#10;Remain to design the feature in a graphic interface on the client side" />
+    <MESSAGE value="marge" />
+    <option name="LAST_COMMIT_MESSAGE" value="marge" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -861,8 +871,8 @@
           <option name="timeStamp" value="261" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/DashboardHeaderController.java</url>
-          <line>100</line>
+          <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/HeaderController.java</url>
+          <line>83</line>
           <option name="timeStamp" value="273" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -875,10 +885,40 @@
           <line>23</line>
           <option name="timeStamp" value="280" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/HeaderController.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="293" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="294" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/maindashboard/DashboardController.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="296" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/HeaderController.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="297" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="298" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/HeaderController.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="299" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheetmanager/sheet/command/sortsheet/SortSheetImpl.java</url>
           <line>105</line>
-          <properties class="sheetmanager.sheet.command.sortsheet.SortSheetImpl">
+          <properties class="sheetmanager.sheet.command.sortsheet.SortSheetImpl" method="convertStringToCoordinate">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
