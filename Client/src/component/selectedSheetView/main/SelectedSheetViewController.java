@@ -47,7 +47,6 @@ public class SelectedSheetViewController {
 
     // Boolean properties to manage the state of selection and file loading
     private BooleanProperty isSelected = new SimpleBooleanProperty();
-    private BooleanProperty isFileLoaded = new SimpleBooleanProperty();
     private BooleanProperty isNumericCellSelected = new SimpleBooleanProperty();
 
     // List to store previously selected cells for clearing their state
@@ -68,7 +67,6 @@ public class SelectedSheetViewController {
 
         // Initialize properties
         isSelected.setValue(false);
-        isFileLoaded.setValue(false);
         isNumericCellSelected.setValue(false);
 
         // Bind properties to UI components
