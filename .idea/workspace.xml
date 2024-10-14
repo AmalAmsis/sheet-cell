@@ -9,11 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="-Updated SelectedSheetViewController, SelectedSheetViewHeaderController, SelectedSheetViewLeftController, and SelectedSheetController in the client module.&#10;- Added detailed documentation for all classes to explain functionality and improve code readability.">
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Deleting file upload option from selectedSheetViewHeader.fxml in Client">
+      <change afterPath="$PROJECT_DIR$/Server/src/servlets/CellServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/util/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/servlets/LoginServlet.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +27,8 @@
         <option value="Enum" />
         <option value="CSS File" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -327,30 +326,6 @@
       <workItem from="1728768355881" duration="44000" />
       <workItem from="1728768423746" duration="14000" />
       <workItem from="1728768460006" duration="5531000" />
-    </task>
-    <task id="LOCAL‎-00038" summary="new design for FXML">
-      <option name="closed" value="true" />
-      <created>1726049499045</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL‎-00038" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726049499045</updated>
-    </task>
-    <task id="LOCAL‎-00039" summary="adding UIMODEL">
-      <option name="closed" value="true" />
-      <created>1726049539177</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL‎-00039" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726049539177</updated>
-    </task>
-    <task id="LOCAL‎-00040" summary="Add ability to a sheet by clicking a cell is framed and the relevant data of the cell is updated in the header">
-      <option name="closed" value="true" />
-      <created>1726133587270</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL‎-00040" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726133587270</updated>
     </task>
     <task id="LOCAL‎-00041" summary="Support the possibility to get the full information for each selected cell.&#10;The application now contains a &quot;work line&quot; in which the various information of a selected cell will be displayed.&#10;The selection of the cell will be done by clicking on it (as in all known spreadsheet applications) and by clicking on it the cell will be highlighted in a red frame&#10;When selecting a certain cell in the sheet, you see:&#10;• In the work line:&#10;o Cell identity (example: 5A).&#10;o The original value of the cell&#10;o The last version in which it was updated&#10;• Highlight in a light blue frame all the cells that this cell relies on (if there are any)&#10;• All the cells that this cell affects are highlighted in a light green frame">
       <option name="closed" value="true" />
@@ -720,7 +695,31 @@
       <option name="project" value="LOCAL‎" />
       <updated>1728896675408</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL‎-00087" summary="-Updated SelectedSheetViewController, SelectedSheetViewHeaderController, SelectedSheetViewLeftController, and SelectedSheetController in the client module.&#10;- Added detailed documentation for all classes to explain functionality and improve code readability.">
+      <option name="closed" value="true" />
+      <created>1728897909711</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL‎-00087" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1728897909711</updated>
+    </task>
+    <task id="LOCAL‎-00088" summary="Deleting file upload option from selectedSheetViewHeader.fxml in Client">
+      <option name="closed" value="true" />
+      <created>1728902264036</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL‎-00088" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1728902264036</updated>
+    </task>
+    <task id="LOCAL‎-00089" summary="Deleting file upload option from selectedSheetViewHeader.fxml in Client">
+      <option name="closed" value="true" />
+      <created>1728902359924</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL‎-00089" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1728902359924</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -766,7 +765,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="commit for merge" />
     <MESSAGE value="Added simulated delay for file loading task in JFX with progress bar&#10;&#10;- Implemented JFX Task for file loading with progress bar to provide visual feedback.&#10;- Added a simulated delay (1-2 seconds) in each loading step to simulate the process.&#10;- Bound progress and status updates to the progress bar and label.&#10;- Ensured that the progress bar is hidden upon successful or failed task completion." />
     <MESSAGE value="Styled Header and Left Panel UI components:&#10;- Added visual design improvements to Header section.&#10;- Updated Left panel layout for better user experience.&#10;- Adjusted styles for TitledPane, ProgressBar, ChoiceBox, ColorPicker, and other UI elements." />
     <MESSAGE value="Fixed and improved the Scroll behavior and layout for better user experience and smoother navigation." />
@@ -791,7 +789,8 @@
     <MESSAGE value="Prepared FXML for displaying selected sheet view layout&#10;&#10;- Created `selectedSheetView.fxml` to define the layout for displaying the selected sheet.&#10;- Added subcomponents:&#10;  - `selectedSheetViewHeader.fxml` to handle the header section.&#10;  - `selectedSheetViewLeft.fxml` for the left-side controls (currently placeholders).&#10;  - `selectedSheet.fxml` for the main sheet display.&#10;- Structured the layout to include sections for the available sheets table, permissions table, and commands (view, request permission, acknowledge/deny).&#10;- Initial layout setup without implementing functionality or actions." />
     <MESSAGE value="Implemented SelectedSheetViewHeaderController for handling sheet view header interactions&#10;&#10;- Created `SelectedSheetViewHeaderController` to manage user interactions in the header of the selected sheet view.&#10;- Added listeners for background color, text color, column width, and row height changes, allowing users to customize cell properties.&#10;- Set up initial structure for handling alignment changes (Left, Center, Right) via `ChoiceBox`.&#10;- Temporarily disabled certain buttons and controls for future functionality.&#10;- Added placeholders for buttons like `BackToDefault`, `LoadFile`, `UpdateValue`, and `VersionSelector` actions (logic to be implemented later).&#10;- Implemented bindings to toggle control availability based on selection state." />
     <MESSAGE value="-Updated SelectedSheetViewController, SelectedSheetViewHeaderController, SelectedSheetViewLeftController, and SelectedSheetController in the client module.&#10;- Added detailed documentation for all classes to explain functionality and improve code readability." />
-    <option name="LAST_COMMIT_MESSAGE" value="-Updated SelectedSheetViewController, SelectedSheetViewHeaderController, SelectedSheetViewLeftController, and SelectedSheetController in the client module.&#10;- Added detailed documentation for all classes to explain functionality and improve code readability." />
+    <MESSAGE value="Deleting file upload option from selectedSheetViewHeader.fxml in Client" />
+    <option name="LAST_COMMIT_MESSAGE" value="Deleting file upload option from selectedSheetViewHeader.fxml in Client" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
