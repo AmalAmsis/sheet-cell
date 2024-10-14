@@ -23,11 +23,14 @@ public class DTOCellImpl implements DTOCell , Serializable {
     private final List<DTOCoordinate> influencingOn = new ArrayList<>();
 
 
-    /**
-     * Constructs a DTOCellImpl from a Cell object.
-     * Initializes the DTOCellImpl's properties based on the given Cell.
-     * @param cell the Cell object to convert into a DTOCell.
-     */
+    public DTOCellImpl() {};
+
+
+        /**
+         * Constructs a DTOCellImpl from a Cell object.
+         * Initializes the DTOCellImpl's properties based on the given Cell.
+         * @param cell the Cell object to convert into a DTOCell.
+         */
     public DTOCellImpl(Cell cell) {
         this.coordinate =new DTOCoordinateImpl(cell.getCoordinate().getRow(), cell.getCoordinate().getCol());
         this.effectiveValue = cell.getEffectiveValue();

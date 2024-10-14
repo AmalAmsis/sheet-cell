@@ -10,17 +10,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="add cellServlet to Server">
+      <change afterPath="$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/GsonUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/JsonSerializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/jasonTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCellInstanceCreator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTORangeInstanceCreator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/servlets/SheetServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/main/DashboardController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/DashboardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availablesheets/AvailableSheetsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availablesheets/AvailableSheetsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/DashboardHeaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/header.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/dashboardHeader.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/maindashboard/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/DashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/maindashboard/TestLoadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/TestLoadFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/maindashboard/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/login/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/command.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/command.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/DashboardHeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/DashboardHeaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataTransferObject/DataTransferObject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/DataTransferObject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCellImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCellImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCoordinateImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCoordinateImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTORangeImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTORangeImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheetImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,6 +92,7 @@
     "Application.TestLogin2.executor": "Run",
     "Application.component.dashboard.subcomponents.maindashboard.TestLoadFile.executor": "Run",
     "Application.deprecated.apprunner.AppRunner.executor": "Debug",
+    "Application.jasonTest.executor": "Debug",
     "Application.sheet.range.Test.executor": "Run",
     "Application.test.FxmlTest.executor": "Run",
     "DefaultHtmlFileTemplate": "HTML File",
@@ -91,10 +100,10 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Tomcat Server.Tomcat 10.1.30.executor": "Run",
-    "git-widget-placeholder": "Amal",
+    "git-widget-placeholder": "yarden__branch",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Amal Amsis/Desktop/AmalA/Computer Science/JAVA/sheet-cell/Client/src/component/selectedSheetView/subcomponents",
+    "last_opened_file_path": "C:/projects/13. JSON (& GSON)",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -152,7 +161,7 @@
     <configuration name="TestLoadFile" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="component.dashboard.main.maindashboard.TestLoadFile" />
       <module name="Client" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\openjfx-22.0.2_windows-x64_bin-sdk\javafx-sdk-22.0.2\lib&quot;  --add-modules javafx.controls,javafx.fxml " />
+      <option name="VM_PARAMETERS" value="--module-path C:\lib\javafx-sdk-22.0.2\lib --add-modules javafx.controls,javafx.fxml " />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="component.dashboard.subcomponents.header.*" />
@@ -177,13 +186,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestLogin2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="component.login.TestLogin2" />
-      <module name="Client" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\openjfx-22.0.2_windows-x64_bin-sdk\javafx-sdk-22.0.2\lib&quot;  --add-modules javafx.controls,javafx.fxml " />
+    <configuration name="jasonTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JsonSerializer.jasonTest" />
+      <module name="DataTransferObject" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="component.login.*" />
+          <option name="PATTERN" value="JsonSerializer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -195,7 +203,7 @@
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/UI/UI.jar" />
       <method v="2" />
     </configuration>
-    <configuration name="Tomcat 10.1.30" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.30" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Tomcat 10.1.30" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.26" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER" value="false" />
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -285,9 +293,9 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.jasonTest" />
       <item itemvalue="Application.TestLoadFile" />
       <item itemvalue="Application.SheetCellClient" />
-      <item itemvalue="Application.TestLogin2" />
       <item itemvalue="Application.TestLogin" />
       <item itemvalue="Application.AppRunner" />
       <item itemvalue="JAR Application.UI.jar" />
@@ -296,10 +304,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.TestLoadFile" />
+        <item itemvalue="Application.jasonTest" />
         <item itemvalue="Application.SheetCellClient" />
         <item itemvalue="Application.TestLogin" />
         <item itemvalue="Application.AppRunner" />
-        <item itemvalue="Application.TestLogin2" />
       </list>
     </recent_temporary>
   </component>
@@ -816,8 +824,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/DashboardController.java</url>
-          <line>22</line>
+          <line>23</line>
           <option name="timeStamp" value="140" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="306" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>
@@ -860,12 +873,20 @@
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="sheet.cell.CellImpl" memberName="effectiveValue" />
+        <PinnedItemInfo parentTag="dto.DTOSheetImpl" memberName="board" />
         <PinnedItemInfo parentTag="java.util.HashMap$Node" memberName="value" />
       </pinned-members>
     </pin-to-top-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="((HashMap)((DTOSheetImpl)dtoSheet).board).entrySet().toArray()[0]" custom="dto.DTOSheetImpl,java.util.HashMap" />
+        <watch expression="rangeManager" />
+        <watch expression="getRowInRange(from, to)" />
+        <watch expression="getColumnIndex(column,firstColInRange" />
+        <watch expression="sortSheet.getSortedSheet( from,  to,  listOfColumnsPriorities)" />
+        <watch expression="DTOSheetImpl(filteredRows,fromCoordinate,filterPreparer.getSheet()" />
+        <watch expression=" new DTOSheetImpl(filteredRows,fromCoordinate,filterPreparer.getSheet())" />
+        <watch expression="colLetter" />
+        <watch expression="dtoSheet.getFirstColumnLetter()" />
       </configuration>
     </watches-manager>
   </component>

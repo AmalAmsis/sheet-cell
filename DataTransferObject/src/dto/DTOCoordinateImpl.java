@@ -13,6 +13,8 @@ public class DTOCoordinateImpl implements DTOCoordinate, Serializable {
     private int row;
     private char col;
 
+    public DTOCoordinateImpl(){};
+
     /**
      * Constructs a DTOCoordinateImpl with the specified row and column.
      * @param row the row number of the cell.
