@@ -1,4 +1,4 @@
-package component.dashboard.subcomponents.header;
+package component.dashboard.subcomponents.maindashboard;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +14,7 @@ public class TestLoadFile extends Application {
     public void start(Stage primaryStage) {
         try {
             // טוען את ה-FXML עם הנתיב המדויק
-            Parent root = FXMLLoader.load(getClass().getResource("dashboardHeader.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
             primaryStage.setTitle("Header Page");
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
