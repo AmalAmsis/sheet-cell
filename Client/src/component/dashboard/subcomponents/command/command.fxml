@@ -25,7 +25,7 @@
         <Separator prefWidth="200.0" />
         <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
             <children>
-                <Button fx:id="viewSheetButton" mnemonicParsing="false" prefWidth="72.0" text="view sheet" />
+                <Button fx:id="viewSheetButton" mnemonicParsing="false" onAction="#viewSheetHandler" prefWidth="72.0" text="view sheet" />
                 <Button fx:id="requestPermissionButton" mnemonicParsing="false" text="request premission" />
                 <Button fx:id="ackOrDenyPermissionRequestButton" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="42.0" prefWidth="121.0" text="ack\deny permission request" textAlignment="CENTER" wrapText="true" />
             </children>

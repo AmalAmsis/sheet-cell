@@ -15,6 +15,8 @@ public class DTORangeImpl implements DTORange {
     private List<DTOCoordinate> coordinates;
 
 
+    public DTORangeImpl() {}
+
     public DTORangeImpl(RangeReadActions range) {
         this.name = range.getName();
         this.topLeft = new DTOCoordinateImpl(range.getTopLeft());
