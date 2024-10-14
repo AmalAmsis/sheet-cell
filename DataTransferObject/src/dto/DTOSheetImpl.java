@@ -32,6 +32,9 @@ public class DTOSheetImpl implements DTOSheet, Serializable {
 
     private final Map<String, DTORange> ranges;
 
+    public DTOSheetImpl() {
+        this.ranges = new HashMap<>();
+    }
 
 
     /**

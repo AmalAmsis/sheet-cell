@@ -34,4 +34,16 @@ public class AvailableSheetsController {
     public DashboardController getDashboardController() {
         return dashboardController;
     }
+
+    public String getSelectedSheetName() {
+        for (var child : availableSheetTable.getChildren()) {
+            if (child instanceof CheckBox) {
+                CheckBox checkBox = (CheckBox) child;
+                if (checkBox.isSelected()) {
+                    return checkBox.getText();
+                }
+            }
+        }
+        return null;
+    }
 }
