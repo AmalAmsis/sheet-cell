@@ -1,5 +1,6 @@
 package component.main;
 
+import component.dashboard.main.maindashboard.DashboardController;
 import component.login.LoginController;
 import component.selectedSheetView.main.SelectedSheetViewController;
 import dto.DTOSheet;
@@ -11,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
@@ -31,6 +33,9 @@ public class SheetCellAppMainController implements Closeable {
     private GridPane selectedSheetViewComponent;
     private SelectedSheetViewController selectedSheetViewComponentController;
 
+    private ScrollPane dashboardComponent;
+    private DashboardController dashboardComponentController;
+
     @Override
     public void close() throws IOException {
 
@@ -49,6 +54,7 @@ public class SheetCellAppMainController implements Closeable {
         // prepare components
         loadLoginPage();
         loadSelectedSheetViewPage();
+        loadDashboardPage();
 
     }
 
@@ -92,8 +98,32 @@ public class SheetCellAppMainController implements Closeable {
         }
     }
 
-    public void switchToSelectedSheetView(DTOSheet dtoSheet){
-
+    private void loadDashboardPage(){
+        URL dashboardPageUrl = getClass().getResource(DASHBOARD_FXML_RESOURCE_LOCATION);
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(dashboardPageUrl);
+            dashboardComponent = fxmlLoader.load();
+            dashboardComponentController = fxmlLoader.getController();
+            selectedSheetViewComponentController.setSheetCellAppMainController(this);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
+
+    public void switchToSelectedSheetView(DTOSheet dtoSheet){
+        setMainPanelTo(selectedSheetViewComponent);
+        selectedSheetViewComponentController.displaySheet(dtoSheet);
+        // לא סיימנו צריך להוסיף דברים בהמשך
+    }
+
+    public void switchToDashboard(){
+        setMainPanelTo(dashboardComponent);
+        //לא סיימנו צריך להוסיף דברים בהמשך
+    }
+
+
+
+
 
 }

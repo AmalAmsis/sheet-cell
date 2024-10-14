@@ -9,18 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="add cellServlet to Server">
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="updates after merge">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/main/DashboardController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availablesheets/AvailableSheetsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availablesheets/AvailableSheetsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/DashboardHeaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/header.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/dashboardHeader.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/maindashboard/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/DashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/maindashboard/TestLoadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/TestLoadFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/maindashboard/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/dashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/DashboardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/component/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/login/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/SelectedSheetViewHeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/SelectedSheetViewHeaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/selectedSheetViewHeader.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/selectedSheetViewHeader.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/util/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UI/src/component/subcomponent/header/HeaderController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -335,14 +333,6 @@
       <workItem from="1728768355881" duration="44000" />
       <workItem from="1728768423746" duration="14000" />
       <workItem from="1728768460006" duration="5531000" />
-    </task>
-    <task id="LOCAL‎-00042" summary="Adding the ability to update the information inside the cell by updating it in the information row (using a special button)&#10; There is still no treatment in case of a failed update">
-      <option name="closed" value="true" />
-      <created>1726268313169</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL‎-00042" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726268313169</updated>
     </task>
     <task id="LOCAL‎-00043" summary="Adding the ability to update the information inside the cell by updating it in the information row (using a special button)&#10; There is still no treatment in case of a failed update">
       <option name="closed" value="true" />
@@ -728,7 +718,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1728906765050</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL‎-00091" summary="updates after merge">
+      <option name="closed" value="true" />
+      <created>1728909242272</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL‎-00091" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1728909242272</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -774,7 +772,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Styled Header and Left Panel UI components:&#10;- Added visual design improvements to Header section.&#10;- Updated Left panel layout for better user experience.&#10;- Adjusted styles for TitledPane, ProgressBar, ChoiceBox, ColorPicker, and other UI elements." />
     <MESSAGE value="Fixed and improved the Scroll behavior and layout for better user experience and smoother navigation." />
     <MESSAGE value="Added JAR creation and binding for UI interactivity&#10;&#10;- Created the JAR file for the project, ensuring all necessary dependencies are included (JavaFX, JAXB, etc.).&#10;- Implemented binding for interactive elements (buttons, text fields, choice boxes, etc.), allowing them to be enabled/disabled dynamically based on whether a cell is selected and a file is loaded.&#10;- Improved user experience by ensuring UI components are only accessible when relevant actions (like selecting a cell or loading a file) have been completed." />
     <MESSAGE value="Added dynamic analysis feature with a value range slider for numerical cells. &#10;&#10;- Implemented functionality allowing users to select a cell, set a minimum and maximum value, and define the step size. &#10;- Added a slider for users to dynamically adjust the selected cell's value within the defined range.&#10;- The sheet updates in real-time with each change made by the slider.&#10;- Changes are temporary and do not permanently modify the cell's value in the sheet or create a new version." />
@@ -799,7 +796,8 @@
     <MESSAGE value="-Updated SelectedSheetViewController, SelectedSheetViewHeaderController, SelectedSheetViewLeftController, and SelectedSheetController in the client module.&#10;- Added detailed documentation for all classes to explain functionality and improve code readability." />
     <MESSAGE value="Deleting file upload option from selectedSheetViewHeader.fxml in Client" />
     <MESSAGE value="add cellServlet to Server" />
-    <option name="LAST_COMMIT_MESSAGE" value="add cellServlet to Server" />
+    <MESSAGE value="updates after merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates after merge" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -813,11 +811,6 @@
           <url>file://$PROJECT_DIR$/Server/src/servlets/LightweightLoginServlet.java</url>
           <line>21</line>
           <option name="timeStamp" value="136" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/DashboardController.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="140" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>

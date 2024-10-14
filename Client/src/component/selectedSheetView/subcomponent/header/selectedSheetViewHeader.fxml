@@ -18,18 +18,26 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="114.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.subcomponent.header.HeaderController">
+<ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="114.0" prefWidth="955.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.selectedSheetView.subcomponent.header.SelectedSheetViewHeaderController">
    <content>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="109.0" prefWidth="895.0" spacing="5.0">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="110.0" prefWidth="950.0" spacing="5.0">
          <children>
-            <HBox prefHeight="37.0" prefWidth="908.0" spacing="5.0">
+            <HBox prefHeight="38.0" prefWidth="946.0" spacing="5.0">
                <children>
                   <Label fx:id="cellIdLabel" prefHeight="26.0" prefWidth="44.0" styleClass="header-label" text="cell id" />
                   <Label fx:id="originalValueLabel" prefHeight="26.0" prefWidth="210.0" styleClass="header-label" text="original value" />
                   <TextField fx:id="actionLineTextField" promptText="action line" />
                   <Button fx:id="updateValueButton" mnemonicParsing="false" onAction="#ClickMeUpdateValueButtonAction" text="update value" />
                   <Label fx:id="lastModifiedVersionLabel" prefHeight="26.0" prefWidth="124.0" styleClass="header-label" text=" last modified version" />
-                  <Button fx:id="versionSelectorButton" mnemonicParsing="false" onAction="#ClickMeVersionSelectorButtonAction" text="version selector" />
+                  <Button fx:id="versionSelectorButton" mnemonicParsing="false" onAction="#ClickMeVersionSelectorButtonAction" prefHeight="26.0" prefWidth="109.0" text="version selector" />
+                  <Button fx:id="backToDashboardButton" mnemonicParsing="false" onAction="#handleBackToDashboard" prefHeight="22.0" prefWidth="121.0" text="&lt;- Back To Dashboard" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets left="60.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

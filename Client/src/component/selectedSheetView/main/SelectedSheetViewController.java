@@ -208,4 +208,7 @@ public class SelectedSheetViewController {
     }
 
 
+    public void backToDashboard() {
+        sheetCellAppMainController.switchToDashboard();
+    }
 }

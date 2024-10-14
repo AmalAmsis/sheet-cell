@@ -38,6 +38,7 @@ public class SelectedSheetViewHeaderController {
     @FXML private MenuButton themesMenuButton;
     @FXML private Button updateValueButton;
     @FXML private Button versionSelectorButton;
+    @FXML private Button backToDashBoardButton;
 
     /**
      * Constructor for the SelectedSheetViewHeaderController.
@@ -134,6 +135,11 @@ public class SelectedSheetViewHeaderController {
 
     @FXML
     void changeToSecondStyle(ActionEvent event) {}
+
+    @FXML
+    void handleBackToDashboard(ActionEvent event) {
+        selectedSheetViewController.backToDashboard();
+    }
 
     /**
      * Binds the UI components to the selection state of a cell.

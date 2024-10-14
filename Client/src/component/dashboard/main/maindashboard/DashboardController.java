@@ -14,7 +14,7 @@ public class DashboardController {
     @FXML private DashboardHeaderController dashboardHeaderController;
     @FXML private ScrollPane availableSheets;
     @FXML private AvailableSheetsController availableSheetsController;
-    @FXML private ScrollPane commands;
+    @FXML private ScrollPane command;
     @FXML private CommandController commandController;
 
     @FXML
