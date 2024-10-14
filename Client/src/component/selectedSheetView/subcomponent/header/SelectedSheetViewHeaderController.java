@@ -30,12 +30,9 @@ public class SelectedSheetViewHeaderController {
     @FXML private ColorPicker cellBackgroundColorPicker;
     @FXML private Label cellIdLabel;
     @FXML private Spinner<Integer> columnWidthSpinner;
-    @FXML private ProgressBar fileLoadingProgressBar;
     @FXML private Label filePathLabel;
     @FXML private Label lastModifiedVersionLabel;
-    @FXML private Button loadFileButton;
     @FXML private Label originalValueLabel;
-    @FXML private Label progressLabel;
     @FXML private Spinner<Integer> rowHeightSpinner;
     @FXML private ColorPicker textColorPicker;
     @FXML private MenuButton themesMenuButton;
@@ -125,9 +122,6 @@ public class SelectedSheetViewHeaderController {
     // Event handler methods for buttons (to be implemented)
     @FXML
     void ClickMeBackToDefaultButton(ActionEvent event) {}
-
-    @FXML
-    void ClickMeLoadFileButtonAction(ActionEvent event) {}
 
     @FXML
     void ClickMeUpdateValueButtonAction(ActionEvent event) {}
