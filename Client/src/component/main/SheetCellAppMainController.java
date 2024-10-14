@@ -2,6 +2,7 @@ package component.main;
 
 import component.login.LoginController;
 import component.selectedSheetView.main.SelectedSheetViewController;
+import dto.DTOSheet;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleStringProperty;
@@ -89,6 +90,10 @@ public class SheetCellAppMainController implements Closeable {
         }catch (IOException e){
             e.printStackTrace();
         }
+    }
+
+    public void switchToSelectedSheetView(DTOSheet dtoSheet){
+
     }
 
 }

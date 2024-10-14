@@ -9,10 +9,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Deleting file upload option from selectedSheetViewHeader.fxml in Client">
-      <change afterPath="$PROJECT_DIR$/Server/src/servlets/CellServlet.java" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="add cellServlet to Server">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/servlets/LoginServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/main/DashboardController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availablesheets/AvailableSheetsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availablesheets/AvailableSheetsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/HeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/DashboardHeaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/header.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/dashboardHeader.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/maindashboard/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/DashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/maindashboard/TestLoadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/TestLoadFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/maindashboard/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/dashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/login/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/login/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +82,7 @@
     "Application.TestLoadFile.executor": "Run",
     "Application.TestLogin.executor": "Run",
     "Application.TestLogin2.executor": "Run",
+    "Application.component.dashboard.subcomponents.maindashboard.TestLoadFile.executor": "Run",
     "Application.deprecated.apprunner.AppRunner.executor": "Debug",
     "Application.sheet.range.Test.executor": "Run",
     "Application.test.FxmlTest.executor": "Run",
@@ -91,7 +100,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.1706642",
     "settings.editor.selected.configurable": "preferences.applicationServers",
@@ -141,7 +150,7 @@
       </method>
     </configuration>
     <configuration name="TestLoadFile" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="component.dashboard.subcomponents.header.TestLoadFile" />
+      <option name="MAIN_CLASS_NAME" value="component.dashboard.main.maindashboard.TestLoadFile" />
       <module name="Client" />
       <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\openjfx-22.0.2_windows-x64_bin-sdk\javafx-sdk-22.0.2\lib&quot;  --add-modules javafx.controls,javafx.fxml " />
       <extension name="coverage">
@@ -326,14 +335,6 @@
       <workItem from="1728768355881" duration="44000" />
       <workItem from="1728768423746" duration="14000" />
       <workItem from="1728768460006" duration="5531000" />
-    </task>
-    <task id="LOCAL‎-00041" summary="Support the possibility to get the full information for each selected cell.&#10;The application now contains a &quot;work line&quot; in which the various information of a selected cell will be displayed.&#10;The selection of the cell will be done by clicking on it (as in all known spreadsheet applications) and by clicking on it the cell will be highlighted in a red frame&#10;When selecting a certain cell in the sheet, you see:&#10;• In the work line:&#10;o Cell identity (example: 5A).&#10;o The original value of the cell&#10;o The last version in which it was updated&#10;• Highlight in a light blue frame all the cells that this cell relies on (if there are any)&#10;• All the cells that this cell affects are highlighted in a light green frame">
-      <option name="closed" value="true" />
-      <created>1726249472430</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL‎-00041" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726249472430</updated>
     </task>
     <task id="LOCAL‎-00042" summary="Adding the ability to update the information inside the cell by updating it in the information row (using a special button)&#10; There is still no treatment in case of a failed update">
       <option name="closed" value="true" />
@@ -719,7 +720,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1728902359924</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL‎-00090" summary="add cellServlet to Server">
+      <option name="closed" value="true" />
+      <created>1728906765050</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL‎-00090" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1728906765050</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -741,7 +750,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="HEAD" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -765,7 +774,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added simulated delay for file loading task in JFX with progress bar&#10;&#10;- Implemented JFX Task for file loading with progress bar to provide visual feedback.&#10;- Added a simulated delay (1-2 seconds) in each loading step to simulate the process.&#10;- Bound progress and status updates to the progress bar and label.&#10;- Ensured that the progress bar is hidden upon successful or failed task completion." />
     <MESSAGE value="Styled Header and Left Panel UI components:&#10;- Added visual design improvements to Header section.&#10;- Updated Left panel layout for better user experience.&#10;- Adjusted styles for TitledPane, ProgressBar, ChoiceBox, ColorPicker, and other UI elements." />
     <MESSAGE value="Fixed and improved the Scroll behavior and layout for better user experience and smoother navigation." />
     <MESSAGE value="Added JAR creation and binding for UI interactivity&#10;&#10;- Created the JAR file for the project, ensuring all necessary dependencies are included (JavaFX, JAXB, etc.).&#10;- Implemented binding for interactive elements (buttons, text fields, choice boxes, etc.), allowing them to be enabled/disabled dynamically based on whether a cell is selected and a file is loaded.&#10;- Improved user experience by ensuring UI components are only accessible when relevant actions (like selecting a cell or loading a file) have been completed." />
@@ -790,7 +798,8 @@
     <MESSAGE value="Implemented SelectedSheetViewHeaderController for handling sheet view header interactions&#10;&#10;- Created `SelectedSheetViewHeaderController` to manage user interactions in the header of the selected sheet view.&#10;- Added listeners for background color, text color, column width, and row height changes, allowing users to customize cell properties.&#10;- Set up initial structure for handling alignment changes (Left, Center, Right) via `ChoiceBox`.&#10;- Temporarily disabled certain buttons and controls for future functionality.&#10;- Added placeholders for buttons like `BackToDefault`, `LoadFile`, `UpdateValue`, and `VersionSelector` actions (logic to be implemented later).&#10;- Implemented bindings to toggle control availability based on selection state." />
     <MESSAGE value="-Updated SelectedSheetViewController, SelectedSheetViewHeaderController, SelectedSheetViewLeftController, and SelectedSheetController in the client module.&#10;- Added detailed documentation for all classes to explain functionality and improve code readability." />
     <MESSAGE value="Deleting file upload option from selectedSheetViewHeader.fxml in Client" />
-    <option name="LAST_COMMIT_MESSAGE" value="Deleting file upload option from selectedSheetViewHeader.fxml in Client" />
+    <MESSAGE value="add cellServlet to Server" />
+    <option name="LAST_COMMIT_MESSAGE" value="add cellServlet to Server" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -805,6 +814,11 @@
           <line>21</line>
           <option name="timeStamp" value="136" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/DashboardController.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="140" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>
           <line>249</line>
@@ -817,7 +831,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/UI/src/manager/UIManagerImpl.java</url>
           <line>36</line>
-          <properties class="manager.UIManagerImpl">
+          <properties class="manager.UIManagerImpl" method="updateCellValue">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>

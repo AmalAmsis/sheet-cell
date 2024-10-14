@@ -1,6 +1,6 @@
 package component.dashboard.subcomponents.header;
 
-import component.dashboard.subcomponents.maindashboard.DashboardController;
+import component.dashboard.main.maindashboard.DashboardController;
 import component.popup.error.ErrorMessage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,7 +15,7 @@ import java.io.File;
 
 import static util.Constants.LOAD;
 
-public class HeaderController {
+public class DashboardHeaderController {
 
 
     private DashboardController dashboardController;

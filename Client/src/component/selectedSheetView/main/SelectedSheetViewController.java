@@ -4,6 +4,7 @@ import component.main.SheetCellAppMainController;
 import component.selectedSheetView.subcomponent.header.SelectedSheetViewHeaderController;
 import component.selectedSheetView.subcomponent.left.SelectedSheetViewLeftController;
 import component.selectedSheetView.subcomponent.sheet.SelectedSheetController;
+import dto.DTOSheet;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -142,7 +143,7 @@ public class SelectedSheetViewController {
     /**
      * Displays the loaded sheet in the UI.
      */
-    public void displaySheet() {
+    public void displaySheet(DTOSheet dtoSheet) {
         // Implementation for displaying the sheet
     }
 

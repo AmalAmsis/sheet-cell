@@ -1,10 +1,8 @@
 package component.dashboard.subcomponents.command;
 
-import component.dashboard.subcomponents.maindashboard.DashboardController;
+import component.dashboard.main.maindashboard.DashboardController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-
-import java.awt.event.ActionEvent;
 
 public class CommandController {
 

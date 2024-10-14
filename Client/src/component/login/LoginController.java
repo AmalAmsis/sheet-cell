@@ -1,7 +1,7 @@
 package component.login;
 
 
-import component.dashboard.main.DashboardController;
+import component.dashboard.main.maindashboard.DashboardController;
 import component.main.SheetCellAppMainController;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
