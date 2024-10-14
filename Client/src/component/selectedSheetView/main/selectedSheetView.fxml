@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="743.0" prefWidth="910.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <fx:include source="../subcomponent/header/selectedSheetViewHeader.fxml" />
+   </top>
+   <left>
+      <fx:include source="../subcomponent/left/selectedSheetViewLeft.fxml" />
+   </left>
+   <center>
+      <fx:include source="../subcomponent/sheet/selectedSheet.fxml" />
+   </center>
+</BorderPane>

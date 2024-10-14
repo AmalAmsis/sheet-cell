@@ -8,7 +8,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="lib" level="project" />
-    <orderEntry type="library" exported="" name="OK-http" level="project" />
-    <orderEntry type="library" name="gson-2.1" level="project" />
+    <orderEntry type="library" exported="" name="gson-2.1" level="project" />
+    <orderEntry type="library" exported="" name="okHttp" level="project" />
+    <orderEntry type="module" module-name="DataTransferObject" exported="" />
   </component>
 </module>

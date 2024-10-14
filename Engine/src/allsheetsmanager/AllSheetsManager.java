@@ -26,4 +26,8 @@ public class AllSheetsManager {
         allSheetsMap.put(fileName,newSheetManager);
     }
 
+    public synchronized SheetManager getSheet(String fileName) {
+        return allSheetsMap.get(fileName);
+    }
+
 }

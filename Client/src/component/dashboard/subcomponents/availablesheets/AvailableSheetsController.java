@@ -1,6 +1,6 @@
 package component.dashboard.subcomponents.availablesheets;
 
-import component.dashboard.subcomponents.maindashboard.DashboardController;
+import component.dashboard.main.maindashboard.DashboardController;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.layout.VBox;

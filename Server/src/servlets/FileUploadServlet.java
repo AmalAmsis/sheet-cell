@@ -17,7 +17,7 @@ import java.io.PrintWriter;
 import java.util.Collection;
 import java.util.Scanner;
 
-@WebServlet(name= "upload file",urlPatterns = "/upload-file")
+//@WebServlet(name= "upload file",urlPatterns = "/upload-file")
 @MultipartConfig(fileSizeThreshold = 1024 * 1024, maxFileSize = 1024 * 1024 * 5, maxRequestSize = 1024 * 1024 * 5 * 5)
 public class FileUploadServlet extends HttpServlet {
 
