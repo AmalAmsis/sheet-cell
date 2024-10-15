@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane prefHeight="639.0" prefWidth="245.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.subcomponent.left.LeftController">
+<ScrollPane prefHeight="639.0" prefWidth="245.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.selectedSheetView.subcomponent.left.SelectedSheetViewLeftController">
    <content>
       <VBox alignment="TOP_CENTER" prefHeight="626.0" prefWidth="207.0">
          <children>

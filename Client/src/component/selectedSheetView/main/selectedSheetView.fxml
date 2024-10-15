@@ -2,14 +2,14 @@
 
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="743.0" prefWidth="910.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="743.0" prefWidth="910.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.selectedSheetView.main.SelectedSheetViewController">
    <top>
-      <fx:include source="../subcomponent/header/selectedSheetViewHeader.fxml" />
+      <fx:include fx:id="header" source="../subcomponent/header/selectedSheetViewHeader.fxml" />
    </top>
    <left>
-      <fx:include source="../subcomponent/left/selectedSheetViewLeft.fxml" />
+      <fx:include fx:id="left" source="../subcomponent/left/selectedSheetViewLeft.fxml" />
    </left>
    <center>
-      <fx:include source="../subcomponent/sheet/selectedSheet.fxml" />
+      <fx:include fx:id="sheet" source="../subcomponent/sheet/selectedSheet.fxml" />
    </center>
 </BorderPane>
