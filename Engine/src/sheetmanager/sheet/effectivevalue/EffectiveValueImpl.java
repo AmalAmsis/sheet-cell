@@ -7,6 +7,8 @@ public class EffectiveValueImpl implements EffectiveValue, Serializable {
     private CellType cellType;
     private Object value;
 
+    public EffectiveValueImpl(){};
+
     public EffectiveValueImpl(CellType cellType, Object value) {
         this.cellType = cellType;
         this.value = value;

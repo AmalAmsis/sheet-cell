@@ -1,5 +1,7 @@
 package dto;
 
+import sheetmanager.sheet.effectivevalue.EffectiveValue;
+
 import java.util.List;
 
 /**
@@ -42,4 +44,5 @@ public interface DTOCell {
 
     String getCellId();
 
+    void setEffectiveValue(EffectiveValue effectiveValue);
 }

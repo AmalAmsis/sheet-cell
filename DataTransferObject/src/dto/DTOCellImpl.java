@@ -23,6 +23,17 @@ public class DTOCellImpl implements DTOCell , Serializable {
     private final List<DTOCoordinate> influencingOn = new ArrayList<>();
 
 
+    public DTOCellImpl(String cellId, DTOCoordinate coordinate, EffectiveValue effectiveValue, String originalValue, int lastModifiedVersion, List<DTOCoordinate> dependsOn, List<DTOCoordinate> influencingOn) {
+        this.cellId = cellId;
+        this.coordinate = coordinate;
+        this.effectiveValue = effectiveValue;
+        this.originalValue = originalValue;
+        this.lastModifiedVersion = lastModifiedVersion;
+        this.dependsOn.addAll(dependsOn);
+        this.influencingOn.addAll(influencingOn);
+    }
+
+
     public DTOCellImpl() {};
 
 
@@ -127,6 +138,11 @@ public class DTOCellImpl implements DTOCell , Serializable {
      */
     public void addDToInfluencingOn(DTOCoordinate dtoCoordinate) {
         influencingOn.add(dtoCoordinate);
+    }
+
+    @Override
+    public void setEffectiveValue(EffectiveValue effectiveValue){
+        this.effectiveValue = effectiveValue;
     }
 
 }
