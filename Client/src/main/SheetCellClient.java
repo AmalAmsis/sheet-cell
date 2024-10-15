@@ -11,7 +11,7 @@ import util.http.HttpClientUtil;
 import java.io.IOException;
 import java.net.URL;
 
-import static util.Constants.MAIN_PAGE_FXML_RESOURCE_LOCATION;
+import static util.Constants.*;
 
 public class SheetCellClient extends Application {
     private SheetCellAppMainController sheetCellAppMainController;
@@ -19,8 +19,8 @@ public class SheetCellClient extends Application {
     @Override
     public void start(Stage primaryStage) {
 
-        primaryStage.setMinHeight(600);
-        primaryStage.setMinWidth(600);
+        primaryStage.setMinHeight(300);
+        primaryStage.setMinWidth(300);
         primaryStage.setTitle("Sheet Cell Client");
 
         URL loginPage = getClass().getResource(MAIN_PAGE_FXML_RESOURCE_LOCATION);
@@ -30,7 +30,7 @@ public class SheetCellClient extends Application {
             Parent root = fxmlLoader.load();
             sheetCellAppMainController = fxmlLoader.getController();
 
-            Scene scene = new Scene(root, 700, 600);
+            Scene scene = new Scene(root, 800, 500);
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {

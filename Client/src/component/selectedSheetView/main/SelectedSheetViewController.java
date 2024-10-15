@@ -145,6 +145,7 @@ public class SelectedSheetViewController {
      */
     public void displaySheet(DTOSheet dtoSheet) {
         // Implementation for displaying the sheet
+        sheetController.initSheetAndBindToUIModel(dtoSheet);
     }
 
     /**
@@ -208,4 +209,22 @@ public class SelectedSheetViewController {
     }
 
 
+    public void backToDashboard() {
+        sheetCellAppMainController.switchToDashboard();
+    }
+
+    /**
+     * Selects the same cell again, mainly for re-displaying its data.
+     */
+    public void SelectSameCell() {
+        showCellData(selectedCellId.getValue());
+    }
+
+    /**
+     * Changes the selected cell and triggers the listener for cell selection.
+     * @param cellId the ID of the cell to select.
+     */
+    public void selectCell(String cellId) {
+        selectedCellId.set(cellId);  // Triggers the listener
+    }
 }

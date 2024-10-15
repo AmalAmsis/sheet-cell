@@ -1,10 +1,15 @@
 package component.selectedSheetView.subcomponent.sheet;
 
 import component.selectedSheetView.main.SelectedSheetViewController;
+import dto.DTOCell;
+import dto.DTOSheet;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+
+import java.util.Map;
 
 /**
  * Controller responsible for managing the display and interaction with the sheet.
@@ -94,4 +99,104 @@ public class SelectedSheetController {
         uiModel.setColumnAlignment(colIndex, alignment);
     }
 
+    public void initSheetAndBindToUIModel(DTOSheet dtoSheet) {
+        sheetGrid.getChildren().clear();
+
+        int numOfRows = dtoSheet.getNumOfRows();
+        int numOfCols = dtoSheet.getNumOfColumns();
+        int widthOfCols = dtoSheet.getWidthOfColumns();
+        int heightOfRows = dtoSheet.getHeightOfRows();
+
+        // Initialize the UI model with the size of the sheet.
+        uiModel.initializeModel(numOfRows + 1, numOfCols + 1, widthOfCols, heightOfRows);
+
+        // Initialize column headers (A, B, C...)
+        for (int col = 1; col <= numOfCols; col++) {
+            String colLetter = String.valueOf((char) ('A' + col - 1));
+            String cellKey = getCellId(col, 0);
+            Label cellLabel = createLabel(widthOfCols, 15);
+            uiModel.setCellValue(cellKey, colLetter);
+            uiModel.bindCellToModel(cellLabel, cellKey);
+            sheetGrid.add(cellLabel, col, 0);
+        }
+
+        // Initialize row headers (1, 2, 3...)
+        for (int row = 1; row <= numOfRows; row++) {
+            String cellKey = getCellId(0, row);
+            Label cellLabel = createLabel(20, heightOfRows);
+            uiModel.setCellValue(cellKey, String.valueOf(row));
+            uiModel.bindCellToModel(cellLabel, cellKey);
+            sheetGrid.add(cellLabel, 0, row);
+        }
+
+        // Initialize cells in the grid
+        for (int row = 1; row <= numOfRows; row++) {
+            for (int col = 1; col <= numOfCols; col++) {
+
+                String cellKey = getCellId(col, row);
+                Label cellLabel = createLabel(widthOfCols, heightOfRows);
+                addClickEventForCell(cellLabel);
+
+                DTOCell dtoCell = dtoSheet.getCells().get(cellKey);
+                if (dtoCell != null) {
+                    uiModel.setCellValue(cellKey, dtoCell.getEffectiveValue().toString());
+                }
+
+                uiModel.bindCellToModel(cellLabel, cellKey);
+                sheetGrid.add(cellLabel, col, row);
+            }
+        }
+    }
+
+    /**
+     * Updates the sheet values based on the DTO.
+     * @param dtoSheet the DTO containing updated values.
+     */
+    public void updateSheetValues(DTOSheet dtoSheet) {
+        Map<String, DTOCell> sheetMap = dtoSheet.getCells();
+        for (DTOCell cell : sheetMap.values()) {
+            uiModel.setCellValue(cell.getCoordinate().toString(), cell.getEffectiveValue().toString());
+        }
+        selectedSheetViewController.SelectSameCell(); // Call to select the same cell after update.
+    }
+
+    /**
+     * Creates a Label with the specified width and height.
+     * @param width the preferred width of the label.
+     * @param height the preferred height of the label.
+     * @return the created label.
+     */
+    private Label createLabel(int width, int height) {
+        Label label = new Label();
+        label.setWrapText(true);
+        label.setPrefSize(width, height);
+        label.setMinSize(width, height);
+        label.setMaxSize(width, height);
+        return label;
+    }
+
+    /**
+     * Returns the cell identifier based on the column and row index.
+     * @param col the column index.
+     * @param row the row index.
+     * @return the cell identifier in the format "A:1", "B:2", etc.
+     */
+    private String getCellId(int col, int row) {
+        char colLetter = (char) ('A' + (col - 1)); // Converts column index to a letter, e.g., 1 -> A
+        return String.valueOf(colLetter) + ":" + row;
+    }
+
+    /**
+     * Adds a click event listener to a label representing a cell.
+     * When clicked, the corresponding cell is selected.
+     * @param label the label (cell) to add the event listener to.
+     */
+    private void addClickEventForCell(Label label) {
+        label.setOnMouseClicked(event -> {
+            int row = GridPane.getRowIndex(label); // Get row index of the label
+            int col = GridPane.getColumnIndex(label); // Get column index of the label
+            String cellId = getCellId(col, row); // Get cell ID
+            selectedSheetViewController.selectCell(cellId); // Select the cell via appController
+        });
+    }
 }

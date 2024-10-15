@@ -1,8 +1,10 @@
 package component.dashboard.main.maindashboard;
 
-import component.dashboard.subcomponents.availablesheets.AvailableSheetsController;
+
+import component.dashboard.subcomponents.availableSheets.AvailableSheetsController;
 import component.dashboard.subcomponents.command.CommandController;
 import component.dashboard.subcomponents.header.DashboardHeaderController;
+import component.main.SheetCellAppMainController;
 import dto.DTOSheet;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
@@ -11,11 +13,13 @@ import javafx.scene.layout.VBox;
 
 public class DashboardController {
 
-    @FXML private VBox header;
+    private SheetCellAppMainController sheetCellAppMainController;
+
+    @FXML private VBox dashboardHeader;
     @FXML private DashboardHeaderController dashboardHeaderController;
     @FXML private ScrollPane availableSheets;
     @FXML private AvailableSheetsController availableSheetsController;
-    @FXML private ScrollPane commands;
+    @FXML private ScrollPane command;
     @FXML private CommandController commandController;
 
     @FXML
@@ -28,6 +32,11 @@ public class DashboardController {
         }
     }
 
+
+    public void setSheetCellAppMainController(SheetCellAppMainController sheetCellAppMainController) {
+        this.sheetCellAppMainController = sheetCellAppMainController;
+    }
+
     public void addSheetToAvailableSheets(CheckBox checkBox) {
         availableSheetsController.addSheetToAvailableSheetTable(checkBox);
     }
@@ -38,6 +47,7 @@ public class DashboardController {
     }
 
     public void switchToSelectedSheetView(DTOSheet dtoSheet) {
+        sheetCellAppMainController.switchToSelectedSheetView(dtoSheet);
 
     }
 }

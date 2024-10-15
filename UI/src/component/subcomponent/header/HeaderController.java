@@ -299,6 +299,7 @@ public class HeaderController {
     /**
      * Changes the theme to the first style.
      */
+    @FXML
     public void changeToFirstStyle(ActionEvent actionEvent) {
         appController.applyTheme("Style 1");
         themesMenuButton.setText("Style 1");
@@ -307,8 +308,12 @@ public class HeaderController {
     /**
      * Changes the theme to the second style.
      */
+    @FXML
     public void changeToSecondStyle(ActionEvent actionEvent) {
         appController.applyTheme("Style 2");
         themesMenuButton.setText("Style 2");
     }
+
+
+
 }

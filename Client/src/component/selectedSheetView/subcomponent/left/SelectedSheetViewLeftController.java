@@ -2,6 +2,7 @@ package component.selectedSheetView.subcomponent.left;
 
 import component.selectedSheetView.main.SelectedSheetViewController;
 import javafx.beans.property.BooleanProperty;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.FlowPane;
@@ -153,5 +154,50 @@ public class SelectedSheetViewLeftController {
         // Update the ChoiceBoxes with the new range options
         removeRangeChoiceBox.getItems().setAll(ranges);
         showRangeChoiceBox.getItems().setAll(ranges);
+    }
+
+    @FXML
+    void ClickMeAddNewRangeButton(ActionEvent event) {
+
+    }
+
+    @FXML
+    void ClickMeFilterButton(ActionEvent event) {
+
+    }
+
+    @FXML
+    void ClickMeRemoveRange(ActionEvent event) {
+
+    }
+
+    @FXML
+    void ClickMeShowRange(ActionEvent event) {
+
+    }
+
+    @FXML
+    void ClickMeSortButton(ActionEvent event) {
+
+    }
+
+    @FXML
+    void clickMeResetFilterButton(ActionEvent event) {
+
+    }
+
+    @FXML
+    void clickMeResetSortButton(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleDynamicAnalysis(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleGenerateGraph(ActionEvent event) {
+
     }
 }
