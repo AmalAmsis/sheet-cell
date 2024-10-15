@@ -1,7 +1,6 @@
 package JsonSerializer;
 
 import dto.DTOSheet;
-import dto.DTOSheetImpl;
 import jakarta.xml.bind.JAXBException;
 import sheetmanager.SheetManager;
 import sheetmanager.SheetManagerImpl;
@@ -9,6 +8,8 @@ import sheetmanager.SheetManagerImpl;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+
+import static sheetmanager.sheet.range.Test.printSheetToConsole;
 
 public class jasonTest {
 
@@ -31,7 +32,11 @@ public class jasonTest {
 
             DTOSheet dtoSheet2 =  jsonSerializer.convertJsonToDto(json);
 
-            System.out.println(dtoSheet2);
+            JsonDTOCellValueUpdater jsonDTOCellValueUpdater = new JsonDTOCellValueUpdater();
+            jsonDTOCellValueUpdater.updateDTOCellValue(dtoSheet2,json);
+
+            printSheetToConsole(dtoSheet2);
+
 
         } catch (FileNotFoundException e) {
             throw new FileNotFoundException("The specified file was not found. Please check the file path and ensure that the file exists.");

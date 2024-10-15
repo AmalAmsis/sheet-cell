@@ -1,9 +1,12 @@
 package JsonSerializer;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import dto.DTOSheet;
 import dto.DTOSheetImpl;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+
 
 public class JsonSerializer {
 
@@ -15,7 +18,11 @@ public class JsonSerializer {
 
     public DTOSheet convertJsonToDto(String json) {
         Gson gson = GsonUtil.createGsonWithInstanceCreators();
-        return gson.fromJson(json, DTOSheetImpl.class);
+        Type dtoSheetType = new TypeToken<DTOSheetImpl>() {}.getType();
+        DTOSheet dtoSheet = gson.fromJson(json, dtoSheetType);
+        JsonDTOCellValueUpdater jsonDTOCellValueUpdater = new JsonDTOCellValueUpdater();
+        jsonDTOCellValueUpdater.updateDTOCellValue(dtoSheet,json);
+        return dtoSheet;
     }
 
 
