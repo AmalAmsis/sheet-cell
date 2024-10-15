@@ -9,23 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="This change allows the main controller to manage and display the SelectedSheetView , Dashboard and login as part of the application flow.">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="displaySheet">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/DashboardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/command.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/command.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/dashboardHeader.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/dashboardHeader.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availablesheets/AvailableSheetsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availablesheets/AvailableSheetsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availablesheets/availablesheets.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availablesheets/availablesheets.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/component/main/sheetCellAppMain.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/main/sheetCellAppMain.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/selectedSheetView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/selectedSheetView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/SelectedSheetViewHeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/SelectedSheetViewHeaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/selectedSheetViewHeader.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/selectedSheetViewHeader.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/selectedSheetViewLeft.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/selectedSheetViewLeft.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/sheet/selectedSheet.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/sheet/selectedSheet.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/SheetCellClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/SheetCellClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCellImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCellImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,42 +73,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.AppRunner.executor": "Run",
-    "Application.FxmlTest.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.SheetCellClient.executor": "Run",
-    "Application.Test.executor": "Run",
-    "Application.Test2.executor": "Coverage",
-    "Application.TestLoadFile.executor": "Debug",
-    "Application.TestLogin.executor": "Run",
-    "Application.TestLogin2.executor": "Run",
-    "Application.component.dashboard.subcomponents.maindashboard.TestLoadFile.executor": "Run",
-    "Application.deprecated.apprunner.AppRunner.executor": "Debug",
-    "Application.sheet.range.Test.executor": "Run",
-    "Application.test.FxmlTest.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "JAR Application.UI.jar.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Tomcat Server.Tomcat 10.1.30.executor": "Run",
-    "git-widget-placeholder": "Amal",
-    "jdk.selected.JAVA_MODULE": "21",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Amal Amsis/Desktop/AmalA/Computer Science/JAVA/sheet-cell/Client/src/component/selectedSheetView/subcomponents",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.1706642",
-    "settings.editor.selected.configurable": "preferences.applicationServers",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.AppRunner.executor&quot;: &quot;Run&quot;,
+    &quot;Application.FxmlTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SheetCellClient.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Test.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Test2.executor&quot;: &quot;Coverage&quot;,
+    &quot;Application.TestLoadFile.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.TestLogin.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestLogin2.executor&quot;: &quot;Run&quot;,
+    &quot;Application.component.dashboard.subcomponents.maindashboard.TestLoadFile.executor&quot;: &quot;Run&quot;,
+    &quot;Application.deprecated.apprunner.AppRunner.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.sheet.range.Test.executor&quot;: &quot;Run&quot;,
+    &quot;Application.test.FxmlTest.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JAR Application.UI.jar.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Tomcat Server.Tomcat 10.1.30.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Amal&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Amal Amsis/Desktop/AmalA/Computer Science/JAVA/sheet-cell/Client/src/component/selectedSheetView/subcomponents&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.1706642&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.applicationServers&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\sheet-cell\Client\src\component\selectedSheetView\subcomponents" />
@@ -304,8 +298,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.SheetCellClient" />
-        <item itemvalue="Application.TestLoadFile" />
         <item itemvalue="Application.AppRunner" />
+        <item itemvalue="Application.TestLoadFile" />
         <item itemvalue="Application.TestLogin" />
         <item itemvalue="Application.TestLogin2" />
       </list>
@@ -343,22 +337,6 @@
       <workItem from="1728768355881" duration="44000" />
       <workItem from="1728768423746" duration="14000" />
       <workItem from="1728768460006" duration="5531000" />
-    </task>
-    <task id="LOCAL‎-00044" summary="Handiling the new methods from the xml (sum, everage...)">
-      <option name="closed" value="true" />
-      <created>1726311877594</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL‎-00044" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726311877594</updated>
-    </task>
-    <task id="LOCAL‎-00045" summary="Starting handling commands relatedto ranges in UI">
-      <option name="closed" value="true" />
-      <created>1726334893606</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL‎-00045" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726334893606</updated>
     </task>
     <task id="LOCAL‎-00046" summary=".">
       <option name="closed" value="true" />
@@ -736,7 +714,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1728923775994</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL‎-00093" summary="This change allows the main controller to manage and display the SelectedSheetView , Dashboard and login as part of the application flow.">
+      <option name="closed" value="true" />
+      <created>1729003504057</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL‎-00093" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1729003504057</updated>
+    </task>
+    <task id="LOCAL‎-00094" summary="displaySheet">
+      <option name="closed" value="true" />
+      <created>1729006716236</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL‎-00094" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1729006716236</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -758,7 +752,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="Amal" />
                       </list>
                     </value>
                   </entry>
@@ -782,7 +776,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added JAR creation and binding for UI interactivity&#10;&#10;- Created the JAR file for the project, ensuring all necessary dependencies are included (JavaFX, JAXB, etc.).&#10;- Implemented binding for interactive elements (buttons, text fields, choice boxes, etc.), allowing them to be enabled/disabled dynamically based on whether a cell is selected and a file is loaded.&#10;- Improved user experience by ensuring UI components are only accessible when relevant actions (like selecting a cell or loading a file) have been completed." />
     <MESSAGE value="Added dynamic analysis feature with a value range slider for numerical cells. &#10;&#10;- Implemented functionality allowing users to select a cell, set a minimum and maximum value, and define the step size. &#10;- Added a slider for users to dynamically adjust the selected cell's value within the defined range.&#10;- The sheet updates in real-time with each change made by the slider.&#10;- Changes are temporary and do not permanently modify the cell's value in the sheet or create a new version." />
     <MESSAGE value="Implemented theme switching functionality with support for at least 2 additional color schemes beyond the default. The following UI elements were updated as part of the theme changes:&#10;&#10;1. Background color for the entire screen.&#10;2. Button styling and appearance across the UI.&#10;3. Updated font and font size for all labels on the screen to reflect the selected theme.&#10;&#10;Added a mechanism for users to easily switch between these themes through the UI." />
     <MESSAGE value="Refactored version selection functionality:&#10;- Added dynamic linking between okButton and versionMenuBar to ensure the button is only enabled when a version is selected.&#10;- Fixed the dynamic creation of MenuItems and ensured proper action listeners are attached during runtime.&#10;&#10;General updates:&#10;- Cleaned up several classes.&#10;- Added documentation across classes for clarity and future maintenance." />
@@ -807,7 +800,8 @@
     <MESSAGE value="add cellServlet to Server" />
     <MESSAGE value="updates after merge" />
     <MESSAGE value="This change allows the main controller to manage and display the SelectedSheetView , Dashboard and login as part of the application flow." />
-    <option name="LAST_COMMIT_MESSAGE" value="This change allows the main controller to manage and display the SelectedSheetView , Dashboard and login as part of the application flow." />
+    <MESSAGE value="displaySheet" />
+    <option name="LAST_COMMIT_MESSAGE" value="displaySheet" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

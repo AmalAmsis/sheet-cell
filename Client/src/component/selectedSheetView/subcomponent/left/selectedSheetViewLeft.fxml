@@ -16,16 +16,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane prefHeight="639.0" prefWidth="245.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.selectedSheetView.subcomponent.left.SelectedSheetViewLeftController">
+<ScrollPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.selectedSheetView.subcomponent.left.SelectedSheetViewLeftController">
    <content>
-      <VBox alignment="TOP_CENTER" prefHeight="626.0" prefWidth="207.0">
+      <VBox alignment="TOP_CENTER">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" text="Command" textAlignment="CENTER" VBox.vgrow="ALWAYS">
                <font>
                   <Font name="Blackadder ITC" size="22.0" />
                </font>
             </Label>
-            <Accordion prefHeight="283.0" prefWidth="207.0">
+            <Accordion prefHeight="283.0">
                <panes>
                   <TitledPane animated="false" prefHeight="199.0" prefWidth="191.0" text="Custom Sort">
                      <content>

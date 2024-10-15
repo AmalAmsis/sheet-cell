@@ -2,40 +2,47 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<SplitPane dividerPositions="0.14684014869888476" orientation="VERTICAL" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.main.SheetCellAppMainController">
-  <items>
-      <VBox prefHeight="120.0" prefWidth="613.0">
-         <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="822.0" text="Shtisel" textAlignment="CENTER" textFill="#05b75e">
+<ScrollPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.main.SheetCellAppMainController">
+   <content>
+      <SplitPane dividerPositions="0.9480519480519481" orientation="VERTICAL" prefHeight="64.0" prefWidth="631.0">
+        <items>
+            <VBox>
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="728.0" text="Shtisel" textAlignment="CENTER" textFill="#05b75e">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <font>
+                        <Font name="Eras Bold ITC" size="23.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="userNameLabel" prefHeight="22.0" prefWidth="639.0">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Arial Black" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
-               <font>
-                  <Font name="Eras Bold ITC" size="23.0" />
-               </font>
-            </Label>
-            <Label fx:id="userNameLabel" prefHeight="22.0" prefWidth="179.0">
-               <VBox.margin>
-                  <Insets bottom="5.0" left="5.0" />
-               </VBox.margin>
-               <padding>
-                  <Insets bottom="5.0" />
-               </padding>
-            </Label>
-         </children>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
+            </VBox>
+            <AnchorPane fx:id="mainPanel" />
+        </items>
          <padding>
-            <Insets bottom="5.0" />
+            <Insets bottom="2.0" />
          </padding>
-      </VBox>
-      <AnchorPane fx:id="mainPanel" />
-  </items>
-</SplitPane>
+      </SplitPane>
+   </content>
+</ScrollPane>

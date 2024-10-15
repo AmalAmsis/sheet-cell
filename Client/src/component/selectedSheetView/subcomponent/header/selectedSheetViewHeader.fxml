@@ -18,11 +18,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="114.0" prefWidth="955.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.selectedSheetView.subcomponent.header.SelectedSheetViewHeaderController">
+<ScrollPane fitToHeight="true" fitToWidth="true" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.selectedSheetView.subcomponent.header.SelectedSheetViewHeaderController">
    <content>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="110.0" prefWidth="950.0" spacing="5.0">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="5.0">
          <children>
-            <HBox prefHeight="38.0" prefWidth="946.0" spacing="5.0">
+            <HBox spacing="5.0">
                <children>
                   <Label fx:id="cellIdLabel" prefHeight="26.0" prefWidth="44.0" styleClass="header-label" text="cell id" />
                   <Label fx:id="originalValueLabel" prefHeight="26.0" prefWidth="210.0" styleClass="header-label" text="original value" />
@@ -43,8 +43,8 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </HBox>
-            <Separator prefHeight="3.0" prefWidth="902.0" />
-            <GridPane prefHeight="43.0" prefWidth="873.0">
+            <Separator />
+            <GridPane>
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="146.00001220703126" minWidth="129.2000244140625" prefWidth="130.00001220703126" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="138.7999755859375" minWidth="107.19998474121095" prefWidth="108.79996032714845" />

@@ -65,10 +65,10 @@ public class SheetCellAppMainController implements Closeable {
         mainPanel.getChildren().clear();
         mainPanel.getChildren().add(pane);
 
-        AnchorPane.setTopAnchor(mainPanel,1.0 );
-        AnchorPane.setBottomAnchor(mainPanel, 1.0);
-        AnchorPane.setLeftAnchor(mainPanel, 1.0);
-        AnchorPane.setRightAnchor(mainPanel, 1.0);
+        AnchorPane.setTopAnchor(mainPanel,0.0 );
+        AnchorPane.setBottomAnchor(mainPanel, 0.0);
+        AnchorPane.setLeftAnchor(mainPanel, 0.0);
+        AnchorPane.setRightAnchor(mainPanel, 0.0);
     }
 
     private void loadLoginPage() {
