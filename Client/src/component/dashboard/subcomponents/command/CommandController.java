@@ -11,8 +11,10 @@ import okhttp3.Request;
 import okhttp3.Response;
 import util.http.HttpClientUtil;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
+import javafx.event.ActionEvent;
+
+import static util.Constants.VIEW;
 
 public class CommandController {
 
@@ -38,7 +40,7 @@ public class CommandController {
         String username = "lo_user";  // שם המשתמש הקבוע
 
         if(fileName != null) {
-            String url = "http://localhost:8080/sheet?username=" + username + "&sheetName=" + fileName;
+            String url = VIEW + "?username=" + username + "&sheetName=" + fileName;
 
             // יצירת בקשת GET
             Request request = new Request.Builder()
@@ -70,4 +72,6 @@ public class CommandController {
         } else {
             new ErrorMessage("No sheet selected.");
         }  }
+
+
 }
