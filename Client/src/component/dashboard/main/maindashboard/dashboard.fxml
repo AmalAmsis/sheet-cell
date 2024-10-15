@@ -10,7 +10,7 @@
               <fx:include fx:id="dashboardHeader" source="../../subcomponents/header/dashboardHeader.fxml" />
             </top>
           <center>
-              <fx:include fx:id="availableSheets" source="../../subcomponents/availableSheets/availablesheets.fxml" />
+              <fx:include fx:id="availableSheets" source="../../subcomponents/availablesheets/availablesheets.fxml" />
           </center>
           <right>
                   <fx:include fx:id="command" source="../../subcomponents/command/command.fxml" />
