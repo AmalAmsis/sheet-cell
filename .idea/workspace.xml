@@ -9,19 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Dashboard initialization update&#10;The sheets that are already on the server will be displayed straight away.">
-      <change afterPath="$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/EffectiveValueAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/EffectiveValueInstanceCreator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/EffectiveValueTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/JsonDTOCellValueUpdater.java" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Transferring objects from server to client works">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/GsonUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/GsonUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/JsonSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/JsonSerializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/jasonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/jasonTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCellImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOCellImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheetmanager/sheet/effectivevalue/EffectiveValueImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheetmanager/sheet/effectivevalue/EffectiveValueImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availablesheets/AvailableSheetsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availablesheets/availablesheets.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/availablesheets.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +71,7 @@
     "Application.EffectiveValueTest.executor": "Debug",
     "Application.FxmlTest.executor": "Run",
     "Application.Main.executor": "Run",
-    "Application.SheetCellClient.executor": "Run",
+    "Application.SheetCellClient.executor": "Debug",
     "Application.Test.executor": "Run",
     "Application.Test2.executor": "Coverage",
     "Application.TestLoadFile.executor": "Debug",
@@ -123,7 +116,7 @@
       <recent name="component.selectedSheetView.subcomponent.sheet" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TestLoadFile">
+  <component name="RunManager" selected="Application.SheetCellClient">
     <configuration name="EffectiveValueTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="JsonSerializer.EffectiveValueTest" />
       <module name="DataTransferObject" />
@@ -140,7 +133,7 @@
     <configuration name="SheetCellClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.SheetCellClient" />
       <module name="Client" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\openjfx-22.0.2_windows-x64_bin-sdk\javafx-sdk-22.0.2\lib&quot;  --add-modules javafx.controls,javafx.fxml " />
+      <option name="VM_PARAMETERS" value="--module-path C:\lib\javafx-sdk-22.0.2\lib --add-modules javafx.controls,javafx.fxml " />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="main.*" />
@@ -296,11 +289,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SheetCellClient" />
         <item itemvalue="Application.TestLoadFile" />
         <item itemvalue="Application.jasonTest" />
         <item itemvalue="Application.EffectiveValueTest" />
         <item itemvalue="Application.TestLogin" />
-        <item itemvalue="Application.SheetCellClient" />
       </list>
     </recent_temporary>
   </component>
@@ -336,14 +329,6 @@
       <workItem from="1728768355881" duration="44000" />
       <workItem from="1728768423746" duration="14000" />
       <workItem from="1728768460006" duration="5531000" />
-    </task>
-    <task id="LOCAL‎-00044" summary="Handiling the new methods from the xml (sum, everage...)">
-      <option name="closed" value="true" />
-      <created>1726311877594</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL‎-00044" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726311877594</updated>
     </task>
     <task id="LOCAL‎-00045" summary="Starting handling commands relatedto ranges in UI">
       <option name="closed" value="true" />
@@ -729,7 +714,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728997283370</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="Transferring objects from server to client works">
+      <option name="closed" value="true" />
+      <created>1729018637850</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1729018637850</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -775,7 +768,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added JAR creation and binding for UI interactivity&#10;&#10;- Created the JAR file for the project, ensuring all necessary dependencies are included (JavaFX, JAXB, etc.).&#10;- Implemented binding for interactive elements (buttons, text fields, choice boxes, etc.), allowing them to be enabled/disabled dynamically based on whether a cell is selected and a file is loaded.&#10;- Improved user experience by ensuring UI components are only accessible when relevant actions (like selecting a cell or loading a file) have been completed." />
     <MESSAGE value="Added dynamic analysis feature with a value range slider for numerical cells. &#10;&#10;- Implemented functionality allowing users to select a cell, set a minimum and maximum value, and define the step size. &#10;- Added a slider for users to dynamically adjust the selected cell's value within the defined range.&#10;- The sheet updates in real-time with each change made by the slider.&#10;- Changes are temporary and do not permanently modify the cell's value in the sheet or create a new version." />
     <MESSAGE value="Implemented theme switching functionality with support for at least 2 additional color schemes beyond the default. The following UI elements were updated as part of the theme changes:&#10;&#10;1. Background color for the entire screen.&#10;2. Button styling and appearance across the UI.&#10;3. Updated font and font size for all labels on the screen to reflect the selected theme.&#10;&#10;Added a mechanism for users to easily switch between these themes through the UI." />
     <MESSAGE value="Refactored version selection functionality:&#10;- Added dynamic linking between okButton and versionMenuBar to ensure the button is only enabled when a version is selected.&#10;- Fixed the dynamic creation of MenuItems and ensured proper action listeners are attached during runtime.&#10;&#10;General updates:&#10;- Cleaned up several classes.&#10;- Added documentation across classes for clarity and future maintenance." />
@@ -800,7 +792,8 @@
     <MESSAGE value="add cellServlet to Server" />
     <MESSAGE value="I worked on display sheet from the client and server side, marge for continue work with Amal.&#10;It remains to check the feature" />
     <MESSAGE value="Dashboard initialization update&#10;The sheets that are already on the server will be displayed straight away." />
-    <option name="LAST_COMMIT_MESSAGE" value="Dashboard initialization update&#10;The sheets that are already on the server will be displayed straight away." />
+    <MESSAGE value="Transferring objects from server to client works" />
+    <option name="LAST_COMMIT_MESSAGE" value="Transferring objects from server to client works" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -822,12 +815,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java</url>
-          <line>66</line>
+          <line>69</line>
           <option name="timeStamp" value="322" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java</url>
-          <line>63</line>
+          <line>66</line>
           <option name="timeStamp" value="323" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -854,6 +847,11 @@
           <url>file://$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/jasonTest.java</url>
           <line>37</line>
           <option name="timeStamp" value="336" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/DashboardController.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="337" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>
