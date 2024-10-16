@@ -9,12 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Transferring objects from server to client works">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Successfully implemented JSON-to-object and object-to-JSON conversion for DTOSheet and its components. &#10;&#10;The feature for selecting a sheet displaying its contents has been fully integrated.">
+      <change afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsRefresher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/servlets/AvailableSheetServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availablesheets/AvailableSheetsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availablesheets/availablesheets.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/availablesheets.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/util/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +91,7 @@
     "git-widget-placeholder": "yarden__branch",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/projects/13. JSON (& GSON)",
+    "last_opened_file_path": "C:/projects/Online Chat V3",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -329,14 +330,6 @@
       <workItem from="1728768355881" duration="44000" />
       <workItem from="1728768423746" duration="14000" />
       <workItem from="1728768460006" duration="5531000" />
-    </task>
-    <task id="LOCAL‎-00045" summary="Starting handling commands relatedto ranges in UI">
-      <option name="closed" value="true" />
-      <created>1726334893606</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL‎-00045" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726334893606</updated>
     </task>
     <task id="LOCAL‎-00046" summary=".">
       <option name="closed" value="true" />
@@ -722,7 +715,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729018637850</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="Successfully implemented JSON-to-object and object-to-JSON conversion for DTOSheet and its components. &#10;&#10;The feature for selecting a sheet displaying its contents has been fully integrated.">
+      <option name="closed" value="true" />
+      <created>1729019077972</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1729019077973</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -768,7 +769,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added dynamic analysis feature with a value range slider for numerical cells. &#10;&#10;- Implemented functionality allowing users to select a cell, set a minimum and maximum value, and define the step size. &#10;- Added a slider for users to dynamically adjust the selected cell's value within the defined range.&#10;- The sheet updates in real-time with each change made by the slider.&#10;- Changes are temporary and do not permanently modify the cell's value in the sheet or create a new version." />
     <MESSAGE value="Implemented theme switching functionality with support for at least 2 additional color schemes beyond the default. The following UI elements were updated as part of the theme changes:&#10;&#10;1. Background color for the entire screen.&#10;2. Button styling and appearance across the UI.&#10;3. Updated font and font size for all labels on the screen to reflect the selected theme.&#10;&#10;Added a mechanism for users to easily switch between these themes through the UI." />
     <MESSAGE value="Refactored version selection functionality:&#10;- Added dynamic linking between okButton and versionMenuBar to ensure the button is only enabled when a version is selected.&#10;- Fixed the dynamic creation of MenuItems and ensured proper action listeners are attached during runtime.&#10;&#10;General updates:&#10;- Cleaned up several classes.&#10;- Added documentation across classes for clarity and future maintenance." />
     <MESSAGE value="Implemented graph creation feature for numerical data in the sheet. &#10;&#10;- Added functionality for generating line and bar charts based on user-selected X and Y axis ranges.&#10;- Created error handling for invalid range formats and non-numeric values in the selected cells.&#10;- Added detailed validation to ensure the X and Y ranges contain equal numbers of values.&#10;- Updated UI to allow users to select cell ranges for graph creation, including new controls for selecting and confirming range input.&#10;- Enhanced error messaging for invalid input formats and mismatched value counts between X and Y axis selections.&#10;- Documentation and comments added across relevant classes to clarify the graph creation process and error handling mechanisms." />
@@ -793,7 +793,8 @@
     <MESSAGE value="I worked on display sheet from the client and server side, marge for continue work with Amal.&#10;It remains to check the feature" />
     <MESSAGE value="Dashboard initialization update&#10;The sheets that are already on the server will be displayed straight away." />
     <MESSAGE value="Transferring objects from server to client works" />
-    <option name="LAST_COMMIT_MESSAGE" value="Transferring objects from server to client works" />
+    <MESSAGE value="Successfully implemented JSON-to-object and object-to-JSON conversion for DTOSheet and its components. &#10;&#10;The feature for selecting a sheet displaying its contents has been fully integrated." />
+    <option name="LAST_COMMIT_MESSAGE" value="Successfully implemented JSON-to-object and object-to-JSON conversion for DTOSheet and its components. &#10;&#10;The feature for selecting a sheet displaying its contents has been fully integrated." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -812,16 +813,6 @@
           <url>file://$PROJECT_DIR$/Server/src/servlets/SheetServlet.java</url>
           <line>43</line>
           <option name="timeStamp" value="320" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java</url>
-          <line>69</line>
-          <option name="timeStamp" value="322" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java</url>
-          <line>66</line>
-          <option name="timeStamp" value="323" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/EffectiveValueAdapter.java</url>
@@ -849,9 +840,19 @@
           <option name="timeStamp" value="336" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="345" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="346" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/DashboardController.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="337" />
+          <line>49</line>
+          <option name="timeStamp" value="348" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>
@@ -900,7 +901,7 @@
     </pin-to-top-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="((DTOSheetImpl)dtoSheet2).title" custom="dto.DTOSheetImpl" />
+        <watch expression="((DTOSheetImpl)dtoSheet2).title" language="JAVA" custom="dto.DTOSheetImpl" />
       </configuration>
     </watches-manager>
   </component>
