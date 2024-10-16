@@ -7,6 +7,9 @@ public class Constants {
     public final static String NO_USERNAME = " ";
 
 
+    // global constants
+    public final static int REFRESH_RATE = 2000;
+
     // fxml locations
     public final static String LOGIN_PAGE_FXML_RESOURCE_LOCATION = "/component/login/login.fxml";
     public final static String SELECTED_SHEET_VIEW_FXML_RESOURCE_LOCATION = "/component/selectedSheetView/main/selectedSheetView.fxml";
@@ -23,6 +26,7 @@ public class Constants {
     public final static String LOGOUT = FULL_SERVER_PATH + "/logout";
     public final static String LOAD = FULL_SERVER_PATH + "/upload-file";
     public final static String VIEW = FULL_SERVER_PATH + "/sheet";
+    public final static String AVAILABLE_SHEETS = FULL_SERVER_PATH + "/available-sheets";
 
     // GSON instance
     public final static Gson GSON_INSTANCE = new Gson();
