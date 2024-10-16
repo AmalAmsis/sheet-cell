@@ -9,12 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Transferring objects from server to client works">
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="This change allows the main controller to manage and display the SelectedSheetView , Dashboard and login as part of the application flow.">
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availablesheets/AvailableSheetsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availablesheets/availablesheets.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/availablesheets.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/servlets/CellServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/CellServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/servlets/updateCellServlet.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +56,9 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -68,18 +71,16 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.AppRunner.executor": "Run",
-    "Application.EffectiveValueTest.executor": "Debug",
     "Application.FxmlTest.executor": "Run",
     "Application.Main.executor": "Run",
-    "Application.SheetCellClient.executor": "Debug",
+    "Application.SheetCellClient.executor": "Run",
     "Application.Test.executor": "Run",
     "Application.Test2.executor": "Coverage",
     "Application.TestLoadFile.executor": "Debug",
-    "Application.TestLogin.executor": "Debug",
+    "Application.TestLogin.executor": "Run",
     "Application.TestLogin2.executor": "Run",
     "Application.component.dashboard.subcomponents.maindashboard.TestLoadFile.executor": "Run",
     "Application.deprecated.apprunner.AppRunner.executor": "Debug",
-    "Application.jasonTest.executor": "Debug",
     "Application.sheet.range.Test.executor": "Run",
     "Application.test.FxmlTest.executor": "Run",
     "DefaultHtmlFileTemplate": "HTML File",
@@ -87,16 +88,16 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Tomcat Server.Tomcat 10.1.30.executor": "Run",
-    "git-widget-placeholder": "yarden__branch",
+    "git-widget-placeholder": "Amal",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/projects/13. JSON (& GSON)",
+    "last_opened_file_path": "C:/Users/Amal Amsis/Desktop/AmalA/Computer Science/JAVA/sheet-cell/Client/src/component/selectedSheetView/subcomponents",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.1706642",
     "settings.editor.selected.configurable": "preferences.applicationServers",
@@ -117,12 +118,13 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.SheetCellClient">
-    <configuration name="EffectiveValueTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="JsonSerializer.EffectiveValueTest" />
-      <module name="DataTransferObject" />
+    <configuration name="AppRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="apprunner.AppRunner" />
+      <module name="UI" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\openjfx-22.0.2_windows-x64_bin-sdk\javafx-sdk-22.0.2\lib&quot;  --add-modules javafx.controls,javafx.fxml " />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="JsonSerializer.*" />
+          <option name="PATTERN" value="test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -133,7 +135,7 @@
     <configuration name="SheetCellClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.SheetCellClient" />
       <module name="Client" />
-      <option name="VM_PARAMETERS" value="--module-path C:\lib\javafx-sdk-22.0.2\lib --add-modules javafx.controls,javafx.fxml " />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\openjfx-22.0.2_windows-x64_bin-sdk\javafx-sdk-22.0.2\lib&quot;  --add-modules javafx.controls,javafx.fxml " />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="main.*" />
@@ -147,7 +149,7 @@
     <configuration name="TestLoadFile" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="component.dashboard.main.maindashboard.TestLoadFile" />
       <module name="Client" />
-      <option name="VM_PARAMETERS" value="--module-path C:\lib\javafx-sdk-22.0.2\lib --add-modules javafx.controls,javafx.fxml " />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\openjfx-22.0.2_windows-x64_bin-sdk\javafx-sdk-22.0.2\lib&quot;  --add-modules javafx.controls,javafx.fxml " />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="component.dashboard.subcomponents.header.*" />
@@ -172,12 +174,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="jasonTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="JsonSerializer.jasonTest" />
-      <module name="DataTransferObject" />
+    <configuration name="TestLogin2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="component.login.TestLogin2" />
+      <module name="Client" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\openjfx-22.0.2_windows-x64_bin-sdk\javafx-sdk-22.0.2\lib&quot;  --add-modules javafx.controls,javafx.fxml " />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="JsonSerializer.*" />
+          <option name="PATTERN" value="component.login.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -189,7 +192,7 @@
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/UI/UI.jar" />
       <method v="2" />
     </configuration>
-    <configuration name="Tomcat 10.1.30" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.26" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Tomcat 10.1.30" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.30" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER" value="false" />
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -279,21 +282,21 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.EffectiveValueTest" />
-      <item itemvalue="Application.jasonTest" />
       <item itemvalue="Application.TestLoadFile" />
       <item itemvalue="Application.SheetCellClient" />
+      <item itemvalue="Application.TestLogin2" />
       <item itemvalue="Application.TestLogin" />
+      <item itemvalue="Application.AppRunner" />
       <item itemvalue="JAR Application.UI.jar" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.30" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.SheetCellClient" />
+        <item itemvalue="Application.AppRunner" />
         <item itemvalue="Application.TestLoadFile" />
-        <item itemvalue="Application.jasonTest" />
-        <item itemvalue="Application.EffectiveValueTest" />
         <item itemvalue="Application.TestLogin" />
+        <item itemvalue="Application.TestLogin2" />
       </list>
     </recent_temporary>
   </component>
@@ -329,22 +332,6 @@
       <workItem from="1728768355881" duration="44000" />
       <workItem from="1728768423746" duration="14000" />
       <workItem from="1728768460006" duration="5531000" />
-    </task>
-    <task id="LOCAL‎-00045" summary="Starting handling commands relatedto ranges in UI">
-      <option name="closed" value="true" />
-      <created>1726334893606</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL‎-00045" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726334893606</updated>
-    </task>
-    <task id="LOCAL‎-00046" summary=".">
-      <option name="closed" value="true" />
-      <created>1726335306708</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL‎-00046" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726335306708</updated>
     </task>
     <task id="LOCAL‎-00047" summary="Starting handling commands relatedto ranges in UI">
       <option name="closed" value="true" />
@@ -698,31 +685,47 @@
       <option name="project" value="LOCAL‎" />
       <updated>1728906765050</updated>
     </task>
-    <task id="LOCAL-00091" summary="I worked on display sheet from the client and server side, marge for continue work with Amal.&#10;It remains to check the feature">
+    <task id="LOCAL‎-00091" summary="updates after merge">
       <option name="closed" value="true" />
-      <created>1728923287522</created>
+      <created>1728909242272</created>
       <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1728923287523</updated>
+      <option name="presentableId" value="LOCAL‎-00091" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1728909242272</updated>
     </task>
-    <task id="LOCAL-00092" summary="Dashboard initialization update&#10;The sheets that are already on the server will be displayed straight away.">
+    <task id="LOCAL‎-00092" summary="This change allows the main controller to manage and display the SelectedSheetView , Dashboard and login as part of the application flow.">
       <option name="closed" value="true" />
-      <created>1728997283370</created>
+      <created>1728923775994</created>
       <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1728997283370</updated>
+      <option name="presentableId" value="LOCAL‎-00092" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1728923775994</updated>
     </task>
-    <task id="LOCAL-00093" summary="Transferring objects from server to client works">
+    <task id="LOCAL‎-00093" summary="This change allows the main controller to manage and display the SelectedSheetView , Dashboard and login as part of the application flow.">
       <option name="closed" value="true" />
-      <created>1729018637850</created>
+      <created>1729003504057</created>
       <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL-00093" />
-      <option name="project" value="LOCAL" />
-      <updated>1729018637850</updated>
+      <option name="presentableId" value="LOCAL‎-00093" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1729003504057</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL‎-00094" summary="displaySheet">
+      <option name="closed" value="true" />
+      <created>1729006716236</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL‎-00094" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1729006716236</updated>
+    </task>
+    <task id="LOCAL‎-00095" summary="This change allows the main controller to manage and display the SelectedSheetView , Dashboard and login as part of the application flow.">
+      <option name="closed" value="true" />
+      <created>1729012117311</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL‎-00095" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1729012117311</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -744,7 +747,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="Amal" />
                       </list>
                     </value>
                   </entry>
@@ -790,10 +793,10 @@
     <MESSAGE value="-Updated SelectedSheetViewController, SelectedSheetViewHeaderController, SelectedSheetViewLeftController, and SelectedSheetController in the client module.&#10;- Added detailed documentation for all classes to explain functionality and improve code readability." />
     <MESSAGE value="Deleting file upload option from selectedSheetViewHeader.fxml in Client" />
     <MESSAGE value="add cellServlet to Server" />
-    <MESSAGE value="I worked on display sheet from the client and server side, marge for continue work with Amal.&#10;It remains to check the feature" />
-    <MESSAGE value="Dashboard initialization update&#10;The sheets that are already on the server will be displayed straight away." />
-    <MESSAGE value="Transferring objects from server to client works" />
-    <option name="LAST_COMMIT_MESSAGE" value="Transferring objects from server to client works" />
+    <MESSAGE value="updates after merge" />
+    <MESSAGE value="displaySheet" />
+    <MESSAGE value="This change allows the main controller to manage and display the SelectedSheetView , Dashboard and login as part of the application flow." />
+    <option name="LAST_COMMIT_MESSAGE" value="This change allows the main controller to manage and display the SelectedSheetView , Dashboard and login as part of the application flow." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -809,49 +812,14 @@
           <option name="timeStamp" value="136" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Server/src/servlets/SheetServlet.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="320" />
+          <url>file://$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="150" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java</url>
-          <line>69</line>
-          <option name="timeStamp" value="322" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java</url>
-          <line>66</line>
-          <option name="timeStamp" value="323" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/EffectiveValueAdapter.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="327" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/EffectiveValueTest.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="329" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/EffectiveValueTest.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="330" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/EffectiveValueTest.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="331" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/jasonTest.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="336" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/DashboardController.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="337" />
+          <url>file://$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java</url>
+          <line>92</line>
+          <option name="timeStamp" value="151" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>
@@ -895,12 +863,11 @@
       <pinned-members>
         <PinnedItemInfo parentTag="sheet.cell.CellImpl" memberName="effectiveValue" />
         <PinnedItemInfo parentTag="java.util.HashMap$Node" memberName="value" />
-        <PinnedItemInfo parentTag="dto.DTOSheetImpl" memberName="title" />
       </pinned-members>
     </pin-to-top-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="((DTOSheetImpl)dtoSheet2).title" custom="dto.DTOSheetImpl" />
+        <watch expression="((HashMap)((DTOSheetImpl)dtoSheet).board).entrySet().toArray()[0]" custom="dto.DTOSheetImpl,java.util.HashMap" />
       </configuration>
     </watches-manager>
   </component>
