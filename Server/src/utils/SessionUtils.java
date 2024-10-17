@@ -11,6 +11,12 @@ public class SessionUtils {
         return sessionAttribute != null ? sessionAttribute.toString() : null;
     }
 
+    public static String getSheetTitle (HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        Object sessionAttribute = session != null ? session.getAttribute(Constants.FILENAME) : null;
+        return sessionAttribute != null ? sessionAttribute.toString() : null;
+    }
+
     public static void clearSession (HttpServletRequest request) {
         request.getSession().invalidate();
     }

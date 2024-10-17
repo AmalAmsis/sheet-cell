@@ -1,56 +1,73 @@
 package servlets;
 
-import allsheetsmanager.AllSheetsManager;
-import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import sheetmanager.SheetManager;
 import utils.ServletUtils;
+import utils.SessionUtils;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import allsheetsmanager.AllSheetsManager;
+import sheetmanager.SheetManager;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.Properties;
 
+@WebServlet(name = "Cell", urlPatterns = {"/cell"})
 public class CellServlet extends HttpServlet {
 
-    //מידע על תא קיים
+    // Update cell
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        // Read the request body
+        StringBuilder sb = new StringBuilder();
+        try (BufferedReader reader = req.getReader()) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                sb.append(line);
+            }
+        }
 
+        // Parse the JSON request body
+        JsonParser parser = new JsonParser();
+        JsonObject json = parser.parse(sb.toString()).getAsJsonObject();
+        String coordinateRaw = json.get("coordinate").getAsString();
+        String originalValueRaw = json.get("originalValue").getAsString();
 
-    }
+        String sheetName = SessionUtils.getSheetTitle(req);
+        String userName = SessionUtils.getUsername(req);
 
-    //עדכון תא
-    @Override
-    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("application/json");
-        Properties prop = new Properties();
-        prop.load(req.getInputStream());
+        if (userName == null) {
+            resp.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            resp.getWriter().println("Unauthorized user");
+            return;
+        }
 
-        String sheetName = prop.getProperty("sheetName");
-        String coordinateRaw = prop.getProperty("coordinate");
-        String originalValueRaw = prop.getProperty("originalValue");
+        if (sheetName == null) {
+            resp.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            resp.getWriter().println("Unauthorized sheet");
+            return;
+        }
 
-        // בדיקה אם יש ערכים חסרים
-        if (sheetName == null || coordinateRaw == null || originalValueRaw == null) {
+        if (coordinateRaw == null || originalValueRaw == null) {
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-            resp.getOutputStream().println("{\"error\": \"Missing parameters\"}");
+            resp.getWriter().println("Missing parameters");
             return;
         }
 
         AllSheetsManager sheetsManager = ServletUtils.getSheetManager(getServletContext());
         SheetManager sheetManager = sheetsManager.getSheet(sheetName);
+
         try {
-            sheetManager.updateCell(coordinateRaw, originalValueRaw);
-            // שליחת תשובת JSON במקרה של הצלחה
-            resp.getWriter().write("{\"status\": \"success\"}");
+            synchronized (getServletContext()) {
+                sheetManager.updateCell(coordinateRaw, originalValueRaw);
+            }
+            resp.setStatus(HttpServletResponse.SC_OK);
+            resp.getWriter().println(sheetName);
         } catch (Exception e) {
-            // טיפול בשגיאה בעת עדכון תא
             resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            resp.getOutputStream().println("{\"error\": \"update failed: " + e.getMessage() + "\"}");
+            resp.getWriter().println("Update failed: " + e.getMessage());
         }
     }
-
-
-
 }

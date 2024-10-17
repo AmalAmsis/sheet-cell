@@ -27,6 +27,7 @@ public class Constants {
     public final static String LOAD = FULL_SERVER_PATH + "/upload-file";
     public final static String VIEW = FULL_SERVER_PATH + "/sheet";
     public final static String AVAILABLE_SHEETS = FULL_SERVER_PATH + "/available-sheets";
+    public final static String UPDATE_CELL = FULL_SERVER_PATH + "/cell";
 
     // GSON instance
     public final static Gson GSON_INSTANCE = new Gson();

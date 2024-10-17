@@ -9,12 +9,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="This change allows the main controller to manage and display the SelectedSheetView , Dashboard and login as part of the application flow.">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="CellServlet">
+      <change afterPath="$PROJECT_DIR$/Client/src/main/SheetCellClient2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/availablesheets.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/availableSheets.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/SelectedSheetViewHeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/SelectedSheetViewHeaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/sheet/SelectedSheetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/sheet/SelectedSheetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/util/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/constants/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/constants/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/servlets/CellServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/CellServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/servlets/updateCellServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/servlets/SheetServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/SheetServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/utils/ServletUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/utils/ServletUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/utils/SessionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/utils/SessionUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +84,7 @@
     "Application.FxmlTest.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.SheetCellClient.executor": "Run",
+    "Application.SheetCellClient2.executor": "Run",
     "Application.Test.executor": "Run",
     "Application.Test2.executor": "Coverage",
     "Application.TestLoadFile.executor": "Debug",
@@ -97,7 +108,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.1706642",
     "settings.editor.selected.configurable": "preferences.applicationServers",
@@ -146,6 +157,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SheetCellClient2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.SheetCellClient2" />
+      <module name="Client" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\openjfx-22.0.2_windows-x64_bin-sdk\javafx-sdk-22.0.2\lib&quot;  --add-modules javafx.controls,javafx.fxml " />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestLoadFile" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="component.dashboard.main.maindashboard.TestLoadFile" />
       <module name="Client" />
@@ -162,20 +187,6 @@
     </configuration>
     <configuration name="TestLogin" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="component.login.TestLogin" />
-      <module name="Client" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\openjfx-22.0.2_windows-x64_bin-sdk\javafx-sdk-22.0.2\lib&quot;  --add-modules javafx.controls,javafx.fxml " />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="component.login.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestLogin2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="component.login.TestLogin2" />
       <module name="Client" />
       <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\openjfx-22.0.2_windows-x64_bin-sdk\javafx-sdk-22.0.2\lib&quot;  --add-modules javafx.controls,javafx.fxml " />
       <extension name="coverage">
@@ -282,9 +293,9 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.SheetCellClient2" />
       <item itemvalue="Application.TestLoadFile" />
       <item itemvalue="Application.SheetCellClient" />
-      <item itemvalue="Application.TestLogin2" />
       <item itemvalue="Application.TestLogin" />
       <item itemvalue="Application.AppRunner" />
       <item itemvalue="JAR Application.UI.jar" />
@@ -293,10 +304,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.SheetCellClient" />
+        <item itemvalue="Application.SheetCellClient2" />
         <item itemvalue="Application.AppRunner" />
         <item itemvalue="Application.TestLoadFile" />
         <item itemvalue="Application.TestLogin" />
-        <item itemvalue="Application.TestLogin2" />
       </list>
     </recent_temporary>
   </component>
@@ -332,14 +343,6 @@
       <workItem from="1728768355881" duration="44000" />
       <workItem from="1728768423746" duration="14000" />
       <workItem from="1728768460006" duration="5531000" />
-    </task>
-    <task id="LOCAL‎-00047" summary="Starting handling commands relatedto ranges in UI">
-      <option name="closed" value="true" />
-      <created>1726346391853</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL‎-00047" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726346391853</updated>
     </task>
     <task id="LOCAL‎-00048" summary=" handling commands relatedto ranges in UI">
       <option name="closed" value="true" />
@@ -725,7 +728,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1729012117311</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL‎-00096" summary="CellServlet">
+      <option name="closed" value="true" />
+      <created>1729075416909</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL‎-00096" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1729075416909</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -747,7 +758,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="Amal" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -771,7 +782,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added dynamic analysis feature with a value range slider for numerical cells. &#10;&#10;- Implemented functionality allowing users to select a cell, set a minimum and maximum value, and define the step size. &#10;- Added a slider for users to dynamically adjust the selected cell's value within the defined range.&#10;- The sheet updates in real-time with each change made by the slider.&#10;- Changes are temporary and do not permanently modify the cell's value in the sheet or create a new version." />
     <MESSAGE value="Implemented theme switching functionality with support for at least 2 additional color schemes beyond the default. The following UI elements were updated as part of the theme changes:&#10;&#10;1. Background color for the entire screen.&#10;2. Button styling and appearance across the UI.&#10;3. Updated font and font size for all labels on the screen to reflect the selected theme.&#10;&#10;Added a mechanism for users to easily switch between these themes through the UI." />
     <MESSAGE value="Refactored version selection functionality:&#10;- Added dynamic linking between okButton and versionMenuBar to ensure the button is only enabled when a version is selected.&#10;- Fixed the dynamic creation of MenuItems and ensured proper action listeners are attached during runtime.&#10;&#10;General updates:&#10;- Cleaned up several classes.&#10;- Added documentation across classes for clarity and future maintenance." />
     <MESSAGE value="Implemented graph creation feature for numerical data in the sheet. &#10;&#10;- Added functionality for generating line and bar charts based on user-selected X and Y axis ranges.&#10;- Created error handling for invalid range formats and non-numeric values in the selected cells.&#10;- Added detailed validation to ensure the X and Y ranges contain equal numbers of values.&#10;- Updated UI to allow users to select cell ranges for graph creation, including new controls for selecting and confirming range input.&#10;- Enhanced error messaging for invalid input formats and mismatched value counts between X and Y axis selections.&#10;- Documentation and comments added across relevant classes to clarify the graph creation process and error handling mechanisms." />
@@ -796,7 +806,8 @@
     <MESSAGE value="updates after merge" />
     <MESSAGE value="displaySheet" />
     <MESSAGE value="This change allows the main controller to manage and display the SelectedSheetView , Dashboard and login as part of the application flow." />
-    <option name="LAST_COMMIT_MESSAGE" value="This change allows the main controller to manage and display the SelectedSheetView , Dashboard and login as part of the application flow." />
+    <MESSAGE value="CellServlet" />
+    <option name="LAST_COMMIT_MESSAGE" value="CellServlet" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -807,19 +818,9 @@
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Server/src/servlets/LightweightLoginServlet.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="136" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java</url>
-          <line>62</line>
-          <option name="timeStamp" value="150" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java</url>
-          <line>92</line>
-          <option name="timeStamp" value="151" />
+          <url>file://$PROJECT_DIR$/Server/src/servlets/SheetServlet.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="164" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>

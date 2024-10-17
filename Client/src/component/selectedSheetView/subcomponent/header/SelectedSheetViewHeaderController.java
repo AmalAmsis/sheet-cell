@@ -118,7 +118,11 @@ public class SelectedSheetViewHeaderController {
     void ClickMeBackToDefaultButton(ActionEvent event) {}
 
     @FXML
-    void ClickMeUpdateValueButtonAction(ActionEvent event) {}
+    void ClickMeUpdateValueButtonAction(ActionEvent event) {
+        String originalValue = actionLineTextField.getText();
+        selectedSheetViewController.updateCellValue(originalValue);
+        actionLineTextField.clear();
+    }
 
     @FXML
     void ClickMeVersionSelectorButtonAction(ActionEvent event) {}

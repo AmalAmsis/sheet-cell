@@ -1,10 +1,14 @@
 package component.selectedSheetView.main;
 
+import JsonSerializer.JsonSerializer;
 import component.main.SheetCellAppMainController;
+import component.popup.error.ErrorMessage;
 import component.selectedSheetView.subcomponent.header.SelectedSheetViewHeaderController;
 import component.selectedSheetView.subcomponent.left.SelectedSheetViewLeftController;
 import component.selectedSheetView.subcomponent.sheet.SelectedSheetController;
+import constants.Constants.*;
 import dto.DTOSheet;
+import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -14,9 +18,15 @@ import javafx.geometry.Pos;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import okhttp3.*;
+import org.jetbrains.annotations.NotNull;
+import util.http.HttpClientUtil;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static util.Constants.*;
 
 /**
  * This class is the main controller for the selected sheet view.
@@ -222,9 +232,94 @@ public class SelectedSheetViewController {
 
     /**
      * Changes the selected cell and triggers the listener for cell selection.
+     *
      * @param cellId the ID of the cell to select.
      */
     public void selectCell(String cellId) {
         selectedCellId.set(cellId);  // Triggers the listener
     }
+
+    public void updateCellValue(String newOriginalValue) {
+        // Build the final URL for the request
+        String finalUrl = HttpUrl
+                .parse(UPDATE_CELL)
+                .newBuilder()
+                .build()
+                .toString();
+
+        // Create the JSON body for the request
+        String jsonBody = "{\"coordinate\": \"" + selectedCellId.getValue() + "\", \"originalValue\": \"" + newOriginalValue + "\"}";
+
+        // Build the request body
+        RequestBody body = RequestBody.create(jsonBody, MediaType.parse("application/json; charset=utf-8"));
+
+        // Create the PUT request
+        Request request = new Request.Builder()
+                .url(finalUrl)
+                .put(body)
+                .build();
+
+        // Send the request asynchronously
+        HttpClientUtil.HTTP_CLIENT.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                // Handle failure
+                new ErrorMessage(e.getMessage());
+            }
+
+            @Override
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    String sheetName = response.body().string();
+                    DTOSheet dtoSheet = getDtoSheet(sheetName);
+                    Platform.runLater(() -> {sheetController.updateSheetValues(dtoSheet);});
+
+                    // Handle successful update
+                    System.out.println("Cell updated successfully");
+                } else {
+                    // Handle error response
+                    String responseBody = response.body().string();
+                    Platform.runLater(() -> {new ErrorMessage("Update failed: " + responseBody);});
+                }
+            }
+        });
+    }
+
+
+    DTOSheet getDtoSheet(String sheetName) {
+
+        String fileName = sheetName;
+        String username = "lo_user";  // שם המשתמש הקבוע
+
+        String url = VIEW + "?username=" + username + "&sheetName=" + fileName;
+
+        // יצירת בקשת GET
+        Request request = new Request.Builder()
+                .url(url)
+                .get()
+                .build();
+
+        // שליחת הבקשה
+        Call call = HttpClientUtil.HTTP_CLIENT.newCall(request);
+
+        try {
+            Response response = call.execute();
+
+            if (response.isSuccessful()) {
+                String jsonResponse = response.body().string();
+
+                JsonSerializer jsonSerializer = new JsonSerializer();
+                DTOSheet dtoSheet = jsonSerializer.convertJsonToDto(jsonResponse);
+                return dtoSheet;
+            } else {
+                new ErrorMessage("Failed to fetch sheet: " + response.code());
+            }
+
+        } catch (IOException e) {
+            new ErrorMessage("Error fetching sheet: " + e.getMessage());
+        }
+        return null;
+    }
+
+
 }
