@@ -1,9 +1,12 @@
 package component.selectedSheetView.main;
 
+import com.google.gson.Gson;
 import component.main.SheetCellAppMainController;
 import component.selectedSheetView.subcomponent.header.SelectedSheetViewHeaderController;
 import component.selectedSheetView.subcomponent.left.SelectedSheetViewLeftController;
+import component.selectedSheetView.subcomponent.left.SheetCallback;
 import component.selectedSheetView.subcomponent.sheet.SelectedSheetController;
+import component.selectedSheetView.subcomponent.sheet.UIModelSheet;
 import dto.DTOSheet;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ObjectProperty;
@@ -14,9 +17,17 @@ import javafx.geometry.Pos;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Request;
+import okhttp3.Response;
+import util.http.HttpClientUtil;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static util.Constants.SORT_SHEET;
 
 /**
  * This class is the main controller for the selected sheet view.
@@ -26,6 +37,7 @@ import java.util.List;
 public class SelectedSheetViewController {
 
     private SheetCellAppMainController sheetCellAppMainController;
+    private String selectedSheetName;
 
     @FXML
     private ScrollPane header;
@@ -52,6 +64,7 @@ public class SelectedSheetViewController {
 
     // List to store previously selected cells for clearing their state
     private List<String> previouslySelectedCells = new ArrayList<>();
+
 
     /**
      * Initializes the controller and sets up bindings for UI components and properties.
@@ -143,9 +156,10 @@ public class SelectedSheetViewController {
     /**
      * Displays the loaded sheet in the UI.
      */
-    public void displaySheet(DTOSheet dtoSheet) {
+    public void displaySheet(DTOSheet dtoSheet,String fileName) {
         // Implementation for displaying the sheet
-        sheetController.initSheetAndBindToUIModel(dtoSheet);
+        sheetController.initSheetAndBindToUIModel(dtoSheet,fileName);
+        this.selectedSheetName = fileName;
     }
 
     /**
@@ -226,5 +240,25 @@ public class SelectedSheetViewController {
      */
     public void selectCell(String cellId) {
         selectedCellId.set(cellId);  // Triggers the listener
+    }
+
+
+
+//    //TODO
+//    public DTOSheet getSheetByVersion(int version) {
+//        return uiManager.getSheetInVersion(version);
+//    }
+
+    public List<String> getColumnValues(char column, int firstRow, int lastRow) {
+        return sheetController.getColumnValues(column, firstRow, lastRow);
+    }
+
+    public UIModelSheet getCurrentUIModel() {
+        return sheetController.getCurrentUIModel();
+
+    }
+
+    public String getFileName() {
+        return this.selectedSheetName;
     }
 }

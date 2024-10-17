@@ -66,7 +66,7 @@ public class CommandController {
                     JsonSerializer jsonSerializer = new JsonSerializer();
                     DTOSheet dtoSheet = jsonSerializer.convertJsonToDto(jsonResponse);
 
-                    dashboardController.switchToSelectedSheetView(dtoSheet);
+                    dashboardController.switchToSelectedSheetView(dtoSheet,fileName);
                 } else {
                     new ErrorMessage("Failed to fetch sheet: " + response.code());
                 }

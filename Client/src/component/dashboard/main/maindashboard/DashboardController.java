@@ -46,8 +46,8 @@ public class DashboardController {
         return availableSheetsController.getSelectedSheetName();
     }
 
-    public void switchToSelectedSheetView(DTOSheet dtoSheet) {
-        sheetCellAppMainController.switchToSelectedSheetView(dtoSheet);
+    public void switchToSelectedSheetView(DTOSheet dtoSheet,String selectedSheetName) {
+        sheetCellAppMainController.switchToSelectedSheetView(dtoSheet,selectedSheetName);
 
     }
 }

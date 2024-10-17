@@ -9,6 +9,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -20,7 +22,8 @@ import java.util.Map;
 public class SelectedSheetController {
 
     private SelectedSheetViewController selectedSheetViewController;
-    private UIModelSheet uiModel;
+    private final UIModelSheet uiModel;
+    private String selectedSheetName = null;
 
     @FXML
     private GridPane sheetGrid;
@@ -99,7 +102,7 @@ public class SelectedSheetController {
         uiModel.setColumnAlignment(colIndex, alignment);
     }
 
-    public void initSheetAndBindToUIModel(DTOSheet dtoSheet) {
+    public void initSheetAndBindToUIModel(DTOSheet dtoSheet,String selectedSheetName ) {
         sheetGrid.getChildren().clear();
 
         int numOfRows = dtoSheet.getNumOfRows();
@@ -146,6 +149,8 @@ public class SelectedSheetController {
                 sheetGrid.add(cellLabel, col, row);
             }
         }
+
+        this.selectedSheetName = selectedSheetName;
     }
 
     /**
@@ -198,5 +203,42 @@ public class SelectedSheetController {
             String cellId = getCellId(col, row); // Get cell ID
             selectedSheetViewController.selectCell(cellId); // Select the cell via appController
         });
+    }
+
+    /**
+     * Gets the values in a specific column between two rows.
+     * @param column the column letter (e.g., 'A').
+     * @param firstRow the first row index.
+     * @param lastRow the last row index.
+     * @return a list of values in the specified column between the rows.
+     */
+    public List<String> getColumnValues(char column, int firstRow, int lastRow) {
+        List<String> columnValues = new ArrayList<>();
+        for (int rowNum = firstRow; rowNum <= lastRow; rowNum++) {
+            String cellId = getCellIdByChar(column, rowNum);
+            String value = uiModel.getCell(cellId).getValue();
+            if (!value.isEmpty()) {
+                columnValues.add(value);
+            }
+        }
+        return columnValues;
+    }
+
+    /**
+     * Gets the cell ID by column letter and row number.
+     * @param col the column letter.
+     * @param row the row number.
+     * @return the cell ID in the format "A:1", "B:2", etc.
+     */
+    private String getCellIdByChar(char col, int row) {
+        return String.valueOf(col) + ":" + row;
+    }
+
+    /**
+     * Gets the current UI model of the sheet.
+     * @return the current UI model.
+     */
+    public UIModelSheet getCurrentUIModel() {
+        return uiModel;
     }
 }

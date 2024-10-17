@@ -29,6 +29,7 @@ public class SheetCellAppMainController implements Closeable {
     private GridPane loginComponent;
     private LoginController loginComponentController;
 
+
     private BorderPane selectedSheetViewComponent;
     private SelectedSheetViewController selectedSheetViewComponentController;
 
@@ -111,9 +112,9 @@ public class SheetCellAppMainController implements Closeable {
         }
     }
 
-    public void switchToSelectedSheetView(DTOSheet dtoSheet){
+    public void switchToSelectedSheetView(DTOSheet dtoSheet,String selectedSheetName){
         setMainPanelTo(selectedSheetViewComponent);
-        selectedSheetViewComponentController.displaySheet(dtoSheet);
+        selectedSheetViewComponentController.displaySheet(dtoSheet,selectedSheetName);
         // לא סיימנו צריך להוסיף דברים בהמשך
     }
 
@@ -121,9 +122,5 @@ public class SheetCellAppMainController implements Closeable {
         setMainPanelTo(dashboardComponent);
         //לא סיימנו צריך להוסיף דברים בהמשך
     }
-
-
-
-
 
 }
