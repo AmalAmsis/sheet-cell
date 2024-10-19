@@ -9,21 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Implemented available sheets auto-refresh feature.&#10;&#10;- Added `AvailableSheetsRefresher` class to periodically fetch and refresh available sheets from the server.&#10;- Integrated a timer task in `AvailableSheetsController` to send requests to the server every 2 seconds.&#10;- Updated the logic in `refreshAvailableSheets()` to only add new sheets not already present in the client-side list.&#10;- Fixed UI update issue by ensuring updates are performed on the JavaFX application thread.&#10;- Added logic in the server-side `AvailableSheetServlet` to respond only when new sheets are available, reducing unnecessary updates.">
-      <change afterPath="$PROJECT_DIR$/Client/src/component/popup/viewonlysheet/ViewOnlySheetController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/component/popup/viewonlysheet/viewOnlySheet.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SheetCallback.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Server/src/servlets/SortSheetServlet.java" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Added sheet sorting functionality&#10;on server and client side">
+      <change afterPath="$PROJECT_DIR$/Server/src/servlets/FilterSheetServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/DashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/sheet/SelectedSheetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/sheet/SelectedSheetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SheetCallback.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/util/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/JsonDTOCellValueUpdater.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/JsonDTOCellValueUpdater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/UI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/UI/UI.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,44 +66,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.AppRunner.executor": "Debug",
-    "Application.EffectiveValueTest.executor": "Debug",
-    "Application.FxmlTest.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.SheetCellClient.executor": "Debug",
-    "Application.Test.executor": "Run",
-    "Application.Test2.executor": "Coverage",
-    "Application.TestLoadFile.executor": "Debug",
-    "Application.TestLogin.executor": "Debug",
-    "Application.TestLogin2.executor": "Run",
-    "Application.component.dashboard.subcomponents.maindashboard.TestLoadFile.executor": "Run",
-    "Application.deprecated.apprunner.AppRunner.executor": "Debug",
-    "Application.jasonTest.executor": "Debug",
-    "Application.sheet.range.Test.executor": "Run",
-    "Application.test.FxmlTest.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "JAR Application.UI.jar.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Tomcat Server.Tomcat 10.1.30.executor": "Run",
-    "git-widget-placeholder": "yarden__branch",
-    "jdk.selected.JAVA_MODULE": "21",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/projects/sheet-cell/Client/src",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.1706642",
-    "settings.editor.selected.configurable": "preferences.applicationServers",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.AppRunner.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.EffectiveValueTest.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.FxmlTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SheetCellClient.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.Test.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Test2.executor&quot;: &quot;Coverage&quot;,
+    &quot;Application.TestLoadFile.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.TestLogin.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.TestLogin2.executor&quot;: &quot;Run&quot;,
+    &quot;Application.component.dashboard.subcomponents.maindashboard.TestLoadFile.executor&quot;: &quot;Run&quot;,
+    &quot;Application.deprecated.apprunner.AppRunner.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.jasonTest.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.sheet.range.Test.executor&quot;: &quot;Run&quot;,
+    &quot;Application.test.FxmlTest.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JAR Application.UI.jar.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Tomcat Server.Tomcat 10.1.30.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;yarden__branch&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/projects/sheet-cell/Client/src&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.1706642&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.applicationServers&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\projects\sheet-cell\Client\src" />
@@ -345,15 +337,8 @@
       <workItem from="1728768423746" duration="14000" />
       <workItem from="1728768460006" duration="5531000" />
       <workItem from="1729162799676" duration="178000" />
-      <workItem from="1729162985853" duration="6835000" />
-    </task>
-    <task id="LOCAL‎-00047" summary="Starting handling commands relatedto ranges in UI">
-      <option name="closed" value="true" />
-      <created>1726346391853</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL‎-00047" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726346391853</updated>
+      <workItem from="1729162985853" duration="8842000" />
+      <workItem from="1729339170318" duration="4166000" />
     </task>
     <task id="LOCAL‎-00048" summary=" handling commands relatedto ranges in UI">
       <option name="closed" value="true" />
@@ -739,7 +724,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729075201883</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="Added sheet sorting functionality&#10;on server and client side">
+      <option name="closed" value="true" />
+      <created>1729173367294</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1729173367294</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -785,7 +778,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactored version selection functionality:&#10;- Added dynamic linking between okButton and versionMenuBar to ensure the button is only enabled when a version is selected.&#10;- Fixed the dynamic creation of MenuItems and ensured proper action listeners are attached during runtime.&#10;&#10;General updates:&#10;- Cleaned up several classes.&#10;- Added documentation across classes for clarity and future maintenance." />
     <MESSAGE value="Implemented graph creation feature for numerical data in the sheet. &#10;&#10;- Added functionality for generating line and bar charts based on user-selected X and Y axis ranges.&#10;- Created error handling for invalid range formats and non-numeric values in the selected cells.&#10;- Added detailed validation to ensure the X and Y ranges contain equal numbers of values.&#10;- Updated UI to allow users to select cell ranges for graph creation, including new controls for selecting and confirming range input.&#10;- Enhanced error messaging for invalid input formats and mismatched value counts between X and Y axis selections.&#10;- Documentation and comments added across relevant classes to clarify the graph creation process and error handling mechanisms." />
     <MESSAGE value="Added minimum window size restrictions to prevent excessive resizing. Updated graph functionality to convert lowercase cell identifiers (e.g., 'a1') to uppercase (e.g., 'A1') for consistency and usability." />
     <MESSAGE value="&#10;&#10;- Cleaned up several classes." />
@@ -810,7 +802,8 @@
     <MESSAGE value="Transferring objects from server to client works" />
     <MESSAGE value="Successfully implemented JSON-to-object and object-to-JSON conversion for DTOSheet and its components. &#10;&#10;The feature for selecting a sheet displaying its contents has been fully integrated." />
     <MESSAGE value="Implemented available sheets auto-refresh feature.&#10;&#10;- Added `AvailableSheetsRefresher` class to periodically fetch and refresh available sheets from the server.&#10;- Integrated a timer task in `AvailableSheetsController` to send requests to the server every 2 seconds.&#10;- Updated the logic in `refreshAvailableSheets()` to only add new sheets not already present in the client-side list.&#10;- Fixed UI update issue by ensuring updates are performed on the JavaFX application thread.&#10;- Added logic in the server-side `AvailableSheetServlet` to respond only when new sheets are available, reducing unnecessary updates." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented available sheets auto-refresh feature.&#10;&#10;- Added `AvailableSheetsRefresher` class to periodically fetch and refresh available sheets from the server.&#10;- Integrated a timer task in `AvailableSheetsController` to send requests to the server every 2 seconds.&#10;- Updated the logic in `refreshAvailableSheets()` to only add new sheets not already present in the client-side list.&#10;- Fixed UI update issue by ensuring updates are performed on the JavaFX application thread.&#10;- Added logic in the server-side `AvailableSheetServlet` to respond only when new sheets are available, reducing unnecessary updates." />
+    <MESSAGE value="Added sheet sorting functionality&#10;on server and client side" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added sheet sorting functionality&#10;on server and client side" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -857,22 +850,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java</url>
-          <line>262</line>
-          <option name="timeStamp" value="359" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java</url>
-          <line>437</line>
-          <option name="timeStamp" value="360" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java</url>
           <line>511</line>
           <option name="timeStamp" value="361" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java</url>
-          <line>248</line>
+          <line>238</line>
           <option name="timeStamp" value="368" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -884,6 +867,26 @@
           <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java</url>
           <line>355</line>
           <option name="timeStamp" value="375" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java</url>
+          <line>292</line>
+          <option name="timeStamp" value="377" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java</url>
+          <line>306</line>
+          <option name="timeStamp" value="384" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java</url>
+          <line>301</line>
+          <option name="timeStamp" value="385" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java</url>
+          <line>297</line>
+          <option name="timeStamp" value="386" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>

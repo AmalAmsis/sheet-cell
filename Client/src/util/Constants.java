@@ -28,6 +28,7 @@ public class Constants {
     public final static String VIEW = FULL_SERVER_PATH + "/sheet";
     public final static String AVAILABLE_SHEETS = FULL_SERVER_PATH + "/available-sheets";
     public final static String SORT_SHEET = FULL_SERVER_PATH + "/sort-sheet";
+    public final static String FILTER_SHEET = FULL_SERVER_PATH + "/filter-sheet";
 
     // GSON instance
     public final static Gson GSON_INSTANCE = new Gson();

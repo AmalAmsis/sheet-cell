@@ -1,6 +1,7 @@
 package component.selectedSheetView.subcomponent.left;
 
 import JsonSerializer.JsonSerializer;
+import com.google.gson.Gson;
 import component.popup.error.ErrorMessage;
 import component.popup.viewonlysheet.ViewOnlySheetController;
 import component.selectedSheetView.main.SelectedSheetViewController;
@@ -17,6 +18,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 import okhttp3.Call;
+import okhttp3.Callback;
 import okhttp3.Request;
 import okhttp3.Response;
 import util.http.HttpClientUtil;
@@ -27,6 +29,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static util.Constants.FILTER_SHEET;
 import static util.Constants.SORT_SHEET;
 
 /**
@@ -166,19 +169,207 @@ public class SelectedSheetViewLeftController {
 
     @FXML void ClickMeAddNewRangeButton(ActionEvent event) {}
 
-    @FXML void ClickMeFilterButton(ActionEvent event) {}
 
     @FXML void ClickMeRemoveRange(ActionEvent event) {}
 
     @FXML void ClickMeShowRange(ActionEvent event) {}
 
-    @FXML void clickMeResetFilterButton(ActionEvent event) {}
 
-    @FXML void clickMeResetSortButton(ActionEvent event) {}
+    @FXML void clickMeResetSortButton(ActionEvent event) {
+        sortFromTextField.clear();
+        sortToTextField.clear();
+        selectedSortColumnsFlowPane.getChildren().clear();
+        selectColumnsToSortByMenu.getItems().clear();
+        sortButton.setDisable(false);
+
+    }
+
 
     @FXML void handleDynamicAnalysis(ActionEvent event) {}
 
     @FXML void handleGenerateGraph(ActionEvent event) {}
+
+    //************************************filter*************************
+
+
+    @FXML void ClickMeFilterButton(ActionEvent event) {
+
+        // Collect selected column values from the filter data pane
+        Map<String, List<String>> selectedColumnValues =collectSelectedColumnValues();
+
+        // Get the range input from the user
+        String from = filterFromTextField.getText();
+        String to = filterToTextField.getText();
+
+        // Validate that the range fields are filled correctly
+        if(!validateRangeFields(from,to)){
+            return; // If validation fails, exit the function
+        }
+
+        // Clear input fields after filtering
+        clearFilterInputs();
+
+
+        try {
+            // Convert the selected column values to a JSON string
+            String selectedColumnValuesJson = convertSelectedValuesToJson(selectedColumnValues);
+
+            // Build the URL for the filtering request
+            String url = buildFilterSheetUrl(from, to, selectedColumnValuesJson);
+
+            // Send the filtering request to the server
+            sendFilterRequest(url);
+
+        } catch (Exception e) {
+            // Display any error messages that occur during the process
+            displayErrorMessage(e.getMessage());
+        }
+    }
+
+
+
+    private Map<String, List<String>> collectSelectedColumnValues() {
+        Map<String, List<String>> selectedColumnValues = new HashMap<>();
+
+        for (Node node : filterDataFlowPane.getChildren()) {
+            if (node instanceof MenuButton) {
+                MenuButton menuButton = (MenuButton) node;
+                String column = menuButton.getText();
+
+                List<String> selectedValues = new ArrayList<>();
+                for (MenuItem item : menuButton.getItems()) {
+                    if (item instanceof CustomMenuItem) {
+                        CustomMenuItem customMenuItem = (CustomMenuItem) item;
+                        Node content = customMenuItem.getContent();
+                        if (content instanceof CheckBox && ((CheckBox) content).isSelected()) {
+                            selectedValues.add(((CheckBox) content).getText());
+                        }
+                    }
+                }
+
+                if (!selectedValues.isEmpty()) {
+                    selectedColumnValues.put(column, selectedValues);
+                }
+            }
+        }
+
+        return selectedColumnValues;
+    }
+
+    private boolean validateRangeFields(String from, String to) {
+        if (from.isEmpty() || to.isEmpty()) {
+            Platform.runLater(() -> {
+                new ErrorMessage("Please fill in the range fields.");
+            });
+            return false;
+        }
+        return true;
+    }
+
+    private void clearFilterInputs() {
+        filterFromTextField.clear();
+        filterToTextField.clear();
+        filterDataFlowPane.getChildren().clear();
+        selectColumnsToFilterByMenu.getItems().clear();
+        filterButton.setDisable(true);
+    }
+
+    private String convertSelectedValuesToJson(Map<String, List<String>> selectedColumnValues) {
+        Gson gson = new Gson();
+        return gson.toJson(selectedColumnValues);
+    }
+
+    private String buildFilterSheetUrl(String from, String to, String selectedColumnValuesJson) {
+
+        return FILTER_SHEET +
+                "?sheetName=" + selectedSheetViewController.getFileName() +
+                "&from=" + from + "&to=" + to +
+                "&selectedValues=" + selectedColumnValuesJson.replace("{", "%7B").replace("}", "%7D")
+                .replace("[", "%5B").replace("]", "%5D")
+                .replace("\"", "%22").replace(" ", "%20");
+    }
+
+    private void sendFilterRequest(String url) {
+        Request request = new Request.Builder()
+                .url(url)
+                .get()
+                .build();
+
+        Call call = HttpClientUtil.HTTP_CLIENT.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                displayErrorMessage("Error in filtering request: " + e.getMessage());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    String jsonResponse = response.body().string();
+                    JsonSerializer jsonSerializer = new JsonSerializer();
+                    DTOSheet filterSheet = jsonSerializer.convertJsonToDto(jsonResponse);
+                    loadFilteredSheetPopup(filterSheet);
+                } else {
+                    displayErrorMessage("Failed to fetch filtered sheet: " + response.code());
+                }
+            }
+        });
+    }
+
+    private void loadFilteredSheetPopup(DTOSheet filterSheet) {
+        Platform.runLater(() -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/component/popup/viewonlysheet/viewOnlySheet.fxml"));
+                Parent root = loader.load();
+
+                ViewOnlySheetController viewOnlySheetController = loader.getController();
+                viewOnlySheetController.setAppController(selectedSheetViewController);
+                viewOnlySheetController.initViewOnlySheetAndBindToUIModel(filterSheet, true);
+
+                Stage stage = new Stage();
+                stage.setTitle("Filtered Sheet");
+                stage.setScene(new Scene(root));
+                stage.show();
+
+            } catch (IOException e) {
+                new ErrorMessage("Error loading filtered sheet view: " + e.getMessage());
+            }
+        });
+    }
+
+    private void displayErrorMessage(String message) {
+        Platform.runLater(() -> {
+            new ErrorMessage(message);
+        });
+    }
+
+    private void setupFilterMenuItemEvents(String column,MenuItem columnItem, int firsRow,int lastRow) {
+
+        selectColumnsToFilterByMenu.getItems().remove(columnItem);
+
+        boolean columnExists = filterDataFlowPane.getChildren().stream()
+                .anyMatch(node -> node instanceof MenuButton && ((MenuButton) node).getText().equals(column));
+
+
+        if (!columnExists) {
+            // הוספת comboBox ל-flowPane
+            filterDataFlowPane.getChildren().add(setupCustomMenuButtonForColumnSelection(column,firsRow,lastRow));
+            filterButton.setDisable(false);
+        }
+
+
+    }
+
+
+    @FXML void clickMeResetFilterButton(ActionEvent event){
+        filterFromTextField.clear();
+        filterToTextField.clear();
+        filterDataFlowPane.getChildren().clear();
+        selectColumnsToFilterByMenu.getItems().clear();
+        filterButton.setDisable(true);
+    }
+
+    //************************************sort*************************
 
     @FXML
     void ClickMeSortButton(ActionEvent event) {
@@ -261,11 +452,6 @@ public class SelectedSheetViewLeftController {
             new ErrorMessage(e.getMessage());
         }
     }
-
-
-
-
-
 
     private void setupSortMenuItemEvents(String column, MenuItem columnItem) {
 
@@ -379,7 +565,6 @@ public class SelectedSheetViewLeftController {
         return columnsInRange;
     }
 
-
     private int getFirstRowInRange(String fromText) {
         int index =1;
         while (index < fromText.length() && !Character.isDigit(fromText.charAt(index))) {
@@ -408,22 +593,7 @@ public class SelectedSheetViewLeftController {
 
     }
 
-    private void setupFilterMenuItemEvents(String column,MenuItem columnItem, int firsRow,int lastRow) {
 
-        selectColumnsToFilterByMenu.getItems().remove(columnItem);
-
-        boolean columnExists = filterDataFlowPane.getChildren().stream()
-                .anyMatch(node -> node instanceof MenuButton && ((MenuButton) node).getText().equals(column));
-
-
-        if (!columnExists) {
-            // הוספת comboBox ל-flowPane
-            filterDataFlowPane.getChildren().add(setupCustomMenuButtonForColumnSelection(column,firsRow,lastRow));
-            filterButton.setDisable(false);
-        }
-
-
-    }
 
     private MenuButton setupCustomMenuButtonForColumnSelection(String column,int firsRow,int lastRow) {
         // יצירת MenuButton עבור העמודה

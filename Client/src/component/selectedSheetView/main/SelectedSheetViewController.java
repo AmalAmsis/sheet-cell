@@ -1,10 +1,8 @@
 package component.selectedSheetView.main;
 
-import com.google.gson.Gson;
 import component.main.SheetCellAppMainController;
 import component.selectedSheetView.subcomponent.header.SelectedSheetViewHeaderController;
 import component.selectedSheetView.subcomponent.left.SelectedSheetViewLeftController;
-import component.selectedSheetView.subcomponent.left.SheetCallback;
 import component.selectedSheetView.subcomponent.sheet.SelectedSheetController;
 import component.selectedSheetView.subcomponent.sheet.UIModelSheet;
 import dto.DTOSheet;
@@ -17,17 +15,9 @@ import javafx.geometry.Pos;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Request;
-import okhttp3.Response;
-import util.http.HttpClientUtil;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import static util.Constants.SORT_SHEET;
 
 /**
  * This class is the main controller for the selected sheet view.
