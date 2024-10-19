@@ -36,10 +36,7 @@ public class SheetServlet extends HttpServlet {
 
         } else {
 
-            //set the username in a session so it will be available on each request
-            //the true parameter means that if a session object does not exists yet
-            //create a new one
-            req.getSession(true).setAttribute(Constants.FILENAME, sheetName);
+
 
             AllSheetsManager sheetsManager = ServletUtils.getSheetManager(getServletContext());
             SheetManager sheetManager = sheetsManager.getSheet(sheetName);
@@ -50,6 +47,9 @@ public class SheetServlet extends HttpServlet {
 
             resp.setContentType("application/json");
             resp.getWriter().write(jsonString);
+
+            req.getSession(true).setAttribute(Constants.FILENAME, sheetName);
+            req.getSession(true).setAttribute(Constants.SHEET_VERSION, dtoSheet.getSheetVersion());
 
         }
     }

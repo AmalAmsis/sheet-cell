@@ -9,21 +9,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="CellServlet">
-      <change afterPath="$PROJECT_DIR$/Client/src/main/SheetCellClient2.java" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Added handling for cell updates in CellServlet and improved session-based sheet identification.&#10;Implemented client-side functionality to send cell update requests.&#10;&#10;- Implemented update logic for cells in the CellServlet class, allowing PUT requests to update cell values.&#10;- Added session-based retrieval of the current sheet to ensure updates are performed on the correct sheet.&#10;- On the client side, created a method to send asynchronous PUT requests with updated cell data.&#10;- The client sends coordinate and original value as form parameters in the request body to update the selected cell.">
+      <change afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/sheetPoller/SheetPollerTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/servlets/CurrentSheetNameServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Server/src/servlets/CurrentSheetVersionServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/availablesheets.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/availableSheets.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/SelectedSheetViewHeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/SelectedSheetViewHeaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/selectedSheetViewHeader.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/selectedSheetViewHeader.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/sheet/SelectedSheetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/sheet/SelectedSheetController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/util/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/util/http/SimpleCookieManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/util/http/SimpleCookieManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/constants/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/constants/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/servlets/CellServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/CellServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/servlets/SheetServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/SheetServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/utils/ServletUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/utils/ServletUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server/src/utils/SessionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/utils/SessionUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -128,7 +127,7 @@
       <recent name="component.selectedSheetView.subcomponent.sheet" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SheetCellClient">
+  <component name="RunManager" selected="Application.SheetCellClient2">
     <configuration name="AppRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="apprunner.AppRunner" />
       <module name="UI" />
@@ -303,8 +302,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SheetCellClient" />
         <item itemvalue="Application.SheetCellClient2" />
+        <item itemvalue="Application.SheetCellClient" />
         <item itemvalue="Application.AppRunner" />
         <item itemvalue="Application.TestLoadFile" />
         <item itemvalue="Application.TestLogin" />
@@ -343,14 +342,6 @@
       <workItem from="1728768355881" duration="44000" />
       <workItem from="1728768423746" duration="14000" />
       <workItem from="1728768460006" duration="5531000" />
-    </task>
-    <task id="LOCAL‎-00048" summary=" handling commands relatedto ranges in UI">
-      <option name="closed" value="true" />
-      <created>1726408976080</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL‎-00048" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726408976080</updated>
     </task>
     <task id="LOCAL‎-00049" summary="commit1">
       <option name="closed" value="true" />
@@ -736,7 +727,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1729075416909</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL‎-00097" summary="Added handling for cell updates in CellServlet and improved session-based sheet identification.&#10;Implemented client-side functionality to send cell update requests.&#10;&#10;- Implemented update logic for cells in the CellServlet class, allowing PUT requests to update cell values.&#10;- Added session-based retrieval of the current sheet to ensure updates are performed on the correct sheet.&#10;- On the client side, created a method to send asynchronous PUT requests with updated cell data.&#10;- The client sends coordinate and original value as form parameters in the request body to update the selected cell.">
+      <option name="closed" value="true" />
+      <created>1729207057936</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL‎-00097" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1729207057936</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -782,7 +781,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implemented theme switching functionality with support for at least 2 additional color schemes beyond the default. The following UI elements were updated as part of the theme changes:&#10;&#10;1. Background color for the entire screen.&#10;2. Button styling and appearance across the UI.&#10;3. Updated font and font size for all labels on the screen to reflect the selected theme.&#10;&#10;Added a mechanism for users to easily switch between these themes through the UI." />
     <MESSAGE value="Refactored version selection functionality:&#10;- Added dynamic linking between okButton and versionMenuBar to ensure the button is only enabled when a version is selected.&#10;- Fixed the dynamic creation of MenuItems and ensured proper action listeners are attached during runtime.&#10;&#10;General updates:&#10;- Cleaned up several classes.&#10;- Added documentation across classes for clarity and future maintenance." />
     <MESSAGE value="Implemented graph creation feature for numerical data in the sheet. &#10;&#10;- Added functionality for generating line and bar charts based on user-selected X and Y axis ranges.&#10;- Created error handling for invalid range formats and non-numeric values in the selected cells.&#10;- Added detailed validation to ensure the X and Y ranges contain equal numbers of values.&#10;- Updated UI to allow users to select cell ranges for graph creation, including new controls for selecting and confirming range input.&#10;- Enhanced error messaging for invalid input formats and mismatched value counts between X and Y axis selections.&#10;- Documentation and comments added across relevant classes to clarify the graph creation process and error handling mechanisms." />
     <MESSAGE value="Added minimum window size restrictions to prevent excessive resizing. Updated graph functionality to convert lowercase cell identifiers (e.g., 'a1') to uppercase (e.g., 'A1') for consistency and usability." />
@@ -807,7 +805,8 @@
     <MESSAGE value="displaySheet" />
     <MESSAGE value="This change allows the main controller to manage and display the SelectedSheetView , Dashboard and login as part of the application flow." />
     <MESSAGE value="CellServlet" />
-    <option name="LAST_COMMIT_MESSAGE" value="CellServlet" />
+    <MESSAGE value="Added handling for cell updates in CellServlet and improved session-based sheet identification.&#10;Implemented client-side functionality to send cell update requests.&#10;&#10;- Implemented update logic for cells in the CellServlet class, allowing PUT requests to update cell values.&#10;- Added session-based retrieval of the current sheet to ensure updates are performed on the correct sheet.&#10;- On the client side, created a method to send asynchronous PUT requests with updated cell data.&#10;- The client sends coordinate and original value as form parameters in the request body to update the selected cell." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added handling for cell updates in CellServlet and improved session-based sheet identification.&#10;Implemented client-side functionality to send cell update requests.&#10;&#10;- Implemented update logic for cells in the CellServlet class, allowing PUT requests to update cell values.&#10;- Added session-based retrieval of the current sheet to ensure updates are performed on the correct sheet.&#10;- On the client side, created a method to send asynchronous PUT requests with updated cell data.&#10;- The client sends coordinate and original value as form parameters in the request body to update the selected cell." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

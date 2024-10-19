@@ -1,6 +1,7 @@
 package component.selectedSheetView.subcomponent.header;
 
 import component.selectedSheetView.main.SelectedSheetViewController;
+import dto.DTOSheet;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
@@ -39,6 +40,7 @@ public class SelectedSheetViewHeaderController {
     @FXML private Button updateValueButton;
     @FXML private Button versionSelectorButton;
     @FXML private Button backToDashBoardButton;
+    @FXML private Button latestVersionButton;
 
 
 
@@ -138,6 +140,13 @@ public class SelectedSheetViewHeaderController {
         selectedSheetViewController.backToDashboard();
     }
 
+    @FXML
+    void handleSwitchToLatestVersion(ActionEvent event) {
+        String currentSheetName = selectedSheetViewController.getCurrentSheetName();
+        DTOSheet dtoSheet = selectedSheetViewController.getDtoSheet(currentSheetName);
+        selectedSheetViewController.updateSheet(dtoSheet);
+    }
+
     /**
      * Binds the UI components to the selection state of a cell.
      * Disables or enables components based on whether a cell is selected.
@@ -156,5 +165,8 @@ public class SelectedSheetViewHeaderController {
     }
 
 
+    public Button getSwitchToTheLatestVersionButton() {
+        return latestVersionButton;
+    }
 }
 

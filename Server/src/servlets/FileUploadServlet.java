@@ -43,7 +43,6 @@ public class FileUploadServlet extends HttpServlet {
         // Pass the InputStream and file name to the addSheet method
         AllSheetsManager sheetsManager = ServletUtils.getSheetManager(getServletContext());
         try {
-            //להוסיף sy?
             sheetsManager.addSheet(inputStream, fileName); // Call the addSheet method
 
 
