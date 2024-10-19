@@ -42,7 +42,7 @@ public class AvailableSheetsController {
 
     // Load available sheets from the server
     private void loadAvailableSheetsFromServer()  {
-        String url = AVAILABLE_SHEETS; // Replace with your actual URL
+        String url = AVAILABLE_SHEETS;
 
         try{
             Request request = new Request.Builder()

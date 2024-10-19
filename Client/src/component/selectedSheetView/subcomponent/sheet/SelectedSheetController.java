@@ -1,15 +1,18 @@
 package component.selectedSheetView.subcomponent.sheet;
 
 import component.selectedSheetView.main.SelectedSheetViewController;
+import component.selectedSheetView.subcomponent.sheetPoller.SheetPollerTask;
 import dto.DTOCell;
 import dto.DTOSheet;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 
 import java.util.Map;
+import java.util.Timer;
 
 /**
  * Controller responsible for managing the display and interaction with the sheet.
@@ -199,4 +202,8 @@ public class SelectedSheetController {
             selectedSheetViewController.selectCell(cellId); // Select the cell via appController
         });
     }
+
+
+
+
 }

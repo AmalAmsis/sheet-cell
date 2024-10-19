@@ -1,6 +1,7 @@
 package component.selectedSheetView.subcomponent.header;
 
 import component.selectedSheetView.main.SelectedSheetViewController;
+import dto.DTOSheet;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
@@ -39,6 +40,7 @@ public class SelectedSheetViewHeaderController {
     @FXML private Button updateValueButton;
     @FXML private Button versionSelectorButton;
     @FXML private Button backToDashBoardButton;
+    @FXML private Button latestVersionButton;
 
 
 
@@ -118,7 +120,11 @@ public class SelectedSheetViewHeaderController {
     void ClickMeBackToDefaultButton(ActionEvent event) {}
 
     @FXML
-    void ClickMeUpdateValueButtonAction(ActionEvent event) {}
+    void ClickMeUpdateValueButtonAction(ActionEvent event) {
+        String originalValue = actionLineTextField.getText();
+        selectedSheetViewController.updateCellValue(originalValue);
+        actionLineTextField.clear();
+    }
 
     @FXML
     void ClickMeVersionSelectorButtonAction(ActionEvent event) {}
@@ -132,6 +138,13 @@ public class SelectedSheetViewHeaderController {
     @FXML
     void handleBackToDashboard(ActionEvent event) {
         selectedSheetViewController.backToDashboard();
+    }
+
+    @FXML
+    void handleSwitchToLatestVersion(ActionEvent event) {
+        String currentSheetName = selectedSheetViewController.getCurrentSheetName();
+        DTOSheet dtoSheet = selectedSheetViewController.getDtoSheet(currentSheetName);
+        selectedSheetViewController.updateSheet(dtoSheet);
     }
 
     /**
@@ -152,5 +165,8 @@ public class SelectedSheetViewHeaderController {
     }
 
 
+    public Button getSwitchToTheLatestVersionButton() {
+        return latestVersionButton;
+    }
 }
 

@@ -52,7 +52,8 @@
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="152.39996337890625" minWidth="107.39997558593745" prefWidth="114.40003662109382" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="179.4000244140625" minWidth="100.800048828125" prefWidth="107.39998779296872" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="281.6000122070312" minWidth="110.39997558593757" prefWidth="124.80000000000007" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="281.6000122070312" minWidth="171.7999267578125" prefWidth="188.79999999999995" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="281.6000122070312" minWidth="84.00001220703132" prefWidth="120.0000122070312" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="293.5999877929687" minWidth="171.7999267578125" prefWidth="258.3999877929688" />
                </columnConstraints>
                <rowConstraints>
                   <RowConstraints prefHeight="13.4" vgrow="SOMETIMES" />
@@ -96,6 +97,7 @@
                         <MenuItem onAction="#changeToSecondStyle" text="Style 2" />
                      </items>
                   </MenuButton>
+                  <Button fx:id="latestVersionButton" mnemonicParsing="false" onAction="#handleSwitchToLatestVersion" prefHeight="26.0" prefWidth="170.0" text="switch to the latest version" GridPane.columnIndex="7" GridPane.rowIndex="1" />
                </children>
             </GridPane>
          </children>
