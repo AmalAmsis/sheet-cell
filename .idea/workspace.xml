@@ -9,15 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Added sheet sorting and filtering functionality&#10;on server and client side">
-      <change afterPath="$PROJECT_DIR$/Client/src/component/popup/versionselector/VersionSelectorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/component/popup/versionselector/versionSelector.fxml" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="set up infrastructure for the version selector feature in sheet view">
+      <change afterPath="$PROJECT_DIR$/Server/src/servlets/VersionChangesServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/SelectedSheetViewHeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/SelectedSheetViewHeaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheetImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -340,15 +334,7 @@
       <workItem from="1728768460006" duration="5531000" />
       <workItem from="1729162799676" duration="178000" />
       <workItem from="1729162985853" duration="8842000" />
-      <workItem from="1729339170318" duration="8017000" />
-    </task>
-    <task id="LOCAL‎-00049" summary="commit1">
-      <option name="closed" value="true" />
-      <created>1726415165928</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL‎-00049" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726415165928</updated>
+      <workItem from="1729339170318" duration="8946000" />
     </task>
     <task id="LOCAL‎-00050" summary="commit1">
       <option name="closed" value="true" />
@@ -734,7 +720,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729343464813</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="set up infrastructure for the version selector feature in sheet view">
+      <option name="closed" value="true" />
+      <created>1729352192151</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1729352192151</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -780,7 +774,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added minimum window size restrictions to prevent excessive resizing. Updated graph functionality to convert lowercase cell identifiers (e.g., 'a1') to uppercase (e.g., 'A1') for consistency and usability." />
     <MESSAGE value="&#10;&#10;- Cleaned up several classes." />
     <MESSAGE value="&#10;final updates before submission" />
     <MESSAGE value="Fixed the handling of Platform.runLater in AppController's loadAndDisplaySheetFromXmlFile method to ensure that UI updates are executed correctly on the JavaFX Application Thread. Added proper lambda syntax for multiple statements.&#10;&#10;Improved error handling: The application now properly stops processing if an invalid file or conflicting range is detected during XML file loading. This prevents the application from attempting to display corrupted data after encountering an exception." />
@@ -805,7 +798,8 @@
     <MESSAGE value="Implemented available sheets auto-refresh feature.&#10;&#10;- Added `AvailableSheetsRefresher` class to periodically fetch and refresh available sheets from the server.&#10;- Integrated a timer task in `AvailableSheetsController` to send requests to the server every 2 seconds.&#10;- Updated the logic in `refreshAvailableSheets()` to only add new sheets not already present in the client-side list.&#10;- Fixed UI update issue by ensuring updates are performed on the JavaFX application thread.&#10;- Added logic in the server-side `AvailableSheetServlet` to respond only when new sheets are available, reducing unnecessary updates." />
     <MESSAGE value="Added sheet sorting functionality&#10;on server and client side" />
     <MESSAGE value="Added sheet sorting and filtering functionality&#10;on server and client side" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added sheet sorting and filtering functionality&#10;on server and client side" />
+    <MESSAGE value="set up infrastructure for the version selector feature in sheet view" />
+    <option name="LAST_COMMIT_MESSAGE" value="set up infrastructure for the version selector feature in sheet view" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
