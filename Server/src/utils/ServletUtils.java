@@ -12,7 +12,6 @@ import static constants.Constants.INT_PARAMETER_ERROR;
 
 public class ServletUtils {
     private static final String USER_MANAGER_ATTRIBUTE_NAME = "userManager";
-    private static final String CHAT_MANAGER_ATTRIBUTE_NAME = "chatManager";
     private static final String SHEETS_MANAGER_ATTRIBUTE_NAME = "allsheetsmanager";
 
     private static final Object sheetManagerLock = new Object();
@@ -28,7 +27,6 @@ public class ServletUtils {
 
     }
 
-    //private static final String SHEET_CELL_MANAGER_ATTRIBUTE_NAME = "sheetCellManager";
 
     /*
     Note how the synchronization is done only on the question and\or creation of the relevant managers and once they exists -
@@ -47,15 +45,6 @@ public class ServletUtils {
         return (UserManager) servletContext.getAttribute(USER_MANAGER_ATTRIBUTE_NAME);
     }
 
-//    public static Engine getChatManager(ServletContext servletContext) {
-//        synchronized (sheetCellManagerLock) {
-//            if (servletContext.getAttribute(SHEET_CELL_MANAGER_ATTRIBUTE_NAME) == null) {
-//                servletContext.setAttribute(SHEET_CELL_MANAGER_ATTRIBUTE_NAME, new EngineImpl() {
-//                });
-//            }
-//        }
-//        return (Engine) servletContext.getAttribute(SHEET_CELL_MANAGER_ATTRIBUTE_NAME);
-//    }
 
     public static int getIntParameter(HttpServletRequest request, String name) {
         String value = request.getParameter(name);

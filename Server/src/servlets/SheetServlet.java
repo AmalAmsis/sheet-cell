@@ -2,6 +2,7 @@ package servlets;
 
 import JsonSerializer.JsonSerializer;
 import allsheetsmanager.AllSheetsManager;
+import constants.Constants;
 import dto.DTOSheet;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -19,7 +20,7 @@ public class SheetServlet extends HttpServlet {
 
     @Override protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String username = req.getParameter("username");
+        String username = req.getParameter("username");// אמורים לדעת את ה username לפי ה session
         String sheetName = req.getParameter("sheetName");
 
 
@@ -34,6 +35,9 @@ public class SheetServlet extends HttpServlet {
             return;
 
         } else {
+
+
+
             AllSheetsManager sheetsManager = ServletUtils.getSheetManager(getServletContext());
             SheetManager sheetManager = sheetsManager.getSheet(sheetName);
             DTOSheet dtoSheet = sheetManager.displaySheet();
@@ -43,6 +47,10 @@ public class SheetServlet extends HttpServlet {
 
             resp.setContentType("application/json");
             resp.getWriter().write(jsonString);
+
+            req.getSession(true).setAttribute(Constants.FILENAME, sheetName);
+            req.getSession(true).setAttribute(Constants.SHEET_VERSION, dtoSheet.getSheetVersion());
+
         }
     }
 }
