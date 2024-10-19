@@ -169,6 +169,11 @@ public class SheetManagerImpl implements SheetManager,Serializable {
         return null;
     }
 
+    @Override
+    public int getSheetVersion() {
+        return this.currentSheetState.getCurrentSheet().getVersion();
+    }
+
     @Override public DTOSheet displaySheetVersion(int versionNumber) {
         if (this.currentSheetState != null){
             SheetVersionHandler sheetVersionHandler = this.currentSheetState.getVersionHandler();

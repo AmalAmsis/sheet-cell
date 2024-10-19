@@ -43,7 +43,7 @@ public interface SheetManager {
     DTOSheet getSortedSheet(String from, String to, List<Character> listOfColumnsPriorities) throws Exception;
     DTOSheet filterSheet(Map<String, List<String>> selectedColumnValues, String from, String to) throws Exception;
     DTOSheet updateTemporaryCellValue(String coordinateString, String newOriginalValue);
-
+    int getSheetVersion();
 
 
 
