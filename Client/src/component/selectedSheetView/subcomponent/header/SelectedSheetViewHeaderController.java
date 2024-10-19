@@ -1,15 +1,23 @@
 package component.selectedSheetView.subcomponent.header;
 
+import component.popup.versionselector.VersionSelectorController;
 import component.selectedSheetView.main.SelectedSheetViewController;
+import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 /**
  * Controller for the header section of the Selected Sheet View.
@@ -121,7 +129,26 @@ public class SelectedSheetViewHeaderController {
     void ClickMeUpdateValueButtonAction(ActionEvent event) {}
 
     @FXML
-    void ClickMeVersionSelectorButtonAction(ActionEvent event) {}
+    void ClickMeVersionSelectorButtonAction(ActionEvent event) {
+
+        Platform.runLater(() ->{
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/component/popup/versionselector/versionSelector.fxml"));
+                Parent root = loader.load();
+
+                VersionSelectorController versionSelectorController = loader.getController();
+                versionSelectorController.setSelectedSheetViewController(selectedSheetViewController);
+                versionSelectorController.loadVersionToMenuBar();
+
+                Stage stage = new Stage();
+                stage.setTitle("Version Selector");
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
 
     @FXML
     void changeToFirstStyle(ActionEvent event) {}

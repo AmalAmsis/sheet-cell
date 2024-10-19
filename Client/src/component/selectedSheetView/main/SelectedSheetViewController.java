@@ -28,6 +28,8 @@ public class SelectedSheetViewController {
 
     private SheetCellAppMainController sheetCellAppMainController;
     private String selectedSheetName;
+    private int versionNumber;
+    private List<Integer> changePerVersion;
 
     @FXML
     private ScrollPane header;
@@ -150,6 +152,8 @@ public class SelectedSheetViewController {
         // Implementation for displaying the sheet
         sheetController.initSheetAndBindToUIModel(dtoSheet,fileName);
         this.selectedSheetName = fileName;
+        this.versionNumber = dtoSheet.getSheetVersion();
+        //todo : add num of changes per version
     }
 
     /**
@@ -250,5 +254,13 @@ public class SelectedSheetViewController {
 
     public String getFileName() {
         return this.selectedSheetName;
+    }
+
+    public int getNumOfVersions() {
+        return this.versionNumber;
+    }
+
+    public int getNumOfChangesInVersion(int version) {
+        return this.changePerVersion.get(version);
     }
 }

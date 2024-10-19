@@ -74,19 +74,13 @@ public class SelectedSheetViewLeftController {
 
     @FXML private Button generateGraphButton;
 
-    /**
-     * Sets the main controller for this component.
-     *
-     * @param selectedSheetViewController The main controller of the selected sheet view.
-     */
+    /**Sets the main controller for this component.
+     * @param selectedSheetViewController The main controller of the selected sheet view.*/
     public void setSelectedSheetViewController(SelectedSheetViewController selectedSheetViewController) {
         this.selectedSheetViewController = selectedSheetViewController;
     }
 
-    /**
-     * Initializes the controller.
-     * Sets up listeners and disables buttons by default until the user selects options.
-     */
+    /**Initializes the controller.Sets up listeners and disables buttons by default until the user selects options.*/
     public void initialize() {
         // Disable buttons initially
         removeRangeButton.setDisable(true);
@@ -175,14 +169,21 @@ public class SelectedSheetViewLeftController {
     @FXML void ClickMeShowRange(ActionEvent event) {}
 
 
-    @FXML void clickMeResetSortButton(ActionEvent event) {
-        sortFromTextField.clear();
-        sortToTextField.clear();
-        selectedSortColumnsFlowPane.getChildren().clear();
-        selectColumnsToSortByMenu.getItems().clear();
-        sortButton.setDisable(false);
+    /** FILTER FEATURE:*/
 
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     @FXML void handleDynamicAnalysis(ActionEvent event) {}
@@ -197,7 +198,7 @@ public class SelectedSheetViewLeftController {
         // Collect selected column values from the filter data pane
         Map<String, List<String>> selectedColumnValues =collectSelectedColumnValues();
 
-        // Get the range input from the user
+        // Get the range (from and to) values from the input fields
         String from = filterFromTextField.getText();
         String to = filterToTextField.getText();
 
@@ -208,7 +209,6 @@ public class SelectedSheetViewLeftController {
 
         // Clear input fields after filtering
         clearFilterInputs();
-
 
         try {
             // Convert the selected column values to a JSON string
@@ -360,7 +360,6 @@ public class SelectedSheetViewLeftController {
 
     }
 
-
     @FXML void clickMeResetFilterButton(ActionEvent event){
         filterFromTextField.clear();
         filterToTextField.clear();
@@ -369,88 +368,118 @@ public class SelectedSheetViewLeftController {
         filterButton.setDisable(true);
     }
 
-    //************************************sort*************************
 
-    @FXML
-    void ClickMeSortButton(ActionEvent event) {
 
+    /************************************** SORT FEATURE:*******************************************/
+
+    @FXML void ClickMeSortButton(ActionEvent event) {
+
+        // Get the range (from and to) values from the input fields
         String from = sortFromTextField.getText();
         String to = sortToTextField.getText();
 
-        if (from.isEmpty() || to.isEmpty()) {
-            // Show an error message or prompt the user to fill in all fields
-            return;
+        // Validate that the range fields are filled correctly
+        if (!validateRangeFields(from, to)) {
+            return;// If validation fails, exit the function
         }
 
+        // Collect the selected columns' priorities for sorting
+        List<Character> listOfColumnsPriorities = collectSortPriorities();
+
+        // Clear the input fields after the user initiates the sorting action
+        clearSortInputs();
+
+        try {
+            // Build the URL for the sort request with the required parameters
+            String url = buildSortRequestUrl(from, to, listOfColumnsPriorities);
+
+            // Send the sort request to the server and process the response
+            sendSortRequest(url);
+        } catch (Exception e) {
+            // Display any errors encountered during the process
+            displayErrorMessage(e.getMessage());
+        }
+    }
+
+    // Function to collect column priorities
+    private List<Character> collectSortPriorities() {
         List<Character> listOfColumnsPriorities = new ArrayList<>();
         for (Node labelNode : selectedSortColumnsFlowPane.getChildren()) {
             if (labelNode instanceof Label) {
                 String labelText = ((Label) labelNode).getText();
                 if (!labelText.isEmpty()) {
-                    // מוסיף את האות מה-LABEL לרשימה
                     listOfColumnsPriorities.add(labelText.charAt(0));
                 }
             }
         }
-
+        return listOfColumnsPriorities;
+    }
+    // Function to clear input fields after sorting
+    private void clearSortInputs() {
         sortFromTextField.clear();
         sortToTextField.clear();
         selectedSortColumnsFlowPane.getChildren().clear();
         selectColumnsToSortByMenu.getItems().clear();
         sortButton.setDisable(true);
+    }
+    // Function to build the request URL
+    private String buildSortRequestUrl(String from, String to, List<Character> listOfColumnsPriorities) throws Exception {
+        // Convert the list of column priorities to a string
+        String prioritiesListStr = listOfColumnsPriorities.stream()
+                .map(String::valueOf)
+                .reduce("", (acc, item) -> acc + item);
 
-        try{
+        // Build the request URL with the necessary parameters
+        return SORT_SHEET +
+                "?sheetName=" + selectedSheetViewController.getFileName() +
+                "&from=" + from + "&to=" + to + "&prioritiesList=" + prioritiesListStr;
+    }
+    // Function to send the sort request to the server
+    private void sendSortRequest(String url) {
+        Request request = new Request.Builder()
+                .url(url)
+                .get()
+                .build();
 
-            // Convert the list of column priorities to a string
-            String prioritiesListStr = listOfColumnsPriorities.stream()
-                    .map(String::valueOf)
-                    .reduce("", (acc, item) -> acc + item);
+        Call call = HttpClientUtil.HTTP_CLIENT.newCall(request);
 
-            // Build the request URL with the necessary parameters
-            String url = SORT_SHEET +
-                    "?sheetName=" + selectedSheetViewController.getFileName() +
-                    "&from=" + from + "&to=" + to + "&prioritiesList=" + prioritiesListStr;
+        try {
+            Response response = call.execute();
 
-            // Create the request object
-            Request request = new Request.Builder()
-                    .url(url)
-                    .get()
-                    .build();
+            if (response.isSuccessful()) {
+                String jsonResponse = response.body().string();
+                JsonSerializer jsonSerializer = new JsonSerializer();
+                DTOSheet sortedSheet = jsonSerializer.convertJsonToDto(jsonResponse);
 
-            Call call = HttpClientUtil.HTTP_CLIENT.newCall(request);
+                Platform.runLater(() -> {
+                    try {
+                        loadSortedSheetPopup(sortedSheet);
+                    } catch (IOException e) {
+                        displayErrorMessage("Error loading sorted sheet view: " + e.getMessage());
+                    }
+                });
 
-            try {
-                Response response = call.execute();
-
-                if (response.isSuccessful()) {
-                    String jsonResponse = response.body().string();
-
-                    JsonSerializer jsonSerializer = new JsonSerializer();
-                    DTOSheet sortedSheet = jsonSerializer.convertJsonToDto(jsonResponse);
-
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/component/popup/viewonlysheet/viewOnlySheet.fxml"));
-                    Parent root = loader.load();
-
-                    ViewOnlySheetController viewOnlySheetController = loader.getController();
-                    viewOnlySheetController.setAppController(selectedSheetViewController);
-                    viewOnlySheetController.initViewOnlySheetAndBindToUIModel(sortedSheet, true);
-
-                    Stage stage = new Stage();
-                    stage.setTitle("Sorted Sheet");
-                    stage.setScene(new Scene(root));
-                    stage.show();
-
-                } else {
-                    new ErrorMessage("Failed to fetch sheet: " + response.code());
-                }
-
-            } catch (IOException e) {
-                new ErrorMessage(e.getMessage());
+            } else {
+                displayErrorMessage("Failed to fetch sheet: " + response.code());
             }
 
-        } catch (Exception e) {
-            new ErrorMessage(e.getMessage());
+        } catch (IOException e) {
+            displayErrorMessage(e.getMessage());
         }
+    }
+    // Function to load the sorted sheet in a new window
+    private void loadSortedSheetPopup(DTOSheet sortedSheet) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/component/popup/viewonlysheet/viewOnlySheet.fxml"));
+        Parent root = loader.load();
+
+        ViewOnlySheetController viewOnlySheetController = loader.getController();
+        viewOnlySheetController.setAppController(selectedSheetViewController);
+        viewOnlySheetController.initViewOnlySheetAndBindToUIModel(sortedSheet, true);
+
+        Stage stage = new Stage();
+        stage.setTitle("Sorted Sheet");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     private void setupSortMenuItemEvents(String column, MenuItem columnItem) {
@@ -466,7 +495,7 @@ public class SelectedSheetViewLeftController {
 
     }
 
-    @FXML public void clickMeResetSortButton(){
+    @FXML void clickMeResetSortButton(ActionEvent event) {
         sortFromTextField.clear();
         sortToTextField.clear();
         selectedSortColumnsFlowPane.getChildren().clear();
@@ -474,7 +503,6 @@ public class SelectedSheetViewLeftController {
         sortButton.setDisable(false);
 
     }
-
 
     /**
      * Updates the menu items for sorting or filtering.
@@ -487,27 +515,22 @@ public class SelectedSheetViewLeftController {
     private void updateMenuItems(MenuButton menuButton ,FlowPane flowPane,TextField fromTextField,TextField toTextField) {
 
         menuButton.getItems().clear();
-
-
         String fromText = fromTextField.getText();
         String toText = toTextField.getText();
 
-        // בדיקה שהשדות אינם ריקים ושהקלט תקין
-        if (fromText.isEmpty() || toText.isEmpty()) {
-            return;
+        // Validate that the range fields are filled correctly
+        if (!validateRangeFields(fromText, toText)) {
+            return;// If validation fails, exit the function
         }
 
         List<String> columnsInRange = getColumnsInRange(fromText, toText);
         int firstRowInRange = getFirstRowInRange(fromText);
         int lastRowInRange = getLastRowInRange(toText);
 
-        // אם הפונקציה מחזירה null, לא לעדכן את התפריט
         if (columnsInRange == null) {
-            new ErrorMessage("Invalid input! Please enter a valid range.");
-            return;
+            displayErrorMessage("Invalid input! Please enter a valid range.");
         }
 
-        // עדכון הרשימה ב-UI
         menuButton.getItems().clear();
         for (String column : columnsInRange) {
             MenuItem columnItem = new MenuItem(column);
@@ -518,16 +541,12 @@ public class SelectedSheetViewLeftController {
                 });
             }
             else {
-
                 columnItem.setOnAction(event -> {
                     setupFilterMenuItemEvents(column, columnItem,firstRowInRange,lastRowInRange);
                 });
-
             }
             menuButton.getItems().add(columnItem);
         }
-
-
     }
 
     public List<String> getColumnsInRange(String from, String to) {
