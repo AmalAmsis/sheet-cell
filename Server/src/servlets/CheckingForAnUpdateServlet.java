@@ -7,15 +7,13 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import sheetmanager.SheetManager;
-import sheetmanager.sheet.Sheet;
 import utils.ServletUtils;
 import utils.SessionUtils;
-import com.google.gson.Gson;
 
 import java.io.IOException;
 
-@WebServlet(name = "CurrentSheetVersionServlet", urlPatterns = {"/sheet-version"})
-public class CurrentSheetVersionServlet extends HttpServlet {
+@WebServlet(name = "CheckingForAnUpdateServlet", urlPatterns = {"/sheet/checking-for-an-update"})
+public class CheckingForAnUpdateServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -33,7 +31,7 @@ public class CurrentSheetVersionServlet extends HttpServlet {
         // Get the current version of the sheet (this needs to be tracked)
         AllSheetsManager sheetsManager = ServletUtils.getSheetManager(getServletContext());
         SheetManager sheetManager = sheetsManager.getSheet(sheetName);  // Track versions
-        int latestVersion = sheetManager.displaySheet().getSheetVersion();
+        int latestVersion = sheetManager.getSheetVersion();
 
         if (latestVersion > currentVersion) {
             resp.setStatus(HttpServletResponse.SC_OK);
