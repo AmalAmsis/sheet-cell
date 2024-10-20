@@ -1,0 +1,54 @@
+
+/* עיצוב כותרות */
+.header-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1e1f22;
+}
+
+titled-pane {
+    -fx-background-color: #e0f7fa; /* Light cyan background */
+    -fx-border-color:#1abc9c; /* Cyan border */
+    -fx-border-width: 2;
+}
+
+.titled-pane > .title {
+    -fx-background-color: #1abc9c; /* Cyan title background */
+    -fx-text-fill: white; /* White title text */
+    -fx-font-size: 14px;
+}
+
+.titled-pane > .content {
+    -fx-background-color: white;
+    -fx-padding: 10;
+}
+.button {
+    -fx-background-color: #1abc9c; /* צבע רקע טורקיז */
+    -fx-text-fill: white;           /* טקסט לבן */
+    -fx-font-weight: bold;          /* טקסט מודגש */
+    -fx-background-radius: 10px;    /* פינות עגולות יותר */
+    -fx-padding: 5px 10px;          /* רווח פנימי קטן יותר */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0, 0, 1); /* צל עדין יותר */
+    -fx-cursor: hand;               /* מצביע עכבר על כפתור */
+}
+
+.button:hover {
+    -fx-background-color: #16a085; /* צבע כהה יותר במעבר עכבר */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 2); /* צל עמוק יותר */
+}
+
+.sr-label {
+    -fx-border-color: #1abc9c;       /* צבע המסגרת: טורקיז */
+    -fx-border-width: 1;             /* עובי המסגרת דק יותר */
+    -fx-border-radius: 5;            /* פינות עגולות פחות */
+    -fx-padding: 3;                  /* רווח פנימי קטן יותר */
+    -fx-background-color: #ecf0f1;   /* רקע בהיר */
+    -fx-text-fill: #34495e;          /* צבע טקסט: כחול כהה */
+    -fx-font-size: 12px;             /* גודל טקסט מוקטן */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0, 0, 1); /* צל עדין מאוד */
+}
+
+.sr-label:hover {
+    -fx-background-color: #bdc3c7; /* רקע אפור בהיר במעבר עכבר */
+}
+

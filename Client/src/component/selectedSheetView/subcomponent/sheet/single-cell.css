@@ -1,0 +1,5 @@
+#sheetGrid {
+    -fx-background-color: rgb(230, 173, 229);
+    -fx-grid-lines-color: #de00fd; /* לצבע הרשת */
+}
+

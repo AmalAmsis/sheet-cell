@@ -10,10 +10,12 @@ import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 import java.io.Closeable;
 import java.io.IOException;
@@ -22,6 +24,8 @@ import java.net.URL;
 import static util.Constants.*;
 
 public class SheetCellAppMainController implements Closeable {
+
+    private Stage primaryStage;
 
     @FXML private AnchorPane mainPanel;
     @FXML private Label userNameLabel;
@@ -122,8 +126,31 @@ public class SheetCellAppMainController implements Closeable {
         //לא סיימנו צריך להוסיף דברים בהמשך
     }
 
+    /**
+     * Applies a theme (stylesheet) to the application.
+     * @param theme the name of the theme to apply.
+     */
+    public void applyTheme(String theme) {
+        Scene scene = primaryStage.getScene();
+        scene.getStylesheets().clear();
+
+        if ("Style 1".equals(theme)) {
+            String leftCssFile = getClass().getResource("/component/selectedSheetView/subcomponent/left/selectedSheetViewLeft.css").toExternalForm();
+            String headerCssFile = getClass().getResource("/component/selectedSheetView/subcomponent/header/selectedSheetView.css").toExternalForm();
+            scene.getStylesheets().add(leftCssFile);
+            scene.getStylesheets().add(headerCssFile);
+        } else {
+            String leftCssFile = getClass().getResource("/component/selectedSheetView/subcomponent/left/secondLeft.css").toExternalForm();
+            String headerCssFile = getClass().getResource("/component/selectedSheetView/subcomponent/header/secondHeader.css").toExternalForm();
+            String singleCellCssFile = getClass().getResource("/component/selectedSheetView/subcomponent/sheet/single-cell.css").toExternalForm();
+            scene.getStylesheets().add(leftCssFile);
+            scene.getStylesheets().add(headerCssFile);
+            scene.getStylesheets().add(singleCellCssFile);
+        }
+    }
 
 
-
-
+    public void setPrimaryStage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
+    }
 }

@@ -4,9 +4,14 @@ import javafx.geometry.Pos;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CellModel {
 
     private final StringProperty value;
+    private final StringProperty originalValue;
+    private final IntegerProperty lastModifiedVersion;
     private final ObjectProperty<Pos> alignment;
     private final ObjectProperty<Color> textColor;
     private final ObjectProperty<Color> backgroundColor;
@@ -16,12 +21,16 @@ public class CellModel {
     private final DoubleProperty borderWidth;
     private final IntegerProperty Hight;
     private final IntegerProperty Width;
+    private final ObjectProperty<List<String>> DependsOn;
+    private final ObjectProperty<List<String>> InfluencingOn;
 
 
 
 
     public CellModel(int hight, int width) {
         this.value = new SimpleStringProperty("");
+        this.originalValue = new SimpleStringProperty("");
+        this.lastModifiedVersion = new SimpleIntegerProperty(0);
         this.alignment = new SimpleObjectProperty<>(Pos.CENTER);
         this.textColor = new SimpleObjectProperty<>(Color.BLACK);
         this.backgroundColor = new SimpleObjectProperty<>(CellStyle.NORMAL_CELL_BACKGROUND_COLOR.getColorValue());
@@ -31,11 +40,17 @@ public class CellModel {
         this.borderWidth = new SimpleDoubleProperty(CellStyle.NORMAL_CELL_BORDER_WIDTH.getWidthValue());
         this.Hight = new SimpleIntegerProperty(hight);
         this.Width = new SimpleIntegerProperty(width);
+        this.DependsOn = new SimpleObjectProperty<>(new ArrayList<>());
+        this.InfluencingOn = new SimpleObjectProperty<>(new ArrayList<>());
     }
 
     public StringProperty valueProperty() {
         return value;
     }
+
+    public StringProperty originalValueProperty() {return originalValue;}
+
+    public IntegerProperty lastModifiedVersionProperty() {return lastModifiedVersion;}
 
     public ObjectProperty<Pos> alignmentProperty() {
         return alignment;
@@ -65,20 +80,26 @@ public class CellModel {
         return borderWidth;
     }
 
-    public IntegerProperty hightProperty() {
+    public IntegerProperty heightProperty() {
         return Hight;
     }
+
     public IntegerProperty widthProperty() {
         return Width;
     }
+
+    public ObjectProperty<List<String>> DependsOnProperty() {return DependsOn;}
+
+    public ObjectProperty<List<String>> InfluencingOnProperty() {return InfluencingOn;}
+
 
     public void setValue(String value) {
         this.value.set(value);
     }
 
-    public String getValue() {
-        return this.value.get();
-    }
+    public void setOriginalValue(String value) {this.originalValue.set(value);}
+
+    public void setLastModifiedVersion(int version) {this.lastModifiedVersion.set(version);}
 
     public void setAlignment(Pos alignment) {
         this.alignment.set(alignment);
@@ -108,12 +129,16 @@ public class CellModel {
         this.borderWidth.set(width);
     }
 
-    public void setHight(Integer hight) {
+    public void setHeight(Integer hight) {
         this.Hight.set(hight);
     }
 
     public void setWidth(Integer width) {
         this.Width.set(width);
     }
+
+    public void setDependsOn(List<String> dependsOn) {this.DependsOn.set(dependsOn); }
+
+    public void setInfluencingOn(List<String> InfluencingOn) {this.InfluencingOn.set(InfluencingOn); }
 
 }
