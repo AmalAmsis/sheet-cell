@@ -9,9 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Implemented new cell selection, update functionalities, and skin switching capabilities in the client application:&#10;- Added a &quot;Work Bar&quot; to display details for the selected cell:&#10;  - Displays the identity of the selected cell (e.g., 5A, in uppercase).&#10;  - Shows the original value of the cell.&#10;  - Shows the last version in which the cell was updated.&#10;  - Highlighted the cells that the selected cell relies on with a light blue background.&#10;  - Highlighted the cells that depend on the selected cell with a light green background.&#10;&#10;- Added the ability to adjust the width of columns/rows via the graphical interface:&#10;  - If the content is larger than the column width, it can either wrap or clip based on the user's choice.&#10;  - The option is set at the column level and applies to all displayed data in that column.&#10;&#10;- Added the option to align the content within columns:&#10;  - The alignment can be set to left, right, or center.&#10;  - The option is set at the column level and applies to all displayed data in that column.&#10;&#10;- Added the ability to style a specific cell:&#10;  - The user can select both the background color and text color using a color picker.&#10;  - Added a dedicated button to reset all styling to the default state.&#10;  - The styling is attached to the cell and preserved during sorting/filtering actions.&#10;&#10;- Implemented the ability for the user to switch between at least two additional color schemes (skins) beyond the default:&#10;  - Each skin change updates:&#10;    1. The background of the entire screen.&#10;    2. The appearance of all buttons on the screen.&#10;    3. The font style and size of all labels on the screen.&#10;  - The design for skin switching is functional but still requires improvements to enhance its visual appeal.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Implemented new cell selection, update functionalities, and skin switching capabilities in the client application:&#10;- Added a &quot;Work Bar&quot; to display details for the selected cell:&#10;  - Displays the identity of the selected cell (e.g., 5A, in uppercase).&#10;  - Shows the original value of the cell.&#10;  - Shows the last version in which the cell was updated.&#10;  - Highlighted the cells that the selected cell relies on with a light blue background.&#10;  - Highlighted the cells that depend on the selected cell with a light green background.&#10;&#10;- Added the ability to adjust the width of columns/rows via the graphical interface:&#10;  - If the content is larger than the column width, it can either wrap or clip based on the user's choice.&#10;  - The option is set at the column level and applies to all displayed data in that column.&#10;&#10;- Added the option to align the content within columns:&#10;  - The alignment can be set to left, right, or center.&#10;  - The option is set at the column level and applies to all displayed data in that column.&#10;&#10;- Added the ability to style a specific cell:&#10;  - The user can select both the background color and text color using a color picker.&#10;  - Added a dedicated button to reset all styling to the default state.&#10;  - The styling is attached to the cell and preserved during sorting/filtering actions.&#10;&#10;- Implemented the ability for the user to switch between at least two additional color schemes (skins) beyond the default:&#10;  - Each skin change updates:&#10;    1. The background of the entire screen.&#10;    2. The appearance of all buttons on the screen.&#10;    3. The font style and size of all labels on the screen.&#10;  - The design for skin switching is functional but still requires improvements to enhance its visual appeal." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -332,14 +330,6 @@
       <workItem from="1728768355881" duration="44000" />
       <workItem from="1728768423746" duration="14000" />
       <workItem from="1728768460006" duration="5531000" />
-    </task>
-    <task id="LOCAL‎-00052" summary="nhanced cell customization and layout management:&#10;&#10;- Implemented functionality to change cell background and text colors using ColorPickers.&#10;- Added listeners for Spinners to adjust row height and column width dynamically.&#10;- Improved handling of cell text alignment with the ChoiceBox, allowing for center, left, and right alignment.&#10;- Refined interaction between HeaderController and SheetController to ensure seamless updates to cell properties.&#10;&#10;- Improved logic for applying styles and dimensions to ensure consistent behavior across the grid.">
-      <option name="closed" value="true" />
-      <created>1726571783280</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL‎-00052" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726571783280</updated>
     </task>
     <task id="LOCAL‎-00053" summary="Editing code to change row height and colunm width">
       <option name="closed" value="true" />
@@ -725,7 +715,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1729413398793</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL‎-00101" summary="Implemented new cell selection, update functionalities, and skin switching capabilities in the client application:&#10;- Added a &quot;Work Bar&quot; to display details for the selected cell:&#10;  - Displays the identity of the selected cell (e.g., 5A, in uppercase).&#10;  - Shows the original value of the cell.&#10;  - Shows the last version in which the cell was updated.&#10;  - Highlighted the cells that the selected cell relies on with a light blue background.&#10;  - Highlighted the cells that depend on the selected cell with a light green background.&#10;&#10;- Added the ability to adjust the width of columns/rows via the graphical interface:&#10;  - If the content is larger than the column width, it can either wrap or clip based on the user's choice.&#10;  - The option is set at the column level and applies to all displayed data in that column.&#10;&#10;- Added the option to align the content within columns:&#10;  - The alignment can be set to left, right, or center.&#10;  - The option is set at the column level and applies to all displayed data in that column.&#10;&#10;- Added the ability to style a specific cell:&#10;  - The user can select both the background color and text color using a color picker.&#10;  - Added a dedicated button to reset all styling to the default state.&#10;  - The styling is attached to the cell and preserved during sorting/filtering actions.&#10;&#10;- Implemented the ability for the user to switch between at least two additional color schemes (skins) beyond the default:&#10;  - Each skin change updates:&#10;    1. The background of the entire screen.&#10;    2. The appearance of all buttons on the screen.&#10;    3. The font style and size of all labels on the screen.&#10;  - The design for skin switching is functional but still requires improvements to enhance its visual appeal.">
+      <option name="closed" value="true" />
+      <created>1729414685655</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL‎-00101" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1729414685655</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
