@@ -35,6 +35,7 @@ public class Constants {
     public final static String VERSION_CHANGES = FULL_SERVER_PATH + "/version-changes";
     public final static String VERSION_SHEET = FULL_SERVER_PATH + "/version-sheet";
     public final static String RANGE = FULL_SERVER_PATH + "/range";
+    public final static String RANGES = FULL_SERVER_PATH + "/ranges";
 
     // GSON instance
     public final static Gson GSON_INSTANCE = new Gson();
