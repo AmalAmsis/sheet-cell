@@ -46,7 +46,7 @@ public class AvailableSheetsRefresher extends TimerTask {
                     lastKnownSheetCount = newSheets.size(); // Update the last known count
                     availableSheetsController.refreshAvailableSheets(newSheets); // Update UI with new sheets
                 } else if (newSheets == null) {
-                    System.out.println("Parsed newSheets is null");
+                    //System.out.println("Parsed newSheets is null");
                 }
             } else {
                 System.out.println("Failed to fetch sheets. Response code: " + response.code());

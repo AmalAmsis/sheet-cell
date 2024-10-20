@@ -24,10 +24,7 @@ import okhttp3.Response;
 import util.http.HttpClientUtil;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static util.Constants.FILTER_SHEET;
 import static util.Constants.SORT_SHEET;
@@ -105,6 +102,7 @@ public class SelectedSheetViewLeftController {
         // Set up listeners for sorting and filtering menus
         selectColumnsToSortByMenu.setOnShowing(event -> updateMenuItems(selectColumnsToSortByMenu, selectedSortColumnsFlowPane, sortFromTextField, sortToTextField));
         selectColumnsToFilterByMenu.setOnShowing(event -> updateMenuItems(selectColumnsToFilterByMenu, filterDataFlowPane, filterFromTextField, filterToTextField));
+       // updateChoiceBoxes();
     }
 
     /**
@@ -153,18 +151,55 @@ public class SelectedSheetViewLeftController {
      * Updates the available ranges in the choice boxes.
      */
     public void updateChoiceBoxes() {
-        // Get the updated list of ranges from the main controller
-        List<String> ranges = selectedSheetViewController.getAllRanges();
 
-        // Update the ChoiceBoxes with the new range options
+        List<String> ranges = selectedSheetViewController.getAllRanges();
         removeRangeChoiceBox.getItems().setAll(ranges);
         showRangeChoiceBox.getItems().setAll(ranges);
+
     }
 
-    @FXML void ClickMeAddNewRangeButton(ActionEvent event) {}
+    public void updateChoiceBoxesWithNewRanges(List<String> newRanges) {
+        removeRangeChoiceBox.getItems().setAll(newRanges);
+        showRangeChoiceBox.getItems().setAll(newRanges);
+    }
 
 
-    @FXML void ClickMeRemoveRange(ActionEvent event) {}
+
+    @FXML void ClickMeAddNewRangeButton(ActionEvent event) {
+        String rangeName = newRangeNameTextField.getText();
+        String from = fromTextField.getText();
+        String to = toTextField.getText();
+
+        if (rangeName.isEmpty() || from.isEmpty() || to.isEmpty()) {
+            // Show an error message or prompt the user to fill in all fields
+            return;
+        }
+
+
+        // Call appController to add the new range
+        selectedSheetViewController.addNewRange(rangeName, from, to);
+
+        // Clear text fields after successful operation
+        newRangeNameTextField.clear();
+        fromTextField.clear();
+        toTextField.clear();
+
+        // Optionally update the choice boxes
+        updateChoiceBoxes();
+    }
+
+
+    @FXML void ClickMeRemoveRange(ActionEvent event) {
+        String selectedRange = removeRangeChoiceBox.getSelectionModel().getSelectedItem();
+
+        if (selectedRange != null) {
+            // Call appController to remove the selected range
+            selectedSheetViewController.removeRange(selectedRange);
+            removeRangeChoiceBox.getSelectionModel().clearSelection();
+            // Update the choice boxes after removal
+            updateChoiceBoxes();
+        }
+    }
 
     @FXML void ClickMeShowRange(ActionEvent event) {
         String selectedRange = showRangeChoiceBox.getSelectionModel().getSelectedItem();
@@ -642,6 +677,11 @@ public class SelectedSheetViewLeftController {
         }
 
         return menuButton;
+    }
+
+    public void startRangePolling() {
+        Timer timer = new Timer(true); // Polling will run as a daemon thread
+        timer.schedule(new RangePollerTask(this, selectedSheetViewController.getAllRanges()), 0, 5000); // Poll every 5 seconds
     }
 
 }

@@ -1,6 +1,7 @@
 package component.selectedSheetView.main;
 
 import JsonSerializer.JsonSerializer;
+import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import component.main.SheetCellAppMainController;
 import component.popup.error.ErrorMessage;
@@ -36,6 +37,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
+import java.util.function.Consumer;
 
 import static util.Constants.*;
 
@@ -190,6 +192,95 @@ public class SelectedSheetViewController {
     }
 
 
+    /**
+     * Adds a new range to the sheet based on the given parameters.
+     * @param rangeName the name of the range.
+     * @param from the starting cell of the range.
+     * @param to the ending cell of the range.
+     */
+    public void addNewRange(String rangeName, String from, String to) {
+        try {
+            // Build the final URL for the request
+            String finalUrl = HttpUrl
+                    .parse(RANGES)
+                    .newBuilder()
+                    .build()
+                    .toString();
+
+            // Create the JSON body for the request
+            String jsonBody = "{\"newRangeName\": \"" + rangeName + "\", \"fromCoordinate\": \"" + from + "\", \"toCoordinate\": \"" + to + "\"}";
+
+            // Build the request body
+            RequestBody body = RequestBody.create(jsonBody, MediaType.parse("application/json; charset=utf-8"));
+
+            // Create the PUT request
+            Request request = new Request.Builder()
+                    .url(finalUrl)
+                    .put(body)
+                    .build();
+
+            // Execute the request synchronously
+            Call call = HttpClientUtil.HTTP_CLIENT.newCall(request);
+            Response response = call.execute();
+
+            if (response.isSuccessful()) {
+                response.close(); // Close response body
+            } else {
+                new ErrorMessage("Failed to add new range: " + response.message());
+                response.close(); // Close response body
+            }
+        } catch (IOException e) {
+            new ErrorMessage(e.getMessage());
+        }
+    }
+
+
+    /**
+     * Removes a selected range from the sheet.
+     * @param selectedRange the name of the range to remove.
+     */
+    public void removeRange(String selectedRange) {
+        try {
+            // Build the final URL for the request
+            String finalUrl = HttpUrl
+                    .parse(RANGES)
+                    .newBuilder()
+                    .build()
+                    .toString();
+
+            // Create the JSON body for the request
+            String jsonBody = "{\"rangeName\": \"" + selectedRange + "\"}";
+
+            // Build the request body
+            RequestBody body = RequestBody.create(jsonBody, MediaType.parse("application/json; charset=utf-8"));
+
+            // Create the DELETE request
+            Request request = new Request.Builder()
+                    .url(finalUrl)
+                    .delete(body)
+                    .build();
+
+            // Execute the request synchronously
+            Call call = HttpClientUtil.HTTP_CLIENT.newCall(request);
+            Response response = call.execute();
+
+            if (response.isSuccessful()) {
+                selectedRangeId.set(selectedRange);
+                clearPreviousSelection();  // Clear the UI selection
+                response.close(); // Close response body
+            } else {
+                new ErrorMessage("Failed to remove range: " + response.message());
+                response.close(); // Close response body
+            }
+        } catch (IOException e) {
+            new ErrorMessage(e.getMessage());
+        }
+    }
+
+
+
+
+
 
     /**
      * Clears the previous selection from the sheet.
@@ -321,15 +412,44 @@ public class SelectedSheetViewController {
     }
 
     /**
-     * Retrieves all available ranges for the current sheet.
-     *
-     * @return a list of all range IDs.
+     * Returns a list of all ranges in the sheet asynchronously.
+     * @param callback a callback function to handle the list of ranges when the request completes.
+     */
+    /**
+     * Returns a list of all ranges in the sheet.
+     * @return a list of all ranges.
      */
     public List<String> getAllRanges() {
-        List<String> allRanges = new ArrayList<>();
-        // Implementation for retrieving ranges (placeholder)
-        return allRanges;
+        List<String> rangesName = new ArrayList<>();
+        try {
+            // Define the URL for fetching all ranges
+            String finalUrl = HttpUrl.parse(RANGES).newBuilder().build().toString();
+
+            // Create the GET request
+            Request request = new Request.Builder()
+                    .url(finalUrl)
+                    .build();
+
+            // Send the request synchronously to get the response (note: this blocks the thread)
+            Response response = HttpClientUtil.HTTP_CLIENT.newCall(request).execute();
+
+            if (response.isSuccessful()) {
+                // Parse the JSON response to get the list of range names
+                String jsonResponse = response.body().string();
+                rangesName = GSON_INSTANCE.fromJson(jsonResponse, new TypeToken<List<String>>() {}.getType());
+                response.body().close();  // Close the response body after use
+            } else {
+                // Handle failure response from the server
+                new ErrorMessage("Failed to fetch ranges: " + response.message());
+            }
+        } catch (IOException e) {
+            // Handle exceptions
+            new ErrorMessage(e.getMessage());
+        }
+        return rangesName;
     }
+
+
 
 
     public void backToDashboard() {
@@ -521,4 +641,13 @@ public class SelectedSheetViewController {
     public void selectRange(String rangeId) {
         selectedRangeId.set(rangeId);  // Triggers the listener
     }
+
+    public void updateChoiceBoxes() {
+        leftController.updateChoiceBoxes();
+    }
+
+    public void startRangePolling(){
+        leftController.startRangePolling();
+    }
+
 }

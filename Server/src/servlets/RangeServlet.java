@@ -45,7 +45,7 @@ public class RangeServlet extends HttpServlet {
 
                 // המרת הרשימה ל-JSON
                 Gson gson = new Gson();
-                String jsonResponse = gson.toJson(coordinates);
+                String jsonResponse = gson.toJson(coordinatesString);
 
                 // הגדרת סוג התוכן כ-JSON
                 response.setContentType("application/json");

@@ -3,6 +3,7 @@ package servlets;
 import allsheetsmanager.AllSheetsManager;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import dto.DTORange;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -13,6 +14,7 @@ import sheetmanager.SheetManager;
 import utils.ServletUtils;
 import utils.SessionUtils;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -65,14 +67,22 @@ public class AllRangesServlet extends HttpServlet {
 
     @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Use Gson to parse the request body (expected to be JSON)
-        Gson gson = new Gson();
-        JsonObject json = gson.fromJson(request.getReader(), JsonObject.class);
+        // Read the request body
+        StringBuilder sb = new StringBuilder();
+        try (BufferedReader reader = request.getReader()) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                sb.append(line);
+            }
+        }
 
-        // Extract the necessary fields from the JSON object
+        // Parse the JSON request body
+        JsonParser parser = new JsonParser();
+        JsonObject json = parser.parse(sb.toString()).getAsJsonObject();
+        String newRangeName = json.get("newRangeName").getAsString();
         String fromCoordinate = json.get("fromCoordinate").getAsString();
         String toCoordinate = json.get("toCoordinate").getAsString();
-        String newRangeName = json.get("newRangeName").getAsString();
+
 
         // Validate that all required fields are present and not empty
         if (newRangeName == null || newRangeName.isEmpty() || fromCoordinate == null || fromCoordinate.isEmpty() || toCoordinate == null || toCoordinate.isEmpty()) {
@@ -112,12 +122,19 @@ public class AllRangesServlet extends HttpServlet {
 
     @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Use Gson to parse the request body (expected to be JSON)
-        Gson gson = new Gson();
-        JsonObject json = gson.fromJson(request.getReader(), JsonObject.class);
+        // Read the request body
+        StringBuilder sb = new StringBuilder();
+        try (BufferedReader reader = request.getReader()) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                sb.append(line);
+            }
+        }
 
-        // Extract the range name to delete from the JSON object
-        String rangeName = json.get("RangeName").getAsString();
+        // Parse the JSON request body
+        JsonParser parser = new JsonParser();
+        JsonObject json = parser.parse(sb.toString()).getAsJsonObject();
+        String rangeName = json.get("rangeName").getAsString();
 
         // Validate that the range name is present and not empty
         if (rangeName == null || rangeName.isEmpty()) {
