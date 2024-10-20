@@ -5,10 +5,13 @@ import component.main.SheetCellAppMainController;
 import component.popup.error.ErrorMessage;
 import component.selectedSheetView.subcomponent.header.SelectedSheetViewHeaderController;
 import component.selectedSheetView.subcomponent.left.SelectedSheetViewLeftController;
+import component.selectedSheetView.subcomponent.sheet.CellStyle;
 import component.selectedSheetView.subcomponent.sheet.SelectedSheetController;
 import component.selectedSheetView.subcomponent.sheet.UIModelSheet;
 import component.selectedSheetView.subcomponent.sheetPoller.SheetPollerTask;
 import constants.Constants.*;
+import dto.DTOCell;
+import dto.DTOCoordinate;
 import dto.DTOSheet;
 import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
@@ -17,6 +20,7 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.paint.Color;
@@ -105,9 +109,9 @@ public class SelectedSheetViewController {
                 showCellData(newCellId);  // Select new cell
                 isSelected.setValue(true);
 
-                // Check if the cell contains a numeric value (commented out for future implementation)
-                // DTOCell dtoCell = uiManager.getDtoCellForDisplayCell(newCellId.replace(":", ""));
-                // isNumericCellSelected.setValue(isNumeric(dtoCell.getOriginalValue()));
+                 //Check if the cell contains a numeric value (commented out for future implementation)
+                 //DTOCell dtoCell = uiManager.getDtoCellForDisplayCell(newCellId.replace(":", ""));
+                 //isNumericCellSelected.setValue(isNumeric(dtoCell.getOriginalValue()));
             }
         });
 
@@ -141,25 +145,71 @@ public class SelectedSheetViewController {
      * Clears the previous selection from the sheet.
      */
     private void clearPreviousSelection() {
-        // Implementation to clear the previous selection
+        if (!previouslySelectedCells.isEmpty()) {
+            sheetController.addBorderForCells(CellStyle.NORMAL_CELL_BORDER_COLOR.getColorValue(),
+                    CellStyle.NORMAL_CELL_BORDER_STYLE.getStyleValue(),
+                    CellStyle.NORMAL_CELL_BORDER_WIDTH.getWidthValue(),
+                    previouslySelectedCells);
+            previouslySelectedCells.clear();
+        }
     }
 
     /**
      * Shows the data for the newly selected cell.
      *
-     * @param newCellId the ID of the newly selected cell.
+     * @param cellId the ID of the newly selected cell.
      */
-    private void showCellData(String newCellId) {
-        // Implementation to show data for the new cell
+    private void showCellData(String cellId) {
+        clearPreviousSelection();
+
+        List<String> selectedCell = new ArrayList<>();
+        selectedCell.add(cellId);
+
+        sheetController.addBorderForCells(
+                CellStyle.SELECTED_CELL_BORDER_COLOR.getColorValue(),
+                CellStyle.SELECTED_CELL_BORDER_STYLE.getStyleValue(),
+                CellStyle.SELECTED_CELL_BORDER_WIDTH.getWidthValue(), selectedCell);
+
+        headerController.updateHeaderValues(cellId.replace(":", ""), sheetController.getOriginalValue(selectedCellId.getValue()),
+                String.valueOf(sheetController.getLastModifiedVersion(selectedCellId.getValue())),
+                sheetController.getCellTextColor(selectedCellId.getValue()),
+                sheetController.getCellBackgroundColor(selectedCellId.getValue()),
+                sheetController.getCellWidth(selectedCellId.getValue()),
+                sheetController.getCellHeight(selectedCellId.getValue()),
+                sheetController.getCellAligmentString(selectedCellId.getValue()));
+
+        // Highlight dependencies and influenced cells
+        List<String> DependsOnCellsId = sheetController.getDependsOn(selectedCellId.getValue());
+        sheetController.addBorderForCells(CellStyle.DEPENDS_ON_CELL_BORDER_COLOR.getColorValue(),
+                CellStyle.DEPENDS_ON_CELL_BORDER_STYLE.getStyleValue(),
+                CellStyle.DEPENDS_ON_CELL_BORDER_WIDTH.getWidthValue(), DependsOnCellsId);
+
+        List<String> InfluencingOnCellsId = sheetController.getInfluencingOn(selectedCellId.getValue());
+        sheetController.addBorderForCells(CellStyle.INFLUENCING_ON_CELL_BORDER_COLOR.getColorValue(),
+                CellStyle.INFLUENCING_ON_CELL_BORDER_STYLE.getStyleValue(),
+                CellStyle.INFLUENCING_ON_CELL_BORDER_WIDTH.getWidthValue(), InfluencingOnCellsId);
+
+        // Add the cells to the list for clearing later
+        previouslySelectedCells.add(cellId);
+        previouslySelectedCells.addAll(DependsOnCellsId);
+        previouslySelectedCells.addAll(InfluencingOnCellsId);
     }
 
+
+
     /**
-     * Unselects the old cell and removes its data from the UI.
-     *
-     * @param oldCellId the ID of the old cell to unselect.
+     * Unselects the given cell and clears its data from the header.
+     * @param cellId the ID of the cell to unselect.
      */
-    private void unShowCellData(String oldCellId) {
-        // Implementation to unselect the old cell
+    public void unShowCellData(String cellId) {
+        headerController.updateHeaderValues("", "", "",
+                CellStyle.NORMAL_CELL_BACKGROUND_COLOR.getColorValue(),
+                CellStyle.NORMAL_CELL_TEXT_COLOR.getColorValue(),
+                sheetController.getCellWidth(selectedCellId.getValue()),
+                sheetController.getCellHeight(selectedCellId.getValue()),
+                sheetController.getCellAligmentString(selectedCellId.getValue()));
+
+        clearPreviousSelection();
     }
 
     /**
@@ -369,6 +419,8 @@ public class SelectedSheetViewController {
     }
 
 
+
+
     public Button getSwitchToTheLatestVersionButton() {
         return headerController.getSwitchToTheLatestVersionButton();
     }
@@ -393,10 +445,6 @@ public class SelectedSheetViewController {
 
 
 
-//    //TODO
-//    public DTOSheet getSheetByVersion(int version) {
-//        return uiManager.getSheetInVersion(version);
-//    }
 
     public List<String> getColumnValues(char column, int firstRow, int lastRow) {
         return sheetController.getColumnValues(column, firstRow, lastRow);
@@ -411,4 +459,8 @@ public class SelectedSheetViewController {
         return this.selectedSheetName;
     }
 
+
+    public void applyTheme(String style) {
+        sheetCellAppMainController.applyTheme(style);
+    }
 }

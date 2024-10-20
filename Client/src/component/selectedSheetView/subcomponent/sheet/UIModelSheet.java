@@ -6,6 +6,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -50,15 +51,28 @@ public class UIModelSheet {
     }
 
     public int getCellHeight(String cellId) {
-        return  cells.get(cellId).hightProperty().getValue();
+        return  cells.get(cellId).heightProperty().getValue();
     }
+
+    public String getCellOriginalValue(String cellId) {return cells.get(cellId).originalValueProperty().getValue();}
+
+    public int getLastModifiedVersion(String cellId) {return cells.get(cellId).lastModifiedVersionProperty().getValue();}
+
     public int getCellWidth(String cellId) {
         return  cells.get(cellId).widthProperty().getValue();
     }
 
+    public List<String> getCellDependsOn(String cellId) {return cells.get(cellId).DependsOnProperty().getValue();}
+
+    public List<String> getCellInfluencingOn(String cellId) {return cells.get(cellId).InfluencingOnProperty().getValue();}
+
     public void setCellValue(String cellId, String value) {
         cells.get(cellId).setValue(value);
     }
+
+    public void setCellOriginalValue(String cellId, String value) {cells.get(cellId).setOriginalValue(value);}
+
+    public void setLastModifiedVersion(String cellId, int version) {cells.get(cellId).setLastModifiedVersion(version);}
 
     public void setCellAlignment(String cellId, Pos alignment) {
         cells.get(cellId).setAlignment(alignment);
@@ -79,9 +93,15 @@ public class UIModelSheet {
     public void setCellWidth(String cellId, int width) {
         cells.get(cellId).setWidth(width);
     }
+
     public void setCellHeight(String cellId, int height) {
-        cells.get(cellId).setHight(height);
+        cells.get(cellId).setHeight(height);
     }
+
+    public void setCellDependsOn(String cellId, List<String> dependsOn) {cells.get(cellId).setDependsOn(dependsOn);}
+
+    public void setCellInfluencingOn(String cellId, List<String> InfluencingOn) {cells.get(cellId).setInfluencingOn(InfluencingOn);}
+
 
 
 
@@ -109,9 +129,9 @@ public class UIModelSheet {
         label.prefWidthProperty().bind(cell.widthProperty());
         label.maxWidthProperty().bind(cell.widthProperty());
         label.minWidthProperty().bind(cell.widthProperty());
-        label.prefHeightProperty().bind(cell.hightProperty());
-        label.maxHeightProperty().bind(cell.hightProperty());
-        label.minHeightProperty().bind(cell.hightProperty());
+        label.prefHeightProperty().bind(cell.heightProperty());
+        label.maxHeightProperty().bind(cell.heightProperty());
+        label.minHeightProperty().bind(cell.heightProperty());
 
 
 
@@ -123,10 +143,6 @@ public class UIModelSheet {
         cell.borderColorProperty().addListener((obs, oldColor, newColor) -> updateLabelStyle(label, cell));
         cell.borderWidthProperty().addListener((obs, oldWidth, newWidth) -> updateLabelStyle(label, cell));
         cell.borderStyleProperty().addListener((obs, oldStyle, newStyle) -> updateLabelStyle(label, cell));
-
-
-
-
 
     }
 
@@ -158,7 +174,7 @@ public class UIModelSheet {
     public void setRowHeight(int rowIndex, int height) {
         for (int col = 0; col<numberOfColumns; col++){
             String cellId = getCellId(col, rowIndex);
-            cells.get(cellId).setHight(height);
+            cells.get(cellId).setHeight(height);
         }
     }
 
@@ -185,8 +201,10 @@ public class UIModelSheet {
             String cellId = entry.getKey();
             CellModel originalCell = entry.getValue();
 
-            CellModel newCell = new CellModel(cellWidth, cellHeight);
+            CellModel newCell = new CellModel(cellHeight,cellWidth);
             newCell.setValue(originalCell.valueProperty().get());
+            newCell.setOriginalValue(originalCell.originalValueProperty().get());
+            newCell.setLastModifiedVersion(originalCell.lastModifiedVersionProperty().get());
             newCell.setAlignment(originalCell.alignmentProperty().get());
             newCell.setTextColor(originalCell.textColorProperty().get());
             newCell.setBackgroundColor(originalCell.backgroundColorProperty().get());
@@ -194,14 +212,14 @@ public class UIModelSheet {
             newCell.setBorderColor(originalCell.borderColorProperty().get());
             newCell.setBorderWidth(originalCell.borderWidthProperty().get());
             newCell.setBorderStyle(originalCell.borderStyleProperty().get());
-            newCell.setHight(originalCell.hightProperty().get());
+            newCell.setHeight(originalCell.heightProperty().get());
             newCell.setWidth(originalCell.widthProperty().get());
             newCell.setAlignment(originalCell.alignmentProperty().get());
+            newCell.setDependsOn(originalCell.DependsOnProperty().get());
+            newCell.setInfluencingOn(originalCell.InfluencingOnProperty().get());
 
             newModel.cells.put(cellId, newCell);
         }
     }
-
-
 
 }
