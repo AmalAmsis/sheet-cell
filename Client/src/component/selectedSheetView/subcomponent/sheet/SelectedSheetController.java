@@ -27,6 +27,7 @@ public class SelectedSheetController {
 
     private SelectedSheetViewController selectedSheetViewController;
     private UIModelSheet uiModel;
+    private String selectedSheetName;
 
     @FXML
     private GridPane sheetGrid;
@@ -244,7 +245,7 @@ public class SelectedSheetController {
         List<String> columnValues = new ArrayList<>();
         for (int rowNum = firstRow; rowNum <= lastRow; rowNum++) {
             String cellId = getCellIdByChar(column, rowNum);
-            String value = uiModel.getCell(cellId).getValue();
+            String value = uiModel.getCell(cellId).valueProperty().getValue();
             if (!value.isEmpty()) {
                 columnValues.add(value);
             }
