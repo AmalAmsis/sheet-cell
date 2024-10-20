@@ -28,4 +28,5 @@ public interface Sheet extends SheetDataModifier, SheetDataRetriever, SheetDepen
      * @throws NumberFormatException if the row part of the string is not a valid integer.
      * @throws StringIndexOutOfBoundsException if the stringCoordinate is too short to contain both a column and a row. */
     Coordinate convertStringToCoordinate(String stringCoordinate);
+
 }

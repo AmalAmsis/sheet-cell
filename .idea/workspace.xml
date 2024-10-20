@@ -9,10 +9,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Completed the implementation of the Version Selector feature. The user can now select a previous version of the sheet, view the number of changes in each version, and load a specific version of the sheet in a new view.&quot;">
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="commit for merge">
+      <change afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetRow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/availableSheetsTable.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheetInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/sheet/CellModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/sheet/CellModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/sheet/SelectedSheetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/sheet/SelectedSheetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/DashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsRefresher.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsRefresher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/availableSheets.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/availableSheets.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/DashboardHeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/DashboardHeaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/JsonSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/JsonSerializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/allsheetsmanager/AllSheetsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/allsheetsmanager/AllSheetsManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheetmanager/SheetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheetmanager/SheetManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheetmanager/SheetManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheetmanager/SheetManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheetmanager/sheet/Sheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheetmanager/sheet/Sheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheetmanager/sheet/SheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheetmanager/sheet/SheetImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/servlets/AvailableSheetServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/AvailableSheetServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,44 +77,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.AppRunner.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.EffectiveValueTest.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.FxmlTest.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.SheetCellClient.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Test.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Test2.executor&quot;: &quot;Coverage&quot;,
-    &quot;Application.TestLoadFile.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.TestLogin.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.TestLogin2.executor&quot;: &quot;Run&quot;,
-    &quot;Application.component.dashboard.subcomponents.maindashboard.TestLoadFile.executor&quot;: &quot;Run&quot;,
-    &quot;Application.deprecated.apprunner.AppRunner.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.jasonTest.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.sheet.range.Test.executor&quot;: &quot;Run&quot;,
-    &quot;Application.test.FxmlTest.executor&quot;: &quot;Run&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;JAR Application.UI.jar.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Tomcat Server.Tomcat 10.1.30.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;yarden__branch&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/projects/sheet-cell/Client/src&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.1706642&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.applicationServers&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.AppRunner.executor": "Debug",
+    "Application.EffectiveValueTest.executor": "Debug",
+    "Application.FxmlTest.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.SheetCellClient.executor": "Run",
+    "Application.Test.executor": "Run",
+    "Application.Test2.executor": "Coverage",
+    "Application.TestLoadFile.executor": "Debug",
+    "Application.TestLogin.executor": "Debug",
+    "Application.TestLogin2.executor": "Run",
+    "Application.component.dashboard.subcomponents.maindashboard.TestLoadFile.executor": "Run",
+    "Application.deprecated.apprunner.AppRunner.executor": "Debug",
+    "Application.jasonTest.executor": "Debug",
+    "Application.sheet.range.Test.executor": "Run",
+    "Application.test.FxmlTest.executor": "Run",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JAR Application.UI.jar.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Tomcat Server.Tomcat 10.1.30.executor": "Run",
+    "git-widget-placeholder": "yarden__branch",
+    "jdk.selected.JAVA_MODULE": "21",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/projects/sheet-cell/Client/src",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.1706642",
+    "settings.editor.selected.configurable": "preferences.applicationServers",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\projects\sheet-cell\Client\src" />
@@ -336,14 +350,8 @@
       <workItem from="1729162799676" duration="178000" />
       <workItem from="1729162985853" duration="8842000" />
       <workItem from="1729339170318" duration="16924000" />
-    </task>
-    <task id="LOCAL‎-00052" summary="nhanced cell customization and layout management:&#10;&#10;- Implemented functionality to change cell background and text colors using ColorPickers.&#10;- Added listeners for Spinners to adjust row height and column width dynamically.&#10;- Improved handling of cell text alignment with the ChoiceBox, allowing for center, left, and right alignment.&#10;- Refined interaction between HeaderController and SheetController to ensure seamless updates to cell properties.&#10;&#10;- Improved logic for applying styles and dimensions to ensure consistent behavior across the grid.">
-      <option name="closed" value="true" />
-      <created>1726571783280</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL‎-00052" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726571783280</updated>
+      <workItem from="1729423866098" duration="65000" />
+      <workItem from="1729423937730" duration="7139000" />
     </task>
     <task id="LOCAL‎-00053" summary="Editing code to change row height and colunm width">
       <option name="closed" value="true" />
@@ -729,7 +737,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729413575125</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="commit for merge">
+      <option name="closed" value="true" />
+      <created>1729415869862</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1729415869862</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -775,7 +791,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed the handling of Platform.runLater in AppController's loadAndDisplaySheetFromXmlFile method to ensure that UI updates are executed correctly on the JavaFX Application Thread. Added proper lambda syntax for multiple statements.&#10;&#10;Improved error handling: The application now properly stops processing if an invalid file or conflicting range is detected during XML file loading. This prevents the application from attempting to display corrupted data after encountering an exception." />
     <MESSAGE value="Implemented deep copy functionality across multiple components:&#10;- Added createDeepCopy method in SheetImpl to handle deep copying of sheets, including copying cells, the range manager, and all related data.&#10;- Implemented deep copy for CellImpl, ensuring correct copying of cell dependencies (dependsOn and influencingOn) while avoiding recursion issues with cyclic references.&#10;- Added tracking maps in SheetImpl and CellImpl (copiedCells) to prevent infinite recursion during the deep copy process.&#10;- Implemented deep copy functionality for RangeImpl and RangeManagerImpl to ensure ranges and their usage counts are copied correctly.&#10;- Ensured that all dependent entities such as cells, ranges, and the range manager are copied deeply, maintaining consistency and avoiding shared references between the original and copied sheets." />
     <MESSAGE value="last merge before submit part 2" />
     <MESSAGE value="starting part 3!!!" />
@@ -800,7 +815,8 @@
     <MESSAGE value="set up infrastructure for the version selector feature in sheet view" />
     <MESSAGE value="Version Changes Servlet was established" />
     <MESSAGE value="Completed the implementation of the Version Selector feature. The user can now select a previous version of the sheet, view the number of changes in each version, and load a specific version of the sheet in a new view.&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completed the implementation of the Version Selector feature. The user can now select a previous version of the sheet, view the number of changes in each version, and load a specific version of the sheet in a new view.&quot;" />
+    <MESSAGE value="commit for merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit for merge" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -864,6 +880,11 @@
           <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java</url>
           <line>292</line>
           <option name="timeStamp" value="377" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsController.java</url>
+          <line>109</line>
+          <option name="timeStamp" value="382" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>

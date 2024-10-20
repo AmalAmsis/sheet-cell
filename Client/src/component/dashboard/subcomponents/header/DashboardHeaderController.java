@@ -1,7 +1,9 @@
 package component.dashboard.subcomponents.header;
 
 import component.dashboard.main.maindashboard.DashboardController;
+import component.dashboard.subcomponents.availableSheets.AvailableSheetRow;
 import component.popup.error.ErrorMessage;
+import dto.DTOSheetInfo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,7 +12,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import okhttp3.*;
 import util.http.HttpClientUtil;
-
+import JsonSerializer.JsonSerializer;
 import java.io.File;
 
 import static util.Constants.LOAD;
@@ -48,8 +50,14 @@ public class DashboardHeaderController {
                 Response response = call.execute();
 
                 if (response.isSuccessful()) {
-                    CheckBox checkBox = new CheckBox(selectedFile.getName());
-                   dashboardController.addSheetToAvailableSheets(checkBox);
+
+// Convert the response to DTOSheetInfo
+                    String jsonResponse = response.body().string();
+                    JsonSerializer jsonSerializer = new JsonSerializer();
+                    DTOSheetInfo sheetInfo = jsonSerializer.convertJsonToDTOSheetInfo(jsonResponse);
+
+                    dashboardController.createAvailableSheetRow(sheetInfo);
+
                 }else{
                     new ErrorMessage("Something went wrong: " + response.body().string());
 

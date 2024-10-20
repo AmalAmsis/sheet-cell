@@ -1,11 +1,13 @@
 package component.dashboard.main.maindashboard;
 
 
+import component.dashboard.subcomponents.availableSheets.AvailableSheetRow;
 import component.dashboard.subcomponents.availableSheets.AvailableSheetsController;
 import component.dashboard.subcomponents.command.CommandController;
 import component.dashboard.subcomponents.header.DashboardHeaderController;
 import component.main.SheetCellAppMainController;
 import dto.DTOSheet;
+import dto.DTOSheetInfo;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ScrollPane;
@@ -37,8 +39,8 @@ public class DashboardController {
         this.sheetCellAppMainController = sheetCellAppMainController;
     }
 
-    public void addSheetToAvailableSheets(CheckBox checkBox) {
-        availableSheetsController.addSheetToAvailableSheetTable(checkBox);
+    public void addSheetToAvailableSheets(AvailableSheetRow row) {
+        availableSheetsController.addSheetToAvailableSheetTable(row);
     }
 
 
@@ -50,4 +52,15 @@ public class DashboardController {
         sheetCellAppMainController.switchToSelectedSheetView(dtoSheet,selectedSheetName);
 
     }
+
+    public void createAvailableSheetRow(DTOSheetInfo dtoSheetInfo) {
+        // Create a new row for the available sheet table
+        AvailableSheetRow row = new AvailableSheetRow(dtoSheetInfo.getSheetName(),
+                dtoSheetInfo.getNumRows() + "x" + dtoSheetInfo.getNumCols(),
+                dtoSheetInfo.getUploadBy(),
+                this.availableSheetsController);
+
+    }
+
+
 }
