@@ -1,6 +1,7 @@
 package component.selectedSheetView.main;
 
 import JsonSerializer.JsonSerializer;
+import com.google.gson.reflect.TypeToken;
 import component.main.SheetCellAppMainController;
 import component.popup.error.ErrorMessage;
 import component.selectedSheetView.subcomponent.header.SelectedSheetViewHeaderController;
@@ -12,6 +13,7 @@ import component.selectedSheetView.subcomponent.sheetPoller.SheetPollerTask;
 import constants.Constants.*;
 import dto.DTOCell;
 import dto.DTOCoordinate;
+import dto.DTORange;
 import dto.DTOSheet;
 import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
@@ -133,13 +135,61 @@ public class SelectedSheetViewController {
     }
 
     /**
-     * Displays the selected range in the sheet.
-     *
-     * @param newRangeId the ID of the new range to display.
+     * Highlights and displays the selected range.
+     * @param selectedRange the name of the range to display.
      */
-    private void showRange(String newRangeId) {
-        // Implementation to display the selected range
+    public void showRange(String selectedRange) {
+        clearPreviousSelection();  // Clear previous selections
+        try {
+            // Send a GET request to the server to fetch the coordinates list for the selected range
+            String finalUrl = HttpUrl.parse(RANGE)  // Server URL for the range
+                    .newBuilder()
+                    .addQueryParameter("rangeName", selectedRange)
+                    .build()
+                    .toString();
+
+            Request request = new Request.Builder()
+                    .url(finalUrl)
+                    .build();
+
+            // Send the request to the server
+            HttpClientUtil.HTTP_CLIENT.newCall(request).enqueue(new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+                    Platform.runLater(() -> new ErrorMessage("Failed to fetch range: " + e.getMessage()));
+                }
+
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    if (response.isSuccessful()) {
+                        // Convert the response to a List of cell IDs
+                        String jsonResponse = response.body().string();
+                        List<String> cellsId = GSON_INSTANCE.fromJson(jsonResponse, new TypeToken<List<String>>(){}.getType());
+
+                        // Add the border for each cell based on the cell IDs
+                        Platform.runLater(() -> {
+                            try {
+                                sheetController.addBorderForCells(
+                                        CellStyle.RANGE_CELL_BORDER_COLOR.getColorValue(),
+                                        CellStyle.RANGE_CELL_BORDER_STYLE.getStyleValue(),
+                                        CellStyle.RANGE_CELL_BORDER_WIDTH.getWidthValue(),
+                                        cellsId);
+                                previouslySelectedCells.addAll(cellsId);  // Store the previously selected cells
+                            } catch (Exception e) {
+                                new ErrorMessage(e.getMessage());
+                            }
+                        });
+                    } else {
+                        Platform.runLater(() -> new ErrorMessage("Failed to fetch range: " + response.message()));
+                    }
+                }
+            });
+        } catch (Exception e) {
+            new ErrorMessage(e.getMessage());
+        }
     }
+
+
 
     /**
      * Clears the previous selection from the sheet.
@@ -462,5 +512,13 @@ public class SelectedSheetViewController {
 
     public void applyTheme(String style) {
         sheetCellAppMainController.applyTheme(style);
+    }
+
+    /**
+     * Changes the selected range and triggers the listener for range selection.
+     * @param rangeId the ID of the range to select.
+     */
+    public void selectRange(String rangeId) {
+        selectedRangeId.set(rangeId);  // Triggers the listener
     }
 }

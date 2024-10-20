@@ -166,7 +166,15 @@ public class SelectedSheetViewLeftController {
 
     @FXML void ClickMeRemoveRange(ActionEvent event) {}
 
-    @FXML void ClickMeShowRange(ActionEvent event) {}
+    @FXML void ClickMeShowRange(ActionEvent event) {
+        String selectedRange = showRangeChoiceBox.getSelectionModel().getSelectedItem();
+
+        if (selectedRange != null) {
+            // Call appController to show/highlight the selected range
+            selectedSheetViewController.selectRange(selectedRange);
+            showRangeChoiceBox.getSelectionModel().clearSelection();
+        }
+    }
 
 
     /** FILTER FEATURE:*/

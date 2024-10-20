@@ -34,6 +34,7 @@ public class Constants {
     public final static String CURRENT_SHEET_VERSION = FULL_SERVER_PATH + "/sheet/checking-for-an-update";
     public final static String VERSION_CHANGES = FULL_SERVER_PATH + "/version-changes";
     public final static String VERSION_SHEET = FULL_SERVER_PATH + "/version-sheet";
+    public final static String RANGE = FULL_SERVER_PATH + "/range";
 
     // GSON instance
     public final static Gson GSON_INSTANCE = new Gson();
