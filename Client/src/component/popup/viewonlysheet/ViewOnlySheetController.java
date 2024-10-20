@@ -139,9 +139,8 @@ public class ViewOnlySheetController {
     }
 
 
-    public void displayViewOnlySheetByVersion(int version) {
-       // DTOSheet dtoSheet = selectedSheetViewController.getSheetByVersion(version);
-      //  initViewOnlySheetAndBindToUIModel(dtoSheet,false);
+    public void displayViewOnlySheetByVersion( DTOSheet dtoSheet) {
+       initViewOnlySheetAndBindToUIModel(dtoSheet,false);
 
     }
 

@@ -9,9 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="set up infrastructure for the version selector feature in sheet view">
-      <change afterPath="$PROJECT_DIR$/Server/src/servlets/VersionChangesServlet.java" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Version Changes Servlet was established">
+      <change afterPath="$PROJECT_DIR$/Server/src/servlets/VersionSheetServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/popup/versionselector/VersionSelectorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/popup/versionselector/VersionSelectorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/popup/viewonlysheet/ViewOnlySheetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/popup/viewonlysheet/ViewOnlySheetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/util/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/servlets/VersionChangesServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/VersionChangesServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +100,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.1706642",
     "settings.editor.selected.configurable": "preferences.applicationServers",
@@ -334,15 +341,7 @@
       <workItem from="1728768460006" duration="5531000" />
       <workItem from="1729162799676" duration="178000" />
       <workItem from="1729162985853" duration="8842000" />
-      <workItem from="1729339170318" duration="8946000" />
-    </task>
-    <task id="LOCAL‎-00050" summary="commit1">
-      <option name="closed" value="true" />
-      <created>1726478967817</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL‎-00050" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726478967817</updated>
+      <workItem from="1729339170318" duration="16490000" />
     </task>
     <task id="LOCAL‎-00051" summary="nhanced cell customization and layout management:&#10;&#10;- Implemented functionality to change cell background and text colors using ColorPickers.&#10;- Added listeners for Spinners to adjust row height and column width dynamically.&#10;- Improved handling of cell text alignment with the ChoiceBox, allowing for center, left, and right alignment.&#10;- Refined interaction between HeaderController and SheetController to ensure seamless updates to cell properties.&#10;&#10;- Improved logic for applying styles and dimensions to ensure consistent behavior across the grid.">
       <option name="closed" value="true" />
@@ -728,7 +727,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729352192151</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="Version Changes Servlet was established">
+      <option name="closed" value="true" />
+      <created>1729352842453</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1729352842453</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -774,7 +781,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="&#10;&#10;- Cleaned up several classes." />
     <MESSAGE value="&#10;final updates before submission" />
     <MESSAGE value="Fixed the handling of Platform.runLater in AppController's loadAndDisplaySheetFromXmlFile method to ensure that UI updates are executed correctly on the JavaFX Application Thread. Added proper lambda syntax for multiple statements.&#10;&#10;Improved error handling: The application now properly stops processing if an invalid file or conflicting range is detected during XML file loading. This prevents the application from attempting to display corrupted data after encountering an exception." />
     <MESSAGE value="Implemented deep copy functionality across multiple components:&#10;- Added createDeepCopy method in SheetImpl to handle deep copying of sheets, including copying cells, the range manager, and all related data.&#10;- Implemented deep copy for CellImpl, ensuring correct copying of cell dependencies (dependsOn and influencingOn) while avoiding recursion issues with cyclic references.&#10;- Added tracking maps in SheetImpl and CellImpl (copiedCells) to prevent infinite recursion during the deep copy process.&#10;- Implemented deep copy functionality for RangeImpl and RangeManagerImpl to ensure ranges and their usage counts are copied correctly.&#10;- Ensured that all dependent entities such as cells, ranges, and the range manager are copied deeply, maintaining consistency and avoiding shared references between the original and copied sheets." />
@@ -799,7 +805,8 @@
     <MESSAGE value="Added sheet sorting functionality&#10;on server and client side" />
     <MESSAGE value="Added sheet sorting and filtering functionality&#10;on server and client side" />
     <MESSAGE value="set up infrastructure for the version selector feature in sheet view" />
-    <option name="LAST_COMMIT_MESSAGE" value="set up infrastructure for the version selector feature in sheet view" />
+    <MESSAGE value="Version Changes Servlet was established" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version Changes Servlet was established" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -848,11 +855,6 @@
           <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java</url>
           <line>511</line>
           <option name="timeStamp" value="361" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java</url>
-          <line>242</line>
-          <option name="timeStamp" value="368" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/UI/src/component/main/app/AppController.java</url>

@@ -42,7 +42,6 @@ public class SelectedSheetViewController {
 
     private SheetCellAppMainController sheetCellAppMainController;
     private String selectedSheetName;
-    private int versionNumber;
 
     @FXML
     private ScrollPane header;
@@ -412,11 +411,4 @@ public class SelectedSheetViewController {
         return this.selectedSheetName;
     }
 
-    public int getNumOfVersions() {
-        return this.versionNumber;
-    }
-
-    public int getNumOfChangesInVersion(int version) {
-        return this.changePerVersion.get(version);
-    }
 }
