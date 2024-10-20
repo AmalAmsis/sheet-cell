@@ -7,6 +7,7 @@ import sheetmanager.sheet.coordinate.CoordinateImpl;
 import sheetmanager.sheet.range.Range;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -55,7 +56,6 @@ public class DTOSheetImpl implements DTOSheet, Serializable {
             DTOCell dtoCell = new DTOCellImpl(cell);
             addDTOCell(dtoCell);
         }
-
         //**********************************************YARDEN**********************************************//
         for(Range range : sheet.getRangeManager().getRanges().values()){
             this.ranges.put(range.getName(), new DTORangeImpl(range)) ;
@@ -63,9 +63,6 @@ public class DTOSheetImpl implements DTOSheet, Serializable {
         //**********************************************YARDEN**********************************************//
 
     }
-
-
-
     @Override
     public Map<String,DTORange> getRanges(){
         return this.ranges;

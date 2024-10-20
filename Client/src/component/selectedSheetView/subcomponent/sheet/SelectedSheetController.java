@@ -27,6 +27,7 @@ public class SelectedSheetController {
 
     private SelectedSheetViewController selectedSheetViewController;
     private UIModelSheet uiModel;
+    private String selectedSheetName;
 
     @FXML
     private GridPane sheetGrid;
@@ -105,7 +106,7 @@ public class SelectedSheetController {
         uiModel.setColumnAlignment(colIndex, alignment);
     }
 
-    public void initSheetAndBindToUIModel(DTOSheet dtoSheet) {
+    public void initSheetAndBindToUIModel(DTOSheet dtoSheet,String selectedSheetName ) {
         sheetGrid.getChildren().clear();
 
         int numOfRows = dtoSheet.getNumOfRows();
@@ -160,6 +161,8 @@ public class SelectedSheetController {
                 sheetGrid.add(cellLabel, col, row);
             }
         }
+
+        this.selectedSheetName = selectedSheetName;
     }
 
     /**
@@ -231,6 +234,24 @@ public class SelectedSheetController {
         });
     }
 
+    /**
+     * Gets the values in a specific column between two rows.
+     * @param column the column letter (e.g., 'A').
+     * @param firstRow the first row index.
+     * @param lastRow the last row index.
+     * @return a list of values in the specified column between the rows.
+     */
+    public List<String> getColumnValues(char column, int firstRow, int lastRow) {
+        List<String> columnValues = new ArrayList<>();
+        for (int rowNum = firstRow; rowNum <= lastRow; rowNum++) {
+            String cellId = getCellIdByChar(column, rowNum);
+            String value = uiModel.getCell(cellId).valueProperty().getValue();
+            if (!value.isEmpty()) {
+                columnValues.add(value);
+            }
+        }
+        return columnValues;
+    }
     /**
      * Adds borders for the specified cells with the given styles.
      * @param color the color of the border.
@@ -315,9 +336,24 @@ public class SelectedSheetController {
      */
     public Integer getLastModifiedVersion(String cellId) {return uiModel.getLastModifiedVersion(cellId);}
 
+    /**
+     * Gets the cell ID by column letter and row number.
+     * @param col the column letter.
+     * @param row the row number.
+     * @return the cell ID in the format "A:1", "B:2", etc.
+     */
+    private String getCellIdByChar(char col, int row) {
+        return String.valueOf(col) + ":" + row;
+    }
     public List<String> getDependsOn(String cellId) {return uiModel.getCellDependsOn(cellId);}
 
     public List<String> getInfluencingOn(String cellId) {return  uiModel.getCellInfluencingOn(cellId);}
 
-
+    /**
+     * Gets the current UI model of the sheet.
+     * @return the current UI model.
+     */
+    public UIModelSheet getCurrentUIModel() {
+        return uiModel;
+    }
 }

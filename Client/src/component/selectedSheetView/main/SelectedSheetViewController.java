@@ -7,6 +7,7 @@ import component.selectedSheetView.subcomponent.header.SelectedSheetViewHeaderCo
 import component.selectedSheetView.subcomponent.left.SelectedSheetViewLeftController;
 import component.selectedSheetView.subcomponent.sheet.CellStyle;
 import component.selectedSheetView.subcomponent.sheet.SelectedSheetController;
+import component.selectedSheetView.subcomponent.sheet.UIModelSheet;
 import component.selectedSheetView.subcomponent.sheetPoller.SheetPollerTask;
 import constants.Constants.*;
 import dto.DTOCell;
@@ -44,6 +45,7 @@ import static util.Constants.*;
 public class SelectedSheetViewController {
 
     private SheetCellAppMainController sheetCellAppMainController;
+    private String selectedSheetName;
 
     @FXML
     private ScrollPane header;
@@ -72,6 +74,7 @@ public class SelectedSheetViewController {
     private List<String> previouslySelectedCells = new ArrayList<>();
 
     private Timer sheetPollingTimer;
+
 
     /**
      * Initializes the controller and sets up bindings for UI components and properties.
@@ -212,9 +215,10 @@ public class SelectedSheetViewController {
     /**
      * Displays the loaded sheet in the UI.
      */
-    public void displaySheet(DTOSheet dtoSheet) {
+    public void displaySheet(DTOSheet dtoSheet,String fileName) {
         // Implementation for displaying the sheet
-        sheetController.initSheetAndBindToUIModel(dtoSheet);
+        sheetController.initSheetAndBindToUIModel(dtoSheet,fileName);
+        this.selectedSheetName = fileName;
     }
 
     /**
@@ -291,7 +295,6 @@ public class SelectedSheetViewController {
 
     /**
      * Changes the selected cell and triggers the listener for cell selection.
-     *
      * @param cellId the ID of the cell to select.
      */
     public void selectCell(String cellId) {
@@ -439,6 +442,23 @@ public class SelectedSheetViewController {
             sheetPollingTimer.cancel();  // Stop the timer when no longer needed
         }
     }
+
+
+
+
+    public List<String> getColumnValues(char column, int firstRow, int lastRow) {
+        return sheetController.getColumnValues(column, firstRow, lastRow);
+    }
+
+    public UIModelSheet getCurrentUIModel() {
+        return sheetController.getCurrentUIModel();
+
+    }
+
+    public String getFileName() {
+        return this.selectedSheetName;
+    }
+
 
     public void applyTheme(String style) {
         sheetCellAppMainController.applyTheme(style);

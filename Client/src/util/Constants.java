@@ -27,9 +27,13 @@ public class Constants {
     public final static String LOAD = FULL_SERVER_PATH + "/upload-file";
     public final static String VIEW = FULL_SERVER_PATH + "/sheet";
     public final static String AVAILABLE_SHEETS = FULL_SERVER_PATH + "/available-sheets";
+    public final static String SORT_SHEET = FULL_SERVER_PATH + "/sort-sheet";
+    public final static String FILTER_SHEET = FULL_SERVER_PATH + "/filter-sheet";
     public final static String UPDATE_CELL = FULL_SERVER_PATH + "/cell";
     public final static String CURRENT_SHEET_NAME = FULL_SERVER_PATH + "/current-sheet-name";
     public final static String CURRENT_SHEET_VERSION = FULL_SERVER_PATH + "/sheet/checking-for-an-update";
+    public final static String VERSION_CHANGES = FULL_SERVER_PATH + "/version-changes";
+    public final static String VERSION_SHEET = FULL_SERVER_PATH + "/version-sheet";
 
     // GSON instance
     public final static Gson GSON_INSTANCE = new Gson();

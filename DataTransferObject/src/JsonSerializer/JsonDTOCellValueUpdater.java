@@ -64,7 +64,7 @@ public class JsonDTOCellValueUpdater {
 
                 DTOCell newDtoCell = new DTOCellImpl(cellId,coordinate,effectiveValue,originalValue,lastModifiedVersion,dependsOn,influencingOn);
 
-                dtoSheet.getCells().put(cellId, newDtoCell);
+                dtoSheet.getCells().put(key, newDtoCell);
             }
         }
     }
