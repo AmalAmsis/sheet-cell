@@ -1,6 +1,7 @@
 package component.selectedSheetView.subcomponent.header;
 
 import component.selectedSheetView.main.SelectedSheetViewController;
+import component.selectedSheetView.subcomponent.sheet.CellStyle;
 import dto.DTOSheet;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.value.ChangeListener;
@@ -116,8 +117,16 @@ public class SelectedSheetViewHeaderController {
     }
 
     // Event handler methods for buttons (to be implemented)
+    /**
+     * Resets the cell's text and background color to default values.
+     */
     @FXML
-    void ClickMeBackToDefaultButton(ActionEvent event) {}
+    void ClickMeBackToDefaultButton(ActionEvent event) {
+        selectedSheetViewController.setSelectedCellBackgroundColor(CellStyle.NORMAL_CELL_BACKGROUND_COLOR.getColorValue());
+        selectedSheetViewController.setSelectedCellTextColor(CellStyle.NORMAL_CELL_TEXT_COLOR.getColorValue());
+        cellBackgroundColorPicker.setValue(CellStyle.NORMAL_CELL_BACKGROUND_COLOR.getColorValue());
+        textColorPicker.setValue(CellStyle.NORMAL_CELL_TEXT_COLOR.getColorValue());
+    }
 
     @FXML
     void ClickMeUpdateValueButtonAction(ActionEvent event) {
@@ -129,11 +138,23 @@ public class SelectedSheetViewHeaderController {
     @FXML
     void ClickMeVersionSelectorButtonAction(ActionEvent event) {}
 
+    /**
+     * Changes the theme to the first style.
+     */
     @FXML
-    void changeToFirstStyle(ActionEvent event) {}
+    public void changeToFirstStyle(ActionEvent actionEvent) {
+        selectedSheetViewController.applyTheme("Style 1");
+        themesMenuButton.setText("Style 1");
+    }
 
+    /**
+     * Changes the theme to the second style.
+     */
     @FXML
-    void changeToSecondStyle(ActionEvent event) {}
+    public void changeToSecondStyle(ActionEvent actionEvent) {
+        selectedSheetViewController.applyTheme("Style 2");
+        themesMenuButton.setText("Style 2");
+    }
 
     @FXML
     void handleBackToDashboard(ActionEvent event) {
@@ -167,6 +188,20 @@ public class SelectedSheetViewHeaderController {
 
     public Button getSwitchToTheLatestVersionButton() {
         return latestVersionButton;
+    }
+
+    /**
+     * Updates header values, including text color, background color, alignment, etc.
+     */
+    public void updateHeaderValues(String cellId, String originalValue, String lastModifiedVersion, Color textColor, Color backgroundColor, int width, int height, String alignment) {
+        cellIdLabel.setText(cellId);
+        originalValueLabel.setText(originalValue);
+        lastModifiedVersionLabel.setText(lastModifiedVersion);
+        cellBackgroundColorPicker.setValue(backgroundColor);
+        textColorPicker.setValue(textColor);
+        columnWidthSpinner.getValueFactory().setValue(width);
+        rowHeightSpinner.getValueFactory().setValue(height);
+        alignmentChoiceBox.getSelectionModel().select(alignment);
     }
 }
 

@@ -5,6 +5,9 @@ import javafx.geometry.Pos;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CellModel {
 
     private final StringProperty value;
@@ -21,6 +24,7 @@ public class CellModel {
 
 
 
+
     public CellModel(int hight, int width) {
         this.value = new SimpleStringProperty("");
         this.alignment = new SimpleObjectProperty<>(Pos.CENTER);
@@ -32,6 +36,8 @@ public class CellModel {
         this.borderWidth = new SimpleDoubleProperty(CellStyle.NORMAL_CELL_BORDER_WIDTH.getWidthValue());
         this.Hight = new SimpleIntegerProperty(hight);
         this.Width = new SimpleIntegerProperty(width);
+
+
     }
 
     public StringProperty valueProperty() {

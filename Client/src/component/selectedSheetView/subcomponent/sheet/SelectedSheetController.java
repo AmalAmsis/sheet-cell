@@ -3,6 +3,7 @@ package component.selectedSheetView.subcomponent.sheet;
 import component.selectedSheetView.main.SelectedSheetViewController;
 import component.selectedSheetView.subcomponent.sheetPoller.SheetPollerTask;
 import dto.DTOCell;
+import dto.DTOCoordinate;
 import dto.DTOSheet;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
@@ -11,6 +12,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Timer;
 
@@ -143,6 +146,14 @@ public class SelectedSheetController {
                 DTOCell dtoCell = dtoSheet.getCells().get(cellKey);
                 if (dtoCell != null) {
                     uiModel.setCellValue(cellKey, dtoCell.getEffectiveValue().toString());
+                    uiModel.setCellOriginalValue(cellKey, dtoCell.getOriginalValue());
+                    uiModel.setLastModifiedVersion(cellKey, dtoCell.getLastModifiedVersion());
+                    List<String> DependsOnList = TurnDtoCoordinateListToCellIdList(dtoCell.getDependsOn());
+                    uiModel.setCellDependsOn(cellKey, DependsOnList);
+                    List<String> InfluencingOnList = TurnDtoCoordinateListToCellIdList(dtoCell.getInfluencingOn());
+                    uiModel.setCellInfluencingOn(cellKey, InfluencingOnList);
+
+                    //להוסיף ל username
                 }
 
                 uiModel.bindCellToModel(cellLabel, cellKey);
@@ -158,9 +169,26 @@ public class SelectedSheetController {
     public void updateSheetValues(DTOSheet dtoSheet) {
         Map<String, DTOCell> sheetMap = dtoSheet.getCells();
         for (DTOCell cell : sheetMap.values()) {
-            uiModel.setCellValue(cell.getCoordinate().toString(), cell.getEffectiveValue().toString());
+            uiModel.setCellValue(cell.getCoordinate().toString(), cell.getEffectiveValue());
+            uiModel.setCellOriginalValue(cell.getCoordinate().toString(), cell.getOriginalValue());
+            uiModel.setLastModifiedVersion(cell.getCoordinate().toString(), cell.getLastModifiedVersion());
+            List<String> DependsOnList = TurnDtoCoordinateListToCellIdList(cell.getDependsOn());
+            uiModel.setCellDependsOn(cell.getCoordinate().toString(), DependsOnList);
+            List<String> InfluencingOnList = TurnDtoCoordinateListToCellIdList(cell.getInfluencingOn());
+            uiModel.setCellInfluencingOn(cell.getCoordinate().toString(), InfluencingOnList);
+
+            //להוסיף ל username
         }
         selectedSheetViewController.SelectSameCell(); // Call to select the same cell after update.
+    }
+
+    // Helper method to convert DTOCoordinate list to cell ID list
+    private List<String> TurnDtoCoordinateListToCellIdList(List<DTOCoordinate> dtoCoordinateList) {
+        List<String> cellsId = new ArrayList<>();
+        for (DTOCoordinate dtoCoordinate : dtoCoordinateList) {
+            cellsId.add(dtoCoordinate.toString());
+        }
+        return cellsId;
     }
 
     /**
@@ -203,7 +231,93 @@ public class SelectedSheetController {
         });
     }
 
+    /**
+     * Adds borders for the specified cells with the given styles.
+     * @param color the color of the border.
+     * @param style the style of the border.
+     * @param width the width of the border.
+     * @param cellsId the list of cell IDs to apply the border to.
+     */
+    public void addBorderForCells(Color color, String style, double width, List<String> cellsId) {
+        for (String cellId : cellsId) {
+            uiModel.setCellBorderColor(cellId, color);
+            uiModel.setCellBorderStyle(cellId, style);
+            uiModel.setCellBorderWidth(cellId, width);
+        }
+    }
 
+    /**
+     * Gets the text color of a specific cell.
+     * @param cellId the ID of the cell.
+     * @return the text color of the cell.
+     */
+    public Color getCellTextColor(String cellId) {
+        return uiModel.getCellTextColor(cellId);
+    }
+
+    /**
+     * Gets the background color of a specific cell.
+     * @param cellId the ID of the cell.
+     * @return the background color of the cell.
+     */
+    public Color getCellBackgroundColor(String cellId) {
+        return uiModel.getCellBackgroundColor(cellId);
+    }
+
+    /**
+     * Gets the height of a specific cell.
+     * @param cellId the ID of the cell.
+     * @return the height of the cell.
+     */
+    public int getCellHeight(String cellId) {
+        return uiModel.getCellHeight(cellId);
+    }
+
+    /**
+     * Gets the width of a specific cell.
+     * @param cellId the ID of the cell.
+     * @return the width of the cell.
+     */
+    public int getCellWidth(String cellId) {
+        return uiModel.getCellWidth(cellId);
+    }
+
+    /**
+     * Gets the alignment of a specific cell as a string.
+     * @param cellId the ID of the cell.
+     * @return the alignment as a string ("Center", "Left", or "Right").
+     */
+    public String getCellAligmentString(String cellId) {
+        Pos alignment = uiModel.getCellAlignment(cellId);
+        switch (alignment) {
+            case CENTER:
+                return "Center";
+            case CENTER_LEFT:
+                return "Left";
+            case CENTER_RIGHT:
+                return "Right";
+            default:
+                return alignment.toString();
+        }
+    }
+
+    /**
+     * Gets the original value of a specific cell.
+     * @param cellId the ID of the cell.
+     * @return the original value of the cell.
+     */
+    public String getOriginalValue(String cellId) {return uiModel.getCellOriginalValue(cellId);}
+
+    /**
+     * Gets the Last Modified Version of a specific cell.
+     * @param cellId the ID of the cell.
+     * @return the Last Modified Version of the cell.
+     */
+    public Integer getLastModifiedVersion(String cellId) {return uiModel.getLastModifiedVersion(cellId);}
+
+    public List<String> getDependsOn(String cellId) {return uiModel.getCellDependsOn(cellId);}
+
+    public List<String> getInfluencingOn(String cellId) {return  uiModel.getCellInfluencingOn(cellId);}
 
 
 }
