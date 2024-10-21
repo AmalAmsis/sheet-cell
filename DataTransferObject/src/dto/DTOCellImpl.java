@@ -21,9 +21,10 @@ public class DTOCellImpl implements DTOCell , Serializable {
     private int lastModifiedVersion;
     private final List<DTOCoordinate> dependsOn = new ArrayList<>();
     private final List<DTOCoordinate> influencingOn = new ArrayList<>();
+    private String editorName;
 
 
-    public DTOCellImpl(String cellId, DTOCoordinate coordinate, EffectiveValue effectiveValue, String originalValue, int lastModifiedVersion, List<DTOCoordinate> dependsOn, List<DTOCoordinate> influencingOn) {
+    public DTOCellImpl(String cellId, DTOCoordinate coordinate, EffectiveValue effectiveValue, String originalValue, int lastModifiedVersion, List<DTOCoordinate> dependsOn, List<DTOCoordinate> influencingOn, String editorName) {
         this.cellId = cellId;
         this.coordinate = coordinate;
         this.effectiveValue = effectiveValue;
@@ -31,6 +32,7 @@ public class DTOCellImpl implements DTOCell , Serializable {
         this.lastModifiedVersion = lastModifiedVersion;
         this.dependsOn.addAll(dependsOn);
         this.influencingOn.addAll(influencingOn);
+        this.editorName = editorName;
     }
 
 
@@ -48,6 +50,7 @@ public class DTOCellImpl implements DTOCell , Serializable {
         this.originalValue = cell.getOriginalValue();
         this.lastModifiedVersion = cell.getLastModifiedVersion();
         this.cellId = cell.getId();
+        this.editorName = cell.getEditorUserName();
         // Add dependencies
         for(Cell dependCell : cell.getDependsOn()) {
             DTOCoordinate dtoCoordinateWhoDependOn = new DTOCoordinateImpl(dependCell.getCoordinate().getRow(), dependCell.getCoordinate().getCol());
@@ -73,6 +76,7 @@ public class DTOCellImpl implements DTOCell , Serializable {
         this.effectiveValue = cell.getEffectiveValue();
         this.originalValue = cell.getOriginalValue();
         this.lastModifiedVersion = cell.getLastModifiedVersion();
+        this.editorName = cell.getEditorUserName();
         // Add dependencies
         for(Cell dependCell : cell.getDependsOn()) {
             DTOCoordinate dtoCoordinateWhoDependOn = new DTOCoordinateImpl(dependCell.getCoordinate().getRow(), dependCell.getCoordinate().getCol());
@@ -143,6 +147,11 @@ public class DTOCellImpl implements DTOCell , Serializable {
     @Override
     public void setEffectiveValue(EffectiveValue effectiveValue){
         this.effectiveValue = effectiveValue;
+    }
+
+    @Override
+    public String getEditorName() {
+        return editorName;
     }
 
 }

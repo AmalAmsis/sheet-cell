@@ -15,6 +15,7 @@ import okhttp3.Response;
 import org.jetbrains.annotations.NotNull;
 import util.http.HttpClientUtil;
 
+import java.io.Closeable;
 import java.io.IOException;
 import java.util.List;
 import java.util.TimerTask;
@@ -22,7 +23,7 @@ import java.util.Timer;
 
 import static util.Constants.*;
 
-public class AvailableSheetsController {
+public class AvailableSheetsController implements Closeable {
 
     private DashboardController dashboardController;
     private Timer refreshTimer;
@@ -140,7 +141,14 @@ public class AvailableSheetsController {
         });
     }
 
-
-
-
+    //?????????????????????????????????????????????????
+    @Override
+    public void close() throws IOException {
+        if(refreshTimer != null) {
+            refreshTimer.cancel();
+        }
+        if(listRefresher != null) {
+            listRefresher.cancel();
+        }
+    }
 }

@@ -66,6 +66,8 @@ public class UIModelSheet {
 
     public List<String> getCellInfluencingOn(String cellId) {return cells.get(cellId).InfluencingOnProperty().getValue();}
 
+    public String getEditorName(String cellId) {return cells.get(cellId).EditorNameProperty().getValue();}
+
     public void setCellValue(String cellId, String value) {
         cells.get(cellId).setValue(value);
     }
@@ -102,10 +104,9 @@ public class UIModelSheet {
 
     public void setCellInfluencingOn(String cellId, List<String> InfluencingOn) {cells.get(cellId).setInfluencingOn(InfluencingOn);}
 
+    public void setEditorName(String cellId, String editorName) {cells.get(cellId).setEditorName(editorName);}
 
 
-
-    //Amal
     public void setCellBorderColor(String cellId, Color color) {cells.get(cellId).setBorderColor(color);}
 
     public void setCellBorderWidth(String cellId, double width) {cells.get(cellId).setBorderWidth(width);}
@@ -217,6 +218,7 @@ public class UIModelSheet {
             newCell.setAlignment(originalCell.alignmentProperty().get());
             newCell.setDependsOn(originalCell.DependsOnProperty().get());
             newCell.setInfluencingOn(originalCell.InfluencingOnProperty().get());
+            newCell.setEditorName(originalCell.EditorNameProperty().get());
 
             newModel.cells.put(cellId, newCell);
         }

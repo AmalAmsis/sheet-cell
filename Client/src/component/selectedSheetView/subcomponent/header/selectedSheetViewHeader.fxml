@@ -25,10 +25,11 @@
             <HBox spacing="5.0">
                <children>
                   <Label fx:id="cellIdLabel" prefHeight="26.0" prefWidth="44.0" styleClass="header-label" text="cell id" />
-                  <Label fx:id="originalValueLabel" prefHeight="26.0" prefWidth="210.0" styleClass="header-label" text="original value" />
+                  <Label fx:id="originalValueLabel" prefHeight="26.0" prefWidth="253.0" styleClass="header-label" text="original value" />
                   <TextField fx:id="actionLineTextField" promptText="action line" />
                   <Button fx:id="updateValueButton" mnemonicParsing="false" onAction="#ClickMeUpdateValueButtonAction" text="update value" />
                   <Label fx:id="lastModifiedVersionLabel" prefHeight="26.0" prefWidth="124.0" styleClass="header-label" text=" last modified version" />
+                  <Label fx:id="cellEditorNameLabel" prefHeight="26.0" prefWidth="122.0" text="cell editor name" />
                   <Button fx:id="versionSelectorButton" mnemonicParsing="false" onAction="#ClickMeVersionSelectorButtonAction" prefHeight="26.0" prefWidth="109.0" text="version selector" />
                   <Button fx:id="backToDashboardButton" mnemonicParsing="false" onAction="#handleBackToDashboard" prefHeight="22.0" prefWidth="121.0" text="&lt;- Back To Dashboard" textAlignment="CENTER">
                      <HBox.margin>

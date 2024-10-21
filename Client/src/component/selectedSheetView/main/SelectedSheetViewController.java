@@ -1,7 +1,6 @@
 package component.selectedSheetView.main;
 
 import JsonSerializer.JsonSerializer;
-import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import component.main.SheetCellAppMainController;
 import component.popup.error.ErrorMessage;
@@ -10,11 +9,7 @@ import component.selectedSheetView.subcomponent.left.SelectedSheetViewLeftContro
 import component.selectedSheetView.subcomponent.sheet.CellStyle;
 import component.selectedSheetView.subcomponent.sheet.SelectedSheetController;
 import component.selectedSheetView.subcomponent.sheet.UIModelSheet;
-import component.selectedSheetView.subcomponent.sheetPoller.SheetPollerTask;
-import constants.Constants.*;
-import dto.DTOCell;
-import dto.DTOCoordinate;
-import dto.DTORange;
+import component.selectedSheetView.subcomponent.sheet.SheetPollerTask;
 import dto.DTOSheet;
 import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
@@ -23,21 +18,18 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import okhttp3.*;
-import org.jetbrains.annotations.NotNull;
-import util.Constants;
 import util.http.HttpClientUtil;
 
+import java.io.Closeable;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
-import java.util.function.Consumer;
 
 import static util.Constants.*;
 
@@ -46,7 +38,7 @@ import static util.Constants.*;
  * It handles interactions between different subcomponents (header, sheet, and left pane),
  * manages cell selection, and provides the main logic for user interactions.
  */
-public class SelectedSheetViewController {
+public class SelectedSheetViewController implements Closeable {
 
     private SheetCellAppMainController sheetCellAppMainController;
     private String selectedSheetName;
@@ -77,7 +69,7 @@ public class SelectedSheetViewController {
     // List to store previously selected cells for clearing their state
     private List<String> previouslySelectedCells = new ArrayList<>();
 
-    private Timer sheetPollingTimer;
+
 
 
     /**
@@ -317,7 +309,8 @@ public class SelectedSheetViewController {
                 sheetController.getCellBackgroundColor(selectedCellId.getValue()),
                 sheetController.getCellWidth(selectedCellId.getValue()),
                 sheetController.getCellHeight(selectedCellId.getValue()),
-                sheetController.getCellAligmentString(selectedCellId.getValue()));
+                sheetController.getCellAligmentString(selectedCellId.getValue()),
+                sheetController.getCellEditorName(selectedCellId.getValue()));
 
         // Highlight dependencies and influenced cells
         List<String> DependsOnCellsId = sheetController.getDependsOn(selectedCellId.getValue());
@@ -348,7 +341,8 @@ public class SelectedSheetViewController {
                 CellStyle.NORMAL_CELL_TEXT_COLOR.getColorValue(),
                 sheetController.getCellWidth(selectedCellId.getValue()),
                 sheetController.getCellHeight(selectedCellId.getValue()),
-                sheetController.getCellAligmentString(selectedCellId.getValue()));
+                sheetController.getCellAligmentString(selectedCellId.getValue()),
+                "");
 
         clearPreviousSelection();
     }
@@ -597,26 +591,6 @@ public class SelectedSheetViewController {
         return headerController.getSwitchToTheLatestVersionButton();
     }
 
-    // Method to start the polling
-    public void startPolling() {
-        // Create a new Timer
-        Timer sheetPollingTimer = new Timer();
-
-        Button switchToTheLatestVersionButton = getSwitchToTheLatestVersionButton();
-        // Schedule the SheetPollerTask to run every 10 seconds
-        SheetPollerTask pollerTask = new SheetPollerTask(switchToTheLatestVersionButton);
-        sheetPollingTimer.schedule(pollerTask, 0, 2000);  // Run every 2 seconds
-    }
-
-    // Stop the polling when the user leaves the sheet
-    public void stopPolling() {
-        if (sheetPollingTimer != null) {
-            sheetPollingTimer.cancel();  // Stop the timer when no longer needed
-        }
-    }
-
-
-
 
     public List<String> getColumnValues(char column, int firstRow, int lastRow) {
         return sheetController.getColumnValues(column, firstRow, lastRow);
@@ -652,4 +626,15 @@ public class SelectedSheetViewController {
         leftController.startRangePolling();
     }
 
+    public void startSheetPolling(){sheetController.startPolling();}
+
+   //???????????????????????????????????????????????????
+    @Override
+    public void close() throws IOException {
+//        if(sheetPollingTimer!=null){
+//            sheetPollingTimer.cancel();
+//        }
+        sheetController.close();
+        leftController.close();
+    }
 }

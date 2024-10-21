@@ -491,7 +491,7 @@ public class UIManagerImpl implements UIManager {
         try {
             String coordinate = getCoordinateInput();
             String originalValue = getNewOriginalValueInput();
-            sheetManager.updateCell(coordinate, originalValue);
+            sheetManager.updateCell(coordinate, originalValue,"");
             displaySheet();
         }catch (Exception e) {
             printErrorUpdateCellMenu(e.getMessage());

@@ -23,6 +23,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import util.http.HttpClientUtil;
 
+import java.io.Closeable;
 import java.io.IOException;
 import java.util.*;
 
@@ -34,7 +35,7 @@ import static util.Constants.SORT_SHEET;
  * This panel includes functionality for managing ranges, sorting, and filtering.
  * It provides the user with options to add or remove ranges, as well as configure sorting and filtering preferences.
  */
-public class SelectedSheetViewLeftController {
+public class SelectedSheetViewLeftController implements Closeable {
 
     private SelectedSheetViewController selectedSheetViewController;
 
@@ -70,6 +71,8 @@ public class SelectedSheetViewLeftController {
     @FXML private Button applyButton;
 
     @FXML private Button generateGraphButton;
+
+    Timer rangesPollimgTimer;
 
     /**Sets the main controller for this component.
      * @param selectedSheetViewController The main controller of the selected sheet view.*/
@@ -680,8 +683,15 @@ public class SelectedSheetViewLeftController {
     }
 
     public void startRangePolling() {
-        Timer timer = new Timer(true); // Polling will run as a daemon thread
-        timer.schedule(new RangePollerTask(this, selectedSheetViewController.getAllRanges()), 0, 5000); // Poll every 5 seconds
+        rangesPollimgTimer = new Timer(true); // Polling will run as a daemon thread
+        rangesPollimgTimer.schedule(new RangePollerTask(this, selectedSheetViewController.getAllRanges()), 0, 5000); // Poll every 5 seconds
     }
 
+    //?????????????????????????????????????????????????
+    @Override
+    public void close() throws IOException {
+        if(rangesPollimgTimer != null) {
+            rangesPollimgTimer.cancel();
+        }
+    }
 }

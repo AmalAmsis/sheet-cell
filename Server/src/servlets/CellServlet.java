@@ -61,7 +61,7 @@ public class CellServlet extends HttpServlet {
 
         try {
             synchronized (getServletContext()) {
-                sheetManager.updateCell(coordinateRaw, originalValueRaw);
+                sheetManager.updateCell(coordinateRaw, originalValueRaw, userName);
             }
             resp.setStatus(HttpServletResponse.SC_OK);
             resp.getWriter().println(sheetName);

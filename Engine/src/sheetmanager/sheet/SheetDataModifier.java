@@ -13,7 +13,7 @@ public interface SheetDataModifier {
      * @param coordinate the coordinate of the cell to set.
      * @param originalValue the value to set in the cell.
      * @return an integer representing the version number after the cell is updated. */
-    int setCell(Coordinate coordinate, String originalValue);
+    int setCell(Coordinate coordinate, String originalValue, String editorUserName);
 
     /** Removes the cell at the specified coordinate.
      * If the cell does not exist, this method does nothing.

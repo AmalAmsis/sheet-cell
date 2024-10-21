@@ -9,7 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-import static sheetmanager.sheet.range.Test.printSheetToConsole;
+
 
 public class jasonTest {
 
@@ -35,7 +35,7 @@ public class jasonTest {
             JsonDTOCellValueUpdater jsonDTOCellValueUpdater = new JsonDTOCellValueUpdater();
             jsonDTOCellValueUpdater.updateDTOCellValue(dtoSheet2,json);
 
-            printSheetToConsole(dtoSheet2);
+            //printSheetToConsole(dtoSheet2);
 
 
         } catch (FileNotFoundException e) {

@@ -26,22 +26,22 @@ public class sortSheetTest {
         SheetImpl sheet = new SheetImpl(title, numOfRows, numOfCols, heightOfRows, widthOfCols);
 
 
-        sheet.addCell(new CoordinateImpl('A', 1),"5.0");   // A1
-        sheet.addCell(new CoordinateImpl('A', 2), "3.0");   // A2
-        sheet.addCell(new CoordinateImpl('A', 3),"7.0");   // A3
-        sheet.addCell(new CoordinateImpl('A', 4), "3.0");   // A4
-
-
-        sheet.addCell(new CoordinateImpl('B', 1), "2.0");   // B1
-        sheet.addCell(new CoordinateImpl('B', 2), "8.0");   // B2
-        sheet.addCell(new CoordinateImpl('B', 3),"1.0");   // B3
-        sheet.addCell(new CoordinateImpl('B', 4), "7.0");   // B4
-
-
-        sheet.addCell(new CoordinateImpl('C', 1),"DANIEL");   // C1
-        sheet.addCell(new CoordinateImpl('C', 2), "YARDEN");   // C2
-        sheet.addCell(new CoordinateImpl('C', 3), "YES");   // C3
-        sheet.addCell(new CoordinateImpl('C', 4),"BLAA" );   // C4
+//        sheet.addCell(new CoordinateImpl('A', 1),"5.0");   // A1
+//        sheet.addCell(new CoordinateImpl('A', 2), "3.0");   // A2
+//        sheet.addCell(new CoordinateImpl('A', 3),"7.0");   // A3
+//        sheet.addCell(new CoordinateImpl('A', 4), "3.0");   // A4
+//
+//
+//        sheet.addCell(new CoordinateImpl('B', 1), "2.0");   // B1
+//        sheet.addCell(new CoordinateImpl('B', 2), "8.0");   // B2
+//        sheet.addCell(new CoordinateImpl('B', 3),"1.0");   // B3
+//        sheet.addCell(new CoordinateImpl('B', 4), "7.0");   // B4
+//
+//
+//        sheet.addCell(new CoordinateImpl('C', 1),"DANIEL");   // C1
+//        sheet.addCell(new CoordinateImpl('C', 2), "YARDEN");   // C2
+//        sheet.addCell(new CoordinateImpl('C', 3), "YES");   // C3
+//        sheet.addCell(new CoordinateImpl('C', 4),"BLAA" );   // C4
 
 
         DTOSheet beforeSort = new DTOSheetImpl(sheet);

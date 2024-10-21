@@ -41,7 +41,14 @@ public class SheetCellAppMainController implements Closeable {
     private DashboardController dashboardComponentController;
 
     @Override
+    //?????????????????????????????????????????????????
     public void close() throws IOException {
+         if (selectedSheetViewComponentController!=null){
+             selectedSheetViewComponentController.close();
+         }
+         if(dashboardComponentController!=null){
+             dashboardComponentController.close();
+         }
 
     }
 
@@ -121,7 +128,7 @@ public class SheetCellAppMainController implements Closeable {
         selectedSheetViewComponentController.displaySheet(dtoSheet,selectedSheetName);
         selectedSheetViewComponentController.updateChoiceBoxes();
         selectedSheetViewComponentController.startRangePolling();
-        selectedSheetViewComponentController.startPolling();
+        selectedSheetViewComponentController.startSheetPolling();
         // לא סיימנו צריך להוסיף דברים בהמשך
     }
 

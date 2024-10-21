@@ -28,6 +28,7 @@ public class CellImpl implements Cell, Serializable {
     private final List<Cell> influencingOn; // List of cells that depend on this cell
     private SheetDataRetriever sheet; // Interface to retrieve data from the sheet
     private String dependsOnRangeName;
+    private String editorUserName;
 
 
     /** Constructs a CellImpl with the specified coordinate, version, and sheet data retriever.
@@ -44,6 +45,7 @@ public class CellImpl implements Cell, Serializable {
         this.sheet = sheet;
         this.id = coordinate.toString();
         this.dependsOnRangeName = null;
+        this.editorUserName = null;
 
     }
 
@@ -79,13 +81,14 @@ public class CellImpl implements Cell, Serializable {
     }
 
     @Override
-    public int updateValue(String originalValue) {
+    public int updateValue(String originalValue, String editorUserName) {
         Set<Cell> visitedCells = new HashSet<>();
         try {
             updateValueHelper(originalValue, visitedCells);
             this.originalValue = originalValue;
             for (Cell cell : visitedCells) {
                 cell.setLastModifiedVersion(sheet.getVersion());
+                cell.setEditorUserName(editorUserName);
             }
             return visitedCells.size();
         } catch (Exception e) {
@@ -319,6 +322,16 @@ public class CellImpl implements Cell, Serializable {
         }
 
         return copiedCell;
+    }
+
+    @Override
+    public void setEditorUserName(String editorUserName) {
+        this.editorUserName = editorUserName;
+    }
+
+    @Override
+    public String getEditorUserName() {
+        return editorUserName;
     }
 
 
