@@ -93,7 +93,7 @@ public class SelectedSheetViewController {
             leftController.setSelectedSheetViewController(this);
 
             // Start polling when the sheet is opened
-            startPolling();
+            //startPolling();
         }
 
         // Initialize properties
@@ -472,50 +472,52 @@ public class SelectedSheetViewController {
     }
 
     public void updateCellValue(String newOriginalValue) {
-        // Build the final URL for the request
-        String finalUrl = HttpUrl
-                .parse(UPDATE_CELL)
-                .newBuilder()
-                .build()
-                .toString();
+        try {
+            // Build the final URL for the request
+            String finalUrl = HttpUrl
+                    .parse(UPDATE_CELL)
+                    .newBuilder()
+                    .build()
+                    .toString();
 
-        // Create the JSON body for the request
-        String jsonBody = "{\"coordinate\": \"" + selectedCellId.getValue() + "\", \"originalValue\": \"" + newOriginalValue + "\"}";
+            // Create the JSON body for the request
+            String jsonBody = "{\"coordinate\": \"" + selectedCellId.getValue() + "\", \"originalValue\": \"" + newOriginalValue + "\"}";
 
-        // Build the request body
-        RequestBody body = RequestBody.create(jsonBody, MediaType.parse("application/json; charset=utf-8"));
+            // Build the request body
+            RequestBody body = RequestBody.create(jsonBody, MediaType.parse("application/json; charset=utf-8"));
 
-        // Create the PUT request
-        Request request = new Request.Builder()
-                .url(finalUrl)
-                .put(body)
-                .build();
+            // Create the PUT request
+            Request request = new Request.Builder()
+                    .url(finalUrl)
+                    .put(body)
+                    .build();
 
-        // Send the request asynchronously
-        HttpClientUtil.HTTP_CLIENT.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(@NotNull Call call, @NotNull IOException e) {
-                // Handle failure
-                new ErrorMessage(e.getMessage());
-            }
-
-            @Override
-            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+            // Send the request synchronously
+            try (Response response = HttpClientUtil.HTTP_CLIENT.newCall(request).execute()) {
                 if (response.isSuccessful()) {
                     String sheetName = response.body().string();
                     DTOSheet dtoSheet = getDtoSheet(sheetName);
-                    Platform.runLater(() -> {sheetController.updateSheetValues(dtoSheet);});
+
+                    if(dtoSheet!=null) {
+                        // Update the sheet in the UI using Platform.runLater
+                        Platform.runLater(() -> sheetController.updateSheetValues(dtoSheet));
+                    }
 
                     // Handle successful update
                     System.out.println("Cell updated successfully");
                 } else {
                     // Handle error response
                     String responseBody = response.body().string();
-                    Platform.runLater(() -> {new ErrorMessage("Update failed: " + responseBody);});
+                    Platform.runLater(() -> new ErrorMessage("Update failed: " + responseBody));
                 }
             }
-        });
+        } catch (IOException e) {
+            // Handle failure
+            Platform.runLater(() -> new ErrorMessage("Failed to update cell: " + e.getMessage()));
+        }
     }
+
+
 
 
     public DTOSheet getDtoSheet(String sheetName) {
@@ -544,7 +546,7 @@ public class SelectedSheetViewController {
                 DTOSheet dtoSheet = jsonSerializer.convertJsonToDto(jsonResponse);
                 return dtoSheet;
             } else {
-                new ErrorMessage("Failed to fetch sheet: " + response.code());
+                new ErrorMessage("Failed to fetch sheet: " + response.body().string());
             }
 
         } catch (IOException e) {

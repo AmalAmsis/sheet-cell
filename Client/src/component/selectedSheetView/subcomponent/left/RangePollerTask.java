@@ -51,6 +51,7 @@ public class RangePollerTask extends TimerTask {
                         currentRanges = newRanges;
                     }
                 }
+                response.body().close();
             }
         });
     }

@@ -9,15 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Implemented AllRangesServlet to handle range-related operations:&#10;- Added functionality to handle GET requests to retrieve all range names for a given sheet and return them as a JSON response.&#10;- Added PUT request handling to create a new range in the sheet using coordinates and range name provided in the request body (JSON format).&#10;- Added DELETE request handling to delete a range from the sheet based on the range name provided in the request body (JSON format).&#10;- Included helper method to convert a list of DTORange objects to a list of range names.&#10;- Integrated session validation to ensure unauthorized users or sheets are blocked.">
-      <change afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/RangePollerTask.java" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Commit: Refactored AllRangesServlet + Added range addition, deletion, and real-time polling for range updates in the client&#10;&#10;- Refactored AllRangesServlet to handle range-related requests more efficiently.&#10;- Implemented client-side functionality to show, add and delete ranges.&#10; Introduced polling mechanism for real-time range updates.&#10;  - Created RangePollerTask that polls the server every 5 seconds to check for changes in the range list.&#10;  - The choice boxes in the UI are updated automatically when a range is added or removed by any client sharing the same sheet.&#10;&#10;This commit introduces the ability for multiple clients working on the same sheet to see real-time updates to the ranges.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsRefresher.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsRefresher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/servlets/AllRangesServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/AllRangesServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/servlets/RangeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/RangeServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/RangePollerTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/RangePollerTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/EffectiveValueAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/EffectiveValueAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheetmanager/sheet/effectivevalue/EffectiveValueImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheetmanager/sheet/effectivevalue/EffectiveValueImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +122,7 @@
       <recent name="component.selectedSheetView.subcomponent.sheet" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SheetCellClient2">
+  <component name="RunManager" selected="Application.SheetCellClient">
     <configuration name="AppRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="apprunner.AppRunner" />
       <module name="UI" />
@@ -299,8 +297,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SheetCellClient2" />
         <item itemvalue="Application.SheetCellClient" />
+        <item itemvalue="Application.SheetCellClient2" />
         <item itemvalue="Application.AppRunner" />
         <item itemvalue="Application.TestLoadFile" />
         <item itemvalue="Application.TestLogin" />
@@ -339,14 +337,6 @@
       <workItem from="1728768355881" duration="44000" />
       <workItem from="1728768423746" duration="14000" />
       <workItem from="1728768460006" duration="5531000" />
-    </task>
-    <task id="LOCAL‎-00056" summary="design">
-      <option name="closed" value="true" />
-      <created>1726611476870</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL‎-00056" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726611476870</updated>
     </task>
     <task id="LOCAL‎-00057" summary="wrap text">
       <option name="closed" value="true" />
@@ -732,7 +722,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1729439739764</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL‎-00105" summary="Commit: Refactored AllRangesServlet + Added range addition, deletion, and real-time polling for range updates in the client&#10;&#10;- Refactored AllRangesServlet to handle range-related requests more efficiently.&#10;- Implemented client-side functionality to show, add and delete ranges.&#10; Introduced polling mechanism for real-time range updates.&#10;  - Created RangePollerTask that polls the server every 5 seconds to check for changes in the range list.&#10;  - The choice boxes in the UI are updated automatically when a range is added or removed by any client sharing the same sheet.&#10;&#10;This commit introduces the ability for multiple clients working on the same sheet to see real-time updates to the ranges.">
+      <option name="closed" value="true" />
+      <created>1729455029290</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL‎-00105" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1729455029290</updated>
+    </task>
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -778,7 +776,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="&#10;final updates before submission" />
     <MESSAGE value="Fixed the handling of Platform.runLater in AppController's loadAndDisplaySheetFromXmlFile method to ensure that UI updates are executed correctly on the JavaFX Application Thread. Added proper lambda syntax for multiple statements.&#10;&#10;Improved error handling: The application now properly stops processing if an invalid file or conflicting range is detected during XML file loading. This prevents the application from attempting to display corrupted data after encountering an exception." />
     <MESSAGE value="Implemented deep copy functionality across multiple components:&#10;- Added createDeepCopy method in SheetImpl to handle deep copying of sheets, including copying cells, the range manager, and all related data.&#10;- Implemented deep copy for CellImpl, ensuring correct copying of cell dependencies (dependsOn and influencingOn) while avoiding recursion issues with cyclic references.&#10;- Added tracking maps in SheetImpl and CellImpl (copiedCells) to prevent infinite recursion during the deep copy process.&#10;- Implemented deep copy functionality for RangeImpl and RangeManagerImpl to ensure ranges and their usage counts are copied correctly.&#10;- Ensured that all dependent entities such as cells, ranges, and the range manager are copied deeply, maintaining consistency and avoiding shared references between the original and copied sheets." />
     <MESSAGE value="last merge before submit part 2" />
@@ -803,7 +800,8 @@
     <MESSAGE value="Implemented new cell selection, update functionalities, and skin switching capabilities in the client application:&#10;- Added a &quot;Work Bar&quot; to display details for the selected cell:&#10;  - Displays the identity of the selected cell (e.g., 5A, in uppercase).&#10;  - Shows the original value of the cell.&#10;  - Shows the last version in which the cell was updated.&#10;  - Highlighted the cells that the selected cell relies on with a light blue background.&#10;  - Highlighted the cells that depend on the selected cell with a light green background.&#10;&#10;- Added the ability to adjust the width of columns/rows via the graphical interface:&#10;  - If the content is larger than the column width, it can either wrap or clip based on the user's choice.&#10;  - The option is set at the column level and applies to all displayed data in that column.&#10;&#10;- Added the option to align the content within columns:&#10;  - The alignment can be set to left, right, or center.&#10;  - The option is set at the column level and applies to all displayed data in that column.&#10;&#10;- Added the ability to style a specific cell:&#10;  - The user can select both the background color and text color using a color picker.&#10;  - Added a dedicated button to reset all styling to the default state.&#10;  - The styling is attached to the cell and preserved during sorting/filtering actions.&#10;&#10;- Implemented the ability for the user to switch between at least two additional color schemes (skins) beyond the default:&#10;  - Each skin change updates:&#10;    1. The background of the entire screen.&#10;    2. The appearance of all buttons on the screen.&#10;    3. The font style and size of all labels on the screen.&#10;  - The design for skin switching is functional but still requires improvements to enhance its visual appeal." />
     <MESSAGE value="Implemented range display functionality on the client side and server-side API integration:&#10;- Added functionality in the client to fetch and display a selected range from the server.&#10;  - The client sends a GET request to the /range endpoint, passing the selected range name.&#10;  - The server responds with a list of cell coordinates (IDs) in JSON format.&#10;  - The client then highlights the cells in the selected range by adding borders and storing the previously selected cells for clearing.&#10;&#10;- Server-side RangeServlet implementation:&#10;  - The RangeServlet retrieves the list of cell coordinates for the specified range.&#10;  - Converts the list of coordinates to JSON and returns it as a response.&#10;  - Added error handling for missing parameters and server issues.&#10;&#10;- Added GSON to parse the JSON response from the server into a list of cell IDs in the client.&#10;- Ensured client-side handling of successful and failed requests with proper error messaging." />
     <MESSAGE value="Implemented AllRangesServlet to handle range-related operations:&#10;- Added functionality to handle GET requests to retrieve all range names for a given sheet and return them as a JSON response.&#10;- Added PUT request handling to create a new range in the sheet using coordinates and range name provided in the request body (JSON format).&#10;- Added DELETE request handling to delete a range from the sheet based on the range name provided in the request body (JSON format).&#10;- Included helper method to convert a list of DTORange objects to a list of range names.&#10;- Integrated session validation to ensure unauthorized users or sheets are blocked." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented AllRangesServlet to handle range-related operations:&#10;- Added functionality to handle GET requests to retrieve all range names for a given sheet and return them as a JSON response.&#10;- Added PUT request handling to create a new range in the sheet using coordinates and range name provided in the request body (JSON format).&#10;- Added DELETE request handling to delete a range from the sheet based on the range name provided in the request body (JSON format).&#10;- Included helper method to convert a list of DTORange objects to a list of range names.&#10;- Integrated session validation to ensure unauthorized users or sheets are blocked." />
+    <MESSAGE value="Commit: Refactored AllRangesServlet + Added range addition, deletion, and real-time polling for range updates in the client&#10;&#10;- Refactored AllRangesServlet to handle range-related requests more efficiently.&#10;- Implemented client-side functionality to show, add and delete ranges.&#10; Introduced polling mechanism for real-time range updates.&#10;  - Created RangePollerTask that polls the server every 5 seconds to check for changes in the range list.&#10;  - The choice boxes in the UI are updated automatically when a range is added or removed by any client sharing the same sheet.&#10;&#10;This commit introduces the ability for multiple clients working on the same sheet to see real-time updates to the ranges." />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit: Refactored AllRangesServlet + Added range addition, deletion, and real-time polling for range updates in the client&#10;&#10;- Refactored AllRangesServlet to handle range-related requests more efficiently.&#10;- Implemented client-side functionality to show, add and delete ranges.&#10; Introduced polling mechanism for real-time range updates.&#10;  - Created RangePollerTask that polls the server every 5 seconds to check for changes in the range list.&#10;  - The choice boxes in the UI are updated automatically when a range is added or removed by any client sharing the same sheet.&#10;&#10;This commit introduces the ability for multiple clients working on the same sheet to see real-time updates to the ranges." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -815,13 +813,28 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java</url>
-          <line>558</line>
+          <line>560</line>
           <option name="timeStamp" value="174" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java</url>
-          <line>154</line>
-          <option name="timeStamp" value="177" />
+          <url>file://$PROJECT_DIR$/Server/src/servlets/CellServlet.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="182" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java</url>
+          <line>497</line>
+          <option name="timeStamp" value="184" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java</url>
+          <line>524</line>
+          <option name="timeStamp" value="185" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Server/src/servlets/SheetServlet.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="186" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>
@@ -861,7 +874,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java</url>
-          <line>585</line>
+          <line>587</line>
           <properties class="component.selectedSheetView.main.SelectedSheetViewController" method="updateSheet">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
