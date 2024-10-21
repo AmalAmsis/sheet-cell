@@ -33,6 +33,7 @@ public class JsonDTOCellValueUpdater {
                 JsonObject coordinateJson = cellJsonObject.getAsJsonObject("coordinate");
                 String originalValue = cellJsonObject.get("originalValue").getAsString();
                 int lastModifiedVersion = cellJsonObject.get("lastModifiedVersion").getAsInt();
+                String EditorName = cellJsonObject.get("editorName").getAsString();
                 int row = coordinateJson.get("row").getAsInt();
                 String col = coordinateJson.get("col").getAsString();
                 DTOCoordinate coordinate = new DTOCoordinateImpl(row,col.charAt(0));
@@ -62,7 +63,7 @@ public class JsonDTOCellValueUpdater {
                     influencingOn.add(new DTOCoordinateImpl(influenceRow,influenceCol.charAt(0)));
                 }
 
-                DTOCell newDtoCell = new DTOCellImpl(cellId,coordinate,effectiveValue,originalValue,lastModifiedVersion,dependsOn,influencingOn);
+                DTOCell newDtoCell = new DTOCellImpl(cellId,coordinate,effectiveValue,originalValue,lastModifiedVersion,dependsOn,influencingOn, EditorName);
 
                 dtoSheet.getCells().put(key, newDtoCell);
             }

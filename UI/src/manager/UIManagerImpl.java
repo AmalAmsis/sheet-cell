@@ -35,14 +35,16 @@ public class UIManagerImpl implements UIManager {
     //todo
     @Override
     public DTOSheet updateCellValue(String coordinateString, String value) throws Exception {
-        sheetManager.updateCell(coordinateString, value);
+        sheetManager.updateCell(coordinateString, value,"");
         return getDtoSheetForDisplaySheet();
     }
 
     @Override
-    public DTOSheet updateTemporaryCellValue(String coordinateString, String newOriginalValue) {
-        DTOSheet sheet = sheetManager.updateTemporaryCellValue(coordinateString, newOriginalValue);
+    public DTOSheet updateTemporaryCellValue(String coordinateString, String newOriginalValue)  {
+
+        DTOSheet sheet = sheetManager.updateTemporaryCellValue(coordinateString, newOriginalValue, "");
         return sheet;
+
     }
 
     @Override

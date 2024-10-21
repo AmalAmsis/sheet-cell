@@ -1,4 +1,4 @@
-package component.selectedSheetView.subcomponent.sheetPoller;
+package component.selectedSheetView.subcomponent.sheet;
 
 import javafx.application.Platform;
 import javafx.animation.KeyFrame;
@@ -16,7 +16,6 @@ import java.io.IOException;
 import java.util.TimerTask;
 
 import static util.Constants.CURRENT_SHEET_VERSION;
-import static util.Constants.GSON_INSTANCE;
 
 public class SheetPollerTask extends TimerTask {
 

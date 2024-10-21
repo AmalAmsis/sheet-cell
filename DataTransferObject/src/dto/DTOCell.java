@@ -45,4 +45,6 @@ public interface DTOCell {
     String getCellId();
 
     void setEffectiveValue(EffectiveValue effectiveValue);
+
+    String getEditorName();
 }

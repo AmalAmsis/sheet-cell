@@ -1,6 +1,7 @@
 package component.selectedSheetView.main;
 
 import JsonSerializer.JsonSerializer;
+import com.google.gson.reflect.TypeToken;
 import component.main.SheetCellAppMainController;
 import component.popup.error.ErrorMessage;
 import component.selectedSheetView.subcomponent.header.SelectedSheetViewHeaderController;
@@ -8,10 +9,7 @@ import component.selectedSheetView.subcomponent.left.SelectedSheetViewLeftContro
 import component.selectedSheetView.subcomponent.sheet.CellStyle;
 import component.selectedSheetView.subcomponent.sheet.SelectedSheetController;
 import component.selectedSheetView.subcomponent.sheet.UIModelSheet;
-import component.selectedSheetView.subcomponent.sheetPoller.SheetPollerTask;
-import constants.Constants.*;
-import dto.DTOCell;
-import dto.DTOCoordinate;
+import component.selectedSheetView.subcomponent.sheet.SheetPollerTask;
 import dto.DTOSheet;
 import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
@@ -20,16 +18,14 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import okhttp3.*;
-import org.jetbrains.annotations.NotNull;
-import util.Constants;
 import util.http.HttpClientUtil;
 
+import java.io.Closeable;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +38,7 @@ import static util.Constants.*;
  * It handles interactions between different subcomponents (header, sheet, and left pane),
  * manages cell selection, and provides the main logic for user interactions.
  */
-public class SelectedSheetViewController {
+public class SelectedSheetViewController implements Closeable {
 
     private SheetCellAppMainController sheetCellAppMainController;
     private String selectedSheetName;
@@ -73,7 +69,7 @@ public class SelectedSheetViewController {
     // List to store previously selected cells for clearing their state
     private List<String> previouslySelectedCells = new ArrayList<>();
 
-    private Timer sheetPollingTimer;
+
 
 
     /**
@@ -89,7 +85,7 @@ public class SelectedSheetViewController {
             leftController.setSelectedSheetViewController(this);
 
             // Start polling when the sheet is opened
-            startPolling();
+            //startPolling();
         }
 
         // Initialize properties
@@ -133,13 +129,150 @@ public class SelectedSheetViewController {
     }
 
     /**
-     * Displays the selected range in the sheet.
-     *
-     * @param newRangeId the ID of the new range to display.
+     * Highlights and displays the selected range.
+     * @param selectedRange the name of the range to display.
      */
-    private void showRange(String newRangeId) {
-        // Implementation to display the selected range
+    public void showRange(String selectedRange) {
+        clearPreviousSelection();  // Clear previous selections
+        try {
+            // Send a GET request to the server to fetch the coordinates list for the selected range
+            String finalUrl = HttpUrl.parse(RANGE)  // Server URL for the range
+                    .newBuilder()
+                    .addQueryParameter("rangeName", selectedRange)
+                    .build()
+                    .toString();
+
+            Request request = new Request.Builder()
+                    .url(finalUrl)
+                    .build();
+
+            // Send the request to the server
+            HttpClientUtil.HTTP_CLIENT.newCall(request).enqueue(new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+                    Platform.runLater(() -> new ErrorMessage("Failed to fetch range: " + e.getMessage()));
+                }
+
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    if (response.isSuccessful()) {
+                        // Convert the response to a List of cell IDs
+                        String jsonResponse = response.body().string();
+                        List<String> cellsId = GSON_INSTANCE.fromJson(jsonResponse, new TypeToken<List<String>>(){}.getType());
+
+                        // Add the border for each cell based on the cell IDs
+                        Platform.runLater(() -> {
+                            try {
+                                sheetController.addBorderForCells(
+                                        CellStyle.RANGE_CELL_BORDER_COLOR.getColorValue(),
+                                        CellStyle.RANGE_CELL_BORDER_STYLE.getStyleValue(),
+                                        CellStyle.RANGE_CELL_BORDER_WIDTH.getWidthValue(),
+                                        cellsId);
+                                previouslySelectedCells.addAll(cellsId);  // Store the previously selected cells
+                            } catch (Exception e) {
+                                new ErrorMessage(e.getMessage());
+                            }
+                        });
+                    } else {
+                        Platform.runLater(() -> new ErrorMessage("Failed to fetch range: " + response.message()));
+                    }
+                }
+            });
+        } catch (Exception e) {
+            new ErrorMessage(e.getMessage());
+        }
     }
+
+
+    /**
+     * Adds a new range to the sheet based on the given parameters.
+     * @param rangeName the name of the range.
+     * @param from the starting cell of the range.
+     * @param to the ending cell of the range.
+     */
+    public void addNewRange(String rangeName, String from, String to) {
+        try {
+            // Build the final URL for the request
+            String finalUrl = HttpUrl
+                    .parse(RANGES)
+                    .newBuilder()
+                    .build()
+                    .toString();
+
+            // Create the JSON body for the request
+            String jsonBody = "{\"newRangeName\": \"" + rangeName + "\", \"fromCoordinate\": \"" + from + "\", \"toCoordinate\": \"" + to + "\"}";
+
+            // Build the request body
+            RequestBody body = RequestBody.create(jsonBody, MediaType.parse("application/json; charset=utf-8"));
+
+            // Create the PUT request
+            Request request = new Request.Builder()
+                    .url(finalUrl)
+                    .put(body)
+                    .build();
+
+            // Execute the request synchronously
+            Call call = HttpClientUtil.HTTP_CLIENT.newCall(request);
+            Response response = call.execute();
+
+            if (response.isSuccessful()) {
+                response.close(); // Close response body
+            } else {
+                new ErrorMessage("Failed to add new range: " + response.message());
+                response.close(); // Close response body
+            }
+        } catch (IOException e) {
+            new ErrorMessage(e.getMessage());
+        }
+    }
+
+
+    /**
+     * Removes a selected range from the sheet.
+     * @param selectedRange the name of the range to remove.
+     */
+    public void removeRange(String selectedRange) {
+        try {
+            // Build the final URL for the request
+            String finalUrl = HttpUrl
+                    .parse(RANGES)
+                    .newBuilder()
+                    .build()
+                    .toString();
+
+            // Create the JSON body for the request
+            String jsonBody = "{\"rangeName\": \"" + selectedRange + "\"}";
+
+            // Build the request body
+            RequestBody body = RequestBody.create(jsonBody, MediaType.parse("application/json; charset=utf-8"));
+
+            // Create the DELETE request
+            Request request = new Request.Builder()
+                    .url(finalUrl)
+                    .delete(body)
+                    .build();
+
+            // Execute the request synchronously
+            Call call = HttpClientUtil.HTTP_CLIENT.newCall(request);
+            Response response = call.execute();
+
+            if (response.isSuccessful()) {
+                selectedRangeId.set(selectedRange);
+                clearPreviousSelection();  // Clear the UI selection
+                response.close(); // Close response body
+            } else {
+                new ErrorMessage("Failed to remove range: " + response.message());
+                response.close(); // Close response body
+            }
+        } catch (IOException e) {
+            new ErrorMessage(e.getMessage());
+        }
+    }
+
+
+
+
+
 
     /**
      * Clears the previous selection from the sheet.
@@ -176,7 +309,8 @@ public class SelectedSheetViewController {
                 sheetController.getCellBackgroundColor(selectedCellId.getValue()),
                 sheetController.getCellWidth(selectedCellId.getValue()),
                 sheetController.getCellHeight(selectedCellId.getValue()),
-                sheetController.getCellAligmentString(selectedCellId.getValue()));
+                sheetController.getCellAligmentString(selectedCellId.getValue()),
+                sheetController.getCellEditorName(selectedCellId.getValue()));
 
         // Highlight dependencies and influenced cells
         List<String> DependsOnCellsId = sheetController.getDependsOn(selectedCellId.getValue());
@@ -207,7 +341,8 @@ public class SelectedSheetViewController {
                 CellStyle.NORMAL_CELL_TEXT_COLOR.getColorValue(),
                 sheetController.getCellWidth(selectedCellId.getValue()),
                 sheetController.getCellHeight(selectedCellId.getValue()),
-                sheetController.getCellAligmentString(selectedCellId.getValue()));
+                sheetController.getCellAligmentString(selectedCellId.getValue()),
+                "");
 
         clearPreviousSelection();
     }
@@ -271,15 +406,44 @@ public class SelectedSheetViewController {
     }
 
     /**
-     * Retrieves all available ranges for the current sheet.
-     *
-     * @return a list of all range IDs.
+     * Returns a list of all ranges in the sheet asynchronously.
+     * @param callback a callback function to handle the list of ranges when the request completes.
+     */
+    /**
+     * Returns a list of all ranges in the sheet.
+     * @return a list of all ranges.
      */
     public List<String> getAllRanges() {
-        List<String> allRanges = new ArrayList<>();
-        // Implementation for retrieving ranges (placeholder)
-        return allRanges;
+        List<String> rangesName = new ArrayList<>();
+        try {
+            // Define the URL for fetching all ranges
+            String finalUrl = HttpUrl.parse(RANGES).newBuilder().build().toString();
+
+            // Create the GET request
+            Request request = new Request.Builder()
+                    .url(finalUrl)
+                    .build();
+
+            // Send the request synchronously to get the response (note: this blocks the thread)
+            Response response = HttpClientUtil.HTTP_CLIENT.newCall(request).execute();
+
+            if (response.isSuccessful()) {
+                // Parse the JSON response to get the list of range names
+                String jsonResponse = response.body().string();
+                rangesName = GSON_INSTANCE.fromJson(jsonResponse, new TypeToken<List<String>>() {}.getType());
+                response.body().close();  // Close the response body after use
+            } else {
+                // Handle failure response from the server
+                new ErrorMessage("Failed to fetch ranges: " + response.message());
+            }
+        } catch (IOException e) {
+            // Handle exceptions
+            new ErrorMessage(e.getMessage());
+        }
+        return rangesName;
     }
+
+
 
 
     public void backToDashboard() {
@@ -302,50 +466,52 @@ public class SelectedSheetViewController {
     }
 
     public void updateCellValue(String newOriginalValue) {
-        // Build the final URL for the request
-        String finalUrl = HttpUrl
-                .parse(UPDATE_CELL)
-                .newBuilder()
-                .build()
-                .toString();
+        try {
+            // Build the final URL for the request
+            String finalUrl = HttpUrl
+                    .parse(UPDATE_CELL)
+                    .newBuilder()
+                    .build()
+                    .toString();
 
-        // Create the JSON body for the request
-        String jsonBody = "{\"coordinate\": \"" + selectedCellId.getValue() + "\", \"originalValue\": \"" + newOriginalValue + "\"}";
+            // Create the JSON body for the request
+            String jsonBody = "{\"coordinate\": \"" + selectedCellId.getValue() + "\", \"originalValue\": \"" + newOriginalValue + "\"}";
 
-        // Build the request body
-        RequestBody body = RequestBody.create(jsonBody, MediaType.parse("application/json; charset=utf-8"));
+            // Build the request body
+            RequestBody body = RequestBody.create(jsonBody, MediaType.parse("application/json; charset=utf-8"));
 
-        // Create the PUT request
-        Request request = new Request.Builder()
-                .url(finalUrl)
-                .put(body)
-                .build();
+            // Create the PUT request
+            Request request = new Request.Builder()
+                    .url(finalUrl)
+                    .put(body)
+                    .build();
 
-        // Send the request asynchronously
-        HttpClientUtil.HTTP_CLIENT.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(@NotNull Call call, @NotNull IOException e) {
-                // Handle failure
-                new ErrorMessage(e.getMessage());
-            }
-
-            @Override
-            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+            // Send the request synchronously
+            try (Response response = HttpClientUtil.HTTP_CLIENT.newCall(request).execute()) {
                 if (response.isSuccessful()) {
                     String sheetName = response.body().string();
                     DTOSheet dtoSheet = getDtoSheet(sheetName);
-                    Platform.runLater(() -> {sheetController.updateSheetValues(dtoSheet);});
+
+                    if(dtoSheet!=null) {
+                        // Update the sheet in the UI using Platform.runLater
+                        Platform.runLater(() -> sheetController.updateSheetValues(dtoSheet));
+                    }
 
                     // Handle successful update
                     System.out.println("Cell updated successfully");
                 } else {
                     // Handle error response
                     String responseBody = response.body().string();
-                    Platform.runLater(() -> {new ErrorMessage("Update failed: " + responseBody);});
+                    Platform.runLater(() -> new ErrorMessage("Update failed: " + responseBody));
                 }
             }
-        });
+        } catch (IOException e) {
+            // Handle failure
+            Platform.runLater(() -> new ErrorMessage("Failed to update cell: " + e.getMessage()));
+        }
     }
+
+
 
 
     public DTOSheet getDtoSheet(String sheetName) {
@@ -374,7 +540,7 @@ public class SelectedSheetViewController {
                 DTOSheet dtoSheet = jsonSerializer.convertJsonToDto(jsonResponse);
                 return dtoSheet;
             } else {
-                new ErrorMessage("Failed to fetch sheet: " + response.code());
+                new ErrorMessage("Failed to fetch sheet: " + response.body().string());
             }
 
         } catch (IOException e) {
@@ -425,26 +591,6 @@ public class SelectedSheetViewController {
         return headerController.getSwitchToTheLatestVersionButton();
     }
 
-    // Method to start the polling
-    public void startPolling() {
-        // Create a new Timer
-        Timer sheetPollingTimer = new Timer();
-
-        Button switchToTheLatestVersionButton = getSwitchToTheLatestVersionButton();
-        // Schedule the SheetPollerTask to run every 10 seconds
-        SheetPollerTask pollerTask = new SheetPollerTask(switchToTheLatestVersionButton);
-        sheetPollingTimer.schedule(pollerTask, 0, 2000);  // Run every 2 seconds
-    }
-
-    // Stop the polling when the user leaves the sheet
-    public void stopPolling() {
-        if (sheetPollingTimer != null) {
-            sheetPollingTimer.cancel();  // Stop the timer when no longer needed
-        }
-    }
-
-
-
 
     public List<String> getColumnValues(char column, int firstRow, int lastRow) {
         return sheetController.getColumnValues(column, firstRow, lastRow);
@@ -462,5 +608,33 @@ public class SelectedSheetViewController {
 
     public void applyTheme(String style) {
         sheetCellAppMainController.applyTheme(style);
+    }
+
+    /**
+     * Changes the selected range and triggers the listener for range selection.
+     * @param rangeId the ID of the range to select.
+     */
+    public void selectRange(String rangeId) {
+        selectedRangeId.set(rangeId);  // Triggers the listener
+    }
+
+    public void updateChoiceBoxes() {
+        leftController.updateChoiceBoxes();
+    }
+
+    public void startRangePolling(){
+        leftController.startRangePolling();
+    }
+
+    public void startSheetPolling(){sheetController.startPolling();}
+
+   //???????????????????????????????????????????????????
+    @Override
+    public void close() throws IOException {
+//        if(sheetPollingTimer!=null){
+//            sheetPollingTimer.cancel();
+//        }
+        sheetController.close();
+        leftController.close();
     }
 }

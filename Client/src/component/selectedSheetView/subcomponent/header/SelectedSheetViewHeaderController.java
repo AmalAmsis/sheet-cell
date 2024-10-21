@@ -48,8 +48,9 @@ public class SelectedSheetViewHeaderController {
     @FXML private MenuButton themesMenuButton;
     @FXML private Button updateValueButton;
     @FXML private Button versionSelectorButton;
-    @FXML private Button backToDashBoardButton;
+    @FXML private Button backToDashboardButton;
     @FXML private Button latestVersionButton;
+    @FXML private Label cellEditorNameLabel;
 
 
 
@@ -220,7 +221,7 @@ public class SelectedSheetViewHeaderController {
     /**
      * Updates header values, including text color, background color, alignment, etc.
      */
-    public void updateHeaderValues(String cellId, String originalValue, String lastModifiedVersion, Color textColor, Color backgroundColor, int width, int height, String alignment) {
+    public void updateHeaderValues(String cellId, String originalValue, String lastModifiedVersion, Color textColor, Color backgroundColor, int width, int height, String alignment, String cellEditorName) {
         cellIdLabel.setText(cellId);
         originalValueLabel.setText(originalValue);
         lastModifiedVersionLabel.setText(lastModifiedVersion);
@@ -229,6 +230,8 @@ public class SelectedSheetViewHeaderController {
         columnWidthSpinner.getValueFactory().setValue(width);
         rowHeightSpinner.getValueFactory().setValue(height);
         alignmentChoiceBox.getSelectionModel().select(alignment);
+        cellEditorNameLabel.setText(cellEditorName);
+
     }
 }
 

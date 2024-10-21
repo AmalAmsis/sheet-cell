@@ -29,8 +29,7 @@ public class EffectiveValueImpl implements EffectiveValue, Serializable {
         if (cellType.isAssignableFrom(type)) {
             return type.cast(value);
         }
-        // error handling... exception ? return null ?
-        return null;
+        throw new IllegalArgumentException("Expected type " + type.getName() + " but found " + cellType.getType().getName());
     }
 
     @Override
@@ -58,16 +57,25 @@ public class EffectiveValueImpl implements EffectiveValue, Serializable {
 
     @Override
     public String toString() {
-        if (cellType == CellType.NUMERIC && value instanceof Number) {
-            DecimalFormat decimalFormat = new DecimalFormat("#,###.##");
-            return decimalFormat.format(value);
+        if (cellType == CellType.NUMERIC) {
+            if ( value.equals("NaN")) {
+                return "NaN";
+            }
+            else {
+                DecimalFormat decimalFormat = new DecimalFormat("#,###.##");
+                return decimalFormat.format(value);
+            }
         }
+
         if (cellType == CellType.EMPTY) {
             //return "Empty Cell";
             return "";
         }
 
         if (cellType == CellType.BOOLEAN){
+            if ( value.equals("UNKNOWN")) {
+                return "UNKNOWN";
+            }
             return Boolean.toString((Boolean) value).toUpperCase();
         }
         return this.extractValueWithExpectation(cellType.getType()).toString();

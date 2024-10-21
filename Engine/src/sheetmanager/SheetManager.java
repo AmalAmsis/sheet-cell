@@ -28,7 +28,7 @@ public interface SheetManager {
      * @param newOriginalValue The new value to be set in the cell.
      * @return A DTOSheet object representing the updated sheet.
      * @throws Exception If there is an issue*/
-    DTOSheet updateCell(String coordinateString, String newOriginalValue) throws Exception;
+    DTOSheet updateCell(String coordinateString, String newOriginalValue, String editorUserName) throws Exception;
 
     /** Action #5 - Retrieves a DTOSheet representation of a specific version of the sheet.
      * @param versionNumber The version number of the sheet to retrieve.
@@ -42,7 +42,7 @@ public interface SheetManager {
     List<DTORange> getAllRanges();
     DTOSheet getSortedSheet(String from, String to, List<Character> listOfColumnsPriorities) throws Exception;
     DTOSheet filterSheet(Map<String, List<String>> selectedColumnValues, String from, String to) throws Exception;
-    DTOSheet updateTemporaryCellValue(String coordinateString, String newOriginalValue);
+    DTOSheet updateTemporaryCellValue(String coordinateString, String newOriginalValue, String editorUserName) ;
     int getSheetVersion();
 
 

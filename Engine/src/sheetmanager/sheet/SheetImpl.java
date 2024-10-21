@@ -83,7 +83,7 @@ public class SheetImpl implements Sheet , Serializable {
         for(STLCell stlCell : sortedListOfStlCells) {
             String originalValue = stlCell.getSTLOriginalValue();//?????????????????????????????????????????????????
             Coordinate myCoordinate = new CoordinateImpl(stlCell);
-            this.addCell(myCoordinate, originalValue);
+            this.addCell(myCoordinate, originalValue, "");// לשאול שקולטים תאים מקובץ מה לרשום ב userName
         }
         this.version = 1;
     }
@@ -135,14 +135,14 @@ public class SheetImpl implements Sheet , Serializable {
     }
 
     @Override
-    public int setCell(Coordinate coordinate, String originalValue) {
+    public int setCell(Coordinate coordinate, String originalValue,String editorUserName) {
         updateVersion();// Every change in a cell updates the sheet version.
         int numOfUpdatededCells = 0;
         try {
             if (!isCellInSheet(coordinate)) {
-                numOfUpdatededCells = addCell(coordinate, originalValue);
+                numOfUpdatededCells = addCell(coordinate, originalValue, editorUserName);
             } else {
-                numOfUpdatededCells = updateCell(coordinate, originalValue);
+                numOfUpdatededCells = updateCell(coordinate, originalValue,editorUserName);
             }
             return numOfUpdatededCells;
 
@@ -230,12 +230,12 @@ public class SheetImpl implements Sheet , Serializable {
      * @param coordinate the coordinate of the cell to add.
      * @param originalValue the original value to set in the cell.
      * @return the number of cells that been update. */
-    public int addCell(Coordinate coordinate, String originalValue) {
+    public int addCell(Coordinate coordinate, String originalValue, String editorUserName) {
         try {
             int numOfUpdatededCells = 0;
             Cell myCell = new CellImpl(coordinate,this.version,this);
             board.put(coordinate.toString(), myCell);
-            numOfUpdatededCells = myCell.updateValue(originalValue);
+            numOfUpdatededCells = myCell.updateValue(originalValue, editorUserName);
             return numOfUpdatededCells;
         }catch (Exception e){
             board.remove(coordinate.toString());
@@ -247,7 +247,7 @@ public class SheetImpl implements Sheet , Serializable {
      * @param coordinate the coordinate of the cell to update.
      * @param originalValue the new value to set in the cell.
      * @return the number of cells that been update. */
-    public int updateCell(Coordinate coordinate, String originalValue) {
+    public int updateCell(Coordinate coordinate, String originalValue, String editorUserName) {
         Cell myCell = board.get(coordinate.toString());
         myCell.removeAllDependsOn();
         if(myCell.getdependsOnRangeName() != null) {
@@ -256,7 +256,7 @@ public class SheetImpl implements Sheet , Serializable {
         }
         int numOfUpdatededCells = 0;
         if(myCell != null) {
-           numOfUpdatededCells = myCell.updateValue(originalValue);
+           numOfUpdatededCells = myCell.updateValue(originalValue, editorUserName);
         }
         return numOfUpdatededCells;
     }

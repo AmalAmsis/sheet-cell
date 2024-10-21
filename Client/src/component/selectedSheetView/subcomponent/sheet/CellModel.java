@@ -23,6 +23,7 @@ public class CellModel {
     private final IntegerProperty Width;
     private final ObjectProperty<List<String>> DependsOn;
     private final ObjectProperty<List<String>> InfluencingOn;
+    private final StringProperty EditorName;
 
 
 
@@ -42,6 +43,7 @@ public class CellModel {
         this.Width = new SimpleIntegerProperty(width);
         this.DependsOn = new SimpleObjectProperty<>(new ArrayList<>());
         this.InfluencingOn = new SimpleObjectProperty<>(new ArrayList<>());
+        this.EditorName = new SimpleStringProperty("");
     }
 
     public StringProperty valueProperty() {
@@ -92,6 +94,8 @@ public class CellModel {
 
     public ObjectProperty<List<String>> InfluencingOnProperty() {return InfluencingOn;}
 
+    public StringProperty EditorNameProperty() {return EditorName;}
+
 
     public void setValue(String value) {
         this.value.set(value);
@@ -140,5 +144,7 @@ public class CellModel {
     public void setDependsOn(List<String> dependsOn) {this.DependsOn.set(dependsOn); }
 
     public void setInfluencingOn(List<String> InfluencingOn) {this.InfluencingOn.set(InfluencingOn); }
+
+    public void setEditorName(String editorName) {this.EditorName.set(editorName);}
 
 }
