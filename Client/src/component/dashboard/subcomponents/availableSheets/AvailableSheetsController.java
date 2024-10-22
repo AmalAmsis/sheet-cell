@@ -176,19 +176,30 @@ public class AvailableSheetsController implements Closeable {
                 super.updateItem(item, empty);
 
                 if (item == null || empty) {
-                    setStyle("");
+                    setStyle(""); // Clear any custom style when no item or row is empty
                 } else {
                     CheckBox checkBox = item.getSelected();
 
-                    // Change row color if checkbox is selected
+                    // Add listener to change row color when checkbox is selected
                     checkBox.selectedProperty().addListener((obs, wasSelected, isNowSelected) -> {
                         if (isNowSelected) {
-                            setStyle("-fx-border-color: black; -fx-border-width: 2px;");
-                            handleCheckBoxSelection(checkBox);
+                            setStyle("-fx-border-color: black; -fx-border-width: 2px;"); // Highlight the row
                         } else {
-                            setStyle(""); // Remove color when deselected
+                            setStyle(""); // Remove the style when deselected
                         }
                     });
+
+                    // Allow row click to toggle checkbox selection
+                    setOnMouseClicked(event -> {
+                        if (!isEmpty()) {
+                            checkBox.setSelected(!checkBox.isSelected());
+                        }
+                    });
+                }
+            }
+        });
+    }
+
 
     //?????????????????????????????????????????????????
     @Override
@@ -201,3 +212,4 @@ public class AvailableSheetsController implements Closeable {
         }
     }
 }
+;

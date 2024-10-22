@@ -9,24 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="commit for merge">
-      <change afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetRow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/availableSheetsTable.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOSheetInfo.java" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Added dynamic table for available sheets:&#10;- Implemented table with columns: Select (checkbox), Sheet Name, Size (nXm), and Uploaded By.&#10;- Integrated row selection behavior allowing only one row to be selected at a time.&#10;- Added visual highlighting for selected rows with custom styling.&#10;- Updated server-side logic to return DTOSheetInfo to dynamically populate the table.">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/DashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsRefresher.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsRefresher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/availableSheets.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/availableSheets.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/DashboardHeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/DashboardHeaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/JsonSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/JsonSerializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/allsheetsmanager/AllSheetsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/allsheetsmanager/AllSheetsManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheetmanager/SheetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheetmanager/SheetManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheetmanager/SheetManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheetmanager/SheetManagerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheetmanager/sheet/Sheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheetmanager/sheet/Sheet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheetmanager/sheet/SheetImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheetmanager/sheet/SheetImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/servlets/AvailableSheetServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/AvailableSheetServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,6 +71,7 @@
     "Application.FxmlTest.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.SheetCellClient.executor": "Run",
+    "Application.SheetCellClient2.executor": "Run",
     "Application.Test.executor": "Run",
     "Application.Test2.executor": "Coverage",
     "Application.TestLoadFile.executor": "Debug",
@@ -134,7 +122,7 @@
       <recent name="component.selectedSheetView.subcomponent.sheet" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SheetCellClient">
+  <component name="RunManager" selected="Application.SheetCellClient2">
     <configuration name="AppRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="apprunner.AppRunner" />
       <module name="UI" />
@@ -149,12 +137,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EffectiveValueTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="JsonSerializer.EffectiveValueTest" />
-      <module name="DataTransferObject" />
+    <configuration name="SheetCellClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.SheetCellClient" />
+      <module name="Client" />
+      <option name="VM_PARAMETERS" value="--module-path C:\lib\javafx-sdk-22.0.2\lib --add-modules javafx.controls,javafx.fxml " />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="JsonSerializer.*" />
+          <option name="PATTERN" value="main.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -162,8 +151,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SheetCellClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main.SheetCellClient" />
+    <configuration name="SheetCellClient2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.SheetCellClient2" />
       <module name="Client" />
       <option name="VM_PARAMETERS" value="--module-path C:\lib\javafx-sdk-22.0.2\lib --add-modules javafx.controls,javafx.fxml " />
       <extension name="coverage">
@@ -297,8 +286,8 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.SheetCellClient2" />
       <item itemvalue="Application.AppRunner" />
-      <item itemvalue="Application.EffectiveValueTest" />
       <item itemvalue="Application.jasonTest" />
       <item itemvalue="Application.TestLoadFile" />
       <item itemvalue="Application.SheetCellClient" />
@@ -307,11 +296,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SheetCellClient2" />
         <item itemvalue="Application.SheetCellClient" />
         <item itemvalue="Application.AppRunner" />
         <item itemvalue="Application.TestLoadFile" />
         <item itemvalue="Application.jasonTest" />
-        <item itemvalue="Application.EffectiveValueTest" />
       </list>
     </recent_temporary>
   </component>
@@ -351,15 +340,7 @@
       <workItem from="1729162985853" duration="8842000" />
       <workItem from="1729339170318" duration="16924000" />
       <workItem from="1729423866098" duration="65000" />
-      <workItem from="1729423937730" duration="7139000" />
-    </task>
-    <task id="LOCAL‎-00053" summary="Editing code to change row height and colunm width">
-      <option name="closed" value="true" />
-      <created>1726575808593</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL‎-00053" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726575808593</updated>
+      <workItem from="1729423937730" duration="10368000" />
     </task>
     <task id="LOCAL‎-00054" summary="Synchronized selected cell with text alignment settings:&#10;&#10;- Implemented synchronization between the selected cell and the text alignment in the ChoiceBox.&#10;- Ensured that the ChoiceBox reflects the current alignment (left, center, right) of the selected cell's content.&#10;- Added listeners to update cell alignment dynamically based on the ChoiceBox selection.">
       <option name="closed" value="true" />
@@ -745,7 +726,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729415869862</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="Added dynamic table for available sheets:&#10;- Implemented table with columns: Select (checkbox), Sheet Name, Size (nXm), and Uploaded By.&#10;- Integrated row selection behavior allowing only one row to be selected at a time.&#10;- Added visual highlighting for selected rows with custom styling.&#10;- Updated server-side logic to return DTOSheetInfo to dynamically populate the table.">
+      <option name="closed" value="true" />
+      <created>1729436812716</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1729436812717</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -791,7 +780,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implemented deep copy functionality across multiple components:&#10;- Added createDeepCopy method in SheetImpl to handle deep copying of sheets, including copying cells, the range manager, and all related data.&#10;- Implemented deep copy for CellImpl, ensuring correct copying of cell dependencies (dependsOn and influencingOn) while avoiding recursion issues with cyclic references.&#10;- Added tracking maps in SheetImpl and CellImpl (copiedCells) to prevent infinite recursion during the deep copy process.&#10;- Implemented deep copy functionality for RangeImpl and RangeManagerImpl to ensure ranges and their usage counts are copied correctly.&#10;- Ensured that all dependent entities such as cells, ranges, and the range manager are copied deeply, maintaining consistency and avoiding shared references between the original and copied sheets." />
     <MESSAGE value="last merge before submit part 2" />
     <MESSAGE value="starting part 3!!!" />
     <MESSAGE value="starting part 3!!!&#10;linking the tomcat and dividing it into new models and starting work on login" />
@@ -816,7 +804,8 @@
     <MESSAGE value="Version Changes Servlet was established" />
     <MESSAGE value="Completed the implementation of the Version Selector feature. The user can now select a previous version of the sheet, view the number of changes in each version, and load a specific version of the sheet in a new view.&quot;" />
     <MESSAGE value="commit for merge" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit for merge" />
+    <MESSAGE value="Added dynamic table for available sheets:&#10;- Implemented table with columns: Select (checkbox), Sheet Name, Size (nXm), and Uploaded By.&#10;- Integrated row selection behavior allowing only one row to be selected at a time.&#10;- Added visual highlighting for selected rows with custom styling.&#10;- Updated server-side logic to return DTOSheetInfo to dynamically populate the table." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added dynamic table for available sheets:&#10;- Implemented table with columns: Select (checkbox), Sheet Name, Size (nXm), and Uploaded By.&#10;- Integrated row selection behavior allowing only one row to be selected at a time.&#10;- Added visual highlighting for selected rows with custom styling.&#10;- Updated server-side logic to return DTOSheetInfo to dynamically populate the table." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -828,7 +817,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/EffectiveValueAdapter.java</url>
-          <line>29</line>
+          <line>42</line>
           <option name="timeStamp" value="327" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -880,11 +869,6 @@
           <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java</url>
           <line>292</line>
           <option name="timeStamp" value="377" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsController.java</url>
-          <line>109</line>
-          <option name="timeStamp" value="382" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>
