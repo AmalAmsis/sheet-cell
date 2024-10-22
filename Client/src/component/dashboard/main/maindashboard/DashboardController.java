@@ -13,7 +13,10 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 
-public class DashboardController {
+import java.io.Closeable;
+import java.io.IOException;
+
+public class DashboardController implements Closeable {
 
     private SheetCellAppMainController sheetCellAppMainController;
 
@@ -51,6 +54,12 @@ public class DashboardController {
     public void switchToSelectedSheetView(DTOSheet dtoSheet,String selectedSheetName) {
         sheetCellAppMainController.switchToSelectedSheetView(dtoSheet,selectedSheetName);
 
+    }
+
+    //??????????????????????????????????
+    @Override
+    public void close() throws IOException {
+        availableSheetsController.close();
     }
 
     public void createAvailableSheetRow(DTOSheetInfo dtoSheetInfo) {

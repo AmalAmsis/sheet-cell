@@ -1,7 +1,6 @@
 package component.selectedSheetView.subcomponent.sheet;
 
 import component.selectedSheetView.main.SelectedSheetViewController;
-import component.selectedSheetView.subcomponent.sheetPoller.SheetPollerTask;
 import dto.DTOCell;
 import dto.DTOCoordinate;
 import dto.DTOSheet;
@@ -12,6 +11,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 
+import java.io.Closeable;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -23,11 +24,12 @@ import java.util.Timer;
  * and properties of the sheet, including cell customization such as column width,
  * row height, and cell colors.
  */
-public class SelectedSheetController {
+public class SelectedSheetController implements Closeable {
 
     private SelectedSheetViewController selectedSheetViewController;
     private UIModelSheet uiModel;
     private String selectedSheetName;
+    private Timer sheetPollingTimer;
 
     @FXML
     private GridPane sheetGrid;
@@ -153,8 +155,7 @@ public class SelectedSheetController {
                     uiModel.setCellDependsOn(cellKey, DependsOnList);
                     List<String> InfluencingOnList = TurnDtoCoordinateListToCellIdList(dtoCell.getInfluencingOn());
                     uiModel.setCellInfluencingOn(cellKey, InfluencingOnList);
-
-                    //להוסיף ל username
+                    uiModel.setEditorName(cellKey, dtoCell.getEditorName());
                 }
 
                 uiModel.bindCellToModel(cellLabel, cellKey);
@@ -179,8 +180,7 @@ public class SelectedSheetController {
             uiModel.setCellDependsOn(cell.getCoordinate().toString(), DependsOnList);
             List<String> InfluencingOnList = TurnDtoCoordinateListToCellIdList(cell.getInfluencingOn());
             uiModel.setCellInfluencingOn(cell.getCoordinate().toString(), InfluencingOnList);
-
-            //להוסיף ל username
+            uiModel.setEditorName(cell.getCoordinate().toString(), cell.getEditorName());
         }
         selectedSheetViewController.SelectSameCell(); // Call to select the same cell after update.
     }
@@ -349,6 +349,8 @@ public class SelectedSheetController {
 
     public List<String> getInfluencingOn(String cellId) {return  uiModel.getCellInfluencingOn(cellId);}
 
+    public String getCellEditorName(String cellId) {return uiModel.getEditorName(cellId);}
+
     /**
      * Gets the current UI model of the sheet.
      * @return the current UI model.
@@ -356,4 +358,25 @@ public class SelectedSheetController {
     public UIModelSheet getCurrentUIModel() {
         return uiModel;
     }
+
+    // Method to start the polling
+    public void startPolling() {
+        // Create a new Timer
+        Timer sheetPollingTimer = new Timer();
+
+        Button switchToTheLatestVersionButton = selectedSheetViewController.getSwitchToTheLatestVersionButton();
+        // Schedule the SheetPollerTask to run every 10 seconds
+        SheetPollerTask pollerTask = new SheetPollerTask(switchToTheLatestVersionButton);
+        sheetPollingTimer.schedule(pollerTask, 0, 2000);  // Run every 2 seconds
+    }
+
+
+    @Override
+    public void close() throws IOException {
+        if(sheetPollingTimer != null){
+            sheetPollingTimer.cancel();
+        }
+    }
+
+
 }

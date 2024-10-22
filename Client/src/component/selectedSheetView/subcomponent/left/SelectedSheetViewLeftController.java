@@ -23,11 +23,9 @@ import okhttp3.Request;
 import okhttp3.Response;
 import util.http.HttpClientUtil;
 
+import java.io.Closeable;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static util.Constants.FILTER_SHEET;
 import static util.Constants.SORT_SHEET;
@@ -37,7 +35,7 @@ import static util.Constants.SORT_SHEET;
  * This panel includes functionality for managing ranges, sorting, and filtering.
  * It provides the user with options to add or remove ranges, as well as configure sorting and filtering preferences.
  */
-public class SelectedSheetViewLeftController {
+public class SelectedSheetViewLeftController implements Closeable {
 
     private SelectedSheetViewController selectedSheetViewController;
 
@@ -74,6 +72,8 @@ public class SelectedSheetViewLeftController {
 
     @FXML private Button generateGraphButton;
 
+    Timer rangesPollimgTimer;
+
     /**Sets the main controller for this component.
      * @param selectedSheetViewController The main controller of the selected sheet view.*/
     public void setSelectedSheetViewController(SelectedSheetViewController selectedSheetViewController) {
@@ -105,6 +105,7 @@ public class SelectedSheetViewLeftController {
         // Set up listeners for sorting and filtering menus
         selectColumnsToSortByMenu.setOnShowing(event -> updateMenuItems(selectColumnsToSortByMenu, selectedSortColumnsFlowPane, sortFromTextField, sortToTextField));
         selectColumnsToFilterByMenu.setOnShowing(event -> updateMenuItems(selectColumnsToFilterByMenu, filterDataFlowPane, filterFromTextField, filterToTextField));
+       // updateChoiceBoxes();
     }
 
     /**
@@ -153,20 +154,65 @@ public class SelectedSheetViewLeftController {
      * Updates the available ranges in the choice boxes.
      */
     public void updateChoiceBoxes() {
-        // Get the updated list of ranges from the main controller
-        List<String> ranges = selectedSheetViewController.getAllRanges();
 
-        // Update the ChoiceBoxes with the new range options
+        List<String> ranges = selectedSheetViewController.getAllRanges();
         removeRangeChoiceBox.getItems().setAll(ranges);
         showRangeChoiceBox.getItems().setAll(ranges);
+
     }
 
-    @FXML void ClickMeAddNewRangeButton(ActionEvent event) {}
+    public void updateChoiceBoxesWithNewRanges(List<String> newRanges) {
+        removeRangeChoiceBox.getItems().setAll(newRanges);
+        showRangeChoiceBox.getItems().setAll(newRanges);
+    }
 
 
-    @FXML void ClickMeRemoveRange(ActionEvent event) {}
 
-    @FXML void ClickMeShowRange(ActionEvent event) {}
+    @FXML void ClickMeAddNewRangeButton(ActionEvent event) {
+        String rangeName = newRangeNameTextField.getText();
+        String from = fromTextField.getText();
+        String to = toTextField.getText();
+
+        if (rangeName.isEmpty() || from.isEmpty() || to.isEmpty()) {
+            // Show an error message or prompt the user to fill in all fields
+            return;
+        }
+
+
+        // Call appController to add the new range
+        selectedSheetViewController.addNewRange(rangeName, from, to);
+
+        // Clear text fields after successful operation
+        newRangeNameTextField.clear();
+        fromTextField.clear();
+        toTextField.clear();
+
+        // Optionally update the choice boxes
+        updateChoiceBoxes();
+    }
+
+
+    @FXML void ClickMeRemoveRange(ActionEvent event) {
+        String selectedRange = removeRangeChoiceBox.getSelectionModel().getSelectedItem();
+
+        if (selectedRange != null) {
+            // Call appController to remove the selected range
+            selectedSheetViewController.removeRange(selectedRange);
+            removeRangeChoiceBox.getSelectionModel().clearSelection();
+            // Update the choice boxes after removal
+            updateChoiceBoxes();
+        }
+    }
+
+    @FXML void ClickMeShowRange(ActionEvent event) {
+        String selectedRange = showRangeChoiceBox.getSelectionModel().getSelectedItem();
+
+        if (selectedRange != null) {
+            // Call appController to show/highlight the selected range
+            selectedSheetViewController.selectRange(selectedRange);
+            showRangeChoiceBox.getSelectionModel().clearSelection();
+        }
+    }
 
 
     /** FILTER FEATURE:*/
@@ -636,4 +682,16 @@ public class SelectedSheetViewLeftController {
         return menuButton;
     }
 
+    public void startRangePolling() {
+        rangesPollimgTimer = new Timer(true); // Polling will run as a daemon thread
+        rangesPollimgTimer.schedule(new RangePollerTask(this, selectedSheetViewController.getAllRanges()), 0, 5000); // Poll every 5 seconds
+    }
+
+    //?????????????????????????????????????????????????
+    @Override
+    public void close() throws IOException {
+        if(rangesPollimgTimer != null) {
+            rangesPollimgTimer.cancel();
+        }
+    }
 }

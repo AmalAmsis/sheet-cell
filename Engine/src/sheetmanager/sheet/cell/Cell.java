@@ -82,7 +82,7 @@ public interface Cell {
     /** Updates the value of the cell and returns the new version number.
      * @param originalValue the new value to set.
      * @return an integer representing the new version number. */
-    int updateValue(String originalValue);
+    int updateValue(String originalValue, String editorUserName);
 
     /** Helper method to update the cell's value recursively, avoiding cycles.
      * @param originalValue the new value to set.
@@ -104,4 +104,8 @@ public interface Cell {
     List<Cell> detectCycleHelper(Set<Cell> visited, Set<Cell> recStack, List<Cell> path);
 
     Cell createDeepCopy(Map<String, Cell> copiedCells);
+
+    void setEditorUserName(String editorUserName);
+
+    String getEditorUserName();
 }

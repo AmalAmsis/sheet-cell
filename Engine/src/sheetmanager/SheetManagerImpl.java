@@ -151,13 +151,13 @@ public class SheetManagerImpl implements SheetManager,Serializable {
         return null;
     }
 
-    //yarden 27/8
-    @Override public DTOSheet updateCell(String coordinateString, String newOriginalValue) throws Exception {
+
+    @Override public DTOSheet updateCell(String coordinateString, String newOriginalValue, String editorUserName) throws Exception {
         if (this.currentSheetState != null){
-            //call Amal function לברר אם הבנתי נכון את הסטייט
+
             Coordinate coordinate = this.currentSheetState.getCurrentSheet().convertStringToCoordinate(coordinateString.replace(":",""));
-            //yarden 27/8
-            int numOfUpdatededCells = this.currentSheetState.getCurrentSheet().setCell(coordinate, newOriginalValue);// הורדתי מהערה
+
+            int numOfUpdatededCells = this.currentSheetState.getCurrentSheet().setCell(coordinate, newOriginalValue, editorUserName);// הורדתי מהערה
             Sheet mySheet = this.currentSheetState.getCurrentSheet();
             this.currentSheetState.getVersionHandler().addNewVersion(mySheet,numOfUpdatededCells);//ורדתי מהערה
             return new DTOSheetImpl(mySheet);
@@ -165,7 +165,7 @@ public class SheetManagerImpl implements SheetManager,Serializable {
         return null;
     }
 
-    public DTOSheet updateTemporaryCellValue(String coordinateString, String newOriginalValue) {
+    public DTOSheet updateTemporaryCellValue(String coordinateString, String newOriginalValue, String editorUserName) {
         if (this.currentSheetState != null) {
             // Create a deep copy of the current sheet
             Sheet myOriginalSheet = this.currentSheetState.getCurrentSheet();
@@ -173,7 +173,7 @@ public class SheetManagerImpl implements SheetManager,Serializable {
 
             // Convert coordinate and update the copied sheet
             Coordinate coordinate = mySheetCopy.convertStringToCoordinate(coordinateString.replace(":", ""));
-            int numOfUpdatedCells = mySheetCopy.setCell(coordinate, newOriginalValue);
+            int numOfUpdatedCells = mySheetCopy.setCell(coordinate, newOriginalValue, editorUserName);
 
             // Return the DTO for the updated copy
             return new DTOSheetImpl(mySheetCopy);

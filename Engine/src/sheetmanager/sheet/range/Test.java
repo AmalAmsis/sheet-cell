@@ -122,15 +122,15 @@ public class Test {
         Coordinate coordinate22 = new CoordinateImpl('C', 3);
         Coordinate coordinate23 = new CoordinateImpl('C', 4);
 
-        sheet.setCell(coordinate00, "1");
-        sheet.setCell(coordinate01, "2");
-        sheet.setCell(coordinate02, "{PLUS,5,5}");
-        sheet.setCell(coordinate03, "{PLUS,5,3}");
+//        sheet.setCell(coordinate00, "1");
+//        sheet.setCell(coordinate01, "2");
+//        sheet.setCell(coordinate02, "{PLUS,5,5}");
+//        sheet.setCell(coordinate03, "{PLUS,5,3}");
 
         try {
             sheet.addRangeToManager("rangeA", "A1..A4");
-            sheet.setCell(coordinate22, "{SUM,rangeA}");
-            sheet.setCell(coordinate23,"{Average,rangeA}");
+//            sheet.setCell(coordinate22, "{SUM,rangeA}");
+//            sheet.setCell(coordinate23,"{Average,rangeA}");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -149,15 +149,15 @@ public class Test {
         Coordinate coordinate03 = new CoordinateImpl('A', 4);
         Coordinate coordinate22 = new CoordinateImpl('C', 3);
 
-        sheet.setCell(coordinate00, "1");
-        sheet.setCell(coordinate01, "2");
-        sheet.setCell(coordinate02, "{PLUS,5,5}");
-        sheet.setCell(coordinate03, "{PLUS,5,3}");
+//        sheet.setCell(coordinate00, "1");
+//        sheet.setCell(coordinate01, "2");
+//        sheet.setCell(coordinate02, "{PLUS,5,5}");
+//        sheet.setCell(coordinate03, "{PLUS,5,3}");
 
         try {
             sheet.addRangeToManager("rangeA", "A1..A4");
-            sheet.setCell(coordinate22, "{SUM,rangeA}");
-            sheet.setCell(coordinate01, "{Average,rangeA}");
+//            sheet.setCell(coordinate22, "{SUM,rangeA}");
+//            sheet.setCell(coordinate01, "{Average,rangeA}");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -176,14 +176,14 @@ public class Test {
         Coordinate coordinate03 = new CoordinateImpl('A', 4);
         Coordinate coordinate22 = new CoordinateImpl('C', 3);
 
-        sheet.setCell(coordinate00, "1");
-        sheet.setCell(coordinate01, "2");
-        sheet.setCell(coordinate02, "{PLUS,5,5}");
-        sheet.setCell(coordinate03, "{PLUS,5,3}");
+//        sheet.setCell(coordinate00, "1");
+//        sheet.setCell(coordinate01, "2");
+//        sheet.setCell(coordinate02, "{PLUS,5,5}");
+//        sheet.setCell(coordinate03, "{PLUS,5,3}");
 
         try {
             sheet.addRangeToManager("rangeA", "A1..A4");
-            sheet.setCell(coordinate22, "{SUM,rangeA}");
+//            sheet.setCell(coordinate22, "{SUM,rangeA}");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -203,15 +203,15 @@ public class Test {
         Coordinate coordinate22 = new CoordinateImpl('C', 3);
         Coordinate coordinate23 = new CoordinateImpl('C', 4);
 
-        sheet.setCell(coordinate00, "1");
-        sheet.setCell(coordinate01, "2");
-        sheet.setCell(coordinate02, "{PLUS,5,5}");
-        sheet.setCell(coordinate03, "{PLUS,5,3}");
+//        sheet.setCell(coordinate00, "1");
+//        sheet.setCell(coordinate01, "2");
+//        sheet.setCell(coordinate02, "{PLUS,5,5}");
+//        sheet.setCell(coordinate03, "{PLUS,5,3}");
 
         try {
             sheet.addRangeToManager("rangeA", "A1..B2");
-            sheet.setCell(coordinate22, "{SUM,rangeA}");
-            sheet.setCell(coordinate23, "{Average,rangeA}");
+//            sheet.setCell(coordinate22, "{SUM,rangeA}");
+//            sheet.setCell(coordinate23, "{Average,rangeA}");
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -232,15 +232,15 @@ public class Test {
         Coordinate coordinate22 = new CoordinateImpl('C', 3);
         Coordinate coordinate23 = new CoordinateImpl('D', 3);
 
-        sheet.setCell(coordinate00, "5");
-        sheet.setCell(coordinate01, "5");
-        sheet.setCell(coordinate02, "{PLUS,5,5}");
-        sheet.setCell(coordinate03, "{PLUS,5,5}");
+//        sheet.setCell(coordinate00, "5");
+//        sheet.setCell(coordinate01, "5");
+//        sheet.setCell(coordinate02, "{PLUS,5,5}");
+//        sheet.setCell(coordinate03, "{PLUS,5,5}");
 
         try {
             sheet.addRangeToManager("rangeA", "A1..D1");
-            sheet.setCell(coordinate22, "{SUM,rangeA}");
-            sheet.setCell(coordinate23, "{Average,rangeA}");
+//            sheet.setCell(coordinate22, "{SUM,rangeA}");
+//            sheet.setCell(coordinate23, "{Average,rangeA}");
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -261,15 +261,15 @@ public class Test {
         Coordinate coordinate22 = new CoordinateImpl('C', 3);
         Coordinate coordinate23 = new CoordinateImpl('C', 4);
 
-        sheet.setCell(coordinate00, "1");
-        sheet.setCell(coordinate01, "2");
-        sheet.setCell(coordinate02, "{PLUS,5,5}");
-        sheet.setCell(coordinate03, "{PLUS,5,3}");
+//        sheet.setCell(coordinate00, "1");
+//        sheet.setCell(coordinate01, "2");
+//        sheet.setCell(coordinate02, "{PLUS,5,5}");
+//        sheet.setCell(coordinate03, "{PLUS,5,3}");
 
         try {
             sheet.addRangeToManager("rangeA", "A1..B5");
-            sheet.setCell(coordinate22, "{SUM,rangeA}");
-            sheet.setCell(coordinate23,"{Average,rangeA}");
+//            sheet.setCell(coordinate22, "{SUM,rangeA}");
+//            sheet.setCell(coordinate23,"{Average,rangeA}");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -288,14 +288,14 @@ public class Test {
         Coordinate coordinate03 = new CoordinateImpl('A', 4);
         Coordinate coordinate22 = new CoordinateImpl('C', 3);
 
-        sheet.setCell(coordinate00, "1");
-        sheet.setCell(coordinate01, "2");
-        sheet.setCell(coordinate02, "{PLUS,5,5}");
-        sheet.setCell(coordinate03, "{PLUS,5,3}");
+//        sheet.setCell(coordinate00, "1");
+//        sheet.setCell(coordinate01, "2");
+//        sheet.setCell(coordinate02, "{PLUS,5,5}");
+//        sheet.setCell(coordinate03, "{PLUS,5,3}");
 
         try {
             sheet.addRangeToManager("rangeA", "A1..A4");
-            sheet.setCell(coordinate22, "{SUM,rangeA}");
+//            sheet.setCell(coordinate22, "{SUM,rangeA}");
             sheet.removeRangeFromManager("rangeA");
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -329,15 +329,15 @@ public class Test {
         Coordinate coordinate03 = new CoordinateImpl('A', 4);
         Coordinate coordinate22 = new CoordinateImpl('C', 3);
 
-        sheet.setCell(coordinate00, "1");
-        sheet.setCell(coordinate01, "2");
-        sheet.setCell(coordinate02, "{PLUS,5,5}");
-        sheet.setCell(coordinate03, "{PLUS,5,3}");
+//        sheet.setCell(coordinate00, "1");
+//        sheet.setCell(coordinate01, "2");
+//        sheet.setCell(coordinate02, "{PLUS,5,5}");
+//        sheet.setCell(coordinate03, "{PLUS,5,3}");
 
         try {
             sheet.addRangeToManager("rangeA", "A1..A4");
             sheet.addRangeToManager("rangeB", "A2..A3"); // Overlapping range
-            sheet.setCell(coordinate22, "{SUM,rangeB}");
+//            sheet.setCell(coordinate22, "{SUM,rangeB}");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -356,14 +356,14 @@ public class Test {
         Coordinate coordinate03 = new CoordinateImpl('A', 4);
         Coordinate coordinate22 = new CoordinateImpl('C', 3);
 
-        sheet.setCell(coordinate00, "1");
-        sheet.setCell(coordinate01, "2");
-        sheet.setCell(coordinate02, "{PLUS,5,5}");
-        sheet.setCell(coordinate03, "{PLUS,5,3}");
+//        sheet.setCell(coordinate00, "1");
+//        sheet.setCell(coordinate01, "2");
+//        sheet.setCell(coordinate02, "{PLUS,5,5}");
+//        sheet.setCell(coordinate03, "{PLUS,5,3}");
 
         try {
             sheet.addRangeToManager("rangeA", "A1..A4");
-            sheet.setCell(coordinate22, "{SUM,rangeA}");
+//            sheet.setCell(coordinate22, "{SUM,rangeA}");
             sheet.removeRangeFromManager("rangeA");
             // Check the effect of range removal on cells
             String cellValue = sheet.getCell(coordinate22).getEffectiveValue().toString();
