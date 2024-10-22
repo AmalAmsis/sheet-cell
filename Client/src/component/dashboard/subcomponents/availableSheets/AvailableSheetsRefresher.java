@@ -1,5 +1,7 @@
 package component.dashboard.subcomponents.availableSheets;
 
+import JsonSerializer.JsonSerializer;
+import dto.DTOSheetInfo;
 import okhttp3.Call;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -37,16 +39,18 @@ public class AvailableSheetsRefresher extends TimerTask {
 
             if (response.isSuccessful()) {
                 String jsonResponse = response.body().string();
-                Gson gson = new Gson();
 
-                // Check if there are new sheets, if yes update the UI
-                List<String> newSheets = gson.fromJson(jsonResponse, new TypeToken<List<String>>() {}.getType());
+                JsonSerializer jsonSerializer = new JsonSerializer();
+                List<DTOSheetInfo> dtoSheetInfoList = jsonSerializer.convertJsonToDtoInfoList(jsonResponse);
 
-                if (newSheets != null && newSheets.size() > lastKnownSheetCount) {
-                    lastKnownSheetCount = newSheets.size(); // Update the last known count
-                    availableSheetsController.refreshAvailableSheets(newSheets); // Update UI with new sheets
-                } else if (newSheets == null) {
-                    //System.out.println("Parsed newSheets is null");
+                if (dtoSheetInfoList != null && dtoSheetInfoList.size() > lastKnownSheetCount) {
+                    lastKnownSheetCount = dtoSheetInfoList.size(); // Update the last known count
+
+
+                    availableSheetsController.refreshAvailableSheets(dtoSheetInfoList);
+
+                } else if (dtoSheetInfoList == null) {
+                    System.out.println("Parsed newSheets is null");
                 }
             } else {
                 System.out.println("Failed to fetch sheets. Response code: " + response.code());

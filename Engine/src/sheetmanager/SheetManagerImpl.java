@@ -36,9 +36,21 @@ import java.util.Map;
 public class SheetManagerImpl implements SheetManager,Serializable {
 
     private SheetStateManager currentSheetState;
+    private String owner;
+
+
+    @Override public String getOwner(){
+        return owner;
+    }
+
+    @Override public void setOwner(String owner){
+        this.owner = owner;
+    }
+
     public SheetStateManager getCurrentSheetState() {
         return currentSheetState;
     }
+
 
     @Override public void addNewRange(String rangeName, String fromCoordinate, String toCoordinate) throws Exception
     {
@@ -278,4 +290,11 @@ public class SheetManagerImpl implements SheetManager,Serializable {
         this.currentSheetState = new SheetStateManagerImpl(newSheet,currentSheetVersionHandler);
     }
 
+    @Override public int getNumRows() {
+      return this.currentSheetState.getCurrentSheet().getNumOfRows();
+    }
+    @Override public int getNumCols(){
+        return this.currentSheetState.getCurrentSheet().getNumOfCols();
+
+    }
 }

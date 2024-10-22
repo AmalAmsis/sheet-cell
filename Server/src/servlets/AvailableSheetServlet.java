@@ -1,17 +1,22 @@
 package servlets;
 
 
+import JsonSerializer.JsonSerializer;
 import allsheetsmanager.AllSheetsManager;
+import dto.DTOSheetInfo;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import sheetmanager.SheetManager;
 import utils.ServletUtils;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name= "available sheets",urlPatterns = "/available-sheets")
 public class AvailableSheetServlet extends HttpServlet {
@@ -23,16 +28,10 @@ public class AvailableSheetServlet extends HttpServlet {
         // Get the number of sheets the client already has (sent as a query parameter)
         String clientSheetCountParam = request.getParameter("clientSheetCount");
         int clientSheetCount = clientSheetCountParam != null ? Integer.parseInt(clientSheetCountParam) : 0;
-
-
         AllSheetsManager sheetsManager = ServletUtils.getSheetManager(getServletContext());
 
-
-
         try {
-            // Retrieve the list of available sheets (this is just an example, adjust according to your class)
-            List<String> availableSheets = sheetsManager.getAllSheets(); // Assume getAllSheets() returns a list of available sheet names
-
+           Map<String,SheetManager> availableSheets = sheetsManager.getAllSheetsManager();
 
             if (availableSheets == null || availableSheets.isEmpty()) {
                 response.setStatus(HttpServletResponse.SC_NO_CONTENT);
@@ -40,9 +39,26 @@ public class AvailableSheetServlet extends HttpServlet {
                 // If the server has more sheets than the client, send the full list
                 response.setContentType("application/json");
                 PrintWriter out = response.getWriter();
-                String jsonResponse = buildJsonResponse(availableSheets);
+
+                // Create a list to store sheet information
+                List<DTOSheetInfo> sheetInfoList = new ArrayList<>();
+
+                for (Map.Entry<String, SheetManager> entry : availableSheets.entrySet()) {
+
+                    String sheetName = entry.getKey();
+                    SheetManager sheetManager = entry.getValue();
+                    int numRows =sheetManager.getNumRows();
+                    int numCols =sheetManager.getNumCols();
+                    String uploadBy =sheetManager.getOwner();
+
+                    sheetInfoList.add(new DTOSheetInfo(sheetName, numRows, numCols,uploadBy));
+                }
+
+
+                JsonSerializer jsonSerializer = new JsonSerializer();
+                String jsonString = jsonSerializer.convertDTOSheetInfoListToJson(sheetInfoList);
                 // Return the JSON response
-                out.print(jsonResponse);
+                out.print(jsonString);
                 out.flush();
                 out.close(); // Ensure the PrintWriter is closed properly
 

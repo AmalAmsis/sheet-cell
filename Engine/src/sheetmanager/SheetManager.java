@@ -45,7 +45,12 @@ public interface SheetManager {
     DTOSheet updateTemporaryCellValue(String coordinateString, String newOriginalValue, String editorUserName) ;
     int getSheetVersion();
 
+    int getNumRows();
+    int getNumCols();
 
+    String getOwner();
+
+    void setOwner(String owner);
 
     /** NOT IN WAS ANYMORE :
 

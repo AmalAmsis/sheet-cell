@@ -1,0 +1,5 @@
+.table-view .cell {
+    -fx-alignment: CENTER; /* ממרכז את הטקסט */
+    -fx-font-weight: bold; /* מדגיש את הטקסט */
+    -fx-padding: 5px;
+}

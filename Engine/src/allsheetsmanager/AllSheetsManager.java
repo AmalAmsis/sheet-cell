@@ -17,14 +17,14 @@ public class AllSheetsManager {
         this.allSheetsMap = new HashMap<>();
     }
 
-    public synchronized void addSheet(InputStream fileContent, String fileName) throws Exception {
+    public synchronized void addSheet(InputStream fileContent, String fileName,String owner) throws Exception {
 
         if(allSheetsMap.containsKey(fileName)) {
             throw new Exception("The file is already exist");
         }
         SheetManager newSheetManager = new SheetManagerImpl();
         newSheetManager.loadsheetFromStream(fileContent,fileName);
-
+        newSheetManager.setOwner(owner);
         allSheetsMap.put(fileName,newSheetManager);
     }
 
@@ -34,5 +34,9 @@ public class AllSheetsManager {
 
     public List<String> getAllSheets() {
         return new ArrayList<>(allSheetsMap.keySet());
+    }
+
+    public Map<String,SheetManager> getAllSheetsManager(){
+        return allSheetsMap;
     }
 }
