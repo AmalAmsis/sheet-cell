@@ -31,18 +31,18 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="174.0" prefWidth="206.0">
                            <children>
-                              <TextField fx:id="sortToTextField" layoutX="109.0" layoutY="27.0" prefHeight="26.0" prefWidth="38.0" promptText="to" styleClass="sr-label" />
-                              <TextField fx:id="sortFromTextField" layoutX="54.0" layoutY="27.0" prefHeight="27.0" prefWidth="39.0" promptText="from" styleClass="sr-label" />
+                              <TextField fx:id="sortToTextField" layoutX="109.0" layoutY="27.0" prefHeight="26.0" prefWidth="38.0" promptText="to" styleClass="style-label" />
+                              <TextField fx:id="sortFromTextField" layoutX="54.0" layoutY="27.0" prefHeight="27.0" prefWidth="39.0" promptText="from" styleClass="style-label" />
                               <Label layoutX="97.0" layoutY="23.0" prefHeight="36.0" prefWidth="7.0" text="-">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="sortButton" layoutX="20.0" layoutY="120.0" mnemonicParsing="false" onAction="#ClickMeSortButton" text="Sort" />
+                              <Button fx:id="sortButton" layoutX="20.0" layoutY="120.0" mnemonicParsing="false" onAction="#ClickMeSortButton" styleClass="style-button" text="Sort" />
                               <Label layoutX="28.0" layoutY="5.0" text="Enter range for sorting:" />
                               <MenuButton fx:id="selectColumnsToSortByMenu" layoutX="11.0" layoutY="60.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="182.0" text="Select columns to sort by:" />
                               <FlowPane fx:id="selectedSortColumnsFlowPane" hgap="5" layoutX="41.0" layoutY="95.0" prefHeight="25.0" prefWidth="132.0" vgap="5" />
-                              <Button fx:id="resetSortButton" layoutX="67.0" layoutY="120.0" mnemonicParsing="false" onAction="#clickMeResetSortButton" prefHeight="14.0" prefWidth="52.0" text="Reset" />
+                              <Button fx:id="resetSortButton" layoutX="67.0" layoutY="120.0" mnemonicParsing="false" onAction="#clickMeResetSortButton" prefHeight="14.0" prefWidth="52.0" styleClass="style-button" text="Reset" />
                            </children>
                         </AnchorPane>
                      </content>
@@ -54,18 +54,18 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="142.0" prefWidth="205.0">
                            <children>
-                              <TextField fx:id="filterToTextField" layoutX="105.0" layoutY="28.0" prefHeight="26.0" prefWidth="38.0" promptText="to" styleClass="sr-label" />
-                              <TextField fx:id="filterFromTextField" layoutX="42.0" layoutY="28.0" prefHeight="26.0" prefWidth="40.0" promptText="from" styleClass="sr-label" />
+                              <TextField fx:id="filterToTextField" layoutX="105.0" layoutY="28.0" prefHeight="26.0" prefWidth="38.0" promptText="to" styleClass="style-label" />
+                              <TextField fx:id="filterFromTextField" layoutX="42.0" layoutY="28.0" prefHeight="26.0" prefWidth="40.0" promptText="from" styleClass="style-label" />
                               <Label layoutX="87.0" layoutY="23.0" prefHeight="36.0" prefWidth="7.0" text="-">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="filterButton" layoutX="19.0" layoutY="120.0" mnemonicParsing="false" onAction="#ClickMeFilterButton" text="Filter" />
+                              <Button fx:id="filterButton" layoutX="19.0" layoutY="120.0" mnemonicParsing="false" onAction="#ClickMeFilterButton" styleClass="style-button" text="Filter" />
                               <Label layoutX="29.0" layoutY="4.0" text="Enter range for filtering:" />
                               <FlowPane fx:id="filterDataFlowPane" hgap="5" layoutX="7.0" layoutY="88.0" prefHeight="25.0" prefWidth="171.0" vgap="5" />
                               <MenuButton fx:id="selectColumnsToFilterByMenu" layoutX="1.0" layoutY="60.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="182.0" text="Select columns to filter by:" />
-                              <Button fx:id="resetFilterButton" layoutX="73.0" layoutY="120.0" mnemonicParsing="false" onAction="#clickMeResetFilterButton" text="Reset" />
+                              <Button fx:id="resetFilterButton" layoutX="73.0" layoutY="120.0" mnemonicParsing="false" onAction="#clickMeResetFilterButton" styleClass="style-button" text="Reset" />
                            </children>
                         </AnchorPane>
                      </content>
@@ -88,12 +88,12 @@
                            </rowConstraints>
                            <children>
                               <Label prefHeight="18.0" prefWidth="61.0" text="Min Value:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                              <TextField fx:id="minValueField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              <TextField fx:id="minValueField" styleClass="style-label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
                               <Label text="Max Value:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                              <TextField fx:id="maxValueField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="maxValueField" styleClass="style-label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <Label text="Step Size:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                              <TextField fx:id="stepSizeField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <Button fx:id="applyButton" onAction="#handleDynamicAnalysis" text="Apply" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="stepSizeField" styleClass="style-label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Button fx:id="applyButton" onAction="#handleDynamicAnalysis" styleClass="style-button" text="Apply" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                            </children>
                         </GridPane>
                      </content>
@@ -106,7 +106,7 @@
                         <Font name="Bell MT Italic" size="14.0" />
                      </font>
                      <content>
-                        <Button fx:id="generateGraphButton" onAction="#handleGenerateGraph" text="Generate Graph" />
+                        <Button fx:id="generateGraphButton" onAction="#handleGenerateGraph" styleClass="style-button" text="Generate Graph" />
                      </content>
                   </TitledPane>
                </panes>
@@ -122,15 +122,15 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <TextField fx:id="newRangeNameTextField" layoutX="44.0" layoutY="14.0" prefHeight="27.0" prefWidth="105.0" promptText="new range name" styleClass="sr-label" />
-                              <TextField fx:id="toTextField" layoutX="107.0" layoutY="48.0" prefHeight="26.0" prefWidth="38.0" promptText="to" styleClass="sr-label" />
-                              <TextField fx:id="fromTextField" layoutX="57.0" layoutY="48.0" prefHeight="26.0" prefWidth="40.0" promptText="from" styleClass="sr-label" />
+                              <TextField fx:id="newRangeNameTextField" layoutX="44.0" layoutY="14.0" prefHeight="27.0" prefWidth="105.0" promptText="new range name" styleClass="style-label" />
+                              <TextField fx:id="toTextField" layoutX="107.0" layoutY="48.0" prefHeight="26.0" prefWidth="38.0" promptText="to" styleClass="style-label" />
+                              <TextField fx:id="fromTextField" layoutX="57.0" layoutY="48.0" prefHeight="26.0" prefWidth="40.0" promptText="from" styleClass="style-label" />
                               <Label layoutX="97.0" layoutY="40.0" prefHeight="36.0" prefWidth="7.0" text="-">
                                  <font>
                                     <Font size="25.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="addNewRangeButton" layoutX="82.0" layoutY="86.0" mnemonicParsing="false" onAction="#ClickMeAddNewRangeButton" text="add" />
+                              <Button fx:id="addNewRangeButton" layoutX="82.0" layoutY="86.0" mnemonicParsing="false" onAction="#ClickMeAddNewRangeButton" styleClass="style-button" text="add" />
                            </children>
                         </AnchorPane>
                      </content>
@@ -143,7 +143,7 @@
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <ChoiceBox fx:id="showRangeChoiceBox" layoutX="35.0" layoutY="22.0" prefHeight="26.0" prefWidth="114.0" />
-                              <Button fx:id="showRangeButton" layoutX="70.0" layoutY="66.0" mnemonicParsing="false" onAction="#ClickMeShowRange" text="show" />
+                              <Button fx:id="showRangeButton" layoutX="70.0" layoutY="66.0" mnemonicParsing="false" onAction="#ClickMeShowRange" styleClass="style-button" text="show" />
                            </children>
                         </AnchorPane>
                      </content>
@@ -156,7 +156,7 @@
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <ChoiceBox fx:id="removeRangeChoiceBox" layoutX="35.0" layoutY="25.0" prefHeight="26.0" prefWidth="121.0" />
-                              <Button fx:id="removeRangeButton" layoutX="68.0" layoutY="72.0" mnemonicParsing="false" onAction="#ClickMeRemoveRange" text="remove" />
+                              <Button fx:id="removeRangeButton" layoutX="68.0" layoutY="72.0" mnemonicParsing="false" onAction="#ClickMeRemoveRange" styleClass="style-button" text="remove" />
                            </children>
                         </AnchorPane>
                      </content>

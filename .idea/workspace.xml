@@ -9,14 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Added dynamic analysis feature to sheet application&#10;&#10;Implemented DynamicAnalysisServlet to handle temporary cell updates for dynamic analysis. These updates are used for background calculations and are not persisted in the final sheet.&#10;Added logic in DynamicAnalysisSheetController to interact with dynamic analysis sliders and send temporary values to the server.&#10;Updated SelectedSheetViewController and SelectedSheetViewLeftController to process and display temporary changes from dynamic analysis without saving them.&#10;Extended CellImpl and SheetImpl classes to manage the temporary updates to cells and rollback the original values after analysis.&#10;Modified SheetManagerImpl to handle dynamic analysis requests and updates between the frontend and backend.">
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Implemented version check to prevent cell updates on outdated sheet versions. Users must switch to the latest version to update cell values. If not on the latest version, a warning message is displayed, guiding the user to use the switch button.">
+      <change afterPath="$PROJECT_DIR$/Client/src/component/main/style1.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/command.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/command.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/dashboardHeader.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/dashboardHeader.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/SelectedSheetViewHeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/SelectedSheetViewHeaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/SheetCellClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/SheetCellClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/util/http/HttpClientUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/util/http/HttpClientUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/selectedSheetViewHeader.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/selectedSheetViewHeader.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/selectedSheetViewLeft.css" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/selectedSheetViewLeft.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/selectedSheetViewLeft.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/selectedSheetViewLeft.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,10 +30,10 @@
         <option value="HTML File" />
         <option value="JavaFXApplication" />
         <option value="Enum" />
-        <option value="CSS File" />
         <option value="Interface" />
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -123,7 +124,7 @@
       <recent name="component.selectedSheetView.subcomponent.sheet" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SheetCellClient2">
+  <component name="RunManager" selected="Application.SheetCellClient">
     <configuration name="AppRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="apprunner.AppRunner" />
       <module name="UI" />
@@ -298,8 +299,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SheetCellClient2" />
         <item itemvalue="Application.SheetCellClient" />
+        <item itemvalue="Application.SheetCellClient2" />
         <item itemvalue="Application.AppRunner" />
         <item itemvalue="Application.TestLoadFile" />
         <item itemvalue="Application.TestLogin" />
@@ -338,14 +339,6 @@
       <workItem from="1728768355881" duration="44000" />
       <workItem from="1728768423746" duration="14000" />
       <workItem from="1728768460006" duration="5531000" />
-    </task>
-    <task id="LOCAL‎-00061" summary="Added simulated delay for file loading task in JFX with progress bar&#10;&#10;- Implemented JFX Task for file loading with progress bar to provide visual feedback.&#10;- Added a simulated delay (1-2 seconds) in each loading step to simulate the process.&#10;- Bound progress and status updates to the progress bar and label.&#10;- Ensured that the progress bar is hidden upon successful or failed task completion.">
-      <option name="closed" value="true" />
-      <created>1726862279782</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL‎-00061" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726862279782</updated>
     </task>
     <task id="LOCAL‎-00062" summary="Styled Header and Left Panel UI components:&#10;- Added visual design improvements to Header section.&#10;- Updated Left panel layout for better user experience.&#10;- Adjusted styles for TitledPane, ProgressBar, ChoiceBox, ColorPicker, and other UI elements.">
       <option name="closed" value="true" />
@@ -731,7 +724,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1729793066451</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL‎-00110" summary="Implemented version check to prevent cell updates on outdated sheet versions. Users must switch to the latest version to update cell values. If not on the latest version, a warning message is displayed, guiding the user to use the switch button.">
+      <option name="closed" value="true" />
+      <created>1729800655928</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL‎-00110" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1729800655928</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -777,7 +778,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="starting part 3!!!&#10;linking the tomcat and dividing it into new models and starting work on login" />
     <MESSAGE value="Implemented unique username validation and login flow for the client&#10;&#10;- **Client module**:&#10;  - Added login flow with `LoginController.java` to handle user input and authentication.&#10;  - Updated `login.fxml` to define the layout and bind buttons to controller methods.&#10;  - Created CSS styling in `login.css` for error labels, main action buttons, and quit buttons.&#10;  - Implemented test classes (`TestLogin.java`, `TestLogin2.java`) for validating login functionality.&#10;&#10;- **Engine module**:&#10;  - Added `UserManager.java` and `UserManagerImpl.java` to handle user management, ensuring that each user has a unique name.&#10; &#10;&#10;- **Server module**:&#10;  - `LightweightLoginServlet.java`: Handles basic user login and session creation, ensuring that only unique usernames are allowed.&#10;  - `LogoutServlet.java`: Manages user logout and session termination.&#10;  - `ServletUtils.java`: Utility functions for managing user sessions and attributes.&#10;  - `SessionUtils.java`: Utility functions for session management.&#10;  - `Constants.java`: Stores constant values used across the application.&#10;&#10;- Fixed issues with class loading and servlet integration in the login process." />
     <MESSAGE value="Prepared FXML and controller structure for dashboard layout&#10;&#10;- Created `dashboardHeader.fxml` to define the layout for the header section of the dashboard.&#10;- Added `DashboardHeaderController.java` to handle the logic and interaction for the header section.&#10;- Organized the project structure under `subcomponents/header` for better modularization.&#10;- Added placeholders for subcomponents in the dashboard (availableSheets, commands, and Permissions)." />
     <MESSAGE value="Initial implementation of sheetCellMainController and main FXML for client navigation&#10;&#10;- Implemented `sheetCellMainController` to handle the main client logic and navigation between views (login, dashboard, and sheet).&#10;- Created the main FXML layout to manage transitions between different screens.&#10;- Set up the initial structure for handling view changes dynamically within the client.&#10;- Further adjustments and improvements to navigation and layout are needed before finalizing." />
@@ -802,7 +802,8 @@
     <MESSAGE value="change polling class" />
     <MESSAGE value="Added feature to track and display the user who updated each cell.&#10; Updated modules : Engine, DataTransferObject (DTO, JSON), Client, and Server to handle and display the username of the user who made direct or indirect changes to a cell.&#10;  The information about the user is now shown in the third screen's action bar when selecting a specific cell." />
     <MESSAGE value="Added dynamic analysis feature to sheet application&#10;&#10;Implemented DynamicAnalysisServlet to handle temporary cell updates for dynamic analysis. These updates are used for background calculations and are not persisted in the final sheet.&#10;Added logic in DynamicAnalysisSheetController to interact with dynamic analysis sliders and send temporary values to the server.&#10;Updated SelectedSheetViewController and SelectedSheetViewLeftController to process and display temporary changes from dynamic analysis without saving them.&#10;Extended CellImpl and SheetImpl classes to manage the temporary updates to cells and rollback the original values after analysis.&#10;Modified SheetManagerImpl to handle dynamic analysis requests and updates between the frontend and backend." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added dynamic analysis feature to sheet application&#10;&#10;Implemented DynamicAnalysisServlet to handle temporary cell updates for dynamic analysis. These updates are used for background calculations and are not persisted in the final sheet.&#10;Added logic in DynamicAnalysisSheetController to interact with dynamic analysis sliders and send temporary values to the server.&#10;Updated SelectedSheetViewController and SelectedSheetViewLeftController to process and display temporary changes from dynamic analysis without saving them.&#10;Extended CellImpl and SheetImpl classes to manage the temporary updates to cells and rollback the original values after analysis.&#10;Modified SheetManagerImpl to handle dynamic analysis requests and updates between the frontend and backend." />
+    <MESSAGE value="Implemented version check to prevent cell updates on outdated sheet versions. Users must switch to the latest version to update cell values. If not on the latest version, a warning message is displayed, guiding the user to use the switch button." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented version check to prevent cell updates on outdated sheet versions. Users must switch to the latest version to update cell values. If not on the latest version, a warning message is displayed, guiding the user to use the switch button." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

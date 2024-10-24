@@ -24,14 +24,14 @@
          <children>
             <HBox spacing="5.0">
                <children>
-                  <Label fx:id="cellIdLabel" prefHeight="26.0" prefWidth="44.0" styleClass="header-label" text="cell id" />
-                  <Label fx:id="originalValueLabel" prefHeight="26.0" prefWidth="253.0" styleClass="header-label" text="original value" />
-                  <TextField fx:id="actionLineTextField" promptText="action line" />
-                  <Button fx:id="updateValueButton" mnemonicParsing="false" onAction="#ClickMeUpdateValueButtonAction" text="update value" />
-                  <Label fx:id="lastModifiedVersionLabel" prefHeight="26.0" prefWidth="124.0" styleClass="header-label" text=" last modified version" />
-                  <Label fx:id="cellEditorNameLabel" prefHeight="26.0" prefWidth="122.0" text="cell editor name" />
-                  <Button fx:id="versionSelectorButton" mnemonicParsing="false" onAction="#ClickMeVersionSelectorButtonAction" prefHeight="26.0" prefWidth="109.0" text="version selector" />
-                  <Button fx:id="backToDashboardButton" mnemonicParsing="false" onAction="#handleBackToDashboard" prefHeight="22.0" prefWidth="121.0" text="&lt;- Back To Dashboard" textAlignment="CENTER">
+                  <Label fx:id="cellIdLabel" prefHeight="26.0" prefWidth="44.0" styleClass="style-label" text="cell id" />
+                  <Label fx:id="originalValueLabel" prefHeight="26.0" prefWidth="253.0" styleClass="style-label" text="original value" />
+                  <TextField fx:id="actionLineTextField" promptText="action line" styleClass="style-label" />
+                  <Button fx:id="updateValueButton" mnemonicParsing="false" onAction="#ClickMeUpdateValueButtonAction" styleClass="style-button" text="update value" />
+                  <Label fx:id="lastModifiedVersionLabel" prefHeight="26.0" prefWidth="124.0" styleClass="style-label" text=" last modified version" />
+                  <Label id="style-label" fx:id="cellEditorNameLabel" prefHeight="26.0" prefWidth="122.0" styleClass="style-label" text="cell editor name" />
+                  <Button fx:id="versionSelectorButton" mnemonicParsing="false" onAction="#ClickMeVersionSelectorButtonAction" prefHeight="26.0" prefWidth="109.0" styleClass="style-button" text="version selector" />
+                  <Button fx:id="backToDashboardButton" mnemonicParsing="false" onAction="#handleBackToDashboard" prefHeight="22.0" prefWidth="121.0" styleClass="style-button" text="&lt;- Back To Dashboard" textAlignment="CENTER">
                      <HBox.margin>
                         <Insets left="60.0" />
                      </HBox.margin>
@@ -91,14 +91,14 @@
                      </font>
                   </Label>
                   <Spinner fx:id="columnWidthSpinner" prefHeight="26.0" prefWidth="89.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-                  <Button fx:id="BackToDefaultButton" onAction="#ClickMeBackToDefaultButton" text="Back to default" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Button fx:id="BackToDefaultButton" onAction="#ClickMeBackToDefaultButton" styleClass="style-button" text="Back to default" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                   <MenuButton fx:id="themesMenuButton" text="Themes" GridPane.columnIndex="6" GridPane.rowIndex="1">
                      <items>
                         <MenuItem onAction="#changeToFirstStyle" text="Style 1" />
                         <MenuItem onAction="#changeToSecondStyle" text="Style 2" />
                      </items>
                   </MenuButton>
-                  <Button fx:id="latestVersionButton" mnemonicParsing="false" onAction="#handleSwitchToLatestVersion" prefHeight="26.0" prefWidth="170.0" text="switch to the latest version" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+                  <Button fx:id="latestVersionButton" mnemonicParsing="false" onAction="#handleSwitchToLatestVersion" prefHeight="26.0" prefWidth="170.0" styleClass="style-button" text="switch to the latest version" GridPane.columnIndex="7" GridPane.rowIndex="1" />
                </children>
             </GridPane>
          </children>
