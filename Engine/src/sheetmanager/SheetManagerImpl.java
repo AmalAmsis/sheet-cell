@@ -165,21 +165,39 @@ public class SheetManagerImpl implements SheetManager,Serializable {
         return null;
     }
 
-    public DTOSheet updateTemporaryCellValue(String coordinateString, String newOriginalValue, String editorUserName) {
-        if (this.currentSheetState != null) {
-            // Create a deep copy of the current sheet
-            Sheet myOriginalSheet = this.currentSheetState.getCurrentSheet();
-            Sheet mySheetCopy = myOriginalSheet.createDeepCopy(); // Assuming you have a deep copy method
+//    public DTOSheet updateTemporaryCellValue(String coordinateString, String newOriginalValue, String editorUserName) {
+//        if (this.currentSheetState != null) {
+//            // Create a deep copy of the current sheet
+//            Sheet myOriginalSheet = this.currentSheetState.getCurrentSheet();
+//            Sheet mySheetCopy = myOriginalSheet.createDeepCopy(); // Assuming you have a deep copy method
+//
+//            // Convert coordinate and update the copied sheet
+//            Coordinate coordinate = mySheetCopy.convertStringToCoordinate(coordinateString.replace(":", ""));
+//            int numOfUpdatedCells = mySheetCopy.setCell(coordinate, newOriginalValue, editorUserName);
+//
+//            // Return the DTO for the updated copy
+//            return new DTOSheetImpl(mySheetCopy);
+//        }
+//        return null;
+//    }
 
-            // Convert coordinate and update the copied sheet
-            Coordinate coordinate = mySheetCopy.convertStringToCoordinate(coordinateString.replace(":", ""));
-            int numOfUpdatedCells = mySheetCopy.setCell(coordinate, newOriginalValue, editorUserName);
 
-            // Return the DTO for the updated copy
-            return new DTOSheetImpl(mySheetCopy);
+    public DTOSheet updateTemporaryCellValue(String coordinateString, String newOriginalValue) {
+        if (this.currentSheetState != null){
+
+            Coordinate coordinate = this.currentSheetState.getCurrentSheet().convertStringToCoordinate(coordinateString.replace(":",""));
+
+            String originalValue = this.currentSheetState.getCurrentSheet().getCell(coordinate).getOriginalValue();
+
+            this.currentSheetState.getCurrentSheet().dynamicChange(coordinate, newOriginalValue);// הורדתי מהערה
+            Sheet mySheet = this.currentSheetState.getCurrentSheet();
+            DTOSheet result = new DTOSheetImpl(mySheet);
+            this.currentSheetState.getCurrentSheet().dynamicChange(coordinate,originalValue );
+            return result;
         }
         return null;
     }
+
 
     @Override
     public int getSheetVersion() {

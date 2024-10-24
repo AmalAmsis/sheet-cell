@@ -152,6 +152,15 @@ public class SheetImpl implements Sheet , Serializable {
         }
     }
 
+    @Override
+    public void dynamicChange (Coordinate coordinate, String originalValue) {
+        Cell myCell = board.get(coordinate.toString());
+        if(myCell != null) {
+            myCell.dynamicChange(originalValue);
+        }
+    }
+
+
     /** Updates the sheet version. Each update increases the version number by one */
     private void updateVersion() {
         version++;

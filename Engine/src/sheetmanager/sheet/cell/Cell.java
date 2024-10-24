@@ -108,4 +108,6 @@ public interface Cell {
     void setEditorUserName(String editorUserName);
 
     String getEditorUserName();
+
+    void dynamicChange(String originalValue);
 }

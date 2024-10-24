@@ -42,7 +42,7 @@ public class UIManagerImpl implements UIManager {
     @Override
     public DTOSheet updateTemporaryCellValue(String coordinateString, String newOriginalValue)  {
 
-        DTOSheet sheet = sheetManager.updateTemporaryCellValue(coordinateString, newOriginalValue, "");
+        DTOSheet sheet = sheetManager.updateTemporaryCellValue(coordinateString, newOriginalValue);
         return sheet;
 
     }
