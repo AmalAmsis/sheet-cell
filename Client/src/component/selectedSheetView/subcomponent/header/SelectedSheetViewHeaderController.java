@@ -1,5 +1,6 @@
 package component.selectedSheetView.subcomponent.header;
 
+import component.popup.error.ErrorMessage;
 import component.popup.versionselector.VersionSelectorController;
 import component.selectedSheetView.main.SelectedSheetViewController;
 import component.selectedSheetView.subcomponent.sheet.CellStyle;
@@ -139,10 +140,17 @@ public class SelectedSheetViewHeaderController {
 
     @FXML
     void ClickMeUpdateValueButtonAction(ActionEvent event) {
-        String originalValue = actionLineTextField.getText();
-        selectedSheetViewController.updateCellValue(originalValue);
-        actionLineTextField.clear();
+        if (selectedSheetViewController.isSheetInLatestVersion()) {
+            String originalValue = actionLineTextField.getText();
+            selectedSheetViewController.updateCellValue(originalValue);
+            actionLineTextField.clear();
+        } else {
+            new ErrorMessage("Please note:\nYou are not on the latest version of the sheet, so you cannot update the cell values." +
+                             "\nTo update the cell, you must switch to the latest version first." +
+                             "\nYou can do this by using the button located at the top right.");
+        }
     }
+
 
     @FXML
     void ClickMeVersionSelectorButtonAction(ActionEvent event) {

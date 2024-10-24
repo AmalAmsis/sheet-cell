@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 
 <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="333.0" prefWidth="171.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.dashboard.subcomponents.command.CommandController">
-    <VBox alignment="TOP_CENTER" prefHeight="300.0" prefWidth="150.0">
+    <VBox alignment="TOP_CENTER" prefHeight="300.0" prefWidth="169.0">
     <children>
         <Separator prefWidth="200.0" />
         <StackPane prefHeight="21.0" prefWidth="177.0">
@@ -23,11 +23,11 @@
             </children>
         </StackPane>
         <Separator prefWidth="200.0" />
-        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+        <VBox alignment="TOP_CENTER" prefHeight="231.0" prefWidth="158.0" spacing="10.0">
             <children>
-                <Button fx:id="viewSheetButton" mnemonicParsing="false" onAction="#viewSheetHandler" prefWidth="72.0" text="view sheet" />
-                <Button fx:id="requestPermissionButton" mnemonicParsing="false" text="request premission" />
-                <Button fx:id="ackOrDenyPermissionRequestButton" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="42.0" prefWidth="121.0" text="ack\deny permission request" textAlignment="CENTER" wrapText="true" />
+                <Button fx:id="viewSheetButton" mnemonicParsing="false" onAction="#viewSheetHandler" prefHeight="35.0" prefWidth="101.0" styleClass="style-button" text="view sheet" />
+                <Button fx:id="requestPermissionButton" mnemonicParsing="false" prefHeight="43.0" prefWidth="130.0" styleClass="style-button" text="request premission" />
+                <Button fx:id="ackOrDenyPermissionRequestButton" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="66.0" prefWidth="135.0" styleClass="style-button" text="ack\deny permission request" textAlignment="CENTER" wrapText="true" />
             </children>
             <VBox.margin>
                 <Insets top="5.0" />

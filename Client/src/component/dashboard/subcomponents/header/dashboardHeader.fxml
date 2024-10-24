@@ -6,7 +6,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.dashboard.subcomponents.header.DashboardHeaderController">
    <children>
-      <Button fx:id="loadSheetFileButton" mnemonicParsing="false" onAction="#loadSheetFileButtonHandler" prefHeight="26.0" prefWidth="180.0" text="Load Sheet File ">
+      <Button fx:id="loadSheetFileButton" mnemonicParsing="false" onAction="#loadSheetFileButtonHandler" prefHeight="26.0" prefWidth="180.0" styleClass="style-button" text="Load Sheet File ">
          <VBox.margin>
             <Insets left="5.0" top="5.0" />
          </VBox.margin>

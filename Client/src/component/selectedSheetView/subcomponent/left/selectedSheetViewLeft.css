@@ -52,3 +52,7 @@ titled-pane {
     -fx-background-color: #bdc3c7; /* רקע אפור בהיר במעבר עכבר */
 }
 
+sheetGrid {
+    -fx-background-color: rgb(26, 174, 188);
+    -fx-grid-lines-color: #16a085; /* לצבע הרשת */
+}

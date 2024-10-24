@@ -702,4 +702,40 @@ public class SelectedSheetViewController implements Closeable {
         sheetController.close();
         leftController.close();
     }
+
+    public boolean isSheetInLatestVersion() {
+        // Define the URL to check for an update
+        String checkUpdateUrl = HttpUrl
+                .parse(CURRENT_SHEET_VERSION)
+                .newBuilder()
+                .build()
+                .toString();
+
+        // Create a GET request to the servlet
+        Request request = new Request.Builder()
+                .url(checkUpdateUrl)
+                .get()
+                .build();
+
+        // Send the request and check the response synchronously
+        try {
+            Response response = HttpClientUtil.HTTP_CLIENT.newCall(request).execute();
+
+            if (response.isSuccessful()) {
+                // If the response code is 200 OK, the sheet is not up to date
+                response.close();
+                return false;  // Not the latest version
+            } else if (response.code() == 404) {
+                // If the response is 404 Not Found, it means the sheet is the latest version
+                response.close();
+                return true;  // Latest version
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            new ErrorMessage("Error checking sheet version: " + e.getMessage());
+        }
+
+        return false;  // Default to false if an error occurs
+    }
+
 }
