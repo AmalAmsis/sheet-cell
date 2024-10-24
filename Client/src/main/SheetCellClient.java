@@ -48,7 +48,9 @@ public class SheetCellClient extends Application {
     @Override
     public void stop() throws Exception {
         HttpClientUtil.shutdown();
-        sheetCellAppMainController.close();
+        if (sheetCellAppMainController != null) {
+            sheetCellAppMainController.close();
+        }
     }
 
     public static void main(String[] args) {

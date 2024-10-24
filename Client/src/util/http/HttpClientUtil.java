@@ -36,11 +36,19 @@ public class HttpClientUtil {
         call.enqueue(callback);
     }
 
+//    public static void shutdown() {
+//        System.out.println("Shutting down HTTP CLIENT");
+//        HTTP_CLIENT.dispatcher().executorService().shutdown();
+//        HTTP_CLIENT.connectionPool().evictAll();
+//    }
+
     public static void shutdown() {
-        System.out.println("Shutting down HTTP CLIENT");
-        HTTP_CLIENT.dispatcher().executorService().shutdown();
-        HTTP_CLIENT.connectionPool().evictAll();
+        if (HTTP_CLIENT != null) {
+            HTTP_CLIENT.connectionPool().evictAll();
+            HTTP_CLIENT.dispatcher().executorService().shutdown();
+        }
     }
+
 
 
 }

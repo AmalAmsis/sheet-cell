@@ -40,17 +40,18 @@ public class SheetCellAppMainController implements Closeable {
     private BorderPane dashboardComponent;
     private DashboardController dashboardComponentController;
 
-    @Override
-    //?????????????????????????????????????????????????
-    public void close() throws IOException {
-         if (selectedSheetViewComponentController!=null){
-             selectedSheetViewComponentController.close();
-         }
-         if(dashboardComponentController!=null){
-             dashboardComponentController.close();
-         }
 
+    //?????????????????????????????????????????????????
+    @Override
+    public void close() throws IOException {
+        if (selectedSheetViewComponentController != null) {
+            selectedSheetViewComponentController.close();
+        }
+        if (dashboardComponentController != null) {
+            dashboardComponentController.close();
+        }
     }
+
 
     private final StringProperty currentUserName;
 
