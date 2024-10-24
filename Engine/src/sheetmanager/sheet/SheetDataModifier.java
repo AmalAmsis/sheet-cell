@@ -22,4 +22,5 @@ public interface SheetDataModifier {
 
     void addRangeToManager(String rangeName, String range) throws Exception;
     void removeRangeFromManager(String rangeName) throws Exception;
+    void dynamicChange (Coordinate coordinate, String originalValue);
 }

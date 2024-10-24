@@ -52,6 +52,7 @@ public class RangePollerTask extends TimerTask {
                     }
                 }
                 response.body().close();
+                //return null;
             }
         });
     }

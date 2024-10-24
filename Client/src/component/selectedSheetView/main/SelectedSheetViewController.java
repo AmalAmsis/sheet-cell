@@ -9,7 +9,6 @@ import component.selectedSheetView.subcomponent.left.SelectedSheetViewLeftContro
 import component.selectedSheetView.subcomponent.sheet.CellStyle;
 import component.selectedSheetView.subcomponent.sheet.SelectedSheetController;
 import component.selectedSheetView.subcomponent.sheet.UIModelSheet;
-import component.selectedSheetView.subcomponent.sheet.SheetPollerTask;
 import dto.DTOSheet;
 import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
@@ -23,13 +22,13 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import okhttp3.*;
+import org.jetbrains.annotations.NotNull;
 import util.http.HttpClientUtil;
 
 import java.io.Closeable;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
 
 import static util.Constants.*;
 
@@ -105,9 +104,8 @@ public class SelectedSheetViewController implements Closeable {
                 showCellData(newCellId);  // Select new cell
                 isSelected.setValue(true);
 
-                 //Check if the cell contains a numeric value (commented out for future implementation)
-                 //DTOCell dtoCell = uiManager.getDtoCellForDisplayCell(newCellId.replace(":", ""));
-                 //isNumericCellSelected.setValue(isNumeric(dtoCell.getOriginalValue()));
+                 //Check if the cell contains a numeric value
+                 isNumericCellSelected.setValue(isNumeric(sheetController.getOriginalValue(newCellId)));
             }
         });
 
@@ -176,6 +174,7 @@ public class SelectedSheetViewController implements Closeable {
                     } else {
                         Platform.runLater(() -> new ErrorMessage("Failed to fetch range: " + response.message()));
                     }
+                    //return null;
                 }
             });
         } catch (Exception e) {
@@ -627,6 +626,72 @@ public class SelectedSheetViewController implements Closeable {
     }
 
     public void startSheetPolling(){sheetController.startPolling();}
+
+    /**
+     * Temporarily updates the value of a cell for dynamic analysis.
+     *
+     * @param cellKey  the key of the cell to update.
+     * @param newValue the new value to set.
+     * @return the updated DTOSheet object, or null if an error occurred.
+     */
+    public DTOSheet updateTemporaryCellValue(String cellKey, double newValue) {
+        String url = DYNAMIC_ANALYSIS + "?coordinate=" + cellKey + "&value=" + String.valueOf(newValue);
+
+        // יצירת בקשת GET
+        Request request = new Request.Builder()
+                .url(url)
+                .get()
+                .build();
+
+        try {
+            // שליחת הבקשה באופן סינכרוני
+            Response response = HttpClientUtil.HTTP_CLIENT.newCall(request).execute();
+
+            // בדיקת הצלחת הבקשה
+            if (response.isSuccessful()) {
+                // קבלת התשובה מהשרת והמרה ל-DTOSheet
+                String jsonResponse = response.body().string();
+                JsonSerializer jsonSerializer = new JsonSerializer();
+                DTOSheet dtoSheet = jsonSerializer.convertJsonToDto(jsonResponse);
+
+                // סגירת body של התשובה
+                response.body().close();
+
+                // החזרת ה-DTOSheet
+                return dtoSheet;
+            } else {
+                System.err.println("Failed to update cell for dynamic analysis: " + response.message());
+                return null;
+            }
+        } catch (IOException e) {
+            System.err.println("Failed to send request for dynamic analysis: " + e.getMessage());
+            return null;
+        }
+    }
+
+
+
+    /**
+     * Checks if a string contains a numeric value.
+     * @param str the string to check.
+     * @return true if the string is numeric, false otherwise.
+     */
+    public boolean isNumeric(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    /**
+     * Returns the currently selected cell key.
+     * @return the selected cell key.
+     */
+    public String getSelectedCellKey() {
+        return selectedCellId.getValue();
+    }
 
    //???????????????????????????????????????????????????
     @Override

@@ -81,6 +81,7 @@ public class LoginController  {
                         //chatAppMainController.switchToChatRoom();
                     });
                 }
+                //return null;
             }
         });
     }

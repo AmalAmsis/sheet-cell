@@ -334,5 +334,12 @@ public class CellImpl implements Cell, Serializable {
         return editorUserName;
     }
 
+    @Override
+    public void dynamicChange(String originalValue) {
+        Set<Cell> visitedCells = new HashSet<>();
+        updateValueHelper(originalValue, visitedCells);
+        this.originalValue = originalValue;
+    }
+
 
 }

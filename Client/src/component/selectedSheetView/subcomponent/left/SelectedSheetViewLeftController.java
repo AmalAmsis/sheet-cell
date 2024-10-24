@@ -2,6 +2,7 @@ package component.selectedSheetView.subcomponent.left;
 
 import JsonSerializer.JsonSerializer;
 import com.google.gson.Gson;
+import component.popup.dynamicAnalysisSheet.DynamicAnalysisSheetController;
 import component.popup.error.ErrorMessage;
 import component.popup.viewonlysheet.ViewOnlySheetController;
 import component.selectedSheetView.main.SelectedSheetViewController;
@@ -217,22 +218,45 @@ public class SelectedSheetViewLeftController implements Closeable {
 
     /** FILTER FEATURE:*/
 
+    @FXML
+    private void handleDynamicAnalysis(ActionEvent event) {
+        try {
+            // קבלת הערכים מה-TextFields
+            double minValue = Double.parseDouble(minValueField.getText());
+            double maxValue = Double.parseDouble(maxValueField.getText());
+            double stepSize = Double.parseDouble(stepSizeField.getText());
+
+            //צריך לתקן
+            String selectedCellKey = selectedSheetViewController.getSelectedCellKey(); // לקבל את תא שנבחר
+            showDynamicAnalysisPopup(selectedCellKey, minValue, maxValue, stepSize);
 
 
 
+        } catch (NumberFormatException e) {
+            new ErrorMessage("Please enter valid numeric values.");
+        }
+    }
 
+    public void showDynamicAnalysisPopup(String cellKey, double minValue, double maxValue, double stepSize) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/component/popup/dynamicAnalysisSheet/dynamicAnalysisSheet.fxml"));
+            Parent root = loader.load();
 
+            DynamicAnalysisSheetController controller = loader.getController();
+            controller.setSelectedSheetViewController(selectedSheetViewController);
 
+            // Initialize the popup with the selected cell and range values
+            String currentSheetName = selectedSheetViewController.getCurrentSheetName();
+            controller.initDynamicAnalysisSheet(selectedSheetViewController.getDtoSheet(currentSheetName), cellKey, minValue, maxValue, stepSize);
 
-
-
-
-
-
-
-
-
-    @FXML void handleDynamicAnalysis(ActionEvent event) {}
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Dynamic Analysis");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML void handleGenerateGraph(ActionEvent event) {}
 
@@ -358,6 +382,7 @@ public class SelectedSheetViewLeftController implements Closeable {
                 } else {
                     displayErrorMessage("Failed to fetch filtered sheet: " + response.code());
                 }
+                //return null;
             }
         });
     }
@@ -686,6 +711,8 @@ public class SelectedSheetViewLeftController implements Closeable {
         rangesPollimgTimer = new Timer(true); // Polling will run as a daemon thread
         rangesPollimgTimer.schedule(new RangePollerTask(this, selectedSheetViewController.getAllRanges()), 0, 5000); // Poll every 5 seconds
     }
+
+
 
     //?????????????????????????????????????????????????
     @Override

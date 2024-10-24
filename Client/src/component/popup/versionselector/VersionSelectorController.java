@@ -151,6 +151,7 @@ public class VersionSelectorController {
                 } else {
                     displayErrorMessage("Failed to fetch filtered sheet: " + response.code());
                 }
+                //return null;
             }
         });
 

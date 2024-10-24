@@ -55,6 +55,7 @@ public class SheetPollerTask extends TimerTask {
                     }
                 }
                 response.body().close();
+                //return null;
             }
         });
     }
