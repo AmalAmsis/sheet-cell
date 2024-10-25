@@ -365,7 +365,7 @@ public class SelectedSheetController implements Closeable {
         Button switchToTheLatestVersionButton = selectedSheetViewController.getSwitchToTheLatestVersionButton();
         // Schedule the SheetPollerTask to run every 10 seconds
           sheetUpdateTimer = new Timer(true);
-          sheetUpdateTimer.schedule(new SheetPollerTask(switchToTheLatestVersionButton), 0, 5000);
+          sheetUpdateTimer.schedule(new SheetPollerTask(switchToTheLatestVersionButton), 0, 3000);
 //        SheetPollerTask pollerTask = new SheetPollerTask(switchToTheLatestVersionButton);
 //        sheetPollingTimer.schedule(pollerTask, 0, 2000);  // Run every 2 seconds
     }
