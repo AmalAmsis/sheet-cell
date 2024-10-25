@@ -20,8 +20,8 @@ import static util.Constants.CURRENT_SHEET_VERSION;
 public class SheetPollerTask extends TimerTask {
 
     private final Button switchToTheLatestVersionButton;
-    private boolean isFlashing = false;  // כדי לעקוב האם הכפתור כבר מהבהב
-    private Timeline flashTimeline;  // נשתמש ב-Timeline כדי להפעיל את ההבהוב
+    private boolean isFlashing = false;
+    private Timeline flashTimeline;
 
     public SheetPollerTask(Button switchToTheLatestVersionButton) {
         this.switchToTheLatestVersionButton = switchToTheLatestVersionButton;
@@ -30,7 +30,6 @@ public class SheetPollerTask extends TimerTask {
     @Override
     public void run() {
         String versionCheckUrl = HttpUrl.parse(CURRENT_SHEET_VERSION).newBuilder().build().toString();
-
         Request request = new Request.Builder().url(versionCheckUrl).build();
 
         HttpClientUtil.HTTP_CLIENT.newCall(request).enqueue(new Callback() {
@@ -41,42 +40,36 @@ public class SheetPollerTask extends TimerTask {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                if (response.isSuccessful()) {
-                    //currentVersion = latestVersion;  // נעדכן לגרסה האחרונה
-                    if (!isFlashing) {  // נתחיל הבהוב רק אם הוא לא התחיל כבר
-                        Platform.runLater(() -> startButtonFlashing());
-                        isFlashing = true;  // עדכון שהכפתור מהבהב
+                try {
+                    if (response.isSuccessful()) {
+                        if (!isFlashing) {
+                            Platform.runLater(SheetPollerTask.this::startButtonFlashing);
+                            isFlashing = true;
+                        }
+                    } else if (isFlashing) {
+                        Platform.runLater(SheetPollerTask.this::stopButtonFlashing);
+                        isFlashing = false;
                     }
-                } else {
-                    // אם הגרסה כבר עדכנית, נוודא שאין הבהוב
-                    if (isFlashing) {
-                        Platform.runLater(() -> stopButtonFlashing());
-                        isFlashing = false;  // עדכון שההבהוב הופסק
-                    }
+                } finally {
+                    response.body().close(); // סגירת התגובה בכל מקרה
                 }
-                response.body().close();
-                //return null;
             }
         });
     }
 
-
-
-    // נתחיל הבהוב רק אם יש גרסה חדשה
     private void startButtonFlashing() {
         flashTimeline = new Timeline(
                 new KeyFrame(Duration.seconds(0.5), e -> switchToTheLatestVersionButton.setStyle("-fx-background-color: red;")),
                 new KeyFrame(Duration.seconds(1), e -> switchToTheLatestVersionButton.setStyle(""))
         );
-        flashTimeline.setCycleCount(Timeline.INDEFINITE);  // הכפתור יבהב בלי לעצור
+        flashTimeline.setCycleCount(Timeline.INDEFINITE);
         flashTimeline.play();
     }
 
-    // נפסיק את ההבהוב כשאין צורך
     private void stopButtonFlashing() {
         if (flashTimeline != null) {
-            flashTimeline.stop();  // נוודא שההבהוב עוצר
+            flashTimeline.stop();
         }
-        switchToTheLatestVersionButton.setStyle("");  // נחזיר את הסגנון הרגיל לכפתור
+        switchToTheLatestVersionButton.setStyle("");
     }
 }

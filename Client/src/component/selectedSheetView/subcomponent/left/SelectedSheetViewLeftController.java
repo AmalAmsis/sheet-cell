@@ -722,4 +722,9 @@ public class SelectedSheetViewLeftController implements Closeable {
         }
     }
 
+    public void stopRangePolling() {
+        if (rangesPollimgTimer != null) {
+            rangesPollimgTimer.cancel();
+        }
+    }
 }

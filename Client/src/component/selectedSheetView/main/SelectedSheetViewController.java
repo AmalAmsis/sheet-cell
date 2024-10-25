@@ -738,4 +738,15 @@ public class SelectedSheetViewController implements Closeable {
         return false;  // Default to false if an error occurs
     }
 
+    public void stopSheetPolling() {
+        if(sheetController != null){
+            sheetController.stopSheetPolling();
+        }
+    }
+
+    public void stopRangePolling() {
+        if(leftController != null){
+            leftController.stopRangePolling();
+        }
+    }
 }
