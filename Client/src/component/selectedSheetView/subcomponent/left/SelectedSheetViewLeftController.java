@@ -252,18 +252,26 @@ public class SelectedSheetViewLeftController implements Closeable {
             DynamicAnalysisSheetController controller = loader.getController();
             controller.setSelectedSheetViewController(selectedSheetViewController);
 
-            // Initialize the popup with the selected cell and range values
+            // קריאה אסינכרונית לקבלת הגיליון המעודכן
             String currentSheetName = selectedSheetViewController.getCurrentSheetName();
-            controller.initDynamicAnalysisSheet(selectedSheetViewController.getDtoSheet(currentSheetName), cellKey, minValue, maxValue, stepSize);
-
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Dynamic Analysis");
-            stage.show();
+            selectedSheetViewController.getDtoSheet(currentSheetName, dtoSheet -> {
+                // Initialize the popup with the selected cell and range values after fetching the sheet data
+                Platform.runLater(() -> {
+                    controller.initDynamicAnalysisSheet(dtoSheet, cellKey, minValue, maxValue, stepSize);
+                    Stage stage = new Stage();
+                    stage.setScene(new Scene(root));
+                    stage.setTitle("Dynamic Analysis");
+                    stage.show();
+                });
+            }, errorMessage -> {
+                // במקרה של שגיאה, הצגת הודעת שגיאה למשתמש
+                Platform.runLater(() -> new ErrorMessage("Failed to load sheet for dynamic analysis: " + errorMessage));
+            });
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 
     @FXML
     private void handleGenerateGraph() {

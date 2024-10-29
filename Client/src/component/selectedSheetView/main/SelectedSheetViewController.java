@@ -30,6 +30,7 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 import static util.Constants.*;
 
@@ -465,56 +466,142 @@ public class SelectedSheetViewController implements Closeable {
         selectedCellId.set(cellId);  // Triggers the listener
     }
 
+//    public void updateCellValue(String newOriginalValue) {
+//        try {
+//            // Build the final URL for the request
+//            String finalUrl = HttpUrl
+//                    .parse(UPDATE_CELL)
+//                    .newBuilder()
+//                    .build()
+//                    .toString();
+//
+//            // Create the JSON body for the request
+//            String jsonBody = "{\"coordinate\": \"" + selectedCellId.getValue() + "\", \"originalValue\": \"" + newOriginalValue + "\"}";
+//
+//            // Build the request body
+//            RequestBody body = RequestBody.create(jsonBody, MediaType.parse("application/json; charset=utf-8"));
+//
+//            // Create the PUT request
+//            Request request = new Request.Builder()
+//                    .url(finalUrl)
+//                    .put(body)
+//                    .build();
+//
+//            // Send the request synchronously
+//            try (Response response = HttpClientUtil.HTTP_CLIENT.newCall(request).execute()) {
+//                if (response.isSuccessful()) {
+//                    String sheetName = response.body().string();
+//                    DTOSheet dtoSheet = getDtoSheet(sheetName);
+//
+//                    if(dtoSheet!=null) {
+//                        // Update the sheet in the UI using Platform.runLater
+//                        Platform.runLater(() -> sheetController.updateSheetValues(dtoSheet));
+//                    }
+//
+//                    // Handle successful update
+//                    System.out.println("Cell updated successfully");
+//                } else {
+//                    // Handle error response
+//                    String responseBody = response.body().string();
+//                    Platform.runLater(() -> new ErrorMessage("Update failed: " + responseBody));
+//                }
+//            }
+//        } catch (IOException e) {
+//            // Handle failure
+//            Platform.runLater(() -> new ErrorMessage("Failed to update cell: " + e.getMessage()));
+//        }
+//    }
+//
+//
+//
+//
+//    public DTOSheet getDtoSheet(String sheetName) {
+//
+//        String fileName = sheetName;
+//        String username = "lo_user";  // שם המשתמש הקבוע
+//
+//        String url = VIEW + "?username=" + username + "&sheetName=" + fileName;
+//
+//        // יצירת בקשת GET
+//        Request request = new Request.Builder()
+//                .url(url)
+//                .get()
+//                .build();
+//
+//        // שליחת הבקשה
+//        Call call = HttpClientUtil.HTTP_CLIENT.newCall(request);
+//
+//        try {
+//            Response response = call.execute();
+//
+//            if (response.isSuccessful()) {
+//                String jsonResponse = response.body().string();
+//
+//                JsonSerializer jsonSerializer = new JsonSerializer();
+//                DTOSheet dtoSheet = jsonSerializer.convertJsonToDto(jsonResponse);
+//                return dtoSheet;
+//            } else {
+//                new ErrorMessage("Failed to fetch sheet: " + response.body().string());
+//            }
+//
+//        } catch (IOException e) {
+//            new ErrorMessage("Error fetching sheet: " + e.getMessage());
+//        }
+//        return null;
+//    }
+
     public void updateCellValue(String newOriginalValue) {
-        try {
-            // Build the final URL for the request
-            String finalUrl = HttpUrl
-                    .parse(UPDATE_CELL)
-                    .newBuilder()
-                    .build()
-                    .toString();
+        // Build the final URL for the request
+        String finalUrl = HttpUrl
+                .parse(UPDATE_CELL)
+                .newBuilder()
+                .build()
+                .toString();
 
-            // Create the JSON body for the request
-            String jsonBody = "{\"coordinate\": \"" + selectedCellId.getValue() + "\", \"originalValue\": \"" + newOriginalValue + "\"}";
+        // Create the JSON body for the request
+        String jsonBody = "{\"coordinate\": \"" + selectedCellId.getValue() + "\", \"originalValue\": \"" + newOriginalValue + "\"}";
 
-            // Build the request body
-            RequestBody body = RequestBody.create(jsonBody, MediaType.parse("application/json; charset=utf-8"));
+        // Build the request body
+        RequestBody body = RequestBody.create(jsonBody, MediaType.parse("application/json; charset=utf-8"));
 
-            // Create the PUT request
-            Request request = new Request.Builder()
-                    .url(finalUrl)
-                    .put(body)
-                    .build();
+        // Create the PUT request
+        Request request = new Request.Builder()
+                .url(finalUrl)
+                .put(body)
+                .build();
 
-            // Send the request synchronously
-            try (Response response = HttpClientUtil.HTTP_CLIENT.newCall(request).execute()) {
-                if (response.isSuccessful()) {
-                    String sheetName = response.body().string();
-                    DTOSheet dtoSheet = getDtoSheet(sheetName);
+        // Send the request asynchronously
+        HttpClientUtil.HTTP_CLIENT.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Platform.runLater(() -> new ErrorMessage("Failed to update cell: " + e.getMessage()));
+            }
 
-                    if(dtoSheet!=null) {
-                        // Update the sheet in the UI using Platform.runLater
-                        Platform.runLater(() -> sheetController.updateSheetValues(dtoSheet));
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                try {
+                    if (response.isSuccessful()) {
+                        String sheetName = response.body().string();
+
+                        // Call getDtoSheet asynchronously to fetch updated sheet
+                        getDtoSheet(sheetName, dtoSheet -> {
+                            if (dtoSheet != null) {
+                                Platform.runLater(() -> sheetController.updateSheetValues(dtoSheet));
+                            }
+                            System.out.println("Cell updated successfully");
+                        }, errorMessage -> Platform.runLater(() -> new ErrorMessage("Failed to fetch updated sheet: " + errorMessage)));
+                    } else {
+                        String responseBody = response.body().string();
+                        Platform.runLater(() -> new ErrorMessage("Update failed: " + responseBody));
                     }
-
-                    // Handle successful update
-                    System.out.println("Cell updated successfully");
-                } else {
-                    // Handle error response
-                    String responseBody = response.body().string();
-                    Platform.runLater(() -> new ErrorMessage("Update failed: " + responseBody));
+                } finally {
+                    response.close();
                 }
             }
-        } catch (IOException e) {
-            // Handle failure
-            Platform.runLater(() -> new ErrorMessage("Failed to update cell: " + e.getMessage()));
-        }
+        });
     }
 
-
-
-
-    public DTOSheet getDtoSheet(String sheetName) {
+    public void getDtoSheet(String sheetName, Consumer<DTOSheet> onSuccess, Consumer<String> onFailure) {
 
         String fileName = sheetName;
         String username = "lo_user";  // שם המשתמש הקבוע
@@ -527,27 +614,34 @@ public class SelectedSheetViewController implements Closeable {
                 .get()
                 .build();
 
-        // שליחת הבקשה
-        Call call = HttpClientUtil.HTTP_CLIENT.newCall(request);
-
-        try {
-            Response response = call.execute();
-
-            if (response.isSuccessful()) {
-                String jsonResponse = response.body().string();
-
-                JsonSerializer jsonSerializer = new JsonSerializer();
-                DTOSheet dtoSheet = jsonSerializer.convertJsonToDto(jsonResponse);
-                return dtoSheet;
-            } else {
-                new ErrorMessage("Failed to fetch sheet: " + response.body().string());
+        // שליחת הבקשה ב-Async
+        HttpClientUtil.HTTP_CLIENT.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Platform.runLater(() -> onFailure.accept("Error fetching sheet: " + e.getMessage()));
             }
 
-        } catch (IOException e) {
-            new ErrorMessage("Error fetching sheet: " + e.getMessage());
-        }
-        return null;
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                try {
+                    if (response.isSuccessful()) {
+                        String jsonResponse = response.body().string();
+                        JsonSerializer jsonSerializer = new JsonSerializer();
+                        DTOSheet dtoSheet = jsonSerializer.convertJsonToDto(jsonResponse);
+
+                        Platform.runLater(() -> onSuccess.accept(dtoSheet));
+                    } else {
+                        String errorMessage = "Failed to fetch sheet: " + response.body().string();
+                        Platform.runLater(() -> onFailure.accept(errorMessage));
+                    }
+                } finally {
+                    response.close();
+                }
+            }
+        });
     }
+
+
 
 
     public String getCurrentSheetName(){
