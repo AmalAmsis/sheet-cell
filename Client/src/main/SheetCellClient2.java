@@ -29,10 +29,16 @@ public class SheetCellClient2 extends Application {
             fxmlLoader.setLocation(loginPage);
             Parent root = fxmlLoader.load();
             sheetCellAppMainController = fxmlLoader.getController();
+            sheetCellAppMainController.setPrimaryStage(primaryStage);
 
             Scene scene = new Scene(root, 800, 500);
             primaryStage.setScene(scene);
             primaryStage.show();
+
+            // הטענת ערכת צבעים דיפולטית
+            sheetCellAppMainController.applyTheme("Style 1");
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -42,7 +48,9 @@ public class SheetCellClient2 extends Application {
     @Override
     public void stop() throws Exception {
         HttpClientUtil.shutdown();
-        sheetCellAppMainController.close();
+        if (sheetCellAppMainController != null) {
+            sheetCellAppMainController.close();
+        }
     }
 
     public static void main(String[] args) {

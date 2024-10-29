@@ -29,7 +29,7 @@ public class SelectedSheetController implements Closeable {
     private SelectedSheetViewController selectedSheetViewController;
     private UIModelSheet uiModel;
     private String selectedSheetName;
-    private Timer sheetPollingTimer;
+    private Timer sheetUpdateTimer;
 
     @FXML
     private GridPane sheetGrid;
@@ -329,6 +329,8 @@ public class SelectedSheetController implements Closeable {
      */
     public String getOriginalValue(String cellId) {return uiModel.getCellOriginalValue(cellId);}
 
+    public String getEffectiveValue(String cellId) {return uiModel.getCell(cellId).valueProperty().getValue();}
+
     /**
      * Gets the Last Modified Version of a specific cell.
      * @param cellId the ID of the cell.
@@ -361,22 +363,33 @@ public class SelectedSheetController implements Closeable {
 
     // Method to start the polling
     public void startPolling() {
-        // Create a new Timer
-        Timer sheetPollingTimer = new Timer();
 
         Button switchToTheLatestVersionButton = selectedSheetViewController.getSwitchToTheLatestVersionButton();
         // Schedule the SheetPollerTask to run every 10 seconds
-        SheetPollerTask pollerTask = new SheetPollerTask(switchToTheLatestVersionButton);
-        sheetPollingTimer.schedule(pollerTask, 0, 2000);  // Run every 2 seconds
+          sheetUpdateTimer = new Timer(true);
+          sheetUpdateTimer.schedule(new SheetPollerTask(switchToTheLatestVersionButton), 0, 3000);
+//        SheetPollerTask pollerTask = new SheetPollerTask(switchToTheLatestVersionButton);
+//        sheetPollingTimer.schedule(pollerTask, 0, 2000);  // Run every 2 seconds
     }
+
+//    public void startSheetUpdatePolling() {
+//        sheetUpdateTimer = new Timer(true);
+//        sheetUpdateTimer.schedule(new SheetPollerTask(switchToTheLatestVersionButton), 0, 5000);
+//    }
 
 
     @Override
     public void close() throws IOException {
-        if(sheetPollingTimer != null){
-            sheetPollingTimer.cancel();
+        if(sheetUpdateTimer != null){
+            sheetUpdateTimer.cancel();
         }
     }
 
+
+    public void stopSheetPolling() {
+        if (sheetUpdateTimer != null){
+            sheetUpdateTimer.cancel();
+        }
+    }
 
 }

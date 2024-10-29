@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+<VBox prefHeight="155.0" prefWidth="231.0" spacing="5.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.popup.graph.GraphController">
+    <children>
+        <Label text="Select Graph Type:" />
+        <ChoiceBox fx:id="graphTypeChoiceBox" prefHeight="26.0" prefWidth="69.0" />
+
+        <Label text="Enter X Axis Range (e.g. A1..A10):" />
+        <TextField prefHeight="26.0" prefWidth="210.0" fx:id="xAxisRangeField" />
+
+        <Label text="Enter Y Axis Range (e.g. B1..B10):" />
+        <TextField fx:id="yAxisRangeField" />
+
+        <Button fx:id="generateButton" onAction="#generateGraph" text="Generate Graph">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets></Button>
+    </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</VBox>

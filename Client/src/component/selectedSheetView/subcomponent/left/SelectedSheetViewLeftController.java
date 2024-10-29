@@ -6,6 +6,7 @@ import component.popup.dynamicAnalysisSheet.DynamicAnalysisSheetController;
 import component.popup.error.ErrorMessage;
 import component.popup.viewonlysheet.ViewOnlySheetController;
 import component.selectedSheetView.main.SelectedSheetViewController;
+import component.popup.graph.GraphController;
 import dto.DTOSheet;
 import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
@@ -193,17 +194,24 @@ public class SelectedSheetViewLeftController implements Closeable {
     }
 
 
-    @FXML void ClickMeRemoveRange(ActionEvent event) {
-        String selectedRange = removeRangeChoiceBox.getSelectionModel().getSelectedItem();
-
-        if (selectedRange != null) {
-            // Call appController to remove the selected range
-            selectedSheetViewController.removeRange(selectedRange);
+    @FXML
+    void ClickMeRemoveRange(ActionEvent event) {
+        if (!selectedSheetViewController.isSheetInLatestVersion()) {
             removeRangeChoiceBox.getSelectionModel().clearSelection();
-            // Update the choice boxes after removal
-            updateChoiceBoxes();
+            new ErrorMessage("You are not on the latest version of the sheet, so you cannot remove ranges. Please update to the latest version using the button at the top right before making changes.");
+        } else {
+            String selectedRange = removeRangeChoiceBox.getSelectionModel().getSelectedItem();
+
+            if (selectedRange != null) {
+                // Call appController to remove the selected range
+                selectedSheetViewController.removeRange(selectedRange);
+                removeRangeChoiceBox.getSelectionModel().clearSelection();
+                // Update the choice boxes after removal
+                updateChoiceBoxes();
+            }
         }
     }
+
 
     @FXML void ClickMeShowRange(ActionEvent event) {
         String selectedRange = showRangeChoiceBox.getSelectionModel().getSelectedItem();
@@ -216,7 +224,6 @@ public class SelectedSheetViewLeftController implements Closeable {
     }
 
 
-    /** FILTER FEATURE:*/
 
     @FXML
     private void handleDynamicAnalysis(ActionEvent event) {
@@ -245,20 +252,47 @@ public class SelectedSheetViewLeftController implements Closeable {
             DynamicAnalysisSheetController controller = loader.getController();
             controller.setSelectedSheetViewController(selectedSheetViewController);
 
-            // Initialize the popup with the selected cell and range values
+            // קריאה אסינכרונית לקבלת הגיליון המעודכן
             String currentSheetName = selectedSheetViewController.getCurrentSheetName();
-            controller.initDynamicAnalysisSheet(selectedSheetViewController.getDtoSheet(currentSheetName), cellKey, minValue, maxValue, stepSize);
-
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Dynamic Analysis");
-            stage.show();
+            selectedSheetViewController.getDtoSheet(currentSheetName, dtoSheet -> {
+                // Initialize the popup with the selected cell and range values after fetching the sheet data
+                Platform.runLater(() -> {
+                    controller.initDynamicAnalysisSheet(dtoSheet, cellKey, minValue, maxValue, stepSize);
+                    Stage stage = new Stage();
+                    stage.setScene(new Scene(root));
+                    stage.setTitle("Dynamic Analysis");
+                    stage.show();
+                });
+            }, errorMessage -> {
+                // במקרה של שגיאה, הצגת הודעת שגיאה למשתמש
+                Platform.runLater(() -> new ErrorMessage("Failed to load sheet for dynamic analysis: " + errorMessage));
+            });
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    @FXML void handleGenerateGraph(ActionEvent event) {}
+
+    @FXML
+    private void handleGenerateGraph() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/component/popup/graph/graphSelector.fxml"));
+            Parent root = loader.load();
+
+            GraphController graphController = loader.getController();
+            graphController.setSelectedSheetViewController(selectedSheetViewController);
+
+            Stage stage = new Stage();
+            stage.setTitle("Select Data for Graph");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (Exception e) {
+            new component.subcomponent.popup.errormessage.ErrorMessage(e.getMessage());
+        }
+    }
+
+
 
     //************************************filter*************************
 
@@ -722,4 +756,9 @@ public class SelectedSheetViewLeftController implements Closeable {
         }
     }
 
+    public void stopRangePolling() {
+        if (rangesPollimgTimer != null) {
+            rangesPollimgTimer.cancel();
+        }
+    }
 }

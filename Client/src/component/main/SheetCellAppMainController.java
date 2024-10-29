@@ -135,6 +135,8 @@ public class SheetCellAppMainController implements Closeable {
 
     public void switchToDashboard(){
         setMainPanelTo(dashboardComponent);
+        selectedSheetViewComponentController.stopSheetPolling();
+        selectedSheetViewComponentController.stopRangePolling();
         //לא סיימנו צריך להוסיף דברים בהמשך
     }
 

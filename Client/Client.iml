@@ -12,5 +12,6 @@
     <orderEntry type="module" module-name="DataTransferObject" exported="" />
     <orderEntry type="module" module-name="Server" />
     <orderEntry type="library" exported="" name="okHttp" level="project" />
+    <orderEntry type="module" module-name="UI" />
   </component>
 </module>

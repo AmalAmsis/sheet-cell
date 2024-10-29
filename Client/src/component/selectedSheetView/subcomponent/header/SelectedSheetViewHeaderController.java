@@ -199,10 +199,22 @@ public class SelectedSheetViewHeaderController {
 
     @FXML
     void handleSwitchToLatestVersion(ActionEvent event) {
-        String currentSheetName = selectedSheetViewController.getCurrentSheetName();
-        DTOSheet dtoSheet = selectedSheetViewController.getDtoSheet(currentSheetName);
-        selectedSheetViewController.updateSheet(dtoSheet);
+        if (selectedSheetViewController.isSheetInLatestVersion()) {
+            new ErrorMessage("You are already on the latest version of the sheet. No further updates are needed at this time.\n");
+        } else {
+            String currentSheetName = selectedSheetViewController.getCurrentSheetName();
+
+            // קריאה אסינכרונית לקבלת הגיליון המעודכן
+            selectedSheetViewController.getDtoSheet(currentSheetName, dtoSheet -> {
+                // במידה והקריאה הצליחה, עדכן את הגיליון ב-UI
+                Platform.runLater(() -> selectedSheetViewController.updateSheet(dtoSheet));
+            }, errorMessage -> {
+                // במידה והייתה שגיאה, הצגת הודעת שגיאה למשתמש
+                Platform.runLater(() -> new ErrorMessage("Failed to update to the latest version: " + errorMessage));
+            });
+        }
     }
+
 
     /**
      * Binds the UI components to the selection state of a cell.
