@@ -27,34 +27,26 @@ public class RangePollerTask extends TimerTask {
 
     @Override
     public void run() {
-        // Create request to get the list of ranges
+        // יצירת URL לבקשה
         String url = HttpUrl.parse(RANGES).newBuilder().build().toString();
         Request request = new Request.Builder().url(url).build();
 
-        HttpClientUtil.HTTP_CLIENT.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                System.err.println("Failed to poll ranges: " + e.getMessage());
-            }
+        try (Response response = HttpClientUtil.HTTP_CLIENT.newCall(request).execute()) {
+            if (response.isSuccessful() && response.body() != null) {
+                String jsonResponse = response.body().string();
+                List<String> newRanges = GSON_INSTANCE.fromJson(jsonResponse, new TypeToken<List<String>>(){}.getType());
 
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                if (response.isSuccessful()) {
-                    String jsonResponse = response.body().string();
-                    List<String> newRanges = GSON_INSTANCE.fromJson(jsonResponse, new TypeToken<List<String>>(){}.getType());
-
-                    // If the new range list is different, update the checkbox
-                    if (!newRanges.equals(currentRanges)) {
-                        Platform.runLater(() -> {
-                            selectedSheetViewLeftController.updateChoiceBoxesWithNewRanges(newRanges);
-                        });
-                        currentRanges = newRanges;
-                    }
+                // עדכון ה-checkbox במקרה של רשימת ריינג'ים שונה
+                if (!newRanges.equals(currentRanges)) {
+                    Platform.runLater(() -> {
+                        selectedSheetViewLeftController.updateChoiceBoxesWithNewRanges(newRanges);
+                    });
+                    currentRanges = newRanges;
                 }
-                response.body().close();
-                //return null;
             }
-        });
+        } catch (IOException e) {
+            System.err.println("Failed to poll ranges: " + e.getMessage());
+        }
     }
 }
 
