@@ -2,21 +2,21 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="DataTransferObject" />
-      <artifact name="Engine" />
       <artifact name="Server:Web exploded" />
-      <artifact name="UI" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Handled client closure to ensure all background tasks and timers are stopped upon exiting the application. This resolves the 'executor rejected' errors that occurred when the window was closed without stopping ongoing polling tasks.">
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="&quot;Implemented notification for latest version check: If a client is already on the latest sheet version and attempts to update, they receive a message indicating no further update is needed. Additionally, ensured consistent styling updates across client main views to maintain uniform appearance">
+      <change afterPath="$PROJECT_DIR$/Client/src/component/popup/graph/GraphController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/src/component/popup/graph/graphSelector.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/SelectedSheetViewHeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/SelectedSheetViewHeaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/main/SheetCellClient2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/SheetCellClient2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/sheet/SelectedSheetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/sheet/SelectedSheetController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -339,23 +339,7 @@
       <workItem from="1728768423746" duration="14000" />
       <workItem from="1728768460006" duration="5531000" />
       <workItem from="1729849814137" duration="335000" />
-      <workItem from="1729850164285" duration="5500000" />
-    </task>
-    <task id="LOCAL‎-00065" summary="Added dynamic analysis feature with a value range slider for numerical cells. &#10;&#10;- Implemented functionality allowing users to select a cell, set a minimum and maximum value, and define the step size. &#10;- Added a slider for users to dynamically adjust the selected cell's value within the defined range.&#10;- The sheet updates in real-time with each change made by the slider.&#10;- Changes are temporary and do not permanently modify the cell's value in the sheet or create a new version.">
-      <option name="closed" value="true" />
-      <created>1727250661491</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL‎-00065" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1727250661491</updated>
-    </task>
-    <task id="LOCAL‎-00066" summary="Implemented theme switching functionality with support for at least 2 additional color schemes beyond the default. The following UI elements were updated as part of the theme changes:&#10;&#10;1. Background color for the entire screen.&#10;2. Button styling and appearance across the UI.&#10;3. Updated font and font size for all labels on the screen to reflect the selected theme.&#10;&#10;Added a mechanism for users to easily switch between these themes through the UI.">
-      <option name="closed" value="true" />
-      <created>1727344530282</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL‎-00066" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1727344530282</updated>
+      <workItem from="1729850164285" duration="8614000" />
     </task>
     <task id="LOCAL‎-00067" summary="Refactored version selection functionality:&#10;- Added dynamic linking between okButton and versionMenuBar to ensure the button is only enabled when a version is selected.&#10;- Fixed the dynamic creation of MenuItems and ensured proper action listeners are attached during runtime.&#10;&#10;General updates:&#10;- Cleaned up several classes.&#10;- Added documentation across classes for clarity and future maintenance.">
       <option name="closed" value="true" />
@@ -733,7 +717,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1729852457948</updated>
     </task>
-    <option name="localTasksCounter" value="114" />
+    <task id="LOCAL‎-00114" summary="Added version check for range removal: If the user is not on the latest sheet version, they receive a notification explaining they cannot delete a range until updating to the latest version">
+      <option name="closed" value="true" />
+      <created>1730194214689</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL‎-00114" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1730194214689</updated>
+    </task>
+    <task id="LOCAL‎-00115" summary="&quot;Implemented notification for latest version check: If a client is already on the latest sheet version and attempts to update, they receive a message indicating no further update is needed. Additionally, ensured consistent styling updates across client main views to maintain uniform appearance">
+      <option name="closed" value="true" />
+      <created>1730194348343</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL‎-00115" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1730194348343</updated>
+    </task>
+    <option name="localTasksCounter" value="116" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -779,8 +779,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initial implementation of sheetCellMainController and main FXML for client navigation&#10;&#10;- Implemented `sheetCellMainController` to handle the main client logic and navigation between views (login, dashboard, and sheet).&#10;- Created the main FXML layout to manage transitions between different screens.&#10;- Set up the initial structure for handling view changes dynamically within the client.&#10;- Further adjustments and improvements to navigation and layout are needed before finalizing." />
-    <MESSAGE value="fix loadSheet url" />
     <MESSAGE value="updateCellServlet" />
     <MESSAGE value="Prepared FXML for displaying selected sheet view layout&#10;&#10;- Created `selectedSheetView.fxml` to define the layout for displaying the selected sheet.&#10;- Added subcomponents:&#10;  - `selectedSheetViewHeader.fxml` to handle the header section.&#10;  - `selectedSheetViewLeft.fxml` for the left-side controls (currently placeholders).&#10;  - `selectedSheet.fxml` for the main sheet display.&#10;- Structured the layout to include sections for the available sheets table, permissions table, and commands (view, request permission, acknowledge/deny).&#10;- Initial layout setup without implementing functionality or actions." />
     <MESSAGE value="Implemented SelectedSheetViewHeaderController for handling sheet view header interactions&#10;&#10;- Created `SelectedSheetViewHeaderController` to manage user interactions in the header of the selected sheet view.&#10;- Added listeners for background color, text color, column width, and row height changes, allowing users to customize cell properties.&#10;- Set up initial structure for handling alignment changes (Left, Center, Right) via `ChoiceBox`.&#10;- Temporarily disabled certain buttons and controls for future functionality.&#10;- Added placeholders for buttons like `BackToDefault`, `LoadFile`, `UpdateValue`, and `VersionSelector` actions (logic to be implemented later).&#10;- Implemented bindings to toggle control availability based on selection state." />
@@ -804,7 +802,9 @@
     <MESSAGE value="Implemented version check to prevent cell updates on outdated sheet versions. Users must switch to the latest version to update cell values. If not on the latest version, a warning message is displayed, guiding the user to use the switch button." />
     <MESSAGE value="Made some adjustments to the design and layout." />
     <MESSAGE value="Handled client closure to ensure all background tasks and timers are stopped upon exiting the application. This resolves the 'executor rejected' errors that occurred when the window was closed without stopping ongoing polling tasks." />
-    <option name="LAST_COMMIT_MESSAGE" value="Handled client closure to ensure all background tasks and timers are stopped upon exiting the application. This resolves the 'executor rejected' errors that occurred when the window was closed without stopping ongoing polling tasks." />
+    <MESSAGE value="Added version check for range removal: If the user is not on the latest sheet version, they receive a notification explaining they cannot delete a range until updating to the latest version" />
+    <MESSAGE value="&quot;Implemented notification for latest version check: If a client is already on the latest sheet version and attempts to update, they receive a message indicating no further update is needed. Additionally, ensured consistent styling updates across client main views to maintain uniform appearance" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Implemented notification for latest version check: If a client is already on the latest sheet version and attempts to update, they receive a message indicating no further update is needed. Additionally, ensured consistent styling updates across client main views to maintain uniform appearance" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -816,7 +816,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java</url>
-          <line>553</line>
+          <line>554</line>
           <option name="timeStamp" value="174" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -833,6 +833,16 @@
           <url>file://$PROJECT_DIR$/Server/src/servlets/DynamicAnalysisServlet.java</url>
           <line>24</line>
           <option name="timeStamp" value="192" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/component/popup/graph/GraphController.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="193" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java</url>
+          <line>773</line>
+          <option name="timeStamp" value="194" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>
@@ -872,7 +882,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java</url>
-          <line>580</line>
+          <line>581</line>
           <properties class="component.selectedSheetView.main.SelectedSheetViewController" method="updateSheet">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

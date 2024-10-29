@@ -9,6 +9,7 @@ import component.selectedSheetView.subcomponent.left.SelectedSheetViewLeftContro
 import component.selectedSheetView.subcomponent.sheet.CellStyle;
 import component.selectedSheetView.subcomponent.sheet.SelectedSheetController;
 import component.selectedSheetView.subcomponent.sheet.UIModelSheet;
+import dto.DTOCell;
 import dto.DTOSheet;
 import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
@@ -736,6 +737,64 @@ public class SelectedSheetViewController implements Closeable {
         }
 
         return false;  // Default to false if an error occurs
+    }
+
+    public List<String> getColumnValuesInRange(String range) throws IllegalArgumentException {
+        List<String> values = new ArrayList<>();
+        range = range.trim().toUpperCase();
+
+        // בדיקת פורמט הטווח
+        if (!range.matches("[A-Z]\\d+\\.\\.[A-Z]\\d+")) {
+            throw new IllegalArgumentException("Invalid range format. Please use the correct format like A1..A10, where the start and end of the range are valid cell references. The range should be from the same column for each axis, and both the start and end cells must be within the bounds of the sheet.");
+        }
+
+        // נפרק את הטווח לדוגמה: "A1..A10" -> [A, 1] ו- [A, 10]
+        String[] parts = range.split("\\.\\.");
+        if (parts.length != 2) {
+            throw new IllegalArgumentException("Invalid range format. Please use the correct format like A1..A10, where the start and end of the range are valid cell references. The range should be from the same column for each axis, and both the start and end cells must be within the bounds of the sheet.");
+        }
+
+        String startCell = parts[0];
+        String endCell = parts[1];
+
+        // חילוץ עמודות ושורות מהתאים
+        char startColumn = startCell.charAt(0);  // עמודה ראשונה
+        char endColumn = endCell.charAt(0);  // עמודה אחרונה
+        int startRow = Integer.parseInt(startCell.substring(1));  // שורה ראשונה
+        int endRow = Integer.parseInt(endCell.substring(1));  // שורה אחרונה
+
+        // נוודא שהעמודות תואמות (לדוגמה אם יש A1..A10)
+        if (startColumn != endColumn) {
+            throw new IllegalArgumentException("This method only supports ranges within the same column.");
+        }
+
+        // נשיג את ערכי התאים בעמודה הזו בטווח שורות זה
+        for (int row = startRow; row <= endRow; row++) {
+            String cellId = startColumn + ":" + row; // ניצור מזהה תא
+            String cellValue =  sheetController.getEffectiveValue(cellId);
+            if (isEffectiveValueNumeric(cellValue)) {  // נבדוק אם הערך מספרי
+                values.add(cellValue);  // המרה למספר והוספה לרשימה
+            } else {
+                throw new IllegalArgumentException("Non-numeric value found in cell " + cellId + ": " + cellValue);
+            }
+        }
+
+        return values;
+    }
+
+    /**
+     * Checks if a string contains a numeric value, accounting for comma separators.
+     * @param str the string to check.
+     * @return true if the string is numeric, false otherwise.
+     */
+    private boolean isEffectiveValueNumeric(String str) {
+        try {
+            // Remove commas before parsing
+            Double.parseDouble(str.replace(",", ""));
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 
     public void stopSheetPolling() {

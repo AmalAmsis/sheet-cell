@@ -329,6 +329,8 @@ public class SelectedSheetController implements Closeable {
      */
     public String getOriginalValue(String cellId) {return uiModel.getCellOriginalValue(cellId);}
 
+    public String getEffectiveValue(String cellId) {return uiModel.getCell(cellId).valueProperty().getValue();}
+
     /**
      * Gets the Last Modified Version of a specific cell.
      * @param cellId the ID of the cell.
@@ -389,4 +391,5 @@ public class SelectedSheetController implements Closeable {
             sheetUpdateTimer.cancel();
         }
     }
+
 }

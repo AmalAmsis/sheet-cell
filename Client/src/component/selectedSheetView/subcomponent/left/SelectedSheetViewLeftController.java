@@ -6,6 +6,7 @@ import component.popup.dynamicAnalysisSheet.DynamicAnalysisSheetController;
 import component.popup.error.ErrorMessage;
 import component.popup.viewonlysheet.ViewOnlySheetController;
 import component.selectedSheetView.main.SelectedSheetViewController;
+import component.popup.graph.GraphController;
 import dto.DTOSheet;
 import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
@@ -264,7 +265,26 @@ public class SelectedSheetViewLeftController implements Closeable {
         }
     }
 
-    @FXML void handleGenerateGraph(ActionEvent event) {}
+    @FXML
+    private void handleGenerateGraph() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/component/popup/graph/graphSelector.fxml"));
+            Parent root = loader.load();
+
+            GraphController graphController = loader.getController();
+            graphController.setSelectedSheetViewController(selectedSheetViewController);
+
+            Stage stage = new Stage();
+            stage.setTitle("Select Data for Graph");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (Exception e) {
+            new component.subcomponent.popup.errormessage.ErrorMessage(e.getMessage());
+        }
+    }
+
+
 
     //************************************filter*************************
 
