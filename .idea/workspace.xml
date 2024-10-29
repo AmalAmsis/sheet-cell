@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Refactored SheetPollerTask and RangePollerTask to synchronous execution.&#10;&#10;- Updated `SheetPollerTask` to use synchronous HTTP requests instead of asynchronous.&#10;- Modified `RangePollerTask` to handle synchronous polling for real-time updates.">
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="- Refactored methods to asynchronous calls to improve UI responsiveness:&#10;  - Converted `updateCellValue` to async to handle cell updates without blocking.&#10;  - Updated `getDtoSheet` to an asynchronous version (`getDtoSheetAsync`) to load sheet data seamlessly.&#10;  - Refactored `handleSwitchToLatestVersion` to check and fetch the latest sheet version asynchronously.&#10;  - Modified `showDynamicAnalysisPopup` to load sheet data asynchronously before opening the popup.&#10;- Added error handling for asynchronous calls to display user-friendly error messages on failure.&#10;- Improved overall UX by preventing UI freeze during server requests.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" afterDir="false" />
     </list>
@@ -71,7 +71,7 @@
     "Application.FxmlTest.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.SheetCellClient.executor": "Run",
-    "Application.SheetCellClient2.executor": "Run",
+    "Application.SheetCellClient2.executor": "Debug",
     "Application.Test.executor": "Run",
     "Application.Test2.executor": "Coverage",
     "Application.TestLoadFile.executor": "Debug",
@@ -334,15 +334,7 @@
       <workItem from="1728768423746" duration="14000" />
       <workItem from="1728768460006" duration="5531000" />
       <workItem from="1729849814137" duration="335000" />
-      <workItem from="1729850164285" duration="11726000" />
-    </task>
-    <task id="LOCAL‎-00069" summary="Added minimum window size restrictions to prevent excessive resizing. Updated graph functionality to convert lowercase cell identifiers (e.g., 'a1') to uppercase (e.g., 'A1') for consistency and usability.">
-      <option name="closed" value="true" />
-      <created>1727471631617</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL‎-00069" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1727471631617</updated>
+      <workItem from="1729850164285" duration="19342000" />
     </task>
     <task id="LOCAL‎-00070" summary="&#10;&#10;- Cleaned up several classes.">
       <option name="closed" value="true" />
@@ -728,7 +720,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1730206082180</updated>
     </task>
-    <option name="localTasksCounter" value="118" />
+    <task id="LOCAL‎-00118" summary="- Refactored methods to asynchronous calls to improve UI responsiveness:&#10;  - Converted `updateCellValue` to async to handle cell updates without blocking.&#10;  - Updated `getDtoSheet` to an asynchronous version (`getDtoSheetAsync`) to load sheet data seamlessly.&#10;  - Refactored `handleSwitchToLatestVersion` to check and fetch the latest sheet version asynchronously.&#10;  - Modified `showDynamicAnalysisPopup` to load sheet data asynchronously before opening the popup.&#10;- Added error handling for asynchronous calls to display user-friendly error messages on failure.&#10;- Improved overall UX by preventing UI freeze during server requests.">
+      <option name="closed" value="true" />
+      <created>1730216166253</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL‎-00118" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1730216166253</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -774,7 +774,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implemented SelectedSheetViewHeaderController for handling sheet view header interactions&#10;&#10;- Created `SelectedSheetViewHeaderController` to manage user interactions in the header of the selected sheet view.&#10;- Added listeners for background color, text color, column width, and row height changes, allowing users to customize cell properties.&#10;- Set up initial structure for handling alignment changes (Left, Center, Right) via `ChoiceBox`.&#10;- Temporarily disabled certain buttons and controls for future functionality.&#10;- Added placeholders for buttons like `BackToDefault`, `LoadFile`, `UpdateValue`, and `VersionSelector` actions (logic to be implemented later).&#10;- Implemented bindings to toggle control availability based on selection state." />
     <MESSAGE value="-Updated SelectedSheetViewController, SelectedSheetViewHeaderController, SelectedSheetViewLeftController, and SelectedSheetController in the client module.&#10;- Added detailed documentation for all classes to explain functionality and improve code readability." />
     <MESSAGE value="Deleting file upload option from selectedSheetViewHeader.fxml in Client" />
     <MESSAGE value="add cellServlet to Server" />
@@ -799,7 +798,8 @@
     <MESSAGE value="&quot;Implemented notification for latest version check: If a client is already on the latest sheet version and attempts to update, they receive a message indicating no further update is needed. Additionally, ensured consistent styling updates across client main views to maintain uniform appearance" />
     <MESSAGE value="Implemented numeric validation to recognize comma-separated numbers in the client. Added chart generation functionality for user-selected data ranges in the spreadsheet, supporting both bar and line charts. Users can now select a range of cells for the X-axis and another range for the Y-axis, generating simple X vs. Y visualizations using JavaFX’s built-in charting tools." />
     <MESSAGE value="Refactored SheetPollerTask and RangePollerTask to synchronous execution.&#10;&#10;- Updated `SheetPollerTask` to use synchronous HTTP requests instead of asynchronous.&#10;- Modified `RangePollerTask` to handle synchronous polling for real-time updates." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored SheetPollerTask and RangePollerTask to synchronous execution.&#10;&#10;- Updated `SheetPollerTask` to use synchronous HTTP requests instead of asynchronous.&#10;- Modified `RangePollerTask` to handle synchronous polling for real-time updates." />
+    <MESSAGE value="- Refactored methods to asynchronous calls to improve UI responsiveness:&#10;  - Converted `updateCellValue` to async to handle cell updates without blocking.&#10;  - Updated `getDtoSheet` to an asynchronous version (`getDtoSheetAsync`) to load sheet data seamlessly.&#10;  - Refactored `handleSwitchToLatestVersion` to check and fetch the latest sheet version asynchronously.&#10;  - Modified `showDynamicAnalysisPopup` to load sheet data asynchronously before opening the popup.&#10;- Added error handling for asynchronous calls to display user-friendly error messages on failure.&#10;- Improved overall UX by preventing UI freeze during server requests." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Refactored methods to asynchronous calls to improve UI responsiveness:&#10;  - Converted `updateCellValue` to async to handle cell updates without blocking.&#10;  - Updated `getDtoSheet` to an asynchronous version (`getDtoSheetAsync`) to load sheet data seamlessly.&#10;  - Refactored `handleSwitchToLatestVersion` to check and fetch the latest sheet version asynchronously.&#10;  - Modified `showDynamicAnalysisPopup` to load sheet data asynchronously before opening the popup.&#10;- Added error handling for asynchronous calls to display user-friendly error messages on failure.&#10;- Improved overall UX by preventing UI freeze during server requests." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -811,7 +811,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java</url>
-          <line>648</line>
+          <line>618</line>
           <option name="timeStamp" value="174" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -836,8 +836,31 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java</url>
-          <line>867</line>
+          <line>837</line>
           <option name="timeStamp" value="194" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java</url>
+          <line>198</line>
+          <option name="timeStamp" value="195" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Server/src/servlets/AllRangesServlet.java</url>
+          <line>168</line>
+          <option name="timeStamp" value="196" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java</url>
+          <line>230</line>
+          <option name="timeStamp" value="199" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java</url>
+          <line>148</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="201" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>
@@ -877,7 +900,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java</url>
-          <line>675</line>
+          <line>645</line>
           <properties class="component.selectedSheetView.main.SelectedSheetViewController" method="updateSheet">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

@@ -28,11 +28,13 @@ import util.http.HttpClientUtil;
 
 import java.io.Closeable;
 import java.io.IOException;
+import java.net.http.HttpClient;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
 import static util.Constants.*;
+import static util.http.HttpClientUtil.HTTP_CLIENT;
 
 /**
  * This class is the main controller for the selected sheet view.
@@ -128,39 +130,32 @@ public class SelectedSheetViewController implements Closeable {
         this.sheetCellAppMainController = sheetCellAppMainController;
     }
 
-    /**
-     * Highlights and displays the selected range.
-     * @param selectedRange the name of the range to display.
-     */
     public void showRange(String selectedRange) {
-        clearPreviousSelection();  // Clear previous selections
-        try {
-            // Send a GET request to the server to fetch the coordinates list for the selected range
-            String finalUrl = HttpUrl.parse(RANGE)  // Server URL for the range
-                    .newBuilder()
-                    .addQueryParameter("rangeName", selectedRange)
-                    .build()
-                    .toString();
+        clearPreviousSelection();
+        String finalUrl = HttpUrl.parse(RANGE)
+                .newBuilder()
+                .addQueryParameter("rangeName", selectedRange)
+                .build()
+                .toString();
 
-            Request request = new Request.Builder()
-                    .url(finalUrl)
-                    .build();
+        Request request = new Request.Builder()
+                .url(finalUrl)
+                .get()
+                .build();
 
-            // Send the request to the server
-            HttpClientUtil.HTTP_CLIENT.newCall(request).enqueue(new Callback() {
-                @Override
-                public void onFailure(Call call, IOException e) {
-                    Platform.runLater(() -> new ErrorMessage("Failed to fetch range: " + e.getMessage()));
-                }
+        HTTP_CLIENT.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Platform.runLater(() -> new ErrorMessage("Failed to fetch range: " + e.getMessage()));
+            }
 
-                @Override
-                public void onResponse(Call call, Response response) throws IOException {
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                try {
                     if (response.isSuccessful()) {
-                        // Convert the response to a List of cell IDs
                         String jsonResponse = response.body().string();
-                        List<String> cellsId = GSON_INSTANCE.fromJson(jsonResponse, new TypeToken<List<String>>(){}.getType());
+                        List<String> cellsId = GSON_INSTANCE.fromJson(jsonResponse, new TypeToken<List<String>>() {}.getType());
 
-                        // Add the border for each cell based on the cell IDs
                         Platform.runLater(() -> {
                             try {
                                 sheetController.addBorderForCells(
@@ -168,7 +163,7 @@ public class SelectedSheetViewController implements Closeable {
                                         CellStyle.RANGE_CELL_BORDER_STYLE.getStyleValue(),
                                         CellStyle.RANGE_CELL_BORDER_WIDTH.getWidthValue(),
                                         cellsId);
-                                previouslySelectedCells.addAll(cellsId);  // Store the previously selected cells
+                                previouslySelectedCells.addAll(cellsId);
                             } catch (Exception e) {
                                 new ErrorMessage(e.getMessage());
                             }
@@ -176,100 +171,75 @@ public class SelectedSheetViewController implements Closeable {
                     } else {
                         Platform.runLater(() -> new ErrorMessage("Failed to fetch range: " + response.message()));
                     }
-                    //return null;
+                } finally {
+                    response.close(); // Ensure response body is closed
                 }
-            });
-        } catch (Exception e) {
-            new ErrorMessage(e.getMessage());
-        }
+            }
+        });
     }
 
-
-    /**
-     * Adds a new range to the sheet based on the given parameters.
-     * @param rangeName the name of the range.
-     * @param from the starting cell of the range.
-     * @param to the ending cell of the range.
-     */
     public void addNewRange(String rangeName, String from, String to) {
-        try {
-            // Build the final URL for the request
-            String finalUrl = HttpUrl
-                    .parse(RANGES)
-                    .newBuilder()
-                    .build()
-                    .toString();
+        String finalUrl = HttpUrl.parse(RANGES).newBuilder().build().toString();
+        String jsonBody = "{\"newRangeName\": \"" + rangeName + "\", \"fromCoordinate\": \"" + from + "\", \"toCoordinate\": \"" + to + "\"}";
+        RequestBody body = RequestBody.create(jsonBody, MediaType.parse("application/json; charset=utf-8"));
 
-            // Create the JSON body for the request
-            String jsonBody = "{\"newRangeName\": \"" + rangeName + "\", \"fromCoordinate\": \"" + from + "\", \"toCoordinate\": \"" + to + "\"}";
+        Request request = new Request.Builder()
+                .url(finalUrl)
+                .put(body)
+                .build();
 
-            // Build the request body
-            RequestBody body = RequestBody.create(jsonBody, MediaType.parse("application/json; charset=utf-8"));
-
-            // Create the PUT request
-            Request request = new Request.Builder()
-                    .url(finalUrl)
-                    .put(body)
-                    .build();
-
-            // Execute the request synchronously
-            Call call = HttpClientUtil.HTTP_CLIENT.newCall(request);
-            Response response = call.execute();
-
-            if (response.isSuccessful()) {
-                response.close(); // Close response body
-            } else {
-                new ErrorMessage("Failed to add new range: " + response.message());
-                response.close(); // Close response body
+        HTTP_CLIENT.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Platform.runLater(() -> new ErrorMessage("Failed to add new range: " + e.getMessage()));
             }
-        } catch (IOException e) {
-            new ErrorMessage(e.getMessage());
-        }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    Platform.runLater(() -> System.out.println("Range added successfully"));
+                } else {
+                    String errorMessage = response.body().string(); // קבלת הודעת השגיאה מהשרת
+                    Platform.runLater(() -> new ErrorMessage("Failed to add new range: " + errorMessage));
+                }
+                response.close();
+            }
+        });
     }
 
 
-    /**
-     * Removes a selected range from the sheet.
-     * @param selectedRange the name of the range to remove.
-     */
     public void removeRange(String selectedRange) {
-        try {
-            // Build the final URL for the request
-            String finalUrl = HttpUrl
-                    .parse(RANGES)
-                    .newBuilder()
-                    .build()
-                    .toString();
+        String finalUrl = HttpUrl.parse(RANGES).newBuilder().build().toString();
+        String jsonBody = "{\"rangeName\": \"" + selectedRange + "\"}";
+        RequestBody body = RequestBody.create(jsonBody, MediaType.parse("application/json; charset=utf-8"));
 
-            // Create the JSON body for the request
-            String jsonBody = "{\"rangeName\": \"" + selectedRange + "\"}";
+        Request request = new Request.Builder()
+                .url(finalUrl)
+                .delete(body)
+                .build();
 
-            // Build the request body
-            RequestBody body = RequestBody.create(jsonBody, MediaType.parse("application/json; charset=utf-8"));
-
-            // Create the DELETE request
-            Request request = new Request.Builder()
-                    .url(finalUrl)
-                    .delete(body)
-                    .build();
-
-            // Execute the request synchronously
-            Call call = HttpClientUtil.HTTP_CLIENT.newCall(request);
-            Response response = call.execute();
-
-            if (response.isSuccessful()) {
-                selectedRangeId.set(selectedRange);
-                clearPreviousSelection();  // Clear the UI selection
-                response.close(); // Close response body
-            } else {
-                new ErrorMessage("Failed to remove range: " + response.message());
-                response.close(); // Close response body
+        HTTP_CLIENT.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Platform.runLater(() -> new ErrorMessage("Failed to remove range: " + e.getMessage()));
             }
-        } catch (IOException e) {
-            new ErrorMessage(e.getMessage());
-        }
-    }
 
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    Platform.runLater(() -> {
+                        //selectedRangeId.set(selectedRange);
+                        //clearPreviousSelection();
+                        System.out.println("Range removed successfully");
+                    });
+                } else {
+                    String errorMessage = response.body().string(); // קבלת הודעת השגיאה מהשרת
+                    Platform.runLater(() -> new ErrorMessage("Failed to remove range: " + errorMessage));
+                }
+                response.close();
+            }
+        });
+    }
 
 
 
@@ -426,7 +396,7 @@ public class SelectedSheetViewController implements Closeable {
                     .build();
 
             // Send the request synchronously to get the response (note: this blocks the thread)
-            Response response = HttpClientUtil.HTTP_CLIENT.newCall(request).execute();
+            Response response = HTTP_CLIENT.newCall(request).execute();
 
             if (response.isSuccessful()) {
                 // Parse the JSON response to get the list of range names
@@ -571,7 +541,7 @@ public class SelectedSheetViewController implements Closeable {
                 .build();
 
         // Send the request asynchronously
-        HttpClientUtil.HTTP_CLIENT.newCall(request).enqueue(new Callback() {
+        HTTP_CLIENT.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 Platform.runLater(() -> new ErrorMessage("Failed to update cell: " + e.getMessage()));
@@ -615,7 +585,7 @@ public class SelectedSheetViewController implements Closeable {
                 .build();
 
         // שליחת הבקשה ב-Async
-        HttpClientUtil.HTTP_CLIENT.newCall(request).enqueue(new Callback() {
+        HTTP_CLIENT.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 Platform.runLater(() -> onFailure.accept("Error fetching sheet: " + e.getMessage()));
@@ -653,7 +623,7 @@ public class SelectedSheetViewController implements Closeable {
                 .build();
 
         // שליחת הבקשה
-        Call call = HttpClientUtil.HTTP_CLIENT.newCall(request);
+        Call call = HTTP_CLIENT.newCall(request);
 
         try {
             Response response = call.execute();
@@ -740,7 +710,7 @@ public class SelectedSheetViewController implements Closeable {
 
         try {
             // שליחת הבקשה באופן סינכרוני
-            Response response = HttpClientUtil.HTTP_CLIENT.newCall(request).execute();
+            Response response = HTTP_CLIENT.newCall(request).execute();
 
             // בדיקת הצלחת הבקשה
             if (response.isSuccessful()) {
@@ -814,7 +784,7 @@ public class SelectedSheetViewController implements Closeable {
 
         // Send the request and check the response synchronously
         try {
-            Response response = HttpClientUtil.HTTP_CLIENT.newCall(request).execute();
+            Response response = HTTP_CLIENT.newCall(request).execute();
 
             if (response.isSuccessful()) {
                 // If the response code is 200 OK, the sheet is not up to date
