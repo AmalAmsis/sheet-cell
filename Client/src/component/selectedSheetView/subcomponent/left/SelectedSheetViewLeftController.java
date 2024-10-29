@@ -193,17 +193,24 @@ public class SelectedSheetViewLeftController implements Closeable {
     }
 
 
-    @FXML void ClickMeRemoveRange(ActionEvent event) {
-        String selectedRange = removeRangeChoiceBox.getSelectionModel().getSelectedItem();
-
-        if (selectedRange != null) {
-            // Call appController to remove the selected range
-            selectedSheetViewController.removeRange(selectedRange);
+    @FXML
+    void ClickMeRemoveRange(ActionEvent event) {
+        if (!selectedSheetViewController.isSheetInLatestVersion()) {
             removeRangeChoiceBox.getSelectionModel().clearSelection();
-            // Update the choice boxes after removal
-            updateChoiceBoxes();
+            new ErrorMessage("You are not on the latest version of the sheet, so you cannot remove ranges. Please update to the latest version using the button at the top right before making changes.");
+        } else {
+            String selectedRange = removeRangeChoiceBox.getSelectionModel().getSelectedItem();
+
+            if (selectedRange != null) {
+                // Call appController to remove the selected range
+                selectedSheetViewController.removeRange(selectedRange);
+                removeRangeChoiceBox.getSelectionModel().clearSelection();
+                // Update the choice boxes after removal
+                updateChoiceBoxes();
+            }
         }
     }
+
 
     @FXML void ClickMeShowRange(ActionEvent event) {
         String selectedRange = showRangeChoiceBox.getSelectionModel().getSelectedItem();
@@ -216,7 +223,6 @@ public class SelectedSheetViewLeftController implements Closeable {
     }
 
 
-    /** FILTER FEATURE:*/
 
     @FXML
     private void handleDynamicAnalysis(ActionEvent event) {
