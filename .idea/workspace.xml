@@ -2,20 +2,21 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
+      <artifact name="DataTransferObject" />
+      <artifact name="Engine" />
       <artifact name="Server:Web exploded" />
+      <artifact name="UI" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Made some adjustments to the design and layout.">
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Handled client closure to ensure all background tasks and timers are stopped upon exiting the application. This resolves the 'executor rejected' errors that occurred when the window was closed without stopping ongoing polling tasks.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/SelectedSheetViewHeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/SelectedSheetViewHeaderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/sheet/SelectedSheetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/sheet/SelectedSheetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/sheet/SheetPollerTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/sheet/SheetPollerTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/main/SheetCellClient2.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/main/SheetCellClient2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,43 +70,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.AppRunner.executor&quot;: &quot;Run&quot;,
-    &quot;Application.FxmlTest.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.SheetCellClient.executor&quot;: &quot;Run&quot;,
-    &quot;Application.SheetCellClient2.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Test.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Test2.executor&quot;: &quot;Coverage&quot;,
-    &quot;Application.TestLoadFile.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.TestLogin.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TestLogin2.executor&quot;: &quot;Run&quot;,
-    &quot;Application.component.dashboard.subcomponents.maindashboard.TestLoadFile.executor&quot;: &quot;Run&quot;,
-    &quot;Application.deprecated.apprunner.AppRunner.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.sheet.range.Test.executor&quot;: &quot;Run&quot;,
-    &quot;Application.test.FxmlTest.executor&quot;: &quot;Run&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;JAR Application.UI.jar.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Tomcat Server.Tomcat 10.1.30.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Amal&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Amal Amsis/Desktop/AmalA/Computer Science/JAVA/sheet-cell/Client/src/component/popup&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.1706642&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.applicationServers&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.AppRunner.executor": "Run",
+    "Application.FxmlTest.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.SheetCellClient.executor": "Run",
+    "Application.SheetCellClient2.executor": "Run",
+    "Application.Test.executor": "Run",
+    "Application.Test2.executor": "Coverage",
+    "Application.TestLoadFile.executor": "Debug",
+    "Application.TestLogin.executor": "Run",
+    "Application.TestLogin2.executor": "Run",
+    "Application.component.dashboard.subcomponents.maindashboard.TestLoadFile.executor": "Run",
+    "Application.deprecated.apprunner.AppRunner.executor": "Debug",
+    "Application.sheet.range.Test.executor": "Run",
+    "Application.test.FxmlTest.executor": "Run",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JAR Application.UI.jar.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Tomcat Server.Tomcat 10.1.30.executor": "Run",
+    "git-widget-placeholder": "Amal",
+    "jdk.selected.JAVA_MODULE": "21",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Amal Amsis/Desktop/AmalA/Computer Science/JAVA/sheet-cell/Client/src/component/popup",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.1706642",
+    "settings.editor.selected.configurable": "preferences.applicationServers",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\sheet-cell\Client\src\component\popup" />
@@ -338,23 +339,7 @@
       <workItem from="1728768423746" duration="14000" />
       <workItem from="1728768460006" duration="5531000" />
       <workItem from="1729849814137" duration="335000" />
-      <workItem from="1729850164285" duration="1859000" />
-    </task>
-    <task id="LOCAL‎-00063" summary="Fixed and improved the Scroll behavior and layout for better user experience and smoother navigation.">
-      <option name="closed" value="true" />
-      <created>1726869376701</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL‎-00063" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726869376701</updated>
-    </task>
-    <task id="LOCAL‎-00064" summary="Added JAR creation and binding for UI interactivity&#10;&#10;- Created the JAR file for the project, ensuring all necessary dependencies are included (JavaFX, JAXB, etc.).&#10;- Implemented binding for interactive elements (buttons, text fields, choice boxes, etc.), allowing them to be enabled/disabled dynamically based on whether a cell is selected and a file is loaded.&#10;- Improved user experience by ensuring UI components are only accessible when relevant actions (like selecting a cell or loading a file) have been completed.">
-      <option name="closed" value="true" />
-      <created>1727162552483</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL‎-00064" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1727162552483</updated>
+      <workItem from="1729850164285" duration="5500000" />
     </task>
     <task id="LOCAL‎-00065" summary="Added dynamic analysis feature with a value range slider for numerical cells. &#10;&#10;- Implemented functionality allowing users to select a cell, set a minimum and maximum value, and define the step size. &#10;- Added a slider for users to dynamically adjust the selected cell's value within the defined range.&#10;- The sheet updates in real-time with each change made by the slider.&#10;- Changes are temporary and do not permanently modify the cell's value in the sheet or create a new version.">
       <option name="closed" value="true" />
@@ -732,7 +717,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1729804925327</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL‎-00112" summary="Handled client closure to ensure all background tasks and timers are stopped upon exiting the application. This resolves the 'executor rejected' errors that occurred when the window was closed without stopping ongoing polling tasks.">
+      <option name="closed" value="true" />
+      <created>1729852415658</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL‎-00112" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1729852415658</updated>
+    </task>
+    <task id="LOCAL‎-00113" summary="Handled client closure to ensure all background tasks and timers are stopped upon exiting the application. This resolves the 'executor rejected' errors that occurred when the window was closed without stopping ongoing polling tasks.">
+      <option name="closed" value="true" />
+      <created>1729852457948</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL‎-00113" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1729852457948</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -778,7 +779,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Prepared FXML and controller structure for dashboard layout&#10;&#10;- Created `dashboardHeader.fxml` to define the layout for the header section of the dashboard.&#10;- Added `DashboardHeaderController.java` to handle the logic and interaction for the header section.&#10;- Organized the project structure under `subcomponents/header` for better modularization.&#10;- Added placeholders for subcomponents in the dashboard (availableSheets, commands, and Permissions)." />
     <MESSAGE value="Initial implementation of sheetCellMainController and main FXML for client navigation&#10;&#10;- Implemented `sheetCellMainController` to handle the main client logic and navigation between views (login, dashboard, and sheet).&#10;- Created the main FXML layout to manage transitions between different screens.&#10;- Set up the initial structure for handling view changes dynamically within the client.&#10;- Further adjustments and improvements to navigation and layout are needed before finalizing." />
     <MESSAGE value="fix loadSheet url" />
     <MESSAGE value="updateCellServlet" />
@@ -803,7 +803,8 @@
     <MESSAGE value="Added dynamic analysis feature to sheet application&#10;&#10;Implemented DynamicAnalysisServlet to handle temporary cell updates for dynamic analysis. These updates are used for background calculations and are not persisted in the final sheet.&#10;Added logic in DynamicAnalysisSheetController to interact with dynamic analysis sliders and send temporary values to the server.&#10;Updated SelectedSheetViewController and SelectedSheetViewLeftController to process and display temporary changes from dynamic analysis without saving them.&#10;Extended CellImpl and SheetImpl classes to manage the temporary updates to cells and rollback the original values after analysis.&#10;Modified SheetManagerImpl to handle dynamic analysis requests and updates between the frontend and backend." />
     <MESSAGE value="Implemented version check to prevent cell updates on outdated sheet versions. Users must switch to the latest version to update cell values. If not on the latest version, a warning message is displayed, guiding the user to use the switch button." />
     <MESSAGE value="Made some adjustments to the design and layout." />
-    <option name="LAST_COMMIT_MESSAGE" value="Made some adjustments to the design and layout." />
+    <MESSAGE value="Handled client closure to ensure all background tasks and timers are stopped upon exiting the application. This resolves the 'executor rejected' errors that occurred when the window was closed without stopping ongoing polling tasks." />
+    <option name="LAST_COMMIT_MESSAGE" value="Handled client closure to ensure all background tasks and timers are stopped upon exiting the application. This resolves the 'executor rejected' errors that occurred when the window was closed without stopping ongoing polling tasks." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -822,11 +823,6 @@
           <url>file://$PROJECT_DIR$/Server/src/servlets/CellServlet.java</url>
           <line>61</line>
           <option name="timeStamp" value="182" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java</url>
-          <line>224</line>
-          <option name="timeStamp" value="189" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Client/src/component/popup/dynamicAnalysisSheet/DynamicAnalysisSheetController.java</url>

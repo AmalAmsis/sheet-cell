@@ -199,9 +199,13 @@ public class SelectedSheetViewHeaderController {
 
     @FXML
     void handleSwitchToLatestVersion(ActionEvent event) {
-        String currentSheetName = selectedSheetViewController.getCurrentSheetName();
-        DTOSheet dtoSheet = selectedSheetViewController.getDtoSheet(currentSheetName);
-        selectedSheetViewController.updateSheet(dtoSheet);
+        if (selectedSheetViewController.isSheetInLatestVersion()) {
+            new ErrorMessage("\"You are already on the latest version of the sheet. No further updates are needed at this time.\"\n");
+        }else {
+            String currentSheetName = selectedSheetViewController.getCurrentSheetName();
+            DTOSheet dtoSheet = selectedSheetViewController.getDtoSheet(currentSheetName);
+            selectedSheetViewController.updateSheet(dtoSheet);
+        }
     }
 
     /**
