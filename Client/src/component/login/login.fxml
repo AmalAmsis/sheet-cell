@@ -8,8 +8,9 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<GridPane hgap="3.0" prefHeight="400.0" prefWidth="600.0" stylesheets="@login.css" vgap="3.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.login.LoginController">
+<GridPane hgap="3.0" prefHeight="330.0" prefWidth="600.0" stylesheets="@login.css" vgap="3.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.login.LoginController">
     <columnConstraints>
         <ColumnConstraints halignment="RIGHT" hgrow="NEVER" />
         <ColumnConstraints hgrow="ALWAYS" />
@@ -17,24 +18,27 @@
     <rowConstraints>
         <RowConstraints />
         <RowConstraints vgrow="NEVER" />
-        <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="NEVER" />
-        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="20.0" prefHeight="84.80000305175781" vgrow="ALWAYS" />
-      <RowConstraints maxHeight="275.99999084472654" minHeight="70.0" prefHeight="221.59999694824216" vgrow="NEVER" />
+        <RowConstraints maxHeight="68.80001831054688" minHeight="40.0" prefHeight="67.20001220703125" vgrow="NEVER" />
+        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="20.0" prefHeight="32.0" vgrow="ALWAYS" />
+      <RowConstraints maxHeight="275.99999084472654" minHeight="70.0" prefHeight="193.60000000000002" vgrow="NEVER" />
     </rowConstraints>
     <children>
-        <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" text="User Nane:" GridPane.rowIndex="1">
+        <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" text="User Name:" GridPane.rowIndex="1">
             <GridPane.margin>
                 <Insets right="5.0" />
             </GridPane.margin>
+         <font>
+            <Font name="Aharoni Bold" size="18.0" />
+         </font>
         </Label>
-        <TextField fx:id="userNameTextField" maxHeight="30.0" maxWidth="358.0" minHeight="30.0" minWidth="358.0" onKeyTyped="#userNameKeyTyped" prefHeight="30.0" prefWidth="358.0" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" GridPane.vgrow="NEVER" />
-        <HBox prefHeight="103.0" prefWidth="488.0" spacing="15.0" GridPane.columnSpan="2" GridPane.rowIndex="4">
+        <TextField id="username-label" fx:id="userNameTextField" maxHeight="30.0" maxWidth="358.0" minHeight="30.0" minWidth="358.0" onKeyTyped="#userNameKeyTyped" prefHeight="30.0" prefWidth="358.0" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" GridPane.vgrow="NEVER" />
+        <HBox prefHeight="174.0" prefWidth="590.0" spacing="15.0" GridPane.columnSpan="2" GridPane.rowIndex="4">
             <children>
                 <Button fx:id="loginButton" mnemonicParsing="false" onAction="#loginButtonClicked" styleClass="main-action-button" text="Login" />
                 <Button id="quit-button" mnemonicParsing="false" onAction="#quitButtonClicked" styleClass="main-action-button" text="Quit" />
             </children>
         </HBox>
-        <Label fx:id="errorMessageLabel" maxWidth="1.7976931348623157E308" styleClass="error-label" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Label fx:id="errorMessageLabel" maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="482.0" styleClass="error-label" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
     </children>
     <padding>
         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

@@ -6,6 +6,9 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <ScrollPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.main.SheetCellAppMainController">
@@ -14,7 +17,7 @@
         <items>
             <VBox>
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="728.0" text="Shtisel" textAlignment="CENTER" textFill="#05b75e">
+                  <Label id="main_label" alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="728.0" text="Shtisel" textAlignment="CENTER">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -24,8 +27,24 @@
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
                   </Label>
-                  <Label fx:id="userNameLabel" prefHeight="22.0" prefWidth="639.0">
+                  <Label id="user_name_label" fx:id="userNameLabel" prefHeight="22.0" prefWidth="639.0">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" />
                      </VBox.margin>
