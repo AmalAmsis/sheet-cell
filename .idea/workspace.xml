@@ -10,8 +10,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="- Refactored methods to asynchronous calls to improve UI responsiveness:&#10;  - Converted `updateCellValue` to async to handle cell updates without blocking.&#10;  - Updated `getDtoSheet` to an asynchronous version (`getDtoSheetAsync`) to load sheet data seamlessly.&#10;  - Refactored `handleSwitchToLatestVersion` to check and fetch the latest sheet version asynchronously.&#10;  - Modified `showDynamicAnalysisPopup` to load sheet data asynchronously before opening the popup.&#10;- Added error handling for asynchronous calls to display user-friendly error messages on failure.&#10;- Improved overall UX by preventing UI freeze during server requests.">
+      <change afterPath="$PROJECT_DIR$/Client/src/component/main/style2.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/command.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/command.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/login/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/login/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/login/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/login/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/main/sheetCellAppMain.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/main/sheetCellAppMain.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/main/style1.css" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/main/style1.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/secondHeader.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/selectedSheetView.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/selectedSheetViewHeader.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/selectedSheetViewHeader.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/secondLeft.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/selectedSheetViewLeft.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +82,7 @@
     "Application.FxmlTest.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.SheetCellClient.executor": "Run",
-    "Application.SheetCellClient2.executor": "Debug",
+    "Application.SheetCellClient2.executor": "Run",
     "Application.Test.executor": "Run",
     "Application.Test2.executor": "Coverage",
     "Application.TestLoadFile.executor": "Debug",
@@ -118,7 +129,7 @@
       <recent name="component.selectedSheetView.subcomponent.sheet" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SheetCellClient2">
+  <component name="RunManager" selected="Application.SheetCellClient">
     <configuration name="AppRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="apprunner.AppRunner" />
       <module name="UI" />
@@ -293,8 +304,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SheetCellClient2" />
         <item itemvalue="Application.SheetCellClient" />
+        <item itemvalue="Application.SheetCellClient2" />
         <item itemvalue="Application.AppRunner" />
         <item itemvalue="Application.TestLoadFile" />
         <item itemvalue="Application.TestLogin" />
@@ -334,15 +345,7 @@
       <workItem from="1728768423746" duration="14000" />
       <workItem from="1728768460006" duration="5531000" />
       <workItem from="1729849814137" duration="335000" />
-      <workItem from="1729850164285" duration="19342000" />
-    </task>
-    <task id="LOCAL‎-00070" summary="&#10;&#10;- Cleaned up several classes.">
-      <option name="closed" value="true" />
-      <created>1727472800355</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL‎-00070" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1727472800355</updated>
+      <workItem from="1729850164285" duration="30718000" />
     </task>
     <task id="LOCAL‎-00071" summary="&#10;final updates before submission">
       <option name="closed" value="true" />
@@ -728,7 +731,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1730216166253</updated>
     </task>
-    <option name="localTasksCounter" value="119" />
+    <task id="LOCAL‎-00119" summary="- Refactored methods to asynchronous calls to improve UI responsiveness:&#10;  - Converted `updateCellValue` to async to handle cell updates without blocking.&#10;  - Updated `getDtoSheet` to an asynchronous version (`getDtoSheetAsync`) to load sheet data seamlessly.&#10;  - Refactored `handleSwitchToLatestVersion` to check and fetch the latest sheet version asynchronously.&#10;  - Modified `showDynamicAnalysisPopup` to load sheet data asynchronously before opening the popup.&#10;- Added error handling for asynchronous calls to display user-friendly error messages on failure.&#10;- Improved overall UX by preventing UI freeze during server requests.">
+      <option name="closed" value="true" />
+      <created>1730238316721</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL‎-00119" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1730238316721</updated>
+    </task>
+    <option name="localTasksCounter" value="120" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -853,14 +864,6 @@
           <url>file://$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java</url>
           <line>230</line>
           <option name="timeStamp" value="199" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java</url>
-          <line>148</line>
-          <properties>
-            <option name="lambda-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="201" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>

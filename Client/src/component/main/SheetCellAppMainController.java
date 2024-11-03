@@ -149,19 +149,13 @@ public class SheetCellAppMainController implements Closeable {
         scene.getStylesheets().clear();
 
         if ("Style 1".equals(theme)) {
-            //String leftCssFile = getClass().getResource("/component/selectedSheetView/subcomponent/left/selectedSheetViewLeft.css").toExternalForm();
-            //String headerCssFile = getClass().getResource("/component/selectedSheetView/subcomponent/header/selectedSheetView.css").toExternalForm();
-            //scene.getStylesheets().add(leftCssFile);
-            //scene.getStylesheets().add(headerCssFile);
 
             String style1Css = getClass().getResource("/component/main/style1.css").toExternalForm();
             scene.getStylesheets().add(style1Css);
         } else {
-            String leftCssFile = getClass().getResource("/component/selectedSheetView/subcomponent/left/secondLeft.css").toExternalForm();
-            String headerCssFile = getClass().getResource("/component/selectedSheetView/subcomponent/header/secondHeader.css").toExternalForm();
+            String style2Css = getClass().getResource("/component/main/style2.css").toExternalForm();
+            scene.getStylesheets().add(style2Css);
             String singleCellCssFile = getClass().getResource("/component/selectedSheetView/subcomponent/sheet/single-cell.css").toExternalForm();
-            scene.getStylesheets().add(leftCssFile);
-            scene.getStylesheets().add(headerCssFile);
             scene.getStylesheets().add(singleCellCssFile);
         }
     }
