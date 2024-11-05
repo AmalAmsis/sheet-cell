@@ -5,6 +5,7 @@ import allsheetsmanager.AllSheetsManager;
 
 
 import jakarta.servlet.http.HttpServletRequest;
+import permission.permissionManager.PermissionManager;
 import users.UserManager;
 import users.UserManagerImpl;
 
@@ -15,6 +16,9 @@ public class ServletUtils {
     private static final String SHEETS_MANAGER_ATTRIBUTE_NAME = "allsheetsmanager";
 
     private static final Object sheetManagerLock = new Object();
+
+    private static final String PERMISSION_MANAGER_ATTRIBUTE_NAME = "permissionManager";
+    private static final Object permissionManagerLock = new Object();
 
 
     public static AllSheetsManager getSheetManager(ServletContext servletContext){
@@ -45,6 +49,16 @@ public class ServletUtils {
         return (UserManager) servletContext.getAttribute(USER_MANAGER_ATTRIBUTE_NAME);
     }
 
+
+    //todo: permission
+    public static PermissionManager getPermissionManager(ServletContext servletContext) {
+        synchronized (permissionManagerLock) {
+            if (servletContext.getAttribute(PERMISSION_MANAGER_ATTRIBUTE_NAME) == null) {
+                servletContext.setAttribute(PERMISSION_MANAGER_ATTRIBUTE_NAME, new AllSheetsManager());
+            }
+        }
+        return (PermissionManager) servletContext.getAttribute(PERMISSION_MANAGER_ATTRIBUTE_NAME);
+    }
 
     public static int getIntParameter(HttpServletRequest request, String name) {
         String value = request.getParameter(name);

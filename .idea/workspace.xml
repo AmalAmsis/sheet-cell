@@ -9,15 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="COMMIT FOR MARGE">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Implemented sheet selection functionality by row click, ensuring only one row is selected at a time. &#10;Added toggle functionality to deselect a row when clicking an already selected one, removing the checkbox check.&#10;&#10;Updated sheet name display to show the title instead of the file name in the available sheets table.">
+      <change afterPath="$PROJECT_DIR$/Engine/src/permission/permissionManager/PermissionManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/permission/permissionManager/PermissionManagerImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/permission/sheetPermission/SheetPermission.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Engine/src/permission/sheetPermission/SheetPermissionImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/allsheetsmanager/AllSheetsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/allsheetsmanager/AllSheetsManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheetmanager/SheetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheetmanager/SheetManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/sheetmanager/SheetManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheetmanager/SheetManagerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/servlets/AvailableSheetServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/AvailableSheetServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,8 +28,8 @@
         <option value="JavaFXApplication" />
         <option value="Enum" />
         <option value="CSS File" />
-        <option value="Interface" />
         <option value="FxmlFile" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -347,15 +344,7 @@
       <workItem from="1729423937730" duration="10368000" />
       <workItem from="1730232788310" duration="35000" />
       <workItem from="1730721062009" duration="1055000" />
-      <workItem from="1730729187909" duration="5164000" />
-    </task>
-    <task id="LOCAL‎-00055" summary="add ErrorMessage for ranges actions and update cell (UI)">
-      <option name="closed" value="true" />
-      <created>1726607618287</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL‎-00055" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726607618287</updated>
+      <workItem from="1730729187909" duration="6557000" />
     </task>
     <task id="LOCAL‎-00056" summary="design">
       <option name="closed" value="true" />
@@ -741,7 +730,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729592331039</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="Implemented sheet selection functionality by row click, ensuring only one row is selected at a time. &#10;Added toggle functionality to deselect a row when clicking an already selected one, removing the checkbox check.&#10;&#10;Updated sheet name display to show the title instead of the file name in the available sheets table.">
+      <option name="closed" value="true" />
+      <created>1730792708528</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1730792708528</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -787,7 +784,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="starting part 3!!!" />
     <MESSAGE value="starting part 3!!!&#10;linking the tomcat and dividing it into new models and starting work on login" />
     <MESSAGE value="Implemented unique username validation and login flow for the client&#10;&#10;- **Client module**:&#10;  - Added login flow with `LoginController.java` to handle user input and authentication.&#10;  - Updated `login.fxml` to define the layout and bind buttons to controller methods.&#10;  - Created CSS styling in `login.css` for error labels, main action buttons, and quit buttons.&#10;  - Implemented test classes (`TestLogin.java`, `TestLogin2.java`) for validating login functionality.&#10;&#10;- **Engine module**:&#10;  - Added `UserManager.java` and `UserManagerImpl.java` to handle user management, ensuring that each user has a unique name.&#10; &#10;&#10;- **Server module**:&#10;  - `LightweightLoginServlet.java`: Handles basic user login and session creation, ensuring that only unique usernames are allowed.&#10;  - `LogoutServlet.java`: Manages user logout and session termination.&#10;  - `ServletUtils.java`: Utility functions for managing user sessions and attributes.&#10;  - `SessionUtils.java`: Utility functions for session management.&#10;  - `Constants.java`: Stores constant values used across the application.&#10;&#10;- Fixed issues with class loading and servlet integration in the login process." />
     <MESSAGE value="Prepared FXML and controller structure for dashboard layout&#10;&#10;- Created `dashboardHeader.fxml` to define the layout for the header section of the dashboard.&#10;- Added `DashboardHeaderController.java` to handle the logic and interaction for the header section.&#10;- Organized the project structure under `subcomponents/header` for better modularization.&#10;- Added placeholders for subcomponents in the dashboard (availableSheets, commands, and Permissions)." />
@@ -812,7 +808,8 @@
     <MESSAGE value="commit for merge" />
     <MESSAGE value="Added dynamic table for available sheets:&#10;- Implemented table with columns: Select (checkbox), Sheet Name, Size (nXm), and Uploaded By.&#10;- Integrated row selection behavior allowing only one row to be selected at a time.&#10;- Added visual highlighting for selected rows with custom styling.&#10;- Updated server-side logic to return DTOSheetInfo to dynamically populate the table." />
     <MESSAGE value="COMMIT FOR MARGE" />
-    <option name="LAST_COMMIT_MESSAGE" value="COMMIT FOR MARGE" />
+    <MESSAGE value="Implemented sheet selection functionality by row click, ensuring only one row is selected at a time. &#10;Added toggle functionality to deselect a row when clicking an already selected one, removing the checkbox check.&#10;&#10;Updated sheet name display to show the title instead of the file name in the available sheets table." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented sheet selection functionality by row click, ensuring only one row is selected at a time. &#10;Added toggle functionality to deselect a row when clicking an already selected one, removing the checkbox check.&#10;&#10;Updated sheet name display to show the title instead of the file name in the available sheets table." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

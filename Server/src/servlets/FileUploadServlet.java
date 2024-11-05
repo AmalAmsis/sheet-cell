@@ -9,6 +9,11 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 import allsheetsmanager.AllSheetsManager;
+import permission.permissionManager.PermissionManager;
+import permission.permissionManager.PermissionManagerImpl;
+import permission.sheetPermission.SheetPermission;
+import permission.sheetPermission.SheetPermissionImpl;
+import sheetmanager.SheetManager;
 import utils.ServletUtils;
 import utils.SessionUtils;
 
@@ -41,19 +46,21 @@ public class FileUploadServlet extends HttpServlet {
 
             }
         }
-        // Pass the InputStream and file name to the addSheet method
-        AllSheetsManager sheetsManager = ServletUtils.getSheetManager(getServletContext());
+        AllSheetsManager allSheetsManager = ServletUtils.getSheetManager(getServletContext());
         try {
+            //add the new sheet to all sheet manager
+            String fileTitle = allSheetsManager.addSheet(inputStream, fileName,userName); // Call the addSheet method
 
-            String fileTitle = sheetsManager.addSheet(inputStream, fileName,userName); // Call the addSheet method
+            //add the sheet to permissions manager
+            PermissionManager permissionManager = ServletUtils.getPermissionManager(getServletContext());
+            SheetPermission sheetPermission = new SheetPermissionImpl(userName);
+            permissionManager.addSheetPermission(fileTitle,sheetPermission);
 
-
-
-            int numOfRows = sheetsManager.getAllSheetsManager().get(fileTitle).getNumRows();
-            int numOfCols = sheetsManager.getAllSheetsManager().get(fileTitle).getNumCols();
-
+            //create the response
+            SheetManager sheetManager = allSheetsManager.getAllSheetsManager().get(fileTitle);
+            int numOfRows = sheetManager.getNumRows();
+            int numOfCols = sheetManager.getNumCols();
             DTOSheetInfo dtoSheetInfo = new DTOSheetInfo(fileTitle,numOfRows,numOfCols,userName);
-
             JsonSerializer jsonSerializer = new JsonSerializer();
             String jsonString = jsonSerializer.convertDTOSheetInfoToJson(dtoSheetInfo);
 
