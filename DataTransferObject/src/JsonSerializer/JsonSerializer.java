@@ -1,6 +1,7 @@
 package JsonSerializer;
 
 import com.google.gson.Gson;
+import dto.DTOPermissionRequest;
 import dto.DTOSheet;
 import dto.DTOSheetImpl;
 import com.google.gson.reflect.TypeToken;
@@ -8,6 +9,7 @@ import dto.DTOSheetInfo;
 
 import java.lang.reflect.Type;
 import java.util.List;
+import java.util.Map;
 
 
 public class JsonSerializer {
@@ -47,6 +49,12 @@ public class JsonSerializer {
         Gson gson = GsonUtil.createGsonWithInstanceCreators();
         Type dtoSheetType = new TypeToken<DTOSheetInfo>() {}.getType();
         return gson.fromJson(json, dtoSheetType);
+    }
+
+    public Map<String, DTOPermissionRequest> convertJsonToPermissionsMap(String json){
+        Gson gson = GsonUtil.createGsonWithInstanceCreators();
+        Type mapType = new TypeToken<Map<String, DTOPermissionRequest>>() {}.getType();
+        return gson.fromJson(json, mapType);
     }
 
 

@@ -3,11 +3,17 @@ package component.dashboard.subcomponents.command;
 import JsonSerializer.JsonSerializer;
 import component.dashboard.main.maindashboard.DashboardController;
 import component.popup.error.ErrorMessage;
+import component.popup.permissionRequest.PermissionRequestController;
 import dto.DTOCell;
 import dto.DTOSheet;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 import okhttp3.Call;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -175,5 +181,50 @@ public class CommandController {
     }
 
     //*****************************************************************************************//
+
+    @FXML void requestPermissionHandler(ActionEvent event) {
+
+        Platform.runLater(() -> {
+
+            // Get selected sheet name from the DashboardController
+            String sheetName = dashboardController.getSelectedSheetName();
+
+            // Check if a sheet is selected
+            if (sheetName == null) {
+                new ErrorMessage("Please select a sheet to request permission.");
+                return;
+            }
+
+            // Check if the user is the owner of the sheet
+            String uploadedBy = dashboardController.getUploaderName(sheetName);
+            String currentUsername = dashboardController.getCurrentUsername();
+
+            if (uploadedBy.equals(currentUsername)) {
+                new ErrorMessage("You are the owner of this sheet and already have all permissions.");
+                return;
+            }
+
+            try {
+                // Load the FXML for the permission request popup
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/component/popup/permissionRequest/permissionRequest.fxml"));
+                Parent root = loader.load();
+
+                // Get the controller for the permission request popup
+                PermissionRequestController permissionRequestController = loader.getController();
+
+                // Initialize the popup with the selected sheet name
+                permissionRequestController.initializePopup(sheetName);
+
+                // Show the popup in a new window
+                Stage stage = new Stage();
+                stage.setTitle("Permission Request");
+                stage.setScene(new Scene(root));
+                stage.show();
+
+            } catch (IOException e) {
+                new ErrorMessage("Failed to open permission request window: " + e.getMessage());
+            }
+        });
+    }
 
 }

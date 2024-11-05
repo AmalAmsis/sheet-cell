@@ -164,4 +164,8 @@ public class SheetCellAppMainController implements Closeable {
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
+
+    public String getUserName(){
+        return currentUserName.get();
+    }
 }

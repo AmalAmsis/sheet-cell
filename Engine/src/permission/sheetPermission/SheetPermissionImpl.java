@@ -11,22 +11,22 @@ public class SheetPermissionImpl implements SheetPermission {
     private static final String OWNER = "OWNER";
 
     private String owner;
-    Map<String,String> sheetPermissions;
+    Map<String,PermissionRequest> sheetPermissions;
 
     public SheetPermissionImpl(String owner) {
-        sheetPermissions = new HashMap<String,String>();
+        sheetPermissions = new HashMap<String,PermissionRequest>();
         this.owner = owner;
     }
 
-    public String getOwner() {
+    @Override public String getOwner() {
         return owner;
     }
 
-    public void addUserPermission(String userName, String permission) {
+    public void addUserPermission(String userName, PermissionRequest permission) {
         sheetPermissions.put(userName, permission);
     }
 
-    public String getUserPermission(String userName) {
+    public PermissionRequest getUserPermission(String userName) {
         return sheetPermissions.get(userName);
     }
 
@@ -34,8 +34,13 @@ public class SheetPermissionImpl implements SheetPermission {
         sheetPermissions.remove(userName);
     }
 
-    public void changeUserPermissions(String userName, String permission) {
+    public void changeUserPermissions(String userName, PermissionRequest permission) {
         sheetPermissions.put(userName, permission);
+    }
+
+    @Override
+    public Map<String,PermissionRequest> getSheetPermissions(){
+        return sheetPermissions;
     }
 
 }

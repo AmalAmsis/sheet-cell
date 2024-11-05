@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="382.0" prefWidth="171.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.dashboard.subcomponents.command.CommandController">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="382.0" prefWidth="171.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.dashboard.subcomponents.command.CommandController">
     <VBox alignment="TOP_CENTER" prefHeight="359.0" prefWidth="162.0">
     <children>
         <Separator prefWidth="200.0" />
@@ -26,7 +26,7 @@
         <VBox alignment="TOP_CENTER" prefHeight="325.0" prefWidth="150.0" spacing="10.0">
             <children>
                 <Button fx:id="viewSheetButton" mnemonicParsing="false" onAction="#viewSheetHandler" prefHeight="35.0" prefWidth="101.0" styleClass="style-button" text="view sheet" />
-                <Button fx:id="requestPermissionButton" mnemonicParsing="false" prefHeight="43.0" prefWidth="130.0" styleClass="style-button" text="request premission" />
+                <Button fx:id="requestPermissionButton" mnemonicParsing="false" onAction="#requestPermissionHandler" prefHeight="43.0" prefWidth="130.0" styleClass="style-button" text="request premission" />
                 <Button fx:id="ackOrDenyPermissionRequestButton" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="66.0" prefWidth="135.0" styleClass="style-button" text="ack\deny permission request" textAlignment="CENTER" wrapText="true" />
             </children>
             <VBox.margin>

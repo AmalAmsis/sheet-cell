@@ -72,4 +72,16 @@ public class DashboardController implements Closeable {
     }
 
 
+    public String getUploaderName(String sheetName) {
+        for (AvailableSheetRow row : availableSheetsController.getAvailableSheetRows()) {
+            if (row.getSheetName().equals(sheetName)) {
+                return row.getUploadedBy();
+            }
+        }
+        return null; //
+    }
+
+    public String getCurrentUsername() {
+        return sheetCellAppMainController.getUserName();
+    }
 }

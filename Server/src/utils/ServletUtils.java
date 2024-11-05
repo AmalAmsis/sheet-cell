@@ -6,6 +6,7 @@ import allsheetsmanager.AllSheetsManager;
 
 import jakarta.servlet.http.HttpServletRequest;
 import permission.permissionManager.PermissionManager;
+import permission.permissionManager.PermissionManagerImpl;
 import users.UserManager;
 import users.UserManagerImpl;
 
@@ -54,7 +55,7 @@ public class ServletUtils {
     public static PermissionManager getPermissionManager(ServletContext servletContext) {
         synchronized (permissionManagerLock) {
             if (servletContext.getAttribute(PERMISSION_MANAGER_ATTRIBUTE_NAME) == null) {
-                servletContext.setAttribute(PERMISSION_MANAGER_ATTRIBUTE_NAME, new AllSheetsManager());
+                servletContext.setAttribute(PERMISSION_MANAGER_ATTRIBUTE_NAME, new PermissionManagerImpl());
             }
         }
         return (PermissionManager) servletContext.getAttribute(PERMISSION_MANAGER_ATTRIBUTE_NAME);

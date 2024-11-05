@@ -9,7 +9,7 @@ public class PermissionManagerImpl implements PermissionManager {
 
     private Map<String, SheetPermission> permissions;
 
-    public PermissionManagerImpl(String userName) {
+    public PermissionManagerImpl() {
         permissions = new HashMap<>();
     }
 
@@ -17,7 +17,7 @@ public class PermissionManagerImpl implements PermissionManager {
         permissions.put(sheetName, sheetPermission);
     }
 
-    public SheetPermission getSheetPermission(String sheetName) {
+    @Override public SheetPermission  getSheetPermissions(String sheetName){
         return permissions.get(sheetName);
     }
 
