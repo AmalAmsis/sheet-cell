@@ -46,6 +46,7 @@ public class AvailableSheetServlet extends HttpServlet {
                 for (Map.Entry<String, SheetManager> entry : availableSheets.entrySet()) {
 
                     String sheetName = entry.getKey();
+                    //String sheetName = sheetsManager.getSheet(entry.getKey()).getTilte();
                     SheetManager sheetManager = entry.getValue();
                     int numRows =sheetManager.getNumRows();
                     int numCols =sheetManager.getNumCols();

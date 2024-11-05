@@ -35,6 +35,8 @@ public class FileUploadServlet extends HttpServlet {
             if (part.getName().equals("file")) { // Look for the file part
                 // Log part details and read the file
                 inputStream = part.getInputStream();
+
+                //todo : maybe delete
                 fileName = part.getSubmittedFileName();
 
             }
@@ -42,11 +44,15 @@ public class FileUploadServlet extends HttpServlet {
         // Pass the InputStream and file name to the addSheet method
         AllSheetsManager sheetsManager = ServletUtils.getSheetManager(getServletContext());
         try {
-            sheetsManager.addSheet(inputStream, fileName,userName); // Call the addSheet method
-            int numOfRows = sheetsManager.getAllSheetsManager().get(fileName).getNumRows();
-            int numOfCols = sheetsManager.getAllSheetsManager().get(fileName).getNumCols();
 
-            DTOSheetInfo dtoSheetInfo = new DTOSheetInfo(fileName,numOfRows,numOfCols,userName);
+            String fileTitle = sheetsManager.addSheet(inputStream, fileName,userName); // Call the addSheet method
+
+
+
+            int numOfRows = sheetsManager.getAllSheetsManager().get(fileTitle).getNumRows();
+            int numOfCols = sheetsManager.getAllSheetsManager().get(fileTitle).getNumCols();
+
+            DTOSheetInfo dtoSheetInfo = new DTOSheetInfo(fileTitle,numOfRows,numOfCols,userName);
 
             JsonSerializer jsonSerializer = new JsonSerializer();
             String jsonString = jsonSerializer.convertDTOSheetInfoToJson(dtoSheetInfo);

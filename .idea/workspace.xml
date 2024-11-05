@@ -9,20 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="- Refactored methods to asynchronous calls to improve UI responsiveness:&#10;  - Converted `updateCellValue` to async to handle cell updates without blocking.&#10;  - Updated `getDtoSheet` to an asynchronous version (`getDtoSheetAsync`) to load sheet data seamlessly.&#10;  - Refactored `handleSwitchToLatestVersion` to check and fetch the latest sheet version asynchronously.&#10;  - Modified `showDynamicAnalysisPopup` to load sheet data asynchronously before opening the popup.&#10;- Added error handling for asynchronous calls to display user-friendly error messages on failure.&#10;- Improved overall UX by preventing UI freeze during server requests.">
-      <change afterPath="$PROJECT_DIR$/Client/src/component/main/style2.css" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="COMMIT FOR MARGE">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_08_2024_14_28__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/command.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/command.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/login/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/login/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/login/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/login/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/main/sheetCellAppMain.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/main/sheetCellAppMain.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/main/style1.css" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/main/style1.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/secondHeader.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/selectedSheetView.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/selectedSheetViewHeader.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/selectedSheetViewHeader.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/secondLeft.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/selectedSheetViewLeft.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/allsheetsmanager/AllSheetsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/allsheetsmanager/AllSheetsManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheetmanager/SheetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheetmanager/SheetManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/sheetmanager/SheetManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/sheetmanager/SheetManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/servlets/AvailableSheetServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/AvailableSheetServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,10 +30,10 @@
         <option value="HTML File" />
         <option value="JavaFXApplication" />
         <option value="Enum" />
+        <option value="CSS File" />
         <option value="Interface" />
         <option value="FxmlFile" />
         <option value="Class" />
-        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -54,7 +49,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/AmalAmsis/sheet-cell.git&quot;,
-    &quot;accountId&quot;: &quot;7c3c5dfe-f29d-4945-a690-87b881a1fc0c&quot;
+    &quot;accountId&quot;: &quot;537397b5-d0c5-40c9-8de6-5008f77a31b4&quot;
   }
 }</component>
   <component name="LogFilters">
@@ -63,9 +58,6 @@
     <option name="FILTER_INFO" value="true" />
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -78,7 +70,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.AppRunner.executor": "Run",
+    "Application.AppRunner.executor": "Debug",
+    "Application.EffectiveValueTest.executor": "Debug",
     "Application.FxmlTest.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.SheetCellClient.executor": "Run",
@@ -86,10 +79,11 @@
     "Application.Test.executor": "Run",
     "Application.Test2.executor": "Coverage",
     "Application.TestLoadFile.executor": "Debug",
-    "Application.TestLogin.executor": "Run",
+    "Application.TestLogin.executor": "Debug",
     "Application.TestLogin2.executor": "Run",
     "Application.component.dashboard.subcomponents.maindashboard.TestLoadFile.executor": "Run",
     "Application.deprecated.apprunner.AppRunner.executor": "Debug",
+    "Application.jasonTest.executor": "Debug",
     "Application.sheet.range.Test.executor": "Run",
     "Application.test.FxmlTest.executor": "Run",
     "DefaultHtmlFileTemplate": "HTML File",
@@ -97,10 +91,10 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Tomcat Server.Tomcat 10.1.30.executor": "Run",
-    "git-widget-placeholder": "Amal",
+    "git-widget-placeholder": "yarden__branch",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Amal Amsis/Downloads/Online Chat V3/Online Chat V3",
+    "last_opened_file_path": "C:/projects/sheet-cell/Client/src",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -115,15 +109,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\sheet-cell\Client\src\component\popup" />
-      <recent name="C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\sheet-cell\Client\src\component\selectedSheetView\subcomponent\sheet" />
-      <recent name="C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\sheet-cell\Client\src\component\selectedSheetView\subcomponent\left" />
-      <recent name="C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\sheet-cell\Client\src\component\selectedSheetView\subcomponent\header" />
+      <recent name="C:\projects\sheet-cell\Client\src" />
+      <recent name="C:\projects\sheet-cell\UI\src" />
+      <recent name="C:\projects\sheet-cell\UI\src\component\subcomponent\popup" />
       <recent name="C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\sheet-cell\Client\src\component\selectedSheetView\subcomponents" />
+      <recent name="C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\sheet-cell\Client\src\component\selectedSheetView" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\sheet-cell\UI\src\component\subcomponent\header" />
       <recent name="C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\sheet-cell\UI\src\component\subcomponent\cell" />
+    </key>
+    <key name="MoveInnerDialog.RECENTS_KEY">
+      <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="component.selectedSheetView.subcomponent.sheet" />
@@ -133,10 +130,10 @@
     <configuration name="AppRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="apprunner.AppRunner" />
       <module name="UI" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\openjfx-22.0.2_windows-x64_bin-sdk\javafx-sdk-22.0.2\lib&quot;  --add-modules javafx.controls,javafx.fxml " />
+      <option name="VM_PARAMETERS" value="--module-path C:\lib\javafx-sdk-22.0.2\lib --add-modules javafx.controls,javafx.fxml " />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="test.*" />
+          <option name="PATTERN" value="apprunner.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -147,7 +144,7 @@
     <configuration name="SheetCellClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.SheetCellClient" />
       <module name="Client" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\openjfx-22.0.2_windows-x64_bin-sdk\javafx-sdk-22.0.2\lib&quot;  --add-modules javafx.controls,javafx.fxml " />
+      <option name="VM_PARAMETERS" value="--module-path C:\lib\javafx-sdk-22.0.2\lib --add-modules javafx.controls,javafx.fxml " />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="main.*" />
@@ -161,7 +158,7 @@
     <configuration name="SheetCellClient2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.SheetCellClient2" />
       <module name="Client" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\openjfx-22.0.2_windows-x64_bin-sdk\javafx-sdk-22.0.2\lib&quot;  --add-modules javafx.controls,javafx.fxml " />
+      <option name="VM_PARAMETERS" value="--module-path C:\lib\javafx-sdk-22.0.2\lib --add-modules javafx.controls,javafx.fxml " />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="main.*" />
@@ -175,7 +172,7 @@
     <configuration name="TestLoadFile" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="component.dashboard.main.maindashboard.TestLoadFile" />
       <module name="Client" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\openjfx-22.0.2_windows-x64_bin-sdk\javafx-sdk-22.0.2\lib&quot;  --add-modules javafx.controls,javafx.fxml " />
+      <option name="VM_PARAMETERS" value="--module-path C:\lib\javafx-sdk-22.0.2\lib --add-modules javafx.controls,javafx.fxml " />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="component.dashboard.subcomponents.header.*" />
@@ -186,13 +183,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestLogin" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="component.login.TestLogin" />
-      <module name="Client" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Amal Amsis\Desktop\AmalA\Computer Science\JAVA\openjfx-22.0.2_windows-x64_bin-sdk\javafx-sdk-22.0.2\lib&quot;  --add-modules javafx.controls,javafx.fxml " />
+    <configuration name="jasonTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="JsonSerializer.jasonTest" />
+      <module name="DataTransferObject" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="component.login.*" />
+          <option name="PATTERN" value="JsonSerializer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -204,7 +200,7 @@
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/UI/UI.jar" />
       <method v="2" />
     </configuration>
-    <configuration name="Tomcat 10.1.30" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.30" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Tomcat 10.1.30" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.26" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER" value="false" />
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -295,10 +291,10 @@
     </configuration>
     <list>
       <item itemvalue="Application.SheetCellClient2" />
+      <item itemvalue="Application.AppRunner" />
+      <item itemvalue="Application.jasonTest" />
       <item itemvalue="Application.TestLoadFile" />
       <item itemvalue="Application.SheetCellClient" />
-      <item itemvalue="Application.TestLogin" />
-      <item itemvalue="Application.AppRunner" />
       <item itemvalue="JAR Application.UI.jar" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.30" />
     </list>
@@ -308,15 +304,15 @@
         <item itemvalue="Application.SheetCellClient2" />
         <item itemvalue="Application.AppRunner" />
         <item itemvalue="Application.TestLoadFile" />
-        <item itemvalue="Application.TestLogin" />
+        <item itemvalue="Application.jasonTest" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.387" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.387" />
       </set>
     </attachedChunks>
   </component>
@@ -344,8 +340,142 @@
       <workItem from="1728768355881" duration="44000" />
       <workItem from="1728768423746" duration="14000" />
       <workItem from="1728768460006" duration="5531000" />
-      <workItem from="1729849814137" duration="335000" />
-      <workItem from="1729850164285" duration="30718000" />
+      <workItem from="1729162799676" duration="178000" />
+      <workItem from="1729162985853" duration="8842000" />
+      <workItem from="1729339170318" duration="16924000" />
+      <workItem from="1729423866098" duration="65000" />
+      <workItem from="1729423937730" duration="10368000" />
+      <workItem from="1730232788310" duration="35000" />
+      <workItem from="1730721062009" duration="1055000" />
+      <workItem from="1730729187909" duration="5164000" />
+    </task>
+    <task id="LOCAL‎-00055" summary="add ErrorMessage for ranges actions and update cell (UI)">
+      <option name="closed" value="true" />
+      <created>1726607618287</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL‎-00055" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1726607618287</updated>
+    </task>
+    <task id="LOCAL‎-00056" summary="design">
+      <option name="closed" value="true" />
+      <created>1726611476870</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL‎-00056" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1726611476870</updated>
+    </task>
+    <task id="LOCAL‎-00057" summary="wrap text">
+      <option name="closed" value="true" />
+      <created>1726648504743</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL‎-00057" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1726648504743</updated>
+    </task>
+    <task id="LOCAL‎-00058" summary="add back to default Button">
+      <option name="closed" value="true" />
+      <created>1726652716862</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL‎-00058" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1726652716862</updated>
+    </task>
+    <task id="LOCAL‎-00059" summary="commit for merge">
+      <option name="closed" value="true" />
+      <created>1726686978983</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL‎-00059" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1726686978983</updated>
+    </task>
+    <task id="LOCAL‎-00060" summary="commit for merge">
+      <option name="closed" value="true" />
+      <created>1726691050610</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL‎-00060" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1726691050610</updated>
+    </task>
+    <task id="LOCAL‎-00061" summary="Added simulated delay for file loading task in JFX with progress bar&#10;&#10;- Implemented JFX Task for file loading with progress bar to provide visual feedback.&#10;- Added a simulated delay (1-2 seconds) in each loading step to simulate the process.&#10;- Bound progress and status updates to the progress bar and label.&#10;- Ensured that the progress bar is hidden upon successful or failed task completion.">
+      <option name="closed" value="true" />
+      <created>1726862279782</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL‎-00061" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1726862279782</updated>
+    </task>
+    <task id="LOCAL‎-00062" summary="Styled Header and Left Panel UI components:&#10;- Added visual design improvements to Header section.&#10;- Updated Left panel layout for better user experience.&#10;- Adjusted styles for TitledPane, ProgressBar, ChoiceBox, ColorPicker, and other UI elements.">
+      <option name="closed" value="true" />
+      <created>1726867185098</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL‎-00062" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1726867185098</updated>
+    </task>
+    <task id="LOCAL‎-00063" summary="Fixed and improved the Scroll behavior and layout for better user experience and smoother navigation.">
+      <option name="closed" value="true" />
+      <created>1726869376701</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL‎-00063" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1726869376701</updated>
+    </task>
+    <task id="LOCAL‎-00064" summary="Added JAR creation and binding for UI interactivity&#10;&#10;- Created the JAR file for the project, ensuring all necessary dependencies are included (JavaFX, JAXB, etc.).&#10;- Implemented binding for interactive elements (buttons, text fields, choice boxes, etc.), allowing them to be enabled/disabled dynamically based on whether a cell is selected and a file is loaded.&#10;- Improved user experience by ensuring UI components are only accessible when relevant actions (like selecting a cell or loading a file) have been completed.">
+      <option name="closed" value="true" />
+      <created>1727162552483</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL‎-00064" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1727162552483</updated>
+    </task>
+    <task id="LOCAL‎-00065" summary="Added dynamic analysis feature with a value range slider for numerical cells. &#10;&#10;- Implemented functionality allowing users to select a cell, set a minimum and maximum value, and define the step size. &#10;- Added a slider for users to dynamically adjust the selected cell's value within the defined range.&#10;- The sheet updates in real-time with each change made by the slider.&#10;- Changes are temporary and do not permanently modify the cell's value in the sheet or create a new version.">
+      <option name="closed" value="true" />
+      <created>1727250661491</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL‎-00065" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1727250661491</updated>
+    </task>
+    <task id="LOCAL‎-00066" summary="Implemented theme switching functionality with support for at least 2 additional color schemes beyond the default. The following UI elements were updated as part of the theme changes:&#10;&#10;1. Background color for the entire screen.&#10;2. Button styling and appearance across the UI.&#10;3. Updated font and font size for all labels on the screen to reflect the selected theme.&#10;&#10;Added a mechanism for users to easily switch between these themes through the UI.">
+      <option name="closed" value="true" />
+      <created>1727344530282</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL‎-00066" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1727344530282</updated>
+    </task>
+    <task id="LOCAL‎-00067" summary="Refactored version selection functionality:&#10;- Added dynamic linking between okButton and versionMenuBar to ensure the button is only enabled when a version is selected.&#10;- Fixed the dynamic creation of MenuItems and ensured proper action listeners are attached during runtime.&#10;&#10;General updates:&#10;- Cleaned up several classes.&#10;- Added documentation across classes for clarity and future maintenance.">
+      <option name="closed" value="true" />
+      <created>1727459501744</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL‎-00067" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1727459501744</updated>
+    </task>
+    <task id="LOCAL‎-00068" summary="Implemented graph creation feature for numerical data in the sheet. &#10;&#10;- Added functionality for generating line and bar charts based on user-selected X and Y axis ranges.&#10;- Created error handling for invalid range formats and non-numeric values in the selected cells.&#10;- Added detailed validation to ensure the X and Y ranges contain equal numbers of values.&#10;- Updated UI to allow users to select cell ranges for graph creation, including new controls for selecting and confirming range input.&#10;- Enhanced error messaging for invalid input formats and mismatched value counts between X and Y axis selections.&#10;- Documentation and comments added across relevant classes to clarify the graph creation process and error handling mechanisms.">
+      <option name="closed" value="true" />
+      <created>1727467691517</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL‎-00068" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1727467691517</updated>
+    </task>
+    <task id="LOCAL‎-00069" summary="Added minimum window size restrictions to prevent excessive resizing. Updated graph functionality to convert lowercase cell identifiers (e.g., 'a1') to uppercase (e.g., 'A1') for consistency and usability.">
+      <option name="closed" value="true" />
+      <created>1727471631617</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL‎-00069" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1727471631617</updated>
+    </task>
+    <task id="LOCAL‎-00070" summary="&#10;&#10;- Cleaned up several classes.">
+      <option name="closed" value="true" />
+      <created>1727472800355</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL‎-00070" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1727472800355</updated>
     </task>
     <task id="LOCAL‎-00071" summary="&#10;final updates before submission">
       <option name="closed" value="true" />
@@ -507,239 +637,111 @@
       <option name="project" value="LOCAL‎" />
       <updated>1728906765050</updated>
     </task>
-    <task id="LOCAL‎-00091" summary="updates after merge">
+    <task id="LOCAL-00091" summary="I worked on display sheet from the client and server side, marge for continue work with Amal.&#10;It remains to check the feature">
       <option name="closed" value="true" />
-      <created>1728909242272</created>
+      <created>1728923287522</created>
       <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL‎-00091" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1728909242272</updated>
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1728923287523</updated>
     </task>
-    <task id="LOCAL‎-00092" summary="This change allows the main controller to manage and display the SelectedSheetView , Dashboard and login as part of the application flow.">
+    <task id="LOCAL-00092" summary="Dashboard initialization update&#10;The sheets that are already on the server will be displayed straight away.">
       <option name="closed" value="true" />
-      <created>1728923775994</created>
+      <created>1728997283370</created>
       <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL‎-00092" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1728923775994</updated>
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1728997283370</updated>
     </task>
-    <task id="LOCAL‎-00093" summary="This change allows the main controller to manage and display the SelectedSheetView , Dashboard and login as part of the application flow.">
+    <task id="LOCAL-00093" summary="Transferring objects from server to client works">
       <option name="closed" value="true" />
-      <created>1729003504057</created>
+      <created>1729018637850</created>
       <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL‎-00093" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1729003504057</updated>
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1729018637850</updated>
     </task>
-    <task id="LOCAL‎-00094" summary="displaySheet">
+    <task id="LOCAL-00094" summary="Successfully implemented JSON-to-object and object-to-JSON conversion for DTOSheet and its components. &#10;&#10;The feature for selecting a sheet displaying its contents has been fully integrated.">
       <option name="closed" value="true" />
-      <created>1729006716236</created>
+      <created>1729019077972</created>
       <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL‎-00094" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1729006716236</updated>
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1729019077973</updated>
     </task>
-    <task id="LOCAL‎-00095" summary="This change allows the main controller to manage and display the SelectedSheetView , Dashboard and login as part of the application flow.">
+    <task id="LOCAL-00095" summary="Implemented available sheets auto-refresh feature.&#10;&#10;- Added `AvailableSheetsRefresher` class to periodically fetch and refresh available sheets from the server.&#10;- Integrated a timer task in `AvailableSheetsController` to send requests to the server every 2 seconds.&#10;- Updated the logic in `refreshAvailableSheets()` to only add new sheets not already present in the client-side list.&#10;- Fixed UI update issue by ensuring updates are performed on the JavaFX application thread.&#10;- Added logic in the server-side `AvailableSheetServlet` to respond only when new sheets are available, reducing unnecessary updates.">
       <option name="closed" value="true" />
-      <created>1729012117311</created>
+      <created>1729075201883</created>
       <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL‎-00095" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1729012117311</updated>
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1729075201883</updated>
     </task>
-    <task id="LOCAL‎-00096" summary="CellServlet">
+    <task id="LOCAL-00096" summary="Added sheet sorting functionality&#10;on server and client side">
       <option name="closed" value="true" />
-      <created>1729075416909</created>
+      <created>1729173367294</created>
       <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL‎-00096" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1729075416909</updated>
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1729173367294</updated>
     </task>
-    <task id="LOCAL‎-00097" summary="Added handling for cell updates in CellServlet and improved session-based sheet identification.&#10;Implemented client-side functionality to send cell update requests.&#10;&#10;- Implemented update logic for cells in the CellServlet class, allowing PUT requests to update cell values.&#10;- Added session-based retrieval of the current sheet to ensure updates are performed on the correct sheet.&#10;- On the client side, created a method to send asynchronous PUT requests with updated cell data.&#10;- The client sends coordinate and original value as form parameters in the request body to update the selected cell.">
+    <task id="LOCAL-00097" summary="Added sheet sorting and filtering functionality&#10;on server and client side">
       <option name="closed" value="true" />
-      <created>1729207057936</created>
+      <created>1729343464812</created>
       <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL‎-00097" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1729207057936</updated>
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1729343464813</updated>
     </task>
-    <task id="LOCAL‎-00098" summary="Added feature where, upon a cell update by a client, all other clients viewing the sheet will have a flashing button indicating a new version is available. When they click the button, they are transitioned to the latest version of the sheet.&#10;- Implemented polling mechanism to check for sheet updates.&#10;- Added flashing button logic for clients when a newer version is detected.&#10;- Once clients click the flashing button, they are transitioned to the updated sheet version and the button stops flashing.&#10;- Updated SheetPollerTask to handle server polling for new sheet versions and button flashing.">
+    <task id="LOCAL-00098" summary="set up infrastructure for the version selector feature in sheet view">
       <option name="closed" value="true" />
-      <created>1729351010389</created>
+      <created>1729352192151</created>
       <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL‎-00098" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1729351010389</updated>
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1729352192151</updated>
     </task>
-    <task id="LOCAL‎-00099" summary="Added feature where, upon a cell update by a client, all other clients viewing the sheet will have a flashing button indicating a new version is available. When they click the button, they are transitioned to the latest version of the sheet.&#10;- Implemented polling mechanism to check for sheet updates.&#10;- Added flashing button logic for clients when a newer version is detected.&#10;- Once clients click the flashing button, they are transitioned to the updated sheet version and the button stops flashing.&#10;- Updated SheetPollerTask to handle server polling for new sheet versions and button flashing.">
+    <task id="LOCAL-00099" summary="Version Changes Servlet was established">
       <option name="closed" value="true" />
-      <created>1729352491904</created>
+      <created>1729352842453</created>
       <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL‎-00099" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1729352491904</updated>
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1729352842453</updated>
     </task>
-    <task id="LOCAL‎-00100" summary="Implemented new cell selection, update functionalities, and skin switching capabilities in the client application:&#10;- Added a &quot;Work Bar&quot; to display details for the selected cell:&#10;  - Displays the identity of the selected cell (e.g., 5A, in uppercase).&#10;  - Shows the original value of the cell.&#10;  - Shows the last version in which the cell was updated.&#10;  - Highlighted the cells that the selected cell relies on with a light blue background.&#10;  - Highlighted the cells that depend on the selected cell with a light green background.&#10;&#10;- Added the ability to adjust the width of columns/rows via the graphical interface:&#10;  - If the content is larger than the column width, it can either wrap or clip based on the user's choice.&#10;  - The option is set at the column level and applies to all displayed data in that column.&#10;&#10;- Added the option to align the content within columns:&#10;  - The alignment can be set to left, right, or center.&#10;  - The option is set at the column level and applies to all displayed data in that column.&#10;&#10;- Added the ability to style a specific cell:&#10;  - The user can select both the background color and text color using a color picker.&#10;  - Added a dedicated button to reset all styling to the default state.&#10;  - The styling is attached to the cell and preserved during sorting/filtering actions.&#10;&#10;- Implemented the ability for the user to switch between at least two additional color schemes (skins) beyond the default:&#10;  - Each skin change updates:&#10;    1. The background of the entire screen.&#10;    2. The appearance of all buttons on the screen.&#10;    3. The font style and size of all labels on the screen.&#10;  - The design for skin switching is functional but still requires improvements to enhance its visual appeal.">
+    <task id="LOCAL-00100" summary="Completed the implementation of the Version Selector feature. The user can now select a previous version of the sheet, view the number of changes in each version, and load a specific version of the sheet in a new view.&quot;">
       <option name="closed" value="true" />
-      <created>1729413398793</created>
+      <created>1729413575125</created>
       <option name="number" value="00100" />
-      <option name="presentableId" value="LOCAL‎-00100" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1729413398793</updated>
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1729413575125</updated>
     </task>
-    <task id="LOCAL‎-00101" summary="Implemented new cell selection, update functionalities, and skin switching capabilities in the client application:&#10;- Added a &quot;Work Bar&quot; to display details for the selected cell:&#10;  - Displays the identity of the selected cell (e.g., 5A, in uppercase).&#10;  - Shows the original value of the cell.&#10;  - Shows the last version in which the cell was updated.&#10;  - Highlighted the cells that the selected cell relies on with a light blue background.&#10;  - Highlighted the cells that depend on the selected cell with a light green background.&#10;&#10;- Added the ability to adjust the width of columns/rows via the graphical interface:&#10;  - If the content is larger than the column width, it can either wrap or clip based on the user's choice.&#10;  - The option is set at the column level and applies to all displayed data in that column.&#10;&#10;- Added the option to align the content within columns:&#10;  - The alignment can be set to left, right, or center.&#10;  - The option is set at the column level and applies to all displayed data in that column.&#10;&#10;- Added the ability to style a specific cell:&#10;  - The user can select both the background color and text color using a color picker.&#10;  - Added a dedicated button to reset all styling to the default state.&#10;  - The styling is attached to the cell and preserved during sorting/filtering actions.&#10;&#10;- Implemented the ability for the user to switch between at least two additional color schemes (skins) beyond the default:&#10;  - Each skin change updates:&#10;    1. The background of the entire screen.&#10;    2. The appearance of all buttons on the screen.&#10;    3. The font style and size of all labels on the screen.&#10;  - The design for skin switching is functional but still requires improvements to enhance its visual appeal.">
+    <task id="LOCAL-00101" summary="commit for merge">
       <option name="closed" value="true" />
-      <created>1729414685655</created>
+      <created>1729415869862</created>
       <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL‎-00101" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1729414685655</updated>
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1729415869862</updated>
     </task>
-    <task id="LOCAL‎-00102" summary="Implemented new cell selection, update functionalities, and skin switching capabilities in the client application:&#10;- Added a &quot;Work Bar&quot; to display details for the selected cell:&#10;  - Displays the identity of the selected cell (e.g., 5A, in uppercase).&#10;  - Shows the original value of the cell.&#10;  - Shows the last version in which the cell was updated.&#10;  - Highlighted the cells that the selected cell relies on with a light blue background.&#10;  - Highlighted the cells that depend on the selected cell with a light green background.&#10;&#10;- Added the ability to adjust the width of columns/rows via the graphical interface:&#10;  - If the content is larger than the column width, it can either wrap or clip based on the user's choice.&#10;  - The option is set at the column level and applies to all displayed data in that column.&#10;&#10;- Added the option to align the content within columns:&#10;  - The alignment can be set to left, right, or center.&#10;  - The option is set at the column level and applies to all displayed data in that column.&#10;&#10;- Added the ability to style a specific cell:&#10;  - The user can select both the background color and text color using a color picker.&#10;  - Added a dedicated button to reset all styling to the default state.&#10;  - The styling is attached to the cell and preserved during sorting/filtering actions.&#10;&#10;- Implemented the ability for the user to switch between at least two additional color schemes (skins) beyond the default:&#10;  - Each skin change updates:&#10;    1. The background of the entire screen.&#10;    2. The appearance of all buttons on the screen.&#10;    3. The font style and size of all labels on the screen.&#10;  - The design for skin switching is functional but still requires improvements to enhance its visual appeal.">
+    <task id="LOCAL-00102" summary="Added dynamic table for available sheets:&#10;- Implemented table with columns: Select (checkbox), Sheet Name, Size (nXm), and Uploaded By.&#10;- Integrated row selection behavior allowing only one row to be selected at a time.&#10;- Added visual highlighting for selected rows with custom styling.&#10;- Updated server-side logic to return DTOSheetInfo to dynamically populate the table.">
       <option name="closed" value="true" />
-      <created>1729414756083</created>
+      <created>1729436812716</created>
       <option name="number" value="00102" />
-      <option name="presentableId" value="LOCAL‎-00102" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1729414756083</updated>
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1729436812717</updated>
     </task>
-    <task id="LOCAL‎-00103" summary="Implemented range display functionality on the client side and server-side API integration:&#10;- Added functionality in the client to fetch and display a selected range from the server.&#10;  - The client sends a GET request to the /range endpoint, passing the selected range name.&#10;  - The server responds with a list of cell coordinates (IDs) in JSON format.&#10;  - The client then highlights the cells in the selected range by adding borders and storing the previously selected cells for clearing.&#10;&#10;- Server-side RangeServlet implementation:&#10;  - The RangeServlet retrieves the list of cell coordinates for the specified range.&#10;  - Converts the list of coordinates to JSON and returns it as a response.&#10;  - Added error handling for missing parameters and server issues.&#10;&#10;- Added GSON to parse the JSON response from the server into a list of cell IDs in the client.&#10;- Ensured client-side handling of successful and failed requests with proper error messaging.">
+    <task id="LOCAL-00103" summary="COMMIT FOR MARGE">
       <option name="closed" value="true" />
-      <created>1729427328213</created>
+      <created>1729592331038</created>
       <option name="number" value="00103" />
-      <option name="presentableId" value="LOCAL‎-00103" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1729427328213</updated>
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1729592331039</updated>
     </task>
-    <task id="LOCAL‎-00104" summary="Implemented AllRangesServlet to handle range-related operations:&#10;- Added functionality to handle GET requests to retrieve all range names for a given sheet and return them as a JSON response.&#10;- Added PUT request handling to create a new range in the sheet using coordinates and range name provided in the request body (JSON format).&#10;- Added DELETE request handling to delete a range from the sheet based on the range name provided in the request body (JSON format).&#10;- Included helper method to convert a list of DTORange objects to a list of range names.&#10;- Integrated session validation to ensure unauthorized users or sheets are blocked.">
-      <option name="closed" value="true" />
-      <created>1729439739764</created>
-      <option name="number" value="00104" />
-      <option name="presentableId" value="LOCAL‎-00104" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1729439739764</updated>
-    </task>
-    <task id="LOCAL‎-00105" summary="Commit: Refactored AllRangesServlet + Added range addition, deletion, and real-time polling for range updates in the client&#10;&#10;- Refactored AllRangesServlet to handle range-related requests more efficiently.&#10;- Implemented client-side functionality to show, add and delete ranges.&#10; Introduced polling mechanism for real-time range updates.&#10;  - Created RangePollerTask that polls the server every 5 seconds to check for changes in the range list.&#10;  - The choice boxes in the UI are updated automatically when a range is added or removed by any client sharing the same sheet.&#10;&#10;This commit introduces the ability for multiple clients working on the same sheet to see real-time updates to the ranges.">
-      <option name="closed" value="true" />
-      <created>1729455029290</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL‎-00105" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1729455029290</updated>
-    </task>
-    <task id="LOCAL‎-00106" summary="fix: Handle NaN and UNKNOWN values in EffectiveValueAdapter&#10;&#10;- Added logic to handle &quot;NaN&quot; for numeric cell types in EffectiveValueAdapter's write and read methods.&#10;- Added logic to handle &quot;UNKNOWN&quot; for boolean cell types in EffectiveValueAdapter's write and read methods.&#10;- Fixed the issue where ClassCastException was being thrown when casting unexpected values.&#10;- Ensured that empty cells are represented as empty strings.">
-      <option name="closed" value="true" />
-      <created>1729472676667</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL‎-00106" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1729472676667</updated>
-    </task>
-    <task id="LOCAL‎-00107" summary="change polling class">
-      <option name="closed" value="true" />
-      <created>1729472739416</created>
-      <option name="number" value="00107" />
-      <option name="presentableId" value="LOCAL‎-00107" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1729472739416</updated>
-    </task>
-    <task id="LOCAL‎-00108" summary="Added feature to track and display the user who updated each cell.&#10; Updated modules : Engine, DataTransferObject (DTO, JSON), Client, and Server to handle and display the username of the user who made direct or indirect changes to a cell.&#10;  The information about the user is now shown in the third screen's action bar when selecting a specific cell.">
-      <option name="closed" value="true" />
-      <created>1729540944074</created>
-      <option name="number" value="00108" />
-      <option name="presentableId" value="LOCAL‎-00108" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1729540944074</updated>
-    </task>
-    <task id="LOCAL‎-00109" summary="Added dynamic analysis feature to sheet application&#10;&#10;Implemented DynamicAnalysisServlet to handle temporary cell updates for dynamic analysis. These updates are used for background calculations and are not persisted in the final sheet.&#10;Added logic in DynamicAnalysisSheetController to interact with dynamic analysis sliders and send temporary values to the server.&#10;Updated SelectedSheetViewController and SelectedSheetViewLeftController to process and display temporary changes from dynamic analysis without saving them.&#10;Extended CellImpl and SheetImpl classes to manage the temporary updates to cells and rollback the original values after analysis.&#10;Modified SheetManagerImpl to handle dynamic analysis requests and updates between the frontend and backend.">
-      <option name="closed" value="true" />
-      <created>1729793066451</created>
-      <option name="number" value="00109" />
-      <option name="presentableId" value="LOCAL‎-00109" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1729793066451</updated>
-    </task>
-    <task id="LOCAL‎-00110" summary="Implemented version check to prevent cell updates on outdated sheet versions. Users must switch to the latest version to update cell values. If not on the latest version, a warning message is displayed, guiding the user to use the switch button.">
-      <option name="closed" value="true" />
-      <created>1729800655928</created>
-      <option name="number" value="00110" />
-      <option name="presentableId" value="LOCAL‎-00110" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1729800655928</updated>
-    </task>
-    <task id="LOCAL‎-00111" summary="Made some adjustments to the design and layout.">
-      <option name="closed" value="true" />
-      <created>1729804925327</created>
-      <option name="number" value="00111" />
-      <option name="presentableId" value="LOCAL‎-00111" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1729804925327</updated>
-    </task>
-    <task id="LOCAL‎-00112" summary="Handled client closure to ensure all background tasks and timers are stopped upon exiting the application. This resolves the 'executor rejected' errors that occurred when the window was closed without stopping ongoing polling tasks.">
-      <option name="closed" value="true" />
-      <created>1729852415658</created>
-      <option name="number" value="00112" />
-      <option name="presentableId" value="LOCAL‎-00112" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1729852415658</updated>
-    </task>
-    <task id="LOCAL‎-00113" summary="Handled client closure to ensure all background tasks and timers are stopped upon exiting the application. This resolves the 'executor rejected' errors that occurred when the window was closed without stopping ongoing polling tasks.">
-      <option name="closed" value="true" />
-      <created>1729852457948</created>
-      <option name="number" value="00113" />
-      <option name="presentableId" value="LOCAL‎-00113" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1729852457948</updated>
-    </task>
-    <task id="LOCAL‎-00114" summary="Added version check for range removal: If the user is not on the latest sheet version, they receive a notification explaining they cannot delete a range until updating to the latest version">
-      <option name="closed" value="true" />
-      <created>1730194214689</created>
-      <option name="number" value="00114" />
-      <option name="presentableId" value="LOCAL‎-00114" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1730194214689</updated>
-    </task>
-    <task id="LOCAL‎-00115" summary="&quot;Implemented notification for latest version check: If a client is already on the latest sheet version and attempts to update, they receive a message indicating no further update is needed. Additionally, ensured consistent styling updates across client main views to maintain uniform appearance">
-      <option name="closed" value="true" />
-      <created>1730194348343</created>
-      <option name="number" value="00115" />
-      <option name="presentableId" value="LOCAL‎-00115" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1730194348343</updated>
-    </task>
-    <task id="LOCAL‎-00116" summary="Implemented numeric validation to recognize comma-separated numbers in the client. Added chart generation functionality for user-selected data ranges in the spreadsheet, supporting both bar and line charts. Users can now select a range of cells for the X-axis and another range for the Y-axis, generating simple X vs. Y visualizations using JavaFX’s built-in charting tools.">
-      <option name="closed" value="true" />
-      <created>1730199332198</created>
-      <option name="number" value="00116" />
-      <option name="presentableId" value="LOCAL‎-00116" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1730199332198</updated>
-    </task>
-    <task id="LOCAL‎-00117" summary="Refactored SheetPollerTask and RangePollerTask to synchronous execution.&#10;&#10;- Updated `SheetPollerTask` to use synchronous HTTP requests instead of asynchronous.&#10;- Modified `RangePollerTask` to handle synchronous polling for real-time updates.">
-      <option name="closed" value="true" />
-      <created>1730206082180</created>
-      <option name="number" value="00117" />
-      <option name="presentableId" value="LOCAL‎-00117" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1730206082180</updated>
-    </task>
-    <task id="LOCAL‎-00118" summary="- Refactored methods to asynchronous calls to improve UI responsiveness:&#10;  - Converted `updateCellValue` to async to handle cell updates without blocking.&#10;  - Updated `getDtoSheet` to an asynchronous version (`getDtoSheetAsync`) to load sheet data seamlessly.&#10;  - Refactored `handleSwitchToLatestVersion` to check and fetch the latest sheet version asynchronously.&#10;  - Modified `showDynamicAnalysisPopup` to load sheet data asynchronously before opening the popup.&#10;- Added error handling for asynchronous calls to display user-friendly error messages on failure.&#10;- Improved overall UX by preventing UI freeze during server requests.">
-      <option name="closed" value="true" />
-      <created>1730216166253</created>
-      <option name="number" value="00118" />
-      <option name="presentableId" value="LOCAL‎-00118" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1730216166253</updated>
-    </task>
-    <task id="LOCAL‎-00119" summary="- Refactored methods to asynchronous calls to improve UI responsiveness:&#10;  - Converted `updateCellValue` to async to handle cell updates without blocking.&#10;  - Updated `getDtoSheet` to an asynchronous version (`getDtoSheetAsync`) to load sheet data seamlessly.&#10;  - Refactored `handleSwitchToLatestVersion` to check and fetch the latest sheet version asynchronously.&#10;  - Modified `showDynamicAnalysisPopup` to load sheet data asynchronously before opening the popup.&#10;- Added error handling for asynchronous calls to display user-friendly error messages on failure.&#10;- Improved overall UX by preventing UI freeze during server requests.">
-      <option name="closed" value="true" />
-      <created>1730238316721</created>
-      <option name="number" value="00119" />
-      <option name="presentableId" value="LOCAL‎-00119" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1730238316721</updated>
-    </task>
-    <option name="localTasksCounter" value="120" />
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -761,7 +763,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="yarden_branch" />
                       </list>
                     </value>
                   </entry>
@@ -785,32 +787,32 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="starting part 3!!!" />
+    <MESSAGE value="starting part 3!!!&#10;linking the tomcat and dividing it into new models and starting work on login" />
+    <MESSAGE value="Implemented unique username validation and login flow for the client&#10;&#10;- **Client module**:&#10;  - Added login flow with `LoginController.java` to handle user input and authentication.&#10;  - Updated `login.fxml` to define the layout and bind buttons to controller methods.&#10;  - Created CSS styling in `login.css` for error labels, main action buttons, and quit buttons.&#10;  - Implemented test classes (`TestLogin.java`, `TestLogin2.java`) for validating login functionality.&#10;&#10;- **Engine module**:&#10;  - Added `UserManager.java` and `UserManagerImpl.java` to handle user management, ensuring that each user has a unique name.&#10; &#10;&#10;- **Server module**:&#10;  - `LightweightLoginServlet.java`: Handles basic user login and session creation, ensuring that only unique usernames are allowed.&#10;  - `LogoutServlet.java`: Manages user logout and session termination.&#10;  - `ServletUtils.java`: Utility functions for managing user sessions and attributes.&#10;  - `SessionUtils.java`: Utility functions for session management.&#10;  - `Constants.java`: Stores constant values used across the application.&#10;&#10;- Fixed issues with class loading and servlet integration in the login process." />
+    <MESSAGE value="Prepared FXML and controller structure for dashboard layout&#10;&#10;- Created `dashboardHeader.fxml` to define the layout for the header section of the dashboard.&#10;- Added `DashboardHeaderController.java` to handle the logic and interaction for the header section.&#10;- Organized the project structure under `subcomponents/header` for better modularization.&#10;- Added placeholders for subcomponents in the dashboard (availableSheets, commands, and Permissions)." />
+    <MESSAGE value="Initial implementation of sheetCellMainController and main FXML for client navigation&#10;&#10;- Implemented `sheetCellMainController` to handle the main client logic and navigation between views (login, dashboard, and sheet).&#10;- Created the main FXML layout to manage transitions between different screens.&#10;- Set up the initial structure for handling view changes dynamically within the client.&#10;- Further adjustments and improvements to navigation and layout are needed before finalizing." />
+    <MESSAGE value="fix loadSheet url" />
+    <MESSAGE value="updateCellServlet" />
+    <MESSAGE value="Prepared FXML for displaying selected sheet view layout&#10;&#10;- Created `selectedSheetView.fxml` to define the layout for displaying the selected sheet.&#10;- Added subcomponents:&#10;  - `selectedSheetViewHeader.fxml` to handle the header section.&#10;  - `selectedSheetViewLeft.fxml` for the left-side controls (currently placeholders).&#10;  - `selectedSheet.fxml` for the main sheet display.&#10;- Structured the layout to include sections for the available sheets table, permissions table, and commands (view, request permission, acknowledge/deny).&#10;- Initial layout setup without implementing functionality or actions." />
+    <MESSAGE value="Implemented SelectedSheetViewHeaderController for handling sheet view header interactions&#10;&#10;- Created `SelectedSheetViewHeaderController` to manage user interactions in the header of the selected sheet view.&#10;- Added listeners for background color, text color, column width, and row height changes, allowing users to customize cell properties.&#10;- Set up initial structure for handling alignment changes (Left, Center, Right) via `ChoiceBox`.&#10;- Temporarily disabled certain buttons and controls for future functionality.&#10;- Added placeholders for buttons like `BackToDefault`, `LoadFile`, `UpdateValue`, and `VersionSelector` actions (logic to be implemented later).&#10;- Implemented bindings to toggle control availability based on selection state." />
     <MESSAGE value="-Updated SelectedSheetViewController, SelectedSheetViewHeaderController, SelectedSheetViewLeftController, and SelectedSheetController in the client module.&#10;- Added detailed documentation for all classes to explain functionality and improve code readability." />
     <MESSAGE value="Deleting file upload option from selectedSheetViewHeader.fxml in Client" />
     <MESSAGE value="add cellServlet to Server" />
-    <MESSAGE value="updates after merge" />
-    <MESSAGE value="displaySheet" />
-    <MESSAGE value="This change allows the main controller to manage and display the SelectedSheetView , Dashboard and login as part of the application flow." />
-    <MESSAGE value="CellServlet" />
-    <MESSAGE value="Added handling for cell updates in CellServlet and improved session-based sheet identification.&#10;Implemented client-side functionality to send cell update requests.&#10;&#10;- Implemented update logic for cells in the CellServlet class, allowing PUT requests to update cell values.&#10;- Added session-based retrieval of the current sheet to ensure updates are performed on the correct sheet.&#10;- On the client side, created a method to send asynchronous PUT requests with updated cell data.&#10;- The client sends coordinate and original value as form parameters in the request body to update the selected cell." />
-    <MESSAGE value="Added feature where, upon a cell update by a client, all other clients viewing the sheet will have a flashing button indicating a new version is available. When they click the button, they are transitioned to the latest version of the sheet.&#10;- Implemented polling mechanism to check for sheet updates.&#10;- Added flashing button logic for clients when a newer version is detected.&#10;- Once clients click the flashing button, they are transitioned to the updated sheet version and the button stops flashing.&#10;- Updated SheetPollerTask to handle server polling for new sheet versions and button flashing." />
-    <MESSAGE value="Implemented new cell selection, update functionalities, and skin switching capabilities in the client application:&#10;- Added a &quot;Work Bar&quot; to display details for the selected cell:&#10;  - Displays the identity of the selected cell (e.g., 5A, in uppercase).&#10;  - Shows the original value of the cell.&#10;  - Shows the last version in which the cell was updated.&#10;  - Highlighted the cells that the selected cell relies on with a light blue background.&#10;  - Highlighted the cells that depend on the selected cell with a light green background.&#10;&#10;- Added the ability to adjust the width of columns/rows via the graphical interface:&#10;  - If the content is larger than the column width, it can either wrap or clip based on the user's choice.&#10;  - The option is set at the column level and applies to all displayed data in that column.&#10;&#10;- Added the option to align the content within columns:&#10;  - The alignment can be set to left, right, or center.&#10;  - The option is set at the column level and applies to all displayed data in that column.&#10;&#10;- Added the ability to style a specific cell:&#10;  - The user can select both the background color and text color using a color picker.&#10;  - Added a dedicated button to reset all styling to the default state.&#10;  - The styling is attached to the cell and preserved during sorting/filtering actions.&#10;&#10;- Implemented the ability for the user to switch between at least two additional color schemes (skins) beyond the default:&#10;  - Each skin change updates:&#10;    1. The background of the entire screen.&#10;    2. The appearance of all buttons on the screen.&#10;    3. The font style and size of all labels on the screen.&#10;  - The design for skin switching is functional but still requires improvements to enhance its visual appeal." />
-    <MESSAGE value="Implemented range display functionality on the client side and server-side API integration:&#10;- Added functionality in the client to fetch and display a selected range from the server.&#10;  - The client sends a GET request to the /range endpoint, passing the selected range name.&#10;  - The server responds with a list of cell coordinates (IDs) in JSON format.&#10;  - The client then highlights the cells in the selected range by adding borders and storing the previously selected cells for clearing.&#10;&#10;- Server-side RangeServlet implementation:&#10;  - The RangeServlet retrieves the list of cell coordinates for the specified range.&#10;  - Converts the list of coordinates to JSON and returns it as a response.&#10;  - Added error handling for missing parameters and server issues.&#10;&#10;- Added GSON to parse the JSON response from the server into a list of cell IDs in the client.&#10;- Ensured client-side handling of successful and failed requests with proper error messaging." />
-    <MESSAGE value="Implemented AllRangesServlet to handle range-related operations:&#10;- Added functionality to handle GET requests to retrieve all range names for a given sheet and return them as a JSON response.&#10;- Added PUT request handling to create a new range in the sheet using coordinates and range name provided in the request body (JSON format).&#10;- Added DELETE request handling to delete a range from the sheet based on the range name provided in the request body (JSON format).&#10;- Included helper method to convert a list of DTORange objects to a list of range names.&#10;- Integrated session validation to ensure unauthorized users or sheets are blocked." />
-    <MESSAGE value="Commit: Refactored AllRangesServlet + Added range addition, deletion, and real-time polling for range updates in the client&#10;&#10;- Refactored AllRangesServlet to handle range-related requests more efficiently.&#10;- Implemented client-side functionality to show, add and delete ranges.&#10; Introduced polling mechanism for real-time range updates.&#10;  - Created RangePollerTask that polls the server every 5 seconds to check for changes in the range list.&#10;  - The choice boxes in the UI are updated automatically when a range is added or removed by any client sharing the same sheet.&#10;&#10;This commit introduces the ability for multiple clients working on the same sheet to see real-time updates to the ranges." />
-    <MESSAGE value="fix: Handle NaN and UNKNOWN values in EffectiveValueAdapter&#10;&#10;- Added logic to handle &quot;NaN&quot; for numeric cell types in EffectiveValueAdapter's write and read methods.&#10;- Added logic to handle &quot;UNKNOWN&quot; for boolean cell types in EffectiveValueAdapter's write and read methods.&#10;- Fixed the issue where ClassCastException was being thrown when casting unexpected values.&#10;- Ensured that empty cells are represented as empty strings." />
-    <MESSAGE value="change polling class" />
-    <MESSAGE value="Added feature to track and display the user who updated each cell.&#10; Updated modules : Engine, DataTransferObject (DTO, JSON), Client, and Server to handle and display the username of the user who made direct or indirect changes to a cell.&#10;  The information about the user is now shown in the third screen's action bar when selecting a specific cell." />
-    <MESSAGE value="Added dynamic analysis feature to sheet application&#10;&#10;Implemented DynamicAnalysisServlet to handle temporary cell updates for dynamic analysis. These updates are used for background calculations and are not persisted in the final sheet.&#10;Added logic in DynamicAnalysisSheetController to interact with dynamic analysis sliders and send temporary values to the server.&#10;Updated SelectedSheetViewController and SelectedSheetViewLeftController to process and display temporary changes from dynamic analysis without saving them.&#10;Extended CellImpl and SheetImpl classes to manage the temporary updates to cells and rollback the original values after analysis.&#10;Modified SheetManagerImpl to handle dynamic analysis requests and updates between the frontend and backend." />
-    <MESSAGE value="Implemented version check to prevent cell updates on outdated sheet versions. Users must switch to the latest version to update cell values. If not on the latest version, a warning message is displayed, guiding the user to use the switch button." />
-    <MESSAGE value="Made some adjustments to the design and layout." />
-    <MESSAGE value="Handled client closure to ensure all background tasks and timers are stopped upon exiting the application. This resolves the 'executor rejected' errors that occurred when the window was closed without stopping ongoing polling tasks." />
-    <MESSAGE value="Added version check for range removal: If the user is not on the latest sheet version, they receive a notification explaining they cannot delete a range until updating to the latest version" />
-    <MESSAGE value="&quot;Implemented notification for latest version check: If a client is already on the latest sheet version and attempts to update, they receive a message indicating no further update is needed. Additionally, ensured consistent styling updates across client main views to maintain uniform appearance" />
-    <MESSAGE value="Implemented numeric validation to recognize comma-separated numbers in the client. Added chart generation functionality for user-selected data ranges in the spreadsheet, supporting both bar and line charts. Users can now select a range of cells for the X-axis and another range for the Y-axis, generating simple X vs. Y visualizations using JavaFX’s built-in charting tools." />
-    <MESSAGE value="Refactored SheetPollerTask and RangePollerTask to synchronous execution.&#10;&#10;- Updated `SheetPollerTask` to use synchronous HTTP requests instead of asynchronous.&#10;- Modified `RangePollerTask` to handle synchronous polling for real-time updates." />
-    <MESSAGE value="- Refactored methods to asynchronous calls to improve UI responsiveness:&#10;  - Converted `updateCellValue` to async to handle cell updates without blocking.&#10;  - Updated `getDtoSheet` to an asynchronous version (`getDtoSheetAsync`) to load sheet data seamlessly.&#10;  - Refactored `handleSwitchToLatestVersion` to check and fetch the latest sheet version asynchronously.&#10;  - Modified `showDynamicAnalysisPopup` to load sheet data asynchronously before opening the popup.&#10;- Added error handling for asynchronous calls to display user-friendly error messages on failure.&#10;- Improved overall UX by preventing UI freeze during server requests." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Refactored methods to asynchronous calls to improve UI responsiveness:&#10;  - Converted `updateCellValue` to async to handle cell updates without blocking.&#10;  - Updated `getDtoSheet` to an asynchronous version (`getDtoSheetAsync`) to load sheet data seamlessly.&#10;  - Refactored `handleSwitchToLatestVersion` to check and fetch the latest sheet version asynchronously.&#10;  - Modified `showDynamicAnalysisPopup` to load sheet data asynchronously before opening the popup.&#10;- Added error handling for asynchronous calls to display user-friendly error messages on failure.&#10;- Improved overall UX by preventing UI freeze during server requests." />
+    <MESSAGE value="I worked on display sheet from the client and server side, marge for continue work with Amal.&#10;It remains to check the feature" />
+    <MESSAGE value="Dashboard initialization update&#10;The sheets that are already on the server will be displayed straight away." />
+    <MESSAGE value="Transferring objects from server to client works" />
+    <MESSAGE value="Successfully implemented JSON-to-object and object-to-JSON conversion for DTOSheet and its components. &#10;&#10;The feature for selecting a sheet displaying its contents has been fully integrated." />
+    <MESSAGE value="Implemented available sheets auto-refresh feature.&#10;&#10;- Added `AvailableSheetsRefresher` class to periodically fetch and refresh available sheets from the server.&#10;- Integrated a timer task in `AvailableSheetsController` to send requests to the server every 2 seconds.&#10;- Updated the logic in `refreshAvailableSheets()` to only add new sheets not already present in the client-side list.&#10;- Fixed UI update issue by ensuring updates are performed on the JavaFX application thread.&#10;- Added logic in the server-side `AvailableSheetServlet` to respond only when new sheets are available, reducing unnecessary updates." />
+    <MESSAGE value="Added sheet sorting functionality&#10;on server and client side" />
+    <MESSAGE value="Added sheet sorting and filtering functionality&#10;on server and client side" />
+    <MESSAGE value="set up infrastructure for the version selector feature in sheet view" />
+    <MESSAGE value="Version Changes Servlet was established" />
+    <MESSAGE value="Completed the implementation of the Version Selector feature. The user can now select a previous version of the sheet, view the number of changes in each version, and load a specific version of the sheet in a new view.&quot;" />
+    <MESSAGE value="commit for merge" />
+    <MESSAGE value="Added dynamic table for available sheets:&#10;- Implemented table with columns: Select (checkbox), Sheet Name, Size (nXm), and Uploaded By.&#10;- Integrated row selection behavior allowing only one row to be selected at a time.&#10;- Added visual highlighting for selected rows with custom styling.&#10;- Updated server-side logic to return DTOSheetInfo to dynamically populate the table." />
+    <MESSAGE value="COMMIT FOR MARGE" />
+    <option name="LAST_COMMIT_MESSAGE" value="COMMIT FOR MARGE" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -821,49 +823,79 @@
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java</url>
-          <line>618</line>
-          <option name="timeStamp" value="174" />
+          <url>file://$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/EffectiveValueAdapter.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="327" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Server/src/servlets/CellServlet.java</url>
-          <line>61</line>
-          <option name="timeStamp" value="182" />
+          <url>file://$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/EffectiveValueTest.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="329" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Client/src/component/popup/dynamicAnalysisSheet/DynamicAnalysisSheetController.java</url>
-          <line>103</line>
-          <option name="timeStamp" value="190" />
+          <url>file://$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/EffectiveValueTest.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="330" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Server/src/servlets/DynamicAnalysisServlet.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="192" />
+          <url>file://$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/EffectiveValueTest.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="331" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Client/src/component/popup/graph/GraphController.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="193" />
+          <url>file://$PROJECT_DIR$/DataTransferObject/src/JsonSerializer/jasonTest.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="336" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java</url>
-          <line>837</line>
-          <option name="timeStamp" value="194" />
+          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java</url>
+          <line>182</line>
+          <option name="timeStamp" value="357" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java</url>
-          <line>198</line>
-          <option name="timeStamp" value="195" />
+          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java</url>
+          <line>249</line>
+          <option name="timeStamp" value="358" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Server/src/servlets/AllRangesServlet.java</url>
-          <line>168</line>
-          <option name="timeStamp" value="196" />
+          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java</url>
+          <line>511</line>
+          <option name="timeStamp" value="361" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java</url>
-          <line>230</line>
-          <option name="timeStamp" value="199" />
+          <url>file://$PROJECT_DIR$/UI/src/component/main/app/AppController.java</url>
+          <line>382</line>
+          <option name="timeStamp" value="369" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java</url>
+          <line>355</line>
+          <option name="timeStamp" value="375" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/UI/src/component/subcomponent/left/LeftController.java</url>
+          <line>292</line>
+          <option name="timeStamp" value="377" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="378" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Server/src/servlets/FileUploadServlet.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="379" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/DashboardHeaderController.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="381" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/header/DashboardHeaderController.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="382" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>
@@ -901,26 +933,18 @@
           </properties>
           <option name="timeStamp" value="128" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java</url>
-          <line>645</line>
-          <properties class="component.selectedSheetView.main.SelectedSheetViewController" method="updateSheet">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="175" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="sheet.cell.CellImpl" memberName="effectiveValue" />
         <PinnedItemInfo parentTag="java.util.HashMap$Node" memberName="value" />
+        <PinnedItemInfo parentTag="dto.DTOSheetImpl" memberName="title" />
       </pinned-members>
     </pin-to-top-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="((HashMap)((DTOSheetImpl)dtoSheet).board).entrySet().toArray()[0]" custom="dto.DTOSheetImpl,java.util.HashMap" />
+        <watch expression="((DTOSheetImpl)dtoSheet2).title" language="JAVA" custom="dto.DTOSheetImpl" />
       </configuration>
     </watches-manager>
   </component>

@@ -84,4 +84,5 @@ public interface SheetManager {
     void loadSystemState(String filePath) throws Exception;
 
 
+    String getTilte();
 }

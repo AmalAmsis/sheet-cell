@@ -180,19 +180,32 @@ public class AvailableSheetsController implements Closeable {
                 } else {
                     CheckBox checkBox = item.getSelected();
 
-                    // Add listener to change row color when checkbox is selected
+                    // Ensure only one checkbox is selected at a time
                     checkBox.selectedProperty().addListener((obs, wasSelected, isNowSelected) -> {
                         if (isNowSelected) {
-                            setStyle("-fx-border-color: black; -fx-border-width: 2px;"); // Highlight the row
+                            // Deselect all other checkboxes
+                            for (AvailableSheetRow row : availableSheetTable.getItems()) {
+                                if (row != item) {
+                                    row.getSelected().setSelected(false);
+                                }
+                            }
+                            setStyle("-fx-border-color: black; -fx-border-width: 2px;"); // Highlight the selected row
                         } else {
                             setStyle(""); // Remove the style when deselected
                         }
                     });
 
+
                     // Allow row click to toggle checkbox selection
                     setOnMouseClicked(event -> {
                         if (!isEmpty()) {
-                            checkBox.setSelected(!checkBox.isSelected());
+                            if (checkBox.isSelected()) {
+                                // Deselect the checkbox if the row is already selected
+                                checkBox.setSelected(false);
+                            } else {
+                                // Set this checkbox to selected
+                                checkBox.setSelected(true);
+                            }
                         }
                     });
                 }
