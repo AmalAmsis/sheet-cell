@@ -27,7 +27,7 @@
             <children>
                 <Button fx:id="viewSheetButton" mnemonicParsing="false" onAction="#viewSheetHandler" prefHeight="35.0" prefWidth="101.0" styleClass="style-button" text="view sheet" />
                 <Button fx:id="requestPermissionButton" mnemonicParsing="false" onAction="#requestPermissionHandler" prefHeight="43.0" prefWidth="130.0" styleClass="style-button" text="request premission" />
-                <Button fx:id="ackOrDenyPermissionRequestButton" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="66.0" prefWidth="135.0" styleClass="style-button" text="ack\deny permission request" textAlignment="CENTER" wrapText="true" />
+                <Button fx:id="ackOrDenyPermissionRequestButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#responsePermissionHandler" prefHeight="66.0" prefWidth="135.0" styleClass="style-button" text="ack\deny permission request" textAlignment="CENTER" wrapText="true" />
             </children>
             <VBox.margin>
                 <Insets top="5.0" />

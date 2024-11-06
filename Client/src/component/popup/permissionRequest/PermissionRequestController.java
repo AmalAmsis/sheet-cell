@@ -28,8 +28,7 @@ public class PermissionRequestController {
 
 
     private static final String PENDING = "PENDING";
-    private static final String APPROVED = "APPROVED";
-    private static final String DENIED = "DENIED";
+
 
     //Initiated initialization
     public void initializePopup(String sheetName) {

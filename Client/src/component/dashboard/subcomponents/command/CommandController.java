@@ -4,6 +4,7 @@ import JsonSerializer.JsonSerializer;
 import component.dashboard.main.maindashboard.DashboardController;
 import component.popup.error.ErrorMessage;
 import component.popup.permissionRequest.PermissionRequestController;
+import component.popup.permissionResponse.PermissionResponseController;
 import dto.DTOCell;
 import dto.DTOSheet;
 import javafx.application.Platform;
@@ -224,6 +225,53 @@ public class CommandController {
             } catch (IOException e) {
                 new ErrorMessage("Failed to open permission request window: " + e.getMessage());
             }
+        });
+    }
+
+
+    @FXML void responsePermissionHandler(ActionEvent event) {
+        Platform.runLater(() -> {
+
+            // Get selected sheet name from the DashboardController
+            String sheetName = dashboardController.getSelectedSheetName();
+
+            // Check if a sheet is selected
+            if (sheetName == null) {
+                new ErrorMessage("Please select a sheet to request permission.");
+                return;
+            }
+
+            // Check if the user is the owner of the sheet
+            String uploadedBy = dashboardController.getUploaderName(sheetName);
+            String currentUsername = dashboardController.getCurrentUsername();
+
+            if (uploadedBy.equals(currentUsername)) {
+                try {
+                    // Load FXML for permission response popup
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/component/popup/permissionResponse/permissionResponse.fxml"));
+                    Parent root = loader.load();
+
+                    // Get controller for the permission response popup
+                    PermissionResponseController permissionResponseController = loader.getController();
+
+                    // Initialize the popup with the selected sheet name
+                    permissionResponseController.initializePopup(sheetName);
+
+                    // Show the popup in a new window
+                    Stage stage = new Stage();
+                    stage.setTitle("Manage Permission Requests");
+                    stage.setScene(new Scene(root));
+                    stage.show();
+
+                } catch (IOException e) {
+                    new ErrorMessage("Failed to open permission response window: " + e.getMessage());
+                }
+
+            }
+            else{
+                new ErrorMessage("You are not the owner of this sheet.\nYou are not allowed to approve or deny permissions.");
+            }
+
         });
     }
 

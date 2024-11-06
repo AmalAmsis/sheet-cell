@@ -65,17 +65,17 @@ public class SheetPermissionServlet extends HttpServlet {
             return;
         }
 
+        // Check if the user already has a request for the same permission type
+        PermissionRequest existingRequest = sheetPermission.getSheetPermissions().get(username);
 
         // Check if the user is the OWNER
-        if ("OWNER".equals(sheetPermission.getOwner())) {
+        if (username.equals(sheetPermission.getOwner()) && "PENDING".equals(existingRequest.getStatus())) {
             response.setStatus(HttpServletResponse.SC_CONFLICT);
             response.getWriter().write("As the OWNER, you already have full permissions on this sheet.");
             return;
         }
 
 
-        // Check if the user already has a request for the same permission type
-        PermissionRequest existingRequest = sheetPermission.getSheetPermissions().get(username);
         if (existingRequest != null) {
             if (existingRequest.getType().equals(type)) {
                 if ("PENDING".equals(existingRequest.getStatus())) {
