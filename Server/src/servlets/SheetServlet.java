@@ -66,7 +66,7 @@ public class SheetServlet extends HttpServlet {
             // If user permission request is pending approval
             if("PENDING".equals(userPermission)){
                 resp.setStatus(HttpServletResponse.SC_FORBIDDEN);
-                resp.getWriter().write("Your request for permission is still pending approval by the owner.");
+                resp.getWriter().write("Access denied: Your request for permission for this sheet is still awaiting approval from the owner.");
                 return;
             }
 

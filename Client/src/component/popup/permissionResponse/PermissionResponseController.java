@@ -3,6 +3,7 @@ package component.popup.permissionResponse;
 import JsonSerializer.JsonSerializer;
 import com.google.gson.Gson;
 import component.popup.error.ErrorMessage;
+import component.popup.message.GeneralMessage;
 import dto.DTOPermissionRequest;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -189,7 +190,7 @@ public class PermissionResponseController {
                 if (!response.isSuccessful()) {
                     Platform.runLater(() -> new ErrorMessage("Error updating permissions: " + response.code()));
                 } else {
-                    Platform.runLater(() -> new ErrorMessage("Permissions updated successfully."));
+                    Platform.runLater(() -> new GeneralMessage("Permissions updated successfully."));
                 }
             }
         });

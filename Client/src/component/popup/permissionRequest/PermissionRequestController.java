@@ -1,6 +1,7 @@
 package component.popup.permissionRequest;
 
 import component.popup.error.ErrorMessage;
+import component.popup.message.GeneralMessage;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -93,8 +94,7 @@ public class PermissionRequestController {
                 Platform.runLater(() -> {
                     try {
                         if (response.isSuccessful()) {
-                            //todo: change to nice massage
-                            new ErrorMessage("Permission request sent successfully.");
+                            new GeneralMessage("Permission request sent successfully.");
                         } else if (response.code() == 409) { // סטטוס קונפליקט
                             String errorMessage = response.body().string();
                             new ErrorMessage(errorMessage);
