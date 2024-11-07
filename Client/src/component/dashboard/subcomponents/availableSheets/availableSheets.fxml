@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="473.0" maxWidth="800" prefHeight="389.0" prefWidth="672.0" vbarPolicy="AS_NEEDED" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.dashboard.subcomponents.availableSheets.AvailableSheetsController">
+<ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="473.0" maxWidth="800" prefHeight="411.0" prefWidth="672.0" vbarPolicy="AS_NEEDED" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.dashboard.subcomponents.availableSheets.AvailableSheetsController">
     <VBox prefHeight="401.0" prefWidth="669.0" spacing="5.0" VBox.vgrow="ALWAYS">
         <children>
             <SplitPane dividerPositions="0.55" orientation="VERTICAL" prefHeight="270.0" prefWidth="343.0" VBox.vgrow="ALWAYS">
@@ -72,7 +72,7 @@
                     </AnchorPane>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="175.0" prefWidth="350.0" VBox.vgrow="ALWAYS">
                   <children>
-                     <VBox layoutY="3.0" prefHeight="165.0" prefWidth="672.0">
+                     <VBox layoutY="3.0" prefHeight="172.0" prefWidth="672.0">
                         <children>
                            <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="379.0" text="Permissions">
                               <font>
@@ -85,7 +85,7 @@
                            <Separator prefWidth="200.0" />
                            <VBox fx:id="permissionsTable" prefHeight="150.0" prefWidth="672.0" spacing="5.0">
                               <children>
-                                  <TableView fx:id="permissionSheetTable" prefHeight="176.0" prefWidth="614.0">
+                                  <TableView fx:id="permissionSheetTable" prefHeight="156.0" prefWidth="672.0">
                                       <columns>
                                           <!-- Column for User Name -->
                                           <TableColumn fx:id="userNameColumn" prefWidth="196.0" text="User Name">

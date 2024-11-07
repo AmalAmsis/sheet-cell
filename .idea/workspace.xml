@@ -9,16 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Update Sheet Display Based on User Permissions&#10;&#10;Adjusted viewSheetHandler to display the sheet only if the user has the appropriate permissions.&#10;Server now returns the sheet data solely for authorized users; otherwise, it sends a specific error message to inform users about access restrictions.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/popup/permissionResponse/PermissionResponseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/popup/permissionResponse/PermissionResponseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOPermissionRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOPermissionRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/permission/sheetPermission/PermissionRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/permission/sheetPermission/PermissionRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/permission/sheetPermission/SheetPermission.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/permission/sheetPermission/SheetPermission.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/src/permission/sheetPermission/SheetPermissionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/permission/sheetPermission/SheetPermissionImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/servlets/PermissionUpdateServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/PermissionUpdateServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/servlets/SheetPermissionServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/SheetPermissionServlet.java" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Completed implementation of the permissions system. Now fully supports initial requests, change requests, and dual-layered permission handling (e.g., reader to writer or vice versa) with checks for existing permissions, status conflicts, and new requests. Remaining task: format and refine user-facing messages for clarity.">
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/availableSheets.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/availableSheets.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/command.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/command.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -349,15 +342,7 @@
       <workItem from="1730232788310" duration="35000" />
       <workItem from="1730721062009" duration="1055000" />
       <workItem from="1730729187909" duration="26299000" />
-      <workItem from="1730887358954" duration="27384000" />
-    </task>
-    <task id="LOCAL‎-00060" summary="commit for merge">
-      <option name="closed" value="true" />
-      <created>1726691050610</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL‎-00060" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726691050610</updated>
+      <workItem from="1730887358954" duration="27702000" />
     </task>
     <task id="LOCAL‎-00061" summary="Added simulated delay for file loading task in JFX with progress bar&#10;&#10;- Implemented JFX Task for file loading with progress bar to provide visual feedback.&#10;- Added a simulated delay (1-2 seconds) in each loading step to simulate the process.&#10;- Bound progress and status updates to the progress bar and label.&#10;- Ensured that the progress bar is hidden upon successful or failed task completion.">
       <option name="closed" value="true" />
@@ -743,7 +728,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730970621802</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <task id="LOCAL-00109" summary="Completed implementation of the permissions system. Now fully supports initial requests, change requests, and dual-layered permission handling (e.g., reader to writer or vice versa) with checks for existing permissions, status conflicts, and new requests. Remaining task: format and refine user-facing messages for clarity.">
+      <option name="closed" value="true" />
+      <created>1730983465635</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1730983465635</updated>
+    </task>
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -789,7 +782,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix loadSheet url" />
     <MESSAGE value="updateCellServlet" />
     <MESSAGE value="Prepared FXML for displaying selected sheet view layout&#10;&#10;- Created `selectedSheetView.fxml` to define the layout for displaying the selected sheet.&#10;- Added subcomponents:&#10;  - `selectedSheetViewHeader.fxml` to handle the header section.&#10;  - `selectedSheetViewLeft.fxml` for the left-side controls (currently placeholders).&#10;  - `selectedSheet.fxml` for the main sheet display.&#10;- Structured the layout to include sections for the available sheets table, permissions table, and commands (view, request permission, acknowledge/deny).&#10;- Initial layout setup without implementing functionality or actions." />
     <MESSAGE value="Implemented SelectedSheetViewHeaderController for handling sheet view header interactions&#10;&#10;- Created `SelectedSheetViewHeaderController` to manage user interactions in the header of the selected sheet view.&#10;- Added listeners for background color, text color, column width, and row height changes, allowing users to customize cell properties.&#10;- Set up initial structure for handling alignment changes (Left, Center, Right) via `ChoiceBox`.&#10;- Temporarily disabled certain buttons and controls for future functionality.&#10;- Added placeholders for buttons like `BackToDefault`, `LoadFile`, `UpdateValue`, and `VersionSelector` actions (logic to be implemented later).&#10;- Implemented bindings to toggle control availability based on selection state." />
@@ -814,7 +806,8 @@
     <MESSAGE value="Completed implementation of permission request feature and permissions table update.&#10;&#10;- Added functionality for requesting permissions on selected sheets.&#10;- Implemented logic to check if the user is the owner before allowing a permission request.&#10;- Populated the permissions table (`permissionSheetTable`) with current permission data, displaying user name, permission type, and approval status.&#10;- Enhanced `PermissionRow` and `AvailableSheetsController` classes to manage permissions data effectively.&#10;- Integrated error handling for cases where a permission request already exists (pending or approved).&#10;- Improved UI workflow by displaying an error message if no sheet is selected during a request.&#10;&#10;Next steps:&#10;- Implement functionality to approve or deny permission requests.&#10;- Style the permissions table with appropriate colors and formatting for better readability and visual appeal." />
     <MESSAGE value="Feature: Completed the functionality for handling and approving permission requests.&#10;Details:&#10;Implemented the approval and denial process, allowing the owner to update user permissions directly.&#10;Updated sendApprovalUpdates() to compile updated permissions into a JSON format and send as a POST request.&#10;Enhanced the MenuButton in approvalColumn to show appropriate color-coded status (APPROVED/ DENIED) and ensured it updates the status for each user dynamically.&#10;Added method to pull selected status from MenuButton to properly set each user's permission status.&#10;Outstanding Tasks:&#10;Modify certain messages to display as informational rather than errors for better user clarity.&#10;Expand logic to handle multiple permission requests for the same user on different permission types within the same sheet (e.g., a user transitioning from READER to WRITER)." />
     <MESSAGE value="Update Sheet Display Based on User Permissions&#10;&#10;Adjusted viewSheetHandler to display the sheet only if the user has the appropriate permissions.&#10;Server now returns the sheet data solely for authorized users; otherwise, it sends a specific error message to inform users about access restrictions." />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Sheet Display Based on User Permissions&#10;&#10;Adjusted viewSheetHandler to display the sheet only if the user has the appropriate permissions.&#10;Server now returns the sheet data solely for authorized users; otherwise, it sends a specific error message to inform users about access restrictions." />
+    <MESSAGE value="Completed implementation of the permissions system. Now fully supports initial requests, change requests, and dual-layered permission handling (e.g., reader to writer or vice versa) with checks for existing permissions, status conflicts, and new requests. Remaining task: format and refine user-facing messages for clarity." />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed implementation of the permissions system. Now fully supports initial requests, change requests, and dual-layered permission handling (e.g., reader to writer or vice versa) with checks for existing permissions, status conflicts, and new requests. Remaining task: format and refine user-facing messages for clarity." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
