@@ -93,6 +93,11 @@ public class PermissionResponseController {
                                 MenuButton barMenu = createApprovalMenu();
                                 pendingRequests.add(new permissionResponseRow(entry.getKey(), dto.getType(), barMenu));
                             }
+                            else if(dto.getNewRequestType()!=null) {
+                                MenuButton barMenu2 = createApprovalMenu();
+                                pendingRequests.add(new permissionResponseRow(entry.getKey(), dto.getNewRequestType(), barMenu2));
+
+                            }
                         }
                     });
                 } else {
@@ -201,7 +206,7 @@ public class PermissionResponseController {
             String status =  row.getApprovalOptions().getText();
 
             if (status != "Choose") {
-                DTOPermissionRequest dtoRequest = new DTOPermissionRequest(permissionType,userName, status);
+                DTOPermissionRequest dtoRequest = new DTOPermissionRequest(permissionType,userName, status,null);
                 permissionsMap.put(userName, dtoRequest);
             }
         }

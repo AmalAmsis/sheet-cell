@@ -43,4 +43,8 @@ public class SheetPermissionImpl implements SheetPermission {
         return sheetPermissions;
     }
 
+    @Override public String getNewRequestType(String userName){
+        return sheetPermissions.get(userName).getNewRequestType();
+    }
+
 }

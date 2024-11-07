@@ -9,15 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Feature: Completed the functionality for handling and approving permission requests.&#10;Details:&#10;Implemented the approval and denial process, allowing the owner to update user permissions directly.&#10;Updated sendApprovalUpdates() to compile updated permissions into a JSON format and send as a POST request.&#10;Enhanced the MenuButton in approvalColumn to show appropriate color-coded status (APPROVED/ DENIED) and ensured it updates the status for each user dynamically.&#10;Added method to pull selected status from MenuButton to properly set each user's permission status.&#10;Outstanding Tasks:&#10;Modify certain messages to display as informational rather than errors for better user clarity.&#10;Expand logic to handle multiple permission requests for the same user on different permission types within the same sheet (e.g., a user transitioning from READER to WRITER).">
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="Update Sheet Display Based on User Permissions&#10;&#10;Adjusted viewSheetHandler to display the sheet only if the user has the appropriate permissions.&#10;Server now returns the sheet data solely for authorized users; otherwise, it sends a specific error message to inform users about access restrictions.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/SelectedSheetViewHeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/SelectedSheetViewHeaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/selectedSheetViewLeft.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/selectedSheetViewLeft.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/popup/permissionResponse/PermissionResponseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/popup/permissionResponse/PermissionResponseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOPermissionRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/DataTransferObject/src/dto/DTOPermissionRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/permission/sheetPermission/PermissionRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/permission/sheetPermission/PermissionRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/src/permission/sheetPermission/SheetPermission.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/permission/sheetPermission/SheetPermission.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/servlets/SheetServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/SheetServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/src/permission/sheetPermission/SheetPermissionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/src/permission/sheetPermission/SheetPermissionImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/servlets/PermissionUpdateServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/PermissionUpdateServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/servlets/SheetPermissionServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/SheetPermissionServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +75,7 @@
     "Application.EffectiveValueTest.executor": "Debug",
     "Application.FxmlTest.executor": "Run",
     "Application.Main.executor": "Run",
-    "Application.SheetCellClient.executor": "Debug",
+    "Application.SheetCellClient.executor": "Run",
     "Application.SheetCellClient2.executor": "Run",
     "Application.Test.executor": "Run",
     "Application.Test2.executor": "Coverage",
@@ -126,7 +127,7 @@
       <recent name="component.selectedSheetView.subcomponent.sheet" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SheetCellClient2">
+  <component name="RunManager" selected="Application.SheetCellClient">
     <configuration name="AppRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="apprunner.AppRunner" />
       <module name="UI" />
@@ -300,8 +301,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SheetCellClient2" />
         <item itemvalue="Application.SheetCellClient" />
+        <item itemvalue="Application.SheetCellClient2" />
         <item itemvalue="Application.AppRunner" />
         <item itemvalue="Application.TestLoadFile" />
         <item itemvalue="Application.jasonTest" />
@@ -348,15 +349,7 @@
       <workItem from="1730232788310" duration="35000" />
       <workItem from="1730721062009" duration="1055000" />
       <workItem from="1730729187909" duration="26299000" />
-      <workItem from="1730887358954" duration="19120000" />
-    </task>
-    <task id="LOCAL‎-00059" summary="commit for merge">
-      <option name="closed" value="true" />
-      <created>1726686978983</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL‎-00059" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726686978983</updated>
+      <workItem from="1730887358954" duration="27384000" />
     </task>
     <task id="LOCAL‎-00060" summary="commit for merge">
       <option name="closed" value="true" />
@@ -742,7 +735,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730904766905</updated>
     </task>
-    <option name="localTasksCounter" value="108" />
+    <task id="LOCAL-00108" summary="Update Sheet Display Based on User Permissions&#10;&#10;Adjusted viewSheetHandler to display the sheet only if the user has the appropriate permissions.&#10;Server now returns the sheet data solely for authorized users; otherwise, it sends a specific error message to inform users about access restrictions.">
+      <option name="closed" value="true" />
+      <created>1730970621802</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1730970621802</updated>
+    </task>
+    <option name="localTasksCounter" value="109" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -788,7 +789,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initial implementation of sheetCellMainController and main FXML for client navigation&#10;&#10;- Implemented `sheetCellMainController` to handle the main client logic and navigation between views (login, dashboard, and sheet).&#10;- Created the main FXML layout to manage transitions between different screens.&#10;- Set up the initial structure for handling view changes dynamically within the client.&#10;- Further adjustments and improvements to navigation and layout are needed before finalizing." />
     <MESSAGE value="fix loadSheet url" />
     <MESSAGE value="updateCellServlet" />
     <MESSAGE value="Prepared FXML for displaying selected sheet view layout&#10;&#10;- Created `selectedSheetView.fxml` to define the layout for displaying the selected sheet.&#10;- Added subcomponents:&#10;  - `selectedSheetViewHeader.fxml` to handle the header section.&#10;  - `selectedSheetViewLeft.fxml` for the left-side controls (currently placeholders).&#10;  - `selectedSheet.fxml` for the main sheet display.&#10;- Structured the layout to include sections for the available sheets table, permissions table, and commands (view, request permission, acknowledge/deny).&#10;- Initial layout setup without implementing functionality or actions." />
@@ -813,7 +813,8 @@
     <MESSAGE value="create the permission manager in the Engine.&#10;added new sheet to permission manager at FileUploadServlet." />
     <MESSAGE value="Completed implementation of permission request feature and permissions table update.&#10;&#10;- Added functionality for requesting permissions on selected sheets.&#10;- Implemented logic to check if the user is the owner before allowing a permission request.&#10;- Populated the permissions table (`permissionSheetTable`) with current permission data, displaying user name, permission type, and approval status.&#10;- Enhanced `PermissionRow` and `AvailableSheetsController` classes to manage permissions data effectively.&#10;- Integrated error handling for cases where a permission request already exists (pending or approved).&#10;- Improved UI workflow by displaying an error message if no sheet is selected during a request.&#10;&#10;Next steps:&#10;- Implement functionality to approve or deny permission requests.&#10;- Style the permissions table with appropriate colors and formatting for better readability and visual appeal." />
     <MESSAGE value="Feature: Completed the functionality for handling and approving permission requests.&#10;Details:&#10;Implemented the approval and denial process, allowing the owner to update user permissions directly.&#10;Updated sendApprovalUpdates() to compile updated permissions into a JSON format and send as a POST request.&#10;Enhanced the MenuButton in approvalColumn to show appropriate color-coded status (APPROVED/ DENIED) and ensured it updates the status for each user dynamically.&#10;Added method to pull selected status from MenuButton to properly set each user's permission status.&#10;Outstanding Tasks:&#10;Modify certain messages to display as informational rather than errors for better user clarity.&#10;Expand logic to handle multiple permission requests for the same user on different permission types within the same sheet (e.g., a user transitioning from READER to WRITER)." />
-    <option name="LAST_COMMIT_MESSAGE" value="Feature: Completed the functionality for handling and approving permission requests.&#10;Details:&#10;Implemented the approval and denial process, allowing the owner to update user permissions directly.&#10;Updated sendApprovalUpdates() to compile updated permissions into a JSON format and send as a POST request.&#10;Enhanced the MenuButton in approvalColumn to show appropriate color-coded status (APPROVED/ DENIED) and ensured it updates the status for each user dynamically.&#10;Added method to pull selected status from MenuButton to properly set each user's permission status.&#10;Outstanding Tasks:&#10;Modify certain messages to display as informational rather than errors for better user clarity.&#10;Expand logic to handle multiple permission requests for the same user on different permission types within the same sheet (e.g., a user transitioning from READER to WRITER)." />
+    <MESSAGE value="Update Sheet Display Based on User Permissions&#10;&#10;Adjusted viewSheetHandler to display the sheet only if the user has the appropriate permissions.&#10;Server now returns the sheet data solely for authorized users; otherwise, it sends a specific error message to inform users about access restrictions." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Sheet Display Based on User Permissions&#10;&#10;Adjusted viewSheetHandler to display the sheet only if the user has the appropriate permissions.&#10;Server now returns the sheet data solely for authorized users; otherwise, it sends a specific error message to inform users about access restrictions." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -879,18 +880,13 @@
           <option name="timeStamp" value="377" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsController.java</url>
-          <line>290</line>
-          <option name="timeStamp" value="397" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Client/src/component/popup/permissionResponse/PermissionResponseController.java</url>
-          <line>162</line>
+          <line>167</line>
           <option name="timeStamp" value="407" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Client/src/component/popup/permissionResponse/PermissionResponseController.java</url>
-          <line>197</line>
+          <line>202</line>
           <option name="timeStamp" value="409" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -899,9 +895,29 @@
           <option name="timeStamp" value="414" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java</url>
-          <line>77</line>
-          <option name="timeStamp" value="415" />
+          <url>file://$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/DashboardController.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="417" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/component/popup/permissionResponse/PermissionResponseController.java</url>
+          <line>97</line>
+          <option name="timeStamp" value="425" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Server/src/servlets/SheetPermissionServlet.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="426" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Server/src/servlets/SheetPermissionServlet.java</url>
+          <line>82</line>
+          <option name="timeStamp" value="427" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/component/popup/permissionResponse/PermissionResponseController.java</url>
+          <line>88</line>
+          <option name="timeStamp" value="432" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>

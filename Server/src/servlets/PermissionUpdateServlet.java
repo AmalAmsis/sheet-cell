@@ -42,7 +42,6 @@ public class PermissionUpdateServlet extends HttpServlet {
         PermissionManager permissionManager = ServletUtils.getPermissionManager(getServletContext());
         SheetPermission sheetPermission = permissionManager.getSheetPermissions(sheetName);
 
-        // השגת אובייקט ההרשאה על פי שם המסמך
         if (sheetPermission == null) {
             response.sendError(HttpServletResponse.SC_NOT_FOUND, "Sheet " + sheetName + " not found.");
             return;
@@ -53,7 +52,6 @@ public class PermissionUpdateServlet extends HttpServlet {
             DTOPermissionRequest dtoRequest = entry.getValue();
             String permissionType = dtoRequest.getType();
             String status = dtoRequest.getStatus();
-
 
             sheetPermission.getSheetPermissions().put(userName, new PermissionRequest(permissionType, userName, status));
         }

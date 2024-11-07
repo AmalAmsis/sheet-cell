@@ -76,7 +76,9 @@ public class SheetPermissionServlet extends HttpServlet {
         }
 
 
+        //is there a permission..
         if (existingRequest != null) {
+            // Check if user has the same type of request already
             if (existingRequest.getType().equals(type)) {
                 if ("PENDING".equals(existingRequest.getStatus())) {
                     response.setStatus(HttpServletResponse.SC_CONFLICT);
@@ -87,7 +89,19 @@ public class SheetPermissionServlet extends HttpServlet {
                     response.getWriter().write("You already have this permission: " + type);
                     return;
                 }
+            }else{
+                if(type.equals(existingRequest.getNewRequestType())){
+                    response.setStatus(HttpServletResponse.SC_CONFLICT);
+                    response.getWriter().write("A request for this permission is already pending approval.");
+                    return;
+                }
+                else if(existingRequest.getNewRequestType() == null && !"PENDING".equals(existingRequest.getStatus())){
+                    existingRequest.setNewRequestType(type);
+                    response.getWriter().write("Your new permission change request is pending.");
+                    return;
+                }
             }
+
         }
 
         // If no existing permission or no conflict, add new request
@@ -100,3 +114,4 @@ public class SheetPermissionServlet extends HttpServlet {
     }
 
 }
+

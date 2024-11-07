@@ -9,4 +9,6 @@ public interface SheetPermission {
     String getOwner();
 
     PermissionRequest getUserPermission(String userName);
+
+    String getNewRequestType(String userName);
 }

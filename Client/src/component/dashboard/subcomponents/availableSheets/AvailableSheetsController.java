@@ -305,7 +305,13 @@ public class AvailableSheetsController implements Closeable {
 
                 // Create a new PermissionRow and add it to permissionRows
                 PermissionRow permissionRow = new PermissionRow(userName, permissionType, approvedByOwner);
-                permissionRows.add(permissionRow);  // Make sure permissionRows is linked to the table
+                permissionRows.add(permissionRow);// Make sure permissionRows is linked to the table
+
+                if (dtoPermissionRequest.getNewRequestType() !=null){
+                    PermissionRow secondPermissionRow = new PermissionRow(userName, dtoPermissionRequest.getNewRequestType(), "PENDING");
+                    permissionRows.add(secondPermissionRow);// Make sure permissionRows is linked to the table
+
+                }
             }
 
             // Set the items of the permission table
