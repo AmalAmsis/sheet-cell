@@ -55,6 +55,8 @@ public class SelectedSheetViewHeaderController {
 
 
 
+
+
     /**
      * Initializes the controller after its root element has been completely processed.
      * Sets up listeners for user interactions such as changing colors, text alignment, and spinner values.

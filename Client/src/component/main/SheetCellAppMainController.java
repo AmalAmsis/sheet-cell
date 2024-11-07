@@ -130,6 +130,9 @@ public class SheetCellAppMainController implements Closeable {
         selectedSheetViewComponentController.updateChoiceBoxes();
         selectedSheetViewComponentController.startRangePolling();
         selectedSheetViewComponentController.startSheetPolling();
+
+
+
         // לא סיימנו צריך להוסיף דברים בהמשך
     }
 

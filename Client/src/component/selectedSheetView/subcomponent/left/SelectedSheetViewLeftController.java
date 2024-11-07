@@ -74,6 +74,15 @@ public class SelectedSheetViewLeftController implements Closeable {
 
     @FXML private Button generateGraphButton;
 
+
+    @FXML private TitledPane CustomFilter;
+    @FXML private TitledPane CustomSort;
+    @FXML private TitledPane DynamicAnalysis;
+    @FXML private TitledPane GenerateGraph;
+    @FXML private TitledPane addNewRange;
+    @FXML private TitledPane deleteRange;
+
+
     Timer rangesPollimgTimer;
 
     /**Sets the main controller for this component.

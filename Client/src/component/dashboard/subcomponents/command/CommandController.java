@@ -50,10 +50,9 @@ public class CommandController {
     @FXML void viewSheetHandler(ActionEvent event) {
 
         String fileName = dashboardController.getSelectedSheetName();
-        String username = "lo_user";  // שם המשתמש הקבוע
 
         if(fileName != null) {
-            String url = VIEW + "?username=" + username + "&sheetName=" + fileName;
+            String url = VIEW + "?sheetName=" + fileName;
 
             // יצירת בקשת GET
             Request request = new Request.Builder()
@@ -75,8 +74,9 @@ public class CommandController {
 
                     dashboardController.switchToSelectedSheetView(dtoSheet,fileName);
                 } else {
-                    new ErrorMessage("Failed to fetch sheet: " + response.code());
-                }
+                    // Display server error message if available
+                    String errorMessage = response.body() != null ? response.body().string() : "Unknown server error";
+                    new ErrorMessage("Failed to fetch sheet: " + errorMessage);                }
 
             } catch (IOException e) {
                 new ErrorMessage("Error fetching sheet: " + e.getMessage());

@@ -7,4 +7,6 @@ public interface SheetPermission {
     Map<String,PermissionRequest> getSheetPermissions();
 
     String getOwner();
+
+    PermissionRequest getUserPermission(String userName);
 }
