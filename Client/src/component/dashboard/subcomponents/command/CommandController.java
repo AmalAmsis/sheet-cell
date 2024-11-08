@@ -28,6 +28,7 @@ import java.util.Map;
 
 import javafx.event.ActionEvent;
 
+import static util.Constants.USER_PERMISSION;
 import static util.Constants.VIEW;
 
 public class CommandController {
@@ -55,7 +56,6 @@ public class CommandController {
         if(fileName != null) {
             String url = VIEW + "?sheetName=" + fileName;
 
-            // יצירת בקשת GET
             Request request = new Request.Builder()
                     .url(url)
                     .get()
@@ -73,7 +73,8 @@ public class CommandController {
                     JsonSerializer jsonSerializer = new JsonSerializer();
                     DTOSheet dtoSheet = jsonSerializer.convertJsonToDto(jsonResponse);
 
-                    dashboardController.switchToSelectedSheetView(dtoSheet,fileName);
+                    String permission = getUserPermission(fileName);
+                    dashboardController.switchToSelectedSheetView(dtoSheet,fileName,permission);
                 } else {
                     // Display server error message if available
                     String errorMessage = response.body() != null ? response.body().string() : "Unknown server error";
@@ -84,7 +85,8 @@ public class CommandController {
             }
         } else {
             new GeneralMessage("No sheet selected.\n Please select from the available sheets.");
-        }  }
+        }
+    }
 
     @FXML void requestPermissionHandler(ActionEvent event) {
 
@@ -176,6 +178,29 @@ public class CommandController {
             }
 
         });
+    }
+
+
+    String getUserPermission(String sheetName) {
+        String url = USER_PERMISSION + "?sheetName=" + sheetName;
+        Request request = new Request.Builder()
+                .url(url)
+                .get()
+                .build();
+
+        Call call = HttpClientUtil.HTTP_CLIENT.newCall(request);
+
+        try (Response response = call.execute()) {
+            if (response.isSuccessful()) {
+                return response.body().string(); // Permission level as returned by the server
+            } else {
+                System.out.println("Failed to retrieve user permission: " + response.code());
+                return null;
+            }
+        } catch (IOException e) {
+            System.out.println("Error retrieving user permission: " + e.getMessage());
+            return null;
+        }
     }
 
 }

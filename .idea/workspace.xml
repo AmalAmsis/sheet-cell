@@ -9,13 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="changes in dashboard.fxml">
-      <change afterPath="$PROJECT_DIR$/Client/src/component/popup/message/GeneralMessage.java" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="create nice notes">
+      <change afterPath="$PROJECT_DIR$/Server/src/servlets/UserPermissionServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/DashboardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/popup/permissionRequest/PermissionRequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/popup/permissionRequest/PermissionRequestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/popup/permissionResponse/PermissionResponseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/popup/permissionResponse/PermissionResponseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server/src/servlets/SheetServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/SheetServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/SelectedSheetViewHeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/SelectedSheetViewHeaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/selectedSheetViewHeader.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/selectedSheetViewHeader.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/util/Constants.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +41,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -347,6 +352,8 @@
       <workItem from="1730721062009" duration="1055000" />
       <workItem from="1730729187909" duration="26299000" />
       <workItem from="1730887358954" duration="31458000" />
+      <workItem from="1730994477284" duration="202000" />
+      <workItem from="1730994688437" duration="5665000" />
     </task>
     <task id="LOCAL‎-00062" summary="Styled Header and Left Panel UI components:&#10;- Added visual design improvements to Header section.&#10;- Updated Left panel layout for better user experience.&#10;- Adjusted styles for TitledPane, ProgressBar, ChoiceBox, ColorPicker, and other UI elements.">
       <option name="closed" value="true" />
@@ -918,13 +925,28 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java</url>
-          <line>173</line>
+          <line>175</line>
           <option name="timeStamp" value="435" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java</url>
-          <line>177</line>
+          <line>179</line>
           <option name="timeStamp" value="437" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="438" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java</url>
+          <line>75</line>
+          <option name="timeStamp" value="439" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="440" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>

@@ -872,4 +872,9 @@ public class SelectedSheetViewController implements Closeable {
             leftController.stopRangePolling();
         }
     }
+
+    public void disableEditingForReadOnlyUser() {
+        headerController.disableEditingForReadOnlyUserInHeader();
+        leftController.disableEditingForReadOnlyUserInLeft();
+    }
 }

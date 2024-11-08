@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane fitToHeight="true" fitToWidth="true" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.selectedSheetView.subcomponent.header.SelectedSheetViewHeaderController">
+<ScrollPane fitToHeight="true" fitToWidth="true" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="component.selectedSheetView.subcomponent.header.SelectedSheetViewHeaderController">
    <content>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="5.0">
          <children>
@@ -61,31 +61,31 @@
                   <RowConstraints prefHeight="36.6" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Label text="Cell background color" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                  <Label fx:id="cellBackgroundLabel" text="Cell background color" GridPane.columnIndex="0" GridPane.rowIndex="0">
                      <font>
                         <Font name="Bell MT Bold" size="12.0" />
                      </font>
                   </Label>
                   <ColorPicker fx:id="cellBackgroundColorPicker" prefHeight="26.0" prefWidth="98.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                  <Label text="Text color" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                  <Label fx:id="textColorLabel" text="Text color" GridPane.columnIndex="1" GridPane.rowIndex="0">
                      <font>
                         <Font name="Bell MT Bold" size="12.0" />
                      </font>
                   </Label>
                   <ColorPicker fx:id="textColorPicker" prefHeight="26.0" prefWidth="94.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Label prefHeight="18.0" prefWidth="69.0" text="Alignment" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                  <Label fx:id="alignmentLabel" prefHeight="18.0" prefWidth="69.0" text="Alignment" GridPane.columnIndex="3" GridPane.rowIndex="0">
                      <font>
                         <Font name="Bell MT Bold" size="12.0" />
                      </font>
                   </Label>
                   <ChoiceBox fx:id="alignmentChoiceBox" prefHeight="22.0" prefWidth="91.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                  <Label prefHeight="18.0" prefWidth="70.0" text="Row height" GridPane.columnIndex="4" GridPane.rowIndex="0">
+                  <Label fx:id="rowHightLabel" prefHeight="18.0" prefWidth="70.0" text="Row height" GridPane.columnIndex="4" GridPane.rowIndex="0">
                      <font>
                         <Font name="Bell MT Bold" size="12.0" />
                      </font>
                   </Label>
                   <Spinner fx:id="rowHeightSpinner" prefHeight="26.0" prefWidth="89.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                  <Label text="Column width" GridPane.columnIndex="5" GridPane.rowIndex="0">
+                  <Label fx:id="columnWidthLabel" text="Column width" GridPane.columnIndex="5" GridPane.rowIndex="0">
                      <font>
                         <Font name="Bell MT Bold" size="12.0" />
                      </font>

@@ -770,4 +770,9 @@ public class SelectedSheetViewLeftController implements Closeable {
             rangesPollimgTimer.cancel();
         }
     }
+
+    public void disableEditingForReadOnlyUserInLeft() {
+        deleteRange.setVisible(false);
+        addNewRange.setVisible(false);
+    }
 }

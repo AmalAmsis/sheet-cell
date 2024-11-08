@@ -54,6 +54,12 @@ public class SelectedSheetViewHeaderController {
     @FXML private Label cellEditorNameLabel;
 
 
+    @FXML private Label alignmentLabel;
+    @FXML private Label cellBackgroundLabel;
+    @FXML private Label columnWidthLabel;
+    @FXML private Label rowHightLabel;
+    @FXML private Label textColorLabel;
+
 
 
 
@@ -253,6 +259,25 @@ public class SelectedSheetViewHeaderController {
         rowHeightSpinner.getValueFactory().setValue(height);
         alignmentChoiceBox.getSelectionModel().select(alignment);
         cellEditorNameLabel.setText(cellEditorName);
+
+    }
+
+    public void disableEditingForReadOnlyUserInHeader() {
+        BackToDefaultButton.setVisible(false);
+        actionLineTextField.setVisible(false);
+        alignmentChoiceBox.setVisible(false);
+        cellBackgroundColorPicker.setVisible(false);
+        columnWidthSpinner.setVisible(false);
+        rowHeightSpinner.setVisible(false);
+        textColorPicker.setVisible(false);
+        updateValueButton.setVisible(false);
+
+        alignmentLabel.setVisible(false);
+        cellBackgroundLabel.setVisible(false);
+        columnWidthLabel.setVisible(false);
+        rowHightLabel.setVisible(false);
+        textColorLabel.setVisible(false);
+
 
     }
 }

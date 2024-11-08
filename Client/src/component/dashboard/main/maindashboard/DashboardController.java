@@ -51,8 +51,8 @@ public class DashboardController implements Closeable {
         return availableSheetsController.getSelectedSheetName();
     }
 
-    public void switchToSelectedSheetView(DTOSheet dtoSheet,String selectedSheetName) {
-        sheetCellAppMainController.switchToSelectedSheetView(dtoSheet,selectedSheetName);
+    public void switchToSelectedSheetView(DTOSheet dtoSheet,String selectedSheetName , String permission) {
+        sheetCellAppMainController.switchToSelectedSheetView(dtoSheet,selectedSheetName,permission);
 
     }
 
