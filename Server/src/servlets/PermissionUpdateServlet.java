@@ -47,14 +47,32 @@ public class PermissionUpdateServlet extends HttpServlet {
             return;
         }
 
+
         for (Map.Entry<String, DTOPermissionRequest> entry : permissionsMap.entrySet()) {
             String userName = entry.getKey();
             DTOPermissionRequest dtoRequest = entry.getValue();
             String permissionType = dtoRequest.getType();
             String status = dtoRequest.getStatus();
 
-            sheetPermission.getSheetPermissions().put(userName, new PermissionRequest(permissionType, userName, status));
+            PermissionRequest currentPermission = sheetPermission.getSheetPermissions().get(userName);
+
+
+            if (currentPermission != null) {
+                if (permissionType.equals(currentPermission.getType())) {
+                    sheetPermission.getSheetPermissions().put(userName, new PermissionRequest(permissionType, userName, status));
+                }
+                if (permissionType.equals(currentPermission.getNewRequestType())) {
+                    if ("APPROVED".equals(status)) {
+                        sheetPermission.getSheetPermissions().put(userName, new PermissionRequest(permissionType, userName, status));
+
+                    }
+                    if ("DENIED".equals(status)) {
+                        currentPermission.setNewRequestStatus(status);
+                    }
+                }
+            }
         }
+
 
         response.setStatus(HttpServletResponse.SC_OK);
         response.getWriter().write("Permissions updated successfully.");

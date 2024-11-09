@@ -36,6 +36,9 @@ public class AvailableSheetsController implements Closeable {
     private DashboardController dashboardController;
     private Timer refreshTimer;
     private TimerTask listRefresher;
+    private Timer permissionRefreshTimer; // Timer for permission refresh
+    private TimerTask permissionRefresherTask; // Task for permission refresh
+
 
 
     @FXML private TableView<AvailableSheetRow> availableSheetTable;
@@ -215,9 +218,17 @@ public class AvailableSheetsController implements Closeable {
                             }
                             setStyle("-fx-border-color: black; -fx-border-width: 2px;"); // Highlight the selected row
                             // Send permission request for the selected sheet
-                            sendSheetPermissionRequest(item.getSheetName());
+                            //sendSheetPermissionRequest(item.getSheetName());
+
+                            // Start the permission table refresh for the selected sheet
+                            startPermissionTableRefresher(item.getSheetName());
+
                         } else {
                             setStyle(""); // Remove the style when deselected
+
+                            // Stop the permission refresh and clear the table when deselected
+                            stopPermissionTableRefresher();
+                            clearPermissionTable();
                         }
                     });
 
@@ -308,7 +319,7 @@ public class AvailableSheetsController implements Closeable {
                 permissionRows.add(permissionRow);// Make sure permissionRows is linked to the table
 
                 if (dtoPermissionRequest.getNewRequestType() !=null){
-                    PermissionRow secondPermissionRow = new PermissionRow(userName, dtoPermissionRequest.getNewRequestType(), "PENDING");
+                    PermissionRow secondPermissionRow = new PermissionRow(userName, dtoPermissionRequest.getNewRequestType(), dtoPermissionRequest.getNewRequestStatus());
                     permissionRows.add(secondPermissionRow);// Make sure permissionRows is linked to the table
 
                 }
@@ -326,6 +337,36 @@ public class AvailableSheetsController implements Closeable {
 
     public List<AvailableSheetRow> getAvailableSheetRows() {
         return availableSheetTable.getItems();
+    }
+
+
+    // Start permission table refresher
+    private void startPermissionTableRefresher(String sheetName) {
+        // Stop any existing refresh task before starting a new one
+        stopPermissionTableRefresher();
+
+        permissionRefresherTask = new PermissionTableRefresher(this, sheetName); // Initialize new refresher task
+        permissionRefreshTimer = new Timer(true); // Daemon timer
+        permissionRefreshTimer.schedule(permissionRefresherTask, 0, REFRESH_RATE); // Run immediately and then every 2 seconds
+    }
+
+    // Stop the permission table refresher
+    private void stopPermissionTableRefresher() {
+        if (permissionRefresherTask != null) {
+            permissionRefresherTask.cancel();
+            permissionRefresherTask = null;
+        }
+        if (permissionRefreshTimer != null) {
+            permissionRefreshTimer.cancel();
+            permissionRefreshTimer = null;
+        }
+    }
+
+    // Clear the permission table
+    private void clearPermissionTable() {
+        // Assuming there's a method to clear the permission table
+        // Call this to remove all items when deselecting the sheet
+        permissionSheetTable.getItems().clear();
     }
 
 };

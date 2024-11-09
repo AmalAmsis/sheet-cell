@@ -76,42 +76,82 @@ public class SheetPermissionServlet extends HttpServlet {
         }
 
 
-        //is there a permission..
-        if (existingRequest != null) {
-            // Check if user has the same type of request already
-            if (existingRequest.getType().equals(type)) {
-                if ("PENDING".equals(existingRequest.getStatus())) {
-                    response.setStatus(HttpServletResponse.SC_CONFLICT);
-                    response.getWriter().write("A request for this permission is already pending approval.");
-                    return;
-                } else if ("APPROVED".equals(existingRequest.getStatus())) {
-                    response.setStatus(HttpServletResponse.SC_CONFLICT);
-                    response.getWriter().write("You already have this permission: " + type);
-                    return;
-                }
-            }else{
-                if(type.equals(existingRequest.getNewRequestType())){
-                    response.setStatus(HttpServletResponse.SC_CONFLICT);
-                    response.getWriter().write("A request for this permission is already pending approval.");
-                    return;
-                }
-                else if(existingRequest.getNewRequestType() == null && !"PENDING".equals(existingRequest.getStatus())){
-                    existingRequest.setNewRequestType(type);
-                    response.getWriter().write("Your new permission change request is pending.");
-                    return;
-                }
-            }
-
+        if(isFirstPermissionRequest(existingRequest)) {
+            PermissionRequest permissionRequest = new PermissionRequest(type,username,status);
+            sheetPermission.getSheetPermissions().put(username,permissionRequest);
+            response.setStatus(HttpServletResponse.SC_OK);
+            response.getWriter().write("Permission request added successfully.");
         }
+        else if(isTheSameFirstPermissionRequest(existingRequest,type)){
+            if ("PENDING".equals(existingRequest.getStatus())) {
+                response.setStatus(HttpServletResponse.SC_CONFLICT);
+                response.getWriter().write("A request for this permission is already pending approval.");
+                return;
+            } else if ("APPROVED".equals(existingRequest.getStatus())) {
+                response.setStatus(HttpServletResponse.SC_CONFLICT);
+                response.getWriter().write("You already have this permission: " + type);
+                return;
+            }else if ("DENIED".equals(existingRequest.getStatus())) {
+                PermissionRequest permissionRequest = new PermissionRequest(type,username,status);
+                sheetPermission.getSheetPermissions().put(username,permissionRequest);
+                response.setStatus(HttpServletResponse.SC_OK);
+                response.getWriter().write("Permission request added successfully.");
 
-        // If no existing permission or no conflict, add new request
-        PermissionRequest permissionRequest = new PermissionRequest(type,username,status);
-        sheetPermission.getSheetPermissions().put(username,permissionRequest);
-
-        response.setStatus(HttpServletResponse.SC_OK);
-        response.getWriter().write("Permission request added successfully.");
+            }
+        }
+        else if(isSecondPermissionRequest(existingRequest)){
+            existingRequest.setNewRequestType(type);
+            existingRequest.setNewRequestStatus(status);
+            response.setStatus(HttpServletResponse.SC_OK);
+            response.getWriter().write("Permission request added successfully.");
+        }
+        else if(isTheSameSecondRequest(existingRequest,type)){
+            if("PENDING".equals(existingRequest.getNewRequestStatus())) {
+                response.setStatus(HttpServletResponse.SC_CONFLICT);
+                response.getWriter().write("A request for this permission is already pending approval.");
+                return;
+            }
+            if("APPROVED".equals(existingRequest.getNewRequestStatus())) {
+                response.setStatus(HttpServletResponse.SC_CONFLICT);
+                response.getWriter().write("You already have this permission: " + type);
+                return;
+            }
+            if("DENIED".equals(existingRequest.getNewRequestStatus())) {
+                existingRequest.setNewRequestStatus(status);
+                response.setStatus(HttpServletResponse.SC_OK);
+                response.getWriter().write("Permission request added successfully.");
+            }
+        }
 
     }
 
+    private boolean isTheSameSecondRequest(PermissionRequest existingRequest, String type) {
+        if(type.equals(existingRequest.getNewRequestType())){
+            return true;
+        }
+        return false;
+    }
+
+    boolean isFirstPermissionRequest(PermissionRequest existingRequest){
+        if(existingRequest == null){
+            return true;
+        }
+        return false;
+
+    }
+
+  boolean isTheSameFirstPermissionRequest(PermissionRequest existingRequest, String Type){
+        if(Type.equals(existingRequest.getType())){
+            return true;
+        }
+        return false;
+  }
+
+  boolean isSecondPermissionRequest(PermissionRequest existingRequest){
+        if(existingRequest.getNewRequestType() == null){
+            return true;
+        }
+        return false;
+  }
 }
 

@@ -9,17 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="create nice notes">
-      <change afterPath="$PROJECT_DIR$/Server/src/servlets/UserPermissionServlet.java" afterDir="false" />
+    <list default="true" id="adb1527a-8217-4d4a-afc7-6ffffe7daa7b" name="Changes" comment="add permission refreshment">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/main/maindashboard/DashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/main/SheetCellAppMainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/main/SelectedSheetViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/SelectedSheetViewHeaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/SelectedSheetViewHeaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/selectedSheetViewHeader.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/header/selectedSheetViewHeader.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/selectedSheetView/subcomponent/left/SelectedSheetViewLeftController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/src/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/util/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/servlets/DynamicAnalysisServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/servlets/PermissionUpdateServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/PermissionUpdateServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Server/src/servlets/SheetPermissionServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Server/src/servlets/SheetPermissionServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,17 +88,17 @@
     "JAR Application.UI.jar.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Tomcat Server.Tomcat 10.1.30.executor": "Run",
+    "Tomcat Server.Tomcat 10.1.30.executor": "Debug",
     "git-widget-placeholder": "yarden__branch",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/projects/sheet-cell/Client/src",
+    "last_opened_file_path": "C:/projects/sheet-cell",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.1706642",
     "settings.editor.selected.configurable": "preferences.applicationServers",
@@ -129,7 +124,7 @@
       <recent name="component.selectedSheetView.subcomponent.sheet" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SheetCellClient">
+  <component name="RunManager" selected="Application.SheetCellClient2">
     <configuration name="AppRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="apprunner.AppRunner" />
       <module name="UI" />
@@ -303,8 +298,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SheetCellClient" />
         <item itemvalue="Application.SheetCellClient2" />
+        <item itemvalue="Application.SheetCellClient" />
         <item itemvalue="Application.AppRunner" />
         <item itemvalue="Application.TestLoadFile" />
         <item itemvalue="Application.jasonTest" />
@@ -353,23 +348,8 @@
       <workItem from="1730729187909" duration="26299000" />
       <workItem from="1730887358954" duration="31458000" />
       <workItem from="1730994477284" duration="202000" />
-      <workItem from="1730994688437" duration="5665000" />
-    </task>
-    <task id="LOCAL‎-00062" summary="Styled Header and Left Panel UI components:&#10;- Added visual design improvements to Header section.&#10;- Updated Left panel layout for better user experience.&#10;- Adjusted styles for TitledPane, ProgressBar, ChoiceBox, ColorPicker, and other UI elements.">
-      <option name="closed" value="true" />
-      <created>1726867185098</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL‎-00062" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726867185098</updated>
-    </task>
-    <task id="LOCAL‎-00063" summary="Fixed and improved the Scroll behavior and layout for better user experience and smoother navigation.">
-      <option name="closed" value="true" />
-      <created>1726869376701</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL‎-00063" />
-      <option name="project" value="LOCAL‎" />
-      <updated>1726869376701</updated>
+      <workItem from="1730994688437" duration="15697000" />
+      <workItem from="1731165148621" duration="4728000" />
     </task>
     <task id="LOCAL‎-00064" summary="Added JAR creation and binding for UI interactivity&#10;&#10;- Created the JAR file for the project, ensuring all necessary dependencies are included (JavaFX, JAXB, etc.).&#10;- Implemented binding for interactive elements (buttons, text fields, choice boxes, etc.), allowing them to be enabled/disabled dynamically based on whether a cell is selected and a file is loaded.&#10;- Improved user experience by ensuring UI components are only accessible when relevant actions (like selecting a cell or loading a file) have been completed.">
       <option name="closed" value="true" />
@@ -747,7 +727,23 @@
       <option name="project" value="LOCAL" />
       <updated>1730983756498</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="Implemented UI adjustments for Reader permissions:&#10;- Disabled and hid action-related buttons and fields (e.g., alignment, color pickers, dimension spinners) for users with Reader permission.&#10;- Added `getUserPermission` function to retrieve and handle user permissions dynamically.">
+      <option name="closed" value="true" />
+      <created>1731024757284</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1731024757285</updated>
+    </task>
+    <task id="LOCAL-00112" summary="add permission refreshment">
+      <option name="closed" value="true" />
+      <created>1731165374654</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1731165374655</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -793,8 +789,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Prepared FXML for displaying selected sheet view layout&#10;&#10;- Created `selectedSheetView.fxml` to define the layout for displaying the selected sheet.&#10;- Added subcomponents:&#10;  - `selectedSheetViewHeader.fxml` to handle the header section.&#10;  - `selectedSheetViewLeft.fxml` for the left-side controls (currently placeholders).&#10;  - `selectedSheet.fxml` for the main sheet display.&#10;- Structured the layout to include sections for the available sheets table, permissions table, and commands (view, request permission, acknowledge/deny).&#10;- Initial layout setup without implementing functionality or actions." />
-    <MESSAGE value="Implemented SelectedSheetViewHeaderController for handling sheet view header interactions&#10;&#10;- Created `SelectedSheetViewHeaderController` to manage user interactions in the header of the selected sheet view.&#10;- Added listeners for background color, text color, column width, and row height changes, allowing users to customize cell properties.&#10;- Set up initial structure for handling alignment changes (Left, Center, Right) via `ChoiceBox`.&#10;- Temporarily disabled certain buttons and controls for future functionality.&#10;- Added placeholders for buttons like `BackToDefault`, `LoadFile`, `UpdateValue`, and `VersionSelector` actions (logic to be implemented later).&#10;- Implemented bindings to toggle control availability based on selection state." />
     <MESSAGE value="-Updated SelectedSheetViewController, SelectedSheetViewHeaderController, SelectedSheetViewLeftController, and SelectedSheetController in the client module.&#10;- Added detailed documentation for all classes to explain functionality and improve code readability." />
     <MESSAGE value="Deleting file upload option from selectedSheetViewHeader.fxml in Client" />
     <MESSAGE value="add cellServlet to Server" />
@@ -818,7 +812,9 @@
     <MESSAGE value="Update Sheet Display Based on User Permissions&#10;&#10;Adjusted viewSheetHandler to display the sheet only if the user has the appropriate permissions.&#10;Server now returns the sheet data solely for authorized users; otherwise, it sends a specific error message to inform users about access restrictions." />
     <MESSAGE value="Completed implementation of the permissions system. Now fully supports initial requests, change requests, and dual-layered permission handling (e.g., reader to writer or vice versa) with checks for existing permissions, status conflicts, and new requests. Remaining task: format and refine user-facing messages for clarity." />
     <MESSAGE value="changes in dashboard.fxml" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes in dashboard.fxml" />
+    <MESSAGE value="Implemented UI adjustments for Reader permissions:&#10;- Disabled and hid action-related buttons and fields (e.g., alignment, color pickers, dimension spinners) for users with Reader permission.&#10;- Added `getUserPermission` function to retrieve and handle user permissions dynamically." />
+    <MESSAGE value="add permission refreshment" />
+    <option name="LAST_COMMIT_MESSAGE" value="add permission refreshment" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -909,16 +905,6 @@
           <option name="timeStamp" value="425" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Server/src/servlets/SheetPermissionServlet.java</url>
-          <line>71</line>
-          <option name="timeStamp" value="426" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Server/src/servlets/SheetPermissionServlet.java</url>
-          <line>82</line>
-          <option name="timeStamp" value="427" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Client/src/component/popup/permissionResponse/PermissionResponseController.java</url>
           <line>90</line>
           <option name="timeStamp" value="432" />
@@ -947,6 +933,29 @@
           <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/command/CommandController.java</url>
           <line>70</line>
           <option name="timeStamp" value="440" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client/src/component/dashboard/subcomponents/availableSheets/AvailableSheetsController.java</url>
+          <line>199</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="443" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Server/src/servlets/PermissionUpdateServlet.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="444" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Server/src/servlets/SheetPermissionServlet.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="446" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Server/src/servlets/SheetPermissionServlet.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="447" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/Engine/src/sheet/SheetImpl.java</url>

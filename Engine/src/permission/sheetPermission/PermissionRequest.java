@@ -6,6 +6,7 @@ public class PermissionRequest {
     private String requestedBy;
     private String Status;
     private String newRequestType;
+    private String newRequestStatus;
 
 
     public PermissionRequest(String type, String requestedBy, String status) {
@@ -13,6 +14,7 @@ public class PermissionRequest {
         this.requestedBy = requestedBy;
         this.Status = status;
         this.newRequestType = null;
+        this.newRequestStatus = null;
     }
 
     public String getType() {
@@ -33,6 +35,13 @@ public class PermissionRequest {
 
     public void setNewRequestType(String newRequestType) {
         this.newRequestType = newRequestType;
+    }
+
+    public String getNewRequestStatus() {
+        return newRequestStatus;
+    }
+    public void setNewRequestStatus(String newRequestStatus) {
+        this.newRequestStatus = newRequestStatus;
     }
 
 }
