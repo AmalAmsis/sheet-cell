@@ -6,6 +6,7 @@ public class DTOPermissionRequest {
     private String requestedBy;
     private String Status;
     private String newRequestType;
+    private String newRequestStatus;
 
 
     public DTOPermissionRequest(String type, String requestedBy, String status, String newRequestType) {
@@ -13,6 +14,7 @@ public class DTOPermissionRequest {
             this.requestedBy = requestedBy;
             this.Status = status;
             this.newRequestType = newRequestType;
+            this.newRequestStatus = newRequestStatus;
     }
 
     public String getType() {
@@ -29,6 +31,10 @@ public class DTOPermissionRequest {
 
     public String getNewRequestType() {
         return newRequestType;
+    }
+
+    public String getNewRequestStatus() {
+        return newRequestStatus;
     }
 
 }
