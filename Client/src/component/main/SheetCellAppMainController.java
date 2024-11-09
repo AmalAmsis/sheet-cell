@@ -124,12 +124,17 @@ public class SheetCellAppMainController implements Closeable {
         }
     }
 
-    public void switchToSelectedSheetView(DTOSheet dtoSheet,String selectedSheetName){
+    public void switchToSelectedSheetView(DTOSheet dtoSheet,String selectedSheetName,String permission){
         setMainPanelTo(selectedSheetViewComponent);
         selectedSheetViewComponentController.displaySheet(dtoSheet,selectedSheetName);
         selectedSheetViewComponentController.updateChoiceBoxes();
         selectedSheetViewComponentController.startRangePolling();
         selectedSheetViewComponentController.startSheetPolling();
+
+        if("READER".equals(permission)){
+            selectedSheetViewComponentController.disableEditingForReadOnlyUser();
+        }
+
         // לא סיימנו צריך להוסיף דברים בהמשך
     }
 
@@ -163,5 +168,9 @@ public class SheetCellAppMainController implements Closeable {
 
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
+    }
+
+    public String getUserName(){
+        return currentUserName.get();
     }
 }

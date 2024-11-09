@@ -51,8 +51,8 @@ public class DashboardController implements Closeable {
         return availableSheetsController.getSelectedSheetName();
     }
 
-    public void switchToSelectedSheetView(DTOSheet dtoSheet,String selectedSheetName) {
-        sheetCellAppMainController.switchToSelectedSheetView(dtoSheet,selectedSheetName);
+    public void switchToSelectedSheetView(DTOSheet dtoSheet,String selectedSheetName , String permission) {
+        sheetCellAppMainController.switchToSelectedSheetView(dtoSheet,selectedSheetName,permission);
 
     }
 
@@ -72,4 +72,16 @@ public class DashboardController implements Closeable {
     }
 
 
+    public String getUploaderName(String sheetName) {
+        for (AvailableSheetRow row : availableSheetsController.getAvailableSheetRows()) {
+            if (row.getSheetName().equals(sheetName)) {
+                return row.getUploadedBy();
+            }
+        }
+        return null; //
+    }
+
+    public String getCurrentUsername() {
+        return sheetCellAppMainController.getUserName();
+    }
 }

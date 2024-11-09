@@ -37,6 +37,9 @@ public class Constants {
     public final static String RANGE = FULL_SERVER_PATH + "/range";
     public final static String RANGES = FULL_SERVER_PATH + "/ranges";
     public final static String DYNAMIC_ANALYSIS = FULL_SERVER_PATH + "/dynamic-analysis";
+    public final static String SHEET_PERMISSION = FULL_SERVER_PATH + "/sheet-permission";
+    public final static String PERMISSION_UPDATE = FULL_SERVER_PATH + "/permission-update";
+    public final static String USER_PERMISSION = FULL_SERVER_PATH + "/user-permission";
 
     // GSON instance
     public final static Gson GSON_INSTANCE = new Gson();

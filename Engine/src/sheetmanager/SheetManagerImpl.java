@@ -38,6 +38,10 @@ public class SheetManagerImpl implements SheetManager,Serializable {
     private SheetStateManager currentSheetState;
     private String owner;
 
+    @Override public String getTilte(){
+        return currentSheetState.getCurrentSheet().getTitle();
+    }
+
 
     @Override public String getOwner(){
         return owner;
@@ -281,6 +285,8 @@ public class SheetManagerImpl implements SheetManager,Serializable {
     @Override public void loadsheetFromStream(InputStream inputStream, String fileName) throws Exception{
         LoadFile loadFile = new LoadFile();
         XmlProcessing xmlProcessing = new XmlProcessingImpl();
+
+        //todo: delete filename
         STLSheet stlSheet = loadFile.parseAndValidatefile(inputStream, fileName);
 
 

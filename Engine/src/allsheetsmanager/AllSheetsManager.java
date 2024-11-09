@@ -17,15 +17,20 @@ public class AllSheetsManager {
         this.allSheetsMap = new HashMap<>();
     }
 
-    public synchronized void addSheet(InputStream fileContent, String fileName,String owner) throws Exception {
+    public synchronized String addSheet(InputStream fileContent, String fileName,String owner) throws Exception {
 
-        if(allSheetsMap.containsKey(fileName)) {
-            throw new Exception("The file is already exist");
-        }
+
         SheetManager newSheetManager = new SheetManagerImpl();
         newSheetManager.loadsheetFromStream(fileContent,fileName);
         newSheetManager.setOwner(owner);
-        allSheetsMap.put(fileName,newSheetManager);
+
+        String sheetTitle = newSheetManager.getTilte();
+        if(allSheetsMap.containsKey(sheetTitle)) {
+            throw new Exception("The file is already exist");
+        }
+        allSheetsMap.put(sheetTitle,newSheetManager);
+
+        return sheetTitle;
     }
 
     public synchronized SheetManager getSheet(String fileName) {
